@@ -1,0 +1,16 @@
+{
+    "name": "Turvasiipi",
+    "short_name": "Turvasiipi",
+    "description": "Työkalu työpaikkakiusaamisen tunnistamiseen ja dokumentointiin.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#EEF2FF",
+    "theme_color": "#2D32C1",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
