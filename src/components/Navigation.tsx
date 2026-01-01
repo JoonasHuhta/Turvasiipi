@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Home, Clipboard, FileText, Heart, Users } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, Map } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
@@ -15,6 +15,7 @@ const navItems = [
     { href: "/raportti", label: "Raportti", icon: FileText },
     { href: "/tuki", label: "Tuki", icon: Heart },
     { href: "/yhteiso", label: "Yhteisö", icon: Users },
+    { href: "/kartta", label: "Totuuskartta", icon: Map },
 ];
 
 export function Navigation() {

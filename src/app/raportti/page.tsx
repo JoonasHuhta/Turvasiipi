@@ -71,7 +71,7 @@ export default function ReportPage() {
                     </Button>
                 </div>
 
-                <div className="max-w-3xl mx-auto bg-white text-black p-12 shadow-lg min-h-[29.7cm] print:shadow-none print:p-0 print:w-full">
+                <div className="max-w-3xl mx-auto bg-white text-black p-6 sm:p-12 shadow-lg min-h-0 sm:min-h-[29.7cm] print:shadow-none print:p-0 print:w-full overflow-x-hidden">
                     <div className="space-y-8">
                         <div className="text-center border-b-2 border-black pb-8">
                             <h1 className="text-2xl font-bold uppercase tracking-wider mb-4">
@@ -97,7 +97,7 @@ export default function ReportPage() {
                             <h2 className="text-lg font-bold uppercase border-b border-gray-300 pb-2">2. Tapahtumakuvaus</h2>
                             <div className="space-y-6">
                                 {generatedEvents.map((event, index) => (
-                                    <div key={event.id} className="grid grid-cols-[120px_1fr] gap-4 text-sm">
+                                    <div key={event.id} className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-2 sm:gap-4 text-sm">
                                         <div className="font-semibold text-gray-600">
                                             {new Date(event.timestamp).toLocaleDateString("fi-FI")}
                                             <br />

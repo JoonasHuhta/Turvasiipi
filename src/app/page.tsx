@@ -6,8 +6,8 @@ import { ArrowRight, BookOpen, ShieldCheck, Check } from "lucide-react";
 export default function Home() {
   return (
     <div className="space-y-12 py-10">
-      <section className="text-center space-y-6">
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight text-primary uppercase leading-tight">
+      <section className="text-center space-y-6 px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-primary uppercase leading-tight break-words">
           Työpaikkakiusaaminen<br />
           <span className="text-slate-900">Ei ole sinun vikasi</span>
         </h1>

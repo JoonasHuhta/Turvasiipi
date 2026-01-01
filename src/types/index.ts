@@ -7,4 +7,9 @@ export type TimelineEvent = {
     description: string;
     peopleInvolved: string;
     emotion: Emotion;
+    // Metadata for Sääkartta (Weather Map)
+    city?: string;
+    industry?: string;
+    bullyingTypes?: string[];
+    severity?: number; // 1-10
 };
