@@ -306,5 +306,23 @@ VAIHTOEHTO B (Hieman avoimempi):
 VAIHTOEHTO C (Rehellinen):
 "Koin edellisessä työpaikassani epäasiallista kohtelua, jota ei yrityksistä huolimatta saatu ratkaistua. Dokumentoin tilanteen huolellisesti ja hoidin poistumiseni ammattimaisesti. Tämä kokemus on opettanut minulle paljon terveestä työkulttuurista ja siitä, miten tärkeää on molemminpuolinen kunnioitus."`,
         tags: ['työnhaku', 'haastattelu', 'vinkki']
+    },
+    {
+        id: 'comm-thanks-supporter',
+        category: 'communication',
+        title: 'Kiitosviesti tukijalle',
+        description: 'Lämmin kiitos kollegalle tai ystävälle, joka on tukenut vaikeassa tilanteessa.',
+        subject: 'Kiitos tuestasi / [Nimesi]',
+        content: `Hei [Nimi],
+
+Halusin vain kiittää sinua siitä, että olet ollut tukenani [tilanne, esim. eilisessä palaverissa]. Se merkitsi minulle todella paljon.
+
+Tiedän, että tilanteeni on ollut hankala, ja arvostan aidosti sitä, että uskalsit [toiminta, esim. sanoa ääneen, että kohtelu oli väärin].
+
+Kiitos, että et jättänyt minua yksin.
+
+Ystävällisin terveisin,
+[Nimi]`,
+        tags: ['tuki', 'kiitos', 'kollega']
     }
 ];
