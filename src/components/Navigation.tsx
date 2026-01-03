@@ -9,7 +9,6 @@ import { Menu, Home, Clipboard, FileText, Heart, Users, Map, ClipboardList } fro
 import { useState } from "react";
 
 const navItems = [
-    { href: "/", label: "Etusivu", icon: Home },
     { href: "/quiz", label: "Tunnista", icon: Clipboard },
     { href: "/feeling-quiz", label: "Itsearviointi", icon: Heart },
     { href: "/timeline", label: "Logikirja", icon: ClipboardList },
