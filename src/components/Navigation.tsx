@@ -12,7 +12,7 @@ const navItems = [
     { href: "/quiz", label: "Tunnista", icon: Clipboard },
     { href: "/feeling-quiz", label: "Itsearviointi", icon: Heart },
     { href: "/timeline", label: "Logikirja", icon: ClipboardList },
-    { href: "/raportti", label: "Raportti", icon: FileText },
+    { href: "/raportti", label: "Asiakirjat", icon: FileText },
     { href: "/tuki", label: "Tuki", icon: Heart },
     { href: "/yhteiso", label: "Yhteisö", icon: Users },
     { href: "/kartta", label: "Totuuskartta", icon: Map },
