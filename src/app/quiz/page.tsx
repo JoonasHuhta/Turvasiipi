@@ -113,9 +113,9 @@ export default function QuizPage() {
                     <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-primary/20 text-sm py-1 px-4 mb-2">
                         Syväanalyysi
                     </Badge>
-                    <h1 className="text-4xl sm:text-6xl font-black tracking-tighter text-slate-900 uppercase leading-[0.9]">
+                    <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 uppercase leading-[0.9]">
                         Tunnista <br />
-                        <span className="text-primary italic">näkymätön</span> väkivalta
+                        <span className="text-primary italic">näkymätön</span>&nbsp;väkivalta
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
                         Henkinen kiusaaminen on hienovaraisempaa ja usein tuhoisampaa kuin fyysinen.
