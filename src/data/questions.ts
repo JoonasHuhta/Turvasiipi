@@ -1,53 +1,67 @@
+export type QuizCategory = 'itsetunto' | 'todellisuus' | 'eristyksissä' | 'fyysiset' | 'käyttäytyminen';
+
 export type Question = {
     id: number;
     text: string;
+    category: QuizCategory;
 };
 
 export const quizQuestions: Question[] = [
-    {
-        id: 1,
-        text: "Huomaatko tulevasi toistuvasti ohitetuksi tai eristetyksi työyhteisön sosiaalisissa tilanteissa?"
-    },
-    {
-        id: 2,
-        text: "Onko työtehtäviäsi muutettu ilman perusteltua syytä tai onko sinulle annettu kohtuuttomia deadlines?"
-    },
-    {
-        id: 3,
-        text: "Saatko jatkuvaa, perusteetonta kritiikkiä työstäsi tai henkilökohtaisista ominaisuuksistasi?"
-    },
-    {
-        id: 4,
-        text: "Puhutaanko sinusta pahaa selän takana tai levitetäänkö sinusta perättömiä huhuja?"
-    },
-    {
-        id: 5,
-        text: "Onko sinulle huudettu, kiroiltu tai käyttäydytty uhkaavasti työpaikalla?"
-    },
-    {
-        id: 6,
-        text: "Onko mielipiteitäsi väheksytty tai sivuutettu toistuvasti palavereissa tai päätöksenteossa?"
-    },
-    {
-        id: 7,
-        text: "Onko sinulta evätty työssä tarvittavaa tietoa tai välineitä tarkoituksellisesti?"
-    },
-    {
-        id: 8,
-        text: "Onko sinua nimitelty tai pilkattu muiden kuullen?"
-    },
-    {
-        id: 9,
-        text: "Tunnetko olosi jatkuvasti ahdistuneeksi tai pelokkaaksi työpäivän aikana?"
-    },
-    {
-        id: 10,
-        text: "Onko sinua kielletty ilmaisemasta mielipidettäsi tai osallistumasta keskusteluihin?"
-    }
+    // BLOKKI A: Itsetunnon mureneminen
+    { id: 1, text: "Tunnetko olosi tyhmäksi työssä (vaikka et ole)?", category: 'itsetunto' },
+    { id: 2, text: "Ajatteletko usein: 'Ehkä olen liian herkkä'?", category: 'itsetunto' },
+    { id: 3, text: "Epäiletkö ammattitaitoasi (vaikka aiemmin et epäillyt)?", category: 'itsetunto' },
+    { id: 4, text: "Pelkäätkö tehdä virheitä enemmän kuin aiemmin?", category: 'itsetunto' },
+    { id: 5, text: "Tunnetko olevasi 'liian huono' työhösi?", category: 'itsetunto' },
+
+    // BLOKKI B: Todellisuuden vääristyminen (Gaslighting)
+    { id: 6, text: "Onko sinulle sanottu 'en ole koskaan sanonut tuota' (vaikka sanoi)?", category: 'todellisuus' },
+    { id: 7, text: "Ovatko muut kyseenalaistaneet muistisi ('oletko varma?')?", category: 'todellisuus' },
+    { id: 8, text: "Onko sinulle sanottu 'älä ota niin raskaasti' / 'se oli vitsi'?", category: 'todellisuus' },
+    { id: 9, text: "Tunnetko että 'hulluksi' tuleminen on mahdollista?", category: 'todellisuus' },
+    { id: 10, text: "Kirjaatko asioita ylös koska et luota muistiisi?", category: 'todellisuus' },
+
+    // BLOKKI C: Eristyneisyys
+    { id: 11, text: "Jäätkö usein pois palavereista (jossa muut ovat)?", category: 'eristyksissä' },
+    { id: 12, text: "Huomaatko ettei sinulle puhuta kahvitauolla?", category: 'eristyksissä' },
+    { id: 13, text: "Tuntuuko että sinusta puhutaan selän takana?", category: 'eristyksissä' },
+    { id: 14, text: "Oletko menettänyt ystäviä/tukijoita työpaikalla?", category: 'eristyksissä' },
+    { id: 15, text: "Vältätkö sosiaalisia tilanteita työssä?", category: 'eristyksissä' },
+
+    // BLOKKI D: Fyysiset oireet
+    { id: 16, text: "Heräiletkö öisin ajatellen työtä?", category: 'fyysiset' },
+    { id: 17, text: "Onko sinulla vatsavaivoja ennen työtä?", category: 'fyysiset' },
+    { id: 18, text: "Tuntuuko että sydän hakkaa palavereissa?", category: 'fyysiset' },
+    { id: 19, text: "Oletko ollut useamminkin kipeänä tänä vuonna?", category: 'fyysiset' },
+    { id: 20, text: "Käytätkö alkoholia/lääkkeitä selvitäksesi työpäivän paineesta?", category: 'fyysiset' },
+
+    // BLOKKI E: Käyttäytymisen muutos
+    { id: 21, text: "Oletko vetäytynyt sosiaalisesti (työn ulkopuolella)?", category: 'käyttäytyminen' },
+    { id: 22, text: "Itketkö usein ilman selvää syytä?", category: 'käyttäytyminen' },
+    { id: 23, text: "Ajatteletko irtisanoutumista päivittäin?", category: 'käyttäytyminen' },
+    { id: 24, text: "Pelkäätkö maanantaiaamuja?", category: 'käyttäytyminen' },
+    { id: 25, text: "Tunnetko että 'en ole enää oma itseni'?", category: 'käyttäytyminen' },
 ];
 
 export const getRiskLevel = (score: number) => {
-    if (score <= 2) return { level: "Matala riski", color: "text-green-600", description: "Tilanne vaikuttaa satunnaiselta, mutta pidä kirjaa jos se jatkuu." };
-    if (score <= 5) return { level: "Kohtalainen riski", color: "text-orange-600", description: "Merkit viittaavat mahdolliseen epäasialliseen kohteluun. Aloita dokumentointi." };
-    return { level: "Korkea riski", color: "text-red-600", description: "Tilanne viittaa vahvasti työpaikkakiusaamiseen. Suosittelemme ottamaan yhteyttä työsuojeluun ja dokumentoimaan kaiken." };
+    if (score <= 5) return {
+        level: "Lievä riski",
+        color: "text-green-600",
+        description: "Kokemuksesi voivat olla yksittäisiä, mutta jatka dokumentointia varmuuden vuoksi."
+    };
+    if (score <= 12) return {
+        level: "Kohtalainen riski",
+        color: "text-orange-600",
+        description: "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Suosittelemme keskustelua luotettavan tahon kanssa."
+    };
+    if (score <= 18) return {
+        level: "Vakava riski",
+        color: "text-red-500",
+        description: "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Ota yhteyttä ammattiliittoon tai työsuojeluun."
+    };
+    return {
+        level: "Kriittinen riski",
+        color: "text-red-700",
+        description: "Tämä on hätätilanne työkuntosi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae apua heti."
+    };
 };
