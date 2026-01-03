@@ -42,6 +42,21 @@ export default function TimelinePage() {
 
                     <TimelineEventForm onAdd={handleAddEvent} />
 
+                    <Card className="bg-slate-900 text-white border-none overflow-hidden rounded-3xl group">
+                        <CardContent className="p-6 space-y-4">
+                            <div className="flex items-start gap-4">
+                                <span className="text-3xl">🧩</span>
+                                <div className="space-y-1">
+                                    <h4 className="font-bold leading-tight">Vaikea sanoittaa tapahtumia?</h4>
+                                    <p className="text-xs text-slate-400 leading-snug">Testi auttaa sinua tunnistamaan säännönmukaisuudet ja nimeämään kokemuksesi.</p>
+                                </div>
+                            </div>
+                            <Button variant="outline" className="w-full rounded-xl bg-white/5 border-white/10 hover:bg-white/10 text-white uppercase text-[10px] font-black tracking-widest" asChild>
+                                <Link href="/feeling-quiz">Tee itsearviointi</Link>
+                            </Button>
+                        </CardContent>
+                    </Card>
+
                     <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="pt-6">
                             <div className="text-center space-y-2">

@@ -5,13 +5,14 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Home, Clipboard, FileText, Heart, Users, Map } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, Map, ClipboardList } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
     { href: "/", label: "Etusivu", icon: Home },
     { href: "/quiz", label: "Tunnista", icon: Clipboard },
-    { href: "/timeline", label: "Päiväkirja", icon: FileText },
+    { href: "/feeling-quiz", label: "Itsearviointi", icon: Heart },
+    { href: "/timeline", label: "Logikirja", icon: ClipboardList },
     { href: "/raportti", label: "Raportti", icon: FileText },
     { href: "/tuki", label: "Tuki", icon: Heart },
     { href: "/yhteiso", label: "Yhteisö", icon: Users },
