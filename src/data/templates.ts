@@ -215,5 +215,96 @@ Pyydän toimittamaan työtodistuksen ja lopputilin asianmukaisesti.
 Ystävällisin terveisin,
 [Nimi]`,
         tags: ['irtisanoutuminen', 'lopettaminen']
+    },
+    {
+        id: 'authority-notice',
+        category: 'legal',
+        title: 'Ilmoitus työsuojeluviranomaiselle',
+        description: 'Virallinen ilmoitus AVIlle Työturvallisuuslain rikkomisesta.',
+        subject: 'Ilmoitus puutteista työsuojelussa (TSL 28 §) / [Yritys]',
+        content: `Asia: Ilmoitus työturvallisuuslain 28 §:n rikkomisesta
+
+ILMOITTAJA:
+Nimi: [Nimi]
+Työpaikka: [Yritys]
+
+ILMOITUKSEN AIHE:
+Työpaikallani esiintyy systemaattista epäasiallista kohtelua ja häirintää, johon työnantaja ei ole puuttunut Työturvallisuuslain 28 §:n mukaisesti useista huomautuksista huolimatta.
+
+TAPAHTUMAT:
+Olen dokumentoinut tapahtumat kronologisesti. Liitteenä on kooste 15 vakavimmasta tapauksesta.
+
+TYÖNANTAJAN TOIMET:
+Tein ilmoituksen työnantajalle [Pvm]. Työnantaja ei ole ryhtynyt toimenpiteisiin tilanteen lopettamiseksi, vaan kohtelu on jatkunut.
+
+PYYNTÖ:
+Pyydän työsuojeluviranomaista suorittamaan tarkastuksen ja ohjaamaan työnantajaa täyttämään lakiperusteisen selvitysjaksonsa ja puuttumisvelvollisuutensa.
+
+Ystävällisin terveisin,
+[Nimi]`,
+        tags: ['AVI', 'viranomainen', 'laki']
+    },
+    {
+        id: 'legal-crime-report',
+        category: 'legal',
+        title: 'Rikosilmoitus -malli (Väkivalta/Uhkailu)',
+        description: 'Pohja poliisille tehtävään ilmoitukseen, jos kyseessä on rikos.',
+        subject: 'Rikosilmoitus - Työpaikkakiusaaminen / Uhkailu',
+        content: `Asia: Rikosilmoitus
+
+EPÄILTY RIKOS:
+[Laiton uhkaus / Kunnianloukkaus / Pahoinpitely]
+
+TAPAHTUMAT:
+[Pvm] tapahtui [Kuvaus tapahtumasta]. Paikalla olivat [Todistajat]. Tilanteesta on olemassa [Sähköpostit / Viestit / Nauhoite].
+
+TODISTEET:
+Liitteenä on Turvasiipi-palvelun kautta dokumentoitu tapahtumakulku ja todisteet kyseisestä tapauksesta.
+
+PYYNTÖ:
+Pyydän poliisia suorittamaan esitutkinnan asiassa.
+
+Ystävällisin terveisin,
+[Nimi]
+[Henkilötunnus]`,
+        tags: ['poliisi', 'rikos', 'vakava']
+    },
+    {
+        id: 'comm-witness-request',
+        category: 'communication',
+        title: 'Pyyntö todistajalle (kollegalle)',
+        description: 'Empaattinen mutta selkeä pyyntö kollegalle todistaa näkemänsä.',
+        subject: 'Pyyntö todistajaksi / Luottamuksellinen',
+        content: `Hei [Nimi],
+
+Kuten tiedät, olen kokenut haasteellista kohtelua työpaikalla viime aikoina. Olet ollut läsnä joissakin näistä tilanteista.
+
+Olisin erittäin kiitollinen, jos voisit kirjoittaa lyhyen, vapaamuotoisen todistuksen siitä, mitä olet nähnyt tai kuullut. Tämä auttaisi minua asian selvittämisessä liiton tai työsuojelun kanssa.
+
+Ymmärrän, että tämä voi olla sinulle vaikea paikka. Todistustasi käsitellään luottamuksellisesti.
+
+Kiitos että harkitset tätä.
+
+Ystävällisin terveisin,
+[Nimi]`,
+        tags: ['kollega', 'tuki', 'todistaja']
+    },
+    {
+        id: 'career-interview-prep',
+        category: 'communication',
+        title: 'Työhaastattelussa vastaaminen',
+        description: 'Miten selittää työpaikan vaihtaminen ilman "hankalan työntekijän" leimaa.',
+        subject: 'Vastauspohja haastatteluun (suullinen)',
+        content: `YLEINEN LINJA: Älä hauku edellistä työnantajaa. Keskity tulevaisuuteen.
+
+VAIHTOEHTO A (Neutraali):
+"Edellisessä työsuhteessani tunnistin, että organisaatiokulttuuri ja johtamistyyli eivät enää vastanneet arvojani tai mahdollistaneet kehittymistäni. Siksi päätin etsiä ympäristön, jossa arvostetaan avointa kommunikaatiota ja yhteistyötä, kuten teillä."
+
+VAIHTOEHTO B (Hieman avoimempi):
+"Edellisessä työssäni kohdattiin haasteellinen johtamistilanne. Tein parhaani tilanteen ratkaisemiseksi, mutta totesin lopulta, että on parasta siirtyä eteenpäin ja keskittää energia uuteen haasteeseen."
+
+VAIHTOEHTO C (Rehellinen):
+"Koin edellisessä työpaikassani epäasiallista kohtelua, jota ei yrityksistä huolimatta saatu ratkaistua. Dokumentoin tilanteen huolellisesti ja hoidin poistumiseni ammattimaisesti. Tämä kokemus on opettanut minulle paljon terveestä työkulttuurista ja siitä, miten tärkeää on molemminpuolinen kunnioitus."`,
+        tags: ['työnhaku', 'haastattelu', 'vinkki']
     }
 ];
