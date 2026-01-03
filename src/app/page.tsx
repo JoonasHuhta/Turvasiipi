@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BookOpen, ShieldCheck, Check } from "lucide-react";
+import { ArrowRight, ShieldCheck, Check } from "lucide-react";
+// Vercel Trigger: Deployment refresh
 
 export default function Home() {
   return (
