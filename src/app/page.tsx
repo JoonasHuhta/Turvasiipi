@@ -34,7 +34,7 @@ export default function Home() {
             </Button>
           </Link>
           <p className="text-sm text-slate-500 font-medium bg-white/60 backdrop-blur px-4 py-1.5 rounded-full border border-slate-200/50">
-            ⏱️ Kestää vain 2 minuuttia • Ei vaadi kirjautumista
+            ⏱️ Kestää vain 2 minuuttia • Täysin anonyymi
           </p>
         </div>
       </section>
