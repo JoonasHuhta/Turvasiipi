@@ -103,7 +103,7 @@ export default function FeelingQuizPage() {
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest border border-primary/20">
                         <Heart className="w-3 h-3 fill-current" /> Itsearviointi
                     </div>
-                    <h1 className="text-5xl sm:text-7xl font-black tracking-tighter text-slate-900 uppercase leading-[0.85]">
+                    <h1 className="text-4xl sm:text-7xl font-black tracking-tighter text-slate-900 uppercase leading-[0.85] break-words hyphens-auto">
                         Uhrin <br />
                         <span className="text-primary italic">tuntemukset</span>
                     </h1>
@@ -235,7 +235,7 @@ export default function FeelingQuizPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto py-12 px-6 h-[80vh] flex flex-col justify-center relative">
+        <div className="max-w-4xl mx-auto pt-32 pb-12 px-6 min-h-screen flex flex-col justify-center relative">
             <div className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center bg-white/80 backdrop-blur-sm z-50 rounded-b-3xl">
                 <div className="flex items-center gap-4 flex-1">
                     <Progress value={((currentIndex + 1) / feelingsQuestions.length) * 100} className="h-2 flex-1" />

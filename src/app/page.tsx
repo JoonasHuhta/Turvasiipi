@@ -7,14 +7,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative px-6 pt-12 pb-20 md:pt-24 md:pb-32 text-center max-w-5xl mx-auto">
+      <section className="relative px-6 pt-0 -mt-6 pb-12 md:pt-12 md:pb-24 text-center max-w-5xl mx-auto">
 
         {/* Decorative background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
 
         <div className="flex justify-center mb-8 relative">
           <div className="relative group">
-            <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-100" />
             <img src="/logo.png" alt="Turvasiipi Logo" className="w-28 h-28 md:w-36 md:h-36 object-contain relative z-10 drop-shadow-sm" />
           </div>
         </div>
@@ -24,8 +24,7 @@ export default function Home() {
         </h1>
 
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-          Turvasiipi on henkilökohtainen tukijasi. Tunnista tilanne, kerää todisteet ja löydä polku ulos –
-          <span className="font-medium text-slate-900"> täysin anonyymisti.</span>
+          Turvasiipi on henkilökohtainen kumppanisi työpaikkakiusaamisen tunnistamisessa ja dokumentoinnissa. Ota ensimmäinen askel kohti oikeudenmukaisempaa työelämää.
         </p>
 
         <div className="flex flex-col items-center gap-6">
@@ -162,9 +161,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="text-center py-12 text-slate-400 text-sm">
-        <p>© 2025–2026 Turvasiipi. Tietoturva edellä.</p>
-      </footer>
     </div>
   );
 }
