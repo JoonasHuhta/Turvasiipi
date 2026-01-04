@@ -14,12 +14,13 @@ interface GameEngineProps {
     scenario: Record<string, Phase>;
     initialPhaseId: string;
     onExit: () => void;
+    profession?: 'nurse' | 'teacher' | 'manager';
 }
 
-export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps) {
+export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse' }: GameEngineProps) {
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
-        profession: 'nurse',
+        profession: profession,
         stats: { ...INITIAL_STATS },
         logEntries: [],
         allies: [],
@@ -33,7 +34,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
 
     // Check for Endings
     if (state.currentPhaseId.startsWith('END_')) {
-        if (state.profession === 'manager') {
+        if (profession === 'manager' || state.currentPhaseId === 'END_MANAGER') {
             return (
                 <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
                     <Card className="max-w-2xl w-full bg-slate-900 border-red-900/30 p-8 md:p-12 text-center space-y-8 shadow-2xl shadow-red-900/10">
@@ -52,17 +53,40 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                             </p>
                         </div>
 
-                        <div className="bg-red-950/30 p-6 rounded-xl text-left space-y-4 border border-red-900/30">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 mb-2">Loppuraportti</h3>
-                            <div className="space-y-4">
-                                <div>
-                                    <div className="text-xs text-red-300/60 uppercase">Inhimillinen hinta</div>
-                                    <div className="text-lg font-medium text-red-200">Vakava työuupumus & 3 irtisanoutumista</div>
+                        <div className="bg-red-950/30 p-6 rounded-xl text-left space-y-6 border border-red-900/30">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center gap-2">
+                                <AlertTriangle className="w-4 h-4" />
+                                Tuhon Anatomia
+                            </h3>
+
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {/* Inhimillinen */}
+                                <div className="space-y-2">
+                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Inhimillinen romahdus</div>
+                                    <div className="text-lg font-medium text-red-200">Vakava työuupumus</div>
+                                    <p className="text-xs text-red-300/70 leading-relaxed">
+                                        Antti jäi 6 kk sairauslomalle. Kaksi muuta tiimiläistä on irtisanoutunut pelon ilmapiirin takia.
+                                    </p>
                                 </div>
-                                <div>
-                                    <div className="text-xs text-red-300/60 uppercase">Taloudellinen vaikutus</div>
-                                    <div className="text-2xl font-mono text-white">~85 000 €</div>
-                                    <div className="text-xs text-slate-500">Rekrytointi, sairauspoissaolot, menetetyt projektit</div>
+
+                                {/* Taloudellinen */}
+                                <div className="space-y-2">
+                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Taloudellinen isku</div>
+                                    <div className="text-2xl font-mono text-white">~112 000 €</div>
+                                    <div className="text-xs text-slate-500 space-y-1 bg-black/20 p-2 rounded">
+                                        <div className="flex justify-between"><span>Sairauspoissaolot:</span> <span className="text-slate-400">35 000€</span></div>
+                                        <div className="flex justify-between"><span>Rekrytointi (2 hlö):</span> <span className="text-slate-400">25 000€</span></div>
+                                        <div className="flex justify-between"><span>Tuottavuusvaje:</span> <span className="text-slate-400">52 000€</span></div>
+                                    </div>
+                                </div>
+
+                                {/* Mainehaitta */}
+                                <div className="space-y-2">
+                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Mainehaitta</div>
+                                    <div className="text-lg font-medium text-red-200">Korjaamaton vahinko</div>
+                                    <p className="text-xs text-red-300/70 leading-relaxed">
+                                        Sisäpiirin tiedot huonosta johtamisesta ovat levinneet. Rekrytointi on vaikeutunut ja brändimielikuva on romahtanut.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +109,9 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                 <Card className="max-w-2xl w-full bg-slate-800 border-slate-700 p-8 md:p-12 text-center space-y-8">
                     <div className="text-6xl mb-4">
                         {state.currentPhaseId === 'END_C' ? '🛡️' : '💔'}
+                    </div>
+                    <div className="text-xs text-red-500 font-mono">
+                        DEBUG: Phase="{state.currentPhaseId}" Prof="{profession}"
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-black tracking-tight">

@@ -12,6 +12,7 @@ export default function ManagerSimulationPage() {
             scenario={MANAGER_SCENARIO}
             initialPhaseId="START"
             onExit={() => router.push('/simulaatio')}
+            profession="manager"
         />
     );
 }
