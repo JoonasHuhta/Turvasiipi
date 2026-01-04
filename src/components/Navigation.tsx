@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
         label: "Työkalut",
         icon: Wrench,
         children: [
-            { href: "/timeline", label: "Logikirja", icon: ClipboardList },
+            { href: "/timeline", label: "Dokumentointi", icon: ClipboardList },
             { href: "/raportti", label: "Asiakirjat", icon: FileText },
         ]
     },
