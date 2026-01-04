@@ -41,8 +41,10 @@ export default function QuizPage() {
 
         if (currentIndex < quizQuestions.length - 1) {
             setCurrentIndex((prev) => prev + 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             setIsFinished(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
@@ -51,6 +53,7 @@ export default function QuizPage() {
         setCurrentIndex(0);
         setAnswers({});
         setIsFinished(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const score = Object.values(answers).filter(Boolean).length;

@@ -220,40 +220,40 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                         )}
                     </div>
 
-                    <div className="flex items-center gap-6 flex-1 justify-end max-w-xl">
+                    <div className="flex items-center gap-3 md:gap-6 flex-1 justify-end max-w-xl">
                         <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" />
                         <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" />
                         <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" />
                     </div>
 
-                    <Button variant="ghost" size="sm" onClick={onExit}>Lopeta</Button>
+                    <Button variant="ghost" size="sm" onClick={onExit} className="ml-auto md:ml-0">Lopeta</Button>
                 </div>
             </header>
 
             {/* Notification Toast */}
             {notification && (
-                <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-bottom-5 fade-in">
-                    <div className="bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3">
-                        <FileText className="w-5 h-5 text-emerald-400" />
-                        {notification}
+                <div className="fixed bottom-4 left-4 right-4 md:auto md:bottom-8 md:right-8 z-50 animate-in slide-in-from-bottom-5 fade-in pointer-events-none">
+                    <div className="bg-slate-900/90 backdrop-blur text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 justify-center md:justify-start">
+                        <FileText className="w-5 h-5 text-emerald-400 shrink-0" />
+                        <span className="text-sm font-medium">{notification}</span>
                     </div>
                 </div>
             )}
 
             {/* Main Content */}
-            <main className="flex-1 container mx-auto max-w-4xl p-4 md:py-12 flex flex-col justify-center">
-                <Card className="p-8 md:p-12 shadow-xl border-slate-200/60 bg-white/95 backdrop-blur">
+            <main className="flex-1 container mx-auto max-w-4xl p-4 flex flex-col justify-center min-h-[calc(100vh-80px)]">
+                <Card className="p-6 md:p-12 shadow-xl border-slate-200/60 bg-white/95 backdrop-blur mt-4 mb-20">
                     {/* Scene Header */}
-                    <div className="flex items-center gap-3 text-slate-400 text-sm font-medium uppercase tracking-wider mb-6">
+                    <div className="flex flex-wrap items-center gap-3 text-slate-400 text-xs md:text-sm font-medium uppercase tracking-wider mb-4 md:mb-6">
                         {currentPhase.time && <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {currentPhase.time}</span>}
-                        <span>•</span>
+                        <span className="hidden md:inline">•</span>
                         {currentPhase.location && <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {currentPhase.location}</span>}
                     </div>
 
                     {/* Narrative */}
-                    <h2 className="text-3xl font-black text-slate-800 mb-6">{currentPhase.title}</h2>
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 mb-6">{currentPhase.title}</h2>
 
-                    <div className="prose prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-12">
+                    <div className="prose prose-base md:prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-8 md:mb-12">
                         {currentPhase.content}
                     </div>
 
@@ -266,19 +266,20 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                     )}
 
                     {/* Choices */}
-                    <div className="grid gap-4">
+                    <div className="grid gap-3 md:gap-4">
                         {currentPhase.choices.map((choice) => (
                             <Button
                                 key={choice.id}
                                 onClick={() => handleChoice(choice)}
                                 variant="outline"
-                                className="h-auto py-6 px-6 justify-start text-left text-lg hover:bg-slate-50 hover:border-slate-300 transition-all group"
+                                className="h-auto py-4 md:py-6 px-4 md:px-6 justify-start text-left text-base md:text-lg hover:bg-slate-50 hover:border-slate-300 transition-all group whitespace-normal break-words"
                             >
-                                <span className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center mr-4 group-hover:bg-slate-200 transition-colors text-sm font-bold text-slate-500">
-                                    {/* A/B/C logic could go here */}
+                                <span className="hidden md:flex w-8 h-8 rounded-full bg-slate-100 items-center justify-center mr-4 group-hover:bg-slate-200 transition-colors text-sm font-bold text-slate-500 shrink-0">
                                     ➜
                                 </span>
-                                {choice.text}
+                                <span className="flex-1">
+                                    {choice.text}
+                                </span>
                             </Button>
                         ))}
                     </div>
@@ -286,7 +287,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
 
                 {/* Log Preview (Small) */}
                 {state.logEntries.length > 0 && (
-                    <div className="mt-8 text-center text-slate-400 text-xs text-mono">
+                    <div className="mt-8 text-center text-slate-400 text-xs text-mono px-4 pb-8">
                         Viimeisin merkintä: "{state.logEntries[state.logEntries.length - 1].note}"
                     </div>
                 )}
@@ -297,12 +298,14 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
 
 function StatBar({ icon: Icon, value, label, color }: any) {
     return (
-        <div className="flex flex-col gap-1 w-24 md:w-32">
+        <div className="flex flex-col gap-1 w-full max-w-[80px] md:max-w-[120px]">
             <div className="flex justify-between text-xs text-slate-500 font-medium">
-                <span className="flex items-center gap-1"><Icon className="w-3 h-3" /> {label}</span>
-                <span>{value}%</span>
+                <span className="flex items-center gap-1">
+                    <Icon className="w-3 h-3" />
+                    <span className="hidden md:inline">{label}</span>
+                </span>
             </div>
-            <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-1.5 md:h-2 w-full bg-slate-200 rounded-full overflow-hidden">
                 <div
                     className={cn("h-full transition-all duration-500", color)}
                     style={{ width: `${value}%` }}

@@ -45,8 +45,10 @@ export default function FeelingQuizPage() {
         if (currentIndex < feelingsQuestions.length - 1) {
             setCurrentIndex(prev => prev + 1);
             setShowValidation(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             setIsFinished(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
@@ -56,6 +58,7 @@ export default function FeelingQuizPage() {
         setAnswers({});
         setShowValidation(false);
         setIsFinished(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const totalScore = useMemo(() => {

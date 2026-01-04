@@ -1,312 +1,170 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Check } from "lucide-react";
-// Vercel Trigger: Deployment refresh
+import { ArrowRight, ShieldCheck, Check, Star } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="space-y-12 py-10">
-      <section className="text-center space-y-6 px-4">
-        <div className="flex justify-center mb-6">
-          <img src="/logo.png" alt="Turvasiipi Logo" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
+    <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white">
+      {/* Hero Section */}
+      <section className="relative px-6 pt-12 pb-20 md:pt-24 md:pb-32 text-center max-w-5xl mx-auto">
+
+        {/* Decorative background glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
+
+        <div className="flex justify-center mb-8 relative">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <img src="/logo.png" alt="Turvasiipi Logo" className="w-28 h-28 md:w-36 md:h-36 object-contain relative z-10 drop-shadow-sm" />
+          </div>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-primary uppercase leading-tight break-words">
-          Kiusaaminen ei johdu sinusta
+
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+          Kiusaaminen ei johdu sinusta.
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-          Turvasiipi on tukenasi työpaikkakiusaamisen tunnistamisessa ja dokumentoinnissa. Tee anonyymi arvio tilanteestasi ja ota ensimmäinen askel kohti parempaa työelämää.
+
+        <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
+          Turvasiipi on henkilökohtainen tukijasi. Tunnista tilanne, kerää todisteet ja löydä polku ulos –
+          <span className="font-medium text-slate-900"> täysin anonyymisti.</span>
         </p>
 
-        <div className="pt-4 flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-6">
           <Link href="/quiz">
-            <Button className="w-full md:w-auto h-14 px-8 text-lg gap-2 shadow-lg hover:scale-105 transition-transform" size="lg">
-              Aloita ilmainen kysely – 2 min <ShieldCheck className="w-5 h-5 ml-1" /> 💙
+            <Button className="rounded-full w-full md:w-auto h-14 px-8 text-lg font-semibold shadow-xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-105 transition-all bg-primary hover:bg-primary/90" size="lg">
+              Aloita tilannekartoitus <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </Link>
+          <p className="text-sm text-slate-500 font-medium bg-white/60 backdrop-blur px-4 py-1.5 rounded-full border border-slate-200/50">
+            ⏱️ Kestää vain 2 minuuttia • Ei vaadi kirjautumista
+          </p>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm font-medium text-muted-foreground mt-6 text-left max-w-lg mx-auto">
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600 shrink-0" /> Täysin luottamuksellinen
-            </span>
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600 shrink-0" /> Työlainsäädännön mukainen
-            </span>
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600 shrink-0" /> Matala kynnys aloittaa
-            </span>
-            <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600 shrink-0" /> Kehitetty parantamaan työelämää
-            </span>
+      {/* Trust Grid / Statistics - Mobile Optimized */}
+      <section className="px-4 pb-16">
+        <div className="max-w-md md:max-w-4xl mx-auto bg-white/70 backdrop-blur-sm border border-white/50 rounded-3xl p-6 md:p-10 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">!</span>
+                Miksi tämä on tärkeää?
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                Et ole ainoa. Joka neljäs suomalainen kohtaa työpaikkakiusaamista.
+                Suurin ongelma on, että <span className="font-semibold text-slate-900">todisteet puuttuvat</span> kun niitä tarvitaan.
+              </p>
+              <ul className="space-y-3 pt-2">
+                <li className="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400" /> 120 000 uhria juuri nyt
+                </li>
+                <li className="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400" /> Kiusaaminen kestää keskimäärin 1-3 vuotta
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white text-center space-y-4 shadow-lg transform md:rotate-1 transition-transform">
+              <h4 className="font-bold text-lg opacity-90">Suojasiiven Lupaus</h4>
+              <p className="leading-snug">
+                "Autamme sinua muuttamaan tunteen faktoiksi ja ahdistuksen toimintasuunnitelmaksi."
+              </p>
+              <div className="flex justify-center gap-1 pt-2">
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-white/80 text-white/80" />)}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white/80 border border-slate-200 rounded-2xl p-8 max-w-2xl mx-auto shadow-sm">
-        <h3 className="text-lg font-bold tracking-wider text-slate-800 mb-6 border-b pb-2 uppercase text-center">
-          Työpaikkakiusaaminen Suomessa
-        </h3>
 
-        <ul className="space-y-4 mb-8 text-left">
-          <li className="flex items-start gap-3 text-slate-700">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0" />
-            <span>
-              <strong>120,000 ihmistä</strong> kokee kiusaamista juuri nyt
-              <span className="block text-sm text-slate-500 mt-0.5">(5-10% kaikista palkansaajista)</span>
-            </span>
-          </li>
-          <li className="flex items-start gap-3 text-slate-700">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0" />
-            <span><strong>Joka neljäs</strong> on kokenut kiusaamista urallaan</span>
-          </li>
-          <li className="flex items-start gap-3 text-slate-700">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0" />
-            <span>
-              Keskimäärin kiusaaminen kestää <strong>1-3 VUOTTA</strong>
-              <span className="block text-sm text-slate-500 mt-0.5">ennen kuin uhri hakee apua</span>
-            </span>
-          </li>
-          <li className="flex items-start gap-3 text-slate-700">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0" />
-            <span>
-              <strong>65% tapauksista</strong> kiusaaja on esimies
-              <span className="block text-sm text-slate-500 mt-1 pl-1 border-l-2 border-slate-200">
-                • Ei kyse "henkilökemioista"<br />
-                • Kyse on vallasta ja rakenteista
-              </span>
-            </span>
-          </li>
-          <li className="flex items-start gap-3 text-slate-700">
-            <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0" />
-            <span>
-              <strong>90% uhreista</strong> kärsii ahdistuksesta, masennuksesta tai burnoutista
-            </span>
-          </li>
-        </ul>
-
-        <div className="space-y-4 bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
-          <p className="text-slate-800 font-medium leading-relaxed">
-            <span className="font-bold text-red-600 uppercase tracking-wide text-sm block mb-1">Ongelma:</span>
-            Uhrit eivät tunnista tilannetta ajoissa.
-          </p>
-          <p className="text-primary font-bold text-lg leading-relaxed">
-            <span className="font-bold text-primary uppercase tracking-wide text-sm block mb-1">Ratkaisu:</span>
-            Turvasiipi auttaa sinua toimimaan ennen kuin on liian myöhäistä.
-          </p>
+      <section className="space-y-12 py-12 md:py-24 px-4 container mx-auto max-w-6xl">
+        <div className="text-center max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Kattava työkalupakki</h2>
+          <p className="text-slate-600">Kaikki mitä tarvitset tilanteen hallintaan, yhdessä sovelluksessa.</p>
         </div>
-      </section>
-
-
-      <section className="space-y-8 py-8">
-        <h2 className="text-3xl font-bold text-center text-slate-900 mb-8 uppercase tracking-tight">
-          Miten Suojasiipi auttaa?
-        </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {/* 1. Dokumentointi */}
-          <Card className="bg-white hover:shadow-lg transition-shadow border-t-4 border-t-blue-500">
+          {/* Card 1 */}
+          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <span className="text-2xl">📝</span>
-                Dokumentointiväline
-              </CardTitle>
+              <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">📝</div>
+              <CardTitle className="text-xl">Dokumentoi</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>Kirjaa tapahtumat turvallisesti (kryptattu)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>Automaattinen aikaleima jokaiselle merkinnälle</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                  <span>Liitä todisteet: sähköpostit, viestit, kuvat</span>
-                </li>
-              </ul>
-              <div className="pt-2 bg-blue-50 p-3 rounded-lg mt-4">
-                <p className="font-medium text-blue-900 text-sm flex items-start gap-2">
-                  <ArrowRight className="w-4 h-4 mt-0.5 shrink-0" />
-                  Kun tarvitset apua, sinulla ON todisteet
-                </p>
-              </div>
-              <Link href="/timeline" className="block pt-2">
-                <Button variant="outline" className="w-full">
-                  Siirry päiväkirjaan
-                </Button>
+            <CardContent>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                Kirjaa tapahtumat turvallisesti aikaleimalla. Kun tarvitset todisteita, sinulla on valmis, uskottava aikajana.
+              </p>
+              <Link href="/timeline" className="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1">
+                Avaa Logikirja <ArrowRight className="w-3 h-3" />
               </Link>
             </CardContent>
           </Card>
 
-          {/* 2. Ymmärrys */}
-          <Card className="bg-white hover:shadow-lg transition-shadow border-t-4 border-t-purple-500">
+          {/* Card 2 */}
+          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <span className="text-2xl">🧠</span>
-                Ymmärrys ja validointi
-              </CardTitle>
+              <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">🧠</div>
+              <CardTitle className="text-xl">Ymmärrä</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
-                  <span>Onko tämä kiusaamista? (Tunnistuskysely)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
-                  <span>Miksi tämä tapahtuu? (Rakenteet, ei sinä)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
-                  <span>Mitä teen seuraavaksi? (Toimintasuunnitelmat)</span>
-                </li>
-              </ul>
-              <div className="pt-2 bg-purple-50 p-3 rounded-lg mt-4">
-                <p className="font-medium text-purple-900 text-sm flex items-start gap-2">
-                  <ArrowRight className="w-4 h-4 mt-0.5 shrink-0" />
-                  Et ole sekaisin. Tämä ON todellista.
-                </p>
-              </div>
-              <Link href="/quiz" className="block pt-2">
-                <Button variant="outline" className="w-full">
-                  Tee testi
-                </Button>
+            <CardContent>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                Epäiletkö kiusaamista? Tee validoidut testit ja saa selkeys tilanteeseen heti. Et kuvittele tätä.
+              </p>
+              <Link href="/quiz" className="text-purple-600 font-semibold text-sm hover:underline flex items-center gap-1">
+                Tee testi <ArrowRight className="w-3 h-3" />
               </Link>
             </CardContent>
           </Card>
 
-          {/* 3. Yhteisö */}
-          <Card className="bg-white hover:shadow-lg transition-shadow border-t-4 border-t-green-500">
+          {/* Card 3 */}
+          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <span className="text-2xl">💙</span>
-                Yhteisö ja toipuminen
-              </CardTitle>
+              <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">💙</div>
+              <CardTitle className="text-xl">Toivu</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Turvallinen vertaisryhmä (moderoitu 24/7)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Psykologiset ensiapu-harjoitukset</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Yhteys ammattilaisiin (juristit, terapeutit)</span>
-                </li>
-              </ul>
-              <div className="pt-2 bg-green-50 p-3 rounded-lg mt-4">
-                <p className="font-medium text-green-900 text-sm flex items-start gap-2">
-                  <ArrowRight className="w-4 h-4 mt-0.5 shrink-0" />
-                  Et ole yksin tämän kanssa.
-                </p>
-              </div>
-              <Link href="/yhteiso" className="block pt-2">
-                <Button variant="outline" className="w-full">
-                  Liity yhteisöön
-                </Button>
+            <CardContent>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                Vertaisryhmän ja ammattilaisten tuki. Löydä voimasi takaisin ja opi asettamaan rajat.
+              </p>
+              <Link href="/yhteiso" className="text-green-600 font-semibold text-sm hover:underline flex items-center gap-1">
+                Liity yhteisöön <ArrowRight className="w-3 h-3" />
               </Link>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <section className="py-8 space-y-8">
-        <h2 className="text-3xl font-bold text-center text-slate-900 mb-8 uppercase tracking-tight">
-          Näin Suojasiipi toimii – 5 askelta
-        </h2>
+      <section className="py-20 bg-slate-50 border-t border-slate-100">
+        <div className="container mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-12">Yksinkertainen polku parempaan</h2>
 
-        <div className="max-w-3xl mx-auto space-y-6">
-          {/* Step 1 */}
-          <div className="flex gap-4 md:gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/20 transition-colors">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-primary">
-              1
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                Tee kysely <span className="text-sm font-normal text-muted-foreground bg-slate-100 px-2 py-0.5 rounded-full">2 min</span>
-              </h3>
-              <p className="text-slate-600">Tunnista, onko kyseessä kiusaaminen.</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 pt-1">
-                <ArrowRight className="w-4 h-4" /> Saat validoinnin: &quot;Kyllä, tämä ON kiusaamista&quot;
+          <div className="relative">
+            {/* Connection Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-slate-200 -z-10" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
+                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">1</div>
+                <h3 className="font-bold text-slate-900">Tunnista</h3>
+                <p className="text-sm text-slate-500 max-w-[200px]">Tee nopea testi ja varmista, mistä on kyse.</p>
               </div>
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="flex gap-4 md:gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/20 transition-colors">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-primary">
-              2
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                Kirjaa tapahtumia <span className="text-sm font-normal text-muted-foreground bg-slate-100 px-2 py-0.5 rounded-full">5 min/päivä</span>
-              </h3>
-              <p className="text-slate-600">Kirjoita muutama lause siitä, mitä tapahtui.</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 pt-1">
-                <ArrowRight className="w-4 h-4" /> Sovellus luo automaattisen aikajanan
+              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
+                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">2</div>
+                <h3 className="font-bold text-slate-900">Kirjaa</h3>
+                <p className="text-sm text-slate-500 max-w-[200px]">Tallenna tapahtumat heti kun ne tapahtuvat.</p>
               </div>
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="flex gap-4 md:gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/20 transition-colors">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-primary">
-              3
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
-                Luo raportti <span className="text-sm font-normal text-muted-foreground bg-slate-100 px-2 py-0.5 rounded-full">1 klikkaus</span>
-              </h3>
-              <p className="text-slate-600">AI muuttaa tekstisi viralliseksi dokumentiksi.</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 pt-1">
-                <ArrowRight className="w-4 h-4" /> Lataa PDF ja lähetä liittoon/työnantajalle
-              </div>
-            </div>
-          </div>
-
-          {/* Step 4 */}
-          <div className="flex gap-4 md:gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/20 transition-colors">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-primary">
-              4
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-lg text-slate-900">Seuraa suunnitelmaa</h3>
-              <p className="text-slate-600">Valitse tilanteesi → saat step-by-step ohjeet.</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 pt-1">
-                <ArrowRight className="w-4 h-4" /> &quot;Tee tämä tänään, tämä huomenna...&quot;
-              </div>
-            </div>
-          </div>
-
-          {/* Step 5 */}
-          <div className="flex gap-4 md:gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/20 transition-colors">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-primary">
-              5
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-lg text-slate-900">Et ole yksin</h3>
-              <p className="text-slate-600">Lue muiden tarinoita, jaa omasi.</p>
-              <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 pt-1">
-                <ArrowRight className="w-4 h-4" /> Häpeä häviää. Toipuminen alkaa.
+              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
+                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">3</div>
+                <h3 className="font-bold text-slate-900">Ratkaise</h3>
+                <p className="text-sm text-slate-500 max-w-[200px]">Käytä raporttia todisteena ja lopeta kiusaaminen.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-secondary/30 rounded-2xl p-8 text-center space-y-4">
-        <h3 className="text-2xl font-semibold">Tietosi ovat turvassa</h3>
-        <p className="text-muted-foreground max-w-lg mx-auto">
-          Turvasiipi ei tallenna tietojasi pilveen. Kaikki merkinnät säilytetään vain omalla laitteellasi (selaimen muistissa).
-          Jos tyhjennät selaimen historian, tiedot poistuvat.
-        </p>
-      </section>
+      <footer className="text-center py-12 text-slate-400 text-sm">
+        <p>© 2025–2026 Turvasiipi. Tietoturva edellä.</p>
+      </footer>
     </div>
   );
 }
