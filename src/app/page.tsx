@@ -8,12 +8,14 @@ export default function Home() {
   return (
     <div className="space-y-12 py-10">
       <section className="text-center space-y-6 px-4">
+        <div className="flex justify-center mb-6">
+          <img src="/logo.png" alt="Turvasiipi Logo" className="w-24 h-24 md:w-32 md:h-32 object-contain" />
+        </div>
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-primary uppercase leading-tight break-words">
-          Työpaikkakiusaaminen<br />
-          <span className="text-slate-900">Ei ole sinun vikasi</span>
+          Kiusaaminen ei johdu sinusta
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-          Turvasiipi on tukenasi kiusaamisen tunnistamisessa ja dokumentoinnissa. Tee anonyymi arvio tilanteestasi ja ota ensimmäinen askel kohti parempaa työelämää.
+          Turvasiipi on tukenasi työpaikkakiusaamisen tunnistamisessa ja dokumentoinnissa. Tee anonyymi arvio tilanteestasi ja ota ensimmäinen askel kohti parempaa työelämää.
         </p>
 
         <div className="pt-4 flex flex-col items-center gap-4">
