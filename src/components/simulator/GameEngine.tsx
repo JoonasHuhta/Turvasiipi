@@ -142,91 +142,31 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
         return "bg-slate-900 text-slate-200 grayscale-[0.8]";
     };
 
-    // Check for Endings
-    if (state.currentPhaseId.startsWith('END_')) {
-        return (
-            <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4">
-                <Card className="max-w-2xl w-full bg-slate-800 border-slate-700 p-8 md:p-12 text-center space-y-8">
-                    <div className="text-6xl mb-4">
-                        {state.currentPhaseId === 'END_C' ? '🛡️' : '💔'}
-                    </div>
-
-                    <h1 className="text-4xl md:text-5xl font-black tracking-tight">
-                        {state.currentPhaseId === 'END_A' && "Lopputulos: Uupumus"}
-                        {state.currentPhaseId === 'END_B' && "Lopputulos: Irtisanoutuminen"}
-                        {state.currentPhaseId === 'END_C' && "Lopputulos: Selviytyminen"}
-                    </h1>
-
-                    <div className="prose prose-invert prose-lg mx-auto">
-                        {state.currentPhaseId === 'END_A' && (
-                            <p>Jatkoit sinnittelyä ilman tukea. Terveytesi petti ennen kuin ehdit reagoida. Tämä on valitettavan yleinen tarina hoitoalalla.</p>
-                        )}
-                        {state.currentPhaseId === 'END_B' && (
-                            <p>Päätit suojella itseäsi poistumalla tilanteesta. Se on rohkea teko, mutta samalla menetys alalle.</p>
-                        )}
-                        {state.currentPhaseId === 'END_C' && (
-                            <p>Otit Turvasiiven käyttöösi. Dokumentointi antoi sinulle faktatietoa, ja yhteisön tuki voimaa. Taistelu ei ole ohi, mutta et ole enää yksin.</p>
-                        )}
-                    </div>
-
-                    <div className="bg-slate-900/50 p-6 rounded-xl text-left space-y-2 border border-slate-700">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Sinun tarinasi tilastot</h3>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <div className="text-xs text-slate-500">Logimerkintöjä</div>
-                                <div className="text-2xl font-mono">{state.logEntries.length} kpl</div>
-                            </div>
-                            <div>
-                                <div className="text-xs text-slate-500">Liittolaisia</div>
-                                <div className="text-2xl font-mono">{state.allies.length}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                        <Button size="lg" variant="default" className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={onExit}>
-                            Palaa etusivulle
-                        </Button>
-                        <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700" onClick={() => window.location.reload()}>
-                            Yritä uudelleen
-                        </Button>
-                    </div>
-                </Card>
-            </div>
-        );
-    }
-
-    // Fallback for missing phase
-    if (!currentPhase) {
-        return <div>Virhe: Vaihetta {state.currentPhaseId} ei löytynyt.</div>;
-    }
-
     return (
         <div className={cn("min-h-screen flex flex-col transition-colors duration-1000", getTheme(currentPhase.day))}>
 
             {/* HUD / Verify accessible */}
             <header className="bg-white/90 backdrop-blur border-b sticky top-0 z-10 shadow-sm p-4">
                 <div className="container mx-auto max-w-5xl flex flex-wrap gap-4 justify-between items-center">
-                    <div className="flex items-center gap-4 text-sm font-medium text-slate-600">
-                        <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-indigo-500" />
-                            Päivä {currentPhase.day} / 90
-                        </div>
-                        {currentPhase.day > 1 && (
-                            <div className="flex items-center gap-2">
-                                <FileText className="w-4 h-4 text-emerald-500" />
-                                {state.logEntries.length} merkintää
-                            </div>
-                        )}
+                    <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
+                        <Badge variant="outline" className="bg-white/50 backdrop-blur gap-1.5 px-3 py-1 border-slate-200">
+                            <Calendar className="w-3.5 h-3.5 text-indigo-500" />
+                            <span>Päivä {currentPhase.day}</span>
+                            <span className="text-slate-300 mx-1">/</span>
+                            <span className="text-slate-400">90</span>
+                        </Badge>
                     </div>
 
-                    <div className="flex items-center gap-3 md:gap-6 flex-1 justify-end max-w-xl">
+                    <div className="flex flex-1 justify-end md:justify-end gap-2 md:gap-6 min-w-0 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 no-scrollbar snap-x">
                         <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" />
                         <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" />
                         <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" />
                     </div>
 
-                    <Button variant="ghost" size="sm" onClick={onExit} className="ml-auto md:ml-0">Lopeta</Button>
+                    <Button variant="ghost" size="icon" onClick={onExit} className="ml-2 md:ml-0 shrink-0 text-slate-400 hover:text-red-500">
+                        <span className="sr-only">Lopeta</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                    </Button>
                 </div>
             </header>
 
@@ -298,16 +238,17 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
 
 function StatBar({ icon: Icon, value, label, color }: any) {
     return (
-        <div className="flex flex-col gap-1 w-full max-w-[80px] md:max-w-[120px]">
-            <div className="flex justify-between text-xs text-slate-500 font-medium">
-                <span className="flex items-center gap-1">
-                    <Icon className="w-3 h-3" />
-                    <span className="hidden md:inline">{label}</span>
+        <div className="flex flex-col gap-1.5 min-w-[30%] md:min-w-[100px] snap-center">
+            <div className="flex justify-between items-center text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-wider">
+                <span className="flex items-center gap-1.5">
+                    <Icon className="w-3 h-3 md:w-3.5 md:h-3.5 opacity-70" />
+                    <span className="truncate">{label}</span>
                 </span>
+                <span className="opacity-50 font-mono hidden sm:inline">{value}%</span>
             </div>
-            <div className="h-1.5 md:h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+            <div className="h-2 md:h-2.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/50 shadow-inner">
                 <div
-                    className={cn("h-full transition-all duration-500", color)}
+                    className={cn("h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)]", color)}
                     style={{ width: `${value}%` }}
                 />
             </div>

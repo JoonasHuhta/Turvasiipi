@@ -31,8 +31,11 @@ export default function RootLayout({
           <main className="w-full max-w-4xl p-6 flex-1">
             {children}
           </main>
-          <footer className="w-full p-6 text-center text-sm text-muted-foreground">
+          <footer className="w-full p-6 text-center text-sm text-muted-foreground space-y-2">
             <p>© 2025 Turvasiipi. Turvallinen ja luottamuksellinen.</p>
+            <Link href="/tietosuoja" className="inline-block hover:text-indigo-600 hover:underline transition-colors text-xs">
+              Tietosuoja ja käyttöehdot
+            </Link>
           </footer>
         </div>
       </body>

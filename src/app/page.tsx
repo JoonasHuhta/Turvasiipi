@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Check, Star } from "lucide-react";
+import { ArrowRight, ShieldCheck, Check, Star, Brain, ClipboardCheck, FileText, Users, Heart } from "lucide-react";
 
 export default function Home() {
   return (
@@ -62,7 +62,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white text-center space-y-4 shadow-lg transform md:rotate-1 transition-transform">
-              <h4 className="font-bold text-lg opacity-90">Suojasiiven Lupaus</h4>
+              <h4 className="font-bold text-lg opacity-90">Suojasiiven alla</h4>
               <p className="leading-snug">
                 "Autamme sinua muuttamaan tunteen faktoiksi ja ahdistuksen toimintasuunnitelmaksi."
               </p>
@@ -132,31 +132,171 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-50 border-t border-slate-100">
-        <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 mb-12">Yksinkertainen polku parempaan</h2>
+      <section id="antigravity-flow" className="py-24 bg-slate-50 border-t border-slate-100 overflow-hidden relative">
+        <div className="container mx-auto max-w-5xl px-4 relative z-10">
+          <div className="text-center mb-20 space-y-4">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900">Näin Turvasiipi toimii</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Neljä askelta, jotka muuttavat epävarmuuden toimintasuunnitelmaksi.
+            </p>
+          </div>
 
-          <div className="relative">
-            {/* Connection Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-slate-200 -z-10" />
+          <div className="relative space-y-24">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-indigo-200 via-purple-200 to-emerald-200 -translate-x-1/2 rounded-full" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
-                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">1</div>
-                <h3 className="font-bold text-slate-900">Tunnista</h3>
-                <p className="text-sm text-slate-500 max-w-[200px]">Tee nopea testi ja varmista, mistä on kyse.</p>
+            {/* Step 1: Validate */}
+            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
+              <div className="flex-1 md:text-right order-2 md:order-1 space-y-4">
+                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-indigo-50">1</div>
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Varmista tunne</h3>
+                <p className="text-slate-600 leading-relaxed text-lg">
+                  Onko se kiusaamista vai "huonoa huumoria"? Tee nopea, psykologinen testi, joka auttaa tunnistamaan gaslightingin ja väkivallan merkit.
+                </p>
+                <Link href="/quiz">
+                  <span className="inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-700 mt-2">
+                    Tee testi <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
+                </Link>
               </div>
-              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
-                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">2</div>
-                <h3 className="font-bold text-slate-900">Kirjaa</h3>
-                <p className="text-sm text-slate-500 max-w-[200px]">Tallenna tapahtumat heti kun ne tapahtuvat.</p>
+
+              {/* Number Badge (Desktop) */}
+              <div className="hidden md:flex flex-none w-14 h-14 bg-indigo-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
+                1
               </div>
-              <div className="flex flex-col items-center gap-4 bg-slate-50 z-10">
-                <div className="w-24 h-24 bg-white rounded-full shadow-sm border border-slate-100 flex items-center justify-center text-4xl font-bold text-slate-300">3</div>
-                <h3 className="font-bold text-slate-900">Ratkaise</h3>
-                <p className="text-sm text-slate-500 max-w-[200px]">Käytä raporttia todisteena ja lopeta kiusaaminen.</p>
+
+              <div className="flex-1 order-3 w-full">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
+                  <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <Brain className="w-24 h-24 text-indigo-600" />
+                  </div>
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
+                      <Brain className="w-6 h-6 text-indigo-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Objektiivinen arvio</h4>
+                      <p className="text-sm text-slate-500">Saat heti palautteen tilanteesi vakavuudesta ilman vähättelyä.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Step 2: Document */}
+            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
+              <div className="flex-1 order-3 md:order-1 w-full">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-blue-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
+                  <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <ClipboardCheck className="w-24 h-24 text-blue-600" />
+                  </div>
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                      <ClipboardCheck className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Local-First Turva</h4>
+                      <p className="text-sm text-slate-500">Kaikki data tallentuu vain sinun laitteellesi. Me emme näe sitä.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Number Badge (Desktop) */}
+              <div className="hidden md:flex flex-none w-14 h-14 bg-blue-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
+                2
+              </div>
+
+              <div className="flex-1 md:text-left order-2 md:order-3 space-y-4">
+                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-blue-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-blue-50">2</div>
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Kerää todisteet</h3>
+                <p className="text-slate-600 leading-relaxed text-lg">
+                  Sinun sanasi on arvokas, mutta data on voimaa. Kirjaa tapahtumat turvalliseen lokikirjaan heti kun ne tapahtuvat. Aikaleimat luovat uskottavuutta.
+                </p>
+                <Link href="/timeline">
+                  <span className="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700 mt-2">
+                    Avaa lokikirja <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Step 3: Analyze */}
+            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
+              <div className="flex-1 md:text-right order-2 md:order-1 space-y-4">
+                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-purple-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-purple-50">3</div>
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">Muuta tunne faktoiksi</h3>
+                <p className="text-slate-600 leading-relaxed text-lg">
+                  Kun on aika toimia, tekoäly auttaa muotoilemaan hajanaiset merkinnät selkeäksi, juridisesti päteväksi raportiksi.
+                </p>
+                <Link href="/raportti">
+                  <span className="inline-flex items-center font-semibold text-purple-600 hover:text-purple-700 mt-2">
+                    Luo raportti <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
+                </Link>
+              </div>
+
+              {/* Number Badge (Desktop) */}
+              <div className="hidden md:flex flex-none w-14 h-14 bg-purple-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
+                3
+              </div>
+
+              <div className="flex-1 order-3 w-full">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-purple-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
+                  <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <FileText className="w-24 h-24 text-purple-600" />
+                  </div>
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center shrink-0">
+                      <FileText className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">AI-avustaja</h4>
+                      <p className="text-sm text-slate-500">Stateless-prosessointi takaa, että luottamukselliset tiedot eivät jää palvelimelle.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4: Recover */}
+            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
+              <div className="flex-1 order-3 md:order-1 w-full">
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
+                  <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <Users className="w-24 h-24 text-emerald-600" />
+                  </div>
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+                      <Heart className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Voimaannu</h4>
+                      <p className="text-sm text-slate-500">Löydä vertaistukea, ymmärrä oikeutesi ja ota hallinta takaisin.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Number Badge (Desktop) */}
+              <div className="hidden md:flex flex-none w-14 h-14 bg-emerald-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
+                4
+              </div>
+
+              <div className="flex-1 md:text-left order-2 md:order-3 space-y-4">
+                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-emerald-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-emerald-50">4</div>
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Löydä ratkaisu</h3>
+                <p className="text-slate-600 leading-relaxed text-lg">
+                  Et ole yksin. Harjoittele tilanteita simulaattorissa, löydä vertaistukea tai ota yhteys ammattilaisiin valmiin faktapaketin kanssa.
+                </p>
+                <Link href="/yhteiso">
+                  <span className="inline-flex items-center font-semibold text-emerald-600 hover:text-emerald-700 mt-2">
+                    Liity yhteisöön <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
