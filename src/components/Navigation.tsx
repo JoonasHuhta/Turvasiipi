@@ -11,7 +11,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, Map, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, Map, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Microscope } from "lucide-react";
 import { useState } from "react";
 
 interface NavItem {
@@ -26,7 +26,7 @@ const navItems: NavItem[] = [
 
     {
         label: "Analyysi",
-        icon: Brain,
+        icon: Microscope,
         children: [
             { href: "/quiz", label: "Tunnista riskit", icon: Clipboard },
             { href: "/feeling-quiz", label: "Uhrin tuntemukset", icon: Activity },
