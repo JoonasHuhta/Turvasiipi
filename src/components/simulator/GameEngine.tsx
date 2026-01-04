@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress"; // Assuming shadcn progress
 import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText } from "lucide-react";
+import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, Briefcase, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface GameEngineProps {
@@ -33,6 +33,53 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
 
     // Check for Endings
     if (state.currentPhaseId.startsWith('END_')) {
+        if (state.profession === 'manager') {
+            return (
+                <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
+                    <Card className="max-w-2xl w-full bg-slate-900 border-red-900/30 p-8 md:p-12 text-center space-y-8 shadow-2xl shadow-red-900/10">
+                        <div className="text-6xl mb-4 grayscale opacity-50">
+                            📉
+                        </div>
+
+                        <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+                            Simulaatio päättynyt
+                        </h1>
+
+                        <div className="prose prose-invert prose-lg mx-auto text-slate-400">
+                            <p>
+                                Olet nähnyt, miten "tehokas" johtaminen voi tuhota työyhteisön.
+                                Pienet, rationalisoidut valinnat kasautuivat järjestelmäviaksi.
+                            </p>
+                        </div>
+
+                        <div className="bg-red-950/30 p-6 rounded-xl text-left space-y-4 border border-red-900/30">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 mb-2">Loppuraportti</h3>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="text-xs text-red-300/60 uppercase">Inhimillinen hinta</div>
+                                    <div className="text-lg font-medium text-red-200">Vakava työuupumus & 3 irtisanoutumista</div>
+                                </div>
+                                <div>
+                                    <div className="text-xs text-red-300/60 uppercase">Taloudellinen vaikutus</div>
+                                    <div className="text-2xl font-mono text-white">~85 000 €</div>
+                                    <div className="text-xs text-slate-500">Rekrytointi, sairauspoissaolot, menetetyt projektit</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                            <Button size="lg" variant="default" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700" onClick={onExit}>
+                                Palaa etusivulle
+                            </Button>
+                            <Button size="lg" variant="outline" className="border-red-900/30 text-red-400 hover:bg-red-950/30 hover:text-red-300" onClick={() => window.location.reload()}>
+                                Yritä uudelleen
+                            </Button>
+                        </div>
+                    </Card>
+                </div>
+            );
+        }
+
         return (
             <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4">
                 <Card className="max-w-2xl w-full bg-slate-800 border-slate-700 p-8 md:p-12 text-center space-y-8">
@@ -90,6 +137,12 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
     }
 
     const handleChoice = (choice: Choice) => {
+        // 0. Check for Crossed Out (Blocked) Choices
+        if (choice.variant === 'crossed-out') {
+            showNotification(choice.blockedReason || "Tämä valinta ei ole mahdollinen nykyisessä tilanteessa.");
+            return;
+        }
+
         // 1. Update Stats
         const newStats = { ...state.stats };
         if (choice.effect?.stats) {
@@ -194,7 +247,54 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                     <h2 className="text-2xl md:text-3xl font-black text-slate-800 mb-6">{currentPhase.title}</h2>
 
                     <div className="prose prose-base md:prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-8 md:mb-12">
-                        {currentPhase.content}
+                        {currentPhase.content.includes("**Sinun näkökulmasi:**") ? (
+                            <div className="space-y-6">
+                                {currentPhase.content.split('\n\n').map((section, idx) => {
+                                    if (section.includes("**Sinun näkökulmasi:**")) {
+                                        return (
+                                            <div key={idx} className="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-900 shadow-sm">
+                                                <div className="flex items-center gap-3 mb-3 font-bold text-slate-900 uppercase tracking-wide text-sm">
+                                                    <div className="p-2 bg-slate-200 rounded-lg">
+                                                        <Briefcase className="w-5 h-5" />
+                                                    </div>
+                                                    Sinun näkökulmasi
+                                                </div>
+                                                <p className="text-slate-800">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
+                                            </div>
+                                        );
+                                    }
+                                    if (section.includes("**Antin näkökulma")) {
+                                        return (
+                                            <div key={idx} className="bg-indigo-50 p-6 rounded-xl border-l-4 border-indigo-500 shadow-sm">
+                                                <div className="flex items-center gap-3 mb-3 font-bold text-indigo-900 uppercase tracking-wide text-sm">
+                                                    <div className="p-2 bg-indigo-200 rounded-lg">
+                                                        <User className="w-5 h-5" />
+                                                    </div>
+                                                    Antin näkökulma (Uhrin ääni)
+                                                </div>
+                                                <p className="italic text-indigo-800 font-medium">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
+                                            </div>
+                                        );
+                                    }
+                                    if (section.includes("**Psykologinen analyysi:**")) {
+                                        return (
+                                            <div key={idx} className="bg-emerald-50 p-6 rounded-xl border-l-4 border-emerald-500 shadow-sm">
+                                                <div className="flex items-center gap-3 mb-3 font-bold text-emerald-900 uppercase tracking-wide text-sm">
+                                                    <div className="p-2 bg-emerald-200 rounded-lg">
+                                                        <Brain className="w-5 h-5" />
+                                                    </div>
+                                                    Psykologinen analyysi
+                                                </div>
+                                                <p className="text-emerald-800">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
+                                            </div>
+                                        );
+                                    }
+                                    return <p key={idx}>{section}</p>;
+                                })}
+                            </div>
+                        ) : (
+                            currentPhase.content
+                        )}
                     </div>
 
                     {/* Crisis Warning */}
@@ -211,11 +311,19 @@ export function GameEngine({ scenario, initialPhaseId, onExit }: GameEngineProps
                             <Button
                                 key={choice.id}
                                 onClick={() => handleChoice(choice)}
-                                variant="outline"
-                                className="h-auto py-4 md:py-6 px-4 md:px-6 justify-start text-left text-base md:text-lg hover:bg-slate-50 hover:border-slate-300 transition-all group whitespace-normal break-words"
+                                variant={choice.variant === 'crossed-out' ? "ghost" : "outline"}
+                                className={cn(
+                                    "h-auto py-4 md:py-6 px-4 md:px-6 justify-start text-left text-base md:text-lg transition-all group whitespace-normal break-words",
+                                    choice.variant === 'crossed-out'
+                                        ? "opacity-60 bg-slate-100 hover:bg-slate-100 cursor-not-allowed line-through decoration-slate-400 decoration-2"
+                                        : "hover:bg-slate-50 hover:border-slate-300"
+                                )}
                             >
-                                <span className="hidden md:flex w-8 h-8 rounded-full bg-slate-100 items-center justify-center mr-4 group-hover:bg-slate-200 transition-colors text-sm font-bold text-slate-500 shrink-0">
-                                    ➜
+                                <span className={cn(
+                                    "hidden md:flex w-8 h-8 rounded-full items-center justify-center mr-4 transition-colors text-sm font-bold shrink-0",
+                                    choice.variant === 'crossed-out' ? "bg-slate-200 text-slate-400" : "bg-slate-100 group-hover:bg-slate-200 text-slate-500"
+                                )}>
+                                    {choice.variant === 'crossed-out' ? "🔒" : "➜"}
                                 </span>
                                 <span className="flex-1">
                                     {choice.text}

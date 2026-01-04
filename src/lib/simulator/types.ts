@@ -1,4 +1,4 @@
-export type Profession = 'nurse' | 'teacher' | 'developer';
+export type Profession = 'nurse' | 'teacher' | 'developer' | 'manager';
 
 export interface GameStats {
     selfEsteem: number; // 0-100
@@ -23,6 +23,8 @@ export interface Choice {
     text: string;
     nextPhaseId: string | 'END_A' | 'END_B' | 'END_C';
     effect?: ChoiceEffect;
+    variant?: 'default' | 'crossed-out';
+    blockedReason?: string; // Message shown when clicking a crossed-out choice
 }
 
 export interface Phase {

@@ -178,6 +178,23 @@ export default function SimulatorPage() {
                             </div>
                         </Link>
 
+                        {/* Manager - Active (New) */}
+                        <Link href="/simulaatio/esimies">
+                            <div className="group relative bg-slate-900 border-2 border-slate-800 rounded-3xl p-8 hover:border-red-500 hover:shadow-xl hover:shadow-red-900/20 transition-all duration-300 cursor-pointer text-left h-full">
+                                <div className="absolute top-4 right-4 bg-red-900/50 text-red-200 border border-red-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    Uusi
+                                </div>
+                                <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                                    👔
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2">Esimies</h3>
+                                <p className="text-slate-400 mb-6">"Management Trap." Koe paine, joka pakottaa sinut kiusaajaksi vastoin tahtoasi.</p>
+                                <span className="text-red-400 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
+                                </span>
+                            </div>
+                        </Link>
+
                         {/* Developer - Coming Soon */}
                         <div className="bg-slate-50 border-2 border-slate-100 rounded-3xl p-8 opacity-70 cursor-not-allowed">
                             <div className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 text-3xl grayscale">
