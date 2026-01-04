@@ -56,11 +56,58 @@ export default function TietovisaPage() {
     };
 
     const getExpertFeedback = (score: number, total: number) => {
+        // If full quiz (35 questions)
+        if (total === 35) {
+            if (score === 0) return {
+                title: "🥴 Työpaikan Pökkelö",
+                text: "Et tiennyt oikein mitään! Mutta hyvä, että teit testin – nyt tiedät, mitä pitää oppia."
+            };
+            if (score <= 5) return {
+                title: "😅 Kahvihuoneen Juoruammattilainen",
+                text: "Sinulla on hajanaista tietoa, mutta ei kokonaisuuden hahmotusta. Luulet tietäväsi, mutta todellisuus on toinen."
+            };
+            if (score <= 10) return {
+                title: "🤔 Aloitteleva Havainnoija",
+                text: "Perustiedot puuttuvat vielä suurelta osin. Nyt on aika oppia tunnistamaan kiusaamisen dynamiikka ja sen vakavuus."
+            };
+            if (score <= 15) return {
+                title: "📚 Työturvallisuuskortin Lukija",
+                text: "Olet lukenut pakollisen koulutusmateriaalin. Tiedät perusasiat, mutta syvempi ymmärrys puuttuu."
+            };
+            if (score <= 20) return {
+                title: "👀 Tarkkaavainen Työkaveri",
+                text: "Hyvä perustietämys! Ymmärrät kiusaamisen pääpiirteet ja tunnistat yleisimmät muodot. Osaat tunnistaa räikeimmät tapaukset."
+            };
+            if (score <= 25) return {
+                title: "🎓 Työhyvinvoinnin Ystävä",
+                text: "Erittäin hyvä asiantuntemus! Ymmärrät kiusaamisen monimutkaisuuden ja tutkimusten keskeiset löydökset. Olisit hyvä luottamusmies."
+            };
+            if (score <= 28) return {
+                title: "🛡️ Sivullisten Puolustaja",
+                text: "Loistava tietämys! Tunnistat hienovaraisetkin kiusaamisen muodot ja ymmärrät sivullisten roolin. Olet arvokas resurssi työyhteisössä."
+            };
+            if (score <= 31) return {
+                title: "🔍 Työpaikkakiusaamisen Tunnistaja",
+                text: "Asiantuntijataso! Sinulla on syvällinen ymmärrys kiusaamisesta rakenteellisena, psykologisena ja organisatorisena ilmiönä."
+            };
+            if (score <= 34) return {
+                title: "🏆 Työhyvinvoinnin Mestari",
+                text: "Erinomainen suoritus! Tiedät, että kiusaaminen on hienovaraista valtapeliä, joka vaatii järjestelmällistä puuttumista. Voisit kouluttaa muita."
+            };
+            return {
+                title: "👑 Työpaikan Oikeudenmukaisuuden Ritari",
+                text: "Täydellinen suoritus! Sinulla on eksperttitason ymmärrys työpaikkakiusaamisesta kaikilla tasoillaan. Olet vaarallinen kiusaajille ja turva uhreille. Respekti! 🙌"
+            };
+        }
+
+        // For smaller quizzes (e.g., 5 questions), map loosely to the same spirit
         const percentage = (score / total) * 100;
-        if (percentage < 30) return { title: "Hyvä alku!", text: "Perustiedot kaipaavat vielä vahvistusta. Nyt on hyvä hetki oppia tunnistamaan kiusaamisen dynamiikka." };
-        if (percentage < 60) return { title: "Hyvä perustietämys", text: "Ymmärrät kiusaamisen pääpiirteet ja tunnistat yleisimmät muodot." };
-        if (percentage < 85) return { title: "Erinomainen asiantuntemus", text: "Ymmärrät kiusaamisen monimutkaisuuden ja tutkimusten keskeiset löydökset." };
-        return { title: "Todellinen asiantuntija 🏆", text: "Sinulla on syvällinen ymmärrys kiusaamisesta rakenteellisena, psykologisena ja organisatorisena ilmiönä." };
+        if (percentage === 0) return { title: "🥴 Työpaikan Pökkelö", text: "Nyt meni kaikki ohi! Kannattaa tutustua aiheeseen tarkemmin." };
+        if (percentage < 40) return { title: "🤔 Aloitteleva Havainnoija", text: "Perustiedoissa on vielä aukkoja. Hyvä että harjoittelet!" };
+        if (percentage < 60) return { title: "📚 Työturvallisuuskortin Lukija", text: "Tiedät perusasiat, mutta tarkkuus puuttuu vielä." };
+        if (percentage < 80) return { title: "👀 Tarkkaavainen Työkaveri", text: "Hyvä suoritus! Tunnistat useimmat tilanteet oikein." };
+        if (percentage < 100) return { title: "🛡️ Sivullisten Puolustaja", text: "Erittäin hienoa työtä! Olet perillä asioista." };
+        return { title: "👑 Oikeudenmukaisuuden Ritari", text: "Täydellinen suoritus tässä osiossa! Olet asian ytimessä." };
     };
 
     // --- VIEW: MENU ---
