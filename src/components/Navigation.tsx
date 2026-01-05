@@ -31,7 +31,8 @@ const navItems: NavItem[] = [
             { href: "/quiz", label: "Tunnista riskit", icon: Clipboard },
             { href: "/feeling-quiz", label: "Uhrin tuntemukset", icon: Activity },
             { href: "/tietovisa", label: "Tietovisa (Faktat)", icon: FileText },
-            { href: "/neuromoninaisuus", label: "Neuromoninaisuus", icon: Brain }, // New item
+            { href: "/neuromoninaisuus", label: "Neuromoninaisuus", icon: Brain },
+            { href: "/nuoret", label: "Nuoret työelämässä", icon: Users }, // Using Users for now as generic match
         ]
     },
     {
