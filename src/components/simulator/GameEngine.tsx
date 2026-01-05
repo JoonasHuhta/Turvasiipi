@@ -14,10 +14,19 @@ interface GameEngineProps {
     scenario: Record<string, Phase>;
     initialPhaseId: string;
     onExit: () => void;
-    profession?: 'nurse' | 'teacher' | 'manager';
+    profession?: 'nurse' | 'teacher' | 'manager' | 'neuro';
+    statConfig?: StatConfigItem[];
 }
 
-export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse' }: GameEngineProps) {
+export interface StatConfigItem {
+    id: keyof GameState['stats'];
+    label: string;
+    description: string;
+    icon: any;
+    color: string;
+}
+
+export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statConfig }: GameEngineProps) {
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
         profession: profession,
@@ -37,9 +46,64 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
     // Check for Endings
     if (state.currentPhaseId.startsWith('END_')) {
-        // ... (keep existing ending logic, assuming no changes needed here for now or user didn't complain about ending screen layout specifically, but I should probably check width there too?)
-        // Actually user complained about "simulaation käyttämisen kanssa" (using simulation), implying the main game loop.
-        // Let's keep ending logic as is for now to minimize risk, but maybe update container widths later if needed.
+
+        // --- NEURO ENDING ---
+        if (profession === 'neuro') {
+            const isBurnout = state.currentPhaseId === 'END_BURNOUT';
+            const isNewStart = state.currentPhaseId === 'END_NEW_START';
+
+            return (
+                <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
+                    <Card className="max-w-3xl w-full bg-slate-900 border-indigo-900/30 p-6 md:p-12 text-center space-y-8 shadow-2xl shadow-indigo-900/10">
+                        <div className="text-6xl mb-4 animate-in zoom-in spin-in-3 duration-700">
+                            {isBurnout ? '🔋' : (isNewStart ? '🌟' : '🧩')}
+                        </div>
+
+                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white">
+                            {isBurnout ? "Päivä päättyi uupumiseen" : (isNewStart ? "Uusi alku" : "Päivä pulkassa")}
+                        </h1>
+
+                        <div className="prose prose-invert prose-lg mx-auto text-slate-300 leading-relaxed">
+                            <p>
+                                {isBurnout
+                                    ? "Lopulta maski putosi. Jatkuva yrittäminen sopeutua muuttiin joka ei jousta, vei voimasi. Tämä ei ole epäonnistuminen, vaan merkki siitä, että ympäristön on muututtava."
+                                    : "Selvisit päivästä. Olet tehnyt lukemattomia näkymättömiä valintoja säästääksesi energiaasi ja tullaksesi ymmärretyksi."}
+                            </p>
+                        </div>
+
+                        {/* FINAL STATS GRID */}
+                        <div className="bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-6 flex items-center justify-center gap-2">
+                                <Brain className="w-4 h-4" />
+                                Päivän saldot
+                            </h3>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                {statConfig?.map(stat => (
+                                    <div key={stat.id} className="flex flex-col items-center gap-2">
+                                        <div className={cn("p-2 rounded-lg bg-opacity-20 mb-1", stat.color.replace('bg-', 'bg-').replace('500', '900'), stat.color.replace('bg-', 'text-').replace('500', '400'))}>
+                                            <stat.icon className="w-5 h-5" />
+                                        </div>
+                                        <div className="text-2xl font-mono font-bold">{state.stats[stat.id] || 0}%</div>
+                                        <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                            <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold" onClick={onExit}>
+                                Palaa Neuromoninaisuus-sivulle
+                            </Button>
+                            <Button size="lg" variant="outline" className="border-slate-700 text-slate-400 hover:bg-slate-800" onClick={() => window.location.reload()}>
+                                Yritä uudelleen
+                            </Button>
+                        </div>
+                    </Card>
+                </div>
+            );
+        }
+
+        // --- MANAGER ENDING ---
         if (profession === 'manager' || state.currentPhaseId === 'END_MANAGER') {
             return (
                 <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
@@ -111,6 +175,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             );
         }
 
+        // --- GENERIC ENDING (Nurse/Teacher) ---
         return (
             <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4">
                 <Card className="max-w-2xl w-full bg-slate-800 border-slate-700 p-8 md:p-12 text-center space-y-8">
@@ -274,9 +339,17 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         className="flex gap-2 cursor-pointer active:scale-95 transition-transform p-1 rounded-md hover:bg-slate-50"
                         onClick={() => setIsHelpOpen(true)}
                     >
-                        <MiniStatBar icon={Brain} value={state.stats.selfEsteem} color="bg-indigo-500" />
-                        <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-blue-500" />
-                        <MiniStatBar icon={Heart} value={state.stats.hope} color="bg-rose-500" />
+                        {statConfig ? (
+                            statConfig.map(stat => (
+                                <MiniStatBar key={stat.id} icon={stat.icon} value={state.stats[stat.id]} color={stat.color} />
+                            ))
+                        ) : (
+                            <>
+                                <MiniStatBar icon={Brain} value={state.stats.selfEsteem} color="bg-indigo-500" />
+                                <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-blue-500" />
+                                <MiniStatBar icon={Heart} value={state.stats.hope} color="bg-rose-500" />
+                            </>
+                        )}
                     </div>
 
                     <Button variant="ghost" size="icon" onClick={() => setIsHelpOpen(true)} className="text-slate-400 hover:text-indigo-600 w-8 h-8 -mr-1">
@@ -300,27 +373,43 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             <Button variant="ghost" size="sm" onClick={() => setIsHelpOpen(false)} className="h-6 w-6 p-0 rounded-full">✕</Button>
                         </div>
                         <div className="p-4 space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg"><Brain className="w-5 h-5" /></div>
-                                <div>
-                                    <div className="font-bold text-sm text-slate-800">Itseluottamus</div>
-                                    <div className="text-xs text-slate-500">Sinun uskosi omiin kykyihisi johtajana.</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-blue-100 text-blue-600 rounded-lg"><Users className="w-5 h-5" /></div>
-                                <div>
-                                    <div className="font-bold text-sm text-slate-800">Tiimihenki & Hyväksyntä</div>
-                                    <div className="text-xs text-slate-500">Miten tiimi ja Antti suhtautuvat sinuun.</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-rose-100 text-rose-600 rounded-lg"><Heart className="w-5 h-5" /></div>
-                                <div>
-                                    <div className="font-bold text-sm text-slate-800">Toivo & Jaksaminen</div>
-                                    <div className="text-xs text-slate-500">Antin ja työyhteisön henkinen jaksaminen.</div>
-                                </div>
-                            </div>
+                            {statConfig ? (
+                                statConfig.map(stat => (
+                                    <div key={stat.id} className="flex items-center gap-3">
+                                        <div className={cn("p-2 rounded-lg bg-opacity-20", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
+                                            <stat.icon className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-sm text-slate-800">{stat.label}</div>
+                                            <div className="text-xs text-slate-500">{stat.description}</div>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <>
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg"><Brain className="w-5 h-5" /></div>
+                                        <div>
+                                            <div className="font-bold text-sm text-slate-800">Itseluottamus</div>
+                                            <div className="text-xs text-slate-500">Sinun uskosi omiin kykyihisi johtajana.</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 bg-blue-100 text-blue-600 rounded-lg"><Users className="w-5 h-5" /></div>
+                                        <div>
+                                            <div className="font-bold text-sm text-slate-800">Tiimihenki & Hyväksyntä</div>
+                                            <div className="text-xs text-slate-500">Miten tiimi ja Antti suhtautuvat sinuun.</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-2 bg-rose-100 text-rose-600 rounded-lg"><Heart className="w-5 h-5" /></div>
+                                        <div>
+                                            <div className="font-bold text-sm text-slate-800">Toivo & Jaksaminen</div>
+                                            <div className="text-xs text-slate-500">Antin ja työyhteisön henkinen jaksaminen.</div>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
 
                             <div className="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 border border-slate-100 mt-2">
                                 💡 <strong>Vinkki:</strong> Valintasi vaikuttavat mittareihin. Yritä tasapainoilla tulosten ja inhimillisyyden välillä.

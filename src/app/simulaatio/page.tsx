@@ -195,6 +195,23 @@ export default function SimulatorPage() {
                             </div>
                         </Link>
 
+                        {/* Neuro - Active (New) */}
+                        <Link href="/simulaatio/neuro">
+                            <div className="group relative bg-white border-2 border-slate-100 rounded-3xl p-8 hover:border-amber-500 hover:shadow-xl transition-all duration-300 cursor-pointer text-left h-full">
+                                <div className="absolute top-4 right-4 bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    Uusi
+                                </div>
+                                <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                                    🧠
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">Neuroepätyypillinen</h3>
+                                <p className="text-slate-600 mb-6">Aistiyliherkkyydet, sosiaaliset koodit ja "masking". Koe työpäivä Alexin silmin.</p>
+                                <span className="text-amber-600 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
+                                </span>
+                            </div>
+                        </Link>
+
                         {/* Developer - Coming Soon */}
                         <div className="bg-slate-50 border-2 border-slate-100 rounded-3xl p-8 opacity-70 cursor-not-allowed">
                             <div className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 text-3xl grayscale">

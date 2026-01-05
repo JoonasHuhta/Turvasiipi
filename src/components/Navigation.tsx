@@ -30,7 +30,8 @@ const navItems: NavItem[] = [
         children: [
             { href: "/quiz", label: "Tunnista riskit", icon: Clipboard },
             { href: "/feeling-quiz", label: "Uhrin tuntemukset", icon: Activity },
-            { href: "/tietovisa", label: "Tietovisa (Faktat)", icon: FileText }, // New item
+            { href: "/tietovisa", label: "Tietovisa (Faktat)", icon: FileText },
+            { href: "/neuromoninaisuus", label: "Neuromoninaisuus", icon: Brain }, // New item
         ]
     },
     {
