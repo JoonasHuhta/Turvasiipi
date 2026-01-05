@@ -30,14 +30,20 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
     const [notification, setNotification] = useState<string | null>(null);
 
+    const [changedStat, setChangedStat] = useState<string | null>(null);
+
     const currentPhase = scenario[state.currentPhaseId];
 
     // Check for Endings
     if (state.currentPhaseId.startsWith('END_')) {
+        // ... (keep existing ending logic, assuming no changes needed here for now or user didn't complain about ending screen layout specifically, but I should probably check width there too?)
+        // Actually user complained about "simulaation käyttämisen kanssa" (using simulation), implying the main game loop.
+        // Let's keep ending logic as is for now to minimize risk, but maybe update container widths later if needed.
         if (profession === 'manager' || state.currentPhaseId === 'END_MANAGER') {
             return (
                 <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
-                    <Card className="max-w-2xl w-full bg-slate-900 border-red-900/30 p-8 md:p-12 text-center space-y-8 shadow-2xl shadow-red-900/10">
+                    <Card className="max-w-3xl w-full bg-slate-900 border-red-900/30 p-6 md:p-12 text-center space-y-6 shadow-2xl shadow-red-900/10">
+                        {/* ... (rest of manager ending content) - minor padding tweak p-8->p-6 */}
                         <div className="text-6xl mb-4 grayscale opacity-50">
                             📉
                         </div>
@@ -53,7 +59,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             </p>
                         </div>
 
-                        <div className="bg-red-950/30 p-6 rounded-xl text-left space-y-6 border border-red-900/30">
+                        <div className="bg-red-950/30 p-4 md:p-6 rounded-xl text-left space-y-6 border border-red-900/30">
                             <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center gap-2">
                                 <AlertTriangle className="w-4 h-4" />
                                 Tuhon Anatomia
@@ -169,12 +175,23 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
         // 1. Update Stats
         const newStats = { ...state.stats };
+        let statChangedKey: string | null = null;
+
         if (choice.effect?.stats) {
             Object.keys(choice.effect.stats).forEach((key) => {
                 const k = key as keyof typeof newStats;
                 const val = choice.effect!.stats![k] || 0;
-                newStats[k] = Math.max(0, Math.min(100, newStats[k] + val));
+                if (val !== 0) {
+                    newStats[k] = Math.max(0, Math.min(100, newStats[k] + val));
+                    statChangedKey = k;
+                }
             });
+        }
+
+        // Trigger animation if stat changed
+        if (statChangedKey) {
+            setChangedStat(statChangedKey);
+            setTimeout(() => setChangedStat(null), 1000); // Reset after 1s
         }
 
         // 2. Add Allies
@@ -223,10 +240,10 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         <div className={cn("min-h-screen flex flex-col transition-colors duration-1000", getTheme(currentPhase.day))}>
 
             {/* HUD / Verify accessible */}
-            <header className="bg-white/90 backdrop-blur border-b sticky top-0 z-10 shadow-sm p-4">
-                <div className="container mx-auto max-w-5xl flex flex-wrap gap-4 justify-between items-center">
+            <header className="bg-white/95 backdrop-blur border-b sticky top-0 z-20 shadow-sm p-2 sm:p-4">
+                <div className="container mx-auto max-w-6xl flex flex-wrap gap-2 md:gap-4 justify-between items-center">
                     <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
-                        <Badge variant="outline" className="bg-white/50 backdrop-blur gap-1.5 px-3 py-1 border-slate-200">
+                        <Badge variant="outline" className="bg-white/50 backdrop-blur gap-1.5 px-2.5 py-1 border-slate-200 text-xs sm:text-sm">
                             <Calendar className="w-3.5 h-3.5 text-indigo-500" />
                             <span>Päivä {currentPhase.day}</span>
                             <span className="text-slate-300 mx-1">/</span>
@@ -234,13 +251,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         </Badge>
                     </div>
 
-                    <div className="flex flex-1 justify-start md:justify-end gap-2 md:gap-6 min-w-0 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 no-scrollbar snap-x">
-                        <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" />
-                        <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" />
-                        <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" />
+                    <div className="flex flex-1 justify-start md:justify-end gap-2 min-w-0 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 no-scrollbar snap-x items-center">
+                        <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" isAnimating={changedStat === 'selfEsteem'} />
+                        <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" isAnimating={changedStat === 'teamAcceptance'} />
+                        <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" isAnimating={changedStat === 'hope'} />
                     </div>
 
-                    <Button variant="ghost" size="icon" onClick={onExit} className="ml-2 md:ml-0 shrink-0 text-slate-400 hover:text-red-500 w-11 h-11">
+                    <Button variant="ghost" size="icon" onClick={onExit} className="ml-0 sm:ml-2 shrink-0 text-slate-400 hover:text-red-500 w-10 h-10 sm:w-11 sm:h-11">
                         <span className="sr-only">Lopeta</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                     </Button>
@@ -258,8 +275,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             )}
 
             {/* Main Content */}
-            <main className="flex-1 container mx-auto max-w-4xl p-4 flex flex-col justify-center min-h-[calc(100vh-80px)]">
-                <Card className="p-4 md:p-12 shadow-xl border-slate-200/60 bg-white/95 backdrop-blur mt-4 mb-20">
+            <main className="flex-1 container mx-auto max-w-5xl md:p-4 flex flex-col justify-start md:justify-center min-h-[calc(100vh-80px)]">
+                <Card className="rounded-none md:rounded-xl border-x-0 md:border-x border-y-0 md:border-y border-slate-200/60 bg-white/95 backdrop-blur shadow-none md:shadow-xl p-4 sm:p-6 md:p-10 mb-0 md:mb-12 min-h-[calc(100vh-60px)] md:min-h-0">
                     {/* Scene Header */}
                     <div className="flex flex-wrap items-center gap-3 text-slate-400 text-xs md:text-sm font-medium uppercase tracking-wider mb-4 md:mb-6">
                         {currentPhase.time && <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {currentPhase.time}</span>}
@@ -268,52 +285,52 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                     </div>
 
                     {/* Narrative */}
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 mb-6">{currentPhase.title}</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-800 mb-4 sm:mb-6 leading-tight">{currentPhase.title}</h2>
 
-                    <div className="prose prose-base md:prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-8 md:mb-12 [&_p]:text-base">
+                    <div className="prose prose-base md:prose-lg text-slate-700 leading-relaxed whitespace-pre-line mb-6 md:mb-10 [&_p]:text-[17px] sm:[&_p]:text-lg max-w-none">
                         {currentPhase.content.includes("**Sinun näkökulmasi:**") ? (
-                            <div className="space-y-6">
+                            <div className="space-y-4 sm:space-y-6">
                                 {currentPhase.content.split('\n\n').map((section, idx) => {
                                     if (section.includes("**Sinun näkökulmasi:**")) {
                                         return (
-                                            <div key={idx} className="bg-slate-50 p-6 rounded-xl border-l-4 border-slate-900 shadow-sm">
-                                                <div className="flex items-center gap-3 mb-3 font-bold text-slate-900 uppercase tracking-wide text-sm">
-                                                    <div className="p-2 bg-slate-200 rounded-lg">
-                                                        <Briefcase className="w-5 h-5" />
+                                            <div key={idx} className="bg-slate-50 p-4 sm:p-5 rounded-xl border-l-4 border-slate-900 shadow-sm">
+                                                <div className="flex items-center gap-2 sm:gap-3 mb-2 font-bold text-slate-900 uppercase tracking-wide text-xs sm:text-sm">
+                                                    <div className="p-1.5 sm:p-2 bg-slate-200 rounded-lg">
+                                                        <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
                                                     </div>
                                                     Sinun näkökulmasi
                                                 </div>
-                                                <p className="text-slate-800">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
+                                                <p className="text-slate-800 text-base sm:text-lg">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
                                             </div>
                                         );
                                     }
                                     if (section.includes("**Antin näkökulma")) {
                                         return (
-                                            <div key={idx} className="bg-indigo-50 p-6 rounded-xl border-l-4 border-indigo-500 shadow-sm">
-                                                <div className="flex items-center gap-3 mb-3 font-bold text-indigo-900 uppercase tracking-wide text-sm">
-                                                    <div className="p-2 bg-indigo-200 rounded-lg">
-                                                        <User className="w-5 h-5" />
+                                            <div key={idx} className="bg-indigo-50 p-4 sm:p-5 rounded-xl border-l-4 border-indigo-500 shadow-sm">
+                                                <div className="flex items-center gap-2 sm:gap-3 mb-2 font-bold text-indigo-900 uppercase tracking-wide text-xs sm:text-sm">
+                                                    <div className="p-1.5 sm:p-2 bg-indigo-200 rounded-lg">
+                                                        <User className="w-4 h-4 sm:w-5 sm:h-5" />
                                                     </div>
                                                     Antin näkökulma (Uhrin ääni)
                                                 </div>
-                                                <p className="italic text-indigo-800 font-medium">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
+                                                <p className="italic text-indigo-800 font-medium text-base sm:text-lg">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
                                             </div>
                                         );
                                     }
                                     if (section.includes("**Psykologinen analyysi:**")) {
                                         return (
-                                            <div key={idx} className="bg-emerald-50 p-6 rounded-xl border-l-4 border-emerald-500 shadow-sm">
-                                                <div className="flex items-center gap-3 mb-3 font-bold text-emerald-900 uppercase tracking-wide text-sm">
-                                                    <div className="p-2 bg-emerald-200 rounded-lg">
-                                                        <Brain className="w-5 h-5" />
+                                            <div key={idx} className="bg-emerald-50 p-4 sm:p-5 rounded-xl border-l-4 border-emerald-500 shadow-sm">
+                                                <div className="flex items-center gap-2 sm:gap-3 mb-2 font-bold text-emerald-900 uppercase tracking-wide text-xs sm:text-sm">
+                                                    <div className="p-1.5 sm:p-2 bg-emerald-200 rounded-lg">
+                                                        <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
                                                     </div>
                                                     Psykologinen analyysi
                                                 </div>
-                                                <p className="text-emerald-800">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
+                                                <p className="text-emerald-800 text-base sm:text-lg">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
                                             </div>
                                         );
                                     }
-                                    return <p key={idx}>{section}</p>;
+                                    return <p key={idx} className="text-slate-700">{section}</p>;
                                 })}
                             </div>
                         ) : (
@@ -323,28 +340,28 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
                     {/* Crisis Warning */}
                     {currentPhase.isCrisis && (
-                        <div className="mb-8 p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-4 text-red-800">
-                            <AlertTriangle className="w-6 h-6 shrink-0" />
-                            <p className="font-medium text-sm">Tilanne on eskaloitunut kriittiseksi. Tämä tallennetaan automaattisesti logiin.</p>
+                        <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-3 sm:gap-4 text-red-800">
+                            <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                            <p className="font-medium text-sm sm:text-base">Tilanne on eskaloitunut kriittiseksi. Tämä tallennetaan automaattisesti logiin.</p>
                         </div>
                     )}
 
                     {/* Choices */}
-                    <div className="grid gap-3 md:gap-4">
+                    <div className="grid gap-3 pt-2">
                         {currentPhase.choices.map((choice) => (
                             <Button
                                 key={choice.id}
                                 onClick={() => handleChoice(choice)}
                                 variant={choice.variant === 'crossed-out' ? "ghost" : "outline"}
                                 className={cn(
-                                    "h-auto py-4 md:py-6 px-4 md:px-6 justify-start text-left text-base md:text-lg transition-all group whitespace-normal break-words",
+                                    "h-auto py-3 sm:py-5 px-4 sm:px-6 justify-start text-left text-[15px] sm:text-lg transition-all group whitespace-normal break-words leading-snug shadow-sm active:scale-[0.98]",
                                     choice.variant === 'crossed-out'
                                         ? "opacity-60 bg-slate-100 hover:bg-slate-100 cursor-not-allowed line-through decoration-slate-400 decoration-2"
-                                        : "hover:bg-slate-50 hover:border-slate-300"
+                                        : "hover:bg-slate-50 hover:border-slate-400/50 border-slate-200"
                                 )}
                             >
                                 <span className={cn(
-                                    "hidden md:flex w-8 h-8 rounded-full items-center justify-center mr-4 transition-colors text-sm font-bold shrink-0",
+                                    "hidden sm:flex w-8 h-8 rounded-full items-center justify-center mr-4 transition-colors text-sm font-bold shrink-0",
                                     choice.variant === 'crossed-out' ? "bg-slate-200 text-slate-400" : "bg-slate-100 group-hover:bg-slate-200 text-slate-500"
                                 )}>
                                     {choice.variant === 'crossed-out' ? "🔒" : "➜"}
@@ -359,7 +376,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
                 {/* Log Preview (Small) */}
                 {state.logEntries.length > 0 && (
-                    <div className="mt-8 text-center text-slate-400 text-xs text-mono px-4 pb-8">
+                    <div className="hidden md:block mt-8 text-center text-slate-400 text-xs text-mono px-4 pb-8">
                         Viimeisin merkintä: "{state.logEntries[state.logEntries.length - 1].note}"
                     </div>
                 )}
@@ -368,9 +385,9 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     );
 }
 
-function StatBar({ icon: Icon, value, label, color }: any) {
+function StatBar({ icon: Icon, value, label, color, isAnimating }: any) {
     return (
-        <div className="flex flex-col gap-1.5 min-w-[120px] md:min-w-[100px] snap-center">
+        <div className={cn("flex flex-col gap-1.5 min-w-[120px] md:min-w-[100px] snap-center transition-transform", isAnimating && "animate-bounce")}>
             <div className="flex justify-between items-center text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1.5">
                     <Icon className="w-3 h-3 md:w-3.5 md:h-3.5 opacity-70" />
@@ -380,7 +397,7 @@ function StatBar({ icon: Icon, value, label, color }: any) {
             </div>
             <div className="h-2 md:h-2.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/50 shadow-inner">
                 <div
-                    className={cn("h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)]", color)}
+                    className={cn("h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)]", color, isAnimating && "brightness-125")}
                     style={{ width: `${value}%` }}
                 />
             </div>
