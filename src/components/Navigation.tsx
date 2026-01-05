@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
     { href: "/simulaatio", label: "Simulaatio", icon: Gamepad2 },
 
     {
-        label: "Analyysi",
+        label: "Tutki",
         icon: Search,
         children: [
             { href: "/quiz", label: "Tunnista riskit", icon: Clipboard },
