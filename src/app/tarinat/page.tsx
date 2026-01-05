@@ -49,9 +49,12 @@ export default function TarinatPage() {
 
     const handleMailtoSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const subject = encodeURIComponent(`Uusi tarina: ${formCategory} - ${formName}`);
-        const body = encodeURIComponent(`Nimi/Nimimerkki: ${formName}\nKategoria: ${formCategory}\n\nTarinani:\n${formText}`);
-        window.location.href = `mailto:turvasiipi@gmail.com?subject=${subject}&body=${body}`;
+        const subject = `Uusi tarina: ${formCategory} - ${formName}`;
+        const body = `Nimi/Nimimerkki: ${formName}\nKategoria: ${formCategory}\n\nTarinani:\n${formText}`;
+        const mailtoLink = `mailto:turvasiipi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Use window.open which is often more reliable for triggering mail clients from handlers
+        window.open(mailtoLink, '_blank');
     };
 
     return (
