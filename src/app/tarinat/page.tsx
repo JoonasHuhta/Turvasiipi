@@ -3,9 +3,9 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MessageSquare, Users, Heart, Shield, Filter, Mail, Send, Calendar, Clock, Lock, Sparkles } from "lucide-react";
+import { MessageSquare, Users, Heart, Shield, Filter, Mail, Send, Calendar, Clock, Lock, Sparkles, Star, ThumbsUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { STORIES, StoryCategory, getStoryCounts } from "@/data/stories";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +17,8 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { cn } from "@/lib/utils";
 
 const categories: StoryCategory[] = [
     "Sote-ala",
@@ -30,11 +32,49 @@ const categories: StoryCategory[] = [
     "Muut"
 ];
 
+const ReactionButton = ({ storyId, type, initialCount }: { storyId: string, type: 'like' | 'heart', initialCount?: number }) => {
+    const [reacted, setReacted] = useLocalStorage<boolean>(`reaction_${type}_${storyId}`, false);
+    const [count, setCount] = useState(initialCount || 0);
+
+    // Effect to visually increment count for user if they reacted
+    const displayCount = count + (reacted ? 1 : 0);
+
+    const handleReact = () => {
+        setReacted(!reacted);
+    };
+
+    return (
+        <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleReact}
+            className={cn(
+                "gap-2 text-xs font-medium transition-colors hover:bg-slate-100",
+                reacted && type === 'like' && "text-indigo-600 bg-indigo-50 hover:bg-indigo-100",
+                reacted && type === 'heart' && "text-rose-600 bg-rose-50 hover:bg-rose-100"
+            )}
+        >
+            {type === 'like' ? (
+                <ThumbsUp className={cn("w-4 h-4", reacted && "fill-current")} />
+            ) : (
+                <Heart className={cn("w-4 h-4", reacted && "fill-current")} />
+            )}
+            {displayCount > 0 ? displayCount : (reacted ? 1 : "")}
+        </Button>
+    );
+};
+
 export default function TarinatPage() {
     const [selectedCategory, setSelectedCategory] = useState<StoryCategory | "Kaikki">("Kaikki");
     const [formName, setFormName] = useState("");
     const [formCategory, setFormCategory] = useState("");
     const [formText, setFormText] = useState("");
+    const [authorName, setAuthorName] = useState("");
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const storyCounts = useMemo(() => getStoryCounts(), []);
 
@@ -49,13 +89,15 @@ export default function TarinatPage() {
 
     const handleMailtoSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        const finalAuthor = authorName.trim() || "Anonyymi";
         const subject = `Uusi tarina: ${formCategory} - ${formName}`;
-        const body = `Nimi/Nimimerkki: ${formName}\nKategoria: ${formCategory}\n\nTarinani:\n${formText}`;
+        const body = `Nimi/Otsikko: ${formName}\nNimimerkki: ${finalAuthor}\nKategoria: ${formCategory}\n\nTarinani:\n${formText}`;
         const mailtoLink = `mailto:turvasiipi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-        // Use window.open which is often more reliable for triggering mail clients from handlers
         window.open(mailtoLink, '_blank');
     };
+
+    if (!mounted) return <div className="p-10 text-center opacity-50">Ladataan...</div>;
 
     return (
         <div className="space-y-12 py-8 animate-in fade-in duration-700 pb-24">
@@ -172,15 +214,28 @@ export default function TarinatPage() {
                                         <CardTitle className="text-xl font-bold text-slate-900 group-hover:text-indigo-700 transition-colors">
                                             {story.title}
                                         </CardTitle>
-                                        <CardDescription className="flex items-center gap-2 text-xs">
-                                            <Calendar className="w-3 h-3" /> {story.date}
-                                        </CardDescription>
+                                        <div className="flex items-center gap-4 text-xs text-slate-400 mt-2">
+                                            <div className="flex items-center gap-1">
+                                                <Calendar className="w-3 h-3" /> {story.date}
+                                            </div>
+                                            {story.author && (
+                                                <div className="flex items-center gap-1 font-medium text-indigo-600">
+                                                    <Users className="w-3 h-3" /> {story.author}
+                                                </div>
+                                            )}
+                                        </div>
                                     </CardHeader>
                                     <CardContent className="pt-6 grow">
                                         <p className="text-slate-600 leading-relaxed whitespace-pre-wrap">
                                             {story.text}
                                         </p>
                                     </CardContent>
+                                    <CardFooter className="border-t border-slate-50 p-2 bg-slate-50/30 flex justify-between items-center text-xs text-slate-400">
+                                        <div className="flex gap-2">
+                                            <ReactionButton storyId={story.id} type="like" initialCount={story.likes} />
+                                            <ReactionButton storyId={story.id} type="heart" initialCount={story.views} />
+                                        </div>
+                                    </CardFooter>
                                 </Card>
                             </motion.div>
                         ))}
@@ -204,16 +259,32 @@ export default function TarinatPage() {
 
                     <CardContent className="relative z-10 p-6 sm:p-10 pt-4">
                         <form onSubmit={handleMailtoSubmit} className="space-y-6 bg-white/5 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
-                            <div className="space-y-2">
-                                <Label htmlFor="title" className="text-slate-200">Otsikko / Aihe</Label>
-                                <Input
-                                    id="title"
-                                    placeholder="Esim. Hyväksikäyttö harjoittelussa..."
-                                    className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600"
-                                    value={formName}
-                                    onChange={(e) => setFormName(e.target.value)}
-                                    required
-                                />
+
+                            {/* NEW: Author Name */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="title" className="text-slate-200">Otsikko / Aihe</Label>
+                                    <Input
+                                        id="title"
+                                        placeholder="Esim. Hyväksikäyttö harjoittelussa..."
+                                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600"
+                                        value={formName}
+                                        onChange={(e) => setFormName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="author" className="text-slate-200 flex items-center justify-between">
+                                        Nimimerkki <span className="text-xs opacity-50 font-normal uppercase">(Valinnainen)</span>
+                                    </Label>
+                                    <Input
+                                        id="author"
+                                        placeholder="Jätä tyhjäksi jos haluat olla anonyymi"
+                                        className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600"
+                                        value={authorName}
+                                        onChange={(e) => setAuthorName(e.target.value)}
+                                    />
+                                </div>
                             </div>
 
                             <div className="space-y-2">

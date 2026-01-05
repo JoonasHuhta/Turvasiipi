@@ -15,6 +15,9 @@ export interface Story {
     title: string;
     category: StoryCategory;
     text: string;
+    author?: string; // Optional nickname
+    likes?: number; // Optional base count for hearts/stars
+    views?: number; // Optional base count for views
 }
 
 export const STORIES: Story[] = [
@@ -25,7 +28,9 @@ export const STORIES: Story[] = [
         date: "2026-01-05",
         category: "Start-up / IT",
         title: "Esimerkki: Hiljainen sulkeminen",
-        text: "Tähän tulee varsinainen tarina. Esimerkiksi: Huomasin, että minua ei enää kutsuttu palavereihin..."
+        text: "Tähän tulee varsinainen tarina...",
+        author: "Koodari92",
+        likes: 12
     }
     */
 ];
