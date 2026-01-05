@@ -110,9 +110,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                     <div className="text-6xl mb-4">
                         {state.currentPhaseId === 'END_C' ? '🛡️' : '💔'}
                     </div>
-                    <div className="text-xs text-red-500 font-mono">
-                        DEBUG: Phase="{state.currentPhaseId}" Prof="{profession}"
-                    </div>
 
                     <h1 className="text-4xl md:text-5xl font-black tracking-tight">
                         {state.currentPhaseId === 'END_A' && "Lopputulos: Uupumus"}
@@ -237,13 +234,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         </Badge>
                     </div>
 
-                    <div className="flex flex-1 justify-end md:justify-end gap-2 md:gap-6 min-w-0 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 no-scrollbar snap-x">
+                    <div className="flex flex-1 justify-start md:justify-end gap-2 md:gap-6 min-w-0 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 no-scrollbar snap-x">
                         <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" />
                         <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" />
                         <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" />
                     </div>
 
-                    <Button variant="ghost" size="icon" onClick={onExit} className="ml-2 md:ml-0 shrink-0 text-slate-400 hover:text-red-500">
+                    <Button variant="ghost" size="icon" onClick={onExit} className="ml-2 md:ml-0 shrink-0 text-slate-400 hover:text-red-500 w-11 h-11">
                         <span className="sr-only">Lopeta</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                     </Button>
@@ -262,7 +259,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
             {/* Main Content */}
             <main className="flex-1 container mx-auto max-w-4xl p-4 flex flex-col justify-center min-h-[calc(100vh-80px)]">
-                <Card className="p-6 md:p-12 shadow-xl border-slate-200/60 bg-white/95 backdrop-blur mt-4 mb-20">
+                <Card className="p-4 md:p-12 shadow-xl border-slate-200/60 bg-white/95 backdrop-blur mt-4 mb-20">
                     {/* Scene Header */}
                     <div className="flex flex-wrap items-center gap-3 text-slate-400 text-xs md:text-sm font-medium uppercase tracking-wider mb-4 md:mb-6">
                         {currentPhase.time && <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {currentPhase.time}</span>}
@@ -273,7 +270,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                     {/* Narrative */}
                     <h2 className="text-2xl md:text-3xl font-black text-slate-800 mb-6">{currentPhase.title}</h2>
 
-                    <div className="prose prose-base md:prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-8 md:mb-12">
+                    <div className="prose prose-base md:prose-lg text-slate-600 leading-relaxed whitespace-pre-line mb-8 md:mb-12 [&_p]:text-base">
                         {currentPhase.content.includes("**Sinun näkökulmasi:**") ? (
                             <div className="space-y-6">
                                 {currentPhase.content.split('\n\n').map((section, idx) => {
@@ -373,7 +370,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
 function StatBar({ icon: Icon, value, label, color }: any) {
     return (
-        <div className="flex flex-col gap-1.5 min-w-[30%] md:min-w-[100px] snap-center">
+        <div className="flex flex-col gap-1.5 min-w-[120px] md:min-w-[100px] snap-center">
             <div className="flex justify-between items-center text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1.5">
                     <Icon className="w-3 h-3 md:w-3.5 md:h-3.5 opacity-70" />
