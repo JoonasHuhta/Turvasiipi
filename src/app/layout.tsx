@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <div className="min-h-screen bg-background flex flex-col items-center overflow-x-hidden">
           <header className="w-full max-w-4xl p-4 sm:p-6 flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0 z-50 rounded-b-xl mb-4 border-b border-white/20">
             <Link href="/" className="flex items-center gap-3">

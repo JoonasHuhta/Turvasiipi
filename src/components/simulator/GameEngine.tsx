@@ -31,6 +31,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     const [notification, setNotification] = useState<string | null>(null);
 
     const [changedStat, setChangedStat] = useState<string | null>(null);
+    const [isHelpOpen, setIsHelpOpen] = useState(false);
 
     const currentPhase = scenario[state.currentPhaseId];
 
@@ -228,6 +229,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         setTimeout(() => setNotification(null), 3000);
     };
 
+
+
     // Calculate dynamic text size based on content length
     const getContentTextSize = (length: number, isMobile: boolean) => {
         if (length > 600) return isMobile ? "text-[13px] leading-tight" : "text-sm";
@@ -235,74 +238,146 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         return isMobile ? "text-[16px] leading-normal" : "text-lg";
     };
 
+    // Dynamic button text size
+    const getButtonTextSize = (length: number) => {
+        if (length > 100) return "text-xs";
+        if (length > 60) return "text-[13px]";
+        return "text-sm";
+    };
+
     // Calculate theme based on Day
     const getTheme = (day: number) => {
-        if (day <= 10) return "bg-blue-50/50";
+        if (day <= 10) return "bg-slate-50";
         if (day <= 30) return "bg-slate-100";
-        if (day <= 60) return "bg-slate-200 grayscale-[0.3]";
-        return "bg-slate-900 text-slate-200 grayscale-[0.8]";
+        return "bg-slate-100";
     };
 
     const isComplexPhase = currentPhase.content.includes("**Sinun näkökulmasi:**");
     const textSizeClass = getContentTextSize(currentPhase.content.length, true);
 
+    // FIX: Added z-[100] to cover global layout elements (Navbar) completely.
     return (
-        <div className={cn("fixed inset-0 flex flex-col bg-white overflow-hidden transition-colors duration-1000", getTheme(currentPhase.day))}>
+        <div className={cn("fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden bg-slate-50 font-sans", getTheme(currentPhase.day))}>
 
-            {/* HUD - Fixed Top */}
-            <header className="shrink-0 bg-white/95 backdrop-blur border-b z-20 shadow-sm px-3 py-2 flex items-center gap-2 h-14">
-                <div className="flex-1 min-w-0 overflow-x-auto no-scrollbar snap-x flex gap-3 pr-10 items-center">
-                    <StatBar icon={Brain} value={state.stats.selfEsteem} label="Itseluottamus" color="bg-indigo-500" isAnimating={changedStat === 'selfEsteem'} />
-                    <StatBar icon={Users} value={state.stats.teamAcceptance} label="Hyväksyntä" color="bg-blue-500" isAnimating={changedStat === 'teamAcceptance'} />
-                    <StatBar icon={Heart} value={state.stats.hope} label="Toivo" color="bg-rose-500" isAnimating={changedStat === 'hope'} />
+            {/* HEADER: Fixed top bar with App Name & Stats */}
+            <header className="shrink-0 h-14 bg-white border-b px-4 flex items-center justify-between z-30 shadow-sm relative select-none">
+                <div className="flex items-center gap-2">
+                    <span className="font-black text-slate-800 tracking-tight text-base">Simulaatio</span>
+                    <Badge variant="secondary" className="bg-slate-100 text-slate-600 px-1.5 py-0.5 text-[10px] font-mono border border-slate-200">
+                        Päivä {currentPhase.day}
+                    </Badge>
                 </div>
 
-                <Button variant="ghost" size="icon" onClick={onExit} className="absolute right-1 top-2 text-slate-400 hover:text-red-500 w-10 h-10">
-                    <span className="sr-only">Lopeta</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-                </Button>
+                <div className="flex items-center gap-3">
+                    {/* Compact Stat Bars (Clickable for Help) */}
+                    <div
+                        className="flex gap-2 cursor-pointer active:scale-95 transition-transform p-1 rounded-md hover:bg-slate-50"
+                        onClick={() => setIsHelpOpen(true)}
+                    >
+                        <MiniStatBar icon={Brain} value={state.stats.selfEsteem} color="bg-indigo-500" />
+                        <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-blue-500" />
+                        <MiniStatBar icon={Heart} value={state.stats.hope} color="bg-rose-500" />
+                    </div>
+
+                    <Button variant="ghost" size="icon" onClick={() => setIsHelpOpen(true)} className="text-slate-400 hover:text-indigo-600 w-8 h-8 -mr-1">
+                        <span className="sr-only">Ohje</span>
+                        <div className="border-2 border-slate-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold text-slate-500">?</div>
+                    </Button>
+
+                    <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 -mr-2">
+                        <span className="sr-only">Lopeta</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                    </Button>
+                </div>
             </header>
 
-            {/* Notification Toast */}
-            {notification && (
-                <div className="fixed top-16 left-4 right-4 z-50 animate-in slide-in-from-top-2 fade-in pointer-events-none">
-                    <div className="bg-slate-900/90 backdrop-blur text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 justify-center shadow-black/20">
-                        <FileText className="w-5 h-5 text-emerald-400 shrink-0" />
-                        <span className="text-sm font-medium">{notification}</span>
+            {/* HELP MODAL */}
+            {isHelpOpen && (
+                <div className="absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={() => setIsHelpOpen(false)}>
+                    <div className="bg-white w-full max-w-xs rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
+                        <div className="bg-slate-50 border-b p-4 flex items-center justify-between">
+                            <h3 className="font-bold text-slate-900">Mitä mittarit tarkoittavat?</h3>
+                            <Button variant="ghost" size="sm" onClick={() => setIsHelpOpen(false)} className="h-6 w-6 p-0 rounded-full">✕</Button>
+                        </div>
+                        <div className="p-4 space-y-4">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg"><Brain className="w-5 h-5" /></div>
+                                <div>
+                                    <div className="font-bold text-sm text-slate-800">Itseluottamus</div>
+                                    <div className="text-xs text-slate-500">Sinun uskosi omiin kykyihisi johtajana.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-blue-100 text-blue-600 rounded-lg"><Users className="w-5 h-5" /></div>
+                                <div>
+                                    <div className="font-bold text-sm text-slate-800">Tiimihenki & Hyväksyntä</div>
+                                    <div className="text-xs text-slate-500">Miten tiimi ja Antti suhtautuvat sinuun.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-rose-100 text-rose-600 rounded-lg"><Heart className="w-5 h-5" /></div>
+                                <div>
+                                    <div className="font-bold text-sm text-slate-800">Toivo & Jaksaminen</div>
+                                    <div className="text-xs text-slate-500">Antin ja työyhteisön henkinen jaksaminen.</div>
+                                </div>
+                            </div>
+
+                            <div className="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 border border-slate-100 mt-2">
+                                💡 <strong>Vinkki:</strong> Valintasi vaikuttavat mittareihin. Yritä tasapainoilla tulosten ja inhimillisyyden välillä.
+                            </div>
+                        </div>
+                        <div className="p-3 bg-slate-50 border-t">
+                            <Button onClick={() => setIsHelpOpen(false)} className="w-full">Ymmärretty</Button>
+                        </div>
                     </div>
                 </div>
             )}
 
-            {/* Main Layout: Flex Column */}
-            <main className="flex-1 flex flex-col min-h-0 relative w-full max-w-lg mx-auto bg-white">
-
-                {/* Scrollable Content Area */}
-                <div className="flex-1 overflow-y-auto px-4 py-3 scale-text-container overscroll-contain">
-                    {/* Scene Meta */}
-                    <div className="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider mb-2">
-                        <Badge variant="secondary" className="bg-slate-100 text-slate-600 px-1.5 py-0.5 h-5 text-[10px]">Päivä {currentPhase.day}</Badge>
-                        {currentPhase.time && <span className="flex items-center gap-0.5"><Clock className="w-3 h-3" /> {currentPhase.time}</span>}
+            {/* NOTIFICATION TOAST */}
+            {notification && (
+                <div className="absolute top-16 left-0 right-0 z-40 animate-in slide-in-from-top-2 fade-in duration-300 pointer-events-none flex justify-center px-4 pt-2">
+                    <div className="bg-slate-800/95 backdrop-blur text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-xs font-medium border border-slate-700">
+                        <span className="text-emerald-400">ℹ️</span>
+                        <span>{notification}</span>
                     </div>
+                </div>
+            )}
 
-                    <h2 className="text-lg font-black text-slate-900 mb-3 leading-tight">{currentPhase.title}</h2>
+            {/* MAIN CONTENT: Centered Vertically */}
+            <main className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar">
+                <div className="min-h-full flex flex-col justify-center p-5 pb-8 transition-all">
 
-                    <div className={cn("prose prose-slate max-w-none text-slate-800 pb-2", textSizeClass)}>
+                    {/* Scene Meta Info */}
+                    {(currentPhase.time || currentPhase.location) && (
+                        <div className="flex items-center justify-center gap-3 text-slate-400 text-[10px] font-bold uppercase tracking-widest opacity-80 mb-3">
+                            {currentPhase.time && <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentPhase.time}</span>}
+                            {currentPhase.location && <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {currentPhase.location}</span>}
+                        </div>
+                    )}
+
+                    {/* Title */}
+                    <h2 className="text-lg md:text-xl font-black text-slate-900 text-center leading-tight mb-4">
+                        {currentPhase.title}
+                    </h2>
+
+                    {/* Content Block */}
+                    <div className={cn("prose prose-slate max-w-none text-slate-700 text-center mx-auto transition-all", textSizeClass)}>
                         {isComplexPhase ? (
-                            <div className="space-y-3">
+                            <div className="space-y-3 text-left">
                                 {currentPhase.content.split('\n\n').map((section, idx) => {
                                     if (section.includes("**Sinun näkökulmasi:**")) {
                                         return (
-                                            <div key={idx} className="bg-slate-50 p-3 rounded-lg border-l-2 border-slate-900">
+                                            <div key={idx} className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
                                                 <div className="flex items-center gap-1.5 mb-1 font-bold text-slate-900 uppercase tracking-wide text-[10px]">
                                                     <Briefcase className="w-3 h-3" /> Sinun näkökulmasi
                                                 </div>
-                                                <p className="m-0">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
+                                                <p className="m-0 text-slate-800">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
                                             </div>
                                         );
                                     }
                                     if (section.includes("**Antin näkökulma")) {
                                         return (
-                                            <div key={idx} className="bg-indigo-50 p-3 rounded-lg border-l-2 border-indigo-500">
+                                            <div key={idx} className="bg-white p-3 rounded-lg border-l-2 border-indigo-400 shadow-sm">
                                                 <div className="flex items-center gap-1.5 mb-1 font-bold text-indigo-900 uppercase tracking-wide text-[10px]">
                                                     <User className="w-3 h-3" /> Antin näkökulma
                                                 </div>
@@ -312,7 +387,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                                     }
                                     if (section.includes("**Psykologinen analyysi:**")) {
                                         return (
-                                            <div key={idx} className="bg-emerald-50 p-3 rounded-lg border-l-2 border-emerald-500">
+                                            <div key={idx} className="bg-white p-3 rounded-lg border-l-2 border-emerald-400 shadow-sm">
                                                 <div className="flex items-center gap-1.5 mb-1 font-bold text-emerald-900 uppercase tracking-wide text-[10px]">
                                                     <Brain className="w-3 h-3" /> Psykologinen analyysi
                                                 </div>
@@ -324,54 +399,75 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                                 })}
                             </div>
                         ) : (
-                            currentPhase.content
+                            // Simple text content
+                            <p className="whitespace-pre-line">{currentPhase.content}</p>
                         )}
 
                         {currentPhase.isCrisis && (
-                            <div className="mt-3 p-2 bg-red-50 border border-red-100 rounded-lg flex items-center gap-2 text-red-800 text-xs font-bold">
+                            <div className="mt-4 p-2.5 bg-red-50/80 border border-red-100 rounded-lg flex items-center justify-center gap-2 text-red-800 text-xs font-bold">
                                 <AlertTriangle className="w-4 h-4 shrink-0" />
-                                <p>Automaattinen logimerkintä: Kriisi</p>
+                                <span>Kriisi merkitty logiin</span>
                             </div>
                         )}
                     </div>
                 </div>
-
-                {/* Always Visible Choices - Fixed Bottom Container */}
-                <div className="shrink-0 bg-white border-t border-slate-100 p-3 pb-safe z-10 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] w-full">
-                    <div className={cn("grid gap-2", currentPhase.choices.length > 2 ? "grid-cols-1" : "grid-cols-1")}>
-                        {currentPhase.choices.map((choice) => (
-                            <Button
-                                key={choice.id}
-                                onClick={() => handleChoice(choice)}
-                                variant={choice.variant === 'crossed-out' ? "ghost" : "default"}
-                                className={cn(
-                                    "w-full h-auto py-3 px-3 justify-start text-left bg-white text-slate-800 border-2 border-slate-200 shadow-[0_2px_0_theme(colors.slate.200)] hover:transform-none hover:bg-slate-50",
-                                    "active:translate-y-[1px] active:shadow-none transition-all rounded-xl",
-                                    choice.variant === 'crossed-out'
-                                        ? "opacity-50 cursor-not-allowed shadow-none border-dashed bg-slate-50"
-                                        : "hover:border-slate-300"
-                                )}
-                            >
-                                <div className="flex items-center gap-3 w-full">
-                                    <span className={cn(
-                                        "flex items-center justify-center w-6 h-6 rounded-md shrink-0 font-bold border-2 text-xs",
-                                        choice.variant === 'crossed-out' ? "bg-slate-100 border-slate-300 text-slate-400" : "bg-indigo-50 border-indigo-100 text-indigo-600"
-                                    )}>
-                                        {choice.variant === 'crossed-out' ? "🔒" : "➜"}
-                                    </span>
-                                    <span className="font-semibold text-sm leading-snug break-words line-clamp-2">
-                                        {choice.text}
-                                    </span>
-                                </div>
-                            </Button>
-                        ))}
-                    </div>
-                </div>
             </main>
+
+            {/* FOOTER: Fixed Actions */}
+            <footer className="shrink-0 bg-white border-t border-slate-100 p-3 pb-6 z-30 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
+                <div className="max-w-lg mx-auto w-full flex flex-col gap-2">
+                    {currentPhase.choices.map((choice) => (
+                        <Button
+                            key={choice.id}
+                            onClick={() => handleChoice(choice)}
+                            disabled={choice.variant === 'crossed-out'}
+                            variant={choice.variant === 'crossed-out' ? "ghost" : "default"}
+                            className={cn(
+                                "w-full min-h-[56px] h-auto py-3 px-3 justify-between text-left transition-all active:scale-[0.99] group",
+                                // Wrappings and alignment
+                                "whitespace-normal break-words items-center",
+                                choice.variant === 'crossed-out'
+                                    ? "bg-slate-50 border-2 border-dashed border-slate-200 text-slate-400 cursor-not-allowed"
+                                    : "bg-white border-2 border-slate-200 text-slate-800 hover:bg-slate-50 hover:border-slate-300 shadow-[0_2px_0_#e2e8f0] active:translate-y-[2px] active:shadow-none"
+                            )}
+                        >
+                            <span className={cn(
+                                "font-bold leading-tight tracking-tight flex-1 mr-2",
+                                getButtonTextSize(choice.text.length)
+                            )}>
+                                {choice.text}
+                            </span>
+
+                            {choice.variant === 'crossed-out' ? (
+                                <span className="text-lg opacity-50 grayscale shrink-0">🔒</span>
+                            ) : (
+                                <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto transition-all text-indigo-500 font-bold">➜</span>
+                            )}
+                        </Button>
+                    ))}
+                </div>
+            </footer>
+
         </div>
     );
 }
 
+// Compact Stat Bar for Header
+function MiniStatBar({ icon: Icon, value, color }: any) {
+    return (
+        <div className="flex flex-col gap-0.5 items-center justify-center w-8 group relative">
+            <Icon className="w-3 h-3 text-slate-400 mb-0.5" />
+            <div className="relative w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div
+                    className={cn("absolute inset-y-0 left-0 transition-all duration-500", color)}
+                    style={{ width: `${value}%` }}
+                />
+            </div>
+        </div>
+    );
+}
+
+// Original StatBar kept just in case but likely unused now
 function StatBar({ icon: Icon, value, label, color, isAnimating }: any) {
     return (
         <div className={cn("flex items-center gap-2 min-w-[100px] snap-center transition-all px-2 py-1 rounded-lg", isAnimating && "bg-slate-100 animate-pulse")}>
@@ -390,3 +486,4 @@ function StatBar({ icon: Icon, value, label, color, isAnimating }: any) {
         </div>
     );
 }
+
