@@ -83,8 +83,8 @@ export default function SimulatorPage() {
             <section id="professions" className="py-20 bg-white border-t border-slate-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-4">
-                        <h2 className="text-3xl font-bold text-slate-900">Valitse ammattisi</h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto">Jokaisella alalla kiusaaminen saa omat muotonsa.</p>
+                        <h2 className="text-3xl font-bold text-slate-900">Valitse näkökulma</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto">Kiusaaminen ja syrjintä näyttäytyvät eri tavoin eri rooleissa.</p>
 
                         <Dialog>
                             <DialogTrigger asChild>
