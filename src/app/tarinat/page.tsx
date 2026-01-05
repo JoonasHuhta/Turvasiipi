@@ -94,7 +94,13 @@ export default function TarinatPage() {
         const body = `Nimi/Otsikko: ${formName}\nNimimerkki: ${finalAuthor}\nKategoria: ${formCategory}\n\nTarinani:\n${formText}`;
         const mailtoLink = `mailto:turvasiipi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-        window.open(mailtoLink, '_blank');
+        // Create a temporary link element and click it - this prevents blank tabs and is reliable
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     if (!mounted) return <div className="p-10 text-center opacity-50">Ladataan...</div>;
