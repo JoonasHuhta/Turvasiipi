@@ -1,75 +1,52 @@
 "use server";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { TimelineEvent } from "@/types";
+export interface AIReportResult {
+    success: boolean;
+    report?: string;
+    error?: string;
+}
 
-export async function generateReportAction(events: TimelineEvent[]) {
-    const apiKey = process.env.GEMINI_API_KEY;
+export async function generatePremiumReport(anonymizedData: string): Promise<AIReportResult> {
+    // 1. Simulate API Delay (Processing...)
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
-    if (!apiKey) {
-        console.warn("No GEMINI_API_KEY found, using mock fallback.");
-        // Fallback: Just return the descriptions as is, or slightly formatted to show "Simulated"
-        return events.map(e => ({
-            ...e,
-            description: `[SIMULOITU AI-MUOKKAUS]: ${e.description}`
-        }));
+    // 2. Validate Data
+    if (!anonymizedData || anonymizedData.length < 50) {
+        return { success: false, error: "Liian vähän dataa analyysiä varten." };
     }
 
-    try {
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // 3. Mock Response (Later: OpenAI API Call)
+    // This simulates the "intelligent" report structure we want
+    const mockReport = `
+# Tilanneanalyysi ja Toimenpidesuositukset
 
-        // Prepare prompt
-        const eventText = events.map(e =>
-            `Päivämäärä: ${new Date(e.timestamp).toLocaleDateString("fi-FI")}\nKuvaus: ${e.description}\nOsalliset: ${e.peopleInvolved}`
-        ).join("\n---\n");
+**Analyysin perusteella tilanne on vakava ja täyttää toistuvan häirinnän tunnusmerkit.**
 
-        const prompt = `
-      Olet asiantunteva työsuojeluvaltuutettu. Tehtäväsi on muokata seuraavat työpaikkakiusaamiseen liittyvät tapahtumakuvaukset viralliseen, neutraaliin ja asialliseen muotoon.
-      Tavoitteena on luoda "Ilmoitus työturvallisuuslain mukaisesta epäasiallisesta kohtelusta".
-      
-      Ohjeet:
-      1. Poista tunteikkaat ilmaukset (esim. "tuntui pahalta", "raivosi"), korvaa ne faktoilla (esim. "korotti ääntään", "epäasiallinen kielenkäyttö").
-      2. Säilytä alkuperäiset päivämäärät ja osalliset.
-      3. Palauta vastaus SAMASSA JÄRJESTYKSESSÄ kuin syöte.
-      4. Palauta vastaus JSON-muodossa, jossa on lista objekteja: { originalId: (ei tarvita), description: "uusi kuvaus" }. 
-      MUTTA koska en voi taata järjestystä, palauta vain uusi kuvaus kullekin tapahtumalle selkeästi eroteltuna tai mieluummin yhtenäisenä tekstinä, jos teen raportin.
-      
-      HETKINEN: Yksinkertaistetaan. Palauta vain taulukko merkkijonoja (string[]), joka vastaa syötettyjä tapahtumia järjestyksessä.
-      
-      Tapahtumat:
-      ${eventText}
+## 1. Tapahtumien kulku ja luonne
+Raportoitu aineisto osoittaa selkeän kaavan, jossa uhriin kohdistuu toistuvaa epäasiallista käytöstä. Tapahtumat eivät ole yksittäisiä konflikteja, vaan ne muodostavat jatkumon, joka vaikuttaa heikentävästi työilmapiiriin ja uhrin toimintakykyyn.
+
+Erityisen huolestuttavaa on:
+- Tapahtumien tiheys (useita merkintöjä lyhyen ajan sisällä)
+- Vallankäytön elementit (esim. ohittaminen päätöksenteossa, julkinen nolaaminen)
+
+## 2. Juridinen viitekehys
+Työturvallisuuslain (738/2002) 18 § ja 28 § edellyttävät, että työnantaja puuttuu häirintään heti siitä tiedon saatuaan. Aineiston perusteella voidaan argumentoida, että työntekijän terveys on vaarassa.
+
+## 3. Suositellut toimenpiteet
+
+### A. Välittömät toimet
+1.  **Kirjallinen ilmoitus:** Toimita tämä raportti välittömästi esimiehelle ja työsuojeluvaltuutetulle.
+2.  **Työterveys:** Varaa aika työkyvyn arviointiin. Tämä dokumentti toimii pohjana lääkärin lausunnolle.
+
+### B. Eskalaatio
+Mikäli työnantaja ei reagoi 14 vuorokauden kuluessa, on suositeltavaa olla yhteydessä Aluehallintoviraston (AVI) työsuojelun vastuualueeseen.
+
+---
+*Tämä raportti on luotu automaattisesti anonymisoidusta datasta OpenAI:n GPT-4 -mallilla. Se ei korvaa juridista neuvontaa.*
     `;
 
-        // For simplicity in this demo, let's just ask to rephrase each individual event to avoid mapping issues.
-        // Or better: process them one by one if the list is short? No, that's slow.
-        // Let's ask for a structured JSON response.
-
-        const jsonPrompt = `
-      Tehtävä: Muuta nämä tapahtumakuvaukset neutraaliksi virkakieleksi.
-      Palauta Vain kelvollinen JSON-taulukko (Array of strings), jossa on muokatut kuvaukset samassa järjestyksessä. Älä laita markdown-merkintöjä (\`\`\`json).
-      
-      Syötteet:
-      ${JSON.stringify(events.map(e => e.description))}
-    `;
-
-        const result = await model.generateContent(jsonPrompt);
-        const response = await result.response;
-        const text = response.text().replace(/```json/g, "").replace(/```/g, "").trim();
-
-        const start = text.indexOf('[');
-        const end = text.lastIndexOf(']');
-        if (start === -1 || end === -1) throw new Error("Invalid JSON response");
-
-        const parsedDescriptions = JSON.parse(text.substring(start, end + 1)) as string[];
-
-        return events.map((e, i) => ({
-            ...e,
-            description: parsedDescriptions[i] || e.description // Fallback to original if mismatch
-        }));
-
-    } catch (error) {
-        console.error("AI Generation failed:", error);
-        throw new Error("Raportin luonti epäonnistui. Tarkista API-avain.");
-    }
+    return {
+        success: true,
+        report: mockReport
+    };
 }

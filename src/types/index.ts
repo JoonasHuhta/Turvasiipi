@@ -15,4 +15,6 @@ export type TimelineEvent = {
     industry?: string;
     bullyingTypes?: string[];
     severity?: number; // 1-10
+    consequences?: string;
+    witnesses?: string;
 };
