@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Check, Star, Brain, ClipboardCheck, FileText, Users, Heart, HelpCircle, ChevronDown } from "lucide-react";
+import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function Home() {

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { TimelineEvent, Emotion } from "@/types";
-import { Frown, Meh, AlertCircle, Angry, Plus, MapPin, ShieldCheck, Info } from "lucide-react";
+import { Frown, Meh, AlertCircle, Angry, Plus, MapPin, ShieldCheck } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface TimelineEventFormProps {

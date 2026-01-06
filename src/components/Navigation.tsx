@@ -11,13 +11,13 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, Map, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, LucideIcon } from "lucide-react";
 import { useState } from "react";
 
 interface NavItem {
     href?: string;
     label: string;
-    icon: any;
+    icon: LucideIcon;
     children?: NavItem[];
 }
 
