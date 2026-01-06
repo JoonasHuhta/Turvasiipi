@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Check, Star, Brain, ClipboardCheck, FileText, Users, Heart } from "lucide-react";
+import { ArrowRight, ShieldCheck, Check, Star, Brain, ClipboardCheck, FileText, Users, Heart, HelpCircle, ChevronDown } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function Home() {
   return (
@@ -195,8 +196,8 @@ export default function Home() {
                       <ClipboardCheck className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Local-First Turva</h4>
-                      <p className="text-sm text-slate-500">Kaikki data tallentuu vain sinun laitteellesi. Me emme näe sitä.</p>
+                      <h4 className="font-bold text-slate-900 mb-1">Luottamuksellinen lokikirja</h4>
+                      <p className="text-sm text-slate-500">Omalla laitteellasi toimiva päiväkirja. Vain sinä päätät, kuka näkee tietosi.</p>
                     </div>
                   </div>
                 </div>
@@ -251,8 +252,8 @@ export default function Home() {
                       <FileText className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">AI-avustaja</h4>
-                      <p className="text-sm text-slate-500">Stateless-prosessointi takaa, että luottamukselliset tiedot eivät jää palvelimelle.</p>
+                      <h4 className="font-bold text-slate-900 mb-1">Selkeä tilannekuva</h4>
+                      <p className="text-sm text-slate-500">Sovellus auttaa tiivistämään hajanaiset merkinnät selkeäksi dokumentiksi.</p>
                     </div>
                   </div>
                 </div>
@@ -298,6 +299,50 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold text-slate-900">Usein kysytyt kysymykset</h2>
+            <p className="text-slate-600">Mietityttääkö jokin? Tässä vastauksia yleisimpiin kysymyksiin.</p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Kuka näkee kirjoittamani asiat?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan vain sinun omalle laitteellesi (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Onko sovellus ilmainen?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Kyllä, Turvasiipi on täysin ilmainen käyttää. Haluamme madaltaa kynnystä kiusaamiseen puuttumiseen.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Voiko työnantajani nähdä, että käytän tätä?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Ei. Olemme suunnitelleet sovelluksen niin, että se ei jätä jälkiä yrityksen verkkoon (emme vaadi kirjautumista työsähköpostilla). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen "Yksityinen selaus" (Incognito) -tilassa.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4" className="border-b-0">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Mitä "Panic Button" tekee?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Oikeassa alakulmassa oleva punainen rasti on hätäpainike. Sitä painamalla sovellus sulkeutuu välittömästi ja selain siirtyy Googleen.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 

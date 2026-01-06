@@ -1,470 +1,474 @@
 "use client";
 
-import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Shield, Lock, Server, Mail, HeartHandshake, Phone, Wind, BrainCircuit, Activity, AlertTriangle, BookOpen, Scale, Landmark, Users } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-    Heart,
-    Activity,
-    ShieldAlert,
-    FileText,
-    Phone,
-    Scale,
-    Users,
-    BookOpen,
-    Smile,
-    CheckCircle2,
-    AlertTriangle,
-    Hospital,
-    HelpCircle,
-    ArrowRight,
-    Brain
-} from "lucide-react";
-import Link from "next/link";
+import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 
 export default function SupportPage() {
-    const [breathingActive, setBreathingActive] = useState(false);
-    const [breathingPhase, setBreathingPhase] = useState("start"); // start, inhale, hold, exhale
-
     return (
-        <div className="max-w-4xl mx-auto space-y-8 pb-20 animate-in fade-in duration-500">
-            <header className="space-y-4 text-center py-8">
-                <Badge className="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 border-indigo-200 mb-2">Resurssipankki</Badge>
-                <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Tuki ja Toipuminen</h1>
+        <div className="space-y-8 pb-20 animate-in fade-in max-w-5xl mx-auto pt-8 px-4">
+
+            <div className="text-center space-y-4 mb-8">
+                <div className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                    Resurssipankki
+                </div>
+                <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">Tuki ja Toipuminen</h1>
                 <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                     Konkreettisia ohjeita, harjoituksia ja toimintamalleja jaksamisen tueksi.
                 </p>
-            </header>
+            </div>
 
             <Tabs defaultValue="plan" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-slate-100/80 backdrop-blur rounded-full">
-                    <TabsTrigger value="plan" className="rounded-full py-3">Toimintasuunnitelma</TabsTrigger>
-                    <TabsTrigger value="exercises" className="rounded-full py-3">Harjoitukset</TabsTrigger>
-                    <TabsTrigger value="contacts" className="rounded-full py-3">Yhteystiedot</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-slate-100 rounded-2xl mb-8 gap-1">
+                    <TabsTrigger value="plan" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                        Toimintasuunnitelma
+                    </TabsTrigger>
+                    <TabsTrigger value="exercises" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                        Harjoitukset
+                    </TabsTrigger>
+                    <TabsTrigger value="contacts" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                        Yhteystiedot
+                    </TabsTrigger>
                 </TabsList>
 
-                {/* --- TAB: TOIMINTASUUNNITELMA --- */}
-                <TabsContent value="plan" className="space-y-6 mt-8">
-                    <div className="grid gap-6">
-                        {/* 1. Kiusaaminen juuri alkanut */}
-                        <Card className="border-l-4 border-l-yellow-500 shadow-md">
-                            <CardHeader>
-                                <div className="flex items-center gap-2 text-yellow-600 mb-2">
-                                    <AlertTriangle className="w-5 h-5" />
-                                    <span className="font-bold uppercase text-xs tracking-widest">Vaihe 1</span>
-                                </div>
-                                <CardTitle className="text-2xl">Kiusaaminen on juuri alkanut tai epäilyttää</CardTitle>
-                                <CardDescription>Kun huomaat ensimmäiset merkit, toimi heti.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="identify">
-                                        <AccordionTrigger className="font-bold">1. Tunnista tilanne</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <p>Kysy itseltäsi:</p>
-                                            <ul className="list-disc pl-5 space-y-1">
-                                                <li>Onko käyttäytyminen toistunut useammin kuin kerran?</li>
-                                                <li>Kohdistuuko se juuri sinuun?</li>
-                                                <li>Tuntuuko sinusta, että et voi puolustautua?</li>
-                                                <li>Vaikuttaako se uneen tai stressitasoosi?</li>
-                                            </ul>
-                                            <p className="font-medium mt-2">Jos vastasit "kyllä" useampaan, kyseessä voi olla kiusaaminen.</p>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="document">
-                                        <AccordionTrigger className="font-bold text-indigo-600">2. Aloita dokumentointi HETI</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-4">
-                                            <p>Muisti hämärtyy. Aloita "Kiusaamispäiväkirja" tänään.</p>
-                                            <Card className="bg-slate-50 border-slate-200">
-                                                <CardContent className="p-4 space-y-2 text-sm font-mono">
-                                                    <div><strong>Kirjaa ylös:</strong></div>
-                                                    <ul className="list-disc pl-5 space-y-1">
-                                                        <li>Päivämäärä ja kellonaika</li>
-                                                        <li>Mitä tapahtui (faktat, ei tulkintoja)</li>
-                                                        <li>Todistajat (nimet)</li>
-                                                        <li>Tarkat sanamuodot ("Hän sanoi...")</li>
-                                                        <li>Omat tuntemukset ja reaktiot</li>
-                                                    </ul>
-                                                </CardContent>
-                                            </Card>
-                                            <p className="text-sm">💡 <strong>Vinkki:</strong> Käytä sovelluksen <Link href="/timeline" className="text-indigo-600 underline">Logikirjaa</Link> tähän.</p>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="talk">
-                                        <AccordionTrigger className="font-bold">3. Kenelle puhua?</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <p><strong>Turvallinen henkilö ensin:</strong></p>
-                                            <ul className="list-disc pl-5 space-y-1">
-                                                <li>Luotettava työkaveri (todistaja?)</li>
-                                                <li>Perheenjäsen tai ystävä (validointi)</li>
-                                                <li>Työterveyshuolto (luottamuksellinen tuki)</li>
-                                            </ul>
-                                            <p className="mt-2 text-red-600 text-sm font-bold">⚠️ ÄLÄ vielä konfrontoi kiusaajaa yksin tai lähetä vihaisia viestejä.</p>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Accordion>
-                            </CardContent>
-                        </Card>
-
-                        {/* 2. Tilanne on jatkunut */}
-                        <Card className="border-l-4 border-l-orange-500 shadow-md">
-                            <CardHeader>
-                                <div className="flex items-center gap-2 text-orange-600 mb-2">
-                                    <ShieldAlert className="w-5 h-5" />
-                                    <span className="font-bold uppercase text-xs tracking-widest">Vaihe 2</span>
-                                </div>
-                                <CardTitle className="text-2xl">Tilanne on jatkunut pidempään</CardTitle>
-                                <CardDescription>Kun epäviralliset keinot eivät riitä, tarvitaan virallisia toimia.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="ts-valtuutettu">
-                                        <AccordionTrigger className="font-bold">1. Ota yhteys työsuojeluvaltuutettuun</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <p>Hän on työntekijöiden edustaja, joka tuntee lait ja prosessit. Keskustelu on luottamuksellinen. Pyydä häntä mukaan tapaamisiin tueksi.</p>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="ilmoitus">
-                                        <AccordionTrigger className="font-bold">2. Tee kirjallinen ilmoitus työnantajalle</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-3">
-                                            <p>Työnantajan velvollisuus alkaa vasta kun he "saavat tiedon". Kirjallinen on paras todiste.</p>
-                                            <div className="bg-slate-100 p-4 rounded-md font-mono text-xs">
-                                                <p>"ASIA: Ilmoitus epäasiallisesta kohtelusta..."</p>
-                                                <p>"Pyydän työnantajaa ryhtymään toimenpiteisiin työturvallisuuslain mukaisesti..."</p>
-                                            </div>
-                                            <Button variant="outline" size="sm" asChild>
-                                                <Link href="/raportti">Käytä Raportti-työkalua</Link>
-                                            </Button>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="avi">
-                                        <AccordionTrigger className="font-bold">3. Työsuojeluviranomainen (AVI)</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <p>Jos työnantaja ei toimi ilmoituksesta huolimatta, tee ilmoitus Aluehallintovirastoon (AVI). He voivat tarkastaa työpaikan ja antaa määräyksiä.</p>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Accordion>
-                            </CardContent>
-                        </Card>
-
-                        {/* 3. Sairausloma ja toipuminen */}
-                        <Card className="border-l-4 border-l-emerald-500 shadow-md">
-                            <CardHeader>
-                                <div className="flex items-center gap-2 text-emerald-600 mb-2">
-                                    <Hospital className="w-5 h-5" />
-                                    <span className="font-bold uppercase text-xs tracking-widest">Vaihe 3</span>
-                                </div>
-                                <CardTitle className="text-2xl">Olen sairauslomalla uupumuksen vuoksi</CardTitle>
-                                <CardDescription>Toipuminen on nyt tärkein työsi.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="kriisi">
-                                        <AccordionTrigger className="font-bold">Viikot 1-2: Kriisivaihe (Lepo)</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <ul className="list-disc pl-5 space-y-1">
-                                                <li><strong>Nuku:</strong> Kehosi on ylikierroksilla.</li>
-                                                <li><strong>Irti työstä:</strong> Älä lue sähköposteja. Poista sovellukset.</li>
-                                                <li><strong>Hae apua:</strong> Työterveys, terapia, kriisipuhelin.</li>
-                                            </ul>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="kasittely">
-                                        <AccordionTrigger className="font-bold">Viikot 3-8: Käsittelyvaihe</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <ul className="list-disc pl-5 space-y-1">
-                                                <li>Ala käsitellä tapahtunutta ammattilaisen kanssa.</li>
-                                                <li>Aloita pienet hyvinvointirutiinit (kävely, säännöllinen ruoka).</li>
-                                                <li>Ymmärrä: Et ole syyllinen. Tämä oli trauma.</li>
-                                            </ul>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="future">
-                                        <AccordionTrigger className="font-bold">Viikot 8+: Tulevaisuus</AccordionTrigger>
-                                        <AccordionContent className="text-slate-600 space-y-2">
-                                            <p>Arvioi vaihtoehdot realistisesti:</p>
-                                            <ul className="list-disc pl-5 space-y-1">
-                                                <li>Paluu (onko tilanne korjattu?)</li>
-                                                <li>Siirto toiseen tiimiin</li>
-                                                <li>Työpaikan vaihto (uusi alku)</li>
-                                            </ul>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Accordion>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </TabsContent>
-
-                {/* --- TAB: HARJOITUKSET --- */}
-                <TabsContent value="exercises" className="mt-8">
-                    <div className="grid md:grid-cols-2 gap-6">
-
-                        {/* 1. Hengitysharjoitus */}
-                        <Card className="md:col-span-2 bg-slate-900 text-white border-none overflow-hidden relative">
-                            <div className="absolute top-0 right-0 p-8 opacity-10">
-                                <Activity className="w-48 h-48" />
+                {/* --- TAB 1: TOIMINTASUUNNITELMA --- */}
+                <TabsContent value="plan" className="space-y-6">
+                    {/* VAIHE 1 */}
+                    <Card className="border-l-4 border-l-yellow-400">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-yellow-600 font-bold text-xs uppercase tracking-widest mb-1">
+                                <AlertTriangle className="w-4 h-4" /> Vaihe 1
                             </div>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2">
-                                    <Activity className="w-5 h-5 text-emerald-400" />
-                                    Stressinhallinta: 5-5-5 Hengitys
-                                </CardTitle>
-                                <CardDescription className="text-slate-400">Aktivoi parasympaattinen hermosto ja rauhoita akuutti ahdistus.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex flex-col items-center py-10 relative z-10">
-                                {!breathingActive ? (
-                                    <Button size="lg" onClick={() => setBreathingActive(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-full px-8">
-                                        Aloita harjoitus
-                                    </Button>
-                                ) : (
-                                    <div className="flex flex-col items-center gap-8">
-                                        <motion.div
-                                            animate={{
-                                                scale: [1, 1.2, 1.2, 1],
-                                                opacity: [0.7, 1, 1, 0.7],
-                                            }}
-                                            transition={{
-                                                duration: 15, // 5s in, 5s hold, 5s out
-                                                ease: "linear",
-                                                repeat: Infinity,
-                                                times: [0, 0.33, 0.66, 1]
-                                            }}
-                                            className="w-40 h-40 bg-emerald-500/20 border-4 border-emerald-500 rounded-full flex items-center justify-center relative shadow-[0_0_50px_rgba(16,185,129,0.3)]"
-                                        >
-                                            <div className="text-2xl font-bold text-emerald-400">
-                                                Hengitä
-                                            </div>
-                                        </motion.div>
-                                        <p className="text-slate-300 font-mono text-sm animate-pulse">
-                                            Sisään (5s) ... Pidätä (5s) ... Ulos (5s)
-                                        </p>
-                                        <Button variant="outline" className="text-black border-white/20 hover:bg-white/10 hover:text-white" onClick={() => setBreathingActive(false)}>Lopeta</Button>
-                                    </div>
-                                )}
-                            </CardContent>
-                        </Card>
+                            <CardTitle>Kiusaaminen on juuri alkanut tai epäilyttää</CardTitle>
+                            <CardDescription>Kun huomaat ensimmäiset merkit, toimi heti.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="p1-1">
+                                    <AccordionTrigger>1. Tunnista tilanne</AccordionTrigger>
+                                    <AccordionContent>
+                                        Onko kyseessä toistuva epäasiallinen kohtelu? Tee etusivun testi varmistukseksi. Kirjaa ylös konkreettiset esimerkit.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="p1-2">
+                                    <AccordionTrigger className="font-bold text-indigo-600">2. Aloita dokumentointi HETI</AccordionTrigger>
+                                    <AccordionContent>
+                                        Älä odota, että "tilanne menee ohi". Aloita lokikirjan pitäminen heti (Timeline-työkalu). Ilman dokumentaatiota sana on sanaa vastaan.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="p1-3">
+                                    <AccordionTrigger>3. Kenelle puhua?</AccordionTrigger>
+                                    <AccordionContent>
+                                        Puhu ensin luotettavalle kollegalle tai ystävälle. Älä jää yksin asian kanssa.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </CardContent>
+                    </Card>
 
-                        {/* 2. Maadoitus */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><Brain className="w-5 h-5 text-indigo-500" /> Maadoitustekniikka 5-4-3-2-1</CardTitle>
-                                <CardDescription>Kun paniikki iskee, palauta itsesi hetkeen.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-2 text-sm text-slate-600">
-                                <ul className="space-y-2">
-                                    <li>👀 <strong>5</strong> asiaa jotka näet</li>
-                                    <li>✋ <strong>4</strong> asiaa johon kosketat</li>
-                                    <li>👂 <strong>3</strong> asiaa jotka kuulet</li>
-                                    <li>👃 <strong>2</strong> asiaa jotka haistat</li>
-                                    <li>👄 <strong>1</strong> asia jonka maistat</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
+                    {/* VAIHE 2 */}
+                    <Card className="border-l-4 border-l-orange-500">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-orange-600 font-bold text-xs uppercase tracking-widest mb-1">
+                                <AlertTriangle className="w-4 h-4" /> Vaihe 2
+                            </div>
+                            <CardTitle>Tilanne on jatkunut pidempään</CardTitle>
+                            <CardDescription>Kun epäviralliset keinot eivät riitä, tarvitaan virallisia toimia.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="p2-1">
+                                    <AccordionTrigger>1. Ota yhteys työsuojeluvaltuutettuun</AccordionTrigger>
+                                    <AccordionContent>
+                                        Hän on työntekijöiden edustaja, joka tuntee lait ja prosessit. Keskustelu on luottamuksellinen. Pyydä häntä mukaan tapaamisiin tueksi.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="p2-2">
+                                    <AccordionTrigger>2. Tee kirjallinen ilmoitus työnantajalle</AccordionTrigger>
+                                    <AccordionContent>
+                                        Työnantajalla on lakisääteinen velvollisuus puuttua häirintään, kun he saavat siitä tiedon. Tee ilmoitus kirjallisesti (sähköposti), jotta siitä jää jälki.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="p2-3">
+                                    <AccordionTrigger>3. Työsuojeluviranomainen (AVI)</AccordionTrigger>
+                                    <AccordionContent>
+                                        Jos työnantaja ei puutu asiaan, voit olla yhteydessä Aluehallintovirastoon (AVI).
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </CardContent>
+                    </Card>
 
-                        {/* 3. Rajojen asettaminen */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><ShieldAlert className="w-5 h-5 text-orange-500" /> Rajojen asettaminen</CardTitle>
-                                <CardDescription>Opettele sanomaan nämä ääneen.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <ul className="space-y-2 text-sm font-medium text-slate-700">
-                                    <li className="bg-orange-50 p-2 rounded border border-orange-100">"En hyväksy tällaista puhetta."</li>
-                                    <li className="bg-orange-50 p-2 rounded border-orange-100">"Pyydän että puhut minulle asiallisesti."</li>
-                                    <li className="bg-orange-50 p-2 rounded border-orange-100">"En jatka keskustelua, jos se jatkuu tällaisena."</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
-
-                        {/* 4. DARVO-puolustus */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><Scale className="w-5 h-5 text-blue-500" /> DARVO-puolustus</CardTitle>
-                                <CardDescription>Kun kohtaat manipulointia (Deny, Attack, Reverse Victim).</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3 text-sm">
-                                <div>
-                                    <div className="font-bold text-red-500 text-xs">HYÖKKÄYS:</div>
-                                    <div className="italic text-slate-500">"Sinä olet liian herkkä. Sinulla on ongelmia."</div>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-emerald-600 text-xs">VASTAUS:</div>
-                                    <div className="font-medium text-slate-700">"Tämä ei ole minusta kiinni. Keskitytään käyttäytymiseen ja faktoihin."</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* 5. Vahvuuslista */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><Smile className="w-5 h-5 text-pink-500" /> Vahvuuslista</CardTitle>
-                                <CardDescription>Muistutus itsellesi heikkoina hetkinä.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="text-sm text-slate-600 space-y-2">
-                                <p>Kirjoita ylös 3 asiaa, joissa olet onnistunut:</p>
-                                <ol className="list-decimal pl-5 space-y-1 font-mono bg-slate-50 p-3 rounded">
-                                    <li>_______________________</li>
-                                    <li>_______________________</li>
-                                    <li>_______________________</li>
-                                </ol>
-                                <p className="italic text-xs">"Yksi huono esimies ei määritä minun arvoani."</p>
-                            </CardContent>
-                        </Card>
-
-                        {/* 6. Hätä-apupakki */}
-                        <Card className="bg-slate-50 border-dashed border-2">
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2">📦 Hätä-apupakki</CardTitle>
-                                <CardDescription>Tallenna nämä valmiiksi pahaa päivää varten.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="text-sm space-y-2">
-                                <ul className="space-y-2">
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Rauhoittava soittolista</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Luotettavan ystävän numero</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Mieli ry kriisipuhelin (09 2525 0111)</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Lempielokuva</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
-
-                        {/* 7. Konfliktin käsittely */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><Users className="w-5 h-5 text-purple-500" /> Konfliktisimulaatio</CardTitle>
-                                <CardDescription>Harjoittele vastauksia vaikeisiin kysymyksiin.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3 text-sm">
-                                <div className="space-y-1">
-                                    <div className="font-bold text-slate-700">"Oletko varma ettet liioittele?"</div>
-                                    <div className="bg-purple-50 p-2 rounded text-purple-900 border border-purple-100">"Olen dokumentoinut kaiken. Tämä on toistuva kuvio, ei yksittäistapaus."</div>
-                                </div>
-                                <div className="space-y-1">
-                                    <div className="font-bold text-slate-700">"Miksi et sanonut aiemmin?"</div>
-                                    <div className="bg-purple-50 p-2 rounded text-purple-900 border border-purple-100">"Pelkäsin tilanteen pahenevan. Nyt ymmärrän, että minun on puolustettava itseäni."</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* 8. Tulevaisuus */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg flex items-center gap-2"><ArrowRight className="w-5 h-5 text-cyan-500" /> Tulevaisuuden suunnittelu</CardTitle>
-                                <CardDescription>Katse eteenpäin: Missä haluat olla 6kk päästä?</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3 text-sm text-slate-600">
-                                <p>Pienet askeleet vievät eteenpäin:</p>
-                                <ul className="space-y-2">
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 text-cyan-500" /> Päivitän CV:ni (1 vk)</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 text-cyan-500" /> Etsin 3 kiinnostavaa työpaikkaa (2 vk)</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-3 h-3 text-cyan-500" /> Lepään ja palaudun (jatkuva)</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
-
-                    </div>
+                    {/* VAIHE 3 */}
+                    <Card className="border-l-4 border-l-emerald-500">
+                        <CardHeader>
+                            <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest mb-1">
+                                <HeartHandshake className="w-4 h-4" /> Vaihe 3
+                            </div>
+                            <CardTitle>Olen saiauslomalla uupumuksen vuoksi</CardTitle>
+                            <CardDescription>Toipuminen on nyt tärkein työsi.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="p3-1">
+                                    <AccordionTrigger>Viikot 1-2: Kriisivaihe (Lepo)</AccordionTrigger>
+                                    <AccordionContent>
+                                        Nuku, syö, ulkoile. Älä mieti työasioita. Poista työsähköposti puhelimesta. Olet turvassa.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="p3-2">
+                                    <AccordionTrigger>Viikot 3-8: Käsittelyvaihe</AccordionTrigger>
+                                    <AccordionContent>
+                                        Aloita asian käsittely ammattilaisen (työterveyspsykologi, terapeutti) kanssa. Käytä Turvasiipi-raporttia apuna.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </CardContent>
+                    </Card>
                 </TabsContent>
 
-                {/* --- TAB: YHTEYSTIEDOT --- */}
-                <TabsContent value="contacts" className="mt-8 space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <Card className="border-l-4 border-l-red-500">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2"><Phone className="w-5 h-5 text-red-500" /> Akuutti kriisiapua</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div>
-                                    <div className="font-bold text-lg">Mieli ry - Kriisipuhelin</div>
-                                    <div className="text-2xl font-black text-slate-900 my-1">09 2525 0111</div>
-                                    <div className="text-muted-foreground text-sm">Auki 24/7. Luottamuksellinen.</div>
-                                </div>
-                                <hr />
-                                <div>
-                                    <div className="font-bold">Rikosuhripäivystys (RIKU)</div>
-                                    <div className="text-xl font-bold text-slate-800 my-1">116 006</div>
-                                    <div className="text-muted-foreground text-sm">Jos koet väkivaltaa tai rikosta.</div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                {/* --- TAB 2: HARJOITUKSET --- */}
+                <TabsContent value="exercises" className="grid gap-8 md:grid-cols-2">
 
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2"><Scale className="w-5 h-5 text-indigo-500" /> Viranomaiset & Oikeus</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div>
-                                    <div className="font-bold">Aluehallintovirasto (AVI)</div>
-                                    <div className="text-sm text-slate-600 mb-1">Työsuojelun vastuualue</div>
-                                    <Link href="https://avi.fi" target="_blank" className="text-indigo-600 hover:underline text-sm flex items-center gap-1">
-                                        Siirry verkkosivuille <ArrowRight className="w-3 h-3" />
-                                    </Link>
-                                </div>
-                                <div>
-                                    <div className="font-bold">Ammattiliitot</div>
-                                    <div className="text-sm text-slate-600">
-                                        Ota yhteys oman alasi liittoon lakiapua varten.
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="font-bold">Oikeusaputoimistot</div>
-                                    <div className="text-sm text-slate-600">
-                                        Puh: 0295 16 2500
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                    {/* HENGITYS */}
+                    <Card className="md:col-span-2 border-indigo-100 bg-indigo-50/30">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-indigo-800">
+                                <Wind className="w-6 h-6" /> Stressinhallinta: 5-5-5 Hengitys
+                            </CardTitle>
+                            <CardDescription>Aktivoi parasympaattinen hermosto ja rauhoita akuutti ahdistus.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <BreathingExercise555 />
+                        </CardContent>
+                    </Card>
 
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2"><Users className="w-5 h-5 text-emerald-500" /> Vertaistuki</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <ul className="space-y-3 text-sm text-slate-600">
-                                    <li className="flex items-center gap-2">
-                                        <Smile className="w-4 h-4 text-emerald-500" />
-                                        <span><strong>Facebook:</strong> "Työpaikkakiusaamisen uhrit"</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <Smile className="w-4 h-4 text-emerald-500" />
-                                        <span><strong>Mieli ry:</strong> Vertaistukiryhmät (mieli.fi)</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <Smile className="w-4 h-4 text-emerald-500" />
-                                        <span><strong>Paikalliset kriisikeskukset</strong></span>
-                                    </li>
-                                </ul>
-                            </CardContent>
-                        </Card>
+                    {/* MAADOITUS */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-lg">Maadoitustekniikka 5-4-3-2-1</CardTitle>
+                            <CardDescription>Kun paniikki iskee, palauta itsesi hetkeen.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4 text-sm text-slate-700">
+                            <ul className="space-y-3">
+                                <li className="flex items-center gap-3"><span className="text-xl">👀</span> <strong>5</strong> asiaa jotka näet</li>
+                                <li className="flex items-center gap-3"><span className="text-xl">✋</span> <strong>4</strong> asiaa johon kosketat</li>
+                                <li className="flex items-center gap-3"><span className="text-xl">👂</span> <strong>3</strong> asiaa jotka kuulet</li>
+                                <li className="flex items-center gap-3"><span className="text-xl">👃</span> <strong>2</strong> asiaa jotka haistat</li>
+                                <li className="flex items-center gap-3"><span className="text-xl">👄</span> <strong>1</strong> asia jonka maistat</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
 
-                        <Card className="bg-slate-900 text-white border-none">
-                            <CardHeader>
-                                <CardTitle className="flex items-center gap-2 text-white">💡 Tietopankit</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                <div className="space-y-1">
-                                    <div className="font-bold text-indigo-300">Työterveyslaitos (TTL)</div>
-                                    <div className="text-sm text-slate-400">Tutkittua tietoa työhyvinvoinnista.</div>
-                                    <div className="text-xs text-slate-500">ttl.fi</div>
-                                </div>
-                                <div className="space-y-1">
-                                    <div className="font-bold text-indigo-300">Työturvallisuuskeskus</div>
-                                    <div className="text-sm text-slate-400">Materiaaleja ja oppaita.</div>
-                                    <div className="text-xs text-slate-500">ttk.fi</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
+                    {/* RAJAT */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-lg">Rajojen asettaminen</CardTitle>
+                            <CardDescription>Opettele sanomaan nämä ääneen.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
+                            <QuoteBox>"En hyväksy tällaista puhetta."</QuoteBox>
+                            <QuoteBox>"Pyydän että puhut minulle asiallisesti."</QuoteBox>
+                            <QuoteBox>"En jatka keskustelua, jos se jatkuu tällaisena."</QuoteBox>
+                        </CardContent>
+                    </Card>
+
+                    {/* DARVO */}
+                    <Card className="md:col-span-2 border-slate-200 bg-slate-50">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <Shield className="w-5 h-5" /> DARVO-puolustus
+                            </CardTitle>
+                            <CardDescription>Kun kohtaat manipulointia (Deny, Attack, Reverse Victim).</CardDescription>
+                        </CardHeader>
+                        <CardContent className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-red-50 p-4 rounded-lg border border-red-100">
+                                <h4 className="font-bold text-red-800 mb-2">HYÖKKÄYS:</h4>
+                                <p className="italic text-red-700">"Sinä olet liian herkkä. Sinulla on ongelmia."</p>
+                            </div>
+                            <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                <h4 className="font-bold text-emerald-800 mb-2">VASTAUS:</h4>
+                                <p className="font-medium text-emerald-900">"Tämä ei ole minusta kiinni. Keskitytään käyttäytymiseen ja faktoihin."</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* VAHVUUSLISTA */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-lg">Vahvuuslista</CardTitle>
+                            <CardDescription>Muistutus itsellesi heikkoina hetkinä.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <p className="text-sm text-slate-500">Kirjoita ylös 3 asiaa, joissa olet onnistunut:</p>
+                            <div className="space-y-2">
+                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder="1. _______________________" />
+                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder="2. _______________________" />
+                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder="3. _______________________" />
+                            </div>
+                            <p className="text-center italic text-indigo-600 font-medium pt-2">"Yksi huono esimies ei määritä minun arvoani."</p>
+                        </CardContent>
+                    </Card>
+
+                    {/* HÄTÄAPUPAKKI */}
+                    <Card className="bg-rose-50 border-rose-100">
+                        <CardHeader>
+                            <CardTitle className="text-lg text-rose-900">📦 Hätä-apupakki</CardTitle>
+                            <CardDescription className="text-rose-700">Tallenna nämä valmiiksi pahaa päivää varten.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                            <div className="flex items-center gap-2">
+                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>Rauhoittava soittolista</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>Luotettavan ystävän numero</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <input type="checkbox" className="w-4 h-4 accent-rose-600" checked readOnly /> <span className="font-bold">Mieli ry kriisipuhelin (09 2525 0111)</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>Lempielokuva</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* KONFLIKTISIMULAATIO */}
+                    <Card className="md:col-span-2">
+                        <CardHeader>
+                            <CardTitle className="text-lg">Konfliktisimulaatio</CardTitle>
+                            <CardDescription>Harjoittele vastauksia vaikeisiin kysymyksiin.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div className="bg-slate-50 p-4 rounded-lg">
+                                <p className="font-bold text-slate-700 text-sm mb-1">KYSYMYS:</p>
+                                <p className="italic mb-2">"Oletko varma ettet liioittele?"</p>
+                                <p className="font-bold text-indigo-700 text-sm mb-1">VASTAUS:</p>
+                                <p className="text-indigo-900 font-medium">"Olen dokumentoinut kaiken. Tämä on toistuva kuvio, ei yksittäistapaus."</p>
+                            </div>
+                            <div className="bg-slate-50 p-4 rounded-lg">
+                                <p className="font-bold text-slate-700 text-sm mb-1">KYSYMYS:</p>
+                                <p className="italic mb-2">"Miksi et sanonut aiemmin?"</p>
+                                <p className="font-bold text-indigo-700 text-sm mb-1">VASTAUS:</p>
+                                <p className="text-indigo-900 font-medium">"Pelkäsin tilanteen pahenevan. Nyt ymmärrän, että minun on puolustettava itseäni."</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* TULEVAISUUS */}
+                    <Card className="md:col-span-2 bg-gradient-to-r from-indigo-50 to-purple-50 border-none">
+                        <CardHeader>
+                            <CardTitle className="text-lg">Tulevaisuuden suunnittelu</CardTitle>
+                            <CardDescription>Katse eteenpäin: Missä haluat olla 6kk päästä?</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <p className="font-medium text-slate-700">Pienet askeleet vievät eteenpäin:</p>
+                            <div className="space-y-3">
+                                <CheckItem time="1 vk">Päivitän CV:ni</CheckItem>
+                                <CheckItem time="2 vk">Etsin 3 kiinnostavaa työpaikkaa</CheckItem>
+                                <CheckItem time="jatkuva">Lepään ja palaudun</CheckItem>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+
+                {/* --- TAB 3: YHTEYSTIEDOT --- */}
+                <TabsContent value="contacts" className="grid gap-6 md:grid-cols-2">
+                    <Card className="border-l-4 border-l-rose-500">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-rose-700">
+                                <Phone className="w-5 h-5" /> Akuutti kriisiapua
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <h3 className="font-bold text-lg">Mieli ry - Kriisipuhelin</h3>
+                                <div className="text-3xl font-black text-slate-900 my-1">09 2525 0111</div>
+                                <p className="text-sm text-slate-500">Auki 24/7. Luottamuksellinen.</p>
+                            </div>
+                            <div className="pt-4 border-t">
+                                <h3 className="font-bold text-lg">Rikosuhripäivystys (RIKU)</h3>
+                                <div className="text-3xl font-black text-slate-900 my-1">116 006</div>
+                                <p className="text-sm text-slate-500">Jos koet väkivaltaa tai rikosta.</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-l-4 border-l-blue-500">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-blue-700">
+                                <Scale className="w-5 h-5" /> Viranomaiset & Oikeus
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <h3 className="font-bold text-base">Aluehallintovirasto (AVI)</h3>
+                                <p className="text-sm text-slate-600 mb-1">Työsuojelun vastuualue</p>
+                                <a href="#" className="text-blue-600 text-sm hover:underline">Siirry verkkosivuille →</a>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-base">Ammattiliitot</h3>
+                                <p className="text-sm text-slate-600">Ota yhteys oman alasi liittoon lakiapua varten.</p>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-base">Oikeusaputoimistot</h3>
+                                <p className="text-sm text-slate-600">Puh: 0295 16 2500</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-l-4 border-l-emerald-500">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-emerald-700">
+                                <Users className="w-5 h-5" /> Vertaistuki
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
+                            <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
+                                <span>☺</span> Facebook: "Työpaikkakiusaamisen uhrit"
+                            </a>
+                            <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
+                                <span>☺</span> Mieli ry: Vertaistukiryhmät (mieli.fi)
+                            </a>
+                            <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
+                                <span>☺</span> Paikalliset kriisikeskukset
+                            </a>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-none bg-slate-900 text-white">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-yellow-400">
+                                <BookOpen className="w-5 h-5" /> Tietopankit
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div>
+                                <h3 className="font-bold text-base text-blue-200">Työterveyslaitos (TTL)</h3>
+                                <p className="text-sm text-slate-400">Tutkittua tietoa työhyvinvoinnista.</p>
+                                <p className="text-xs text-slate-500 mt-1">ttl.fi</p>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-base text-blue-200">Työturvallisuuskeskus</h3>
+                                <p className="text-sm text-slate-400">Materiaaleja ja oppaita.</p>
+                                <p className="text-xs text-slate-500 mt-1">ttk.fi</p>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </TabsContent>
             </Tabs>
 
-            <footer className="text-center text-slate-400 text-sm mt-12 mb-8 bg-slate-50 p-6 rounded-2xl">
-                <p className="font-medium text-slate-500 mb-2">💚 Muista: Et ole yksin. Et ole syyllinen. Sinulla on oikeus apuun.</p>
-                <p className="text-xs italic">Tämä materiaali on tarkoitettu tiedotukseksi ja tueksi. Se ei korvaa ammattilaisen antamaa apua.</p>
-            </footer>
+            <div className="text-center pt-8 border-t border-slate-100">
+                <p className="text-emerald-600 font-bold text-lg flex items-center justify-center gap-2">
+                    💚 Muista: Et ole yksin. Et ole syyllinen. Sinulla on oikeus apuun.
+                </p>
+                <p className="text-slate-400 text-xs mt-2 italic">
+                    Tämä materiaali on tarkoitettu tiedotukseksi ja tueksi. Se ei korvaa ammattilaisen antamaa apua.
+                </p>
+            </div>
+        </div>
+    );
+}
+
+// --- SUBCOMPONENTS ---
+
+function QuoteBox({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="bg-indigo-50 px-4 py-3 rounded-tr-xl rounded-bl-xl rounded-br-xl border-l-4 border-l-indigo-400 text-indigo-900 font-medium italic">
+            {children}
+        </div>
+    );
+}
+
+function CheckItem({ time, children }: { time: string, children: React.ReactNode }) {
+    return (
+        <div className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+            <div className="w-6 h-6 rounded-full border-2 border-indigo-200 flex items-center justify-center text-transparent hover:text-indigo-600 cursor-pointer transition-colors">
+                ✓
+            </div>
+            <div className="flex-1">
+                <p className="text-slate-800 font-medium">{children}</p>
+                <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">{time}</p>
+            </div>
+        </div>
+    );
+}
+
+function BreathingExercise555() {
+    const [status, setStatus] = useState("Aloita");
+    const [isRunning, setIsRunning] = useState(false);
+
+    useEffect(() => {
+        if (!isRunning) return;
+
+        const phases = [
+            { text: "Hengitä sisään (5)", duration: 5000 },
+            { text: "Pidätä (5)", duration: 5000 },
+            { text: "Hengitä ulos (5)", duration: 5000 },
+        ];
+
+        let phaseIndex = 0;
+
+        const runPhase = () => {
+            if (!isRunning) return; // Safety check
+            setStatus(phases[phaseIndex].text);
+            phaseIndex = (phaseIndex + 1) % phases.length;
+        };
+
+        runPhase();
+        const interval = setInterval(runPhase, 5000);
+
+        return () => clearInterval(interval);
+    }, [isRunning]);
+
+    return (
+        <div className="flex flex-col items-center justify-center py-6 gap-6">
+            <div className="relative flex items-center justify-center">
+                <motion.div
+                    animate={isRunning ? {
+                        scale: [1, 1.3, 1.3, 1, 1], // In(1->1.3), Hold(1.3), Out(1.3->1)
+                        opacity: [0.6, 1, 1, 0.6, 0.6],
+                    } : { scale: 1, opacity: 0.6 }}
+                    transition={isRunning ? {
+                        duration: 15, // 5+5+5
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        times: [0, 0.33, 0.66, 1]
+                    } : {}}
+                    className="w-40 h-40 rounded-full bg-indigo-300/30 absolute blur-xl"
+                />
+                <motion.div
+                    animate={isRunning ? {
+                        scale: [1, 1.1, 1.1, 1, 1],
+                    } : { scale: 1 }}
+                    transition={isRunning ? {
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        times: [0, 0.33, 0.66, 1]
+                    } : {}}
+                    className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative z-10 shadow-xl text-white font-bold text-center px-4"
+                >
+                    {status}
+                </motion.div>
+            </div>
+
+            <Button
+                onClick={() => {
+                    setIsRunning(!isRunning);
+                    if (isRunning) setStatus("Aloita");
+                }}
+                variant={isRunning ? "outline" : "default"}
+                size="sm"
+                className="rounded-full px-6"
+            >
+                {isRunning ? "Lopeta" : "Aloita harjoitus"}
+            </Button>
         </div>
     );
 }
