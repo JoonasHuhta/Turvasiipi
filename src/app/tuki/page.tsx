@@ -338,6 +338,9 @@ export default function SupportPage() {
                             <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
                                 <span>☺</span> Paikalliset kriisikeskukset
                             </a>
+                            <a href="https://discord.gg/2pwqw8Rhtu" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
+                                <span>💬</span> Discord: Turvasiipi Yhteisö
+                            </a>
                         </CardContent>
                     </Card>
 

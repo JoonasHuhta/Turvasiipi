@@ -20,6 +20,14 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6 border border-blue-200/50">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          Beta - Kehitysversio
+        </div>
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
           Kiusaaminen ei johdu sinusta.
         </h1>
@@ -326,7 +334,7 @@ export default function Home() {
                 Kyllä, Turvasiipi on täysin ilmainen käyttää. Haluamme madaltaa kynnystä kiusaamiseen puuttumiseen.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-3" className="border-b border-slate-100">
+            <AccordionItem value="item-3" className="border-b-0">
               <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
                 Voiko työnantajani nähdä, että käytän tätä?
               </AccordionTrigger>
@@ -334,14 +342,7 @@ export default function Home() {
                 Ei. Olemme suunnitelleet sovelluksen niin, että se ei jätä jälkiä yrityksen verkkoon (emme vaadi kirjautumista työsähköpostilla). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen "Yksityinen selaus" (Incognito) -tilassa.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-4" className="border-b-0">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                Mitä "Panic Button" tekee?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                Oikeassa alakulmassa oleva punainen rasti on hätäpainike. Sitä painamalla sovellus sulkeutuu välittömästi ja selain siirtyy Googleen.
-              </AccordionContent>
-            </AccordionItem>
+
           </Accordion>
         </div>
       </section>
