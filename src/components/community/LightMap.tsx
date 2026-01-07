@@ -13,18 +13,24 @@ export function LightMap() {
     const [candles, setCandles] = useState<{ x: number, y: number, scale: number, duration: number, delay: number }[]>([]);
 
     useEffect(() => {
-        // Hydration safe random number or load from local storage
-        const baseCount = 142; // Fallback
-        const currentHour = new Date().getHours();
-        // Simple algorithm to simulate activity curve (more in evening)
-        const activityFactor = currentHour > 17 && currentHour < 23 ? 1.5 : 0.8;
+        // Fetch real count
+        fetch('/api/lights')
+            .then(res => res.json())
+            .then(data => setLights(data.count))
+            .catch(err => console.error("Failed to fetch lights", err));
 
-        setLights(Math.floor(baseCount * activityFactor));
+        // Periodically refresh (basic polling every 30s to see others' lights)
+        const interval = setInterval(() => {
+            fetch('/api/lights')
+                .then(res => res.json())
+                .then(data => setLights(data.count))
+                .catch(() => { });
+        }, 30000);
 
         const localLit = localStorage.getItem("hasLitLight");
         if (localLit) {
             const litTime = parseInt(localLit);
-            // Reset after 24 hours
+            // Reset local "you have lit" state after 24 hours so you can light again
             if (Date.now() - litTime < 24 * 60 * 60 * 1000) {
                 setHasLit(true);
             } else {
@@ -41,13 +47,26 @@ export function LightMap() {
             delay: Math.random() * 5
         }));
         setCandles(newCandles);
+
+        return () => clearInterval(interval);
     }, []);
 
-    const handleLight = () => {
+    const handleLight = async () => {
         setHasLit(true);
-        setLights(prev => prev + 1);
+        // Optimistic update
+        const prev = lights;
+        setLights(prev + 1);
         setShowThankYou(true);
         localStorage.setItem("hasLitLight", Date.now().toString());
+
+        try {
+            const res = await fetch('/api/lights', { method: 'POST' });
+            const data = await res.json();
+            if (data.count) setLights(data.count); // sync with real server count
+        } catch (error) {
+            console.error("Failed to light candle", error);
+            // revert if failed? nah, let's keep it positive for the user
+        }
 
         setTimeout(() => setShowThankYou(false), 3000);
     };
@@ -98,7 +117,7 @@ export function LightMap() {
                             animate={{ opacity: 1, y: 0 }}
                             className="bg-amber-950/50 border border-amber-900/50 text-amber-200 px-6 py-3 rounded-full font-medium"
                         >
-                            {lights} valoa sytytetty tänään. Kiitos että olet.
+                            {lights} valoa sytytetty. Kiitos että olet.
                         </motion.div>
                     ) : (
                         <Button
