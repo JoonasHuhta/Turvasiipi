@@ -51,32 +51,56 @@ export default function Home() {
       {/* Trust Grid / Statistics - Mobile Optimized */}
       <section className="px-4 pb-16">
         <div className="max-w-md md:max-w-4xl mx-auto bg-white/70 backdrop-blur-sm border border-white/50 rounded-3xl p-6 md:p-10 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">!</span>
-                Miksi tämä on tärkeää?
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                Et ole ainoa. Joka neljäs suomalainen kohtaa työpaikkakiusaamista.
-                Suurin ongelma on, että <span className="font-semibold text-slate-900">todisteet puuttuvat</span> kun niitä tarvitaan.
-              </p>
-              <ul className="space-y-3 pt-2">
-                <li className="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400" /> 120 000 uhria juuri nyt
-                </li>
-                <li className="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400" /> Kiusaaminen kestää keskimäärin 1-3 vuotta
-                </li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            {/* Left Column: Header + Stats */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
+                  <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">!</span>
+                  Työpaikkakiusaaminen Suomessa
+                </h3>
+              </div>
+
+              <ul className="space-y-3">
+                {[
+                  "120 000+ suomalaista palkansaajaa kokee sitä NYT",
+                  "Joka 4. on kokenut sitä urallaan",
+                  "Kestää keskimäärin 1–3 vuotta ennen toimenpiteitä",
+                  "65% kiusaajista on esimiehiä",
+                  "Seuraukset: ahdistus, masennus, työuupumus"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-700 font-medium bg-white/50 p-2.5 rounded-lg border border-slate-100/50">
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0 shadow-[0_0_8px_rgba(239,68,68,0.4)]" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white text-center space-y-4 shadow-lg transform md:rotate-1 transition-transform">
-              <h4 className="font-bold text-lg opacity-90">Suojasiiven alla</h4>
-              <p className="leading-snug">
-                "Autamme sinua muuttamaan tunteen faktoiksi ja ahdistuksen toimintasuunnitelmaksi."
-              </p>
-              <div className="flex justify-center gap-1 pt-2">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-white/80 text-white/80" />)}
+
+            {/* Right Column: Warning + Solution */}
+            <div className="space-y-4">
+              {/* Warning Block */}
+              <div className="bg-amber-50 border border-amber-100 rounded-xl p-5 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-amber-100/50 rounded-bl-full -mr-4 -mt-4" />
+                <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-2">
+                  <span className="text-xl">⚠️</span> Vaarallinen kierre
+                </h4>
+                <p className="text-sm text-amber-800/90 leading-relaxed">
+                  Useimmat odottavat liian kauan. Kun tilanne vihdoin tunnistetaan, voimat on jo lopussa eikä toimintaan enää jaksa.
+                </p>
+              </div>
+
+              {/* Solution Block */}
+              <div className="bg-gradient-to-br from-emerald-500 to-teal-600 border border-emerald-400/20 rounded-xl p-5 shadow-lg text-white relative overflow-hidden group">
+                <h4 className="font-bold text-white flex items-center gap-2 mb-2">
+                  <span className="text-xl">✅</span> Turvasiipi katkaisee kierteen
+                </h4>
+                <p className="text-sm text-emerald-50 leading-relaxed mb-3">
+                  Aloita dokumentointi heti kun tunnet olevasi epävarma. Sinun ei tarvitse olla "tarpeeksi kiusattu."
+                </p>
+                <p className="text-sm font-bold text-white/90 border-t border-white/20 pt-2">
+                  Aloita tänään – se on ensimmäinen askel takaisin omaan voimaasi.
+                </p>
               </div>
             </div>
           </div>
