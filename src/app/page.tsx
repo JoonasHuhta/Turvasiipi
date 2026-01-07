@@ -318,28 +318,58 @@ export default function Home() {
           </div>
 
           <Accordion type="single" collapsible className="w-full">
+
             <AccordionItem value="item-1" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Mikä on Turvasiipi?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Turvasiipi on ilmainen digitaalinen työkalu työpaikkakiusaamisen ja epäasiallisen kohtelun dokumentointiin, tunnistamiseen ja käsittelyyn. Tarjoamme tietoa, työkaluja ja vertaistukea kaikille, jotka kohtaavat epäasiallista käytöstä.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border-b border-slate-100">
               <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
                 Kuka näkee kirjoittamani asiat?
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan vain sinun omalle laitteellesi (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi.
+                Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan **vain sinun omalle laitteellesi** (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi, emmekä me näe lokikirjojasi tai raporttejasi.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                Onko sovellus ilmainen?
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                Kyllä, Turvasiipi on täysin ilmainen käyttää. Haluamme madaltaa kynnystä kiusaamiseen puuttumiseen.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3" className="border-b-0">
+
+            <AccordionItem value="item-3" className="border-b border-slate-100">
               <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
                 Voiko työnantajani nähdä, että käytän tätä?
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                Ei. Olemme suunnitelleet sovelluksen niin, että se ei jätä jälkiä yrityksen verkkoon (emme vaadi kirjautumista työsähköpostilla). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen "Yksityinen selaus" (Incognito) -tilassa.
+                Ei. Sovellus ei vaadi kirjautumista työsähköpostilla eikä se jätä jälkiä yrityksen verkkoon (paitsi selainhistoriaan). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen Yksityinen selaus (Incognito) -tilassa.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Miten dokumentointi toimii?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Kirjaat tapahtumat "Aikajana"-osioon. Tieto tallentuu laitteesi muistiin. Kun tarvitset todisteita, voit luoda "Raportti"-osiossa automaattisen PDF-koosteen kaikista merkinnöistäsi esimerkiksi työterveyttä tai työsuojelua varten.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                Näkyykö Tarinat-osiossa jakamani tarina muille?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Kyllä, mutta vain jos päätät julkaista sen. Julkaisu on täysin anonyymia (tai valitsemallasi nimimerkillä). Emme tallenna IP-osoitteita, joten tarinoita ei voi jäljittää sinuun.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="border-b-0">
+              <AccordionTrigger className="text-left text-lg font-medium text-rose-600 hover:text-rose-700 hover:no-underline py-4">
+                Olen välittömässä vaarassa. Mitä teen?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon **112**. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: **010 195 202**.
               </AccordionContent>
             </AccordionItem>
 
