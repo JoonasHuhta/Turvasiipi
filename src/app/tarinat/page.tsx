@@ -87,15 +87,16 @@ export default function TarinatPage() {
     const [formText, setFormText] = useState("");
     const [authorName, setAuthorName] = useState("");
     const [mounted, setMounted] = useState(false);
-    const [serverLikes, setServerLikes] = useState<Record<string, number>>({});
+    // Map: storyId -> { like: count, heart: count }
+    const [serverReactions, setServerReactions] = useState<Record<string, Record<string, number>>>({});
 
     useEffect(() => {
         setMounted(true);
-        // Fetch likes
+        // Fetch reactions
         fetch('/api/stories/likes')
             .then(res => res.json())
-            .then(data => setServerLikes(data))
-            .catch(err => console.error("Failed to fetch likes", err));
+            .then(data => setServerReactions(data))
+            .catch(err => console.error("Failed to fetch reactions", err));
     }, []);
 
     const storyCounts = useMemo(() => getStoryCounts(), []);
@@ -260,7 +261,18 @@ export default function TarinatPage() {
                                     </CardContent>
                                     <CardFooter className="border-t border-slate-50 p-2 bg-slate-50/30 flex justify-between items-center text-xs text-slate-400">
                                         <div className="flex gap-2">
-                                            <LikeButton storyId={story.id} initialCount={story.likes} serverCount={serverLikes[story.id]} />
+                                            <ReactionButton
+                                                storyId={story.id}
+                                                type="like"
+                                                initialCount={story.likes}
+                                                serverCounts={serverReactions[story.id]}
+                                            />
+                                            <ReactionButton
+                                                storyId={story.id}
+                                                type="heart"
+                                                initialCount={undefined} // Don't use views for hearts anymore, let it be 0 based
+                                                serverCounts={serverReactions[story.id]}
+                                            />
                                         </div>
                                     </CardFooter>
                                 </Card>

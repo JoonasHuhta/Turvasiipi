@@ -19,6 +19,15 @@ export async function GET() {
     await sql`
       INSERT INTO global_counters (name, count) VALUES ('lights', 0) ON CONFLICT (name) DO NOTHING;
     `;
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS story_reactions (
+        story_id VARCHAR(50),
+        reaction_type VARCHAR(20),
+        count INT DEFAULT 0,
+        PRIMARY KEY (story_id, reaction_type)
+      );
+    `;
     return NextResponse.json({ message: 'Table created successfully' });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
