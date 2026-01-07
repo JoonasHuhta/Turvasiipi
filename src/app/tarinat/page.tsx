@@ -32,15 +32,53 @@ const categories: StoryCategory[] = [
     "Muut"
 ];
 
-const ReactionButton = ({ storyId, type, initialCount }: { storyId: string, type: 'like' | 'heart', initialCount?: number }) => {
+const ReactionButton = ({ storyId, type, initialCount, serverCount }: { storyId: string, type: 'like' | 'heart', initialCount?: number, serverCount?: number }) => {
     const [reacted, setReacted] = useLocalStorage<boolean>(`reaction_${type}_${storyId}`, false);
-    const [count, setCount] = useState(initialCount || 0);
 
-    // Effect to visually increment count for user if they reacted
-    const displayCount = count + (reacted ? 1 : 0);
+    // Use server count if available (for likes), otherwise fallback to initial
+    const baseCount = (type === 'like' && serverCount !== undefined) ? serverCount : (initialCount || 0);
 
-    const handleReact = () => {
-        setReacted(!reacted);
+    // Determines if we should optimistically add +1 (if user reacted but server doesn't know yet/we want instant feedback)
+    // For simplicity: If we have a server count, we assume it *doesn't* include our current session's reaction yet IF we just clicked it. 
+    // But to keep it simple: Just show baseCount + (reacted ? 1 : 0) is a bit naive if baseCount already has it.
+    // Let's stick to the simple optimistic UI: 
+    // Count = ServerCount + (Did I just react locally?) -> Actually, easier is just to trust ServerCount eventual consistency, 
+    // but for instant feedback we render (baseCount) AND highlight the button. 
+    // If I click, I increment locally.
+
+    // Let's effectively ignore 'reacted' for the count number to avoid double counting if server updates fast, 
+    // OR we can just assume server is truth.
+    // Let's go with: display = baseCount. If I am 'reacted', I highlight button. 
+    // When I click, I hit API. API updates DB. SWR/Polling would update baseCount.
+    // Since we don't have SWR here, let's just increment a local offset.
+    const [localOffset, setLocalOffset] = useState(0);
+
+    const displayCount = baseCount + localOffset;
+
+    const handleReact = async () => {
+        if (type === 'like') {
+            // Optimistic update
+            const isReacting = !reacted;
+            setReacted(isReacting);
+            setLocalOffset(prev => isReacting ? prev + 1 : prev - 1); // allow toggle
+
+            try {
+                // Fire and forget (or await if we wanted to revert on error)
+                await fetch('/api/stories/likes', {
+                    method: 'POST',
+                    body: JSON.stringify({ storyId }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            } catch (err) {
+                console.error("Failed to like", err);
+                // Revert
+                setReacted(!isReacting);
+                setLocalOffset(prev => isReacting ? prev - 1 : prev + 1);
+            }
+        } else {
+            // Local only for hearts/views for now
+            setReacted(!reacted);
+        }
     };
 
     return (
@@ -59,7 +97,7 @@ const ReactionButton = ({ storyId, type, initialCount }: { storyId: string, type
             ) : (
                 <Heart className={cn("w-4 h-4", reacted && "fill-current")} />
             )}
-            {displayCount > 0 ? displayCount : (reacted ? 1 : "")}
+            {displayCount > 0 ? displayCount : ""}
         </Button>
     );
 };
@@ -71,9 +109,15 @@ export default function TarinatPage() {
     const [formText, setFormText] = useState("");
     const [authorName, setAuthorName] = useState("");
     const [mounted, setMounted] = useState(false);
+    const [serverLikes, setServerLikes] = useState<Record<string, number>>({});
 
     useEffect(() => {
         setMounted(true);
+        // Fetch likes
+        fetch('/api/stories/likes')
+            .then(res => res.json())
+            .then(data => setServerLikes(data))
+            .catch(err => console.error("Failed to fetch likes", err));
     }, []);
 
     const storyCounts = useMemo(() => getStoryCounts(), []);
@@ -238,7 +282,7 @@ export default function TarinatPage() {
                                     </CardContent>
                                     <CardFooter className="border-t border-slate-50 p-2 bg-slate-50/30 flex justify-between items-center text-xs text-slate-400">
                                         <div className="flex gap-2">
-                                            <ReactionButton storyId={story.id} type="like" initialCount={story.likes} />
+                                            <ReactionButton storyId={story.id} type="like" initialCount={story.likes} serverCount={serverLikes[story.id]} />
                                             <ReactionButton storyId={story.id} type="heart" initialCount={story.views} />
                                         </div>
                                     </CardFooter>
