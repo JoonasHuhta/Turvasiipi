@@ -32,35 +32,37 @@ const categories: StoryCategory[] = [
     "Muut"
 ];
 
-const LikeButton = ({ storyId, initialCount, serverCount }: { storyId: string, initialCount?: number, serverCount?: number }) => {
-    const [liked, setLiked] = useLocalStorage<boolean>(`like_${storyId}`, false);
+const ReactionButton = ({ storyId, type, initialCount, serverCounts }: { storyId: string, type: 'like' | 'heart', initialCount?: number, serverCounts?: Record<string, number> }) => {
+    const [reacted, setReacted] = useLocalStorage<boolean>(`reaction_${type}_${storyId}`, false);
 
-    // Use server count if available, otherwise fallback to initial
-    const baseCount = serverCount !== undefined ? serverCount : (initialCount || 0);
+    // Server count for this specific type
+    const serverCount = serverCounts?.[type];
+
+    // Fallback logic
+    // If type is like, use initial likes. If type is heart, use initial views (as proxy) or 0.
+    const initial = type === 'like' ? (initialCount || 0) : 0;
+
+    // Use server count if available, otherwise fallback
+    const baseCount = serverCount !== undefined ? serverCount : initial;
 
     const [localOffset, setLocalOffset] = useState(0);
-
-    // Display count logic: base + offset. 
-    // If base is 0 and offset is 0, we show nothing (or "0" if preferred, but "nothing" is cleaner).
     const displayCount = baseCount + localOffset;
 
-    const handleLike = async () => {
-        // Optimistic update
-        const isLiking = !liked;
-        setLiked(isLiking);
-        setLocalOffset(prev => isLiking ? prev + 1 : prev - 1);
+    const handleReact = async () => {
+        const isReacting = !reacted;
+        setReacted(isReacting);
+        setLocalOffset(prev => isReacting ? prev + 1 : prev - 1);
 
         try {
             await fetch('/api/stories/likes', {
                 method: 'POST',
-                body: JSON.stringify({ storyId }),
+                body: JSON.stringify({ storyId, type }),
                 headers: { 'Content-Type': 'application/json' }
             });
         } catch (err) {
-            console.error("Failed to like", err);
-            // Revert
-            setLiked(!isLiking);
-            setLocalOffset(prev => isLiking ? prev - 1 : prev + 1);
+            console.error("Failed to react", err);
+            setReacted(!isReacting);
+            setLocalOffset(prev => isReacting ? prev - 1 : prev + 1);
         }
     };
 
@@ -68,13 +70,18 @@ const LikeButton = ({ storyId, initialCount, serverCount }: { storyId: string, i
         <Button
             variant="ghost"
             size="sm"
-            onClick={handleLike}
+            onClick={handleReact}
             className={cn(
-                "gap-2 text-xs font-medium transition-colors hover:bg-rose-50 hover:text-rose-600",
-                liked ? "text-rose-600 bg-rose-50" : "text-slate-500"
+                "gap-2 text-xs font-medium transition-colors hover:bg-slate-100",
+                reacted && type === 'like' && "text-indigo-600 bg-indigo-50 hover:bg-indigo-100",
+                reacted && type === 'heart' && "text-rose-600 bg-rose-50 hover:bg-rose-100"
             )}
         >
-            <Heart className={cn("w-4 h-4", liked && "fill-current")} />
+            {type === 'like' ? (
+                <ThumbsUp className={cn("w-4 h-4", reacted && "fill-current")} />
+            ) : (
+                <Heart className={cn("w-4 h-4", reacted && "fill-current")} />
+            )}
             {displayCount > 0 ? displayCount : ""}
         </Button>
     );
