@@ -13,7 +13,8 @@
         "documents": "Asiakirjat",
         "support_services": "Tukipalvelut",
         "community": "Yhteisö",
-        "stories": "Tarinat"
+        "stories": "Tarinat",
+        "training": "Valmennus"
     },
     "hero": {
         "title": "Kiusaaminen ei johdu sinusta.",
@@ -741,6 +742,216 @@
                 "text": "Tutustu gaslightingiin ja muihin manipulaatiokeinoihin.",
                 "action": "Lue lisää"
             }
+        }
+    },
+    "support": {
+        "hero": {
+            "badge": "Resurssipankki",
+            "title": "Tuki ja Toipuminen",
+            "subtitle": "Konkreettisia ohjeita, harjoituksia ja toimintamalleja jaksamisen tueksi."
+        },
+        "tabs": {
+            "plan": "Toimintasuunnitelma",
+            "exercises": "Harjoitukset",
+            "contacts": "Yhteystiedot"
+        },
+        "plan_tab": {
+            "phase1": {
+                "label": "Vaihe 1",
+                "title": "Kiusaaminen on juuri alkanut tai epäilyttää",
+                "description": "Kun huomaat ensimmäiset merkit, toimi heti.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Tunnista tilanne",
+                        "content": "Onko kyseessä toistuva epäasiallinen kohtelu? Tee etusivun testi varmistukseksi. Kirjaa ylös konkreettiset esimerkit."
+                    },
+                    "step2": {
+                        "trigger": "2. Aloita dokumentointi HETI",
+                        "content": "Älä odota, että \"tilanne menee ohi\". Aloita lokikirjan pitäminen heti (Timeline-työkalu). Ilman dokumentaatiota sana on sanaa vastaan."
+                    },
+                    "step3": {
+                        "trigger": "3. Kenelle puhua?",
+                        "content": "Puhu ensin luotettavalle kollegalle tai ystävälle. Älä jää yksin asian kanssa."
+                    }
+                }
+            },
+            "phase2": {
+                "label": "Vaihe 2",
+                "title": "Tilanne on jatkunut pidempään",
+                "description": "Kun epäviralliset keinot eivät riitä, tarvitaan virallisia toimia.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Ota yhteys työsuojeluvaltuutettuun",
+                        "content": "Hän on työntekijöiden edustaja, joka tuntee lait ja prosessit. Keskustelu on luottamuksellinen. Pyydä häntä mukaan tapaamisiin tueksi."
+                    },
+                    "step2": {
+                        "trigger": "2. Tee kirjallinen ilmoitus työnantajalle",
+                        "content": "Työnantajalla on lakisääteinen velvollisuus puuttua häirintään, kun he saavat siitä tiedon. Tee ilmoitus kirjallisesti (sähköposti), jotta siitä jää jälki."
+                    },
+                    "step3": {
+                        "trigger": "3. Työsuojeluviranomainen (AVI)",
+                        "content": "Jos työnantaja ei puutu asiaan, voit olla yhteydessä Aluehallintovirastoon (AVI)."
+                    }
+                }
+            },
+            "phase3": {
+                "label": "Vaihe 3",
+                "title": "Olen sairauslomalla uupumuksen vuoksi",
+                "description": "Toipuminen on nyt tärkein työsi.",
+                "steps": {
+                    "step1": {
+                        "trigger": "Viikot 1-2: Kriisivaihe (Lepo)",
+                        "content": "Nuku, syö, ulkoile. Älä mieti työasioita. Poista työsähköposti puhelimesta. Olet turvassa."
+                    },
+                    "step2": {
+                        "trigger": "Viikot 3-8: Käsittelyvaihe",
+                        "content": "Aloita asian käsittely ammattilaisen (työterveyspsykologi, terapeutti) kanssa. Käytä Turvasiipi-raporttia apuna."
+                    }
+                }
+            }
+        },
+        "exercises_tab": {
+            "breathing": {
+                "title": "Stressinhallinta: 5-5-5 Hengitys",
+                "description": "Aktivoi parasympaattinen hermosto ja rauhoita akuutti ahdistus.",
+                "start": "Aloita",
+                "stop": "Lopeta",
+                "start_exercise": "Aloita harjoitus",
+                "phases": {
+                    "inhale": "Hengitä sisään (5)",
+                    "hold": "Pidätä (5)",
+                    "exhale": "Hengitä ulos (5)"
+                }
+            },
+            "grounding": {
+                "title": "Maadoitustekniikka 5-4-3-2-1",
+                "description": "Kun paniikki iskee, palauta itsesi hetkeen.",
+                "items": {
+                    "see": "asiaa jotka näet",
+                    "touch": "asiaa johon kosketat",
+                    "hear": "asiaa jotka kuulet",
+                    "smell": "asiaa jotka haistat",
+                    "taste": "asia jonka maistat"
+                }
+            },
+            "boundaries": {
+                "title": "Rajojen asettaminen",
+                "description": "Opettele sanomaan nämä ääneen.",
+                "quotes": {
+                    "not_accept": "\"En hyväksy tällaista puhetta.\"",
+                    "speak_properly": "\"Pyydän että puhut minulle asiallisesti.\"",
+                    "not_continue": "\"En jatka keskustelua, jos se jatkuu tällaisena.\""
+                }
+            },
+            "darvo": {
+                "title": "DARVO-puolustus",
+                "description": "Kun kohtaat manipulointia (Deny, Attack, Reverse Victim).",
+                "attack": "HYÖKKÄYS:",
+                "attack_text": "\"Sinä olet liian herkkä. Sinulla on ongelmia.\"",
+                "response": "VASTAUS:",
+                "response_text": "\"Tämä ei ole minusta kiinni. Keskitytään käyttäytymiseen ja faktoihin.\""
+            },
+            "strengths": {
+                "title": "Vahvuuslista",
+                "description": "Muistutus itsellesi heikkoina hetkinä.",
+                "instruction": "Kirjoita ylös 3 asiaa, joissa olet onnistunut:",
+                "placeholder": "_______________________",
+                "footer": "\"Yksi huono esimies ei määritä minun arvoani.\""
+            },
+            "emergency_kit": {
+                "title": "📦 Hätä-apupakki",
+                "description": "Tallenna nämä valmiiksi pahaa päivää varten.",
+                "items": {
+                    "playlist": "Rauhoittava soittolista",
+                    "friend": "Luotettavan ystävän numero",
+                    "crisis_line": "Mieli ry kriisipuhelin (09 2525 0111)",
+                    "movie": "Lempielokuva"
+                }
+            },
+            "simulation": {
+                "title": "Konfliktisimulaatio",
+                "description": "Harjoittele vastauksia vaikeisiin kysymyksiin.",
+                "q1": {
+                    "label": "KYSYMYS:",
+                    "text": "\"Oletko varma ettet liioittele?\"",
+                    "ans_label": "VASTAUS:",
+                    "ans_text": "\"Olen dokumentoinut kaiken. Tämä on toistuva kuvio, ei yksittäistapaus.\""
+                },
+                "q2": {
+                    "label": "KYSYMYS:",
+                    "text": "\"Miksi et sanonut aiemmin?\"",
+                    "ans_label": "VASTAUS:",
+                    "ans_text": "\"Pelkäsin tilanteen pahenevan. Nyt ymmärrän, että minun on puolustettava itseäni.\""
+                }
+            },
+            "future": {
+                "title": "Tulevaisuuden suunnittelu",
+                "description": "Katse eteenpäin: Missä haluat olla 6kk päästä?",
+                "subtitle": "Pienet askeleet vievät eteenpäin:",
+                "steps": {
+                    "cv": "Päivitän CV:ni",
+                    "search": "Etsin 3 kiinnostavaa työpaikkaa",
+                    "rest": "Lepään ja palaudun"
+                },
+                "times": {
+                    "1vk": "1 vk",
+                    "2vk": "2 vk",
+                    "continuous": "jatkuva"
+                }
+            }
+        },
+        "contacts_tab": {
+            "acute": {
+                "title": "Akuutti kriisiapua",
+                "mieli": {
+                    "title": "Mieli ry - Kriisipuhelin",
+                    "hours": "Auki 24/7. Luottamuksellinen."
+                },
+                "riku": {
+                    "title": "Rikosuhripäivystys (RIKU)",
+                    "text": "Jos koet väkivaltaa tai rikosta."
+                }
+            },
+            "authorities": {
+                "title": "Viranomaiset & Oikeus",
+                "avi": {
+                    "label": "Aluehallintovirasto (AVI)",
+                    "sub": "Työsuojelun vastuualue",
+                    "link": "Siirry verkkosivuille →"
+                },
+                "unions": {
+                    "label": "Ammattiliitot",
+                    "sub": "Ota yhteys oman alasi liittoon lakiapua varten."
+                },
+                "legal": {
+                    "label": "Oikeusaputoimistot",
+                    "sub": "Puh: 0295 16 2500"
+                }
+            },
+            "peer_support": {
+                "title": "Vertaistuki",
+                "items": {
+                    "fb": "Facebook: \"Työpaikkakiusaamisen uhrit\"",
+                    "mieli": "Mieli ry: Vertaistukiryhmät (mieli.fi)",
+                    "local": "Paikalliset kriisikeskukset",
+                    "discord": "Discord: Turvasiipi Yhteisö"
+                }
+            },
+            "knowledge": {
+                "title": "Tietopankit",
+                "ttl": {
+                    "label": "Työterveyslaitos (TTL)",
+                    "sub": "Tutkittua tietoa työhyvinvoinnista."
+                },
+                "ttk": {
+                    "label": "Työturvallisuuskeskus",
+                    "sub": "Materiaaleja ja oppaita."
+                }
+            }
+        },
+        "footer": {
+            "remember": "💚 Muista: Et ole yksin. Et ole syyllinen. Sinulla on oikeus apuun.",
+            "disclaimer": "Tämä materiaali on tarkoitettu tiedotukseksi ja tueksi. Se ei korvaa ammattilaisen antamaa apua."
         }
     }
 }

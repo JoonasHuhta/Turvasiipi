@@ -25,7 +25,8 @@ import {
     CheckCircle2,
     Scale,
     XCircle,
-    CheckCircle
+    CheckCircle,
+    Zap
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -117,63 +118,76 @@ export default function QuizPage() {
     // If quiz is running, we show the questions view
     if (hasStarted && !isFinished && activeTab === "quiz") {
         return (
-            <div className="max-w-2xl mx-auto space-y-12 animate-in fade-in duration-500 pb-20">
-                <div className="space-y-4">
-                    <div className="flex justify-between items-end">
-                        <div className="space-y-1">
-                            <Badge className="bg-slate-100 text-slate-500 uppercase font-black text-[10px] py-0">{categoryLabels[currentQuestion.category].label}</Badge>
-                            <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">{t('quiz.progress', { current: currentIndex + 1, total: quizQuestions.length })}</div>
+            <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-white">
+                {/* Fixed Header */}
+                <header className="shrink-0 h-16 bg-slate-50 border-b px-6 flex items-center justify-between z-30">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                            {(() => {
+                                const Icon = categoryLabels[currentQuestion.category].icon;
+                                return <Icon className="w-6 h-6" />;
+                            })()}
                         </div>
-                        <div className="text-2xl font-black text-primary">{Math.round(progress)}%</div>
+                        <div className="flex flex-col">
+                            <Badge variant="secondary" className="bg-slate-200/50 text-slate-600 uppercase font-black text-[9px] py-0 px-2 w-fit mb-0.5">
+                                {categoryLabels[currentQuestion.category].label}
+                            </Badge>
+                            <span className="text-[10px] text-slate-400 uppercase font-bold tracking-widest leading-none">
+                                {t('quiz.progress', { current: currentIndex + 1, total: quizQuestions.length })}
+                            </span>
+                        </div>
                     </div>
-                    <Progress value={progress} className="h-4 rounded-full bg-slate-100" />
+                    <div className="flex flex-col items-end">
+                        <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none mb-1">Eteneminen</span>
+                        <span className="text-xl font-black leading-none text-primary">{Math.round(progress)}%</span>
+                    </div>
+                    <Button variant="ghost" size="sm" onClick={resetQuiz} className="ml-4 opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest h-8 px-2">Lopeta</Button>
+                </header>
+
+                {/* Progress Bar (Fixed below header) */}
+                <div className="shrink-0 w-full px-0">
+                    <Progress value={progress} className="h-1 rounded-none bg-slate-100" />
                 </div>
 
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.05 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <Card className="min-h-[300px] flex flex-col justify-center items-center text-center p-8 md:p-12 rounded-[3.5rem] border-2 shadow-2xl bg-white relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-2 bg-primary/20" />
-
-                            <CardHeader className="p-0 mb-10">
-                                <div className="flex justify-center mb-6">
-                                    <div className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center text-primary">
-                                        {(() => {
-                                            const Icon = categoryLabels[currentQuestion.category].icon;
-                                            return <Icon className="w-10 h-10" />;
-                                        })()}
-                                    </div>
-                                </div>
-                                <CardTitle className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight text-slate-900">
+                {/* Main Content (Scrollable) */}
+                <main className="flex-1 overflow-y-auto no-scrollbar relative flex flex-col justify-start sm:justify-center p-6 pb-32">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="max-w-2xl mx-auto w-full text-center space-y-8"
+                        >
+                            <div className="space-y-6">
+                                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] uppercase">
                                     {t(`quiz.questions.${currentQuestion.id}`)}
-                                </CardTitle>
-                            </CardHeader>
+                                </h2>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </main>
 
-                            <CardContent className="flex flex-col sm:flex-row gap-6 w-full max-w-sm pt-0">
-                                <Button
-                                    size="lg"
-                                    className="flex-1 py-10 rounded-[2rem] text-2xl font-black uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 active:scale-95 transition-all"
-                                    onClick={() => handleAnswer(true)}
-                                >
-                                    {t('quiz.card.yes')}
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="flex-1 py-10 rounded-[2rem] text-2xl font-black uppercase tracking-widest border-2 hover:bg-slate-50 active:scale-95 transition-all text-slate-400 border-slate-200"
-                                    onClick={() => handleAnswer(false)}
-                                >
-                                    {t('quiz.card.no')}
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </motion.div>
-                </AnimatePresence>
+                {/* Fixed Footer (Answers) */}
+                <footer className="shrink-0 bg-white border-t p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+                    <div className="max-w-sm mx-auto w-full flex gap-3">
+                        <Button
+                            size="lg"
+                            className="flex-1 py-8 rounded-2xl text-xl font-black uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 active:scale-95 transition-all"
+                            onClick={() => handleAnswer(true)}
+                        >
+                            {t('quiz.card.yes')}
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="flex-1 py-8 rounded-2xl text-xl font-black uppercase tracking-widest border-2 hover:bg-slate-50 active:scale-95 transition-all text-slate-400 border-slate-200"
+                            onClick={() => handleAnswer(false)}
+                        >
+                            {t('quiz.card.no')}
+                        </Button>
+                    </div>
+                </footer>
             </div>
         );
     }
@@ -198,23 +212,23 @@ export default function QuizPage() {
             </section>
 
             <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
-                <div className="flex justify-center mb-12">
-                    <TabsList className="grid grid-cols-3 w-fit bg-slate-100/80 p-1.5 rounded-full overflow-hidden border border-slate-200/50 shadow-sm">
+                <div className="flex justify-start md:justify-center mb-12 w-full overflow-x-auto no-scrollbar px-4">
+                    <TabsList className="flex md:grid md:grid-cols-3 w-max md:w-fit bg-slate-100/80 p-1.5 rounded-full border border-slate-200/50 shadow-sm gap-1">
                         <TabsTrigger
                             value="quiz"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
+                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
                         >
                             {t('quiz.tabs.quiz')}
                         </TabsTrigger>
                         <TabsTrigger
                             value="tactics"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
+                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
                         >
                             {t('quiz.tabs.tactics')}
                         </TabsTrigger>
                         <TabsTrigger
                             value="compare"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md"
+                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
                         >
                             {t('quiz.tabs.compare')}
                         </TabsTrigger>
@@ -223,7 +237,7 @@ export default function QuizPage() {
 
                 <TabsContent value="quiz" className="space-y-12">
                     {isFinished ? (
-                        <div className="max-w-3xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-700">
+                        <div className="max-w-3xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-700 pb-32">
                             <Card className="border-none shadow-2xl overflow-hidden rounded-[2.5rem]">
                                 <CardHeader className={`${risk.level.includes('Kriittinen') || risk.level.includes('Critical') || risk.level.includes('Vakava') || risk.level.includes('Severe') ? 'bg-red-50' : 'bg-slate-50'} p-8 border-b`}>
                                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -337,7 +351,7 @@ export default function QuizPage() {
                             </Card>
                         </div>
                     ) : (
-                        <div className="max-w-3xl mx-auto space-y-12">
+                        <div className="max-w-3xl mx-auto space-y-12 pb-32">
                             <div className="grid gap-4">
                                 <Card className="border-none shadow-sm bg-slate-50">
                                     <CardHeader className="pb-2">
@@ -389,6 +403,24 @@ export default function QuizPage() {
                                 {t('quiz.tactics_page.description')}
                             </p>
                         </section>
+
+                        <Card className="bg-indigo-950 text-white border-none overflow-hidden relative group">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                            <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+                                <div className="space-y-2 text-center md:text-left">
+                                    <Badge className="bg-indigo-500 text-white border-none uppercase font-black text-[10px] mb-2">Uutta</Badge>
+                                    <h3 className="text-2xl font-black uppercase tracking-tight">Valmennusmoduuli</h3>
+                                    <p className="text-indigo-200 font-light text-sm max-w-md">
+                                        Testaa taitosi skenaarioiden avulla. Opi tunnistamaan "näkymätön väkivalta" ja hienovaraiset taktiikat.
+                                    </p>
+                                </div>
+                                <Link href="/valmennus">
+                                    <Button className="bg-white text-indigo-950 hover:bg-indigo-50 rounded-full px-8 h-12 uppercase font-black tracking-widest text-xs shadow-xl shadow-indigo-950/20">
+                                        Aloita valmennus <Zap className="w-4 h-4 ml-2 fill-indigo-500 text-indigo-500" />
+                                    </Button>
+                                </Link>
+                            </CardContent>
+                        </Card>
 
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {bullyingTactics.map((tactic) => (

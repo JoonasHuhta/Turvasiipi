@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
 import {
     ArrowRight,
@@ -98,7 +99,7 @@ export default function FeelingQuizPage() {
 
     if (!hasStarted) {
         return (
-            <div className="max-w-3xl mx-auto py-12 px-6 space-y-12 animate-in fade-in duration-700">
+            <div className="max-w-3xl mx-auto py-12 px-6 space-y-12 animate-in fade-in duration-700 pb-32">
                 <section className="text-center space-y-6">
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest border border-primary/20">
                         <Heart className="w-3 h-3 fill-current" /> Itsearviointi
@@ -235,91 +236,108 @@ export default function FeelingQuizPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto pt-32 pb-12 px-6 min-h-screen flex flex-col justify-center relative">
-            <div className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center bg-white/80 backdrop-blur-sm z-50 rounded-b-3xl">
-                <div className="flex items-center gap-4 flex-1">
-                    <Progress value={((currentIndex + 1) / feelingsQuestions.length) * 100} className="h-2 flex-1" />
-                    <span className="text-xs font-black text-slate-400 whitespace-nowrap">{currentIndex + 1} / {feelingsQuestions.length}</span>
-                </div>
-                <Button variant="ghost" size="sm" onClick={resetQuiz} className="ml-4 opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest">Lopeta</Button>
-            </div>
-
-            <AnimatePresence mode="wait">
-                {!showValidation ? (
-                    <motion.div
-                        key={`q-${currentIndex}`}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        className="space-y-12"
-                    >
-                        <div className="space-y-6">
-                            <Badge className="bg-primary text-white uppercase font-black tracking-widest px-4 py-1 text-xs">
-                                {currentQuestion.category === 'itseepaily' ? 'Itseepäily & Häpeä' :
-                                    currentQuestion.category === 'eristyksisyys' ? 'Eristyneisyys' :
-                                        currentQuestion.category === 'halvaantuminen' ? 'Halvaantuminen' :
-                                            currentQuestion.category === 'pelko' ? 'Pelko & Turvattomuus' :
-                                                currentQuestion.category === 'identiteetti' ? 'Identiteetin mureneminen' :
-                                                    'Fyysiset oireet'}
-                            </Badge>
-                            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white">
-                                {currentQuestion.question}
-                            </h2>
+        <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-white">
+            {/* Fixed Header */}
+            <header className="shrink-0 h-16 bg-white border-b px-6 flex items-center justify-between z-30">
+                <div className="flex items-center gap-4 flex-1 max-w-md">
+                    <div className="flex flex-col flex-1">
+                        <div className="flex justify-between items-center mb-1">
+                            <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none">Edistyminen</span>
+                            <span className="text-[10px] text-primary font-black leading-none">{currentIndex + 1} / {feelingsQuestions.length}</span>
                         </div>
+                        <Progress value={((currentIndex + 1) / feelingsQuestions.length) * 100} className="h-1" />
+                    </div>
+                </div>
+                <Button variant="ghost" size="sm" onClick={resetQuiz} className="ml-4 opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest h-8 px-2">Lopeta</Button>
+            </header>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {/* Main Content (Scrollable) */}
+            <main className="flex-1 overflow-y-auto no-scrollbar relative flex flex-col justify-start sm:justify-center p-6 pb-40">
+                <AnimatePresence mode="wait">
+                    {!showValidation ? (
+                        <motion.div
+                            key={`q-${currentIndex}`}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            className="max-w-2xl mx-auto w-full space-y-8"
+                        >
+                            <div className="space-y-6">
+                                <Badge className="bg-primary text-white uppercase font-black tracking-widest px-4 py-1 text-[10px]">
+                                    {currentQuestion.category === 'itseepaily' ? 'Itseepäily & Häpeä' :
+                                        currentQuestion.category === 'eristyksisyys' ? 'Eristyneisyys' :
+                                            currentQuestion.category === 'halvaantuminen' ? 'Halvaantuminen' :
+                                                currentQuestion.category === 'pelko' ? 'Pelko & Turvattomuus' :
+                                                    currentQuestion.category === 'identiteetti' ? 'Identiteetin mureneminen' :
+                                                        'Fyysiset oireet'}
+                                </Badge>
+                                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase">
+                                    {currentQuestion.question}
+                                </h2>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key={`v-${currentIndex}`}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.05 }}
+                            className="max-w-2xl mx-auto w-full"
+                        >
+                            <Card className="border-none shadow-2xl bg-slate-900 text-white p-8 sm:p-12 rounded-[2.5rem] overflow-hidden relative">
+                                <div className="absolute top-0 right-0 p-8 text-primary opacity-20">
+                                    <Heart className="w-32 h-32 fill-current" />
+                                </div>
+
+                                <div className="relative z-10 space-y-6">
+                                    <section className="space-y-4">
+                                        <h4 className="text-primary font-black uppercase tracking-[0.2em] text-[10px] italic">{currentQuestion.validationTitle}</h4>
+                                        <p className="text-xl sm:text-2xl font-light leading-relaxed selection:bg-primary selection:text-white opacity-90">
+                                            {currentQuestion.validationText}
+                                        </p>
+                                    </section>
+                                </div>
+                            </Card>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </main>
+
+            {/* Fixed Footer (Answers or Join) */}
+            <footer className="shrink-0 bg-white border-t p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+                <div className="max-w-md mx-auto w-full">
+                    {!showValidation ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {[
                                 { label: "Kyllä, päivittäin", value: 4 },
                                 { label: "Kyllä, usein", value: 3 },
                                 { label: "Joskus", value: 2 },
                                 { label: "Harvoin", value: 1 },
                                 { label: "Ei koskaan", value: 0 }
-                            ].map((opt) => (
+                            ].map((opt, i) => (
                                 <Button
                                     key={opt.label}
                                     variant="outline"
                                     onClick={() => handleAnswer(opt.value)}
-                                    className="h-16 rounded-2xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-lg font-bold transition-all text-slate-700"
+                                    className={cn(
+                                        "h-14 rounded-2xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-sm font-bold transition-all text-slate-700",
+                                        i === 4 && "sm:col-span-2"
+                                    )}
                                 >
                                     {opt.label}
                                 </Button>
                             ))}
                         </div>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key={`v-${currentIndex}`}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.05 }}
-                        className="w-full"
-                    >
-                        <Card className="border-none shadow-2xl bg-slate-900 text-white p-8 sm:p-12 rounded-[2.5rem] overflow-hidden relative">
-                            <div className="absolute top-0 right-0 p-8 text-primary opacity-20">
-                                <Heart className="w-32 h-32 fill-current" />
-                            </div>
-
-                            <div className="relative z-10 space-y-8">
-                                <section className="space-y-4">
-                                    <h4 className="text-primary font-black uppercase tracking-[0.2em] text-sm italic">{currentQuestion.validationTitle}</h4>
-                                    <p className="text-2xl sm:text-3xl font-light leading-relaxed selection:bg-primary selection:text-white">
-                                        {currentQuestion.validationText}
-                                    </p>
-                                </section>
-
-                                <div className="pt-8">
-                                    <Button
-                                        onClick={nextQuestion}
-                                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-12 py-8 text-xl font-black uppercase tracking-widest shadow-xl shadow-primary/40 group active:scale-95 transition-all"
-                                    >
-                                        Jatka <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-                                    </Button>
-                                </div>
-                            </div>
-                        </Card>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    ) : (
+                        <Button
+                            onClick={nextQuestion}
+                            className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl h-16 text-xl font-black uppercase tracking-widest shadow-xl shadow-primary/40 group active:scale-95 transition-all"
+                        >
+                            Jatka <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                        </Button>
+                    )}
+                </div>
+            </footer>
         </div>
     );
 }

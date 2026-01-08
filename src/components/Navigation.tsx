@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, LucideIcon } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, LucideIcon } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { Globe } from "lucide-react";
@@ -31,6 +31,7 @@ const getNavItems = (): NavItem[] => [
         icon: Search,
         children: [
             { href: "/quiz", labelKey: "nav.identify_risks", icon: Clipboard },
+            { href: "/valmennus", labelKey: "nav.training", icon: Zap },
             { href: "/feeling-quiz", labelKey: "nav.victim_feelings", icon: Activity },
             { href: "/tietovisa", labelKey: "nav.quiz_facts", icon: FileText },
             { href: "/neuromoninaisuus", labelKey: "nav.neuromoninaisuus", icon: Brain },
@@ -134,8 +135,12 @@ export function Navigation() {
                                 <Menu className="w-5 h-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-[240px] sm:w-[300px]">
-                            <div className="flex flex-col gap-2 mt-8">
+                        <SheetContent side="right" className="w-[240px] sm:w-[300px] overflow-y-auto">
+                            <SheetHeader className="sr-only">
+                                <SheetTitle>Navigaatio</SheetTitle>
+                                <SheetDescription>Päävalikko mobiililaitteille</SheetDescription>
+                            </SheetHeader>
+                            <div className="flex flex-col gap-2 mt-4 pb-12">
                                 {navItems.map((item, index) => {
                                     if (item.children) {
                                         return (

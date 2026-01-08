@@ -13,7 +13,8 @@
         "documents": "Documents",
         "support_services": "Support Services",
         "community": "Community",
-        "stories": "Stories"
+        "stories": "Stories",
+        "training": "Tactical Training"
     },
     "hero": {
         "title": "Bullying isn't because of you.",
@@ -741,6 +742,216 @@
                 "text": "Learn about gaslighting and other manipulation methods.",
                 "action": "Read More"
             }
+        }
+    },
+    "support": {
+        "hero": {
+            "badge": "Resource Bank",
+            "title": "Support and Recovery",
+            "subtitle": "Concrete instructions, exercises, and action plans to support your well-being."
+        },
+        "tabs": {
+            "plan": "Action Plan",
+            "exercises": "Exercises",
+            "contacts": "Contact Info"
+        },
+        "plan_tab": {
+            "phase1": {
+                "label": "Phase 1",
+                "title": "Bullying has just started or you're unsure",
+                "description": "Act immediately when you notice the first signs.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Identify the situation",
+                        "content": "Is it repeated inappropriate treatment? Take the quiz on the home page to be sure. Document specific examples."
+                    },
+                    "step2": {
+                        "trigger": "2. Start documentation IMMEDIATELY",
+                        "content": "Don't wait for the 'situation to pass'. Start keeping a log right away (Timeline tool). Without documentation, it's your word against theirs."
+                    },
+                    "step3": {
+                        "trigger": "3. Who to talk to?",
+                        "content": "Talk to a trusted colleague or friend first. Don't stay alone with the matter."
+                    }
+                }
+            },
+            "phase2": {
+                "label": "Phase 2",
+                "title": "The situation has persisted",
+                "description": "When informal methods aren't enough, formal actions are needed.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Contact occupational safety representative",
+                        "content": "They are an employee representative who knows laws and processes. The discussion is confidential. Ask them to join meetings for support."
+                    },
+                    "step2": {
+                        "trigger": "2. Make a written report to the employer",
+                        "content": "The employer has a statutory obligation to intervene in harassment once they are informed. Make the report in writing (email) so there is a record."
+                    },
+                    "step3": {
+                        "trigger": "3. Occupational Safety and Health Authority (AVI)",
+                        "content": "If the employer does not intervene, you can contact the Regional State Administrative Agency (AVI)."
+                    }
+                }
+            },
+            "phase3": {
+                "label": "Phase 3",
+                "title": "I am on sick leave due to burnout",
+                "description": "Recovery is now your most important job.",
+                "steps": {
+                    "step1": {
+                        "trigger": "Weeks 1-2: Crisis Phase (Rest)",
+                        "content": "Sleep, eat, spend time outdoors. Don't think about work matters. Remove work email from your phone. You are safe."
+                    },
+                    "step2": {
+                        "trigger": "Weeks 3-8: Processing Phase",
+                        "content": "Start processing the matter with a professional (occupational psychologist, therapist). Use the Turvasiipi report as a tool."
+                    }
+                }
+            }
+        },
+        "exercises_tab": {
+            "breathing": {
+                "title": "Stress Management: 5-5-5 Breathing",
+                "description": "Activate the parasympathetic nervous system and calm acute anxiety.",
+                "start": "Start",
+                "stop": "Stop",
+                "start_exercise": "Start Exercise",
+                "phases": {
+                    "inhale": "Inhale (5)",
+                    "hold": "Hold (5)",
+                    "exhale": "Exhale (5)"
+                }
+            },
+            "grounding": {
+                "title": "Grounding Technique 5-4-3-2-1",
+                "description": "When panic hits, bring yourself back to the moment.",
+                "items": {
+                    "see": "things you see",
+                    "touch": "things you touch",
+                    "hear": "things you hear",
+                    "smell": "things you smell",
+                    "taste": "thing you taste"
+                }
+            },
+            "boundaries": {
+                "title": "Setting Boundaries",
+                "description": "Learn to say these out loud.",
+                "quotes": {
+                    "not_accept": "\"I don't accept this kind of talk.\"",
+                    "speak_properly": "\"I request that you speak to me properly.\"",
+                    "not_continue": "\"I will not continue the discussion if it continues like this.\""
+                }
+            },
+            "darvo": {
+                "title": "DARVO Defense",
+                "description": "When you face manipulation (Deny, Attack, Reverse Victim).",
+                "attack": "ATTACK:",
+                "attack_text": "\"You are too sensitive. You have problems.\"",
+                "response": "RESPONSE:",
+                "response_text": "\"This is not about me. Let's focus on behavior and facts.\""
+            },
+            "strengths": {
+                "title": "Strength List",
+                "description": "A reminder for yourself in weak moments.",
+                "instruction": "Write down 3 things you have succeeded in:",
+                "placeholder": "_______________________",
+                "footer": "\"One bad manager does not define my value.\""
+            },
+            "emergency_kit": {
+                "title": "📦 Emergency Kit",
+                "description": "Save these ready for a bad day.",
+                "items": {
+                    "playlist": "Calming playlist",
+                    "friend": "Trusted friend's number",
+                    "crisis_line": "Crisis line (09 2525 0111)",
+                    "movie": "Favorite movie"
+                }
+            },
+            "simulation": {
+                "title": "Conflict Simulation",
+                "description": "Practice responses to difficult questions.",
+                "q1": {
+                    "label": "QUESTION:",
+                    "text": "\"Are you sure you're not exaggerating?\"",
+                    "ans_label": "RESPONSE:",
+                    "ans_text": "\"I have documented everything. This is a recurring pattern, not an isolated incident.\""
+                },
+                "q2": {
+                    "label": "QUESTION:",
+                    "text": "\"Why didn't you say something earlier?\"",
+                    "ans_label": "RESPONSE:",
+                    "ans_text": "\"I was afraid the situation would get worse. Now I understand that I must defend myself.\""
+                }
+            },
+            "future": {
+                "title": "Future Planning",
+                "description": "Look forward: Where do you want to be in 6 months?",
+                "subtitle": "Small steps take you forward:",
+                "steps": {
+                    "cv": "Update my CV",
+                    "search": "Find 3 interesting workplaces",
+                    "rest": "Rest and recover"
+                },
+                "times": {
+                    "1wk": "1 week",
+                    "2wk": "2 weeks",
+                    "continuous": "continuous"
+                }
+            }
+        },
+        "contacts_tab": {
+            "acute": {
+                "title": "Acute Crisis Help",
+                "mieli": {
+                    "title": "Mieli ry - Crisis Line",
+                    "hours": "Open 24/7. Confidential."
+                },
+                "riku": {
+                    "title": "Victim Support Finland (RIKU)",
+                    "text": "If you experience violence or a crime."
+                }
+            },
+            "authorities": {
+                "title": "Authorities & Law",
+                "avi": {
+                    "label": "Regional State Administrative Agency (AVI)",
+                    "sub": "Occupational Safety and Health",
+                    "link": "Go to website →"
+                },
+                "unions": {
+                    "label": "Labor Unions",
+                    "sub": "Contact the union in your field for legal help."
+                },
+                "legal": {
+                    "label": "Legal Aid Offices",
+                    "sub": "Tel: 0295 16 2500"
+                }
+            },
+            "peer_support": {
+                "title": "Peer Support",
+                "items": {
+                    "fb": "Facebook: \"Victims of workplace bullying\"",
+                    "mieli": "Mieli ry: Peer support groups (mieli.fi)",
+                    "local": "Local crisis centers",
+                    "discord": "Discord: Turvasiipi Community"
+                }
+            },
+            "knowledge": {
+                "title": "Knowledge Banks",
+                "ttl": {
+                    "label": "Finnish Institute of Occupational Health (TTL)",
+                    "sub": "Research-based information on well-being at work."
+                },
+                "ttk": {
+                    "label": "The Centre for Occupational Safety (TTK)",
+                    "sub": "Materials and guides."
+                }
+            }
+        },
+        "footer": {
+            "remember": "💚 Remember: You are not alone. You are not to blame. You have a right to help.",
+            "disclaimer": "This material is intended for information and support. It does not replace help provided by a professional."
         }
     }
 }
