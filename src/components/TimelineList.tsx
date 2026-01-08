@@ -2,6 +2,7 @@ import { TimelineEvent } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Frown, Meh, AlertCircle, Angry, Trash2 } from "lucide-react";
 import { Button } from "./ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface TimelineListProps {
     events: TimelineEvent[];
@@ -9,10 +10,12 @@ interface TimelineListProps {
 }
 
 export function TimelineList({ events, onDelete }: TimelineListProps) {
+    const { t, language } = useLanguage();
+
     if (events.length === 0) {
         return (
             <div className="text-center py-10 text-muted-foreground bg-secondary/20 rounded-lg">
-                <p>Ei merkintöjä vielä. Aloita kirjaamalla ensimmäinen tapahtuma.</p>
+                <p>{t('timeline.list.empty')}</p>
             </div>
         );
     }
@@ -42,7 +45,7 @@ export function TimelineList({ events, onDelete }: TimelineListProps) {
                             <div className="space-y-1">
                                 <CardTitle className="text-base font-medium flex items-center gap-2">
                                     {getIcon(event.emotion)}
-                                    {new Date(event.timestamp).toLocaleString("fi-FI", {
+                                    {new Date(event.timestamp).toLocaleString(language === 'fi' ? "fi-FI" : "en-US", {
                                         weekday: 'short',
                                         day: 'numeric',
                                         month: 'numeric',
@@ -50,7 +53,7 @@ export function TimelineList({ events, onDelete }: TimelineListProps) {
                                         minute: '2-digit'
                                     })}
                                 </CardTitle>
-                                <p className="text-sm text-muted-foreground">Paikalla: {event.peopleInvolved || "Ei muita"}</p>
+                                <p className="text-sm text-muted-foreground">{t('timeline.list.witnesses_prefix')} {event.peopleInvolved || t('timeline.list.no_witnesses')}</p>
                             </div>
                             <Button
                                 variant="ghost"
@@ -62,8 +65,33 @@ export function TimelineList({ events, onDelete }: TimelineListProps) {
                             </Button>
                         </div>
                     </CardHeader>
-                    <CardContent>
-                        <p className="whitespace-pre-wrap text-sm leading-relaxed">{event.description}</p>
+                    <CardContent className="space-y-3">
+                        {event.objectiveDescription ? (
+                            <>
+                                <div className="space-y-1">
+                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('timeline.form.step2.description_label')}</p>
+                                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">{event.objectiveDescription}</p>
+                                </div>
+                                {event.subjectiveEffect && (
+                                    <div className="space-y-1">
+                                        <p className="text-xs font-bold text-indigo-500 uppercase tracking-wider">{t('timeline.form.step3.effect_label')}</p>
+                                        <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-600 italic">{event.subjectiveEffect}</p>
+                                    </div>
+                                )}
+                            </>
+                        ) : (
+                            <p className="whitespace-pre-wrap text-sm leading-relaxed">{event.description}</p>
+                        )}
+
+                        {event.bullyingTypes && event.bullyingTypes.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                                {event.bullyingTypes.map(typeKey => (
+                                    <span key={typeKey} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full border border-slate-200">
+                                        {t(`timeline.types.${typeKey}`)}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </CardContent>
                 </Card>
             ))}

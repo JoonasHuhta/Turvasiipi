@@ -1,0 +1,746 @@
+{
+    "nav": {
+        "simulation": "Simulation",
+        "explore": "Explore",
+        "tools": "Tools",
+        "help": "Help",
+        "identify_risks": "Identify Risks",
+        "victim_feelings": "Victim's Feelings",
+        "quiz_facts": "Quiz (Facts)",
+        "neuromoninaisuus": "Neurodiversity",
+        "youth_work": "Youth at Work",
+        "documentation": "Documentation",
+        "documents": "Documents",
+        "support_services": "Support Services",
+        "community": "Community",
+        "stories": "Stories"
+    },
+    "hero": {
+        "title": "Bullying isn't because of you.",
+        "subtitle": "Turvasiipi is your personal partner in identifying and documenting workplace bullying. Take the first step towards a fairer work life.",
+        "cta": "Start Assessment",
+        "stats_info": "⏱️ Takes only 2 minutes • Fully anonymous & Secure"
+    },
+    "stats": {
+        "title": "Workplace Bullying in Finland",
+        "stat1": "120,000+ Finnish employees experience it NOW",
+        "stat2": "Every 4th person has experienced it in their career",
+        "stat3": "Takes on average 1–3 years before action is taken",
+        "stat4": "65% of bullies are supervisors",
+        "stat5": "Consequences: anxiety, depression, burnout",
+        "warning_title": "⚠️ Dangerous Cycle",
+        "warning_desc": "Most wait too long. When the situation is finally identified, strength is already gone and one no longer has the energy to act.",
+        "solution_title": "✅ Turvasiipi Breaks the Cycle",
+        "solution_desc": "Start documenting as soon as you feel uncertain. You don't have to be \"bullied enough.\"",
+        "solution_footer": "Start today – it's the first step back to your own power."
+    },
+    "features": {
+        "title": "Comprehensive Toolkit",
+        "subtitle": "Everything you need to manage the situation, in one application.",
+        "doc_title": "Document",
+        "doc_desc": "Record events securely with timestamps. When you need evidence, you have a ready, credible timeline.",
+        "doc_cta": "Open Logbook",
+        "understand_title": "Understand",
+        "understand_desc": "Suspicion of bullying? Take validated tests and get clarity on the situation immediately. You're not imagining this.",
+        "understand_cta": "Take Test",
+        "recover_title": "Recover",
+        "recover_desc": "Support from peer groups and professionals. Find your strength back and learn to set boundaries.",
+        "recover_cta": "Join Community"
+    },
+    "how_it_works": {
+        "title": "How Turvasiipi Works",
+        "subtitle": "Four steps that turn uncertainty into an action plan.",
+        "step1_title": "Validate the Feeling",
+        "step1_desc": "Is it bullying or \"bad humor\"? Take a quick, psychological test that helps identify signs of gaslighting and violence.",
+        "step1_cta": "Take Test",
+        "step1_card_title": "Objective Assessment",
+        "step1_card_desc": "Get immediate feedback on the severity of your situation without downplaying.",
+        "step2_title": "Collect Evidence",
+        "step2_desc": "Your word is valuable, but data is power. Record events in a secure logbook as soon as they happen. Timestamps create credibility.",
+        "step2_cta": "Open Logbook",
+        "step2_card_title": "Confidential Logbook",
+        "step2_card_desc": "A diary running on your own device. Only you decide who sees your information.",
+        "step3_title": "Turn Feelings into Facts",
+        "step3_desc": "When it's time to act, AI helps format fragmented entries into a clear, legally valid report.",
+        "step3_cta": "Create Report",
+        "step3_card_title": "Clear Overview",
+        "step3_card_desc": "The app helps condense fragmented entries into a clear document.",
+        "step4_title": "Find a Solution",
+        "step4_desc": "You're not alone. Practice situations in the simulator, find peer support, or contact professionals with a ready fact package.",
+        "step4_cta": "Join Community",
+        "step4_card_title": "Empower Yourself",
+        "step4_card_desc": "Find peer support, understand your rights, and take control back."
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Unsure about something? Here are answers to common questions.",
+        "q1": "What is Turvasiipi?",
+        "a1": "Turvasiipi is a free digital tool for documenting, identifying, and addressing workplace bullying and inappropriate treatment. We provide information, tools, and peer support to everyone who encounters inappropriate behavior.",
+        "q2": "Who sees the things I write?",
+        "a2": "No one but you. All information is stored **only on your own device** (phone or computer). We don't have a server that collects your data, nor do we see your logbooks or reports.",
+        "q3": "Can my employer see that I use this?",
+        "a3": "No. The app doesn't require logging in with work email, nor does it leave traces on the company's network (except browser history). We recommend using the app on your own device or in Private Browsing (Incognito) mode.",
+        "q4": "How does documentation work?",
+        "a4": "You record events in the \"Timeline\" section. The information is saved in your device's memory. When you need evidence, you can create an automatic PDF summary of all your entries in the \"Report\" section, for example for occupational health or safety.",
+        "q5": "Is the story I share in the Stories section visible to others?",
+        "a5": "Yes, but only if you choose to publish it. Publishing is fully anonymous (or with a pseudonym of your choice). We don't store IP addresses, so stories cannot be traced back to you.",
+        "q6": "I am in immediate danger. What should I do?",
+        "a6": "If you experience violence or an acute threat, call the emergency number **112** immediately. Turvasiipi is a documentation tool, not a crisis service. In mental distress, call the Crisis Hotline: **010 195 202**."
+    },
+    "timeline": {
+        "page": {
+            "title": "Documentation",
+            "subtitle": "Your encrypted local timeline.",
+            "status_open": "OPEN",
+            "ai_help_title": "Hard to put into words?",
+            "ai_help_text": "AI can help organize scattered notes into a report.",
+            "ai_button": "Go to Reporting",
+            "list_title": "Timeline",
+            "entry_count": "{{count}} entries saved",
+            "confirm_delete": "Are you sure you want to delete this entry?",
+            "loading": "Starting safe harbor..."
+        },
+        "form": {
+            "title": "Log a New Event",
+            "step1": {
+                "title": "Step 1/3: Facts",
+                "description": "Record when and where it happened. This is important for legal reasons.",
+                "date_label": "Date and Time",
+                "witnesses_label": "Who was present? (Witnesses)",
+                "witnesses_placeholder": "Names or titles",
+                "next_button": "Next: What happened?"
+            },
+            "step2": {
+                "title": "Step 2/3: Objective Observation",
+                "description": "Log only what you saw or heard. Avoid interpretations (\"He hates me\").",
+                "example": "Example: \"X raised their voice\" (not \"X raged\").",
+                "type_label": "Event Type",
+                "description_label": "What happened?",
+                "description_placeholder": "Describe the situation as precisely as possible...",
+                "evidence_label": "Is there evidence?",
+                "back_button": "Back",
+                "next_button": "Next: Impact"
+            },
+            "step3": {
+                "title": "Step 3/3: Impact on You",
+                "description": "How did it feel? How did it affect your ability to work? This is important for occupational health.",
+                "effect_label": "Impact and Feelings",
+                "effect_placeholder": "E.g. Anxious, couldn't concentrate, sleep problems...",
+                "emotion_label": "Emotion (Quick Select)",
+                "severity_label": "Perceived Burden",
+                "save_button": "Save Entry"
+            },
+            "success": {
+                "title": "Saved to Safe Harbor.",
+                "description": "You have taken a step towards clarity. This information is now in your control, and no one can distort it."
+            }
+        },
+        "list": {
+            "empty": "No entries yet. Start by logging the first event.",
+            "witnesses_prefix": "Present:",
+            "no_witnesses": "No others"
+        },
+        "types": {
+            "isolation": "Exclusion",
+            "inappropriate_speech": "Inappropriate speech",
+            "work_limitation": "Harmful limitation of work",
+            "abuse_of_power": "Abuse of power",
+            "digital_harassment": "Digital harassment"
+        },
+        "evidence": {
+            "none": "No evidence",
+            "email": "Email",
+            "teams_slack": "Teams/Slack message",
+            "sms_whatsapp": "SMS/WhatsApp",
+            "photo_screenshot": "Photo/Screenshot",
+            "audio": "Audio recording",
+            "eyewitness": "Eyewitness"
+        },
+        "emotions": {
+            "neutral": "Neutral",
+            "sad": "Sad",
+            "anxious": "Anxious",
+            "fearful": "Fearful",
+            "angry": "Angry"
+        }
+    },
+    "report": {
+        "page": {
+            "title": "Tools & Documents",
+            "subtitle": "Manage documents, use ready-made message templates, and create a smart overview.",
+            "back_to_timeline": "Back to timeline",
+            "loading": "Loading tools...",
+            "tabs": {
+                "report": "Report",
+                "templates": "Templates",
+                "premium": "AI Analysis (Premium)"
+            },
+            "main_report": {
+                "title": "Summary of Harassment and Inappropriate Treatment",
+                "subtitle": "Confidential • Automated report from Turvasiipi app",
+                "print_button": "Print PDF",
+                "stats": {
+                    "events": "Events",
+                    "duration": "Duration (days)",
+                    "severity": "Severity (avg)",
+                    "main_type": "Main Type",
+                    "not_defined": "Not defined"
+                },
+                "event_list_title": "Detailed Event List",
+                "no_events": "No events recorded."
+            },
+            "templates_tab": {
+                "categories": {
+                    "all": "All",
+                    "employer": "Employer",
+                    "health": "Health",
+                    "union": "Union",
+                    "legal": "Legal",
+                    "communication": "Communication"
+                },
+                "card": {
+                    "read_and_use": "Read and use"
+                },
+                "dialog": {
+                    "subject": "Subject",
+                    "content": "Message Content",
+                    "copy_info": "You can edit the text by selecting and copying or use the button below.",
+                    "close": "Close",
+                    "copy_all": "Copy Full Text",
+                    "copied": "Copied to clipboard"
+                }
+            },
+            "premium_tab": {
+                "intro": {
+                    "title": "Smart Situation Analysis",
+                    "description": "Turvasiipi AI analyzes your entries and creates a professional summary of your situation. The report includes frequency analysis, legal framework, and concrete recommended steps.",
+                    "features": {
+                        "anonymized": {
+                            "title": "Anonymized",
+                            "text": "Names and locations are automatically removed before analysis."
+                        },
+                        "ai_analysis": {
+                            "title": "GPT-4 Analysis",
+                            "text": "Utilizes the most advanced language model on the market."
+                        },
+                        "pdf_ready": {
+                            "title": "PDF Ready",
+                            "text": "Get a ready-made report instantly to forward."
+                        }
+                    },
+                    "button": "Start analysis (4.99 €)",
+                    "footer": "One-time payment. No commitment."
+                },
+                "payment": {
+                    "title": "Confirm Order",
+                    "summary_title": "AI Situation Analysis",
+                    "total": "Total",
+                    "consent_label": "I accept data processing",
+                    "consent_info": "I understand that anonymized data is sent to the OpenAI API for analysis.",
+                    "button": "Pay and Analyze",
+                    "cancel": "Cancel"
+                },
+                "processing": {
+                    "title": "Analyzing data...",
+                    "subtitle": "This takes about 10-20 seconds.",
+                    "steps": "Anonymizing names... \nIdentifying patterns... \nCreating legal framework..."
+                },
+                "result": {
+                    "ready": "Analysis complete",
+                    "close": "Close",
+                    "copy": "Copy",
+                    "download": "Download PDF"
+                }
+            }
+        },
+        "templates": {
+            "employer-notice-tsl28": {
+                "title": "First notice to employer",
+                "description": "Official notification of inappropriate treatment, obligating the employer to take action.",
+                "subject": "Notification of inappropriate treatment (Occupational Safety and Health Act, Section 28)",
+                "content": "Dear [Manager's Name / HR Director],\n\nI am making this notification in accordance with Section 28 of the Occupational Safety and Health Act.\n\nBACKGROUND\nI have been working at [Company] in [Role] since [Start Date]. Over the past [Period], I have experienced systematic inappropriate treatment that affects my occupational safety and health.\n\nEVENTS\n[AI combination of events]\n\nIMPACT\nCurated treatment described above has caused me significant burden, manifested as [AI symptoms: e.g. sleep problems and decreased work vigor].\n\nREQUEST FOR ACTION\nSection 28 of the Occupational Safety and Health Act obligates the employer to take measures to investigate and stop the situation without delay. I request:\n1. Written confirmation of receipt of this notification\n2. Information on what measures will be taken in the matter\n3. A schedule for the investigation process\n\nI have documented the events accurately and am ready to provide additional information.\n\nSincerely,\n[Your Name]\n[Date]"
+            },
+            "employer-follow-up": {
+                "title": "Follow-up message (when no response is received)",
+                "description": "Use this 7-14 days after the first message if the employer remains silent.",
+                "subject": "Follow-up: Notification of inappropriate treatment ([Original Date])",
+                "content": "Dear [Recipient],\n\nI sent a notification of inappropriate treatment on [Date] (attached). I have not received a response within a reasonable time.\n\nSection 28 of the Occupational Safety and Health Act obligates the employer to take action WITHOUT DELAY after being informed. I request a response to the following questions by [Date + 7 days] at the latest:\n1. Has my notification been received?\n2. Who is handling the matter?\n3. What is the estimated schedule for the investigation?\n\nIf I do not receive a response, I will have to contact my labor union or the occupational safety authority to resolve the situation.\n\nSincerely,\n[Name]"
+            },
+            "union-notice": {
+                "title": "Request for help from labor union",
+                "description": "Message template for requesting help from your own union.",
+                "subject": "Request for help: Workplace bullying / [Company Name]",
+                "content": "Dear [Union Name],\n\nI am a member of [Union Name]. I need help with a workplace bullying situation that I have not been able to resolve with my employer.\n\nSITUATION IN BRIEF:\n- Employer: [Company]\n- My role: [Role]\n- Situation ongoing for: [Period]\n- Reported to employer: [Yes/No, date]\n\nDOCUMENTATION:\nI have documented the events using the Turvasiipi service. Attached is a chronological report of the situation.\n\nREQUEST:\nI hope you can evaluate my situation and advise on next steps or possible representation towards the employer.\n\nSincerely,\n[Name]\n[Phone]"
+            },
+            "health-notice": {
+                "title": "Request to occupational health services",
+                "description": "Appointment request for assessment of work-related burden.",
+                "subject": "Appointment: Assessment of work-related burden and stress",
+                "content": "Dear Occupational Health Services,\n\nI am requesting an appointment for the assessment of work-related burden.\n\nSITUATION:\nI am experiencing inappropriate treatment at my workplace, which significantly affects my physical and mental health.\n\nSYMPTOMS:\n[Symptoms: e.g. sleep problems, anxiety, decreased concentration]\n\nNEED:\nI need a professional assessment of my situation, possible need for sick leave, and recommendations for further measures towards the employer.\n\nSincerely,\n[Name]\n[Phone]"
+            },
+            "employer-escalation": {
+                "title": "Escalation notice (when situation continues)",
+                "description": "Serious notice to management when previous notices have not been addressed.",
+                "subject": "Escalation notice: Inappropriate treatment continues / Request for action",
+                "content": "Dear [HR Director / CEO],\n\nI have reported inappropriate treatment on [Date] and [Date]. The situation has not been effectively addressed, and the treatment has [CONTINUED / WORSENED].\n\nNEW EVENTS (after my message):\n[AI combination of new events]\n\nSection 28 of the Occupational Safety and Health Act obligates the employer to intervene in the situation without delay. Since no action has been taken, I will report the matter next to:\n- The Occupational Safety Authority\n- My labor union\n\nI expect your written response and a concrete plan to resolve the matter by [Date].\n\nSincerely,\n[Name]"
+            },
+            "health-stress-assessment": {
+                "title": "Request for work-related stress assessment",
+                "description": "Detailed request to occupational health with symptoms and background.",
+                "subject": "Appointment + Assessment of work-related stress and burden",
+                "content": "Dear Occupational Health Nurse / Doctor,\n\nI am requesting an urgent appointment for the assessment of work-related burden.\n\nSITUATION:\nI am experiencing continuous inappropriate treatment at my workplace, which significantly affects my health and ability to function.\n\nSYMPTOMS:\n- Sleep problems (waking up, difficulty falling asleep)\n- Continuous anxiety and fear when arriving at the workplace\n- [Other symptoms: e.g. headache, stomach problems]\n\nBACKGROUND:\nI have documented the situation for [X] and reported it to the employer on [Date]. The situation has not improved.\n\nNEED:\nI need a professional assessment of the need for sick leave and an official statement on work-related burden for further measures.\n\nSincerely,\n[Name]\n[Phone]"
+            },
+            "legal-compensation-claim": {
+                "title": "Claim for damages",
+                "description": "Legal basis for seeking compensation due to negligence.",
+                "subject": "Claim for damages (Tort Liability Act 3:1)",
+                "content": "[Company Name]\nCEO / Board of Directors\n\nSubject: Claim for damages\n\nBACKGROUND:\nI have worked in your company for [Period]. During this time, I experienced systematic inappropriate treatment, which I reported to the employer on [Date]. The employer did not take measures in accordance with Section 28 of the Occupational Safety and Health Act to stop the treatment.\n\nDAMAGES:\nThe negligence has caused me:\n1. Financial damages (therapy costs, medication)\n2. Mental suffering and health harm\n\nCLAIM:\nI claim damages of [Amount €] as an amicable settlement in the matter. The basis is the employer's vicarious liability and negligence of the duty of care.\n\nIf the matter is not resolved by [Date], I will transfer the matter to legal proceedings.\n\nSincerely,\n[Name]"
+            },
+            "resignation-notice": {
+                "title": "Resignation (due to bullying)",
+                "description": "Resignation notice documenting the reason for future use.",
+                "subject": "Resignation notice / [Your Name]",
+                "content": "Dear [Recipient],\n\nI am resigning from my [Role] position. My last day of work is [Date].\n\nBASIS:\nThe reason for my resignation is long-term inappropriate treatment and workplace bullying, which the employer has not addressed despite my reminders and obligations under Section 28 of the Occupational Safety and Health Act.\n\nI have reported the situation on [Date], but since a safe working environment could not be guaranteed, I have to terminate my employment to safeguard my health.\n\nI request that you provide a certificate of employment and final pay accordingly.\n\nSincerely,\n[Name]"
+            },
+            "authority-notice": {
+                "title": "Notification to the occupational safety authority",
+                "description": "Official notification to the AVI regarding a violation of the Occupational Safety and Health Act.",
+                "subject": "Notification of deficiencies in occupational safety (OSHA Section 28) / [Company]",
+                "content": "Subject: Notification of violation of Section 28 of the Occupational Safety and Health Act\n\nNOTIFIER:\nName: [Name]\nWorkplace: [Company]\n\nSUBJECT OF NOTIFICATION:\nThere is systematic inappropriate treatment and harassment at my workplace, which the employer has not addressed in accordance with Section 28 of the Occupational Safety and Health Act despite several reminders.\n\nEVENTS:\nI have documented the events chronologically. Attached is a summary of the 15 most serious cases.\n\nEMPLOYER'S ACTIONS:\nI made a notification to the employer on [Date]. The employer has not taken measures to stop the situation; instead, the treatment has continued.\n\nREQUEST:\nI request the occupational safety authority to perform an inspection and direct the employer to fulfill their legal investigation period and duty to intervene.\n\nSincerely,\n[Name]"
+            },
+            "legal-crime-report": {
+                "title": "Crime report template (Violence/Threats)",
+                "description": "Basis for a report to the police if a crime has been committed.",
+                "subject": "Crime Report - Workplace Bullying / Threats",
+                "content": "Subject: Crime Report\n\nSUSPECTED CRIME:\n[Illegal threat / Defamation / Assault]\n\nEVENTS:\n[Date] [Description of the event] occurred. [Witnesses] were present. [Emails / Messages / Recording] of the situation exist.\n\nEVIDENCE:\nAttached is the course of events and evidence of the case in question documented through the Turvasiipi service.\n\nREQUEST:\nI request the police to perform a preliminary investigation in the matter.\n\nSincerely,\n[Name]\n[Personal Identity Code]"
+            },
+            "comm-witness-request": {
+                "title": "Request to witness (colleague)",
+                "description": "Empathetic but clear request to a colleague to testify what they saw.",
+                "subject": "Request for witness / Confidential",
+                "content": "Hi [Name],\n\nAs you know, I have experienced challenging treatment at work lately. You have been present in some of these situations.\n\nI would be very grateful if you could write a short, informal statement about what you have seen or heard. This would help me in resolving the matter with the union or occupational safety.\n\nI understand that this can be a difficult position for you. Your testimony will be handled confidentially.\n\nThank you for considering this.\n\nSincerely,\n[Name]"
+            },
+            "career-interview-prep": {
+                "title": "Answering in job interviews",
+                "description": "How to explain changing jobs without being labeled a \"difficult employee\".",
+                "subject": "Job interview response template (oral)",
+                "content": "GENERAL RULE: Do not badmouth your previous employer. Focus on the future.\n\nOPTION A (Neutral):\n\"In my previous employment, I identified that the organizational culture and management style no longer matched my values or enabled my development. Therefore, I decided to seek an environment where open communication and cooperation are valued, as they are here.\"\n\nOPTION B (Slightly more open):\n\"In my previous job, a challenging management situation was encountered. I did my best to resolve the situation, but ultimately concluded that it is best to move on and focus energy on a new challenge.\"\n\nOPTION C (Honest):\n\"I experienced inappropriate treatment at my previous workplace, which despite efforts, could not be resolved. I documented the situation carefully and handled my departure professionally. This experience has taught me a lot about a healthy work culture and how important mutual respect is.\""
+            },
+            "comm-thanks-supporter": {
+                "title": "Thank you message to supporter",
+                "description": "Warm thanks to a colleague or friend who has supported you in a difficult situation.",
+                "subject": "Thank you for your support / [Your Name]",
+                "content": "Hi [Name],\n\nI just wanted to thank you for being there for me [situation, e.g. in yesterday's meeting]. It really meant a lot to me.\n\nI know my situation has been difficult, and I truly appreciate that you dared to [action, e.g. say out loud that the treatment was wrong].\n\nThank you for not leaving me alone.\n\nSincerely,\n[Name]"
+            }
+        },
+        "analysis": {
+            "checklist": {
+                "long_duration": "⚠️ Duration over 6 months: Suggests long-term harassment.",
+                "high_severity": "🔴 High burden: Average severity is at a concerning level.",
+                "high_frequency": "🔥 High frequency: There are many events within a short timeframe.",
+                "work_limitation": "⚖️ Possible labor discrimination: Preventing work from being done can meet the criteria for discrimination."
+            }
+        }
+    },
+    "footer": {
+        "copyright": "© 2025 Turvasiipi. Safe and confidential.",
+        "support": "Support and contact info",
+        "privacy": "Privacy Policy"
+    },
+    "quiz": {
+        "hero": {
+            "badge": "Deep Analysis",
+            "title_start": "Identify",
+            "title_highlight": "invisible",
+            "title_end": "violence",
+            "description": "Psychological bullying is subtler and often more destructive than physical violence. This tool helps you name your experience."
+        },
+        "tabs": {
+            "quiz": "Quick Quiz",
+            "tactics": "Tactic Bank",
+            "compare": "Bullying vs Criticism"
+        },
+        "progress": "Question {{current}} / {{total}}",
+        "card": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "results": {
+            "analyzing": "Analysis Complete",
+            "score": "Your Result:",
+            "interpretation_title": "What does this mean?",
+            "disclaimer": "\"This is not normal work stress. This is not your fault.\"",
+            "signals_title": "Strongest Signals",
+            "steps_title": "Recommended Next Steps",
+            "restart": "Start Over",
+            "log_action": "Log Events",
+            "start_analysis": "Start Analysis",
+            "why_important": "Why is this important?"
+        },
+        "risk_levels": {
+            "mild": {
+                "label": "Mild Risk",
+                "description": "Your experiences may be isolated, but continue documenting just in case."
+            },
+            "moderate": {
+                "label": "Moderate Risk",
+                "description": "Signs point to repeated inappropriate treatment. We recommend discussing this with a trusted party."
+            },
+            "severe": {
+                "label": "Severe Risk",
+                "description": "This is a serious situation. What you are experiencing corresponds to systematic bullying. Contact your union or occupational safety."
+            },
+            "critical": {
+                "label": "Critical Risk",
+                "description": "This is an emergency for your work ability. The situation points to serious psychological violence. Seek help immediately."
+            }
+        },
+        "categories": {
+            "itsetunto": {
+                "label": "Erosion of Self-Esteem",
+                "description": "How you feel about yourself and your professional skills."
+            },
+            "todellisuus": {
+                "label": "Gaslighting & Reality",
+                "description": "Do you doubt your own perceptions or memory?"
+            },
+            "eristyksissä": {
+                "label": "Isolation",
+                "description": "Feeling of exclusion or social rejection."
+            },
+            "fyysiset": {
+                "label": "Physical Symptoms",
+                "description": "Body's reactions to mental pressure (sleep, stomach, heart)."
+            },
+            "käyttäytyminen": {
+                "label": "Behavioral Change",
+                "description": "How the situation affects your life outside of work."
+            }
+        },
+        "questions": {
+            "1": "Do you feel stupid at work (even though you are not)?",
+            "2": "Do you often think: 'Maybe I am too sensitive'?",
+            "3": "Do you doubt your professional skills (even if you didn't before)?",
+            "4": "Are you afraid of making mistakes more than before?",
+            "5": "Do you feel 'too bad' for your job?",
+            "6": "Have you been told 'I never said that' (even though they did)?",
+            "7": "Have others questioned your memory ('are you sure?')?",
+            "8": "Have you been told 'don't take it so hard' / 'it was a joke'?",
+            "9": "Do you feel that 'going crazy' is possible?",
+            "10": "Do you write things down because you don't trust your memory?",
+            "11": "Do you often get left out of meetings (where others are)?",
+            "12": "Do you notice that no one talks to you on coffee breaks?",
+            "13": "Do you feel like people are talking behind your back?",
+            "14": "Have you lost friends/supporters at the workplace?",
+            "15": "Do you avoid social situations at work?",
+            "16": "Do you wake up at night thinking about work?",
+            "17": "Do you have stomach issues before work?",
+            "18": "Does your heart pound in meetings?",
+            "19": "Have you been sick more often this year?",
+            "20": "Do you use alcohol/medication to cope with work pressure?",
+            "21": "Have you withdrawn socially (outside of work)?",
+            "22": "Do you cry often without a clear reason?",
+            "23": "Do you think about resigning daily?",
+            "24": "Do you dread Monday mornings?",
+            "25": "Do you feel 'I am not myself anymore'?"
+        },
+        "tactics_page": {
+            "title_start": "Tactic",
+            "title_highlight": "Bank",
+            "description": "Bullies often have repeating strategies. When you identify a tactic, it loses some of its power over you.",
+            "modal": {
+                "badge": "Tactical Analysis",
+                "definition": "Definition",
+                "phrases": "Classic Phrases",
+                "strategy": "Counter-strategy",
+                "log_instruction": "Log like this:",
+                "close": "Close Analysis"
+            }
+        },
+        "compare_page": {
+            "badge": "Distinguish two different things",
+            "title_start": "Bullying",
+            "title_highlight": "vs.",
+            "title_end": "Criticism",
+            "description": "Not all corrective feedback is bullying, but bullying should not be hidden under criticism. This table helps you draw the line.",
+            "bullying_label": "Workplace Bullying",
+            "criticism_label": "Constructive Criticism",
+            "rule_title": "Rule of Thumb",
+            "rule_text": "<strong>Constructive criticism</strong> focuses on work performance and aims for a solution. <strong>Bullying</strong> focuses on the employee and aims to harm them as a person."
+        },
+        "comparison_points": [
+            {
+                "title": "Goal",
+                "bullying": "To humiliate, control, or force out the employee.",
+                "criticism": "To improve work quality or correct a wrong procedure."
+            },
+            {
+                "title": "Target",
+                "bullying": "Personal traits, personality, or reputation.",
+                "criticism": "Performance, work results, or followed instructions."
+            },
+            {
+                "title": "Interaction",
+                "bullying": "One-sided, aggressive, often in front of others or behind back.",
+                "criticism": "Conversational, justified, and mostly one-on-one."
+            },
+            {
+                "title": "Frequency",
+                "bullying": "Continuous, systematic, and often long-lasting.",
+                "criticism": "Situational and ends when the agreed change is made."
+            },
+            {
+                "title": "Outcome",
+                "bullying": "Burnout, loss of self-confidence, and anxiety.",
+                "criticism": "Clarity of expectations and professional development."
+            }
+        ],
+        "tactics": {
+            "mitatointi": {
+                "name": "Invalidation & Belittling",
+                "definition": "Constant belittling and questioning of your skills, suggestions, and achievements.",
+                "phrases": [
+                    "That's a useless suggestion",
+                    "Do you really not know this?",
+                    "Anyone could have done that",
+                    "Why are you making a big deal out of this?"
+                ],
+                "goal": "Erode your self-confidence and professional credibility.",
+                "strategy": [
+                    "Document positive feedback from elsewhere.",
+                    "Do not expect recognition from the bully.",
+                    "Validate your skills with outsiders."
+                ],
+                "logExample": "Supervisor said 'useless suggestion' in meeting on 12.12. Witnesses: 5 people."
+            },
+            "eristaminen": {
+                "name": "Isolation & Exclusion",
+                "definition": "Intentional exclusion from social and professional interaction.",
+                "phrases": [
+                    "I forgot to tell you that",
+                    "This doesn't concern you",
+                    "(Silence when you arrive)",
+                    "The meeting was yesterday"
+                ],
+                "goal": "Make you invisible and cut off your support network.",
+                "strategy": [
+                    "Build networks in other teams.",
+                    "Document absences from meetings.",
+                    "Ask in writing why information did not flow."
+                ],
+                "logExample": "Entire team went to lunch without me for 3rd day in a row (10-12.12)."
+            },
+            "gaslighting": {
+                "name": "Gaslighting",
+                "definition": "Psychological manipulation that makes you doubt your own perceptions and memory.",
+                "phrases": [
+                    "I never said that",
+                    "You are too sensitive",
+                    "It was a joke, don't take it hard",
+                    "You are just imagining things"
+                ],
+                "goal": "Make you doubt your sanity and silence you.",
+                "strategy": [
+                    "Write things down immediately when they happen.",
+                    "Use email for confirmation.",
+                    "Do not argue about memories."
+                ],
+                "logExample": "15.12 agreed on X. 18.12 supervisor claimed such thing was never agreed."
+            },
+            "passiivi-aggressio": {
+                "name": "Passive-Aggressiveness",
+                "definition": "Hidden hostility that is hard to point out directly as bullying.",
+                "phrases": [
+                    "Maybe next time you'll succeed better (sarcasm)",
+                    "I'm just being honest",
+                    "(Sighing during your turn to speak)",
+                    "(Rolling eyes)"
+                ],
+                "goal": "Hurt without the bully being held accountable for their behavior.",
+                "strategy": [
+                    "Ask directly: 'Did you mean that offensively?'",
+                    "Stay cool and professional.",
+                    "Document words and gestures."
+                ],
+                "logExample": "Supervisor rolled eyes during my project presentation. Date X."
+            },
+            "kohtuuttomuus": {
+                "name": "Unreasonable Demands",
+                "definition": "Setting impossible goals or an inhumane workload.",
+                "phrases": [
+                    "This needs to be ready tomorrow (week's work)",
+                    "Others can do this too",
+                    "I don't have time to look at prioritization, do it all",
+                    "Are you slow or why does it take so long?"
+                ],
+                "goal": "Cause burnout or 'prove' your incompetence through failure.",
+                "strategy": [
+                    "Request prioritization in writing.",
+                    "Keep track of work time and tasks.",
+                    "Report overload by email."
+                ],
+                "logExample": "Received 40h work on Friday at 4 PM, due Monday at 8 AM."
+            },
+            "epaoikeudenmukaisuus": {
+                "name": "Unfairness",
+                "definition": "Applying rules and rewards differently to different people.",
+                "phrases": [
+                    "A gets remote work, you don't (without reason)",
+                    "Good project A! (Even though you did the work)",
+                    "Your mistake is serious (A's same mistake ok)",
+                    "We don't usually pay extra for this"
+                ],
+                "goal": "Create uncertainty and signal that you are not equal to others.",
+                "strategy": [
+                    "Compare your situation to written guidelines.",
+                    "Document deviations in fairness.",
+                    "Ask in writing for grounds for unequal treatment."
+                ],
+                "logExample": "Colleague got credit in team meeting for a project I did alone."
+            },
+            "uhkailu": {
+                "name": "Threats & Intimidation",
+                "definition": "Indirect or direct threatening with loss of employment or reputation.",
+                "phrases": [
+                    "I have spoken about you to management",
+                    "If this repeats, you know the consequences",
+                    "Maybe this field doesn't suit you",
+                    "Hopefully you won't make mistakes again..."
+                ],
+                "goal": "Control you through fear and prevent defense.",
+                "strategy": [
+                    "Record all written threats.",
+                    "Contact shop steward immediately.",
+                    "Do not stay alone with the threatener."
+                ],
+                "logExample": "Supervisor said behind closed doors 'best to start looking for a new job'."
+            },
+            "sabotaasi": {
+                "name": "Sabotage",
+                "definition": "Intentionally preventing or hindering work performance.",
+                "phrases": [
+                    "(Information given wrongly or too late)",
+                    "I didn't get your message (even though they did)",
+                    "Project was moved to another in the middle of everything",
+                    "(Tools not delivered despite request)"
+                ],
+                "goal": "Make you look incompetent and cause frustration.",
+                "strategy": [
+                    "Copy important messages to a third party.",
+                    "Ensure instructions in writing.",
+                    "Report obstacles immediately along the reporting line."
+                ],
+                "logExample": "Critical Excel template not delivered, although requested 5 times."
+            },
+            "maine": {
+                "name": "Defamation of Reputation",
+                "definition": "Spreading false rumors or distorting competence to others.",
+                "phrases": [
+                    "He/She is a difficult person",
+                    "No one wants to work with him/her",
+                    "I heard he/she makes a lot of mistakes",
+                    "He/She is not a team player"
+                ],
+                "goal": "Destroy your credibility and support opportunities in the organization.",
+                "strategy": [
+                    "Talk directly to your colleagues.",
+                    "Ask HR to investigate the source of rumors.",
+                    "Stay professional in all communication."
+                ],
+                "logExample": "Colleague told that supervisor had spoken of me as 'unstable' in the break room."
+            },
+            "manipulaatio": {
+                "name": "Emotional Manipulation",
+                "definition": "Using emotions, such as guilt or fear, to control another.",
+                "phrases": [
+                    "I thought we were friends",
+                    "When you are sick, others suffer",
+                    "You are the only one who can save this",
+                    "Let's see next week (but never)"
+                ],
+                "goal": "Make you obedient through guilt or false hope.",
+                "strategy": [
+                    "Identify the 'good day / bad day' cycle.",
+                    "Keep professional boundaries.",
+                    "Do not take responsibility for another's feelings."
+                ],
+                "logExample": "Supervisor guilt-tripped about sick leave saying it destroys team spirit."
+            },
+            "identiteetti": {
+                "name": "Identity Attack",
+                "definition": "Attack against personal traits, such as age, gender, or background.",
+                "phrases": [
+                    "Are you ADHD or why don't you focus?",
+                    "Women don't understand this technical side",
+                    "It's hard for someone that age to learn new things",
+                    "You are so sensitive today (referring to trait)"
+                ],
+                "goal": "Humiliate and show that you don't belong because of a personal reason.",
+                "strategy": [
+                    "This can be discrimination breaking the law.",
+                    "Contact the non-discrimination ombudsman.",
+                    "Document words verbatim."
+                ],
+                "logExample": "Supervisor asked 'is the slowness due to your age' in hearing of others."
+            },
+            "thousand-cuts": {
+                "name": "Death by a Thousand Cuts",
+                "definition": "Continuous series of small micro-aggressions difficult to isolate individually.",
+                "phrases": [
+                    "(Constant small corrections to work)",
+                    "(Small sighs after your requests)",
+                    "(Non-existent feedback on done things)",
+                    "(Small inappropriate jokes daily)"
+                ],
+                "goal": "Wear out the victim's psyche slowly but surely.",
+                "strategy": [
+                    "Document ALL even small things – quantity matters.",
+                    "Look at the big picture, not just this day.",
+                    "Seek outside validation for the situation."
+                ],
+                "logExample": "15 small unpleasant encounters within the same day. Depressing feeling."
+            }
+        },
+        "step_actions": {
+            "title": "Checklist",
+            "validate": {
+                "title": "Validation",
+                "text": "Confirm to yourself that you are not imagining things."
+            },
+            "name": {
+                "title": "Naming",
+                "text": "Learn the right terms, like gaslighting or sabotage."
+            },
+            "boundaries": {
+                "title": "Setting Boundaries",
+                "text": "Recognize where normal stress ends and bullying begins."
+            },
+            "justice": {
+                "title": "Legal Protection",
+                "text": "First step towards official documentation."
+            }
+        },
+        "next_steps": {
+            "document": {
+                "title": "Start Documenting",
+                "text": "Log every event you remember in the Turvasiipi diary.",
+                "action": "Act Now"
+            },
+            "union": {
+                "title": "Contact Union",
+                "text": "Don't stay alone. Your union's lawyers and experts can help.",
+                "action": "Act Now"
+            },
+            "healthcare": {
+                "title": "Visit Occupational Health",
+                "text": "Psychological bullying is traumatic. Ask for early support.",
+                "action": "Act Now"
+            },
+            "tactics": {
+                "title": "Read about Tactics",
+                "text": "Learn about gaslighting and other manipulation methods.",
+                "action": "Read More"
+            }
+        }
+    }
+}

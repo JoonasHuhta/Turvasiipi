@@ -81,16 +81,16 @@ export function generateSummaryChecklist(stats: ReportStats): string[] {
     const list = [];
 
     if (stats.durationDays > 180) {
-        list.push("⚠️ Kesto yli 6 kuukautta: Viittaa pitkäkestoiseen häirintään.");
+        list.push("report.analysis.checklist.long_duration");
     }
     if (stats.avgSeverity > 7) {
-        list.push("🔴 Korkea kuormittavuus: Keskimääräinen vakavuus on huolestuttavalla tasolla.");
+        list.push("report.analysis.checklist.high_severity");
     }
     if (stats.totalEvents > 10 && stats.durationDays < 30) {
-        list.push("🔥 Tiheä toistuvuus: Tapahtumia on paljon lyhyen ajan sisällä.");
+        list.push("report.analysis.checklist.high_frequency");
     }
-    if (stats.commonTypes.includes("Työn haitallinen rajoittaminen")) {
-        list.push("⚖️ Mahdollinen työsyrjintä: Työn tekemisen estäminen voi täyttää syrjinnän tunnusmerkistön.");
+    if (stats.commonTypes.includes("work_limitation")) {
+        list.push("report.analysis.checklist.work_limitation");
     }
 
     return list;

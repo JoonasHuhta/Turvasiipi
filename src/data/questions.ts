@@ -45,21 +45,25 @@ export const quizQuestions: Question[] = [
 
 export const getRiskLevel = (score: number) => {
     if (score <= 5) return {
+        key: 'mild',
         level: "Lievä riski",
         color: "text-green-600",
         description: "Kokemuksesi voivat olla yksittäisiä, mutta jatka dokumentointia varmuuden vuoksi."
     };
     if (score <= 12) return {
+        key: 'moderate',
         level: "Kohtalainen riski",
         color: "text-orange-600",
         description: "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Suosittelemme keskustelua luotettavan tahon kanssa."
     };
     if (score <= 18) return {
+        key: 'severe',
         level: "Vakava riski",
         color: "text-red-500",
         description: "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Ota yhteyttä ammattiliittoon tai työsuojeluun."
     };
     return {
+        key: 'critical',
         level: "Kriittinen riski",
         color: "text-red-700",
         description: "Tämä on hätätilanne työkuntosi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae apua heti."

@@ -1,0 +1,746 @@
+{
+    "nav": {
+        "simulation": "Simulaatio",
+        "explore": "Tutki",
+        "tools": "Välineet",
+        "help": "Apua",
+        "identify_risks": "Tunnista riskit",
+        "victim_feelings": "Uhrin tuntemukset",
+        "quiz_facts": "Tietovisa (Faktat)",
+        "neuromoninaisuus": "Neuromoninaisuus",
+        "youth_work": "Nuoret työelämässä",
+        "documentation": "Dokumentointi",
+        "documents": "Asiakirjat",
+        "support_services": "Tukipalvelut",
+        "community": "Yhteisö",
+        "stories": "Tarinat"
+    },
+    "hero": {
+        "title": "Kiusaaminen ei johdu sinusta.",
+        "subtitle": "Turvasiipi on henkilökohtainen kumppanisi työpaikkakiusaamisen tunnistamisessa ja dokumentoinnissa. Ota ensimmäinen askel kohti oikeudenmukaisempaa työelämää.",
+        "cta": "Aloita tilannekartoitus",
+        "stats_info": "⏱️ Kestää vain 2 minuuttia • Täysin anonyymi & Turvallinen"
+    },
+    "stats": {
+        "title": "Työpaikkakiusaaminen Suomessa",
+        "stat1": "120 000+ suomalaista palkansaajaa kokee sitä NYT",
+        "stat2": "Joka 4. on kokenut sitä urallaan",
+        "stat3": "Kestää keskimäärin 1–3 vuotta ennen toimenpiteitä",
+        "stat4": "65% kiusaajista on esimiehiä",
+        "stat5": "Seuraukset: ahdistus, masennus, työuupumus",
+        "warning_title": "⚠️ Vaarallinen kierre",
+        "warning_desc": "Useimmat odottavat liian kauan. Kun tilanne vihdoin tunnistetaan, voimat on jo lopussa eikä toimintaan enää jaksa.",
+        "solution_title": "✅ Turvasiipi katkaisee kierteen",
+        "solution_desc": "Aloita dokumentointi heti kun tunnet olevasi epävarma. Sinun ei tarvitse olla \"tarpeeksi kiusattu.\"",
+        "solution_footer": "Aloita tänään – se on ensimmäinen askel takaisin omaan voimaasi."
+    },
+    "features": {
+        "title": "Kattava työkalupakki",
+        "subtitle": "Kaikki mitä tarvitset tilanteen hallintaan, yhdessä sovelluksessa.",
+        "doc_title": "Dokumentoi",
+        "doc_desc": "Kirjaa tapahtumat turvallisesti aikaleimalla. Kun tarvitset todisteita, sinulla on valmis, uskottava aikajana.",
+        "doc_cta": "Avaa Logikirja",
+        "understand_title": "Ymmärrä",
+        "understand_desc": "Epäiletkö kiusaamista? Tee validoidut testit ja saa selkeys tilanteeseen heti. Et kuvittele tätä.",
+        "understand_cta": "Tee testi",
+        "recover_title": "Toivu",
+        "recover_desc": "Vertaisryhmän ja ammattilaisten tuki. Löydä voimasi takaisin ja opi asettamaan rajat.",
+        "recover_cta": "Liity yhteisöön"
+    },
+    "how_it_works": {
+        "title": "Näin Turvasiipi toimii",
+        "subtitle": "Neljä askelta, jotka muuttivat epävarmuuden toimintasuunnitelmaksi.",
+        "step1_title": "Varmista tunne",
+        "step1_desc": "Onko se kiusaamista vai \"huonoa huumoria\"? Tee nopea, psykologinen testi, joka auttaa tunnistamaan gaslightingin ja väkivallan merkit.",
+        "step1_cta": "Tee testi",
+        "step1_card_title": "Objektiivinen arvio",
+        "step1_card_desc": "Saat heti palautteen tilanteesi vakavuudesta ilman vähättelyä.",
+        "step2_title": "Kerää todisteet",
+        "step2_desc": "Sinun sanasi on arvokas, mutta data on voimaa. Kirjaa tapahtumat turvalliseen lokikirjaan heti kun ne tapahtuvat. Aikaleimat luovat uskottavuutta.",
+        "step2_cta": "Avaa lokikirja",
+        "step2_card_title": "Luottamuksellinen lokikirja",
+        "step2_card_desc": "Omalla laitteellasi toimiva päiväkirja. Vain sinä päätät, kuka näkee tietosi.",
+        "step3_title": "Muuta tunne faktoiksi",
+        "step3_desc": "Kun on aika toimia, tekoäly auttaa muotoilemaan hajanaiset merkinnät selkeäjä, juridisesti päteväksi raportiksi.",
+        "step3_cta": "Luo raportti",
+        "step3_card_title": "Selkeä tilannekuva",
+        "step3_card_desc": "Sovellus auttaa tiivistämään hajanaiset merkinnät selkeäksi dokumentiksi.",
+        "step4_title": "Löydä ratkaisu",
+        "step4_desc": "Et ole yksin. Harjoittele tilanteita simulaattorissa, löydä vertaistukea tai ota yhteys ammattilaisiin valmiin faktapaketin kanssa.",
+        "step4_cta": "Liity yhteisöön",
+        "step4_card_title": "Voimaannu",
+        "step4_card_desc": "Löydä vertaistukea, ymmärrä oikeutesi ja ota hallinta takaisin."
+    },
+    "faq": {
+        "title": "Usein kysytyt kysymykset",
+        "subtitle": "Mietityttääkö jokin? Tässä vastauksia yleisimpiin kysymyksiin.",
+        "q1": "Mikä on Turvasiipi?",
+        "a1": "Turvasiipi on ilmainen digitaalinen työkalu työpaikkakiusaamisen ja epäasiallisen kohtelun dokumentointiin, tunnistamiseen ja käsittelyyn. Tarjoamme tietoa, työkaluja ja vertaistukea kaikille, jotka kohtaavat epäasiallista käytöstä.",
+        "q2": "Kuka näkee kirjoittamani asiat?",
+        "a2": "Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan **vain sinun omalle laitteellesi** (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi, emmekä me näe lokikirjojasi tai raporttejasi.",
+        "q3": "Voiko työnantajani nähdä, että käytän tätä?",
+        "a3": "Ei. Sovellus ei vaadi kirjautumista työsähköpostilla eikä se jätä jälkiä yrityksen verkkoon (paitsi selainhistoriaan). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen Yksityinen selaus (Incognito) -tilassa.",
+        "q4": "Miten dokumentointi toimii?",
+        "a4": "Kirjaat tapahtumat \"Aikajana\"-osioon. Tieto tallentuu laitteesi muistiin. Kun tarvitset todisteita, voit luoda \"Raportti\"-osiossa automaattisen PDF-koosteen kaikista merkinnöistäsi esimerkiksi työterveyttä tai työsuojelua varten.",
+        "q5": "Näkyykö Tarinat-osiossa jakamani tarina muille?",
+        "a5": "Kyllä, mutta vain jos päätät julkaista sen. Julkaisu on täysin anonyymia (tai valitsemallasi nimimerkillä). Emme tallenna IP-osoitteita, joten tarinoita ei voi jäljittää sinuun.",
+        "q6": "Olen välittömässä vaarassa. Mitä teen?",
+        "a6": "Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon **112**. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: **010 195 202**."
+    },
+    "timeline": {
+        "page": {
+            "title": "Dokumentointi",
+            "subtitle": "Salattu paikallinen aikajanasi.",
+            "status_open": "AUKI",
+            "ai_help_title": "Vaikea sanoittaa tapahtumia?",
+            "ai_help_text": "Tekoäly voi auttaa jäsentämään hajanaiset muistiinpanot raportiksi.",
+            "ai_button": "Siirry raportointiin",
+            "list_title": "Aikajana",
+            "entry_count": "{{count}} merkintää tallennettu",
+            "confirm_delete": "Haluatko varmasti poistaa tämän merkinnän?",
+            "loading": "Käynnistetään turvasatamaa..."
+        },
+        "form": {
+            "title": "Kirjaa uusi tapahtuma",
+            "step1": {
+                "title": "Vaihe 1/3: Faktat",
+                "description": "Kirjaa milloin ja missä tilanne tapahtui. Tämä on tärkeää juridisesta näkökulmasta.",
+                "date_label": "Ajankohta",
+                "witnesses_label": "Keitä oli paikalla? (Todistajat)",
+                "witnesses_placeholder": "Nimet tai tittelit",
+                "next_button": "Seuraava: Mitä tapahtui?"
+            },
+            "step2": {
+                "title": "Vaihe 2/3: Objektiivinen havainto",
+                "description": "Kirjaa vain se, mitä näit tai kuulit. Vältä tulkintoja (\"Hän vihaa minua\").",
+                "example": "Esimerkki: \"X korotti ääntään\" (ei \"X raivosi\").",
+                "type_label": "Tapahtuman tyyppi",
+                "description_label": "Mitä tapahtui?",
+                "description_placeholder": "Kuvaile tilanne mahdollisimman tarkasti...",
+                "evidence_label": "Onko tilanteesta todistusaineistoa?",
+                "back_button": "Takaisin",
+                "next_button": "Seuraava: Vaikutus"
+            },
+            "step3": {
+                "title": "Vaihe 3/3: Vaikutus sinuun",
+                "description": "Miltä tämä tuntui? Miten se vaikutti työkykyysi? Tämä tieto on tärkeää työterveydelle.",
+                "effect_label": "Vaikutus ja tuntemukset",
+                "effect_placeholder": "Esim. Ahdisti, en pystynyt keskittymään, univaikeudet...",
+                "emotion_label": "Tunnetila (Pikavalinta)",
+                "severity_label": "Koettu kuormittavuus",
+                "save_button": "Tallenna merkintä"
+            },
+            "success": {
+                "title": "Tallennettu turvaan.",
+                "description": "Olet ottanut askeleen kohti selkeyttä. Tämä tieto on nyt sinun hallinnassasi, eikä kukaan voi vääristellä sitä."
+            }
+        },
+        "list": {
+            "empty": "Ei merkintöjä vielä. Aloita kirjaamalla ensimmäinen tapahtuma.",
+            "witnesses_prefix": "Paikalla:",
+            "no_witnesses": "Ei muita"
+        },
+        "types": {
+            "isolation": "Ulkopuolelle jättäminen",
+            "inappropriate_speech": "Epäasiallinen puhe",
+            "work_limitation": "Työn haitallinen rajoittaminen",
+            "abuse_of_power": "Aseman väärinkäyttö",
+            "digital_harassment": "Digitaalinen häirintä"
+        },
+        "evidence": {
+            "none": "Ei todisteita",
+            "email": "Sähköposti",
+            "teams_slack": "Teams/Slack-viesti",
+            "sms_whatsapp": "SMS/WhatsApp",
+            "photo_screenshot": "Valokuva/Screenshot",
+            "audio": "Äänite",
+            "eyewitness": "Silminnäkijä"
+        },
+        "emotions": {
+            "neutral": "Neutraali",
+            "sad": "Surullinen",
+            "anxious": "Ahdistunut",
+            "fearful": "Pelokas",
+            "angry": "Vihainen"
+        }
+    },
+    "report": {
+        "page": {
+            "title": "Työkalut & Asiakirjat",
+            "subtitle": "Hallitse dokumentteja, käytä valmiita viestipohjia ja luo älykäs tilannekuva.",
+            "back_to_timeline": "Takaisin aikajanaan",
+            "loading": "Ladataan työkaluja...",
+            "tabs": {
+                "report": "Raportti",
+                "templates": "Viestipohjat",
+                "premium": "AI-Analyysi (Premium)"
+            },
+            "main_report": {
+                "title": "Häirinnän ja epäasiallisen kohtelun kooste",
+                "subtitle": "Luottamuksellinen • Turvasiipi-sovelluksen automaattiraportti",
+                "print_button": "Tulosta PDF",
+                "stats": {
+                    "events": "Tapahtumat",
+                    "duration": "Kesto (pv)",
+                    "severity": "Vakavuus (ka)",
+                    "main_type": "Päätyyppi",
+                    "not_defined": "Ei määritelty"
+                },
+                "event_list_title": "Tarkka tapahtumalistaus",
+                "no_events": "Ei kirjattuja tapahtumia."
+            },
+            "templates_tab": {
+                "categories": {
+                    "all": "Kaikki",
+                    "employer": "Työnantaja",
+                    "health": "Terveys",
+                    "union": "Liitto",
+                    "legal": "Laki",
+                    "communication": "Viestintä"
+                },
+                "card": {
+                    "read_and_use": "Lue ja käytä"
+                },
+                "dialog": {
+                    "subject": "Otsikko / Aihe",
+                    "content": "Viestin sisältö",
+                    "copy_info": "Voit muokata tekstiä maalaamalla ja kopioimalla tai käyttää alla olevaa painiketta.",
+                    "close": "Sulje",
+                    "copy_all": "Kopioi koko teksti",
+                    "copied": "Kopioitu leikepöydälle"
+                }
+            },
+            "premium_tab": {
+                "intro": {
+                    "title": "Älykäs Tilanneanalyysi",
+                    "description": "Turvasiipi AI analysoi merkintäsi ja luo ammattimaisen yhteenvedon tilanteestasi. Raportti sisältää tapahtumien toistuvuuden analyysin, juridisen viitekehyksen ja konkreettiset toimenpidesuositukset.",
+                    "features": {
+                        "anonymized": {
+                            "title": "Anonymisoitu",
+                            "text": "Nimet ja paikat poistetaan automaattisesti ennen analyysiä."
+                        },
+                        "ai_analysis": {
+                            "title": "GPT-4 Analyysi",
+                            "text": "Hyödyntää markkinoiden kehittyneintä kielimallia."
+                        },
+                        "pdf_ready": {
+                            "title": "Valmis PDF",
+                            "text": "Saat heti valmiin raportin, jonka voit toimittaa eteenpäin."
+                        }
+                    },
+                    "button": "Aloita analyysi (4.99 €)",
+                    "footer": "Kertamaksu. Ei sitoutumista."
+                },
+                "payment": {
+                    "title": "Vahvista tilaus",
+                    "summary_title": "AI-Tilanneanalyysi",
+                    "total": "Yhteensä",
+                    "consent_label": "Hyväksyn tietojenkäsittelyn",
+                    "consent_info": "Ymmärrän, että anonymisoitu data lähetetään OpenAI:n rajapintaan analysoitavaksi.",
+                    "button": "Maksa ja analysoi",
+                    "cancel": "Peruuta"
+                },
+                "processing": {
+                    "title": "Analysoidaan aineistoa...",
+                    "subtitle": "Tämä kestää noin 10-20 sekuntia.",
+                    "steps": "Anonymisoidaan nimiä... \nTunnistetaan toistuvuuksia... \nLuodaan juridista viitekehystä..."
+                },
+                "result": {
+                    "ready": "Analyysi valmis",
+                    "close": "Sulje",
+                    "copy": "Kopioi",
+                    "download": "Lataa PDF"
+                }
+            }
+        },
+        "templates": {
+            "employer-notice-tsl28": {
+                "title": "Ensimmäinen ilmoitus työnantajalle (TSL 28§)",
+                "description": "Virallinen ilmoitus epäasiallisesta kohtelusta, joka velvoittaa työnantajan toimenpiteisiin.",
+                "subject": "Ilmoitus epäasiallisesta kohtelusta (Työturvallisuuslaki 28 §)",
+                "content": "Hyvä [Esimiehen nimi / HR-johtaja],\n\nTeen tämän ilmoituksen Työturvallisuuslain 28 §:n mukaisesti.\n\nTAUSTA\nOlen työskennellyt [Yritys]:ssä [Rooli]-tehtävissä [Aloituspvm] alkaen. Viimeisen [Ajanjakso] aikana olen kokenut systemaattista epäasiallista kohtelua, joka vaikuttaa työturvallisuuteeni ja -terveyteeni.\n\nTAPAHTUMAT\n[AI-yhdistelmä tapahtumista]\n\nVAIKUTUKSET\nEdellä kuvattu kohtelu on aiheuttanut minulle merkittävää kuormitusta, joka on ilmennyt [AI-oireet: esim. univaikeuksina ja työvireen laskuna].\n\nPYYNTÖ TOIMENPITEISIIN\nTyöturvallisuuslain 28 § velvoittaa työnantajaa ryhtymään toimenpiteisiin tilanteen selvittämiseksi ja lopettamiseksi viipymättä. Pyydän:\n1. Kirjallista vahvistusta tämän ilmoituksen vastaanottamisesta\n2. Tiedotusta siitä, mihin toimenpiteisiin asiassa ryhdytään\n3. Aikataulua selvitysprosessille\n\nOlen dokumentoinut tapahtumat tarkasti ja olen valmis toimittamaan lisätietoja.\n\nYstävällisin terveisin,\n[Nimesi]\n[Päivämäärä]"
+            },
+            "employer-follow-up": {
+                "title": "Seurantaviesti (kun vastausta ei kuulu)",
+                "description": "Käytä tätä 7-14 päivää ensimmäisen viestin jälkeen, jos työnantaja on hiljaa.",
+                "subject": "Seuranta: Ilmoitus epäasiallisesta kohtelusta ([Alkuperäinen pvm])",
+                "content": "Hyvä [Vastaanottaja],\n\nLähetin [Pvm] ilmoituksen epäasiallisesta kohtelusta (liitteenä). En ole saanut vastausta kohtuullisessa ajassa.\n\nTyöturvallisuuslaki 28 § velvoittaa työnantajaa ryhtymään toimiin VIIPYMÄTTÄ tiedon saatuaan. Pyydän vastausta seuraaviin kysymyksiin viimeistään [Pvm + 7 päivää]:\n1. Onko ilmoitukseni vastaanotettu?\n2. Kuka käsittelee asiaa?\n3. Mikä on arvioitu aikataulu selvitykselle?\n\nMikäli en saa vastausta, joudun ottamaan yhteyttä ammattiliittoon tai työsuojeluviranomaiseen tilanteen ratkaisemiseksi.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "union-notice": {
+                "title": "Avunpyyntö ammattiliitolle",
+                "description": "Viestipohja avun pyytämiseen omalta liitolta.",
+                "subject": "Avunpyyntö: Työpaikkakiusaaminen / [Yrityksen nimi]",
+                "content": "Hyvä [Liiton nimi],\n\nOlen [Liiton nimi]:n jäsen. Tarvitsen apua työpaikkakiusaamistilanteessa, jota en ole saanut selvitettyä työnantajani kanssa.\n\nTILANNE LYHYESTI:\n- Työnantaja: [Yritys]\n- Roolini: [Rooli]\n- Tilanne jatkunut: [Ajanjakso]\n- Ilmoitettu työnantajalle: [Kyllä/Ei, pvm]\n\nDOKUMENTOINTI:\nOlen dokumentoinut tapahtumat Turvasiipi-palvelun avulla. Liitteenä on kronologinen raportti tilanteesta.\n\nPYYNTÖ:\nToivon, että voisitte arvioida tilannettani ja neuvoa seuraavista askelista tai mahdollisesta edustuksesta työnantajan suuntaan.\n\nYstävällisin terveisin,\n[Nimi]\n[Puh]"
+            },
+            "health-notice": {
+                "title": "Pyyntö työterveyshuoltoon",
+                "description": "Ajanvarauspyyntö työperäisen kuormituksen arviointiin.",
+                "subject": "Ajanvaraus: Työperäisen kuormituksen ja stressin arviointi",
+                "content": "Hyvä työterveyshuolto,\n\nPyydän aikaa työperäisen kuormituksen arviointiin.\n\nTILANNE:\nKoen työpaikallani epäasiallista kohtelua, joka vaikuttaa merkittävästi fyysiseen ja psyykkiseen terveyteeni.\n\nOIREET:\n[Oireet: esim. univaikeudet, ahdistus, keskittymiskyvyn lasku]\n\nTARVE:\nTarvitsen ammattilaisen arvion tilanteestani, mahdollisesta sairausloman tarpeesta sekä suosituksia jatkotoimenpiteistä työnantajan suuntaan.\n\nYstävällisin terveisin,\n[Nimi]\n[Puh]"
+            },
+            "employer-escalation": {
+                "title": "Eskalointi-ilmoitus (kun tilanne jatkuu)",
+                "description": "Vakava ilmoitus johtoon, kun aiempiin ilmoituksiin ei ole puututtu.",
+                "subject": "Eskalointiilmoitus: Epäasiallinen kohtelu jatkuu / Toimenpidepyyntö",
+                "content": "Hyvä [HR-johtaja / Toimitusjohtaja],\n\nOlen raportoinut epäasiallista kohtelua [Pvm] ja [Pvm]. Tilanteeseen ei ole puututtu tehokkaasti, ja kohtelu on [JATKUNUT / PAHENTUNUT].\n\nUUDET TAPAHTUMAT (viestini jälkeen):\n[AI-yhdistelmä uusista tapahtumista]\n\nTyöturvallisuuslain 28 § velvoittaa työnantajaa puuttumaan tilanteeseen viipymättä. Koska toimia ei ole tehty, ilmoitan asiasta seuraavaksi:\n- Työsuojeluviranomaiselle\n- Ammattiliitolleni\n\nOdotan kirjallista vastaustanne ja konkreettista suunnitelmaa asian ratkaisemiseksi [Pvm] mennessä.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "health-stress-assessment": {
+                "title": "Työperäisen stressin arviointipyyntö",
+                "description": "Tarkempi pyyntö työterveyteen oireiden ja taustan kera.",
+                "subject": "Ajanvaraus + Työperäisen stressin ja kuormituksen arviointi",
+                "content": "Hyvä työterveyshoitaja / -lääkäri,\n\nPyydän kiireellistä aikaa työperäisen kuormituksen arviointiin.\n\nTILANNE:\nKoen työpaikallani jatkuvaa epäasiallista kohtelua, joka vaikuttaa merkittävästi terveyteeni ja toimintakykyyni.\n\nOIREET:\n- Univaikeudet (heräily, nukahtamisvaikeudet)\n- Jatkuva ahdistus ja pelko työpaikalle saapuessa\n- [Muut oireet: esim. päänsärky, vatsavaivat]\n\nTAUSTA:\nOlen dokumentoinut tilannetta [X] ajan ja raportoinut siitä työnantajalle [Pvm]. Tilanne ei ole korjaantunut.\n\nTARVE:\nTarvitsen ammattilaisen arvion sairausloman tarpeesta sekä virallisen lausunnon työperäisestä kuormituksesta jatkotoimenpiteitä varten.\n\nYstävällisin terveisin,\n[Nimi]\n[Puh]"
+            },
+            "legal-compensation-claim": {
+                "title": "Vahingonkorvausvaatimus",
+                "description": "Juridinen pohja korvauksien hakemiseen laiminlyönnin vuoksi.",
+                "subject": "Vaatimus vahingonkorvauksesta (Vahingonkorvauslaki 3:1)",
+                "content": "[Yrityksen nimi]\nToimitusjohtaja / Hallitus\n\nAsia: Vaatimus vahingonkorvauksesta\n\nTAUSTA:\nOlen työskennellyt yrityksessänne [Ajanjakso]. Tänä aikana koin systemaattista epäasiallista kohtelua, josta ilmoitin työnantajalle [Pvm]. Työnantaja ei ryhtynyt Työturvallisuuslain 28 § mukaisiin toimenpiteisiin kohtelun lopettamiseksi.\n\nVAHINGOT:\nLaiminlyönti on aiheuttanut minulle:\n1. Taloudellisia vahinkoja (terapiakustannukset, lääkkeet)\n2. Henkistä kärsimystä ja terveydellistä haittaa\n\nVAATIMUS:\nVaadin vahingonkorvausta [Summa €] sovinnollisena ratkaisuna asiassa. Perusteena on työnantajan isännänvastuu ja huolehtimisvelvoitteen laiminlyönti.\n\nMikäli asiaa ei ratkaista [Pvm] mennessä, siirrän asian oikeudelliseen käsittelyyn.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "resignation-notice": {
+                "title": "Irtisanoutuminen (kiusaamisen vuoksi)",
+                "description": "Irtisanoutumisilmoitus, jossa syy dokumentoidaan tulevaa varten.",
+                "subject": "Irtisanoutumisilmoitus / [Nimesi]",
+                "content": "Hyvä [Vastaanottaja],\n\nIlmoitan irtisanoutuvani [Rooli]-tehtävästäni. Viimeinen työpäiväni on [Pvm].\n\nPERUSTE:\nIrtisanoutumiseni syynä on pitkään jatkunut epäasiallinen kohtelu ja työpaikkakiusaaminen, johon työnantaja ei ole puuttunut huomautuksistani ja Työturvallisuuslain 28 § velvoitteista huolimatta.\n\nOlen raportoinut tilanteesta [Pvm], mutta koska turvallista työympäristöä ei ole pystytty takaamaan, joudun päättämään työsuhteeni terveyteni turvaamiseksi.\n\nPyydän toimittamaan työtodistuksen ja lopputilin asianmukaisesti.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "authority-notice": {
+                "title": "Ilmoitus työsuojeluviranomaiselle",
+                "description": "Virallinen ilmoitus AVIlle Työturvallisuuslain rikkomisesta.",
+                "subject": "Ilmoitus puutteista työsuojelussa (TSL 28 §) / [Yritys]",
+                "content": "Asia: Ilmoitus työturvallisuuslain 28 §:n rikkomisesta\n\nILMOITTAJA:\nNimi: [Nimi]\nTyöpaikka: [Yritys]\n\nILMOITUKSEN AIHE:\nTyöpaikallani esiintyy systemaattista epäasiallista kohtelua ja häirintää, johon työnantaja ei ole puuttunut Työturvallisuuslain 28 §:n mukaisesti useista huomautuksista huolimatta.\n\nTAPAHTUMAT:\nOlen dokumentoinut tapahtumat kronologisesti. Liitteenä on kooste 15 vakavimmasta tapauksesta.\n\nTYÖNANTAJAN TOIMET:\nTein ilmoituksen työnantajalle [Pvm]. Työnantaja ei ole ryhtynyt toimenpiteisiin tilanteen lopettamiseksi, vaan kohtelu on jatkunut.\n\nPYYNTÖ:\nPyydän työsuojeluviranomaista suorittamaan tarkastuksen ja ohjaamaan työnantajaa täyttämään lakiperusteisen selvitysjaksonsa ja puuttumisvelvollisuutensa.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "legal-crime-report": {
+                "title": "Rikosilmoitus-malli (Väkivalta/Uhkailu)",
+                "description": "Pohja poliisille tehtävään ilmoitukseen, jos kyseessä on rikos.",
+                "subject": "Rikosilmoitus - Työpaikkakiusaaminen / Uhkailu",
+                "content": "Asia: Rikosilmoitus\n\nEPÄILTY RIKOS:\n[Laiton uhkaus / Kunnianloukkaus / Pahoinpitely]\n\nTAPAHTUMAT:\n[Pvm] tapahtui [Kuvaus tapahtumasta]. Paikalla olivat [Todistajat]. Tilanteesta on olemassa [Sähköpostit / Viestit / Nauhoite].\n\nTODISTEET:\nLiitteenä on Turvasiipi-palvelun kautta dokumentoitu tapahtumakulku ja todisteet kyseisestä tapauksesta.\n\nPYYNTÖ:\nPyydän poliisia suorittamaan esitutkinnan asiassa.\n\nYstävällisin terveisin,\n[Nimi]\n[Henkilötunnus]"
+            },
+            "comm-witness-request": {
+                "title": "Pyyntö todistajalle (kollegalle)",
+                "description": "Empaattinen mutta selkeä pyyntö kollegalle todistaa näkemänsä.",
+                "subject": "Pyyntö todistajaksi / Luottamuksellinen",
+                "content": "Hei [Nimi],\n\nKuten tiedät, olen kokenut haasteellista kohtelua työpaikalla viime aikoina. Olet ollut läsnä joissakin näistä tilanteista.\n\nOlisin erittäin kiitollinen, jos voisit kirjoittaa lyhyen, vapaamuotoisen todistuksen siitä, mitä olet nähnyt tai kuullut. Tämä auttaisi minua asian selvittämisessä liiton tai työsuojelun kanssa.\n\nYmmärrän, että tämä voi olla sinulle vaikea paikka. Todistustasi käsitellään luottamuksellisesti.\n\nKiitos että harkitset tätä.\n\nYstävällisin terveisin,\n[Nimi]"
+            },
+            "career-interview-prep": {
+                "title": "Työhaastattelussa vastaaminen",
+                "description": "Miten selittää työpaikan vaihtaminen ilman \"hankalan työntekijän\" leimaa.",
+                "subject": "Vastauspohja haastatteluun (suullinen)",
+                "content": "YLEINEN LINJA: Älä hauku edellistä työnantajaa. Keskity tulevaisuuteen.\n\nVAIHTOEHTO A (Neutraali):\n\"Edellisessä työsuhteessani tunnistin, että organisaatiokulttuuri ja johtamistyyli eivät enää vastanneet arvojani tai mahdollistaneet kehittymistäni. Siksi päätin etsiä ympäristön, jossa arvostetaan avointa kommunikaatiota ja yhteistyötä, kuten teillä.\"\n\nVAIHTOEHTO B (Hieman avoimempi):\n\"Edellisessä työssäni kohdattiin haasteellinen johtamistilanne. Tein parhaani tilanteen ratkaisemiseksi, mutta totesin lopulta, että on parasta siirtyä eteenpäin ja keskittää energia uuteen haasteeseen.\"\n\nVAIHTOEHTO C (Rehellinen):\n\"Koin edellisessä työpaikassani epäasiallista kohtelua, jota ei yrityksistä huolimatta saatu ratkaistua. Dokumentoin tilanteen huolellisesti ja hoidin poistumiseni ammattimaisesti. Tämä kokemus on opettanut minulle paljon terveestä työkulttuurista ja siitä, miten tärkeää on molemminpuolinen kunnioitus.\""
+            },
+            "comm-thanks-supporter": {
+                "title": "Kiitosviesti tukijalle",
+                "description": "Lämmin kiitos kollegalle tai ystävälle, joka on tukenut vaikeassa tilanteessa.",
+                "subject": "Kiitos tuestasi / [Nimesi]",
+                "content": "Hei [Nimi],\n\nHalusin vain kiittää sinua siitä, että olet ollut tukenani [tilanne, esim. eilisessä palaverissa]. Se merkitsi minulle todella paljon.\n\nTiedän, että tilanteeni on ollut hankala, ja arvostan aidosti sitä, että uskalsit [toiminta, esim. sanoa ääneen, että kohtelu oli väärin].\n\nKiitos, että et jättänyt minua yksin.\n\nYstävällisin terveisin,\n[Nimi]"
+            }
+        },
+        "analysis": {
+            "checklist": {
+                "long_duration": "⚠️ Kesto yli 6 kuukautta: Viittaa pitkäkestoiseen häirintään.",
+                "high_severity": "🔴 Korkea kuormittavuus: Keskimääräinen vakavuus on huolestuttavalla tasolla.",
+                "high_frequency": "🔥 Tiheä toistuvuus: Tapahtumia on paljon lyhyen ajan sisällä.",
+                "work_limitation": "⚖️ Mahdollinen työsyrjintä: Työn tekemisen estäminen voi täyttää syrjinnän tunnusmerkistön."
+            }
+        }
+    },
+    "footer": {
+        "copyright": "© 2025 Turvasiipi. Turvallinen ja luottamuksellinen.",
+        "support": "Tuki ja yhteystiedot",
+        "privacy": "Tietosuoja"
+    },
+    "quiz": {
+        "hero": {
+            "badge": "Syväanalyysi",
+            "title_start": "Tunnista",
+            "title_highlight": "näkymätön",
+            "title_end": "väkivalta",
+            "description": "Henkinen kiusaaminen on hienovaraisempaa ja usein tuhoisampaa kuin fyysinen. Tämä työkalu auttaa sinua nimeämään kokemuksesi."
+        },
+        "tabs": {
+            "quiz": "Pikatesti",
+            "tactics": "Taktiikkapankki",
+            "compare": "Kiusaaminen vs Kritiikki"
+        },
+        "progress": "Kysymys {{current}} / {{total}}",
+        "card": {
+            "yes": "Kyllä",
+            "no": "Ei"
+        },
+        "results": {
+            "analyzing": "Analyysi valmis",
+            "score": "Tuloksesi:",
+            "interpretation_title": "Mitä tämä tarkoittaa?",
+            "disclaimer": "\"Tämä ei ole normaalia työstressiä. Tämä ei ole sinun vikasi.\"",
+            "signals_title": "Vahvimmat signaalit",
+            "steps_title": "Suositellut jatkoaskeleet",
+            "restart": "Aloita alusta",
+            "log_action": "Kirjaa tapahtumia",
+            "start_analysis": "Aloita analyysi",
+            "why_important": "Miksi tämä on tärkeää?"
+        },
+        "risk_levels": {
+            "mild": {
+                "label": "Lievä riski",
+                "description": "Kokemuksesi voivat olla yksittäisiä, mutta jatka dokumentointia varmuuden vuoksi."
+            },
+            "moderate": {
+                "label": "Kohtalainen riski",
+                "description": "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Suosittelemme keskustelua luotettavan tahon kanssa."
+            },
+            "severe": {
+                "label": "Vakava riski",
+                "description": "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Ota yhteyttä ammattiliittoon tai työsuojeluun."
+            },
+            "critical": {
+                "label": "Kriittinen riski",
+                "description": "Tämä on hätätilanne työkuntosi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae apua heti."
+            }
+        },
+        "categories": {
+            "itsetunto": {
+                "label": "Itsetunnon mureneminen",
+                "description": "Miltä sinusta tuntuu itsesi ja ammattitaitosi suhteen."
+            },
+            "todellisuus": {
+                "label": "Gaslighting & Todellisuus",
+                "description": "Epäiletkö omia havaintojasi tai muistiasi?"
+            },
+            "eristyksissä": {
+                "label": "Eristyneisyys",
+                "description": "Tunne ulkopuolisuudesta tai sosiaalisesta hyljeksinnästä."
+            },
+            "fyysiset": {
+                "label": "Fyysiset oireet",
+                "description": "Kehon reaktiot henkiseen paineeseen (uni, vatsa, sydän)."
+            },
+            "käyttäytyminen": {
+                "label": "Käyttäytymisen muutos",
+                "description": "Miten tilanne vaikuttaa elämääsi työn ulkopuolella."
+            }
+        },
+        "questions": {
+            "1": "Tunnetko olosi tyhmäksi työssä (vaikka et ole)?",
+            "2": "Ajatteletko usein: 'Ehkä olen liian herkkä'?",
+            "3": "Epäiletkö ammattitaitoasi (vaikka aiemmin et epäillyt)?",
+            "4": "Pelkäätkö tehdä virheitä enemmän kuin aiemmin?",
+            "5": "Tunnetko olevasi 'liian huono' työhösi?",
+            "6": "Onko sinulle sanottu 'en ole koskaan sanonut tuota' (vaikka sanoi)?",
+            "7": "Ovatko muut kyseenalaistaneet muistisi ('oletko varma?')?",
+            "8": "Onko sinulle sanottu 'älä ota niin raskaasti' / 'se oli vitsi'?",
+            "9": "Tunnetko että 'hulluksi' tuleminen on mahdollista?",
+            "10": "Kirjaatko asioita ylös koska et luota muistiisi?",
+            "11": "Jäätkö usein pois palavereista (jossa muut ovat)?",
+            "12": "Huomaatko ettei sinulle puhuta kahvitauolla?",
+            "13": "Tuntuuko että sinusta puhutaan selän takana?",
+            "14": "Oletko menettänyt ystäviä/tukijoita työpaikalla?",
+            "15": "Vältätkö sosiaalisia tilanteita työssä?",
+            "16": "Heräiletkö öisin ajatellen työtä?",
+            "17": "Onko sinulla vatsavaivoja ennen työtä?",
+            "18": "Tuntuuko että sydän hakkaa palavereissa?",
+            "19": "Oletko ollut useamminkin kipeänä tänä vuonna?",
+            "20": "Käytätkö alkoholia/lääkkeitä selvitäksesi työpäivän paineesta?",
+            "21": "Oletko vetäytynyt sosiaalisesti (työn ulkopuolella)?",
+            "22": "Itketkö usein ilman selvää syytä?",
+            "23": "Ajatteletko irtisanoutumista päivittäin?",
+            "24": "Pelkäätkö maanantaiaamuja?",
+            "25": "Tunnetko että 'en ole enää oma itseni'?"
+        },
+        "tactics_page": {
+            "title_start": "Taktiikka",
+            "title_highlight": "pankki",
+            "description": "Kiusaajilla on usein toistuvat strategiat. Kun tunnistat taktiikan, se menettää osan vallastaan sinuun.",
+            "modal": {
+                "badge": "Taktinen analyysi",
+                "definition": "Määritelmä",
+                "phrases": "Klassiset lauseet",
+                "strategy": "Vastastrategia",
+                "log_instruction": "Kirjaa näin:",
+                "close": "Sulje analyysi"
+            }
+        },
+        "compare_page": {
+            "badge": "Erota kaksi erilaista asiaa",
+            "title_start": "Kiusaaminen",
+            "title_highlight": "vs.",
+            "title_end": "Kritiikki",
+            "description": "Kaikki korjaava palaute ei ole kiusaamista, mutta kiusaamista ei saa piilottaa kritiikin alle. Tämä taulukko auttaa sinua vetämään rajan.",
+            "bullying_label": "Työpaikkakiusaaminen",
+            "criticism_label": "Rakentava kritiikki",
+            "rule_title": "Nyrkkisääntö",
+            "rule_text": "<strong>Rakentava kritiikki</strong> kohdistuu työsuoritukseen ja pyrkii ratkaisuun. <strong>Kiusaaminen</strong> kohdistuu työntekijään ja pyrkii vahingoittamaan tätä ihmisenä."
+        },
+        "comparison_points": [
+            {
+                "title": "Tavoite",
+                "bullying": "Nöyryyttää, hallita tai savustaa työntekijä ulos.",
+                "criticism": "Parantaa työn laatua tai korjata virheellinen toimintapa."
+            },
+            {
+                "title": "Kohde",
+                "bullying": "Henkilökohtaiset ominaisuudet, persoona tai maine.",
+                "criticism": "Suoritus, työn tulos tai noudatettavat ohjeet."
+            },
+            {
+                "title": "Vuorovaikutus",
+                "bullying": "Yksipuolista, hyökkäävää, usein muiden edessä tai selän takana.",
+                "criticism": "Keskustelevaa, perusteltua ja useimmiten kahdenkeskistä."
+            },
+            {
+                "title": "Toistuvuus",
+                "bullying": "Jatkuvaa, systemaattista ja usein pitkäkestoista.",
+                "criticism": "Tilannekohtaista ja loppuu, kun sovittu muutos on tehty."
+            },
+            {
+                "title": "Lopputulos",
+                "bullying": "Uupumus, itseluottamuksen menetys ja ahdistus.",
+                "criticism": "Selkeys odotuksista ja ammatillinen kehittyminen."
+            }
+        ],
+        "tactics": {
+            "mitatointi": {
+                "name": "Mitätöinti & Vähättely",
+                "definition": "Osaamisesi, ehdotustesi ja saavutustesi jatkuva vähättely ja kyseenalaistaminen.",
+                "phrases": [
+                    "Tuo on turha ehdotus",
+                    "Etkö todella tiedä tätä?",
+                    "Kuka tahansa olisi tehnyt tuon",
+                    "Miksi teet tästä numeron?"
+                ],
+                "goal": "Murentaa itseluottamuksesi ja ammatillinen uskottavuutesi.",
+                "strategy": [
+                    "Dokumentoi positiivinen palaute muualta.",
+                    "Älä odota kiusaajalta tunnustusta.",
+                    "Vahvista osaamisesi ulkopuolisten kanssa."
+                ],
+                "logExample": "Esimies sanoi 'turha ehdotus' palaverissa 12.12. Todistajat: 5 henkilöä."
+            },
+            "eristaminen": {
+                "name": "Eristäminen & Ulossulkeminen",
+                "definition": "Tahallinen jättäminen sosiaalisen ja ammatillisen vuorovaikutuksen ulkopuolelle.",
+                "phrases": [
+                    "Unohdin kertoa sinulle tuon",
+                    "Tämä ei kuulu sinulle",
+                    "(Hiljaisuus saapuessasi paikalle)",
+                    "Palaveri oli jo eilen"
+                ],
+                "goal": "Tehdä sinusta näkymätön ja katkaista tukiverkostosi.",
+                "strategy": [
+                    "Rakenna verkostoja muihin tiimeihin.",
+                    "Dokumentoi poissaolot palavereista.",
+                    "Kysy kirjallisesti, miksi tieto ei kulkenut."
+                ],
+                "logExample": "Koko tiimi meni lounaalle ilman minua 3. päivä peräkkäin (10-12.12)."
+            },
+            "gaslighting": {
+                "name": "Gaslighting",
+                "definition": "Psykologinen manipulaatio, joka saa sinut epäilemään omia havaintojasi ja muistiasi.",
+                "phrases": [
+                    "En ole koskaan sanonut tuota",
+                    "Olet liian herkkä",
+                    "Se oli vitsi, älä ota raskaasti",
+                    "Kuvittelet vain asioita"
+                ],
+                "goal": "Saada sinut epäilemään mielenterveyttäsi ja hiljentää sinut.",
+                "strategy": [
+                    "Kirjaa asiat ylös heti tapahtumahetkellä.",
+                    "Käytä sähköpostia vahvistuksena.",
+                    "Älä jää väittelemään muistikuvista."
+                ],
+                "logExample": "15.12 sovittiin X. 18.12 esimies väitti, ettei sellaista ole koskaan sovittu."
+            },
+            "passiivi-aggressio": {
+                "name": "Passiivi-aggressiivisuus",
+                "definition": "Piilotettua vihamielisyyttä, jota on vaikea osoittaa suoraan kiusaamiseksi.",
+                "phrases": [
+                    "Ehkä ensi kerralla onnistut paremmin (sarkasmi)",
+                    "Olen vain rehellinen",
+                    "(Huokailu puheenvuorosi aikana)",
+                    "(Silmien pyörittely)"
+                ],
+                "goal": "Satuttaa ilman, että kiusaaja joutuu vastuuseen käytöksestään.",
+                "strategy": [
+                    "Kysy suoraan: 'Tarkoititko tuon loukkaavasti?'",
+                    "Pysy viileän asiallisena.",
+                    "Dokumentoi sanat ja eleet."
+                ],
+                "logExample": "Esimies pyöritteli silmiään projektiesitykseni aikana. Pvm X."
+            },
+            "kohtuuttomuus": {
+                "name": "Kohtuuttomat vaatimukset",
+                "definition": "Mahdottomien tavoitteiden tai epäinhimillisen työkuorman asettaminen.",
+                "phrases": [
+                    "Tämä pitää olla valmis huomenna (viikon työ)",
+                    "Kyllä muutkin pystyvät tähän",
+                    "En ehdi katsoa priorisointia, tee kaikki",
+                    "Oletko hidas vai miksi kesto tuntuu pitkältä?"
+                ],
+                "goal": "Aiheuttaa uupumus tai 'todistaa' epäpätevyytesi epäonnistumisen kautta.",
+                "strategy": [
+                    "Pyydä priorisointi kirjallisesti.",
+                    "Pidä kirjaa työajasta ja tehtävistä.",
+                    "Ilmoita ylikuormituksesta sähköpostilla."
+                ],
+                "logExample": "Sain 40h työn perjantaina klo 16, palautus maanantaina klo 8."
+            },
+            "epaoikeudenmukaisuus": {
+                "name": "Epäoikeudenmukaisuus",
+                "definition": "Sääntöjen ja palkkioiden soveltaminen eri tavalla eri ihmisiin.",
+                "phrases": [
+                    "A saa etätyötä, sinä et (ilman syytä)",
+                    "Hyvä projekti A! (Vaikka sinä teit työn)",
+                    "Sinun virheesi on vakava (A:n sama virhe ok)",
+                    "Ei tästä ole tapana maksaa lisää"
+                ],
+                "goal": "Luo epävarmuutta ja viestittää, ettet ole tasavertainen muiden kanssa.",
+                "strategy": [
+                    "Vertaa tilannettasi kirjallisiin ohjeisiin.",
+                    "Dokumentoi poikkeamat tasapuolisuudessa.",
+                    "Kysy kirjallisesti perustelut eriarvoiselle kohtelulle."
+                ],
+                "logExample": "Kollega sai kiitoksen tiimipalaverissa projektista, jonka tein yksin."
+            },
+            "uhkailu": {
+                "name": "Uhkailu & Pelottelu",
+                "definition": "Epäsuora tai suora uhkaaminen työsuhteen tai maineen menetyksellä.",
+                "phrases": [
+                    "Olen puhunut sinusta johdolle",
+                    "Jos tämä toistuu, tiedät seuraukset",
+                    "Ehkä tämä ala ei sovi sinulle",
+                    "Toivottavasti et tee enää virheitä..."
+                ],
+                "goal": "Hallita sinua pelon avulla ja estää puolustautuminen.",
+                "strategy": [
+                    "Tallenna kaikki kirjalliset uhat.",
+                    "Ota yhteys luottamusmieheen heti.",
+                    "Älä jää kahden kesken uhkailijan kanssa."
+                ],
+                "logExample": "Esimies sanoi suljettujen ovien takana 'parasta alkaa etsiä uutta työtä'."
+            },
+            "sabotaasi": {
+                "name": "Sabotaasi",
+                "definition": "Työn tekemisen estäminen tai vaikeuttaminen tahallisesti.",
+                "phrases": [
+                    "(Tietoa annetaan väärin tai liian myöhään)",
+                    "En saanut viestiäsi (vaikka sai)",
+                    "Projekti siirrettiin toiselle kesken kaiken",
+                    "(Työvälineitä ei toimiteta pyynnöstä huolimatta)"
+                ],
+                "goal": "Saada sinut näyttämään epäpätevältä ja aiheuttaa turhautumista.",
+                "strategy": [
+                    "Kopioi tärkeät viestit kolmannelle osapuolelle.",
+                    "Varmista ohjeet kirjallisesti.",
+                    "Ilmoita esteistä välittömästi raportointilinjaa pitkin."
+                ],
+                "logExample": "Tärkeää Excel-pohjaa ei toimitettu, vaikka pyysin sitä 5 kertaa."
+            },
+            "maine": {
+                "name": "Maineen vahingoittaminen",
+                "definition": "Perättömien huhujen levittäminen tai osaamisen vääristely muille.",
+                "phrases": [
+                    "Hän on vaikea ihminen",
+                    "Hänen kanssaan kukaan ei halua työskennellä",
+                    "Kuulin että hän tekee paljon virheitä",
+                    "Hän ei ole tiimipelaaja"
+                ],
+                "goal": "Tuhota uskottavuutesi ja tuki-mahdollisuutesi organisaatiossa.",
+                "strategy": [
+                    "Keskustele suoraan kollegoillesi.",
+                    "Pyydä HR:ää selvittämään huhujen lähde.",
+                    "Pysy ammatillisena kaikessa viestinnässä."
+                ],
+                "logExample": "Kollega kertoi, että esimies oli puhunut minusta 'epävakaana' kahvihuoneessa."
+            },
+            "manipulaatio": {
+                "name": "Emotionaalinen manipulaatio",
+                "definition": "Tunteiden, kuten syyllisyyden tai pelon, käyttö toisen hallitsemiseen.",
+                "phrases": [
+                    "Luulin että olimme ystäviä",
+                    "Kun olet sairaana, muut kärsivät",
+                    "Olet ainoa joka voi pelastaa tämän",
+                    "Katsotaan ensi viikolla (mutta ei koskaan)"
+                ],
+                "goal": "Tehdä sinusta tottelevainen syyllisyyden tai väärän toivon avulla.",
+                "strategy": [
+                    "Tunnista 'hyvä päivä / huono päivä' -sykli.",
+                    "Pidä ammatilliset rajat.",
+                    "Älä ota vastuuta toisen tunteista."
+                ],
+                "logExample": "Esimies syyllisti sairaslomasta sanomalla sen tuhoavan tiimin hengen."
+            },
+            "identiteetti": {
+                "name": "Identiteetin hyökkäys",
+                "definition": "Hyökkäys henkilökohtaisia ominaisuuksia, kuten ikää, sukupuolta tai taustaa kohtaan.",
+                "phrases": [
+                    "Oletko ADHD vai miksi et keskity?",
+                    "Naiset eivät ymmärrä tätä teknistä puolta",
+                    "Tuon ikäisen on vaikea oppia uutta",
+                    "Oletpa sä herkkä tänään (viitaten ominaisuuteen)"
+                ],
+                "goal": "Nöyryyttää ja osoittaa, ettet kuulu joukkoon henkilökohtaisen syyn takia.",
+                "strategy": [
+                    "Tämä voi olla lakia rikkovaa syrjintää.",
+                    "Ota yhteyttä yhdenvertaisuusvaltuutettuun.",
+                    "Dokumentoi sanat sanatarkasti."
+                ],
+                "logExample": "Esimies kysyi 'johtuuko hitaus iästäsi' muiden kuullen."
+            },
+            "thousand-cuts": {
+                "name": "Death by a Thousand Cuts",
+                "definition": "Jatkuva sarja pieniä mikroaggressioita, joita on vaikea eristää yksittäin.",
+                "phrases": [
+                    "(Jatkuvat pienet korjaukset työhön)",
+                    "(Pienet huokaisut pyyntöjesi jälkeen)",
+                    "(Olematon palaute tehdyistä asioista)",
+                    "(Pieniä epäasiallisia vitsejä päivittäin)"
+                ],
+                "goal": "Kuluttaa uhrin psyyke hitaasti mutta varmasti loppuun.",
+                "strategy": [
+                    "Dokumentoi KAIKKI pienetkin asiat – määrä ratkaisee.",
+                    "Katso kokonaiskuvaa, älä vain tätä päivää.",
+                    "Hae ulkopuolista validaatiota tilanteelle."
+                ],
+                "logExample": "15 pientä epämiellyttävää kohtaamista saman päivän aikana. Masentava olo."
+            }
+        },
+        "step_actions": {
+            "title": "Muistilista",
+            "validate": {
+                "title": "Validointi",
+                "text": "Vahvistaa itsellesi, että et kuvittele asioita."
+            },
+            "name": {
+                "title": "Nimeäminen",
+                "text": "Opi oikeat termit, kuten gaslighting tai sabotaasi."
+            },
+            "boundaries": {
+                "title": "Rajojen veto",
+                "text": "Tunnista, missä normaali stressi loppuu ja kiusaaminen alkaa."
+            },
+            "justice": {
+                "title": "Oikeusturva",
+                "text": "Ensimmäinen askel kohti virallista dokumentointia."
+            }
+        },
+        "next_steps": {
+            "document": {
+                "title": "Aloita dokumentointi",
+                "text": "Kirjaa ylös jokainen muistamasi tapahtuma Suojasiiven päiväkirjaan.",
+                "action": "Toimi nyt"
+            },
+            "union": {
+                "title": "Ota yhteyttä ammattiliittoon",
+                "text": "Älä jää yksin. Liittosi juristit ja asiantuntijat osaavat auttaa.",
+                "action": "Toimi nyt"
+            },
+            "healthcare": {
+                "title": "Käy työterveydessä",
+                "text": "Henkinen kiusaaminen on traumaattista. Pyydä aikainen tuki.",
+                "action": "Toimi nyt"
+            },
+            "tactics": {
+                "title": "Lue taktiikoista",
+                "text": "Tutustu gaslightingiin ja muihin manipulaatiokeinoihin.",
+                "action": "Lue lisää"
+            }
+        }
+    }
+}

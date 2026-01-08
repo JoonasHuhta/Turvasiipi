@@ -10,8 +10,10 @@ import { Button } from "@/components/ui/button";
 import { FileText, Shield } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TimelinePage() {
+    const { t } = useLanguage();
     const { data: events, setData: setEvents, isLocked, hasData, unlock } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
     const [mounted, setMounted] = useState(false);
 
@@ -25,12 +27,12 @@ export default function TimelinePage() {
     };
 
     const handleDeleteEvent = (id: string) => {
-        if (confirm("Haluatko varmasti poistaa tämän merkinnän?")) {
+        if (confirm(t('timeline.page.confirm_delete'))) {
             setEvents(events.filter(e => e.id !== id));
         }
     };
 
-    if (!mounted) return <div className="p-10 text-center animate-pulse">Käynnistetään turvasatamaa...</div>;
+    if (!mounted) return <div className="p-10 text-center animate-pulse">{t('timeline.page.loading')}</div>;
 
     return (
         <div className="w-full max-w-6xl mx-auto px-6">
@@ -40,11 +42,11 @@ export default function TimelinePage() {
                         <section className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-2xl font-bold tracking-tight text-slate-900">Dokumentointi</h2>
-                                    <p className="text-slate-500 text-sm">Salattu paikallinen aikajanasi.</p>
+                                    <h2 className="text-2xl font-bold tracking-tight text-slate-900">{t('timeline.page.title')}</h2>
+                                    <p className="text-slate-500 text-sm">{t('timeline.page.subtitle')}</p>
                                 </div>
                                 <div className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                                    <Shield className="w-3 h-3" /> AUKI
+                                    <Shield className="w-3 h-3" /> {t('timeline.page.status_open')}
                                 </div>
                             </div>
 
@@ -55,13 +57,13 @@ export default function TimelinePage() {
                                     <div className="flex items-start gap-4">
                                         <span className="text-3xl">🧩</span>
                                         <div className="space-y-1">
-                                            <h4 className="font-bold leading-tight">Vaikea sanoittaa tapahtumia?</h4>
-                                            <p className="text-slate-400 text-sm">Tekoäly voi auttaa jäsentämään hajanaiset muistiinpanot raportiksi.</p>
+                                            <h4 className="font-bold leading-tight">{t('timeline.page.ai_help_title')}</h4>
+                                            <p className="text-slate-400 text-sm">{t('timeline.page.ai_help_text')}</p>
                                         </div>
                                     </div>
                                     <Link href="/raportti">
                                         <Button variant="secondary" className="w-full bg-white/10 hover:bg-white/20 text-white border-0">
-                                            <FileText className="mr-2 h-4 w-4" /> Siirry raportointiin
+                                            <FileText className="mr-2 h-4 w-4" /> {t('timeline.page.ai_button')}
                                         </Button>
                                     </Link>
                                 </CardContent>
@@ -71,9 +73,9 @@ export default function TimelinePage() {
 
                     <div className="lg:col-span-2 space-y-6">
                         <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                            <h3 className="text-lg font-semibold text-slate-800">Aikajana</h3>
+                            <h3 className="text-lg font-semibold text-slate-800">{t('timeline.page.list_title')}</h3>
                             <div className="text-sm text-slate-500">
-                                {events.length} merkintää tallennettu
+                                {t('timeline.page.entry_count', { count: events.length })}
                             </div>
                         </div>
 
