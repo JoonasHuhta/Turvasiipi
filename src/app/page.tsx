@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative px-6 pt-0 -mt-6 pb-12 md:pt-12 md:pb-24 text-center max-w-5xl mx-auto">
+      <section className="relative px-6 pt-8 pb-12 md:pt-12 md:pb-24 text-center max-w-5xl mx-auto">
 
         {/* Decorative background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
