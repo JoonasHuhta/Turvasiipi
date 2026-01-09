@@ -53,13 +53,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             const isNewStart = state.currentPhaseId === 'END_NEW_START';
 
             return (
-                <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
-                    <Card className="max-w-3xl w-full bg-slate-900 border-indigo-900/30 p-6 md:p-12 text-center space-y-8 shadow-2xl shadow-indigo-900/10">
+                <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
+                    <Card className="max-w-3xl w-full bg-slate-900 border-indigo-900/30 p-6 md:p-12 text-center space-y-8 shadow-2xl shadow-indigo-900/10 relative">
                         <div className="text-6xl mb-4 animate-in zoom-in spin-in-3 duration-700">
                             {isBurnout ? '🔋' : (isNewStart ? '🌟' : '🧩')}
                         </div>
 
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white">
+                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
                             {isBurnout ? "Päivä päättyi uupumiseen" : (isNewStart ? "Uusi alku" : "Päivä pulkassa")}
                         </h1>
 
@@ -83,7 +83,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                                         <div className={cn("p-2 rounded-lg bg-opacity-20 mb-1", stat.color.replace('bg-', 'bg-').replace('500', '900'), stat.color.replace('bg-', 'text-').replace('500', '400'))}>
                                             <stat.icon className="w-5 h-5" />
                                         </div>
-                                        <div className="text-2xl font-mono font-bold">{state.stats[stat.id] || 0}%</div>
+                                        <div className="text-2xl font-mono font-bold text-white">{state.stats[stat.id] || 0}%</div>
                                         <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
                                     </div>
                                 ))}
@@ -91,10 +91,10 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                            <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold" onClick={onExit}>
+                            <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold h-12 rounded-full px-8" onClick={onExit}>
                                 Palaa Neuromoninaisuus-sivulle
                             </Button>
-                            <Button size="lg" variant="outline" className="border-slate-700 text-slate-400 hover:bg-slate-800" onClick={() => window.location.reload()}>
+                            <Button size="lg" variant="outline" className="border-slate-700 text-slate-400 hover:bg-slate-800 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
                                 Yritä uudelleen
                             </Button>
                         </div>
@@ -110,8 +110,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             const isBurnout = state.currentPhaseId === 'END_BURNOUT';
 
             return (
-                <div className="min-h-screen bg-slate-50 text-slate-900 flex items-center justify-center p-4">
-                    <Card className="max-w-2xl w-full border-0 shadow-2xl overflow-hidden">
+                <div className="fixed inset-0 z-[100] bg-slate-50 text-slate-900 flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
+                    <Card className="max-w-2xl w-full border-0 shadow-2xl overflow-hidden bg-white relative">
                         <div className={cn("h-3 w-full", isGrowth ? "bg-emerald-500" : "bg-rose-500")} />
 
                         <div className="p-8 md:p-12 text-center space-y-8">
@@ -119,7 +119,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                                 {isGrowth ? '🌱' : '📉'}
                             </div>
 
-                            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900">
+                            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 leading-tight">
                                 {isGrowth ? "Toimijuus palautettu" : (isBurnout ? "Lopputulos: Uupumus" : "Lopputulos: Leimautuminen")}
                             </h1>
 
@@ -157,11 +157,11 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white" onClick={onExit}>
+                                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white h-12 rounded-full px-8" onClick={onExit}>
                                     Palaa Nuoret-sivulle
                                 </Button>
-                                <Button size="lg" variant="outline" onClick={() => window.location.reload()}>
-                                    Kokeile toista valintaa
+                                <Button size="lg" variant="outline" className="h-12 rounded-full px-8" onClick={() => window.location.reload()}>
+                                    Kokeile toisella valinnalla
                                 </Button>
                             </div>
                         </div>
@@ -173,14 +173,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         // --- MANAGER ENDING ---
         if (profession === 'manager' || state.currentPhaseId === 'END_MANAGER') {
             return (
-                <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
-                    <Card className="max-w-3xl w-full bg-slate-900 border-red-900/30 p-6 md:p-12 text-center space-y-6 shadow-2xl shadow-red-900/10">
-                        {/* ... (rest of manager ending content) - minor padding tweak p-8->p-6 */}
+                <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
+                    <Card className="max-w-3xl w-full bg-slate-900 border-red-900/30 p-6 md:p-12 text-center space-y-6 shadow-2xl shadow-red-900/10 relative">
                         <div className="text-6xl mb-4 grayscale opacity-50">
                             📉
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
                             Simulaatio päättynyt
                         </h1>
 
@@ -230,10 +229,10 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                            <Button size="lg" variant="default" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700" onClick={onExit}>
+                            <Button size="lg" variant="default" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 h-12 rounded-full px-8" onClick={onExit}>
                                 Palaa etusivulle
                             </Button>
-                            <Button size="lg" variant="outline" className="border-red-900/30 text-red-400 hover:bg-red-950/30 hover:text-red-300" onClick={() => window.location.reload()}>
+                            <Button size="lg" variant="outline" className="border-red-900/30 text-red-400 hover:bg-red-950/30 hover:text-red-300 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
                                 Yritä uudelleen
                             </Button>
                         </div>
@@ -244,19 +243,19 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
         // --- GENERIC ENDING (Nurse/Teacher) ---
         return (
-            <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4">
-                <Card className="max-w-2xl w-full bg-slate-800 border-slate-700 p-8 md:p-12 text-center space-y-8">
-                    <div className="text-6xl mb-4">
+            <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
+                <Card className="max-w-2xl w-full bg-slate-900 border-white/10 p-8 md:p-12 text-center space-y-8 shadow-2xl relative">
+                    <div className="text-6xl mb-4 animate-in zoom-in duration-700">
                         {state.currentPhaseId === 'END_C' ? '🛡️' : '💔'}
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-black tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
                         {state.currentPhaseId === 'END_A' && "Lopputulos: Uupumus"}
                         {state.currentPhaseId === 'END_B' && "Lopputulos: Irtisanoutuminen"}
                         {state.currentPhaseId === 'END_C' && "Lopputulos: Selviytyminen"}
                     </h1>
 
-                    <div className="prose prose-invert prose-lg mx-auto">
+                    <div className="prose prose-invert prose-lg mx-auto text-slate-300">
                         {state.currentPhaseId === 'END_A' && (
                             <p>Jatkoit sinnittelyä ilman tukea. Terveytesi petti ennen kuin ehdit reagoida. Tämä on valitettavan yleinen tarina hoitoalalla.</p>
                         )}
@@ -268,25 +267,27 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         )}
                     </div>
 
-                    <div className="bg-slate-900/50 p-6 rounded-xl text-left space-y-2 border border-slate-700">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Sinun tarinasi tilastot</h3>
+                    <div className="bg-white/5 p-6 rounded-2xl text-left space-y-2 border border-white/5 backdrop-blur-sm shadow-inner">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-indigo-400 mb-4 flex items-center gap-2">
+                            <FileText className="w-4 h-4" /> Sinun tarinasi tilastot
+                        </h3>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <div className="text-xs text-slate-500">Logimerkintöjä</div>
-                                <div className="text-2xl font-mono">{state.logEntries.length} kpl</div>
+                                <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Logimerkintöjä</div>
+                                <div className="text-4xl font-black text-white">{state.logEntries.length}<span className="text-lg text-slate-700 ml-2">kpl</span></div>
                             </div>
                             <div>
-                                <div className="text-xs text-slate-500">Liittolaisia</div>
-                                <div className="text-2xl font-mono">{state.allies.length}</div>
+                                <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Liittolaisia</div>
+                                <div className="text-4xl font-black text-white">{state.allies.length}</div>
                             </div>
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                        <Button size="lg" variant="default" className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={onExit}>
+                        <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white h-12 rounded-full px-8 font-bold" onClick={onExit}>
                             Palaa etusivulle
                         </Button>
-                        <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700" onClick={() => window.location.reload()}>
+                        <Button size="lg" variant="outline" className="border-white/10 text-slate-400 hover:bg-white/5 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
                             Yritä uudelleen
                         </Button>
                     </div>
