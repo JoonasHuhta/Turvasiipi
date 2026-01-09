@@ -251,7 +251,7 @@ export default function TrainingPage() {
                                         </div>
                                     </div>
                                     <div className="flex-1 text-center md:text-left space-y-2">
-                                        <div className="flex items-center justify-center md:justify-start gap-2">
+                                        <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap text-center md:text-left">
                                             <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">Sertifikaatti</Badge>
                                             <span className="text-indigo-400 text-[10px] font-black uppercase tracking-widest">Kiusaamisen lukutaito</span>
                                         </div>
@@ -372,7 +372,7 @@ export default function TrainingPage() {
                                         key={module.id}
                                         onClick={() => startModule(module)}
                                         className={cn(
-                                            "group bg-white border border-slate-100 p-6 rounded-[2rem] flex items-center justify-between cursor-pointer hover:shadow-xl hover:border-indigo-100 transition-all",
+                                            "group bg-white border border-slate-100 p-5 md:p-6 rounded-[2rem] flex flex-col sm:flex-row sm:items-center justify-between cursor-pointer hover:shadow-xl hover:border-indigo-100 transition-all gap-4",
                                             module.isLocked && "opacity-50 grayscale cursor-not-allowed"
                                         )}
                                     >
@@ -381,15 +381,17 @@ export default function TrainingPage() {
                                                 {module.isLocked ? <ShieldCheck className="w-5 h-5 opacity-30" /> : <ChevronRight className="w-6 h-6" />}
                                             </div>
                                             <div className="space-y-1">
-                                                <div className="flex items-center gap-2">
-                                                    <h3 className="text-lg font-black text-slate-900 uppercase tracking-tight">{module.title}</h3>
-                                                    {module.isNew && <Badge className="bg-emerald-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest">Uusi</Badge>}
-                                                    {module.isCertificationModule && <Badge className="bg-indigo-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest">Sertifikaatti</Badge>}
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                    <h3 className="text-lg font-black text-slate-900 uppercase tracking-tight break-words">{module.title}</h3>
+                                                    <div className="flex gap-2">
+                                                        {module.isNew && <Badge className="bg-emerald-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest whitespace-nowrap">Uusi</Badge>}
+                                                        {module.isCertificationModule && <Badge className="bg-indigo-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest whitespace-nowrap">Sertifikaatti</Badge>}
+                                                    </div>
                                                 </div>
                                                 <p className="text-slate-500 text-sm font-medium">{module.description}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
+                                        <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto mt-2 sm:mt-0">
                                             <Badge className={cn(
                                                 "border-none text-[8px] h-5 uppercase font-black tracking-widest px-2 mr-2",
                                                 selectedCategory.type === 'skill' ? "bg-amber-500/10 text-amber-600" : "bg-emerald-500/10 text-emerald-600"
