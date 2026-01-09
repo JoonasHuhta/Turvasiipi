@@ -133,5 +133,18 @@ export const trainingHubData: TrainingCategory[] = [
             { id: 'hobby_boundaries', title: 'Harrastuksen Rajat', description: 'Miten pitää hauskaa ja asettaa rajat samaan aikaan.' },
             { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Dokumentointi ja puuttuminen vapaa-ajalla.' }
         ]
+    },
+    {
+        id: 'research',
+        title: 'Tutkimus & Käsitteet',
+        icon: GraduationCap,
+        description: 'Syvennä ymmärrystäsi kiusaamisen psykologiasta ja tutkimuslöydöksistä.',
+        color: 'indigo',
+        type: 'skill',
+        modules: [
+            { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.' },
+            { id: 'bystander_effect', title: 'Bystander-efekti Syväluotaus', description: 'Vastuun hajautumisen mekanismit.' },
+            { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true }
+        ]
     }
 ];

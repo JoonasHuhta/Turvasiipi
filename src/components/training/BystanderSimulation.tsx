@@ -177,13 +177,13 @@ const BYSTANDER_EFFECT_SCENARIO: ScenarioStep[] = [
         id: 'success_collective',
         speaker: 'Kertoja',
         type: 'narrative',
-        text: 'Toimintasi rohkaisi muitakin puuttumaan. Yhdistyksen WhatsApp-kulttuuri on nyt selkeämpi ja turvallisempi kaikille.',
+        text: 'Toimintasi rohkaisi muitakin puuttumaan. Yhdistyksen WhatsApp-kulttuuri on nyt selkeämpi ja turvallisempi kaikille. Olet murtanut pluralistisen ignoranssin.',
         choices: [
             {
                 text: 'Lopeta harjoitus',
                 nextStep: 'finish',
                 impact: { solidarity: 20, safety: 10 },
-                feedback: 'Aktiivinen bystander on terveellisen yhteisön selkäranka.',
+                feedback: 'Aktiivinen bystander on terveellisen yhteisön selkäranka. Kun yksi puhuu, "hiljainen paheksunta" muuttuu yhteiseksi toiminnaksi.',
                 strategyType: 'collective'
             }
         ]
@@ -393,10 +393,10 @@ export default function BystanderSimulation({
                             <div className="relative z-10 flex flex-col gap-3">
                                 <div className="flex items-center gap-2">
                                     <Scale className="w-4 h-4 text-cyan-200" />
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-cyan-100">Solidaarisuus-indeksi</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-cyan-100">Pluralistinen ignoranssi</span>
                                 </div>
                                 <p className="text-xs font-medium leading-relaxed">
-                                    Aktiivinen todistaja vähentää kiusaamista 50%. Ryhmässä toimiminen nostaa onnistumisen 4-kertaiseksi.
+                                    Kaikki voivat yksityisesti paheksua kiusaamista, mutta kukaan ei puhu, koska luulee olevansa ainoa. Puhuminen murtaa tämän harhan heti.
                                 </p>
                             </div>
                             <Zap className="absolute -bottom-4 -right-4 w-24 h-24 text-white/10 group-hover:scale-110 transition-transform" />

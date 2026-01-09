@@ -37,8 +37,8 @@ export default function TrainingPage() {
     const { t } = useLanguage();
     const { completeModule, awardBadge } = useProgress();
 
-    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim'>('hub');
+    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -85,6 +85,12 @@ export default function TrainingPage() {
 
         if (selectedCategory?.id === 'interactive' && (module.id === 'empathy' || module.id === 'bystander')) {
             setView('bystander-sim');
+            return;
+        }
+
+        if (selectedCategory?.id === 'research') {
+            setView('concept-view');
+            completeModule(module.id);
             return;
         }
     };

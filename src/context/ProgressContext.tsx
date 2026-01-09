@@ -95,6 +95,8 @@ export const MODULES: Module[] = [
     { id: 'valmennus_return_rtw', categoryId: 'LEARNING', title: '12 Viikon Paluupolku', points: 300, path: '/valmennus' },
     { id: 'valmennus_leisure_assoc', categoryId: 'LEARNING', title: 'Yhdistystoiminnan Varjopuolet', points: 200, path: '/valmennus' },
     { id: 'valmennus_bystander_sim', categoryId: 'LEARNING', title: 'Bystander-Herättäjä', points: 250, path: '/valmennus' },
+    { id: 'pluralistic_ignorance', categoryId: 'LEARNING', title: 'Pluralistinen Ignoranssi', points: 100, path: '/valmennus' },
+    { id: 'bystander_effect', categoryId: 'LEARNING', title: 'Bystander-efekti Syväluotaus', points: 100, path: '/valmennus' },
     { id: 'return_path', categoryId: 'LEARNING', title: 'Paluupolku', points: 300, path: '/paluupolku' },
 
     // SPECIAL
