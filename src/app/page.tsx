@@ -32,15 +32,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center mb-6">
-          <Link href="/valmennus">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-black uppercase tracking-widest hover:bg-indigo-100 transition-all shadow-sm">
-              <Award className="w-4 h-4" />
-              {t('hero.b2b_badge')}
-            </div>
-          </Link>
-        </div>
-
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
           {t('hero.title')}
         </h1>
