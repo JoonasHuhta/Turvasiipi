@@ -65,9 +65,9 @@
         "stat3": "Kestää keskimäärin 1–3 vuotta ennen toimenpiteitä",
         "stat4": "65% kiusaajista on esimiehiä",
         "stat5": "Seuraukset: ahdistus, masennus, työuupumus",
-        "warning_title": "⚠️ Vaarallinen kierre",
+        "warning_title": "Vaarallinen kierre",
         "warning_desc": "Useimmat odottavat liian kauan. Kun tilanne vihdoin tunnistetaan, voimat on jo lopussa eikä toimintaan enää jaksa.",
-        "solution_title": "✅ Turvasiipi katkaisee kierteen",
+        "solution_title": "Turvasiipi katkaisee kierteen",
         "solution_desc": "Aloita dokumentointi heti kun tunnet olevasi epävarma. Sinun ei tarvitse olla \"tarpeeksi kiusattu.\"",
         "solution_footer": "Aloita tänään – se on ensimmäinen askel takaisin omaan voimaasi."
     },
@@ -126,7 +126,9 @@
         "q7": "Miten Turvasiipi auttaa minua toipumaan?",
         "a7": "Sovellus tarjoaa passiivisen dokumentoinnin lisäksi aktiivisia työkaluja: simulaattoreita ja valmennusmoduuleja. Niiden avulla voit harjoitella vaikeita tilanteita turvallisesti, vahvistaa resilienssiäsi ja oppia asettamaan rajoja taktisesti.",
         "q8": "Onko tekoälyn käyttö turvallista?",
-        "a8": "Kyllä. Käytämme tekoälyä vain raporttien jäsennöimiseen, ja se tapahtuu erittäin suojatussa ympäristössä. Tietojasi ei käytetä tekoälyn kouluttamiseen, eivätkä ne koskaan tallennu pysyvästi mihinkään pilvipalveluun."
+        "a8": "Kyllä. Käytämme tekoälyä vain raporttien jäsennöimiseen, ja se tapahtuu erittäin suojatussa ympäristössä. Tietojasi ei käytetä tekoälyn kouluttamiseen, eivätkä ne koskaan tallennu pysyvästi mihinkään pilvipalveluun.",
+        "q9": "Mitä on kiusaamisen lukutaito?",
+        "a9": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se ei tarkoita sitä, että jokaisen pitäisi olla asiantuntija tai sankari. Se tarkoittaa, että kukaan ei ole tilanteessa neuvoton."
     },
     "timeline": {
         "page": {

@@ -65,9 +65,9 @@
         "stat3": "Takes on average 1–3 years before action is taken",
         "stat4": "65% of bullies are supervisors",
         "stat5": "Consequences: anxiety, depression, burnout",
-        "warning_title": "⚠️ Dangerous Cycle",
+        "warning_title": "Dangerous Cycle",
         "warning_desc": "Most wait too long. When the situation is finally identified, strength is already gone and one no longer has the energy to act.",
-        "solution_title": "✅ Turvasiipi Breaks the Cycle",
+        "solution_title": "Turvasiipi Breaks the Cycle",
         "solution_desc": "Start documenting as soon as you feel uncertain. You don't have to be \"bullied enough.\"",
         "solution_footer": "Start today – it's the first step back to your own power."
     },
@@ -126,7 +126,9 @@
         "q7": "How does Turvasiipi help me recover?",
         "a7": "Beyond passive documentation, the app provides active tools: simulators and coaching modules. They allow you to practice difficult situations safely, strengthen your resilience, and learn to set boundaries tactically.",
         "q8": "Is the use of AI safe?",
-        "a8": "Yes. We use AI only to structure reports, and it happens in a highly secure environment. Your data is not used for AI training, and it is never permanently stored in any cloud service."
+        "a8": "Yes. We use AI only to structure reports, and it happens in a highly secure environment. Your data is not used for AI training, and it is never permanently stored in any cloud service.",
+        "q9": "What is bullying literacy?",
+        "a9": "Bullying literacy is the ability to recognize, understand, and confront bullying in the work community – in time and together. It doesn't mean that every individual should be an expert or a hero. It means that no one is helpless in the situation."
     },
     "timeline": {
         "page": {
