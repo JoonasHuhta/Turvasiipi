@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress"; // Assuming shadcn progress
 import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, Briefcase, User } from "lucide-react";
+import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, Briefcase, User, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface GameEngineProps {
@@ -387,33 +387,55 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         return "text-sm";
     };
 
-    // Calculate theme based on Day
-    const getTheme = (day: number) => {
+    // Calculate theme based on Day and stats
+    const getBgColor = (day: number) => {
+        if (state.currentPhaseId.startsWith('END_')) return "bg-slate-950";
         if (day <= 10) return "bg-slate-50";
         if (day <= 30) return "bg-slate-100";
-        return "bg-slate-100";
+        return "bg-slate-200";
     };
 
     const isComplexPhase = currentPhase.content.includes("**Sinun näkökulmasi:**");
     const textSizeClass = getContentTextSize(currentPhase.content.length, true);
 
-    // FIX: Added z-[100] to cover global layout elements (Navbar) completely.
-    return (
-        <div className={cn("fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden bg-slate-50 font-sans", getTheme(currentPhase.day))}>
+    // Stress level calculation (0-1)
+    const selfEsteem = state.stats.selfEsteem || 50;
+    const stressLevel = Math.max(0, (100 - selfEsteem) / 100);
 
-            {/* HEADER: Fixed top bar with App Name & Stats */}
-            <header className="shrink-0 h-14 bg-white border-b px-4 flex items-center justify-between z-30 shadow-sm relative select-none">
+    return (
+        <div className={cn("fixed inset-0 z-[100] flex flex-col justify-between overflow-hidden font-sans transition-colors duration-1000", getBgColor(currentPhase.day))}>
+
+            {/* Dynamic Background Elements */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div
+                    className="absolute top-0 left-1/4 w-full h-full bg-indigo-500/5 rounded-full blur-[120px] transition-all duration-1000"
+                    style={{ opacity: 0.1 + stressLevel * 0.2, transform: `scale(${1 + stressLevel})` }}
+                />
+                <div
+                    className="absolute bottom-0 right-1/4 w-full h-full bg-rose-500/5 rounded-full blur-[120px] transition-all duration-1000"
+                    style={{ opacity: stressLevel * 0.3 }}
+                />
+
+                {/* Stress Vignette */}
+                <div
+                    className="absolute inset-0 transition-opacity duration-1000 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.1)] md:shadow-[inset_0_0_300px_rgba(0,0,0,0.1)]"
+                    style={{ opacity: stressLevel, boxShadow: `inset 0 0 ${100 + stressLevel * 200}px rgba(190, 18, 60, ${0.1 * stressLevel})` }}
+                />
+            </div>
+
+            {/* HEADER: Glassmorphic top bar */}
+            <header className="shrink-0 h-16 bg-white/70 backdrop-blur-xl border-b border-white/20 px-4 flex items-center justify-between z-30 shadow-sm relative select-none">
                 <div className="flex items-center gap-2">
-                    <span className="font-black text-slate-800 tracking-tight text-base">Simulaatio</span>
-                    <Badge variant="secondary" className="bg-slate-100 text-slate-600 px-1.5 py-0.5 text-[10px] font-mono border border-slate-200">
+                    <span className="font-black text-slate-900 tracking-tighter text-lg uppercase">Simulaatio</span>
+                    <div className="bg-indigo-600 text-white px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest">
                         Päivä {currentPhase.day}
-                    </Badge>
+                    </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                    {/* Compact Stat Bars (Clickable for Help) */}
+                    {/* Compact Stat Bars */}
                     <div
-                        className="flex gap-2 cursor-pointer active:scale-95 transition-transform p-1 rounded-md hover:bg-slate-50"
+                        className="flex gap-2.5 cursor-pointer active:scale-95 transition-transform p-1.5 rounded-xl hover:bg-white/50"
                         onClick={() => setIsHelpOpen(true)}
                     >
                         {statConfig ? (
@@ -423,77 +445,67 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         ) : (
                             <>
                                 <MiniStatBar icon={Brain} value={state.stats.selfEsteem} color="bg-indigo-500" />
-                                <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-blue-500" />
+                                <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-cyan-500" />
                                 <MiniStatBar icon={Heart} value={state.stats.hope} color="bg-rose-500" />
                             </>
                         )}
                     </div>
 
-                    <Button variant="ghost" size="icon" onClick={() => setIsHelpOpen(true)} className="text-slate-400 hover:text-indigo-600 w-8 h-8 -mr-1">
-                        <span className="sr-only">Ohje</span>
-                        <div className="border-2 border-slate-300 rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold text-slate-500">?</div>
-                    </Button>
-
-                    <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 -mr-2">
+                    <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 transition-colors">
                         <span className="sr-only">Lopeta</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                     </Button>
                 </div>
             </header>
 
-            {/* HELP MODAL */}
+            {/* HELP MODAL (kept same logic but styled better) */}
             {isHelpOpen && (
-                <div className="absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={() => setIsHelpOpen(false)}>
-                    <div className="bg-white w-full max-w-xs rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
-                        <div className="bg-slate-50 border-b p-4 flex items-center justify-between">
-                            <h3 className="font-bold text-slate-900">Mitä mittarit tarkoittavat?</h3>
-                            <Button variant="ghost" size="sm" onClick={() => setIsHelpOpen(false)} className="h-6 w-6 p-0 rounded-full">✕</Button>
+                <div className="absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={() => setIsHelpOpen(false)}>
+                    <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300" onClick={e => e.stopPropagation()}>
+                        <div className="bg-slate-50 border-b p-6">
+                            <h3 className="font-black text-slate-900 uppercase tracking-tight">Voimavarat</h3>
                         </div>
-                        <div className="p-4 space-y-4">
+                        <div className="p-6 space-y-5">
                             {statConfig ? (
                                 statConfig.map(stat => (
-                                    <div key={stat.id} className="flex items-center gap-3">
-                                        <div className={cn("p-2 rounded-lg bg-opacity-20", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
-                                            <stat.icon className="w-5 h-5" />
+                                    <div key={stat.id} className="flex items-center gap-4">
+                                        <div className={cn("p-3 rounded-xl", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
+                                            <stat.icon className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <div className="font-bold text-sm text-slate-800">{stat.label}</div>
-                                            <div className="text-xs text-slate-500">{stat.description}</div>
+                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">{stat.label}</div>
+                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">{stat.description}</div>
                                         </div>
                                     </div>
                                 ))
                             ) : (
                                 <>
-                                    <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg"><Brain className="w-5 h-5" /></div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 bg-indigo-100 text-indigo-600 rounded-xl"><Brain className="w-6 h-6" /></div>
                                         <div>
-                                            <div className="font-bold text-sm text-slate-800">Itseluottamus</div>
-                                            <div className="text-xs text-slate-500">Sinun uskosi omiin kykyihisi johtajana.</div>
+                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Itseluottamus</div>
+                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Uskosi omiin kykyihisi ja oikeuksiisi.</div>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-blue-100 text-blue-600 rounded-lg"><Users className="w-5 h-5" /></div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 bg-cyan-100 text-cyan-600 rounded-xl"><Users className="w-6 h-6" /></div>
                                         <div>
-                                            <div className="font-bold text-sm text-slate-800">Tiimihenki & Hyväksyntä</div>
-                                            <div className="text-xs text-slate-500">Miten tiimi ja Antti suhtautuvat sinuun.</div>
+                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Hyväksyntä</div>
+                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Miten työyhteisö suhtautuu sinuun.</div>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-rose-100 text-rose-600 rounded-lg"><Heart className="w-5 h-5" /></div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 bg-rose-100 text-rose-600 rounded-xl"><Heart className="w-6 h-6" /></div>
                                         <div>
-                                            <div className="font-bold text-sm text-slate-800">Toivo & Jaksaminen</div>
-                                            <div className="text-xs text-slate-500">Antin ja työyhteisön henkinen jaksaminen.</div>
+                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Jaksaminen</div>
+                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Henkinen ja fyysinen kestävyytesi.</div>
                                         </div>
                                     </div>
                                 </>
                             )}
-
-                            <div className="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 border border-slate-100 mt-2">
-                                💡 <strong>Vinkki:</strong> Valintasi vaikuttavat mittareihin. Yritä tasapainoilla tulosten ja inhimillisyyden välillä.
-                            </div>
                         </div>
-                        <div className="p-3 bg-slate-50 border-t">
-                            <Button onClick={() => setIsHelpOpen(false)} className="w-full">Ymmärretty</Button>
+                        <div className="p-4 bg-slate-50 border-t">
+                            <Button onClick={() => setIsHelpOpen(false)} className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-widest text-xs">Jatka simulaatiota</Button>
                         </div>
                     </div>
                 </div>
@@ -501,78 +513,78 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
             {/* NOTIFICATION TOAST */}
             {notification && (
-                <div className="absolute top-16 left-0 right-0 z-40 animate-in slide-in-from-top-2 fade-in duration-300 pointer-events-none flex justify-center px-4 pt-2">
-                    <div className="bg-slate-800/95 backdrop-blur text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-xs font-medium border border-slate-700">
-                        <span className="text-emerald-400">ℹ️</span>
+                <div className="absolute top-20 left-0 right-0 z-40 animate-in slide-in-from-top-4 fade-in duration-500 pointer-events-none flex justify-center px-4">
+                    <div className="bg-slate-900/90 backdrop-blur text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 text-sm font-black uppercase tracking-widest border border-white/10">
+                        <span className="text-indigo-400">⚡</span>
                         <span>{notification}</span>
                     </div>
                 </div>
             )}
 
-            {/* MAIN CONTENT: Centered Vertically */}
-            <main className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar">
-                <div className="min-h-full flex flex-col justify-center p-5 pb-8 transition-all">
+            {/* MAIN CONTENT */}
+            <main className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar z-10">
+                <div className="min-h-full flex flex-col justify-center p-6 pb-12 transition-all">
 
                     {/* Scene Meta Info */}
                     {(currentPhase.time || currentPhase.location) && (
-                        <div className="flex items-center justify-center gap-3 text-slate-400 text-[10px] font-bold uppercase tracking-widest opacity-80 mb-3">
-                            {currentPhase.time && <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {currentPhase.time}</span>}
-                            {currentPhase.location && <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {currentPhase.location}</span>}
+                        <div className="flex items-center justify-center gap-4 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6 opacity-60">
+                            {currentPhase.time && <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {currentPhase.time}</span>}
+                            {currentPhase.location && <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {currentPhase.location}</span>}
                         </div>
                     )}
 
                     {/* Title */}
-                    <h2 className="text-lg md:text-xl font-black text-slate-900 text-center leading-tight mb-4">
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 text-center leading-[1.1] mb-8 uppercase tracking-tighter">
                         {currentPhase.title}
                     </h2>
 
                     {/* Content Block */}
-                    <div className={cn("prose prose-slate max-w-none text-slate-700 text-center mx-auto transition-all", textSizeClass)}>
+                    <div className={cn("prose prose-slate max-w-none text-slate-800 text-center mx-auto transition-all", textSizeClass)}>
                         {isComplexPhase ? (
-                            <div className="space-y-3 text-left">
+                            <div className="space-y-4 text-left">
                                 {currentPhase.content.split('\n\n').map((section, idx) => {
                                     if (section.includes("**Sinun näkökulmasi:**")) {
                                         return (
-                                            <div key={idx} className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-                                                <div className="flex items-center gap-1.5 mb-1 font-bold text-slate-900 uppercase tracking-wide text-[10px]">
-                                                    <Briefcase className="w-3 h-3" /> Sinun näkökulmasi
+                                            <div key={idx} className="bg-white/60 backdrop-blur-sm p-5 rounded-3xl border border-white shadow-sm">
+                                                <div className="flex items-center gap-2 mb-2 font-black text-slate-900 uppercase tracking-widest text-[10px]">
+                                                    <Briefcase className="w-3.5 h-3.5 text-indigo-500" /> Sinun näkökulmasi
                                                 </div>
-                                                <p className="m-0 text-slate-800">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
+                                                <p className="m-0 text-slate-900 font-medium leading-relaxed">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
                                             </div>
                                         );
                                     }
                                     if (section.includes("**Antin näkökulma")) {
                                         return (
-                                            <div key={idx} className="bg-white p-3 rounded-lg border-l-2 border-indigo-400 shadow-sm">
-                                                <div className="flex items-center gap-1.5 mb-1 font-bold text-indigo-900 uppercase tracking-wide text-[10px]">
-                                                    <User className="w-3 h-3" /> Antin näkökulma
+                                            <div key={idx} className="bg-white/40 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-indigo-500 shadow-sm">
+                                                <div className="flex items-center gap-2 mb-2 font-black text-indigo-900 uppercase tracking-widest text-[10px]">
+                                                    <User className="w-3.5 h-3.5 text-indigo-500" /> Antin näkökulma
                                                 </div>
-                                                <p className="italic text-indigo-800 m-0">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
+                                                <p className="italic text-indigo-900 m-0 font-medium leading-relaxed">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
                                             </div>
                                         );
                                     }
                                     if (section.includes("**Psykologinen analyysi:**")) {
                                         return (
-                                            <div key={idx} className="bg-white p-3 rounded-lg border-l-2 border-emerald-400 shadow-sm">
-                                                <div className="flex items-center gap-1.5 mb-1 font-bold text-emerald-900 uppercase tracking-wide text-[10px]">
-                                                    <Brain className="w-3 h-3" /> Psykologinen analyysi
+                                            <div key={idx} className="bg-emerald-50/50 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-emerald-500 shadow-sm">
+                                                <div className="flex items-center gap-2 mb-2 font-black text-emerald-900 uppercase tracking-widest text-[10px]">
+                                                    <Brain className="w-3.5 h-3.5 text-emerald-500" /> Psykologinen analyysi
                                                 </div>
-                                                <p className="text-emerald-800 m-0">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
+                                                <p className="text-emerald-900 m-0 font-medium leading-relaxed">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
                                             </div>
                                         );
                                     }
-                                    return <p key={idx} className="mb-2 last:mb-0">{section}</p>;
+                                    return <p key={idx} className="mb-4 last:mb-0 leading-relaxed font-medium">{section}</p>;
                                 })}
                             </div>
                         ) : (
                             // Simple text content
-                            <p className="whitespace-pre-line">{currentPhase.content}</p>
+                            <p className="whitespace-pre-line leading-relaxed font-medium text-lg">{currentPhase.content}</p>
                         )}
 
                         {currentPhase.isCrisis && (
-                            <div className="mt-4 p-2.5 bg-red-50/80 border border-red-100 rounded-lg flex items-center justify-center gap-2 text-red-800 text-xs font-bold">
-                                <AlertTriangle className="w-4 h-4 shrink-0" />
-                                <span>Kriisi merkitty logiin</span>
+                            <div className="mt-8 p-4 bg-red-600 text-white rounded-2xl flex items-center justify-center gap-3 text-xs font-black uppercase tracking-widest animate-pulse shadow-lg shadow-red-500/20">
+                                <AlertTriangle className="w-5 h-5 shrink-0" />
+                                <span>KRIISI MERKITTY RAporttiin</span>
                             </div>
                         )}
                     </div>
@@ -580,8 +592,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             </main>
 
             {/* FOOTER: Fixed Actions */}
-            <footer className="shrink-0 bg-white border-t border-slate-100 p-3 pb-6 z-30 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
-                <div className="max-w-lg mx-auto w-full flex flex-col gap-2">
+            <footer className="shrink-0 bg-white/80 backdrop-blur-2xl border-t border-white/20 p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+                <div className="max-w-lg mx-auto w-full flex flex-col gap-3">
                     {currentPhase.choices.map((choice) => (
                         <Button
                             key={choice.id}
@@ -589,26 +601,28 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             disabled={choice.variant === 'crossed-out'}
                             variant={choice.variant === 'crossed-out' ? "ghost" : "default"}
                             className={cn(
-                                "w-full min-h-[56px] h-auto py-3 px-3 justify-between text-left transition-all active:scale-[0.99] group",
-                                // Wrappings and alignment
+                                "w-full min-h-[64px] h-auto py-4 px-6 justify-between text-left transition-all active:scale-[0.98] group rounded-2xl relative overflow-hidden",
                                 "whitespace-normal break-words items-center",
                                 choice.variant === 'crossed-out'
-                                    ? "bg-slate-50 border-2 border-dashed border-slate-200 text-slate-400 cursor-not-allowed"
-                                    : "bg-white border-2 border-slate-200 text-slate-800 hover:bg-slate-50 hover:border-slate-300 shadow-[0_2px_0_#e2e8f0] active:translate-y-[2px] active:shadow-none"
+                                    ? "bg-slate-50 border-2 border-dashed border-slate-200 text-slate-400 cursor-not-allowed opacity-60"
+                                    : "bg-white border-2 border-slate-200 text-slate-900 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/10 active:translate-y-[2px] active:shadow-none"
                             )}
                         >
                             <span className={cn(
-                                "font-bold leading-tight tracking-tight flex-1 mr-2",
+                                "font-black leading-tight tracking-tight flex-1 mr-4 uppercase",
                                 getButtonTextSize(choice.text.length)
                             )}>
                                 {choice.text}
                             </span>
 
                             {choice.variant === 'crossed-out' ? (
-                                <span className="text-lg opacity-50 grayscale shrink-0">🔒</span>
+                                <span className="text-xl opacity-50 grayscale shrink-0">🔒</span>
                             ) : (
-                                <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto transition-all text-indigo-500 font-bold">➜</span>
+                                <ArrowRight className="w-5 h-5 text-indigo-500 shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                             )}
+
+                            {/* Subtle hover background highlight */}
+                            <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/5 transition-colors pointer-events-none" />
                         </Button>
                     ))}
                 </div>

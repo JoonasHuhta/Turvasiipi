@@ -14,34 +14,37 @@ import Link from "next/link";
 
 export default function SimulatorPage() {
     return (
-        <main className="min-h-screen bg-slate-50">
+        <main className="min-h-screen bg-slate-50 relative overflow-hidden">
+            {/* Background Blobs */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[150px] pointer-events-none" />
+
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-slate-900 text-white py-24">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-900 to-black opacity-90" />
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-black opacity-95" />
+                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
 
                 <div className="relative container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center space-y-8">
-                        <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-4 py-2 rounded-full text-xs font-black tracking-widest backdrop-blur-sm uppercase">
                             <Gamepad2 className="w-4 h-4" />
-                            INTERAKTIIVINEN KOKEMUS
+                            Interaktiivinen kokemus
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                            Koe työpaikkakiusaamisen <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">todellisuus</span>
+                        <h1 className="text-4xl md:text-7xl font-black tracking-tight leading-[0.9] uppercase">
+                            Koe kiusaamisen <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400">todellisuus</span>
                         </h1>
 
-                        <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto font-light">
                             Simulaattori, joka avaa silmät kiusaamisen dynamiikalle.
-                            Astu sairaanhoitajan, opettajan tai asiantuntijan saappaisiin ja koe,
-                            miten pienet teot kasaantuvat ja vaikuttavat terveyteen.
+                            Astu eri rooleihin ja koe, miten pienet teot kasaantuvat ja vaikuttavat terveyteen.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                             <Button
                                 size="lg"
-                                className="bg-indigo-600 hover:bg-indigo-700 text-lg h-14 px-8 rounded-full shadow-lg shadow-indigo-900/20"
+                                className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-black uppercase tracking-widest h-14 px-10 rounded-full shadow-2xl shadow-indigo-500/20 transition-all hover:scale-105"
                                 onClick={() => document.getElementById('professions')?.scrollIntoView({ behavior: 'smooth' })}
                             >
                                 Aloita simulaatio
@@ -53,89 +56,83 @@ export default function SimulatorPage() {
             </section>
 
             {/* Features / Pillars */}
-            <section className="py-20 container mx-auto px-4">
+            <section className="py-20 container mx-auto px-4 relative z-10">
                 <div className="grid md:grid-cols-3 gap-8">
                     <FeatureCard
                         icon={Brain}
                         title="Ymmärrä dynamiikka"
                         description="Näe miten hierarkia, vaikenemisen kulttuuri ja gaslighting toimivat käytännössä."
                         color="text-purple-600"
-                        bg="bg-purple-50"
+                        bg="bg-purple-100/50"
                     />
                     <FeatureCard
                         icon={HeartPulse}
                         title="Koe vaikutukset"
                         description="Seuraa miten henkinen ja fyysinen terveys rapautuu paineen alla 90 päivän aikana."
                         color="text-rose-600"
-                        bg="bg-rose-50"
+                        bg="bg-rose-100/50"
                     />
                     <FeatureCard
                         icon={User}
                         title="Rakenna empatiaa"
                         description="Astu toisen asemaan. Koe tunteet, joita pelkkä teksti ei voi välittää."
                         color="text-indigo-600"
-                        bg="bg-indigo-50"
+                        bg="bg-indigo-100/50"
                     />
                 </div>
             </section>
 
-            {/* Profession Selection Placeholder */}
-            <section id="professions" className="py-20 bg-white border-t border-slate-100">
+            {/* Profession Selection */}
+            <section id="professions" className="py-24 bg-white/40 backdrop-blur-sm border-t border-slate-100 relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16 space-y-4">
-                        <h2 className="text-3xl font-bold text-slate-900">Valitse näkökulma</h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto">Kiusaaminen ja syrjintä näyttäytyvät eri tavoin eri rooleissa.</p>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">Valitse näkökulma</h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto text-lg">Kiusaaminen ja syrjintä näyttäytyvät eri tavoin eri rooleissa. Valitse skenaario aloittaaksesi.</p>
 
                         <Dialog>
                             <DialogTrigger asChild>
-                                <Button variant="outline" className="gap-2 rounded-full border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800">
-                                    <Info className="w-4 h-4" /> Lisätietoa simulaattorista
+                                <Button variant="ghost" className="gap-2 rounded-full text-slate-400 hover:text-indigo-600 transition-colors uppercase text-xs font-black tracking-widest">
+                                    <Info className="w-4 h-4" /> Lue lisää simulaattorista
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+                            <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto rounded-[2rem] border-none shadow-2xl">
                                 <DialogHeader>
-                                    <DialogTitle className="text-2xl font-bold leading-tight mb-4 text-indigo-950">
-                                        Työkiusaamissimulaattori – et ole liian herkkä, tämä on järjestelmävika
+                                    <DialogTitle className="text-3xl font-black tracking-tight mb-4 text-slate-900 uppercase">
+                                        Työkiusaamissimulaattori
                                     </DialogTitle>
-                                    <DialogDescription className="space-y-4 text-base text-slate-700 text-left" asChild>
+                                    <DialogDescription className="space-y-4 text-base text-slate-600 text-left pb-6" asChild>
                                         <div>
-                                            <div className="mb-4">
-                                                <strong>Työkiusaamissimulaattori ei ole peli, jossa voitetaan.</strong> Se on kokemus, jossa ymmärretään, miksi niin moni jää, vaikka kaikki kehossa huutaa lähteä.
+                                            <div className="mb-4 leading-relaxed">
+                                                <strong>Simulaattori ei ole peli, jossa voitetaan.</strong> Se on kokemus, jossa ymmärretään, miksi niin moni jää, vaikka kaikki kehossa huutaa lähteä.
                                             </div>
-                                            <div className="mb-4">
-                                                Simulaattori vie pelaajan suomalaiseen työpaikkaan, jossa mikään yksittäinen asia ei ole “tarpeeksi vakava” – mutta kaikki yhdessä syövät hiljalleen toimintakyvyn, itsetunnon ja ilon. Sivulauseet palavereissa. Vitsiksi naamioitu vähättely. Vastuun kaataminen. Hiljaisuus, kun tarvitset tukea. “Sisu”, joka muuttuu ansaksi.
+                                            <div className="mb-4 leading-relaxed">
+                                                Simulaattori vie pelaajan tilanteisiin, joissa mikään yksittäinen asia ei ole “tarpeeksi vakava” – mutta kaikki yhdessä syövät hiljalleen toimintakyvyn ja itsetunnon.
                                             </div>
 
-                                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 my-4">
-                                                <p className="font-semibold text-slate-900 mb-2">Pelaaja joutuu tekemään arkipäiväisiä päätöksiä:</p>
-                                                <ul className="list-disc pl-5 space-y-1 text-slate-600">
-                                                    <li>Puututko vai nieletkö?</li>
-                                                    <li>Valitatko vai leimaannutko hankalaksi?</li>
-                                                    <li>Jaksatko vielä tämän projektin – vai tämän työpaikan?</li>
+                                            <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 my-6">
+                                                <p className="font-bold text-indigo-900 mb-3 uppercase text-xs tracking-wider">Pelaajan haasteet:</p>
+                                                <ul className="space-y-2 text-indigo-800 font-medium">
+                                                    <li className="flex gap-2"><span>•</span> Puututko vai nieletkö?</li>
+                                                    <li className="flex gap-2"><span>•</span> Valitatko vai leimaannutko hankalaksi?</li>
+                                                    <li className="flex gap-2"><span>•</span> Jaksatko vielä – vai onko aika lähteä?</li>
                                                 </ul>
                                             </div>
 
-                                            <div className="mb-4">
-                                                Jokaisella valinnalla on seurauksia, jotka eivät näy heti. Stressimittari nousee. Unet lyhenevät. Itseluottamus murenee. Ja silti ulospäin kaikki näyttää “ihan ok:lta”.
-                                            </div>
-
-                                            <h4 className="font-bold text-lg text-slate-900 pt-2">Simulaattori opettaa kolme asiaa:</h4>
-                                            <ol className="list-decimal pl-5 space-y-3">
-                                                <li>
-                                                    <strong>Työkiusaaminen harvoin näyttää kiusaamiselta.</strong> Se näyttää rakenteilta, kulttuurilta ja hiljaiselta hyväksynnältä.
+                                            <h4 className="font-black text-xl text-slate-900 pt-4 uppercase tracking-tight">Mitä opit:</h4>
+                                            <ul className="space-y-4 mt-4">
+                                                <li className="flex gap-4">
+                                                    <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 font-bold text-slate-900">1</div>
+                                                    <p><strong>Tunnistat rakenteet:</strong> Kiusaaminen näyttää usein vain huonolta kulttuurilta.</p>
                                                 </li>
-                                                <li>
-                                                    <strong>Ongelma ei ole yksilön kestävyys,</strong> vaan ympäristö, joka palkitsee vääränlaista käytöstä.
+                                                <li className="flex gap-4">
+                                                    <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 font-bold text-slate-900">2</div>
+                                                    <p><strong>Ymmärrät vastuun:</strong> Ongelma on ympäristössä, ei sinun kestävyydessäsi.</p>
                                                 </li>
-                                                <li>
-                                                    <strong>Aikainen tunnistaminen on mielenterveysteko.</strong> Mitä aiemmin ymmärrät, missä olet, sitä vähemmän joudut maksamaan hinnan myöhemmin.
+                                                <li className="flex gap-4">
+                                                    <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 font-bold text-slate-900">3</div>
+                                                    <p><strong>Toimit ajoissa:</strong> Aikainen tunnistaminen on mielenterveysteko.</p>
                                                 </li>
-                                            </ol>
-
-                                            <div className="mt-6 p-4 bg-indigo-50 text-indigo-900 rounded-xl border border-indigo-100 font-medium">
-                                                Työkiusaamissimulaattori ei opeta, miten “selviät”.<br />
-                                                Se opettaa, mitä ei kuulu sietää.
-                                            </div>
+                                            </ul>
                                         </div>
                                     </DialogDescription>
                                 </DialogHeader>
@@ -143,102 +140,94 @@ export default function SimulatorPage() {
                         </Dialog>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {/* Nurse - Active */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {/* Nurse */}
                         <Link href="/simulaatio/hoitaja">
-                            <div className="group relative bg-white border-2 border-slate-100 rounded-3xl p-8 hover:border-indigo-500 hover:shadow-xl transition-all duration-300 cursor-pointer text-left h-full">
-                                <div className="absolute top-4 right-4 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Beta
-                                </div>
-                                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                            <div className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-10 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-indigo-500/10 transition-colors" />
+                                <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
                                     🏥
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Sairaanhoitaja</h3>
-                                <p className="text-slate-600 mb-6">"Nurses eat their young." Koe hierarkkinen väkivalta ja osaston paineet.</p>
-                                <span className="text-indigo-600 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
-                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
-                                </span>
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">Sairaanhoitaja</h3>
+                                <p className="text-slate-500 mb-10 leading-relaxed font-medium">"Nurses eat their young." Koe hierarkkinen väkivalta ja osaston kovat paineet.</p>
+                                <div className="flex items-center text-indigo-600 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-indigo-500 group-hover:w-full transition-all duration-500" />
                             </div>
                         </Link>
 
-                        {/* Teacher - Active */}
+                        {/* Teacher */}
                         <Link href="/simulaatio/opettaja">
-                            <div className="group relative bg-white border-2 border-slate-100 rounded-3xl p-8 hover:border-indigo-500 hover:shadow-xl transition-all duration-300 cursor-pointer text-left h-full">
-                                <div className="absolute top-4 right-4 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Päivitetty
-                                </div>
-                                <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                            <div className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-10 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-emerald-500/10 transition-colors" />
+                                <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500">
                                     👩‍🏫
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Opettaja</h3>
-                                <p className="text-slate-600 mb-6">Ulkopuolinen paine vanhemmilta ja tuen puute johdolta. Koe opetusalan haasteet.</p>
-                                <span className="text-emerald-600 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
-                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
-                                </span>
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">Opettaja</h3>
+                                <p className="text-slate-500 mb-10 leading-relaxed font-medium">Paineet vanhemmilta ja puutteellinen tuki johdolta. Koe opetusalan vaiettu arki.</p>
+                                <div className="flex items-center text-emerald-600 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-emerald-500 group-hover:w-full transition-all duration-500" />
                             </div>
                         </Link>
 
-                        {/* Manager - Active (New) */}
+                        {/* Manager */}
                         <Link href="/simulaatio/esimies">
-                            <div className="group relative bg-slate-900 border-2 border-slate-800 rounded-3xl p-8 hover:border-red-500 hover:shadow-xl hover:shadow-red-900/20 transition-all duration-300 cursor-pointer text-left h-full">
-                                <div className="absolute top-4 right-4 bg-red-900/50 text-red-200 border border-red-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Uusi
-                                </div>
-                                <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                            <div className="group relative bg-slate-900 border border-slate-800 rounded-[2.5rem] p-10 hover:shadow-2xl hover:shadow-red-900/40 transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-red-500/20 transition-colors" />
+                                <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
                                     👔
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">Esimies</h3>
-                                <p className="text-slate-400 mb-6">"Management Trap." Koe paine, joka pakottaa sinut kiusaajaksi vastoin tahtoasi.</p>
-                                <span className="text-red-400 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
-                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
-                                </span>
+                                <h3 className="text-2xl font-black text-white mb-3 uppercase tracking-tight">Esimies</h3>
+                                <p className="text-slate-400 mb-10 leading-relaxed font-medium">"Management Trap." Koe paine, joka pakottaa toimimaan vastoin omia arvoja.</p>
+                                <div className="flex items-center text-red-400 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-red-600 group-hover:w-full transition-all duration-500" />
                             </div>
                         </Link>
 
-                        {/* Neuro - Active (New) */}
+                        {/* Neuro */}
                         <Link href="/simulaatio/neuro">
-                            <div className="group relative bg-white border-2 border-slate-100 rounded-3xl p-8 hover:border-amber-500 hover:shadow-xl transition-all duration-300 cursor-pointer text-left h-full">
-                                <div className="absolute top-4 right-4 bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Uusi
+                            <div className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-10 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-amber-500/10 transition-colors" />
+                                <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500">
+                                    🧩
                                 </div>
-                                <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
-                                    🧠
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">Neurokirjo</h3>
+                                <p className="text-slate-500 mb-10 leading-relaxed font-medium">Aistiyliherkkyydet ja "masking". Koe työpäivä neuromoninaisen silmin.</p>
+                                <div className="flex items-center text-amber-600 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Neuroepätyypillinen</h3>
-                                <p className="text-slate-600 mb-6">Aistiyliherkkyydet, sosiaaliset koodit ja "masking". Koe työpäivä Alexin silmin.</p>
-                                <span className="text-amber-600 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
-                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
-                                </span>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-amber-500 group-hover:w-full transition-all duration-500" />
                             </div>
                         </Link>
 
-                        {/* Youth - Active (New) */}
+                        {/* Youth */}
                         <Link href="/simulaatio/nuoret">
-                            <div className="group relative bg-white border-2 border-slate-100 rounded-3xl p-8 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 cursor-pointer text-left h-full">
-                                <div className="absolute top-4 right-4 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Uusi
+                            <div className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-10 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-cyan-500/10 transition-colors" />
+                                <div className="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                                    🌱
                                 </div>
-                                <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
-                                    🎓
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">Nuori tekijä</h3>
+                                <p className="text-slate-500 mb-10 leading-relaxed font-medium">Ensimmäinen kesätyö vai hyväksikäyttö? Opi tunnistamaan hälytysmerkit ajoissa.</p>
+                                <div className="flex items-center text-cyan-600 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Nuori työntekijä</h3>
-                                <p className="text-slate-600 mb-6">Ensimmäinen kesätyö vai hyväksikäyttö? Opi tunnistamaan hälytysmerkit ja pitämään puoliasi.</p>
-                                <span className="text-emerald-600 font-semibold flex items-center group-hover:gap-2 transition-all absolute bottom-8">
-                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2" />
-                                </span>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-cyan-500 group-hover:w-full transition-all duration-500" />
                             </div>
                         </Link>
 
-                        {/* Developer - Coming Soon */}
-                        <div className="bg-slate-50 border-2 border-slate-100 rounded-3xl p-8 opacity-70 cursor-not-allowed">
-                            <div className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 text-3xl grayscale">
+                        {/* Coming Soon */}
+                        <div className="relative bg-slate-50/50 border border-slate-200 border-dashed rounded-[2.5rem] p-10 opacity-70 cursor-not-allowed group">
+                            <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-8 text-4xl grayscale">
                                 💻
                             </div>
-                            <h3 className="text-xl font-bold text-slate-500 mb-2">IT-asiantuntija</h3>
-                            <p className="text-slate-400 mb-6">Crunch-kulttuuri, epärealistiset aikataulut ja syyllistäminen.</p>
-                            <span className="text-slate-400 font-medium text-sm flex items-center">
-                                Tulossa pian
-                            </span>
+                            <h3 className="text-2xl font-bold text-slate-400 mb-3 uppercase tracking-tight">IT-asiantuntija</h3>
+                            <p className="text-slate-400 mb-10 leading-relaxed font-medium">Crunch-kulttuuri ja epärealistiset aikataulut. Tulossa pian.</p>
                         </div>
                     </div>
                 </div>
