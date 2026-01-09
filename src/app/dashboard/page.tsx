@@ -39,7 +39,7 @@ export default function DashboardPage() {
     const categories: CategoryId[] = ['CORE', 'AWARENESS', 'TOOLS', 'SUPPORT', 'INTERACTIVE', 'ORGANIZATION', 'LEARNING', 'SPECIAL'];
 
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4">
+        <div className="min-h-screen bg-slate-50 py-6 md:py-12 px-4">
             <div className="max-w-5xl mx-auto space-y-8">
 
                 {/* --- HEADER DASHBOARD --- */}
@@ -54,28 +54,28 @@ export default function DashboardPage() {
                                 <p className="text-slate-400 font-medium">Tervetuloa takaisin! Tässä on edistymisesi Turvasiipi-valmennuksessa.</p>
                             </div>
 
-                            <div className="flex items-center gap-4">
-                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-center min-w-[100px]">
-                                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Level</div>
-                                    <div className="text-3xl font-black text-indigo-400">{level}</div>
+                            <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full md:w-auto">
+                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Level</div>
+                                    <div className="text-2xl sm:text-3xl font-black text-indigo-400">{level}</div>
                                 </div>
-                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-center min-w-[100px]">
-                                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Pisteet</div>
-                                    <div className="text-3xl font-black text-emerald-400">{progress.points}</div>
+                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Pisteet</div>
+                                    <div className="text-2xl sm:text-3xl font-black text-emerald-400">{progress.points}</div>
                                 </div>
-                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 text-center min-w-[100px]">
-                                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Streak</div>
-                                    <div className="text-3xl font-black text-orange-400 flex items-center justify-center gap-1">
-                                        {progress.streak} <Flame className="w-5 h-5" />
+                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Streak</div>
+                                    <div className="text-2xl sm:text-3xl font-black text-orange-400 flex items-center justify-center gap-1">
+                                        {progress.streak} <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-12 space-y-4">
-                            <div className="flex justify-between items-end mb-2">
-                                <span className="text-sm font-bold uppercase tracking-widest text-slate-400">Kokonaisedistyminen: {progressPerc}%</span>
-                                <span className="text-sm font-bold text-white">{progress.completedModuleIds.length} / {MODULE_COUNT} osiota</span>
+                        <div className="mt-8 md:mt-12 space-y-4">
+                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 mb-2">
+                                <span className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-slate-400">Edistyminen: {progressPerc}%</span>
+                                <span className="text-xs sm:text-sm font-bold text-white leading-none">{progress.completedModuleIds.length} / {MODULE_COUNT} suoritettu</span>
                             </div>
                             <div className="h-4 bg-white/5 rounded-full overflow-hidden border border-white/5">
                                 <motion.div
@@ -88,24 +88,24 @@ export default function DashboardPage() {
                     </div>
 
                     <div className="p-6 md:p-8 bg-slate-50 border-t border-slate-200/60">
-                        <div className="grid md:grid-cols-3 gap-6">
+                        <div className="grid md:grid-cols-3 gap-8 md:gap-6">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600">
+                                <div className="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
                                     <Trophy className="w-6 h-6" />
                                 </div>
-                                <div>
-                                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Badget</div>
-                                    <div className="text-lg font-bold text-slate-900">{earnedBadgesCount} / {totalBadges} ansaittu</div>
+                                <div className="min-w-0">
+                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Badget</div>
+                                    <div className="text-sm sm:text-lg font-bold text-slate-900 truncate">{earnedBadgesCount} / {totalBadges} ansaittu</div>
                                 </div>
                             </div>
                             <div className="md:col-span-2 flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                <div className="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
                                     <Target className="w-6 h-6" />
                                 </div>
-                                <div className="flex-1">
-                                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Seuraava suositeltu askel</div>
-                                    <Link href="/tietovisa" className="text-sm font-bold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-2 group">
-                                        Suorita tietovisa ja ansaitse "Lakitiedon Tuntija" <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                <div className="min-w-0 flex-1">
+                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Seuraava suositeltu askel</div>
+                                    <Link href="/tietovisa" className="text-sm sm:text-base font-bold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-2 group">
+                                        <span className="truncate">Suorita tietovisa ja ansaitse badge</span> <ChevronRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
                             </div>
@@ -114,10 +114,10 @@ export default function DashboardPage() {
                 </div>
 
                 <Tabs defaultValue="modules" className="w-full">
-                    <TabsList className="bg-white border p-1 rounded-2xl mb-8">
-                        <TabsTrigger value="modules" className="rounded-xl px-8 font-bold">Osiot</TabsTrigger>
-                        <TabsTrigger value="badges" className="rounded-xl px-8 font-bold">Kunniataulu</TabsTrigger>
-                        <TabsTrigger value="stats" className="rounded-xl px-8 font-bold">Tilastot</TabsTrigger>
+                    <TabsList className="bg-white border p-1 rounded-2xl mb-8 w-full sm:w-auto h-auto flex flex-wrap gap-1">
+                        <TabsTrigger value="modules" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Osiot</TabsTrigger>
+                        <TabsTrigger value="badges" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Kunniataulu</TabsTrigger>
+                        <TabsTrigger value="stats" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Tilastot</TabsTrigger>
                     </TabsList>
 
                     {/* --- MODULES TAB --- */}
