@@ -1,7 +1,7 @@
 {
     "nav": {
         "simulation": "Experience",
-        "dashboard": "My Journey",
+        "dashboard": "Profile",
         "explore": "Explore",
         "tools": "Tools",
         "help": "Help",
@@ -15,7 +15,7 @@
         "support_services": "Support Services",
         "community": "Community",
         "stories": "Stories",
-        "training": "Tactical Training",
+        "training": "Coaching",
         "empathy_spectrum": "Empathy Spectrum",
         "literacy_test": "Literacy Test"
     },

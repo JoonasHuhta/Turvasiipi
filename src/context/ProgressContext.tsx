@@ -92,6 +92,9 @@ export const MODULES: Module[] = [
     { id: 'valmennus_easy', categoryId: 'LEARNING', title: 'Valmennus: Helppo', points: 100, path: '/valmennus' },
     { id: 'valmennus_medium', categoryId: 'LEARNING', title: 'Valmennus: Keskitaso', points: 150, path: '/valmennus' },
     { id: 'valmennus_master', categoryId: 'LEARNING', title: 'Valmennus: Mestari', points: 200, path: '/valmennus' },
+    { id: 'valmennus_return_rtw', categoryId: 'LEARNING', title: '12 Viikon Paluupolku', points: 300, path: '/valmennus' },
+    { id: 'valmennus_leisure_assoc', categoryId: 'LEARNING', title: 'Yhdistystoiminnan Varjopuolet', points: 200, path: '/valmennus' },
+    { id: 'valmennus_bystander_sim', categoryId: 'LEARNING', title: 'Bystander-Herättäjä', points: 250, path: '/valmennus' },
     { id: 'return_path', categoryId: 'LEARNING', title: 'Paluupolku', points: 300, path: '/paluupolku' },
 
     // SPECIAL
@@ -115,6 +118,9 @@ export const BADGES: Badge[] = [
     { id: 'training_easy', title: 'Tunnistamisen Alkeet', icon: '⚡', description: 'Suoritit Helppo-tason valmennuksen.' },
     { id: 'training_medium', title: 'Tunnistamisen Edistynyt', icon: '🔥', description: 'Suoritit Keskitaso-valmennuksen.' },
     { id: 'training_master', title: 'Tunnistamisen Mestari', icon: '🏆', description: 'Suoritit Mestari-tason valmennuksen.' },
+    { id: 'training_rtw', title: 'Työhönpaluun Arkkitehti', icon: '🏗️', description: 'Rakensit kattavan paluusuunnitelman työhön.' },
+    { id: 'leisure_hero', title: 'Harrastuksen Turvamies', icon: '🛡️', description: 'Suojelit harrastusyhdistyksen psykologista turvallisuutta.' },
+    { id: 'bystander_hero', title: 'Bystander-Sankari', icon: '🤝', description: 'Olet aktiivinen todistaja ja murtat bystander-efektin.' },
     { id: 'literacy_master', title: 'Lukutaidon Mestari', icon: '📖', description: 'Sait vähintään 85% oikein lukutaito-testissä.' },
     { id: 'empathy_profile_known', title: 'Empatiaprofiili Tunnettu', icon: '🧠', description: 'Suoritit empatia-spektri testin.' },
 ];

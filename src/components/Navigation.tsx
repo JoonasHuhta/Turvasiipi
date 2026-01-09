@@ -26,13 +26,11 @@ interface NavItem {
 const getNavItems = (): NavItem[] => [
     { href: "/dashboard", labelKey: "nav.dashboard", icon: Trophy },
     { href: "/simulaatio", labelKey: "nav.simulation", icon: Gamepad2 },
-
     {
         labelKey: "nav.explore",
         icon: Search,
         children: [
             { href: "/quiz", labelKey: "nav.identify_risks", icon: Clipboard },
-            { href: "/valmennus", labelKey: "nav.training", icon: Zap },
             { href: "/feeling-quiz", labelKey: "nav.victim_feelings", icon: Activity },
             { href: "/empatia-testi", labelKey: "nav.empathy_spectrum", icon: Heart },
             { href: "/lukutaito-testi", labelKey: "nav.literacy_test", icon: ClipboardList },
@@ -41,6 +39,7 @@ const getNavItems = (): NavItem[] => [
             { href: "/nuoret", labelKey: "nav.youth_work", icon: Users },
         ]
     },
+    { href: "/valmennus", labelKey: "nav.training", icon: Zap },
     {
         labelKey: "nav.tools",
         icon: Wrench,
@@ -122,7 +121,7 @@ export function Navigation() {
                                     className={cn("gap-2", isActive && "bg-secondary text-secondary-foreground font-medium")}
                                 >
                                     <item.icon className="w-4 h-4" />
-                                    {t(item.labelKey)}
+                                    {item.href !== "/dashboard" && t(item.labelKey)}
                                 </Button>
                             </Link>
                         );

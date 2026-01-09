@@ -221,14 +221,21 @@ export default function SimulatorPage() {
                             </div>
                         </Link>
 
-                        {/* Coming Soon */}
-                        <div className="relative bg-slate-50/50 border border-slate-200 border-dashed rounded-[2.5rem] p-10 opacity-70 cursor-not-allowed group">
-                            <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-8 text-4xl grayscale">
-                                💻
+                        {/* IT Expert */}
+                        <Link href="/simulaatio/it">
+                            <div className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-10 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-slate-500/10 transition-colors" />
+                                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 text-4xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                                    💻
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">IT-asiantuntija</h3>
+                                <p className="text-slate-500 mb-10 leading-relaxed font-medium">Crunch-kulttuuri ja epärealistiset aikataulut. Koe teknisen alan vaiettu puoli.</p>
+                                <div className="flex items-center text-slate-600 font-black uppercase text-xs tracking-widest mt-auto">
+                                    Pelaa skenaario <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-slate-500 group-hover:w-full transition-all duration-500" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-400 mb-3 uppercase tracking-tight">IT-asiantuntija</h3>
-                            <p className="text-slate-400 mb-10 leading-relaxed font-medium">Crunch-kulttuuri ja epärealistiset aikataulut. Tulossa pian.</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
