@@ -407,34 +407,50 @@
             "no": "No"
         },
         "results": {
-            "analyzing": "Analysis Complete",
-            "score": "Your Result:",
+            "analyzing": "Analysis complete",
+            "score": "Your Score:",
             "interpretation_title": "What does this mean?",
-            "disclaimer": "\"This is not normal work stress. This is not your fault.\"",
+            "disclaimer": "\"This is not normal workplace stress. This is not your fault.\"",
             "signals_title": "Strongest Signals",
             "steps_title": "Recommended Next Steps",
-            "restart": "Start Over",
+            "restart": "Restart",
             "log_action": "Log Events",
             "start_analysis": "Start Analysis",
             "why_important": "Why is this important?"
         },
         "risk_levels": {
+            "stable": {
+                "label": "Stable Situation",
+                "description": "Your experiences currently suggest a stable work situation. Continue to nurture a good culture."
+            },
             "mild": {
-                "label": "Mild Risk",
-                "description": "Your experiences may be isolated, but continue documenting just in case."
+                "label": "Mild Attention",
+                "description": "Some signs of uncertainty are in the air. Monitor the situation and trust your instinct – often recognition is hardest at the beginning."
+            },
+            "warning": {
+                "label": "Warning",
+                "description": "Alert signs are clear. The situation can escalate if not addressed in time. Start low-threshold documentation."
             },
             "moderate": {
-                "label": "Moderate Risk",
-                "description": "Signs point to repeated inappropriate treatment. We recommend discussing this with a trusted party."
+                "label": "Increased Risk",
+                "description": "Signs suggest repeated inappropriate treatment. Don't stay alone with these thoughts, but seek validation from a trusted colleague or friend."
             },
             "severe": {
                 "label": "Severe Risk",
-                "description": "This is a serious situation. What you are experiencing corresponds to systematic bullying. Contact your union or occupational safety."
+                "description": "This is a serious situation. What you experienced corresponds to systematic bullying. We recommend contacting a union or occupational safety."
             },
             "critical": {
-                "label": "Critical Risk",
-                "description": "This is an emergency for your work ability. The situation points to serious psychological violence. Seek help immediately."
+                "label": "Critical Emergency",
+                "description": "This is an emergency for your work ability and health. The situation suggests severe psychological violence. Seek professional help immediately."
             }
+        },
+        "critical_signals": {
+            "title": "Critical Observations",
+            "itsetunto": "Your self-esteem is being tested. This is a typical sign of long-term invalidation.",
+            "todellisuus": "Gaslighting signs are strong. Don't trust just your memory, document everything.",
+            "eristyksissä": "Social isolation is detected. This is a common tactic to weaken the person's position.",
+            "fyysiset": "Physical symptoms are strong. Your body is reacting to chronic stress. Take this seriously.",
+            "käyttäytyminen": "Changes in behavior suggest high vigilance. You are on high alert."
         },
         "categories": {
             "itsetunto": {
@@ -782,6 +798,92 @@
                 "text": "Learn about gaslighting and other manipulation methods.",
                 "action": "Read More"
             }
+        },
+        "tiered_recommendations": {
+            "stable": [
+                {
+                    "title": "Explore out of Interest",
+                    "text": "Great that your situation is stable! You can explore the Resource Bank to increase your understanding of work culture in general.",
+                    "link": "/valmennus",
+                    "label": "Explore Resource Bank"
+                },
+                {
+                    "title": "Bystander Role",
+                    "text": "Someone in a stable situation can be a great support to others. Learn how to act if you notice others being treated inappropriately.",
+                    "link": "/valmennus",
+                    "label": "Read about Helping"
+                }
+            ],
+            "mild": [
+                {
+                    "title": "Peace of Mind",
+                    "text": "Your situation is good, but your instinct might wake up early. Explore the 'Bullying vs Criticism' section for peace of mind.",
+                    "action": "compare",
+                    "label": "Compare Signs"
+                },
+                {
+                    "title": "Prepare",
+                    "text": "Gathering information preventively is always wise. Check tips for maintaining a good culture.",
+                    "link": "/valmennus",
+                    "label": "Read More"
+                }
+            ],
+            "warning": [
+                {
+                    "title": "Name the Phenomena",
+                    "text": "Identifying alert signs is the first step. Explore the Tactic Bank to see if it's a familiar pattern.",
+                    "action": "tactics",
+                    "label": "Open Tactics"
+                },
+                {
+                    "title": "Bystander Test",
+                    "text": "Let's practice setting boundaries. Try a simulation where you practice safe intervention in inappropriate speech.",
+                    "link": "/valmennus",
+                    "label": "Start Simulation"
+                }
+            ],
+            "moderate": [
+                {
+                    "title": "Validate your Experience",
+                    "text": "Don't wonder alone. Talking with an outsider or trusted entity helps to perceive the situation.",
+                    "link": "/tuki",
+                    "label": "Find Support"
+                },
+                {
+                    "title": "Start Logging",
+                    "text": "Documentation is worth starting with a low threshold. Small notes help form the big picture later.",
+                    "link": "/timeline",
+                    "label": "Open Timeline"
+                }
+            ],
+            "severe": [
+                {
+                    "title": "Protect Yourself",
+                    "text": "Documentation is now critical. Use the timeline regularly and create a report of events.",
+                    "link": "/timeline",
+                    "label": "Log Event"
+                },
+                {
+                    "title": "Contact Union",
+                    "text": "We recommend a discussion with a union lawyer or expert to ensure your legal protection.",
+                    "link": "/tuki",
+                    "label": "Union Contacts"
+                }
+            ],
+            "critical": [
+                {
+                    "title": "Seek Professional Help",
+                    "text": "Your health is priority. Contact occupational health or a crisis hotline immediately to decompress the burden.",
+                    "link": "/tuki",
+                    "label": "Get Help Now"
+                },
+                {
+                    "title": "Create Fact Report",
+                    "text": "Your data is stored on your device. Use AI analysis to structure events into an official report.",
+                    "link": "/raportti",
+                    "label": "Create Report"
+                }
+            ]
         }
     },
     "support": {
