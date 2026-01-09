@@ -46,11 +46,11 @@ interface ProgressContextType {
 export const MODULES: Module[] = [
     // CORE
     { id: 'landing', categoryId: 'CORE', title: 'Etusivu', points: 50, path: '/' },
-    { id: 'sim_nurse', categoryId: 'CORE', title: 'Simulaatio: Hoitaja', points: 200, path: '/simulaatio/hoitaja' },
-    { id: 'sim_teacher', categoryId: 'CORE', title: 'Simulaatio: Opettaja', points: 200, path: '/simulaatio/opettaja' },
-    { id: 'sim_manager', categoryId: 'CORE', title: 'Simulaatio: Esimies', points: 200, path: '/simulaatio/esimies' },
-    { id: 'sim_youth', categoryId: 'CORE', title: 'Simulaatio: Nuoret', points: 200, path: '/simulaatio/nuoret' },
-    { id: 'sim_neuro', categoryId: 'CORE', title: 'Simulaatio: Neuromoninaisuus', points: 200, path: '/simulaatio/neuro' },
+    { id: 'sim_nurse', categoryId: 'CORE', title: 'Koe: Hoitaja', points: 200, path: '/simulaatio/hoitaja' },
+    { id: 'sim_teacher', categoryId: 'CORE', title: 'Koe: Opettaja', points: 200, path: '/simulaatio/opettaja' },
+    { id: 'sim_manager', categoryId: 'CORE', title: 'Koe: Esimies', points: 200, path: '/simulaatio/esimies' },
+    { id: 'sim_youth', categoryId: 'CORE', title: 'Koe: Nuoret', points: 200, path: '/simulaatio/nuoret' },
+    { id: 'sim_neuro', categoryId: 'CORE', title: 'Koe: Neuromoninaisuus', points: 200, path: '/simulaatio/neuro' },
 
     // AWARENESS
     { id: 'tietovisa', categoryId: 'AWARENESS', title: 'Tietovisa', points: 150, path: '/tietovisa' },
@@ -102,12 +102,12 @@ export const MODULES: Module[] = [
 
 export const BADGES: Badge[] = [
     { id: 'welcome', title: 'Tervetuloa Turvasiipeen', icon: '🏠', description: 'Kävit ensimmäistä kertaa etusivulla.' },
-    { id: 'nurse_complete', title: 'Hoitajan Silmin', icon: '🩺', description: 'Suoritit hoitajan simulaation.' },
-    { id: 'teacher_complete', title: 'Opettajan Taakka', icon: '📚', description: 'Suoritit opettajan simulaation.' },
-    { id: 'manager_complete', title: 'Asiantuntijan Kriisi', icon: '💼', description: 'Suoritit esimiehen simulaation.' },
-    { id: 'youth_complete', title: 'Nuoren Kokemus', icon: '🌱', description: 'Suoritit nuorten simulaation.' },
-    { id: 'neuro_complete', title: 'Neuromoninaisuuden Ymmärrys', icon: '🧩', description: 'Suoritit neuromoninaisuus-simulaation.' },
-    { id: 'empathy_master', title: 'Empatian Mestari', icon: '⭐', description: 'Suoritit kaikki 5 simulaatiota.', isMastery: true },
+    { id: 'nurse_complete', title: 'Hoitajan Silmin', icon: '🩺', description: 'Suoritit hoitajan kokemuksen.' },
+    { id: 'teacher_complete', title: 'Opettajan Taakka', icon: '📚', description: 'Suoritit opettajan kokemuksen.' },
+    { id: 'manager_complete', title: 'Asiantuntijan Kriisi', icon: '💼', description: 'Suoritit esimiehen kokemuksen.' },
+    { id: 'youth_complete', title: 'Nuoren Kokemus', icon: '🌱', description: 'Suoritit nuorten kokemuksen.' },
+    { id: 'neuro_complete', title: 'Neuromoninaisuuden Ymmärrys', icon: '🧩', description: 'Suoritit neuromoninaisuus-kokemuksen.' },
+    { id: 'empathy_master', title: 'Empatian Mestari', icon: '⭐', description: 'Suoritit kaikki 5 kokemusta.', isMastery: true },
     { id: 'legal_expert', title: 'Lakitiedon Tuntija', icon: '🎓', description: 'Läpäisit tietovisan vähintään 80% oikein.' },
     { id: 'risk_finder', title: 'Riskin Tunnistaja', icon: '🔍', description: 'Suoritit työyhteisön riskikyselyn.' },
     { id: 'valid_feelings', title: 'Tunteeni Ovat Oikeutettuja', icon: '💚', description: 'Suoritit tunnetestin ja sait validoinnin.' },

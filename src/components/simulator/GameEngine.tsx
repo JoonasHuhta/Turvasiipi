@@ -10,6 +10,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, Briefcase, User, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface GameEngineProps {
     scenario: Record<string, Phase>;
@@ -29,6 +30,7 @@ export interface StatConfigItem {
 
 export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statConfig }: GameEngineProps) {
     const { completeModule } = useProgress();
+    const { t } = useLanguage();
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
         profession: profession,
@@ -426,7 +428,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             {/* HEADER: Glassmorphic top bar */}
             <header className="shrink-0 h-16 bg-white/70 backdrop-blur-xl border-b border-white/20 px-4 flex items-center justify-between z-30 shadow-sm relative select-none">
                 <div className="flex items-center gap-2">
-                    <span className="font-black text-slate-900 tracking-tighter text-lg uppercase">Simulaatio</span>
+                    <span className="font-black text-slate-900 tracking-tighter text-lg uppercase">{t('nav.simulation')}</span>
                     <div className="bg-indigo-600 text-white px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest">
                         Päivä {currentPhase.day}
                     </div>

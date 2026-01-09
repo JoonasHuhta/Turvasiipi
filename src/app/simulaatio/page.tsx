@@ -37,7 +37,7 @@ export default function SimulatorPage() {
                         </h1>
 
                         <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto font-light">
-                            Simulaattori, joka avaa silmät kiusaamisen dynamiikalle.
+                            Kokemus, joka avaa silmät kiusaamisen dynamiikalle.
                             Astu eri rooleihin ja koe, miten pienet teot kasaantuvat ja vaikuttavat terveyteen.
                         </p>
 
@@ -47,7 +47,7 @@ export default function SimulatorPage() {
                                 className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-black uppercase tracking-widest h-14 px-10 rounded-full shadow-2xl shadow-indigo-500/20 transition-all hover:scale-105"
                                 onClick={() => document.getElementById('professions')?.scrollIntoView({ behavior: 'smooth' })}
                             >
-                                Aloita simulaatio
+                                Aloita koe
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </div>
@@ -92,7 +92,7 @@ export default function SimulatorPage() {
                         <Dialog>
                             <DialogTrigger asChild>
                                 <Button variant="ghost" className="gap-2 rounded-full text-slate-400 hover:text-indigo-600 transition-colors uppercase text-xs font-black tracking-widest">
-                                    <Info className="w-4 h-4" /> Lue lisää simulaattorista
+                                    <Info className="w-4 h-4" /> Lue lisää tästä
                                 </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto rounded-[2rem] border-none shadow-2xl">
