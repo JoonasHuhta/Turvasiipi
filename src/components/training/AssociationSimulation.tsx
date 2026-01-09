@@ -391,7 +391,7 @@ export default function AssociationSimulation({
                                 initial={{ opacity: 0, scale: 0.98 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 1.02 }}
-                                className="space-y-6"
+                                className="space-y-4 md:space-y-6"
                             >
                                 <div className="flex items-center gap-3">
                                     <Badge variant="outline" className="border-indigo-100 bg-indigo-50 text-indigo-600 text-[8px] font-black uppercase tracking-widest px-3 h-6">
@@ -407,7 +407,7 @@ export default function AssociationSimulation({
                                     {currentStep.type === 'dialogue' && '"'}
                                 </h3>
 
-                                <div className="grid gap-3 pt-6">
+                                <div className="grid gap-2 md:gap-3 pt-2 md:pt-6">
                                     {currentStep.choices?.map((choice, i) => (
                                         <Button
                                             key={i}

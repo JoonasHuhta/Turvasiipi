@@ -466,7 +466,7 @@ export default function TrainingPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="min-h-full flex flex-col justify-center p-6 md:p-12 max-w-2xl mx-auto pt-40 md:pt-12"
+                            className="min-h-full flex flex-col justify-start md:justify-center p-4 md:p-12 max-w-2xl mx-auto pt-24 md:pt-12"
                         >
                             <AnimatePresence>
                                 {showHint && (
@@ -486,7 +486,7 @@ export default function TrainingPage() {
 
                             <div className="space-y-6 pb-32">
                                 <div className="space-y-4">
-                                    <p className="text-xl md:text-3xl text-slate-100 leading-tight font-black uppercase tracking-tighter break-words">
+                                    <p className="text-lg md:text-3xl text-slate-100 leading-snug md:leading-tight font-black uppercase tracking-tighter break-words">
                                         {currentScenario.scenario}
                                     </p>
                                     <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-widest opacity-80">

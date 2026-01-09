@@ -353,7 +353,7 @@ export default function BystanderSimulation({
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="space-y-8"
+                                className="space-y-4 md:space-y-8"
                             >
                                 <div className="flex items-center gap-3">
                                     <Badge variant="outline" className="border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-[8px] font-black uppercase tracking-widest px-3 h-6">
@@ -369,7 +369,7 @@ export default function BystanderSimulation({
                                     {currentStep.type === 'dialogue' && '"'}
                                 </h3>
 
-                                <div className="grid gap-4 pt-4">
+                                <div className="grid gap-3 pt-2 md:pt-4">
                                     {currentStep.choices?.map((choice, i) => (
                                         <Button
                                             key={i}
