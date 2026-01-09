@@ -122,7 +122,11 @@
         "q5": "Näkyykö Tarinat-osiossa jakamani tarina muille?",
         "a5": "Kyllä, mutta vain jos päätät julkaista sen. Julkaisu on täysin anonyymia (tai valitsemallasi nimimerkillä). Emme tallenna IP-osoitteita, joten tarinoita ei voi jäljittää sinuun.",
         "q6": "Olen välittömässä vaarassa. Mitä teen?",
-        "a6": "Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon **112**. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: **010 195 202**."
+        "a6": "Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon **112**. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: **010 195 202**.",
+        "q7": "Miten Turvasiipi auttaa minua toipumaan?",
+        "a7": "Sovellus tarjoaa passiivisen dokumentoinnin lisäksi aktiivisia työkaluja: simulaattoreita ja valmennusmoduuleja. Niiden avulla voit harjoitella vaikeita tilanteita turvallisesti, vahvistaa resilienssiäsi ja oppia asettamaan rajoja taktisesti.",
+        "q8": "Onko tekoälyn käyttö turvallista?",
+        "a8": "Kyllä. Käytämme tekoälyä vain raporttien jäsennöimiseen, ja se tapahtuu erittäin suojatussa ympäristössä. Tietojasi ei käytetä tekoälyn kouluttamiseen, eivätkä ne koskaan tallennu pysyvästi mihinkään pilvipalveluun."
     },
     "timeline": {
         "page": {

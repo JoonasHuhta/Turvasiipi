@@ -398,6 +398,24 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
 
+            <AccordionItem value="item-7" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                {t('faq.q7')}
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                {t('faq.a7')}
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8" className="border-b border-slate-100">
+              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
+                {t('faq.q8')}
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
+                {t('faq.a8')}
+              </AccordionContent>
+            </AccordionItem>
+
             <AccordionItem value="item-6" className="border-b-0">
               <AccordionTrigger className="text-left text-lg font-medium text-rose-600 hover:text-rose-700 hover:no-underline py-4">
                 {t('faq.q6')}

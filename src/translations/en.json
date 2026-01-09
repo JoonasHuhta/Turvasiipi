@@ -122,7 +122,11 @@
         "q5": "Is the story I share in the Stories section visible to others?",
         "a5": "Yes, but only if you choose to publish it. Publishing is fully anonymous (or with a pseudonym of your choice). We don't store IP addresses, so stories cannot be traced back to you.",
         "q6": "I am in immediate danger. What should I do?",
-        "a6": "If you experience violence or an acute threat, call the emergency number **112** immediately. Turvasiipi is a documentation tool, not a crisis service. In mental distress, call the Crisis Hotline: **010 195 202**."
+        "a6": "If you experience violence or an acute threat, call the emergency number **112** immediately. Turvasiipi is a documentation tool, not a crisis service. In mental distress, call the Crisis Hotline: **010 195 202**.",
+        "q7": "How does Turvasiipi help me recover?",
+        "a7": "Beyond passive documentation, the app provides active tools: simulators and coaching modules. They allow you to practice difficult situations safely, strengthen your resilience, and learn to set boundaries tactically.",
+        "q8": "Is the use of AI safe?",
+        "a8": "Yes. We use AI only to structure reports, and it happens in a highly secure environment. Your data is not used for AI training, and it is never permanently stored in any cloud service."
     },
     "timeline": {
         "page": {
