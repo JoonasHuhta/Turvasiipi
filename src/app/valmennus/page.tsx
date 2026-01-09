@@ -36,7 +36,7 @@ import BystanderSimulation from "@/components/training/BystanderSimulation";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
-    const { completeModule, awardBadge, getCertificationProgress } = useProgress();
+    const { completeModule, awardBadge, getCertificationProgress, isModuleCompleted } = useProgress();
 
     // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete
     const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete'>('hub');
@@ -252,7 +252,7 @@ export default function TrainingPage() {
                                     </div>
                                     <div className="flex-1 text-center md:text-left space-y-2">
                                         <div className="flex items-center justify-center md:justify-start gap-2">
-                                            <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">B2B Sertifikaatti</Badge>
+                                            <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">Sertifikaatti</Badge>
                                             <span className="text-indigo-400 text-[10px] font-black uppercase tracking-widest">Kiusaamisen lukutaito</span>
                                         </div>
                                         <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-none">
@@ -283,7 +283,7 @@ export default function TrainingPage() {
                                                 { id: 'pluralistic_ignorance', cat: 'research' },
                                                 { id: 'bystander_effect', cat: 'research' }
                                             ];
-                                            const next = certModules.find(m => !useProgress().isModuleCompleted(m.id));
+                                            const next = certModules.find(m => !isModuleCompleted(m.id));
                                             if (next) {
                                                 const cat = trainingHubData.find(c => c.id === next.cat);
                                                 if (cat) {
