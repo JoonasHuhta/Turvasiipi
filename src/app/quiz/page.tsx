@@ -120,8 +120,188 @@ export default function QuizPage() {
         }
     };
 
-    // If quiz is running, we show the questions view
-    if (hasStarted && !isFinished && activeTab === "quiz") {
+    // Dedicated Question OR Result View
+    if (hasStarted && activeTab === "quiz") {
+        if (isFinished) {
+            return (
+                <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-slate-50">
+                    {/* Results Header */}
+                    <header className="shrink-0 h-16 bg-white border-b px-6 flex items-center justify-between z-30">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                                <ShieldCheck className="w-6 h-6" />
+                            </div>
+                            <div className="flex flex-col">
+                                <Badge className="bg-primary text-white uppercase font-black text-[9px] py-0 px-2 w-fit mb-0.5">
+                                    {t('quiz.results.analyzing')}
+                                </Badge>
+                                <span className="text-[10px] text-slate-400 uppercase font-bold tracking-widest leading-none">
+                                    Analyysi valmistui
+                                </span>
+                            </div>
+                        </div>
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={resetQuiz}
+                            className="opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest h-8 px-2 flex items-center gap-1"
+                        >
+                            <RotateCcw className="w-3 h-3" /> {t('quiz.results.restart')}
+                        </Button>
+                    </header>
+
+                    {/* Main Results Content (Scrollable) */}
+                    <main ref={scrollContainerRef} className="flex-1 overflow-y-auto relative flex flex-col items-center p-6 pb-24">
+                        <div className="max-w-3xl w-full space-y-12 py-4 animate-in slide-in-from-bottom-4 duration-700">
+                            {/* Score Card */}
+                            <Card className="border-none shadow-2xl overflow-hidden rounded-[2.5rem]">
+                                <CardHeader className={`${risk.level.includes('Kriittinen') || risk.key === 'severe' || risk.key === 'critical' ? 'bg-red-50' : 'bg-slate-50'} p-8 border-b`}>
+                                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                                        <div className="space-y-2 text-center md:text-left">
+                                            <CardTitle className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none">
+                                                {t('quiz.results.score')} <br />
+                                                <span className={risk.color}>{t(`quiz.risk_levels.${risk.key || 'stable'}.label`)}</span>
+                                            </CardTitle>
+                                        </div>
+                                        <div className="bg-white shadow-xl rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-100 shrink-0">
+                                            <span className="text-3xl font-black text-slate-900">{score}<span className="text-sm opacity-30">/25</span></span>
+                                        </div>
+                                    </div>
+                                </CardHeader>
+
+                                <CardContent className="p-8 space-y-12">
+                                    <section className="bg-slate-900 text-white p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 p-8 opacity-10">
+                                            <AlertTriangle className="w-32 h-32" />
+                                        </div>
+                                        <h3 className="text-xl font-bold uppercase tracking-tight relative z-10 flex items-center gap-2">
+                                            <MessageCircle className="w-5 h-5 text-primary" /> {t('quiz.results.interpretation_title')}
+                                        </h3>
+                                        <p className="text-lg font-light leading-relaxed opacity-90 relative z-10">
+                                            {t(`quiz.risk_levels.${risk.key || 'stable'}.description`)}
+                                        </p>
+                                        <p className="text-sm opacity-60 italic relative z-10">{t('quiz.results.disclaimer')}</p>
+                                    </section>
+
+                                    {/* CRITICAL SIGNALS SECTION */}
+                                    {Object.entries(categoryScores).some(([_, data]) => data.score >= 4) && (
+                                        <div className="space-y-4">
+                                            <h3 className="text-2xl font-black uppercase tracking-tighter flex items-center gap-2">
+                                                <Zap className="w-6 h-6 text-yellow-400" /> {t('quiz.critical_signals.title')}
+                                            </h3>
+                                            <div className="grid gap-3">
+                                                {(Object.entries(categoryScores) as [QuizCategory, { score: number; total: number }][])
+                                                    .filter(([_, data]) => data.score >= 4)
+                                                    .map(([key]) => (
+                                                        <div key={key} className="bg-red-50 border border-red-100 p-4 rounded-xl flex items-start gap-4 animate-in fade-in slide-in-from-left-2 transition-all">
+                                                            <div className="bg-red-600 text-white p-2 rounded-lg shrink-0">
+                                                                <AlertTriangle className="w-4 h-4" />
+                                                            </div>
+                                                            <p className="text-sm text-red-900 font-medium leading-relaxed italic">
+                                                                {t(`quiz.critical_signals.${key}`)}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* NUANCED RECOMMENDATIONS - BASED ON TIER */}
+                                    <section className="space-y-6">
+                                        <div className="p-8 bg-primary/5 rounded-[2rem] border-2 border-primary/10 space-y-6">
+                                            <h3 className="text-2xl font-black uppercase tracking-tighter text-primary flex items-center gap-3">
+                                                <ShieldCheck className="w-8 h-8" /> {t('quiz.results.steps_title')}
+                                            </h3>
+                                            <ul className="grid sm:grid-cols-2 gap-4">
+                                                {((t(`quiz.tiered_recommendations.${risk.key || 'stable'}`, { returnObjects: true }) as any[]) || []).map((item: any, i: number) => (
+                                                    <li key={i} className="bg-white p-5 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all flex flex-col justify-between shadow-sm">
+                                                        <div className="space-y-2">
+                                                            <h4 className="font-bold text-slate-900">{item.title}</h4>
+                                                            <p className="text-xs text-slate-500 leading-relaxed">{item.text}</p>
+                                                        </div>
+                                                        {item.link ? (
+                                                            <Link href={item.link} className="mt-4">
+                                                                <Button variant="ghost" size="sm" className="w-full text-xs font-black uppercase tracking-widest text-primary gap-1 p-0 justify-start hover:bg-transparent">
+                                                                    {item.label} <ChevronRight className="w-3 h-3" />
+                                                                </Button>
+                                                            </Link>
+                                                        ) : (
+                                                            <Button
+                                                                variant="ghost"
+                                                                size="sm"
+                                                                className="mt-4 w-full text-xs font-black uppercase tracking-widest text-primary gap-1 p-0 justify-start hover:bg-transparent"
+                                                                onClick={() => {
+                                                                    if (item.action === 'tactics') {
+                                                                        setIsFinished(false);
+                                                                        setHasStarted(false);
+                                                                        setActiveTab('tactics');
+                                                                    } else if (item.action === 'compare') {
+                                                                        setIsFinished(false);
+                                                                        setHasStarted(false);
+                                                                        setActiveTab('compare');
+                                                                    }
+                                                                }}
+                                                            >
+                                                                {item.label} <ChevronRight className="w-3 h-3" />
+                                                            </Button>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </section>
+                                </CardContent>
+                                <CardFooter className="p-8 border-t bg-slate-50 flex flex-col sm:flex-row gap-4 justify-between">
+                                    <Button variant="ghost" onClick={resetQuiz} className="uppercase font-black tracking-widest gap-2">
+                                        <RotateCcw className="w-4 h-4" /> {t('quiz.results.restart')}
+                                    </Button>
+                                    <Link href={risk.key === 'severe' || risk.key === 'critical' ? "/timeline" : "/valmennus"}>
+                                        <Button className="rounded-full px-10 py-6 uppercase font-black tracking-widest shadow-xl shadow-primary/30">
+                                            {risk.key === 'severe' || risk.key === 'critical' ? t('quiz.results.log_action') : "Jatka harjoittelua"} <ArrowRight className="w-4 h-4 ml-2" />
+                                        </Button>
+                                    </Link>
+                                </CardFooter>
+                            </Card>
+
+                            {/* Signal Details (Accordions or simple list) */}
+                            <div className="space-y-6">
+                                <h3 className="text-2xl font-black uppercase tracking-tighter">{t('quiz.results.signals_title')}</h3>
+                                <div className="grid gap-4">
+                                    {(Object.entries(categoryScores) as [QuizCategory, { score: number; total: number }][])
+                                        .sort((a, b) => b[1].score - a[1].score)
+                                        .map(([key, data]) => (
+                                            <div key={key} className="bg-white p-6 rounded-3xl border border-slate-100 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+                                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${data.score > data.total / 2 ? 'bg-red-100 text-red-600' : 'bg-primary/10 text-primary'}`}>
+                                                    <div className="w-8 h-8">
+                                                        {(() => {
+                                                            const Icon = categoryLabels[key].icon;
+                                                            return <Icon className="w-full h-full" />;
+                                                        })()}
+                                                    </div>
+                                                </div>
+                                                <div className="flex-1 space-y-1 text-center md:text-left w-full">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <h4 className="font-black uppercase tracking-tight text-slate-900">{t(`quiz.categories.${key}.label`)}</h4>
+                                                        <span className={`font-black text-sm px-2 py-0.5 rounded-full ${data.score > data.total / 2 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                                                            {data.score}/{data.total}
+                                                        </span>
+                                                    </div>
+                                                    <Progress
+                                                        value={(data.score / data.total) * 100}
+                                                        className={`h-2 mt-2 ${data.score > data.total / 2 ? 'bg-red-100' : 'bg-slate-200'}`}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+        }
+
+        // Question rendering (KEEP EXISTING LOGIC)
         return (
             <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-white">
                 {/* Fixed Header */}
@@ -242,141 +422,15 @@ export default function QuizPage() {
 
                 <TabsContent value="quiz" className="space-y-12">
                     {isFinished ? (
-                        <div className="max-w-3xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 duration-700 pb-32">
-                            <Card className="border-none shadow-2xl overflow-hidden rounded-[2.5rem]">
-                                <CardHeader className={`${risk.level.includes('Kriittinen') || risk.level.includes('Critical') || risk.level.includes('Vakava') || risk.level.includes('Severe') ? 'bg-red-50' : 'bg-slate-50'} p-8 border-b`}>
-                                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                                        <div className="space-y-2 text-center md:text-left">
-                                            <Badge className={`${risk.level.includes('Kriittinen') || risk.level.includes('Critical') ? 'bg-red-600' : 'bg-primary'} text-white uppercase font-black px-4 py-1`}>{t('quiz.results.analyzing')}</Badge>
-                                            <CardTitle className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none">
-                                                {t('quiz.results.score')} <span className={risk.color}>{t(`quiz.risk_levels.${risk.key || 'mild'}.label`)}</span>
-                                            </CardTitle>
-                                        </div>
-                                        <div className="bg-white shadow-xl rounded-full w-24 h-24 flex items-center justify-center border-4 border-slate-100">
-                                            <span className="text-3xl font-black text-slate-900">{score}<span className="text-sm opacity-30">/25</span></span>
-                                        </div>
-                                    </div>
-                                </CardHeader>
-
-                                <CardContent className="p-8 space-y-12">
-                                    <section className="bg-slate-900 text-white p-6 rounded-2xl space-y-3 relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-8 opacity-10">
-                                            <AlertTriangle className="w-32 h-32" />
-                                        </div>
-                                        <h3 className="text-xl font-bold uppercase tracking-tight relative z-10 flex items-center gap-2">
-                                            <MessageCircle className="w-5 h-5 text-primary" /> {t('quiz.results.interpretation_title')}
-                                        </h3>
-                                        <p className="text-lg font-light leading-relaxed opacity-90 relative z-10">{t(`quiz.risk_levels.${risk.key}.description`)}</p>
-                                        <p className="text-sm opacity-60 italic relative z-10">{t('quiz.results.disclaimer')}</p>
-                                    </section>
-
-                                    {/* CRITICAL SIGNALS SECTION */}
-                                    {Object.entries(categoryScores).some(([_, data]) => data.score >= 4) && (
-                                        <div className="space-y-4">
-                                            <h3 className="text-2xl font-black uppercase tracking-tighter flex items-center gap-2">
-                                                <Zap className="w-6 h-6 text-yellow-400" /> {t('quiz.critical_signals.title')}
-                                            </h3>
-                                            <div className="grid gap-3">
-                                                {(Object.entries(categoryScores) as [QuizCategory, { score: number; total: number }][])
-                                                    .filter(([_, data]) => data.score >= 4)
-                                                    .map(([key]) => (
-                                                        <div key={key} className="bg-red-50 border border-red-100 p-4 rounded-xl flex items-start gap-4 animate-in fade-in slide-in-from-left-2 transition-all">
-                                                            <div className="bg-red-600 text-white p-2 rounded-lg shrink-0">
-                                                                <AlertTriangle className="w-4 h-4" />
-                                                            </div>
-                                                            <p className="text-sm text-red-900 font-medium leading-relaxed italic">
-                                                                {t(`quiz.critical_signals.${key}`)}
-                                                            </p>
-                                                        </div>
-                                                    ))}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <div className="space-y-6">
-                                        <h3 className="text-2xl font-black uppercase tracking-tighter">{t('quiz.results.signals_title')}</h3>
-                                        <div className="grid gap-4">
-                                            {(Object.entries(categoryScores) as [QuizCategory, { score: number; total: number }][])
-                                                .sort((a, b) => b[1].score - a[1].score)
-                                                .map(([key, data]) => (
-                                                    <div key={key} className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex flex-col md:flex-row items-center gap-6">
-                                                        <div className={`w - 16 h - 16 rounded - 2xl flex items - center justify - center shrink - 0 ${data.score > data.total / 2 ? 'bg-red-100 text-red-600' : 'bg-primary/10 text-primary'} `}>
-                                                            <div className="w-8 h-8">
-                                                                {(() => {
-                                                                    const Icon = categoryLabels[key].icon;
-                                                                    return <Icon className="w-full h-full" />;
-                                                                })()}
-                                                            </div>
-                                                        </div>
-                                                        <div className="flex-1 space-y-1 text-center md:text-left">
-                                                            <div className="flex justify-between items-center mb-1">
-                                                                <h4 className="font-black uppercase tracking-tight text-slate-900">{t(`quiz.categories.${key}.label`)}</h4>
-                                                                <span className={`font - black text - sm px - 2 py - 0.5 rounded - full ${data.score > data.total / 2 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'} `}>
-                                                                    {data.score}/{data.total}
-                                                                </span>
-                                                            </div>
-                                                            <p className="text-sm text-slate-500 font-light">{t(`quiz.categories.${key}.description`)}</p>
-                                                            <Progress
-                                                                value={(data.score / data.total) * 100}
-                                                                className={`h - 2 mt - 2 ${data.score > data.total / 2 ? 'bg-red-100' : 'bg-slate-200'} `}
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                        </div>
-                                    </div>
-
-                                    <section className="space-y-6">
-                                        <div className="p-8 bg-primary/5 rounded-[2rem] border-2 border-primary/10 space-y-6">
-                                            <h3 className="text-2xl font-black uppercase tracking-tighter text-primary flex items-center gap-3">
-                                                <ShieldCheck className="w-8 h-8" /> {t('quiz.results.steps_title')}
-                                            </h3>
-                                            <ul className="grid sm:grid-cols-2 gap-4">
-                                                {[
-                                                    { title: t('quiz.next_steps.document.title'), text: t('quiz.next_steps.document.text'), link: "/timeline", label: t('quiz.next_steps.document.action') },
-                                                    { title: t('quiz.next_steps.union.title'), text: t('quiz.next_steps.union.text'), link: "/tuki", label: t('quiz.next_steps.union.action') },
-                                                    { title: t('quiz.next_steps.healthcare.title'), text: t('quiz.next_steps.healthcare.text'), link: "/tuki", label: t('quiz.next_steps.healthcare.action') },
-                                                    { title: t('quiz.next_steps.tactics.title'), text: t('quiz.next_steps.tactics.text'), label: t('quiz.next_steps.tactics.action'), action: () => { setActiveTab("tactics"); setHasStarted(false); setIsFinished(false); } }
-                                                ].map((item, i) => (
-                                                    <li key={i} className="bg-white p-5 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all flex flex-col justify-between shadow-sm">
-                                                        <div className="space-y-2">
-                                                            <h4 className="font-bold text-slate-900">{item.title}</h4>
-                                                            <p className="text-xs text-slate-500 leading-relaxed">{item.text}</p>
-                                                        </div>
-                                                        {item.link ? (
-                                                            <Link href={item.link} className="mt-4">
-                                                                <Button variant="ghost" size="sm" className="w-full text-xs font-black uppercase tracking-widest text-primary gap-1 p-0 justify-start hover:bg-transparent">
-                                                                    {item.label} <ChevronRight className="w-3 h-3" />
-                                                                </Button>
-                                                            </Link>
-                                                        ) : (
-                                                            <Button
-                                                                variant="ghost"
-                                                                size="sm"
-                                                                className="mt-4 w-full text-xs font-black uppercase tracking-widest text-primary gap-1 p-0 justify-start hover:bg-transparent"
-                                                                onClick={item.action}
-                                                            >
-                                                                {item.label} <ChevronRight className="w-3 h-3" />
-                                                            </Button>
-                                                        )}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </section>
-                                </CardContent>
-
-                                <CardFooter className="p-8 border-t bg-slate-50 flex flex-col sm:flex-row gap-4 justify-between">
-                                    <Button variant="ghost" onClick={resetQuiz} className="uppercase font-black tracking-widest gap-2">
-                                        <RotateCcw className="w-4 h-4" /> {t('quiz.results.restart')}
-                                    </Button>
-                                    <Link href="/timeline">
-                                        <Button className="rounded-full px-10 py-6 uppercase font-black tracking-widest shadow-xl shadow-primary/30">
-                                            {t('quiz.results.log_action')} <ArrowRight className="w-4 h-4 ml-2" />
-                                        </Button>
-                                    </Link>
-                                </CardFooter>
-                            </Card>
+                        <div className="max-w-3xl mx-auto py-12 text-center space-y-6">
+                            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary animate-bounce">
+                                <ShieldCheck className="w-10 h-10" />
+                            </div>
+                            <h2 className="text-3xl font-black uppercase tracking-tighter">Analyysi valmistui</h2>
+                            <p className="text-slate-500">Lopputulos on valmis tarkasteltavaksi.</p>
+                            <Button size="lg" onClick={() => { setHasStarted(true); window.scrollTo(0, 0); }} className="rounded-full px-12 py-6 uppercase font-black tracking-widest shadow-xl shadow-primary/30">
+                                Katso tulokset <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
                         </div>
                     ) : (
                         <div className="max-w-3xl mx-auto space-y-12 pb-32">

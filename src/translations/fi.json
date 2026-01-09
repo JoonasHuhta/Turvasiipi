@@ -798,6 +798,92 @@
                 "text": "Tutustu gaslightingiin ja muihin manipulaatiokeinoihin.",
                 "action": "Lue lisää"
             }
+        },
+        "tiered_recommendations": {
+            "stable": [
+                {
+                    "title": "Tutki mielenkiinnosta",
+                    "text": "Hienoa, että tilanteesi on vakaa! Voit tutustua Tietopankkiin lisätäksesi ymmärrystäsi työkulttuurista yleisellä tasolla.",
+                    "link": "/valmennus",
+                    "label": "Tutki tietopankkia"
+                },
+                {
+                    "title": "Bystander-rooli",
+                    "text": "Vakaassa tilanteessa oleva voi olla suuri tuki muille. Opi miten toimia, jos huomaat muiden kohteleman epäasiallisesti.",
+                    "link": "/valmennus",
+                    "label": "Lue auttamisesta"
+                }
+            ],
+            "mild": [
+                {
+                    "title": "Mielenrauha",
+                    "text": "Tilanteesi on hyvä, mutta vaisto saattaa herätä aikaisin. Tutustu 'Kiusaaminen vs Kritiikki' -osioon rauhan saamiseksi.",
+                    "action": "compare",
+                    "label": "Vertaile merkkejä"
+                },
+                {
+                    "title": "Valmistaudu",
+                    "text": "Tiedon kerääminen ennaltaehkäisevästi on aina viisasta. Katso vinkit hyvän kulttuurin ylläpitoon.",
+                    "link": "/valmennus",
+                    "label": "Lue lisää"
+                }
+            ],
+            "warning": [
+                {
+                    "title": "Nimeä ilmiöt",
+                    "text": "Hälytysmerkkien tunnistaminen on ensimmäinen askel. Tutustu Taktiikkapankkiin nähdäksesi, onko kyseessä tuttu kuvio.",
+                    "action": "tactics",
+                    "label": "Avaa taktiikat"
+                },
+                {
+                    "title": "Bystander-koe",
+                    "text": "Harjoitellaan rajanvetoa. Kokeile simulaatiota, jossa harjoitellaan epäasialliseen puheeseen puuttumista turvallisesti.",
+                    "link": "/valmennus",
+                    "label": "Aloita simulaatio"
+                }
+            ],
+            "moderate": [
+                {
+                    "title": "Validoi kokemuksesi",
+                    "text": "Älä jää pohtimaan yksin. Keskustelu ulkopuolisen tai luotettavan tahon kanssa auttaa hahmottamaan tilannetta.",
+                    "link": "/tuki",
+                    "label": "Etsi tukitaho"
+                },
+                {
+                    "title": "Aloita kirjaaminen",
+                    "text": "Dokumentointi kannattaa aloittaa matalalla kynnyksellä. Pienetkin huomiot auttavat myöhemmin muodostamaan kokonaiskuvan.",
+                    "link": "/timeline",
+                    "label": "Avaa aikajana"
+                }
+            ],
+            "severe": [
+                {
+                    "title": "Suojaa itsesi",
+                    "text": "Dokumentointi on nyt kriittistä. Käytä aikajanaa säännöllisesti ja luo raportti tapahtumista.",
+                    "link": "/timeline",
+                    "label": "Kirjaa tapahtuma"
+                },
+                {
+                    "title": "Ota yhteys liittoon",
+                    "text": "Suosittelemme keskustelua ammattiliiton juristin tai asiantuntijan kanssa oikeusturvasi varmistamiseksi.",
+                    "link": "/tuki",
+                    "label": "Liiton yhteystiedot"
+                }
+            ],
+            "critical": [
+                {
+                    "title": "Hae ammattiapua",
+                    "text": "Terveytesi on ensisijaista. Ota välittömästi yhteys työterveyteen tai kriisipuhelimeen kuormituksen purkamiseksi.",
+                    "link": "/tuki",
+                    "label": "Hae apua heti"
+                },
+                {
+                    "title": "Luo faktaraportti",
+                    "text": "Tietosi on tallennettu laitteellesi. Käytä AI-analyysiä jäsennelläksesi tapahtumat viralliseksi raportiksi.",
+                    "link": "/raportti",
+                    "label": "Luo raportti"
+                }
+            ]
         }
     },
     "support": {
