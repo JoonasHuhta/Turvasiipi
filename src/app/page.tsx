@@ -332,7 +332,7 @@ export default function Home() {
                 <p className="text-slate-600 leading-relaxed text-lg">
                   {t('how_it_works.step4_desc')}
                 </p>
-                <Link href="/yhteiso">
+                <Link href="/valmennus">
                   <span className="inline-flex items-center font-semibold text-emerald-600 hover:text-emerald-700 mt-2">
                     {t('how_it_works.step4_cta')} <ArrowRight className="w-4 h-4 ml-1" />
                   </span>
