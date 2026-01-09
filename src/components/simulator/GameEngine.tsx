@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Phase, GameState, INITIAL_STATS, Choice } from "@/lib/simulator/types";
+import { useProgress } from "@/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress"; // Assuming shadcn progress exists, or I'll use standard
 import { Card } from "@/components/ui/card";
@@ -27,6 +28,7 @@ export interface StatConfigItem {
 }
 
 export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statConfig }: GameEngineProps) {
+    const { completeModule } = useProgress();
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
         profession: profession,
@@ -36,6 +38,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         history: [],
         isGameOver: false
     });
+
+    useEffect(() => {
+        if (state.currentPhaseId.startsWith('END_')) {
+            const moduleId = `sim_${state.profession}`;
+            completeModule(moduleId);
+        }
+    }, [state.currentPhaseId, state.profession, completeModule]);
 
     const [notification, setNotification] = useState<string | null>(null);
 

@@ -11,7 +11,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, LucideIcon } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, Trophy, LucideIcon } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { Globe } from "lucide-react";
@@ -24,6 +24,7 @@ interface NavItem {
 }
 
 const getNavItems = (): NavItem[] => [
+    { href: "/dashboard", labelKey: "nav.dashboard", icon: Trophy },
     { href: "/simulaatio", labelKey: "nav.simulation", icon: Gamepad2 },
 
     {

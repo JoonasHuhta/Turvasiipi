@@ -6,9 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/context/LanguageContext";
+import { useEffect } from "react";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function Home() {
   const { t } = useLanguage();
+  const { completeModule } = useProgress();
+
+  useEffect(() => {
+    completeModule('landing');
+  }, [completeModule]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white">

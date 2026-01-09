@@ -27,8 +27,10 @@ import {
     Info
 } from "lucide-react";
 import Link from "next/link";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function FeelingQuizPage() {
+    const { completeModule } = useProgress();
     const [hasStarted, setHasStarted] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -50,6 +52,7 @@ export default function FeelingQuizPage() {
         } else {
             setIsFinished(true);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            completeModule('feeling_quiz');
         }
     };
 

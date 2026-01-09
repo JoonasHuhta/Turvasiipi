@@ -1,6 +1,7 @@
 {
     "nav": {
         "simulation": "Simulaatio",
+        "dashboard": "Oma Polku",
         "explore": "Tutki",
         "tools": "Välineet",
         "help": "Apua",

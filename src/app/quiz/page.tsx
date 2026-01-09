@@ -33,9 +33,11 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function QuizPage() {
     const { t } = useLanguage();
+    const { completeModule } = useProgress();
     const [activeTab, setActiveTab] = useState("quiz");
     const [hasStarted, setHasStarted] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,6 +54,7 @@ export default function QuizPage() {
         } else {
             setIsFinished(true);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            completeModule('quiz_risks');
         }
     };
 

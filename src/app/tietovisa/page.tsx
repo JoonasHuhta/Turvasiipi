@@ -8,8 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ArrowRight, CheckCircle2, XCircle, RotateCcw, Brain, BookOpen, Trophy, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function TietovisaPage() {
+    const { completeModule, awardBadge } = useProgress();
     const [selectedPart, setSelectedPart] = useState<QuizPart | 'ALL' | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -47,6 +49,10 @@ export default function TietovisaPage() {
             setShowExplanation(false);
         } else {
             setGameEnded(true);
+            completeModule('tietovisa');
+            if (score / activeQuestions.length >= 0.8) {
+                awardBadge('legal_expert');
+            }
         }
     };
 

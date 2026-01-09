@@ -11,9 +11,11 @@ import { FileText, Shield } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function TimelinePage() {
     const { t } = useLanguage();
+    const { completeModule, awardBadge } = useProgress();
     const { data: events, setData: setEvents, isLocked, hasData, unlock } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
     const [mounted, setMounted] = useState(false);
 
@@ -24,6 +26,8 @@ export default function TimelinePage() {
     const handleAddEvent = (newEvent: Omit<TimelineEvent, "id">) => {
         const eventWithId = { ...newEvent, id: crypto.randomUUID() };
         setEvents([eventWithId, ...events]);
+        completeModule('timeline');
+        awardBadge('doc_start');
     };
 
     const handleDeleteEvent = (id: string) => {

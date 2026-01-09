@@ -24,10 +24,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
+    const { completeModule, awardBadge } = useProgress();
     const [gameState, setGameState] = useState<'intro' | 'playing' | 'feedback' | 'finished'>('intro');
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,6 +69,10 @@ export default function TrainingPage() {
             setGameState('playing');
         } else {
             setGameState('finished');
+            if (currentLevel) {
+                completeModule(`valmennus_${currentLevel}`);
+                awardBadge(`training_${currentLevel}`);
+            }
         }
     };
 

@@ -1,6 +1,7 @@
 {
     "nav": {
         "simulation": "Simulation",
+        "dashboard": "My Journey",
         "explore": "Explore",
         "tools": "Tools",
         "help": "Help",
