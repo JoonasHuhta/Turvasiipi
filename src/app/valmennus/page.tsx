@@ -526,6 +526,66 @@ export default function TrainingPage() {
                         </motion.div>
                     )}
 
+                    {/* CONCEPT VIEW */}
+                    {view === 'concept-view' && (
+                        <motion.div
+                            key="concept-view"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="min-h-full p-6 md:p-12 max-w-3xl mx-auto flex flex-col justify-center gap-8"
+                        >
+                            <Card className="bg-slate-900 border-indigo-500/30 p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full pointer-events-none" />
+                                <div className="space-y-8">
+                                    <div className="flex items-center gap-3">
+                                        <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">Tutkimus & Käsitteet</Badge>
+                                    </div>
+                                    <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">
+                                        {currentModuleId === 'pluralistic_ignorance' ? 'Pluralistinen Ignoranssi' :
+                                            currentModuleId === 'bystander_effect' ? 'Bystander-efekti Syväluotaus' : 'Tutkimustieto'}
+                                    </h2>
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h4 className="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-2">Määritelmä</h4>
+                                            <p className="text-lg text-slate-300 leading-relaxed font-light italic">
+                                                {currentModuleId === 'pluralistic_ignorance'
+                                                    ? 'Ryhmän jäsenet hylkäävät normin yksityisesti mutta tukevat sitä julkisesti, koska luulevat muiden hyväksyvän sen.'
+                                                    : 'Ilmiö, jossa todistajat eivät auta uhria, jos paikalla on muita ihmisiä.'}
+                                            </p>
+                                        </div>
+                                        <div className="grid md:grid-cols-2 gap-6 pt-4">
+                                            <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                                                <h4 className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-2">Mekanismi</h4>
+                                                <p className="text-sm text-slate-400 leading-relaxed">
+                                                    {currentModuleId === 'pluralistic_ignorance'
+                                                        ? 'Vaikeneminen tulkitaan signaliksi hyväksynnästä. 70–80% todistajista paheksuu tilannetta mutta pelkää olevansa ainoa.'
+                                                        : 'Vastuun hajautuminen: mitä enemmän ihmisiä, sitä vähemmän koetaan henkilökohtaista vastuuta puuttua.'}
+                                                </p>
+                                            </div>
+                                            <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                                                <h4 className="text-[10px] font-black uppercase tracking-widest text-cyan-400 mb-2">Miten murtaa?</h4>
+                                                <p className="text-sm text-slate-400 leading-relaxed">
+                                                    {currentModuleId === 'pluralistic_ignorance'
+                                                        ? 'Ole ensimmäinen joka sanoo: "Hei, tuo ei ole ok – oletteko muuallakin samaa mieltä?". Tämä murtaa harhan välittömästi.'
+                                                        : 'Luo henkilökohtainen yhteys: nimeä joku apuun tai tue uhria suoraan fyysisellä läsnäololla.'}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="pt-8 flex flex-col sm:flex-row gap-4">
+                                        <Button onClick={() => setView('category')} className="rounded-full h-12 px-8 uppercase font-black tracking-widest text-[10px] bg-white text-slate-900 hover:bg-white/90 transition-all">
+                                            Takaisin listaan
+                                        </Button>
+                                        <Button onClick={() => setView('hub')} variant="ghost" className="rounded-full h-12 px-8 uppercase font-black tracking-widest text-[10px] text-slate-400 hover:text-white">
+                                            Sulje
+                                        </Button>
+                                    </div>
+                                </div>
+                            </Card>
+                        </motion.div>
+                    )}
+
                     {/* FINISHED */}
                     {view === 'finished' && (
                         <motion.div
