@@ -12,6 +12,12 @@ import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+const CATEGORY_LABELS: Record<string, string> = {
+    cognitive: 'Kognitiivinen',
+    affective: 'Affektiivinen',
+    moral: 'Moraalinen'
+};
+
 export default function EmpathyTestPage() {
     const { completeModule } = useProgress();
     const [gameState, setGameState] = useState<'intro' | 'playing' | 'results'>('intro');
@@ -124,7 +130,7 @@ export default function EmpathyTestPage() {
                                             empathyQuestions[currentIndex].category === 'affective' ? "bg-red-100 text-red-700" :
                                                 "bg-emerald-100 text-emerald-700"
                                     )}>
-                                        {empathyQuestions[currentIndex].category}
+                                        {CATEGORY_LABELS[empathyQuestions[currentIndex].category]}
                                     </Badge>
                                     <h3 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
                                         {empathyQuestions[currentIndex].text}

@@ -17,6 +17,39 @@
         "stories": "Stories",
         "training": "Tactical Training"
     },
+    "dashboard": {
+        "title": "My Journey",
+        "subtitle": "Welcome back! Here is your progress in Turvasiipi training.",
+        "level": "Level",
+        "points": "Points",
+        "streak": "Streak",
+        "overall_progress": "Progress",
+        "completed": "completed",
+        "locked": "Locked",
+        "next_step": "Suggested Next Step",
+        "next_step_action": "Complete the quiz and earn the \"Legal Expert\" badge",
+        "badges_earned": "earned",
+        "badges_title": "Badges",
+        "tabs": {
+            "modules": "Modules",
+            "badges": "Hall of Fame",
+            "stats": "Statistics"
+        },
+        "categories": {
+            "CORE": "Basics",
+            "AWARENESS": "Awareness",
+            "TOOLS": "Tools",
+            "SUPPORT": "Support",
+            "INTERACTIVE": "Interaction",
+            "ORGANIZATION": "Workplace",
+            "LEARNING": "Learning",
+            "SPECIAL": "Special"
+        },
+        "stats_title": "Your Statistics",
+        "days_streak": "Days Streak",
+        "streak_desc": "Keep practicing daily to maintain your streak!",
+        "points_label": "Points"
+    },
     "hero": {
         "title": "Bullying isn't because of you.",
         "subtitle": "Turvasiipi is your personal partner in identifying and documenting workplace bullying. Take the first step towards a fairer work life.",

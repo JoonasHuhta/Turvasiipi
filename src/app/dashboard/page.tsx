@@ -15,6 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const CATEGORY_ICONS: Record<CategoryId, any> = {
     CORE: Home,
@@ -28,6 +29,7 @@ const CATEGORY_ICONS: Record<CategoryId, any> = {
 };
 
 export default function DashboardPage() {
+    const { t } = useLanguage();
     const { progress, getLevel, getProgressPercentage, isModuleCompleted } = useProgress();
     const [expandedCategory, setExpandedCategory] = useState<CategoryId | null>('CORE');
 
@@ -50,21 +52,21 @@ export default function DashboardPage() {
 
                         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
                             <div className="space-y-2">
-                                <h1 className="text-3xl md:text-4xl font-black tracking-tight">Oma Polku</h1>
-                                <p className="text-slate-400 font-medium">Tervetuloa takaisin! Tässä on edistymisesi Turvasiipi-valmennuksessa.</p>
+                                <h1 className="text-3xl md:text-4xl font-black tracking-tight">{t('dashboard.title')}</h1>
+                                <p className="text-slate-400 font-medium">{t('dashboard.subtitle')}</p>
                             </div>
 
                             <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full md:w-auto">
                                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
-                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Level</div>
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">{t('dashboard.level')}</div>
                                     <div className="text-2xl sm:text-3xl font-black text-indigo-400">{level}</div>
                                 </div>
                                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
-                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Pisteet</div>
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">{t('dashboard.points')}</div>
                                     <div className="text-2xl sm:text-3xl font-black text-emerald-400">{progress.points}</div>
                                 </div>
                                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 border border-white/10 text-center">
-                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Streak</div>
+                                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">{t('dashboard.streak')}</div>
                                     <div className="text-2xl sm:text-3xl font-black text-orange-400 flex items-center justify-center gap-1">
                                         {progress.streak} <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </div>
@@ -74,8 +76,8 @@ export default function DashboardPage() {
 
                         <div className="mt-8 md:mt-12 space-y-4">
                             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 mb-2">
-                                <span className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-slate-400">Edistyminen: {progressPerc}%</span>
-                                <span className="text-xs sm:text-sm font-bold text-white leading-none">{progress.completedModuleIds.length} / {MODULE_COUNT} suoritettu</span>
+                                <span className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-slate-400">{t('dashboard.overall_progress')}: {progressPerc}%</span>
+                                <span className="text-xs sm:text-sm font-bold text-white leading-none">{progress.completedModuleIds.length} / {MODULE_COUNT} {t('dashboard.completed')}</span>
                             </div>
                             <div className="h-4 bg-white/5 rounded-full overflow-hidden border border-white/5">
                                 <motion.div
@@ -94,8 +96,8 @@ export default function DashboardPage() {
                                     <Trophy className="w-6 h-6" />
                                 </div>
                                 <div className="min-w-0">
-                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Badget</div>
-                                    <div className="text-sm sm:text-lg font-bold text-slate-900 truncate">{earnedBadgesCount} / {totalBadges} ansaittu</div>
+                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">{t('dashboard.badges_title')}</div>
+                                    <div className="text-sm sm:text-lg font-bold text-slate-900 truncate">{earnedBadgesCount} / {totalBadges} {t('dashboard.badges_earned')}</div>
                                 </div>
                             </div>
                             <div className="md:col-span-2 flex items-center gap-4">
@@ -103,9 +105,9 @@ export default function DashboardPage() {
                                     <Target className="w-6 h-6" />
                                 </div>
                                 <div className="min-w-0 flex-1">
-                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Seuraava suositeltu askel</div>
+                                    <div className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">{t('dashboard.next_step')}</div>
                                     <Link href="/tietovisa" className="text-sm sm:text-base font-bold text-slate-700 hover:text-indigo-600 transition-colors flex items-center gap-2 group">
-                                        <span className="truncate">Suorita tietovisa ja ansaitse badge</span> <ChevronRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
+                                        <span className="truncate">{t('dashboard.next_step_action')}</span> <ChevronRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
                             </div>
@@ -115,9 +117,9 @@ export default function DashboardPage() {
 
                 <Tabs defaultValue="modules" className="w-full">
                     <TabsList className="bg-white border p-1 rounded-2xl mb-8 w-full sm:w-auto h-auto flex flex-wrap gap-1">
-                        <TabsTrigger value="modules" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Osiot</TabsTrigger>
-                        <TabsTrigger value="badges" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Kunniataulu</TabsTrigger>
-                        <TabsTrigger value="stats" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">Tilastot</TabsTrigger>
+                        <TabsTrigger value="modules" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">{t('dashboard.tabs.modules')}</TabsTrigger>
+                        <TabsTrigger value="badges" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">{t('dashboard.tabs.badges')}</TabsTrigger>
+                        <TabsTrigger value="stats" className="flex-1 sm:flex-none rounded-xl px-4 md:px-8 py-3 font-bold">{t('dashboard.tabs.stats')}</TabsTrigger>
                     </TabsList>
 
                     {/* --- MODULES TAB --- */}
@@ -145,15 +147,15 @@ export default function DashboardPage() {
                                                 <Icon className="w-6 h-6" />
                                             </div>
                                             <div className="text-left">
-                                                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">{cat}</h3>
+                                                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">{t(`dashboard.categories.${cat}`)}</h3>
                                                 <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                                                    {completedCount} / {catModules.length} suoritettu
+                                                    {completedCount} / {catModules.length} {t('dashboard.completed')}
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             {completedCount === catModules.length && (
-                                                <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 uppercase font-black text-[10px]">Valmis</Badge>
+                                                <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 uppercase font-black text-[10px]">{t('dashboard.completed')}</Badge>
                                             )}
                                             <ChevronRight className={cn("w-5 h-5 text-slate-400 transition-transform", isExpanded && "rotate-90")} />
                                         </div>
@@ -226,12 +228,12 @@ export default function DashboardPage() {
                                                 {badge.title}
                                             </h4>
                                             <p className="text-[10px] text-slate-500 leading-tight mt-1">
-                                                {isEarned ? badge.description : "Lukittu"}
+                                                {isEarned ? badge.description : t('dashboard.locked')}
                                             </p>
                                         </div>
                                         {!isEarned && (
                                             <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
-                                                <Badge variant="secondary" className="bg-slate-900 text-white font-bold text-[9px] uppercase tracking-widest">Lukittu</Badge>
+                                                <Badge variant="secondary" className="bg-slate-900 text-white font-bold text-[9px] uppercase tracking-widest">{t('dashboard.locked')}</Badge>
                                             </div>
                                         )}
                                     </Card>
@@ -242,21 +244,21 @@ export default function DashboardPage() {
 
                     <TabsContent value="stats">
                         <Card className="rounded-3xl border-slate-200 p-8">
-                            <h3 className="text-xl font-bold mb-6">Tilastojasi turvamatkalta</h3>
+                            <h3 className="text-xl font-bold mb-6">{t('dashboard.stats_title')}</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="space-y-6">
-                                    <StatItem label="Suoritetut osiot" value={progress.completedModuleIds.length} total={MODULE_COUNT} color="text-indigo-600" />
-                                    <StatItem label="Ansatut badget" value={progress.earnedBadgeIds.length} total={totalBadges} color="text-emerald-600" />
-                                    <StatItem label="Pisteet" value={progress.points} color="text-blue-600" />
+                                    <StatItem label={t('dashboard.tabs.modules')} value={progress.completedModuleIds.length} total={MODULE_COUNT} color="text-indigo-600" />
+                                    <StatItem label={t('dashboard.tabs.badges')} value={progress.earnedBadgeIds.length} total={totalBadges} color="text-emerald-600" />
+                                    <StatItem label={t('dashboard.points_label')} value={progress.points} color="text-blue-600" />
                                 </div>
                                 <div className="space-y-6">
                                     <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
-                                        <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-widest text-xs">Päivittäinen putki (Streak)</h4>
+                                        <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-widest text-xs">{t('dashboard.streak')}</h4>
                                         <div className="flex items-center gap-4">
                                             <div className="text-5xl font-black text-orange-500">{progress.streak}</div>
                                             <div className="space-y-1">
-                                                <div className="text-sm font-bold text-slate-700">Päivää putkeen</div>
-                                                <p className="text-xs text-slate-500">Jatka päivittäistä harjoittelua pitääksesi liekin yllä!</p>
+                                                <div className="text-sm font-bold text-slate-700">{t('dashboard.days_streak')}</div>
+                                                <p className="text-xs text-slate-500">{t('dashboard.streak_desc')}</p>
                                             </div>
                                         </div>
                                     </div>

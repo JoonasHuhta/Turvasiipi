@@ -17,6 +17,39 @@
         "stories": "Tarinat",
         "training": "Valmennus"
     },
+    "dashboard": {
+        "title": "Oma Polku",
+        "subtitle": "Tervetuloa takaisin! Tässä on edistymisesi Turvasiipi-valmennuksessa.",
+        "level": "Taso",
+        "points": "Pisteet",
+        "streak": "Putki",
+        "overall_progress": "Edistyminen",
+        "completed": "suoritettu",
+        "locked": "Lukittu",
+        "next_step": "Seuraava suositeltu askel",
+        "next_step_action": "Suorita tietovisa ja ansaitse \"Lakitiedon Tuntija\"",
+        "badges_earned": "ansaittu",
+        "badges_title": "Badget",
+        "tabs": {
+            "modules": "Osiot",
+            "badges": "Kunniataulu",
+            "stats": "Tilastot"
+        },
+        "categories": {
+            "CORE": "Perusteet",
+            "AWARENESS": "Tietoisuus",
+            "TOOLS": "Välineet",
+            "SUPPORT": "Tuki",
+            "INTERACTIVE": "Vuorovaikutus",
+            "ORGANIZATION": "Työyhteisö",
+            "LEARNING": "Oppiminen",
+            "SPECIAL": "Erityiset"
+        },
+        "stats_title": "Tilastojasi turvamatkalta",
+        "days_streak": "Päivää putkeen",
+        "streak_desc": "Jatka päivittäistä harjoittelua pitääksesi liekin yllä!",
+        "points_label": "Pisteet"
+    },
     "hero": {
         "title": "Kiusaaminen ei johdu sinusta.",
         "subtitle": "Turvasiipi on henkilökohtainen kumppanisi työpaikkakiusaamisen tunnistamisessa ja dokumentoinnissa. Ota ensimmäinen askel kohti oikeudenmukaisempaa työelämää.",
