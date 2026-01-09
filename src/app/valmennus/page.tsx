@@ -466,7 +466,7 @@ export default function TrainingPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="min-h-full flex flex-col justify-center p-6 md:p-12 max-w-2xl mx-auto"
+                            className="min-h-full flex flex-col justify-center p-6 md:p-12 max-w-2xl mx-auto pt-40 md:pt-12"
                         >
                             <AnimatePresence>
                                 {showHint && (
@@ -474,7 +474,7 @@ export default function TrainingPage() {
                                         initial={{ opacity: 0, y: -20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -20 }}
-                                        className="absolute top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
+                                        className="absolute top-24 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
                                     >
                                         <div className="bg-indigo-600/95 backdrop-blur text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-bold border border-indigo-500/30">
                                             <Lightbulb className="w-5 h-5 text-yellow-300 shrink-0" />
@@ -484,9 +484,9 @@ export default function TrainingPage() {
                                 )}
                             </AnimatePresence>
 
-                            <div className="space-y-6 py-10 pb-32">
+                            <div className="space-y-6 pb-32">
                                 <div className="space-y-4">
-                                    <p className="text-2xl md:text-3xl text-slate-100 leading-tight font-black uppercase tracking-tighter">
+                                    <p className="text-xl md:text-3xl text-slate-100 leading-tight font-black uppercase tracking-tighter break-words">
                                         {currentScenario.scenario}
                                     </p>
                                     <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-widest opacity-80">
