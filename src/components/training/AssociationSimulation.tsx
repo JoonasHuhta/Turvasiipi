@@ -346,7 +346,7 @@ export default function AssociationSimulation({
     };
 
     return (
-        <div className="relative min-h-[600px] w-full bg-slate-50/50 rounded-[3rem] p-6 lg:p-10 flex flex-col gap-8 border border-slate-200">
+        <div className="relative min-h-[500px] md:min-h-[600px] w-full bg-slate-50/50 rounded-[2rem] md:rounded-[3rem] p-4 md:p-10 flex flex-col gap-6 md:gap-8 border border-slate-200">
             {/* HEADER */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="flex items-center gap-4">
@@ -358,22 +358,24 @@ export default function AssociationSimulation({
                         <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-1">Interaktiivinen simulaattori</p>
                     </div>
                 </div>
-                <div className="flex items-center gap-6 bg-white p-3 px-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div className="flex flex-col gap-1 w-24">
-                        <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                            <span>Hyvinvointi</span>
-                            <span className={wellbeing < 30 ? "text-rose-500" : ""}>{wellbeing}%</span>
+                <div className="flex items-center gap-4 w-full sm:w-auto bg-white p-3 md:p-4 px-4 md:px-6 rounded-2xl shadow-sm border border-slate-100 justify-between">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="flex flex-col gap-1 w-24">
+                            <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
+                                <span>Hyvinvointi</span>
+                                <span className={wellbeing < 30 ? "text-rose-500" : ""}>{wellbeing}%</span>
+                            </div>
+                            <Progress value={wellbeing} className="h-1" indicatorClassName={getWellbeingColor()} />
                         </div>
-                        <Progress value={wellbeing} className="h-1" indicatorClassName={getWellbeingColor()} />
-                    </div>
-                    <div className="flex flex-col gap-1 w-24">
-                        <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                            <span>Turvallisuus</span>
-                            <span>{safety}%</span>
+                        <div className="flex flex-col gap-1 w-24">
+                            <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
+                                <span>Turvallisuus</span>
+                                <span>{safety}%</span>
+                            </div>
+                            <Progress value={safety} className="h-1" indicatorClassName="bg-indigo-500" />
                         </div>
-                        <Progress value={safety} className="h-1" indicatorClassName="bg-indigo-500" />
                     </div>
-                    <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-slate-100 rounded-full">
+                    <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-slate-100 rounded-full shrink-0">
                         <X className="w-4 h-4" />
                     </Button>
                 </div>
@@ -382,7 +384,7 @@ export default function AssociationSimulation({
             <div className="grid lg:grid-cols-12 gap-8 flex-1">
                 {/* GAME AREA */}
                 <div className="lg:col-span-8 flex flex-col gap-6">
-                    <Card className="bg-white border-slate-200 p-8 rounded-[2.5rem] shadow-sm flex-1 flex flex-col justify-center relative overflow-hidden">
+                    <Card className="bg-white border-slate-200 p-5 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm flex-1 flex flex-col justify-center relative overflow-hidden">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStepId}
@@ -397,7 +399,7 @@ export default function AssociationSimulation({
                                     </Badge>
                                 </div>
                                 <h3 className={cn(
-                                    "text-xl md:text-2xl font-black leading-tight text-slate-900 tracking-tight",
+                                    "text-lg md:text-2xl font-black leading-tight text-slate-900 tracking-tight",
                                     currentStep.type === 'dialogue' ? "italic font-serif" : ""
                                 )}>
                                     {currentStep.type === 'dialogue' && '"'}
@@ -410,10 +412,10 @@ export default function AssociationSimulation({
                                         <Button
                                             key={i}
                                             onClick={() => handleChoice(choice)}
-                                            className="h-auto py-4 px-6 justify-between text-left bg-slate-900 hover:bg-indigo-600 text-white rounded-2xl flex items-center group transition-all"
+                                            className="h-auto py-3 md:py-4 px-4 md:px-6 justify-between text-left bg-slate-900 hover:bg-indigo-600 text-white rounded-2xl flex items-center group transition-all"
                                         >
-                                            <span className="font-bold text-sm tracking-tight">{choice.text}</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1">{choice.text}</span>
+                                            <ArrowRight className="w-4 h-4 shrink-0 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                                         </Button>
                                     ))}
                                 </div>

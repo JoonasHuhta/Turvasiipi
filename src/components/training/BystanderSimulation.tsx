@@ -308,7 +308,7 @@ export default function BystanderSimulation({
     };
 
     return (
-        <div className="relative min-h-[600px] w-full bg-slate-950 rounded-[3rem] p-6 lg:p-10 flex flex-col gap-8 border border-white/10 shadow-2xl">
+        <div className="relative min-h-[500px] md:min-h-[600px] w-full bg-slate-950 rounded-[2rem] md:rounded-[3rem] p-4 md:p-10 flex flex-col gap-6 md:gap-8 border border-white/10 shadow-2xl">
             {/* HEADER */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/5 pb-6">
                 <div className="flex items-center gap-4">
@@ -320,22 +320,24 @@ export default function BystanderSimulation({
                         <p className="text-cyan-500/60 text-[10px] font-black uppercase tracking-widest mt-1">Interaktiivinen simulaattori</p>
                     </div>
                 </div>
-                <div className="flex items-center gap-6 bg-white/5 p-4 px-6 rounded-2xl border border-white/5 backdrop-blur-md">
-                    <div className="flex flex-col gap-1 w-24">
-                        <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                            <span>Solidaarisuus</span>
-                            <span className="text-cyan-400">{solidarity}%</span>
+                <div className="flex items-center gap-4 w-full sm:w-auto bg-white/5 p-3 md:p-4 px-4 md:px-6 rounded-2xl border border-white/5 backdrop-blur-md justify-between">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="flex flex-col gap-1 w-24">
+                            <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
+                                <span>Solidaarisuus</span>
+                                <span className="text-cyan-400">{solidarity}%</span>
+                            </div>
+                            <Progress value={solidarity} className="h-1 bg-white/10" indicatorClassName="bg-cyan-500" />
                         </div>
-                        <Progress value={solidarity} className="h-1 bg-white/10" indicatorClassName="bg-cyan-500" />
-                    </div>
-                    <div className="flex flex-col gap-1 w-24">
-                        <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                            <span>Turvallisuus</span>
-                            <span className="text-emerald-400">{safety}%</span>
+                        <div className="flex flex-col gap-1 w-24">
+                            <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
+                                <span>Turvallisuus</span>
+                                <span className="text-emerald-400">{safety}%</span>
+                            </div>
+                            <Progress value={safety} className="h-1 bg-white/10" indicatorClassName="bg-emerald-500" />
                         </div>
-                        <Progress value={safety} className="h-1 bg-white/10" indicatorClassName="bg-emerald-500" />
                     </div>
-                    <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-white/10 text-white/40 hover:text-white transition-colors">
+                    <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-white/10 text-white/40 hover:text-white transition-colors shrink-0">
                         <X className="w-4 h-4" />
                     </Button>
                 </div>
@@ -344,7 +346,7 @@ export default function BystanderSimulation({
             <div className="grid lg:grid-cols-12 gap-8 flex-1">
                 {/* GAME AREA */}
                 <div className="lg:col-span-8 flex flex-col gap-6">
-                    <Card className="bg-white/5 border-white/10 p-10 rounded-[2.5rem] flex-1 flex flex-col justify-center relative overflow-hidden backdrop-blur-sm shadow-xl">
+                    <Card className="bg-white/5 border-white/10 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] flex-1 flex flex-col justify-center relative overflow-hidden backdrop-blur-sm shadow-xl">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentStepId}
@@ -359,7 +361,7 @@ export default function BystanderSimulation({
                                     </Badge>
                                 </div>
                                 <h3 className={cn(
-                                    "text-2xl md:text-3xl font-black leading-tight text-white tracking-tight",
+                                    "text-xl md:text-3xl font-black leading-tight text-white tracking-tight",
                                     currentStep.type === 'dialogue' ? "italic text-indigo-100" : ""
                                 )}>
                                     {currentStep.type === 'dialogue' && '"'}
@@ -372,10 +374,10 @@ export default function BystanderSimulation({
                                         <Button
                                             key={i}
                                             onClick={() => handleChoice(choice)}
-                                            className="h-auto py-5 px-8 justify-between text-left bg-white text-slate-950 hover:bg-cyan-500 hover:text-white rounded-[1.5rem] flex items-center group transition-all duration-300 shadow-lg"
+                                            className="h-auto py-4 md:py-5 px-5 md:px-8 justify-between text-left bg-white text-slate-950 hover:bg-cyan-500 hover:text-white rounded-[1.2rem] md:rounded-[1.5rem] flex items-center group transition-all duration-300 shadow-lg"
                                         >
-                                            <span className="font-bold text-sm tracking-tight">{choice.text}</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1">{choice.text}</span>
+                                            <ArrowRight className="w-4 h-4 shrink-0 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                                         </Button>
                                     ))}
                                 </div>
