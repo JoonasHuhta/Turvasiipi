@@ -7,6 +7,7 @@ export interface TrainingModule {
     isNew?: boolean;
     isLocked?: boolean;
     points?: number;
+    isCertificationModule?: boolean;
 }
 
 export interface TrainingCategory {
@@ -29,7 +30,7 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'indigo',
         type: 'skill',
         modules: [
-            { id: 'basic', title: 'Peruskurssi (Kaikille)', description: 'Tunnista peruskuviot ja dynamiikka.' },
+            { id: 'basic', title: 'Peruskurssi (Kaikille)', description: 'Tunnista peruskuviot ja dynamiikka.', isCertificationModule: true },
             { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', isLocked: true },
             { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', isLocked: true }
         ]
@@ -71,8 +72,8 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'cyan',
         type: 'skill',
         modules: [
-            { id: 'empathy', title: 'Peilisolu-Pelastus', description: 'Empatia-peli toisen asemaan astumiseen.' },
-            { id: 'bystander', title: 'Bystander-Herättäjä', description: 'Psykologisesti turvallinen puuttuminen.' },
+            { id: 'empathy', title: 'Peilisolu-Pelastus', description: 'Empatia-peli toisen asemaan astumiseen.', isCertificationModule: true },
+            { id: 'bystander', title: 'Bystander-Herättäjä', description: 'Psykologisesti turvallinen puuttuminen.', isCertificationModule: true },
             { id: 'conversations', title: 'Vaikeat Keskustelut', description: 'Harjoittele rajanvetoa keskustelussa.', isNew: true, isLocked: true },
             { id: 'labyrinth', title: 'Moraalinen Labyrintti', description: 'Eettiset valinnat paineen alla.', isLocked: true }
         ]
@@ -129,7 +130,7 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'pink',
         type: 'skill',
         modules: [
-            { id: 'association_basics', title: 'Yhdistystoiminnan Varjopuolet', description: 'Vallankäyttö ja klikit hallitustyöskentelyssä.' },
+            { id: 'association_basics', title: 'Yhdistystoiminnan Varjopuolet', description: 'Vallankäyttö ja klikit hallitustyöskentelyssä.', isCertificationModule: true },
             { id: 'hobby_boundaries', title: 'Harrastuksen Rajat', description: 'Miten pitää hauskaa ja asettaa rajat samaan aikaan.' },
             { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Dokumentointi ja puuttuminen vapaa-ajalla.' }
         ]
@@ -142,8 +143,8 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'indigo',
         type: 'skill',
         modules: [
-            { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.' },
-            { id: 'bystander_effect', title: 'Bystander-efekti Syväluotaus', description: 'Vastuun hajautumisen mekanismit.' },
+            { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.', isCertificationModule: true },
+            { id: 'bystander_effect', title: 'Bystander-efekti Syväluotaus', description: 'Vastuun hajautumisen mekanismit.', isCertificationModule: true },
             { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true }
         ]
     }

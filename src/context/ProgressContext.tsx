@@ -39,6 +39,7 @@ interface ProgressContextType {
     getLevel: () => number;
     getProgressPercentage: () => number;
     isModuleCompleted: (moduleId: string) => boolean;
+    getCertificationProgress: () => { completed: number; total: number; percentage: number };
 }
 
 // --- CONFIGURATION ---
@@ -125,6 +126,7 @@ export const BADGES: Badge[] = [
     { id: 'bystander_hero', title: 'Bystander-Sankari', icon: '🤝', description: 'Olet aktiivinen todistaja ja murtat bystander-efektin.' },
     { id: 'literacy_master', title: 'Lukutaidon Mestari', icon: '📖', description: 'Sait vähintään 85% oikein lukutaito-testissä.' },
     { id: 'empathy_profile_known', title: 'Empatiaprofiili Tunnettu', icon: '🧠', description: 'Suoritit empatia-spektri testin.' },
+    { id: 'bullying_literacy_cert', title: 'Kiusaamisen Lukutaito -Sertifikaatti', icon: '📜', description: 'Suoritit koko organisaatiotason lukutaitokoulutuksen.', isMastery: true },
 ];
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
@@ -212,6 +214,25 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
             if (changed) return { ...prev, earnedBadgeIds: newEarnedBadges };
             return prev;
         });
+
+        // Separate check for certification badge
+        setTimeout(() => {
+            setProgress(prev => {
+                const certModules = [
+                    'valmennus_easy',
+                    'empathy_game',
+                    'valmennus_bystander_sim',
+                    'valmennus_leisure_assoc',
+                    'pluralistic_ignorance',
+                    'bystander_effect'
+                ];
+                const isCertComplete = certModules.every(id => prev.completedModuleIds.includes(id));
+                if (isCertComplete && !prev.earnedBadgeIds.includes('bullying_literacy_cert')) {
+                    return { ...prev, earnedBadgeIds: [...prev.earnedBadgeIds, 'bullying_literacy_cert'] };
+                }
+                return prev;
+            });
+        }, 100);
     };
 
     const getLevel = () => {
@@ -233,8 +254,35 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     const isModuleCompleted = (moduleId: string) => progress.completedModuleIds.includes(moduleId);
 
+    const getCertificationProgress = () => {
+        const certModules = [
+            'valmennus_easy',
+            'empathy_game',
+            'valmennus_bystander_sim',
+            'valmennus_leisure_assoc',
+            'pluralistic_ignorance',
+            'bystander_effect'
+        ];
+        const completedCount = certModules.filter(id => progress.completedModuleIds.includes(id)).length;
+        const total = certModules.length;
+        return {
+            completed: completedCount,
+            total,
+            percentage: Math.round((completedCount / total) * 100)
+        };
+    };
+
     return (
-        <ProgressContext.Provider value={{ progress, completeModule, awardBadge, addPoints, getLevel, getProgressPercentage, isModuleCompleted }}>
+        <ProgressContext.Provider value={{
+            progress,
+            completeModule,
+            awardBadge,
+            addPoints,
+            getLevel,
+            getProgressPercentage,
+            isModuleCompleted,
+            getCertificationProgress
+        }}>
             {children}
         </ProgressContext.Provider>
     );

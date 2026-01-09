@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart, ShieldCheck } from "lucide-react";
+import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart, ShieldCheck, Award } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/context/LanguageContext";
 import { useEffect } from "react";
@@ -30,6 +30,15 @@ export default function Home() {
             <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-100" />
             <img src="/logo.png" alt="Turvasiipi Logo" className="w-28 h-28 md:w-36 md:h-36 object-contain relative z-10 drop-shadow-sm" />
           </div>
+        </div>
+
+        <div className="flex justify-center mb-6">
+          <Link href="/valmennus">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-black uppercase tracking-widest hover:bg-indigo-100 transition-all shadow-sm">
+              <Award className="w-4 h-4" />
+              {t('hero.b2b_badge')}
+            </div>
+          </Link>
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">

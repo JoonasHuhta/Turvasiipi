@@ -21,6 +21,7 @@ import {
     Target,
     Zap,
     History,
+    Award,
     X
 } from "lucide-react";
 import Link from "next/link";
@@ -35,10 +36,10 @@ import BystanderSimulation from "@/components/training/BystanderSimulation";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
-    const { completeModule, awardBadge } = useProgress();
+    const { completeModule, awardBadge, getCertificationProgress } = useProgress();
 
-    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view'>('hub');
+    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,6 +47,7 @@ export default function TrainingPage() {
     const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
     const [showHint, setShowHint] = useState(false);
     const [currentModuleId, setCurrentModuleId] = useState<string | null>(null);
+    const certProgress = getCertificationProgress();
 
     const filteredScenarios = currentLevel
         ? trainingScenarios.filter(s => s.level === currentLevel)
@@ -235,6 +237,67 @@ export default function TrainingPage() {
                                 </p>
                             </div>
 
+                            {/* Certification Progress Card */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="relative overflow-hidden bg-slate-900 rounded-[2.5rem] p-8 border border-white/5 shadow-2xl group"
+                            >
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full -translate-y-32 translate-x-32 blur-3xl group-hover:bg-indigo-500/20 transition-all duration-1000" />
+                                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                                    <div className="shrink-0 w-24 h-24 rounded-full bg-slate-800 border-4 border-indigo-500/30 flex items-center justify-center p-1">
+                                        <div className="w-full h-full rounded-full border-4 border-indigo-500 flex items-center justify-center text-white text-xl font-black">
+                                            {certProgress.percentage}%
+                                        </div>
+                                    </div>
+                                    <div className="flex-1 text-center md:text-left space-y-2">
+                                        <div className="flex items-center justify-center md:justify-start gap-2">
+                                            <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">B2B Sertifikaatti</Badge>
+                                            <span className="text-indigo-400 text-[10px] font-black uppercase tracking-widest">Kiusaamisen lukutaito</span>
+                                        </div>
+                                        <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-none">
+                                            Sertifiointipolun edistyminen
+                                        </h2>
+                                        <p className="text-slate-400 text-sm font-medium">
+                                            Suorita {certProgress.total} vaadittua moduulia saadaksesi virallisen "Kiusaamisen lukutaito" -sertifikaatin.
+                                            ({certProgress.completed}/{certProgress.total} valmiina)
+                                        </p>
+                                        <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-4">
+                                            <motion.div
+                                                className="h-full bg-indigo-500"
+                                                initial={{ width: 0 }}
+                                                animate={{ width: `${certProgress.percentage}%` }}
+                                                transition={{ duration: 1, ease: "easeOut" }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <Button
+                                        className="rounded-full h-12 px-8 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] hover:bg-slate-100 transition-all shadow-xl"
+                                        onClick={() => {
+                                            // Find first non-completed cert module
+                                            const certModules = [
+                                                { id: 'valmennus_easy', cat: 'literacy' },
+                                                { id: 'empathy_game', cat: 'interactive' },
+                                                { id: 'valmennus_bystander_sim', cat: 'interactive' },
+                                                { id: 'valmennus_leisure_assoc', cat: 'leisure' },
+                                                { id: 'pluralistic_ignorance', cat: 'research' },
+                                                { id: 'bystander_effect', cat: 'research' }
+                                            ];
+                                            const next = certModules.find(m => !useProgress().isModuleCompleted(m.id));
+                                            if (next) {
+                                                const cat = trainingHubData.find(c => c.id === next.cat);
+                                                if (cat) {
+                                                    setSelectedCategory(cat);
+                                                    setView('category');
+                                                }
+                                            }
+                                        }}
+                                    >
+                                        Jatka polkua <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Button>
+                                </div>
+                            </motion.div>
+
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {trainingHubData.map((category) => (
                                     <motion.div
@@ -321,6 +384,7 @@ export default function TrainingPage() {
                                                 <div className="flex items-center gap-2">
                                                     <h3 className="text-lg font-black text-slate-900 uppercase tracking-tight">{module.title}</h3>
                                                     {module.isNew && <Badge className="bg-emerald-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest">Uusi</Badge>}
+                                                    {module.isCertificationModule && <Badge className="bg-indigo-500 text-white border-none text-[8px] h-4 uppercase font-black tracking-widest">Sertifikaatti</Badge>}
                                                 </div>
                                                 <p className="text-slate-500 text-sm font-medium">{module.description}</p>
                                             </div>
@@ -585,6 +649,75 @@ export default function TrainingPage() {
                             </Card>
                         </motion.div>
                     )}
+                    {/* CERTIFICATION COMPLETE */}
+                    {view === 'certification-complete' && (
+                        <motion.div
+                            key="certification-complete"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="min-h-full flex flex-col justify-center p-6 py-12 max-w-4xl mx-auto space-y-12"
+                        >
+                            <div className="text-center space-y-4">
+                                <motion.div
+                                    initial={{ rotate: -10, scale: 0 }}
+                                    animate={{ rotate: 0, scale: 1 }}
+                                    transition={{ type: "spring", damping: 10, stiffness: 100 }}
+                                >
+                                    <Award className="w-24 h-24 text-indigo-500 mx-auto" />
+                                </motion.div>
+                                <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none">
+                                    Onnittelut! <br /><span className="text-indigo-400">Olet sertifioitu.</span>
+                                </h1>
+                                <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+                                    Olet suorittanut Suojasiiven "Kiusaamisen lukutaito" -koulutuskokonaisuuden.
+                                </p>
+                            </div>
+
+                            <Card className="bg-white p-12 md:p-20 rounded-none shadow-2xl border-[12px] border-indigo-500/20 relative">
+                                <div className="absolute top-4 left-4 right-4 bottom-4 border-2 border-indigo-500/10 pointer-events-none" />
+                                <div className="text-center space-y-10 relative z-10">
+                                    <div className="flex justify-center mb-4">
+                                        <History className="w-12 h-12 text-slate-900" />
+                                    </div>
+                                    <div className="space-y-4">
+                                        <h2 className="text-slate-900 text-sm font-black uppercase tracking-[0.3em]">Suoritustodistus</h2>
+                                        <h3 className="text-slate-800 text-4xl md:text-5xl font-serif italic">Kiusaamisen lukutaito</h3>
+                                    </div>
+                                    <div className="w-24 h-1 bg-slate-900 mx-auto" />
+                                    <p className="text-slate-600 text-lg max-w-lg mx-auto leading-relaxed">
+                                        Tämä todistus myönnetään tunnustuksena perinpohjaisesta perehtymisestä kiusaamisen dynamiikkaan,
+                                        puuttumisen strategioihin ja työyhteisön psykologiseen turvallisuuteen.
+                                    </p>
+                                    <div className="flex justify-between items-end pt-10">
+                                        <div className="text-left space-y-1">
+                                            <div className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Päivämäärä</div>
+                                            <div className="text-slate-900 font-bold">{new Date().toLocaleDateString('fi-FI')}</div>
+                                        </div>
+                                        <div className="text-right space-y-1">
+                                            <div className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Myöntäjä</div>
+                                            <div className="font-black text-slate-900 italic">Suojasiipi.fi</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Card>
+
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <Button
+                                    onClick={() => window.print()}
+                                    className="rounded-full h-14 px-10 bg-indigo-600 text-white font-black uppercase tracking-widest text-xs hover:bg-indigo-700 shadow-xl"
+                                >
+                                    Lataa / Tulosta todistus
+                                </Button>
+                                <Button
+                                    variant="ghost"
+                                    onClick={reset}
+                                    className="rounded-full h-14 px-10 text-slate-400 hover:text-white font-black uppercase tracking-widest text-xs"
+                                >
+                                    Takaisin hubiin
+                                </Button>
+                            </div>
+                        </motion.div>
+                    )}
 
                     {/* FINISHED */}
                     {view === 'finished' && (
@@ -661,6 +794,14 @@ export default function TrainingPage() {
                                             <RotateCcw className="w-3 h-3 mr-2" />
                                             {selectedCategory?.type === 'process' ? 'Palaa harjoitukseen' : 'Kokeile uudestaan'}
                                         </Button>
+                                        {certProgress.percentage === 100 && (
+                                            <Button
+                                                onClick={() => setView('certification-complete')}
+                                                className="w-full h-14 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full uppercase font-black tracking-widest text-[10px] shadow-xl shadow-indigo-900/40 border-2 border-indigo-400/50"
+                                            >
+                                                🏆 Katso Sertifikaattisi
+                                            </Button>
+                                        )}
                                         <Button onClick={reset} variant="ghost" className="w-full h-12 text-slate-500 hover:text-white rounded-full uppercase font-black tracking-widest text-[10px]">
                                             Takaisin valikkoon
                                         </Button>
