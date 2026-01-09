@@ -272,8 +272,8 @@ export default function SupportPage() {
                         <CardContent className="space-y-6">
                             <p className="font-medium text-slate-700">{t('support.exercises_tab.future.subtitle')}</p>
                             <div className="space-y-3">
-                                <CheckItem time={t('support.exercises_tab.future.times.1wk')}>{t('support.exercises_tab.future.steps.cv')}</CheckItem>
-                                <CheckItem time={t('support.exercises_tab.future.times.2wk')}>{t('support.exercises_tab.future.steps.search')}</CheckItem>
+                                <CheckItem time={t('support.exercises_tab.future.times.1vk')}>{t('support.exercises_tab.future.steps.cv')}</CheckItem>
+                                <CheckItem time={t('support.exercises_tab.future.times.2vk')}>{t('support.exercises_tab.future.steps.search')}</CheckItem>
                                 <CheckItem time={t('support.exercises_tab.future.times.continuous')}>{t('support.exercises_tab.future.steps.rest')}</CheckItem>
                             </div>
                         </CardContent>

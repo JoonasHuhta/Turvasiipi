@@ -1,0 +1,4 @@
+Missing in EN: support.exercises_tab.future.times.1vk
+Missing in EN: support.exercises_tab.future.times.2vk
+Missing in FI: support.exercises_tab.future.times.1wk
+Missing in FI: support.exercises_tab.future.times.2wk
