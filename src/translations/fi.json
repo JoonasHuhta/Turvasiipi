@@ -419,22 +419,38 @@
             "why_important": "Miksi tämä on tärkeää?"
         },
         "risk_levels": {
+            "stable": {
+                "label": "Vakaa tilanne",
+                "description": "Kokemuksesi viittaavat tällä hetkellä vakaaseen työtilanteeseen. Jatka hyvän kulttuurin vaalimista."
+            },
             "mild": {
-                "label": "Lievä riski",
-                "description": "Kokemuksesi voivat olla yksittäisiä, mutta jatka dokumentointia varmuuden vuoksi."
+                "label": "Lievä huomio",
+                "description": "Joitakin epävarmuuden merkkejä on ilmassa. Seuraa tilannetta ja luota vaistoosi – usein tunnistaminen on vaikeinta alussa."
+            },
+            "warning": {
+                "label": "Varoitus",
+                "description": "Hälytysmerkit ovat selkeitä. Tilanne voi eskaloitua, jos siihen ei puututa ajoissa. Aloita matalan kynnyksen dokumentointi."
             },
             "moderate": {
-                "label": "Kohtalainen riski",
-                "description": "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Suosittelemme keskustelua luotettavan tahon kanssa."
+                "label": "Kohonnut riski",
+                "description": "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Älä jää yksin näiden ajatusten kanssa, vaan hae validaatiota luotettavalta kollegalta tai ystävältä."
             },
             "severe": {
                 "label": "Vakava riski",
-                "description": "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Ota yhteyttä ammattiliittoon tai työsuojeluun."
+                "description": "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Suosittelemme ottamaan yhteyttä ammattiliittoon tai työsuojeluun."
             },
             "critical": {
-                "label": "Kriittinen riski",
-                "description": "Tämä on hätätilanne työkuntosi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae apua heti."
+                "label": "Kriittinen hätätilanne",
+                "description": "Tämä on hätätilanne työkuntosi ja terveytesi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae ammattiapua välittömästi."
             }
+        },
+        "critical_signals": {
+            "title": "Kriittiset erillishavainnot",
+            "itsetunto": "Itsetuntosi on koetuksella. Tämä on tyypillinen merkki pitkäkestoisesta mitätöinnistä.",
+            "todellisuus": "Gaslighting-merkit ovat vahvoja. Älä luota pelkkään muistiisi, vaan dokumentoi kaikki.",
+            "eristyksissä": "Sosiaalisella eristämisellä pyritään murtamaan tukiverkostosi. Ole tietoinen tästä taktiikasta.",
+            "fyysiset": "Kehosi oireilee jo vakavasti. Tämä on selkeä viesti siitä, että rajasi on ylitetty.",
+            "käyttäytyminen": "Muutos siviilielämässäsi kertoo siitä, että työ on alkanut hallita koko hyvinvointiasi."
         },
         "categories": {
             "itsetunto": {

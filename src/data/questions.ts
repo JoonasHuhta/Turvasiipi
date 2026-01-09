@@ -44,28 +44,40 @@ export const quizQuestions: Question[] = [
 ];
 
 export const getRiskLevel = (score: number) => {
-    if (score <= 5) return {
-        key: 'mild',
-        level: "Lievä riski",
+    if (score <= 2) return {
+        key: 'stable',
+        level: "Vakaa tilanne",
         color: "text-green-600",
-        description: "Kokemuksesi voivat olla yksittäisiä, mutta jatka dokumentointia varmuuden vuoksi."
+        description: "Kokemuksesi viittaavat tällä hetkellä vakaaseen työtilanteeseen."
     };
-    if (score <= 12) return {
+    if (score <= 6) return {
+        key: 'mild',
+        level: "Lievä huomio",
+        color: "text-emerald-600",
+        description: "Joitakin epävarmuuden merkkejä on ilmassa. Seuraa tilannetta ja luota vaistoosi."
+    };
+    if (score <= 11) return {
+        key: 'warning',
+        level: "Varoitus",
+        color: "text-yellow-600",
+        description: "Hälytysmerkit ovat selkeitä. Tilanne voi eskaloitua, jos siihen ei puututa ajoissa."
+    };
+    if (score <= 16) return {
         key: 'moderate',
-        level: "Kohtalainen riski",
+        level: "Kohonnut riski",
         color: "text-orange-600",
-        description: "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Suosittelemme keskustelua luotettavan tahon kanssa."
+        description: "Merkit viittaavat toistuvaan epäasialliseen kohteluun. Älä jää yksin näiden ajatusten kanssa."
     };
-    if (score <= 18) return {
+    if (score <= 21) return {
         key: 'severe',
         level: "Vakava riski",
         color: "text-red-500",
-        description: "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Ota yhteyttä ammattiliittoon tai työsuojeluun."
+        description: "Tämä on vakava tilanne. Kokemasi vastaa systemaattista kiusaamista. Suosittelemme ulkopuolista apua."
     };
     return {
         key: 'critical',
-        level: "Kriittinen riski",
+        level: "Kriittinen hätätilanne",
         color: "text-red-700",
-        description: "Tämä on hätätilanne työkuntosi kannalta. Tilanne viittaa vakavaan henkiseen väkivaltaan. Hae apua heti."
+        description: "Tämä on kriittinen hätätilanne työkuntosi kannalta. Hae apua välittömästi."
     };
 };

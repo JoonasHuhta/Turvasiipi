@@ -266,9 +266,32 @@ export default function QuizPage() {
                                         <h3 className="text-xl font-bold uppercase tracking-tight relative z-10 flex items-center gap-2">
                                             <MessageCircle className="w-5 h-5 text-primary" /> {t('quiz.results.interpretation_title')}
                                         </h3>
-                                        <p className="text-lg font-light leading-relaxed opacity-90 relative z-10">{t(`quiz.risk_levels.${risk.key || 'mild'}.description`)}</p>
+                                        <p className="text-lg font-light leading-relaxed opacity-90 relative z-10">{t(`quiz.risk_levels.${risk.key}.description`)}</p>
                                         <p className="text-sm opacity-60 italic relative z-10">{t('quiz.results.disclaimer')}</p>
                                     </section>
+
+                                    {/* CRITICAL SIGNALS SECTION */}
+                                    {Object.entries(categoryScores).some(([_, data]) => data.score >= 4) && (
+                                        <div className="space-y-4">
+                                            <h3 className="text-2xl font-black uppercase tracking-tighter flex items-center gap-2">
+                                                <Zap className="w-6 h-6 text-yellow-400" /> {t('quiz.critical_signals.title')}
+                                            </h3>
+                                            <div className="grid gap-3">
+                                                {(Object.entries(categoryScores) as [QuizCategory, { score: number; total: number }][])
+                                                    .filter(([_, data]) => data.score >= 4)
+                                                    .map(([key]) => (
+                                                        <div key={key} className="bg-red-50 border border-red-100 p-4 rounded-xl flex items-start gap-4 animate-in fade-in slide-in-from-left-2 transition-all">
+                                                            <div className="bg-red-600 text-white p-2 rounded-lg shrink-0">
+                                                                <AlertTriangle className="w-4 h-4" />
+                                                            </div>
+                                                            <p className="text-sm text-red-900 font-medium leading-relaxed italic">
+                                                                {t(`quiz.critical_signals.${key}`)}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    )}
 
                                     <div className="space-y-6">
                                         <h3 className="text-2xl font-black uppercase tracking-tighter">{t('quiz.results.signals_title')}</h3>
