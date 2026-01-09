@@ -74,15 +74,15 @@
     "features": {
         "title": "Kattava työkalupakki",
         "subtitle": "Kaikki mitä tarvitset tilanteen hallintaan, yhdessä sovelluksessa.",
-        "doc_title": "Dokumentoi",
-        "doc_desc": "Kirjaa tapahtumat turvallisesti aikaleimalla. Kun tarvitset todisteita, sinulla on valmis, uskottava aikajana.",
+        "doc_title": "Suojaa itsesi",
+        "doc_desc": "Muuta kokemukset todisteiksi. Turvallinen logikirja ja valmiit raporttipohjat rakentavat uskottavan aikajanan, jota kukaan ei voi kiistää.",
         "doc_cta": "Avaa Logikirja",
-        "understand_title": "Ymmärrä",
-        "understand_desc": "Epäiletkö kiusaamista? Tee validoidut testit ja saa selkeys tilanteeseen heti. Et kuvittele tätä.",
+        "understand_title": "Saa selkeys",
+        "understand_desc": "Lopeta epäröinti. Tunnista kiusaamisen muodot ja analysoi tilanteesi tieteeseen perustuvilla testeillä. Saat välittömän arvion ja faktat puolellesi.",
         "understand_cta": "Tee testi",
-        "recover_title": "Toivu",
-        "recover_desc": "Vertaisryhmän ja ammattilaisten tuki. Löydä voimasi takaisin ja opi asettamaan rajat.",
-        "recover_cta": "Liity yhteisöön"
+        "recover_title": "Vahvista rajasi",
+        "recover_desc": "Ota ohjat takaisin. Harjoittele vaikeita kohtaamisia turvallisissa simulaatioissa ja hanki työkaluja rajojen asettamiseen valmennusmoduulien avulla.",
+        "recover_cta": "Aloita valmennus"
     },
     "how_it_works": {
         "title": "Näin Turvasiipi toimii",

@@ -74,15 +74,15 @@
     "features": {
         "title": "Comprehensive Toolkit",
         "subtitle": "Everything you need to manage the situation, in one application.",
-        "doc_title": "Document",
-        "doc_desc": "Record events securely with timestamps. When you need evidence, you have a ready, credible timeline.",
+        "doc_title": "Protect Yourself",
+        "doc_desc": "Turn experiences into evidence. A secure logbook and ready-made report templates build a credible timeline that no one can deny.",
         "doc_cta": "Open Logbook",
-        "understand_title": "Understand",
-        "understand_desc": "Suspicion of bullying? Take validated tests and get clarity on the situation immediately. You're not imagining this.",
+        "understand_title": "Get Clarity",
+        "understand_desc": "Stop hesitating. Identify the forms of bullying and analyze your situation with science-based tests. Get an immediate assessment and facts on your side.",
         "understand_cta": "Take Test",
-        "recover_title": "Recover",
-        "recover_desc": "Support from peer groups and professionals. Find your strength back and learn to set boundaries.",
-        "recover_cta": "Join Community"
+        "recover_title": "Strengthen Your Boundaries",
+        "recover_desc": "Take back control. Practice difficult encounters in safe simulations and get tools for setting boundaries with training modules.",
+        "recover_cta": "Start Training"
     },
     "how_it_works": {
         "title": "How Turvasiipi Works",

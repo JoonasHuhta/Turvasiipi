@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart } from "lucide-react";
+import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart, ShieldCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/context/LanguageContext";
 import { useEffect } from "react";
@@ -119,26 +119,12 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {/* Card 1 */}
+          {/* Card 1: Understand / Clarity */}
           <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <CardHeader>
-              <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">📝</div>
-              <CardTitle className="text-xl">{t('features.doc_title')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                {t('features.doc_desc')}
-              </p>
-              <Link href="/timeline" className="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1">
-                {t('features.doc_cta')} <ArrowRight className="w-3 h-3" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          {/* Card 2 */}
-          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">🧠</div>
+              <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 text-purple-600">
+                <Brain className="w-6 h-6" />
+              </div>
               <CardTitle className="text-xl">{t('features.understand_title')}</CardTitle>
             </CardHeader>
             <CardContent>
@@ -151,17 +137,37 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          {/* Card 3 */}
+          {/* Card 2: Document / Protect */}
           <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <CardHeader>
-              <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4 text-2xl">💙</div>
+              <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <CardTitle className="text-xl">{t('features.doc_title')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                {t('features.doc_desc')}
+              </p>
+              <Link href="/timeline" className="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1">
+                {t('features.doc_cta')} <ArrowRight className="w-3 h-3" />
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Card 3: Recover / Strengthen */}
+          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 text-emerald-600">
+                <Heart className="w-6 h-6 fill-current" />
+              </div>
               <CardTitle className="text-xl">{t('features.recover_title')}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-slate-600 mb-6 leading-relaxed text-sm">
                 {t('features.recover_desc')}
               </p>
-              <Link href="/yhteiso" className="text-green-600 font-semibold text-sm hover:underline flex items-center gap-1">
+              <Link href="/valmennus" className="text-emerald-600 font-semibold text-sm hover:underline flex items-center gap-1">
                 {t('features.recover_cta')} <ArrowRight className="w-3 h-3" />
               </Link>
             </CardContent>
