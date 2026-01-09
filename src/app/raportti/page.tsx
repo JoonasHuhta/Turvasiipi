@@ -122,15 +122,24 @@ export default function DocumentsPage() {
                     </div>
 
                     <Tabs defaultValue="report" className="w-full">
-                        <TabsList className="grid w-full grid-cols-3 mb-8 h-14 p-1 bg-slate-100 rounded-xl">
-                            <TabsTrigger value="report" className="rounded-lg text-sm font-bold data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all h-full">
-                                <Printer className="w-4 h-4 mr-2" /> {t('report.page.tabs.report')}
+                        <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto w-full max-w-2xl mx-auto bg-slate-100/80 p-1.5 rounded-[2rem] sm:rounded-full border border-slate-200/50 shadow-sm gap-1 mb-12">
+                            <TabsTrigger
+                                value="report"
+                                className="rounded-full px-6 py-4 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md sm:whitespace-nowrap flex items-center justify-center gap-2"
+                            >
+                                <Printer className="w-4 h-4" /> {t('report.page.tabs.report')}
                             </TabsTrigger>
-                            <TabsTrigger value="templates" className="rounded-lg text-sm font-bold data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all h-full">
-                                <FileCheck className="w-4 h-4 mr-2" /> {t('report.page.tabs.templates')}
+                            <TabsTrigger
+                                value="templates"
+                                className="rounded-full px-6 py-4 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md sm:whitespace-nowrap flex items-center justify-center gap-2"
+                            >
+                                <FileCheck className="w-4 h-4" /> {t('report.page.tabs.templates')}
                             </TabsTrigger>
-                            <TabsTrigger value="premium" className="rounded-lg text-sm font-bold data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all h-full text-indigo-700 bg-indigo-50/50">
-                                <Sparkles className="w-4 h-4 mr-2" /> {t('report.page.tabs.premium')}
+                            <TabsTrigger
+                                value="premium"
+                                className="rounded-full px-6 py-4 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-indigo-700 data-[state=active]:shadow-md sm:whitespace-nowrap flex items-center justify-center gap-2 bg-indigo-50/30"
+                            >
+                                <Sparkles className="w-4 h-4" /> {t('report.page.tabs.premium')}
                             </TabsTrigger>
                         </TabsList>
 
