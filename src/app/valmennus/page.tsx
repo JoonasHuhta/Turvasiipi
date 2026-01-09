@@ -140,7 +140,7 @@ export default function TrainingPage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="min-h-full flex flex-col justify-start sm:justify-center px-6 pt-10 pb-20 md:py-12 max-w-4xl mx-auto space-y-12"
+                            className="min-h-full flex flex-col justify-start sm:justify-center px-6 pt-10 pb-32 md:py-12 max-w-4xl mx-auto space-y-12"
                         >
                             <div className="text-center space-y-6">
                                 <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight leading-none text-white">
@@ -201,7 +201,7 @@ export default function TrainingPage() {
                                 )}
                             </AnimatePresence>
 
-                            <div className="space-y-6 py-6 md:py-10 pb-24">
+                            <div className="space-y-6 py-6 md:py-10 pb-32">
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-4">
                                         <p className="text-lg md:text-3xl text-slate-100 leading-tight font-black uppercase tracking-tighter">
@@ -215,17 +215,17 @@ export default function TrainingPage() {
 
                                 {/* HINT BUTTON */}
                                 {!selectedOptionId && !showHint && (
-                                    <div className="flex justify-center">
+                                    <div className="flex justify-center pt-2">
                                         <Button
-                                            variant="ghost"
+                                            variant="outline"
                                             size="sm"
                                             onClick={() => {
                                                 setShowHint(true);
                                                 setTimeout(() => setShowHint(false), 5000);
                                             }}
-                                            className="text-slate-500 hover:text-indigo-400 uppercase font-black text-[9px] tracking-widest gap-2 h-8"
+                                            className="bg-indigo-500/5 text-slate-400 hover:text-indigo-400 border-white/5 hover:border-indigo-500/50 uppercase font-black text-[10px] tracking-widest gap-2 h-9 px-6 rounded-full transition-all"
                                         >
-                                            <Lightbulb className="w-4 h-4" /> Vihje
+                                            <Lightbulb className="w-4 h-4 text-yellow-500" /> Vihje
                                         </Button>
                                     </div>
                                 )}
