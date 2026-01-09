@@ -15,7 +15,9 @@
         "support_services": "Tukipalvelut",
         "community": "Yhteisö",
         "stories": "Tarinat",
-        "training": "Valmennus"
+        "training": "Valmennus",
+        "empathy_spectrum": "Empatia-spektri",
+        "literacy_test": "Lukutaito-testi"
     },
     "dashboard": {
         "title": "Oma Polku",

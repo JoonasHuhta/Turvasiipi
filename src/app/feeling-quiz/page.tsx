@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     feelingsQuestions,
@@ -36,22 +36,24 @@ export default function FeelingQuizPage() {
     const [answers, setAnswers] = useState<Record<number, number>>({});
     const [showValidation, setShowValidation] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const currentQuestion = feelingsQuestions[currentIndex];
 
     const handleAnswer = (value: number) => {
         setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }));
         setShowValidation(true);
+        scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const nextQuestion = () => {
         if (currentIndex < feelingsQuestions.length - 1) {
             setCurrentIndex(prev => prev + 1);
             setShowValidation(false);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             setIsFinished(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
             completeModule('feeling_quiz');
         }
     };
@@ -241,7 +243,7 @@ export default function FeelingQuizPage() {
     return (
         <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-white">
             {/* Fixed Header */}
-            <header className="shrink-0 h-16 bg-white border-b px-6 flex items-center justify-between z-30">
+            <header className="shrink-0 h-14 sm:h-16 bg-white border-b px-4 sm:px-6 flex items-center justify-between z-30">
                 <div className="flex items-center gap-4 flex-1 max-w-md">
                     <div className="flex flex-col flex-1">
                         <div className="flex justify-between items-center mb-1">
@@ -255,7 +257,7 @@ export default function FeelingQuizPage() {
             </header>
 
             {/* Main Content (Scrollable) */}
-            <main className="flex-1 overflow-y-auto no-scrollbar relative flex flex-col justify-start sm:justify-center p-6 pb-40">
+            <main ref={scrollContainerRef} className="flex-1 overflow-y-auto relative flex flex-col p-4 sm:p-6 pb-20">
                 <AnimatePresence mode="wait">
                     {!showValidation ? (
                         <motion.div
@@ -263,10 +265,10 @@ export default function FeelingQuizPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="max-w-2xl mx-auto w-full space-y-8"
+                            className="max-w-2xl mx-auto w-full space-y-4 pt-1"
                         >
-                            <div className="space-y-6">
-                                <Badge className="bg-primary text-white uppercase font-black tracking-widest px-4 py-1 text-[10px]">
+                            <div className="space-y-2">
+                                <Badge className="bg-primary text-white uppercase font-black tracking-widest px-3 py-0.5 text-[9px]">
                                     {currentQuestion.category === 'itseepaily' ? 'Itseepäily & Häpeä' :
                                         currentQuestion.category === 'eristyksisyys' ? 'Eristyneisyys' :
                                             currentQuestion.category === 'halvaantuminen' ? 'Halvaantuminen' :
@@ -274,9 +276,31 @@ export default function FeelingQuizPage() {
                                                     currentQuestion.category === 'identiteetti' ? 'Identiteetin mureneminen' :
                                                         'Fyysiset oireet'}
                                 </Badge>
-                                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase">
+                                <h2 className="text-lg sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase transition-all">
                                     {currentQuestion.question}
                                 </h2>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2 pb-6">
+                                {[
+                                    { label: "Kyllä, päivittäin", value: 4 },
+                                    { label: "Kyllä, usein", value: 3 },
+                                    { label: "Joskus", value: 2 },
+                                    { label: "Harvoin", value: 1 },
+                                    { label: "Ei koskaan", value: 0 }
+                                ].map((opt, i) => (
+                                    <Button
+                                        key={opt.label}
+                                        variant="outline"
+                                        onClick={() => handleAnswer(opt.value)}
+                                        className={cn(
+                                            "h-11 sm:h-16 rounded-xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-[11px] sm:text-base font-bold transition-all text-slate-700 text-center px-1 leading-tight",
+                                            i === 4 && "col-span-2"
+                                        )}
+                                    >
+                                        {opt.label}
+                                    </Button>
+                                ))}
                             </div>
                         </motion.div>
                     ) : (
@@ -306,32 +330,13 @@ export default function FeelingQuizPage() {
                 </AnimatePresence>
             </main>
 
-            {/* Fixed Footer (Answers or Join) */}
-            <footer className="shrink-0 bg-white border-t p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+            {/* Fixed Footer (Used only for Next button in validation) */}
+            <footer className={cn(
+                "shrink-0 bg-white border-t p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] transition-all",
+                !showValidation && "opacity-0 pointer-events-none h-0 p-0"
+            )}>
                 <div className="max-w-md mx-auto w-full">
-                    {!showValidation ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {[
-                                { label: "Kyllä, päivittäin", value: 4 },
-                                { label: "Kyllä, usein", value: 3 },
-                                { label: "Joskus", value: 2 },
-                                { label: "Harvoin", value: 1 },
-                                { label: "Ei koskaan", value: 0 }
-                            ].map((opt, i) => (
-                                <Button
-                                    key={opt.label}
-                                    variant="outline"
-                                    onClick={() => handleAnswer(opt.value)}
-                                    className={cn(
-                                        "h-14 rounded-2xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-sm font-bold transition-all text-slate-700",
-                                        i === 4 && "sm:col-span-2"
-                                    )}
-                                >
-                                    {opt.label}
-                                </Button>
-                            ))}
-                        </div>
-                    ) : (
+                    {showValidation && (
                         <Button
                             onClick={nextQuestion}
                             className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl h-16 text-xl font-black uppercase tracking-widest shadow-xl shadow-primary/40 group active:scale-95 transition-all"

@@ -15,7 +15,9 @@
         "support_services": "Support Services",
         "community": "Community",
         "stories": "Stories",
-        "training": "Tactical Training"
+        "training": "Tactical Training",
+        "empathy_spectrum": "Empathy Spectrum",
+        "literacy_test": "Literacy Test"
     },
     "dashboard": {
         "title": "My Journey",

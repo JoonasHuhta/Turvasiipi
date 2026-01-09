@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -45,15 +45,17 @@ export default function QuizPage() {
     const [isFinished, setIsFinished] = useState(false);
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
 
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
     const handleAnswer = (isYes: boolean) => {
         setAnswers(prev => ({ ...prev, [quizQuestions[currentIndex].id]: isYes }));
 
         if (currentIndex < quizQuestions.length - 1) {
             setCurrentIndex((prev) => prev + 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             setIsFinished(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
             completeModule('quiz_risks');
         }
     };
@@ -63,7 +65,7 @@ export default function QuizPage() {
         setCurrentIndex(0);
         setAnswers({});
         setIsFinished(false);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const score = Object.values(answers).filter(Boolean).length;
@@ -153,44 +155,44 @@ export default function QuizPage() {
                 </div>
 
                 {/* Main Content (Scrollable) */}
-                <main className="flex-1 overflow-y-auto no-scrollbar relative flex flex-col justify-start sm:justify-center p-6 pb-32">
+                <main ref={scrollContainerRef} className="flex-1 overflow-y-auto relative flex flex-col p-6 pb-20">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="max-w-2xl mx-auto w-full text-center space-y-8"
+                            className="max-w-2xl mx-auto w-full text-center space-y-10 pt-4"
                         >
                             <div className="space-y-6">
-                                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] uppercase">
+                                <h2 className="text-xl sm:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] uppercase transition-all">
                                     {t(`quiz.questions.${currentQuestion.id}`)}
                                 </h2>
+                            </div>
+
+                            <div className="max-w-sm mx-auto w-full flex gap-3 pb-8">
+                                <Button
+                                    size="lg"
+                                    className="flex-1 py-6 sm:py-8 rounded-2xl text-lg sm:text-xl font-black uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 active:scale-95 transition-all h-auto"
+                                    onClick={() => handleAnswer(true)}
+                                >
+                                    {t('quiz.card.yes')}
+                                </Button>
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="flex-1 py-6 sm:py-8 rounded-2xl text-lg sm:text-xl font-black uppercase tracking-widest border-2 hover:bg-slate-50 active:scale-95 transition-all text-slate-400 border-slate-200 h-auto"
+                                    onClick={() => handleAnswer(false)}
+                                >
+                                    {t('quiz.card.no')}
+                                </Button>
                             </div>
                         </motion.div>
                     </AnimatePresence>
                 </main>
 
-                {/* Fixed Footer (Answers) */}
-                <footer className="shrink-0 bg-white border-t p-4 pb-8 z-30 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-                    <div className="max-w-sm mx-auto w-full flex gap-3">
-                        <Button
-                            size="lg"
-                            className="flex-1 py-8 rounded-2xl text-xl font-black uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 active:scale-95 transition-all"
-                            onClick={() => handleAnswer(true)}
-                        >
-                            {t('quiz.card.yes')}
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="flex-1 py-8 rounded-2xl text-xl font-black uppercase tracking-widest border-2 hover:bg-slate-50 active:scale-95 transition-all text-slate-400 border-slate-200"
-                            onClick={() => handleAnswer(false)}
-                        >
-                            {t('quiz.card.no')}
-                        </Button>
-                    </div>
-                </footer>
+                {/* Fixed Footer (Empty in quiz state) */}
+                <footer className="shrink-0 bg-white border-t p-0 h-0 overflow-hidden opacity-0 pointer-events-none transition-all" />
             </div>
         );
     }
@@ -215,23 +217,23 @@ export default function QuizPage() {
             </section>
 
             <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
-                <div className="flex justify-start md:justify-center mb-12 w-full overflow-x-auto no-scrollbar px-4">
-                    <TabsList className="flex md:grid md:grid-cols-3 w-max md:w-fit bg-slate-100/80 p-1.5 rounded-full border border-slate-200/50 shadow-sm gap-1">
+                <div className="mb-12 w-full px-4">
+                    <TabsList className="grid grid-cols-1 sm:grid-cols-3 h-auto w-full max-w-2xl mx-auto bg-slate-100/80 p-1.5 rounded-[2rem] sm:rounded-full border border-slate-200/50 shadow-sm gap-1">
                         <TabsTrigger
                             value="quiz"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
+                            className="rounded-full px-6 py-3 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md sm:whitespace-nowrap"
                         >
                             {t('quiz.tabs.quiz')}
                         </TabsTrigger>
                         <TabsTrigger
                             value="tactics"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
+                            className="rounded-full px-6 py-3 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md sm:whitespace-nowrap"
                         >
                             {t('quiz.tabs.tactics')}
                         </TabsTrigger>
                         <TabsTrigger
                             value="compare"
-                            className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md whitespace-nowrap"
+                            className="rounded-full px-6 py-3 sm:py-2.5 text-xs font-bold uppercase tracking-wider transition-all data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md sm:whitespace-nowrap"
                         >
                             {t('quiz.tabs.compare')}
                         </TabsTrigger>
@@ -275,7 +277,7 @@ export default function QuizPage() {
                                                 .sort((a, b) => b[1].score - a[1].score)
                                                 .map(([key, data]) => (
                                                     <div key={key} className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex flex-col md:flex-row items-center gap-6">
-                                                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${data.score > data.total / 2 ? 'bg-red-100 text-red-600' : 'bg-primary/10 text-primary'}`}>
+                                                        <div className={`w - 16 h - 16 rounded - 2xl flex items - center justify - center shrink - 0 ${data.score > data.total / 2 ? 'bg-red-100 text-red-600' : 'bg-primary/10 text-primary'} `}>
                                                             <div className="w-8 h-8">
                                                                 {(() => {
                                                                     const Icon = categoryLabels[key].icon;
@@ -286,14 +288,14 @@ export default function QuizPage() {
                                                         <div className="flex-1 space-y-1 text-center md:text-left">
                                                             <div className="flex justify-between items-center mb-1">
                                                                 <h4 className="font-black uppercase tracking-tight text-slate-900">{t(`quiz.categories.${key}.label`)}</h4>
-                                                                <span className={`font-black text-sm px-2 py-0.5 rounded-full ${data.score > data.total / 2 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                                                                <span className={`font - black text - sm px - 2 py - 0.5 rounded - full ${data.score > data.total / 2 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'} `}>
                                                                     {data.score}/{data.total}
                                                                 </span>
                                                             </div>
                                                             <p className="text-sm text-slate-500 font-light">{t(`quiz.categories.${key}.description`)}</p>
                                                             <Progress
                                                                 value={(data.score / data.total) * 100}
-                                                                className={`h-2 mt-2 ${data.score > data.total / 2 ? 'bg-red-100' : 'bg-slate-200'}`}
+                                                                className={`h - 2 mt - 2 ${data.score > data.total / 2 ? 'bg-red-100' : 'bg-slate-200'} `}
                                                             />
                                                         </div>
                                                     </div>
@@ -429,7 +431,7 @@ export default function QuizPage() {
                             {bullyingTactics.map((tactic) => (
                                 <Card
                                     key={tactic.id}
-                                    className={`cursor-pointer transition-all hover:border-primary/50 group ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''}`}
+                                    className={`cursor - pointer transition - all hover: border - primary / 50 group ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''} `}
                                     onClick={() => setSelectedTactic(tactic)}
                                 >
                                     <CardHeader className="p-5">

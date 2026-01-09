@@ -34,6 +34,8 @@ const getNavItems = (): NavItem[] => [
             { href: "/quiz", labelKey: "nav.identify_risks", icon: Clipboard },
             { href: "/valmennus", labelKey: "nav.training", icon: Zap },
             { href: "/feeling-quiz", labelKey: "nav.victim_feelings", icon: Activity },
+            { href: "/empatia-testi", labelKey: "nav.empathy_spectrum", icon: Heart },
+            { href: "/lukutaito-testi", labelKey: "nav.literacy_test", icon: ClipboardList },
             { href: "/tietovisa", labelKey: "nav.quiz_facts", icon: FileText },
             { href: "/neuromoninaisuus", labelKey: "nav.neuromoninaisuus", icon: Brain },
             { href: "/nuoret", labelKey: "nav.youth_work", icon: Users },
