@@ -431,7 +431,7 @@ export default function QuizPage() {
                             {bullyingTactics.map((tactic) => (
                                 <Card
                                     key={tactic.id}
-                                    className={`cursor - pointer transition - all hover: border - primary / 50 group ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''} `}
+                                    className={`cursor-pointer transition-all hover:border-primary/50 group ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''}`}
                                     onClick={() => setSelectedTactic(tactic)}
                                 >
                                     <CardHeader className="p-5">
