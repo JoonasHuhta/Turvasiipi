@@ -555,10 +555,34 @@
             }
         ],
         "categories": {
-            "verbal": "Verbal and Emotional Attacks",
-            "social": "Social Isolation",
-            "passive": "Passive Hostility",
-            "power": "Work-related Abuse of Power"
+            "itsetunto": {
+                "label": "Self-Esteem",
+                "description": "Bullying often first erodes the victim's professional and personal self-confidence."
+            },
+            "todellisuus": {
+                "label": "Sense of Reality",
+                "description": "Gaslighting and lying make the victim doubt their own perceptions and memory."
+            },
+            "eristyksissä": {
+                "label": "Isolation",
+                "description": "Exclusion from the social circle is a powerful tool of power."
+            },
+            "fyysiset": {
+                "label": "Physical Symptoms",
+                "description": "Pressure often transfers to the body as insomnia, aches, or burnout."
+            },
+            "käyttäytyminen": {
+                "label": "Behavior",
+                "description": "Permanent changes in own behavior are a sign of prolonged stress."
+            }
+        },
+        "tactic_categories": {
+            "verbal": "Verbal & Emotional",
+            "social": "Social & Isolating",
+            "passive": "Passive & Hidden",
+            "power": "Power & Position",
+            "manipulative": "Manipulative & Confusing",
+            "structural": "Structural & Spatial"
         },
         "tactics": {
             "mitatointi": {
@@ -576,41 +600,7 @@
                     "Do not expect recognition from the bully.",
                     "Validate your skills with outsiders."
                 ],
-                "logExample": "Supervisor said 'useless suggestion' in meeting on 12.12. Witnesses: 5 people."
-            },
-            "eristaminen": {
-                "name": "Isolation & Exclusion",
-                "definition": "Intentional exclusion from social and professional interaction.",
-                "phrases": [
-                    "I forgot to tell you that",
-                    "This doesn't concern you",
-                    "(Silence when you arrive)",
-                    "The meeting was yesterday"
-                ],
-                "goal": "Make you invisible and cut off your support network.",
-                "strategy": [
-                    "Build networks in other teams.",
-                    "Document absences from meetings.",
-                    "Ask in writing why information did not flow."
-                ],
-                "logExample": "Entire team went to lunch without me for 3rd day in a row (10-12.12)."
-            },
-            "ostrakismi": {
-                "name": "Ostracism (Exclusion)",
-                "definition": "Systematic ignoring and 'cold shoulder'. An invisible form of bullying where the victim is treated as if they don't exist.",
-                "phrases": [
-                    "(Greeting is not answered)",
-                    "(Speech is interrupted when you enter the room)",
-                    "(Conversation goes past you, 'ghost in the room')",
-                    "(Unanswered messages, while others' messages are reacted to)"
-                ],
-                "goal": "Slowly erode the sense of belonging and professional self-esteem.",
-                "strategy": [
-                    "Recognize recurrence: single forgetting vs. systematicity.",
-                    "Put observable acts into words (e.g., lack of response).",
-                    "Seek support from supervisor or HR to ensure inclusion."
-                ],
-                "logExample": "I noticed a 'silent consensus': three colleagues stopped greeting at the same time."
+                "logExample": "Supervisor said 'useless suggestion' in meeting."
             },
             "gaslighting": {
                 "name": "Gaslighting",
@@ -627,58 +617,7 @@
                     "Use email for confirmation.",
                     "Do not argue about memories."
                 ],
-                "logExample": "15.12 agreed on X. 18.12 supervisor claimed such thing was never agreed."
-            },
-            "passiivi-aggressio": {
-                "name": "Passive-Aggressiveness",
-                "definition": "Hidden hostility that is hard to point out directly as bullying.",
-                "phrases": [
-                    "Maybe next time you'll succeed better (sarcasm)",
-                    "I'm just being honest",
-                    "(Sighing during your turn to speak)",
-                    "(Rolling eyes)"
-                ],
-                "goal": "Hurt without the bully being held accountable for their behavior.",
-                "strategy": [
-                    "Ask directly: 'Did you mean that offensively?'",
-                    "Stay cool and professional.",
-                    "Document words and gestures."
-                ],
-                "logExample": "Supervisor rolled eyes during my project presentation. Date X."
-            },
-            "kohtuuttomuus": {
-                "name": "Unreasonable Demands",
-                "definition": "Setting impossible goals or an inhumane workload.",
-                "phrases": [
-                    "This needs to be ready tomorrow (week's work)",
-                    "Others can do this too",
-                    "I don't have time to look at prioritization, do it all",
-                    "Are you slow or why does it take so long?"
-                ],
-                "goal": "Cause burnout or 'prove' your incompetence through failure.",
-                "strategy": [
-                    "Request prioritization in writing.",
-                    "Keep track of work time and tasks.",
-                    "Report overload by email."
-                ],
-                "logExample": "Received 40h work on Friday at 4 PM, due Monday at 8 AM."
-            },
-            "epaoikeudenmukaisuus": {
-                "name": "Unfairness",
-                "definition": "Applying rules and rewards differently to different people.",
-                "phrases": [
-                    "A gets remote work, you don't (without reason)",
-                    "Good project A! (Even though you did the work)",
-                    "Your mistake is serious (A's same mistake ok)",
-                    "We don't usually pay extra for this"
-                ],
-                "goal": "Create uncertainty and signal that you are not equal to others.",
-                "strategy": [
-                    "Compare your situation to written guidelines.",
-                    "Document deviations in fairness.",
-                    "Ask in writing for grounds for unequal treatment."
-                ],
-                "logExample": "Colleague got credit in team meeting for a project I did alone."
+                "logExample": "Agreed on X, but supervisor later claimed it was never agreed."
             },
             "uhkailu": {
                 "name": "Threats & Intimidation",
@@ -695,58 +634,7 @@
                     "Contact shop steward immediately.",
                     "Do not stay alone with the threatener."
                 ],
-                "logExample": "Supervisor said behind closed doors 'best to start looking for a new job'."
-            },
-            "sabotaasi": {
-                "name": "Sabotage",
-                "definition": "Intentionally preventing or hindering work performance.",
-                "phrases": [
-                    "(Information given wrongly or too late)",
-                    "I didn't get your message (even though they did)",
-                    "Project was moved to another in the middle of everything",
-                    "(Tools not delivered despite request)"
-                ],
-                "goal": "Make you look incompetent and cause frustration.",
-                "strategy": [
-                    "Copy important messages to a third party.",
-                    "Ensure instructions in writing.",
-                    "Report obstacles immediately along the reporting line."
-                ],
-                "logExample": "Critical Excel template not delivered, although requested 5 times."
-            },
-            "maine": {
-                "name": "Defamation of Reputation",
-                "definition": "Spreading false rumors or distorting competence to others.",
-                "phrases": [
-                    "He/She is a difficult person",
-                    "No one wants to work with him/her",
-                    "I heard he/she makes a lot of mistakes",
-                    "He/She is not a team player"
-                ],
-                "goal": "Destroy your credibility and support opportunities in the organization.",
-                "strategy": [
-                    "Talk directly to your colleagues.",
-                    "Ask HR to investigate the source of rumors.",
-                    "Stay professional in all communication."
-                ],
-                "logExample": "Colleague told that supervisor had spoken of me as 'unstable' in the break room."
-            },
-            "manipulaatio": {
-                "name": "Emotional Manipulation",
-                "definition": "Using emotions, such as guilt or fear, to control another.",
-                "phrases": [
-                    "I thought we were friends",
-                    "When you are sick, others suffer",
-                    "You are the only one who can save this",
-                    "Let's see next week (but never)"
-                ],
-                "goal": "Make you obedient through guilt or false hope.",
-                "strategy": [
-                    "Identify the 'good day / bad day' cycle.",
-                    "Keep professional boundaries.",
-                    "Do not take responsibility for another's feelings."
-                ],
-                "logExample": "Supervisor guilt-tripped about sick leave saying it destroys team spirit."
+                "logExample": "Supervisor suggested I should start looking for a new job without reason."
             },
             "identiteetti": {
                 "name": "Identity Attack",
@@ -765,22 +653,56 @@
                 ],
                 "logExample": "Supervisor asked 'is the slowness due to your age' in hearing of others."
             },
-            "thousand-cuts": {
-                "name": "Death by a Thousand Cuts",
-                "definition": "Continuous series of small micro-aggressions difficult to isolate individually.",
+            "sexual_harassment": {
+                "name": "Sexual Harassment",
+                "definition": "Verbal, non-verbal, or physical behavior of a sexual nature that is unwanted.",
                 "phrases": [
-                    "(Constant small corrections to work)",
-                    "(Small sighs after your requests)",
-                    "(Non-existent feedback on done things)",
-                    "(Small inappropriate jokes daily)"
+                    "(Sexual jokes or double entendres)",
+                    "(Inappropriate comments about appearance)",
+                    "(Intrusive questions about private life)",
+                    "(Staring or suggestive gestures)"
                 ],
-                "goal": "Wear out the victim's psyche slowly but surely.",
+                "goal": "To humiliate or objectify the victim, often as a tool of power.",
                 "strategy": [
-                    "Document ALL even small things – quantity matters.",
-                    "Look at the big picture, not just this day.",
-                    "Seek outside validation for the situation."
+                    "State clearly: 'This is offensive, stop it'.",
+                    "Log every comment and gesture immediately.",
+                    "Report to management or HR regardless of 'joking' excuses."
                 ],
-                "logExample": "15 small unpleasant encounters within the same day. Depressing feeling."
+                "logExample": "A colleague commented on my outfit sayin 'that shirt is an invitation'."
+            },
+            "eristaminen": {
+                "name": "Isolation & Exclusion",
+                "definition": "Intentional exclusion from social and professional interaction.",
+                "phrases": [
+                    "I forgot to tell you that",
+                    "This doesn't concern you",
+                    "(Silence when you arrive)",
+                    "The meeting was yesterday"
+                ],
+                "goal": "Make you invisible and cut off your support network.",
+                "strategy": [
+                    "Build networks in other teams.",
+                    "Document absences from meetings.",
+                    "Ask in writing why information did not flow."
+                ],
+                "logExample": "Entire team went to lunch without me."
+            },
+            "ostrakismi": {
+                "name": "Ostracism (Exclusion)",
+                "definition": "Systematic ignoring and 'cold shoulder'. An invisible form of bullying where the victim is treated as if they don't exist.",
+                "phrases": [
+                    "(Greeting is not answered)",
+                    "(Speech is interrupted when you enter the room)",
+                    "(Conversation goes past you, 'ghost in the room')",
+                    "(Unanswered messages, while others' messages are reacted to)"
+                ],
+                "goal": "Slowly erode the sense of belonging and professional self-esteem.",
+                "strategy": [
+                    "Recognize recurrence: single forgetting vs. systematicity.",
+                    "Put observable acts into words (e.g., lack of response).",
+                    "Seek support from supervisor or HR to ensure inclusion."
+                ],
+                "logExample": "Noticed a 'silent consensus' where several colleagues stopped greeting me."
             },
             "mobbing": {
                 "name": "Mobbing (Group Bullying)",
@@ -799,55 +721,22 @@
                 ],
                 "logExample": "The team signed a complaint about me without discussing it with me once."
             },
-            "micromanagement": {
-                "name": "Micromanagement",
-                "definition": "Excessive watching and interfering with work details without real need.",
+            "maine": {
+                "name": "Defamation of Reputation",
+                "definition": "Spreading false rumors or distorting competence to others.",
                 "phrases": [
-                    "Put me in CC for every message",
-                    "Why did you use this font?",
-                    "How many minutes did you spend on this?",
-                    "Open your screen so I can watch"
+                    "He/She is a difficult person",
+                    "No one wants to work with him/her",
+                    "I heard he/she makes a lot of mistakes",
+                    "He/She is not a team player"
                 ],
-                "goal": "Take away professional autonomy and cause uncertainty.",
+                "goal": "Destroy your credibility and support opportunities in the organization.",
                 "strategy": [
-                    "Provide reports proactively.",
-                    "Ask about degree of autonomy.",
-                    "Document impact on efficiency."
+                    "Talk directly to your colleagues.",
+                    "Ask HR to investigate the source of rumors.",
+                    "Stay professional in all communication."
                 ],
-                "logExample": "Supervisor followed Teams status with minute precision and demanded explanation for every 'Away' status."
-            },
-            "credit_stealing": {
-                "name": "Credit Stealing",
-                "definition": "Presenting another's work or ideas as one's own.",
-                "phrases": [
-                    "As I said earlier... (your idea)",
-                    "I finished this",
-                    "(Your name missing from report)",
-                    "My team did this (even though you did it alone)"
-                ],
-                "goal": "Advance own career at another's expense.",
-                "strategy": [
-                    "Mark your name on every document.",
-                    "Share ideas with a wide circle.",
-                    "Say out loud: 'Great that you continued my idea'."
-                ],
-                "logExample": "My idea was presented as the supervisor's own invention at next week's department meeting."
-            },
-            "unjustified_warnings": {
-                "name": "Unjustified Warnings",
-                "definition": "Using warnings as an intimidation tactic without real cause.",
-                "phrases": [
-                    "This is a formal warning",
-                    "Your name is on the black list",
-                    "Warnings will come if attitude doesn't change"
-                ],
-                "goal": "Create a basis for dismissal or silence the victim.",
-                "strategy": [
-                    "Always respond in writing.",
-                    "Contact shop steward IMMEDIATELY.",
-                    "Demand justifications based on facts."
-                ],
-                "logExample": "Received a warning for being late, even though I was there on time (proof from clock-in device)."
+                "logExample": "Found out supervisor spoke of me as 'unstable' in the break room."
             },
             "cyberbullying": {
                 "name": "Cyberbullying (Chat/Email)",
@@ -864,7 +753,346 @@
                     "Do not respond to provocation.",
                     "Set technical boundaries for communication."
                 ],
-                "logExample": "A modified image of me was spread on the Slack channel, which others laughed at with emojis."
+                "logExample": "Halventavia meemejä levitettiin minusta Slackissa."
+            },
+            "kohtuuttomuus": {
+                "name": "Unreasonable Demands",
+                "definition": "Setting impossible goals or an inhumane workload.",
+                "phrases": [
+                    "This needs to be ready tomorrow (week's work)",
+                    "Others can do this too",
+                    "I don't have time to look at prioritization, do it all",
+                    "Are you slow or why does it take so long?"
+                ],
+                "goal": "Cause burnout or 'prove' your incompetence through failure.",
+                "strategy": [
+                    "Request prioritization in writing.",
+                    "Keep track of work time and tasks.",
+                    "Report overload by email."
+                ],
+                "logExample": "Received 40h work on Friday due Monday morning."
+            },
+            "epaoikeudenmukaisuus": {
+                "name": "Unfairness",
+                "definition": "Applying rules and rewards differently to different people.",
+                "phrases": [
+                    "A gets remote work, you don't (without reason)",
+                    "Good project A! (Even though you did the work)",
+                    "Your mistake is serious (A's same mistake ok)",
+                    "We don't usually pay extra for this"
+                ],
+                "goal": "Create uncertainty and signal that you are not equal to others.",
+                "strategy": [
+                    "Compare your situation to written guidelines.",
+                    "Document deviations in fairness.",
+                    "Ask in writing for grounds for unequal treatment."
+                ],
+                "logExample": "Colleague got credit in team meeting for a project I did alone."
+            },
+            "micromanagement": {
+                "name": "Micromanagement",
+                "definition": "Excessive watching and interfering with work details without real need.",
+                "phrases": [
+                    "Put me in CC for every message",
+                    "Why did you use this font?",
+                    "How many minutes did you spend on this?",
+                    "Open your screen so I can watch"
+                ],
+                "goal": "Take away professional autonomy and cause uncertainty.",
+                "strategy": [
+                    "Provide reports proactively.",
+                    "Ask about degree of autonomy.",
+                    "Document impact on efficiency."
+                ],
+                "logExample": "Supervisor followed Teams status with minute precision."
+            },
+            "credit_stealing": {
+                "name": "Credit Stealing",
+                "definition": "Presenting another's work or ideas as one's own.",
+                "phrases": [
+                    "As I said earlier... (your idea)",
+                    "I finished this",
+                    "(Your name missing from report)",
+                    "My team did this (even though you did it alone)"
+                ],
+                "goal": "Advance own career at another's expense.",
+                "strategy": [
+                    "Mark your name on every document.",
+                    "Share ideas with a wide circle.",
+                    "Say out loud: 'Great that you continued my idea'."
+                ],
+                "logExample": "My idea was presented as the supervisor's own invention."
+            },
+            "unjustified_warnings": {
+                "name": "Unjustified Warnings",
+                "definition": "Using warnings as an intimidation tactic without real cause.",
+                "phrases": [
+                    "This is a formal warning",
+                    "Your name is on the black list",
+                    "Warnings will come if attitude doesn't change"
+                ],
+                "goal": "Create a basis for dismissal or silence the victim.",
+                "strategy": [
+                    "Always respond in writing.",
+                    "Contact shop steward IMMEDIATELY.",
+                    "Demand justifications based on facts."
+                ],
+                "logExample": "Received a warning for being late, even though I was there on time."
+            },
+            "passiivi-aggressio": {
+                "name": "Passive-Aggressiveness",
+                "definition": "Hidden hostility that is hard to point out directly as bullying.",
+                "phrases": [
+                    "Maybe next time you'll succeed better (sarcasm)",
+                    "I'm just being honest",
+                    "(Sighing during your turn to speak)",
+                    "(Rolling eyes)"
+                ],
+                "goal": "Hurt without the bully being held accountable for their behavior.",
+                "strategy": [
+                    "Ask directly: 'Did you mean that offensively?'",
+                    "Stay cool and professional.",
+                    "Document words and gestures."
+                ],
+                "logExample": "Supervisor rolled eyes during my project presentation."
+            },
+            "thousand-cuts": {
+                "name": "Death by a Thousand Cuts",
+                "definition": "Continuous series of small micro-aggressions difficult to isolate individually.",
+                "phrases": [
+                    "(Constant small corrections to work)",
+                    "(Small sighs after your requests)",
+                    "(Non-existent feedback on done things)",
+                    "(Small inappropriate jokes daily)"
+                ],
+                "goal": "Wear out the victim's psyche slowly but surely.",
+                "strategy": [
+                    "Document ALL even small things – quantity matters.",
+                    "Look at the big picture, not just this day.",
+                    "Seek outside validation for the situation."
+                ],
+                "logExample": "15 small unpleasant encounters within the same day."
+            },
+            "sarcasm_mockery": {
+                "name": "Sarcasm & Mockery",
+                "definition": "Aggressive 'joking' or a mocking tone used to hide an attack.",
+                "phrases": [
+                    "Oh look, our genius came up with something again",
+                    "That was such a great performance (mockingly)",
+                    "Well, you've always been so careful",
+                    "Don't start playing the victim again"
+                ],
+                "goal": "To humiliate the victim so they cannot defend themselves without being labeled humorless.",
+                "strategy": [
+                    "Ask directly: 'What did you mean by that comment?'.",
+                    "Do not laugh along, even out of politeness.",
+                    "Stay serious and respond only to the content."
+                ],
+                "logExample": "Team members imitated my way of speaking mockingly."
+            },
+            "neglect_indifference": {
+                "name": "Indifference & Neglect",
+                "definition": "Complete disregard for the victim's needs, questions, or existence.",
+                "phrases": [
+                    "(Questions are not answered for weeks)",
+                    "I don't have time now (and never does)",
+                    "(Important emails are ignored)",
+                    "(The victim's work is not commented on in any way)"
+                ],
+                "goal": "To make the victim feel insignificant and wear them out silently.",
+                "strategy": [
+                    "Request answers in writing and set deadlines.",
+                    "Raise the issue officially if communication is not working.",
+                    "Seek confirmation from other colleagues to obtain info."
+                ],
+                "logExample": "Supervisor has not responded to my requests for two weeks."
+            },
+            "withholding_info": {
+                "name": "Withholding Information",
+                "definition": "Intentional hiding or delaying of information critical to work performance.",
+                "phrases": [
+                    "Oh, did no one tell you?",
+                    "We already changed the plan this morning",
+                    "The meeting was already, sorry!",
+                    "(Exclusion from email lists)"
+                ],
+                "goal": "To make the victim fail in their work and look slow or stupid.",
+                "strategy": [
+                    "Agree on official info channels.",
+                    "Ask actively: 'Is there anything missing from this?'.",
+                    "Document situations where work was hindered by missing info."
+                ],
+                "logExample": "Project was delayed because critical info was withheld."
+            },
+            "triangulation": {
+                "name": "Triangulation",
+                "definition": "Playing people against each other by talking about them behind their backs.",
+                "phrases": [
+                    "Matti said that you disagree...",
+                    "I wouldn't want to say this, but Liisa criticized your work",
+                    "The supervisor is worried about your attitude (even if they aren't)",
+                    "There's some talk in the team that..."
+                ],
+                "goal": "To create conflicts and distrust between team members.",
+                "strategy": [
+                    "Always confirm matters directly from the person being talked about.",
+                    "Do not spread rumors further.",
+                    "Say: 'If Liisa has a concern, I prefer to speak with her directly'."
+                ],
+                "logExample": "Colleague claimed supervisor was dissatisfied, but it wasn't true."
+            },
+            "scapegoating": {
+                "name": "Scapegoating",
+                "definition": "Blaming a single person for the mistakes of the entire team or organization.",
+                "phrases": [
+                    "This project failed because of you",
+                    "Everything fell apart when you joined",
+                    "Your mistake cost us a lot",
+                    "We should have listened to others instead of you"
+                ],
+                "goal": "To shift responsibility elsewhere and create a common enemy.",
+                "strategy": [
+                    "Fact-based response to accusations.",
+                    "Point out division of work and responsibilities clearly.",
+                    "Seek support from HR if the blaming is groundless."
+                ],
+                "logExample": "Blamed for budget failure I wasn't responsible for."
+            },
+            "concern_trolling": {
+                "name": "Concern Trolling",
+                "definition": "Veiling criticism or bullying as false concern.",
+                "phrases": [
+                    "I'm just worried about how you're coping (mockingly)",
+                    "Maybe this is too heavy for you?",
+                    "I only want the best for you, that's why I say this...",
+                    "We are all a bit worried about how you're doing"
+                ],
+                "goal": "To erode the victim's self-confidence and make them feel weak.",
+                "strategy": [
+                    "Respond only to facts: 'Thanks for the concern, but work quality is good'.",
+                    "Ask: 'What concrete thing is this concern based on?'.",
+                    "Identify manipulation and set a professional boundary."
+                ],
+                "logExample": "Colleague sighed 'worriedly' about my coping in front of others."
+            },
+            "victim_playing": {
+                "name": "Victim Playing (by Bully)",
+                "definition": "The bully presents themselves as the victim when asked to take responsibility.",
+                "phrases": [
+                    "I'm always blamed for everything!",
+                    "I'm being bullied when I ask you to do your job",
+                    "Don't you see how hard I'm trying?",
+                    "Now you are all attacking me"
+                ],
+                "goal": "To deflect attention from own bad behavior and confuse the audience.",
+                "strategy": [
+                    "Stay strictly with facts and deeds, not emotions.",
+                    "Document the original situation carefully.",
+                    "Do not apologize for things you haven't done."
+                ],
+                "logExample": "Colleague started crying and claimed I was attacking them when I mentioned their shouting."
+            },
+            "manipulaatio": {
+                "name": "Emotional Manipulation",
+                "definition": "Using emotions, such as guilt or fear, to control another.",
+                "phrases": [
+                    "I thought we were friends",
+                    "When you are sick, others suffer",
+                    "You are the only one who can save this",
+                    "Let's see next week (but never)"
+                ],
+                "goal": "Make you obedient through guilt or false hope.",
+                "strategy": [
+                    "Identify the 'good day / bad day' cycle.",
+                    "Keep professional boundaries.",
+                    "Do not take responsibility for another's feelings."
+                ],
+                "logExample": "Supervisor guilt-tripped me about sick leave."
+            },
+            "resources_denial": {
+                "name": "Denial of Resources",
+                "definition": "Refusal of tools, software, or help needed for work performance.",
+                "phrases": [
+                    "We don't have a budget for this (but others do)",
+                    "You don't need a new computer yet",
+                    "Do it manually if the program doesn't work",
+                    "Find the instructions yourself (even if they are locked)"
+                ],
+                "goal": "To make work painful and slow down the victim's results.",
+                "strategy": [
+                    "Make official requests for resources in writing.",
+                    "Report resource gaps to management or IT support.",
+                    "Document the time wasted due to lacking tools."
+                ],
+                "logExample": "Everyone else got software licenses except me."
+            },
+            "underemployment": {
+                "name": "Underemployment / Status Lowering",
+                "definition": "Changing job tasks to significantly below education and skills (e.g., just filing for an expert).",
+                "phrases": [
+                    "This is the most important thing for us now (menial tasks)",
+                    "We don't dare give you bigger responsibility",
+                    "Upload these papers all day",
+                    "Get coffee for the team"
+                ],
+                "goal": "To humiliate and make the victim resign due to boredom and a sense of worthlessness.",
+                "strategy": [
+                    "Keep a list of tasks done in relation to the employment contract.",
+                    "Raise the matter as a change in job description.",
+                    "Verify the limits of the employer's right to manage from the union."
+                ],
+                "logExample": "Moved from expert tasks to just scanning without explanation."
+            },
+            "moving_goalposts": {
+                "name": "Moving Goalposts",
+                "definition": "Changing goals or requirements in the middle of everything so that success is never possible.",
+                "phrases": [
+                    "Even though you did this, we actually meant that",
+                    "This is not good enough, we need X more",
+                    "The new rule is this...",
+                    "I'm not satisfied, even though you did what was asked"
+                ],
+                "goal": "To ensure the victim never gets a sense of success and stays in a constant state of stress.",
+                "strategy": [
+                    "Demand goals in writing before starting.",
+                    "Keep a diary of when instructions changed.",
+                    "Request clear, measurable criteria for success."
+                ],
+                "logExample": "Finished report, then told it was useless and to start over on new topic."
+            },
+            "spatial_harassment": {
+                "name": "Spatial Harassment",
+                "definition": "Intrusive use or making uncomfortable of personal physical space or territory.",
+                "phrases": [
+                    "(Moving desk to a dark corner)",
+                    "(Standing too close behind)",
+                    "(Moving things on your desk)",
+                    "(Intruding into own space when speaking)"
+                ],
+                "goal": "To make the victim feel unsafe and dominated in their own place.",
+                "strategy": [
+                    "Ask clearly for more space physically.",
+                    "Put into words the unauthorized touching of things.",
+                    "Request an occupational safety inspection for your workstation."
+                ],
+                "logExample": "Workstation moved next to toilet in hallway."
+            },
+            "symbolic_demotion": {
+                "name": "Symbolic Demotion",
+                "definition": "Removing signs of status or eroding authority in front of others.",
+                "phrases": [
+                    "(Removing name from door or website)",
+                    "He/She is just an assistant here",
+                    "(Not introducing new employees to you)",
+                    "(Exclusion from management distribution lists)"
+                ],
+                "goal": "To signal to others that the victim is no longer an important part of the organization.",
+                "strategy": [
+                    "Point out missing info professionally and immediately.",
+                    "Ensure to stakeholders that your position is unchanged.",
+                    "Ask HR for reasons for removing status-related signs."
+                ],
+                "logExample": "Title changed from 'expert' to 'intern' in front of department."
             }
         },
         "modal": {

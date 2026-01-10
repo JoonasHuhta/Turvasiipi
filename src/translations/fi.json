@@ -555,10 +555,34 @@
             }
         ],
         "categories": {
-            "verbal": "Sanalliset ja emotionaaliset hyökkäykset",
-            "social": "Sosiaalinen eristäminen",
-            "passive": "Passiivinen vihamielisyys",
-            "power": "Työperäinen vallan väärinkäyttö"
+            "itsetunto": {
+                "label": "Itsetunto",
+                "description": "Kiusaaminen murentaa usein ensimmäisenä uhrin ammatillisen ja henkilökohtaisen itsetunnon."
+            },
+            "todellisuus": {
+                "label": "Todellisuudentaju",
+                "description": "Gaslighting ja valehtelu saavat uhrin epäilemään omia havaintojaan ja muistiaan."
+            },
+            "eristyksissä": {
+                "label": "Eristyneisyys",
+                "description": "Sosiaalisesta piiristä sulkeminen on voimakas vallankäytön väline."
+            },
+            "fyysiset": {
+                "label": "Fyysiset oireet",
+                "description": "Paine siirtyy usein kehoon unettomuutena, särkyinä tai uupumuksena."
+            },
+            "käyttäytyminen": {
+                "label": "Käyttäytyminen",
+                "description": "Pysyvät muutokset omassa käytöksessä ovat merkki pitkittyneestä stressistä."
+            }
+        },
+        "tactic_categories": {
+            "verbal": "Sanalliset & Emotionaaliset",
+            "social": "Sosiaaliset & Eristävät",
+            "passive": "Passiiviset & Piilotetut",
+            "power": "Valta & Asema",
+            "manipulative": "Manipuloivat & Hämmentävät",
+            "structural": "Rakenteelliset & Tilalliset"
         },
         "tactics": {
             "mitatointi": {
@@ -576,295 +600,499 @@
                     "Älä odota kiusaajalta tunnustusta.",
                     "Vahvista osaamisesi ulkopuolisten kanssa."
                 ],
-                "logExample": "Esimies sanoi 'turha ehdotus' palaverissa 12.12. Todistajat: 5 henkilöä."
-            },
-            "eristaminen": {
-                "name": "Eristäminen & Ulossulkeminen",
-                "definition": "Tahallinen jättäminen sosiaalisen ja ammatillisen vuorovaikutuksen ulkopuolelle.",
-                "phrases": [
-                    "Unohdin kertoa sinulle tuon",
-                    "Tämä ei kuulu sinulle",
-                    "(Hiljaisuus saapuessasi paikalle)",
-                    "Palaveri oli jo eilen"
-                ],
-                "goal": "Tehdä sinusta näkymätön ja katkaista tukiverkostosi.",
-                "strategy": [
-                    "Rakenna verkostoja muihin tiimeihin.",
-                    "Dokumentoi poissaolot palavereista.",
-                    "Kysy kirjallisesti, miksi tieto ei kulkenut."
-                ],
-                "logExample": "Koko tiimi meni lounaalle ilman minua 3. päivä peräkkäin (10-12.12)."
-            },
-            "ostrakismi": {
-                "name": "Ostrakismi (Ulossulkeminen)",
-                "definition": "Järjestelmällinen huomiotta jättäminen ja 'kylmä olka'. Näkymätön kiusaamisen muoto, jossa uhri sivuutetaan ikään kuin häntä ei olisi olemassa.",
-                "phrases": [
-                    "(Tervehdykseen ei vastata)",
-                    "(Puhe keskeytyy kun tulet huoneeseen)",
-                    "(Keskustelu käydään ohitse, 'ghost in the room')",
-                    "(Vastaamattomat viestit, vaikka muiden viesteihin reagoidaan)"
-                ],
-                "goal": "Murentaa yhteenkuuluvuuden tunne ja ammatillinen itsetunto hitaasti.",
-                "strategy": [
-                    "Tunnista toistuvuus: yksittäinen unohtaminen vs. systemaattisuus.",
-                    "Pue sanoiksi havaittavat teot (esim. vastaamattomuus).",
-                    "Hae tukea esimieheltä tai HR:ltä inkluusion varmistamiseksi."
-                ],
-                "logExample": "Huomasin 'hiljaisen konsensuksen': kolme kollegaa lopetti tervehtimisen samaan aikaan."
+                "logExample": "Esimies sivuutti ehdotukseni sanoen sitä 'turhaksi'."
             },
             "gaslighting": {
                 "name": "Gaslighting",
-                "definition": "Psykologinen manipulaatio, joka saa sinut epäilemään omia havaintojasi ja muistiasi.",
+                "definition": "Psykologinen manipulaatio todellisuudentajun horjuttamiseksi.",
                 "phrases": [
                     "En ole koskaan sanonut tuota",
                     "Olet liian herkkä",
                     "Se oli vitsi, älä ota raskaasti",
                     "Kuvittelet vain asioita"
                 ],
-                "goal": "Saada sinut epäilemään mielenterveyttäsi ja hiljentää sinut.",
+                "goal": "Saada uhri epäilemään omia havaintojaan.",
                 "strategy": [
-                    "Kirjaa asiat ylös heti tapahtumahetkellä.",
-                    "Käytä sähköpostia vahvistuksena.",
+                    "Kirjaa asiat ylös heti.",
+                    "Käytä sähköpostivahvistuksia.",
                     "Älä jää väittelemään muistikuvista."
                 ],
-                "logExample": "15.12 sovittiin X. 18.12 esimies väitti, ettei sellaista ole koskaan sovittu."
-            },
-            "passiivi-aggressio": {
-                "name": "Passiivi-aggressiivisuus",
-                "definition": "Piilotettua vihamielisyyttä, jota on vaikea osoittaa suoraan kiusaamiseksi.",
-                "phrases": [
-                    "Ehkä ensi kerralla onnistut paremmin (sarkasmi)",
-                    "Olen vain rehellinen",
-                    "(Huokailu puheenvuorosi aikana)",
-                    "(Silmien pyörittely)"
-                ],
-                "goal": "Satuttaa ilman, että kiusaaja joutuu vastuuseen käytöksestään.",
-                "strategy": [
-                    "Kysy suoraan: 'Tarkoititko tuon loukkaavasti?'",
-                    "Pysy viileän asiallisena.",
-                    "Dokumentoi sanat ja eleet."
-                ],
-                "logExample": "Esimies pyöritteli silmiään projektiesitykseni aikana. Pvm X."
-            },
-            "kohtuuttomuus": {
-                "name": "Kohtuuttomat vaatimukset",
-                "definition": "Mahdottomien tavoitteiden tai epäinhimillisen työkuorman asettaminen.",
-                "phrases": [
-                    "Tämä pitää olla valmis huomenna (viikon työ)",
-                    "Kyllä muutkin pystyvät tähän",
-                    "En ehdi katsoa priorisointia, tee kaikki",
-                    "Oletko hidas vai miksi kesto tuntuu pitkältä?"
-                ],
-                "goal": "Aiheuttaa uupumus tai 'todistaa' epäpätevyytesi epäonnistumisen kautta.",
-                "strategy": [
-                    "Pyydä priorisointi kirjallisesti.",
-                    "Pidä kirjaa työajasta ja tehtävistä.",
-                    "Ilmoita ylikuormituksesta sähköpostilla."
-                ],
-                "logExample": "Sain 40h työn perjantaina klo 16, palautus maanantaina klo 8."
-            },
-            "epaoikeudenmukaisuus": {
-                "name": "Epäoikeudenmukaisuus",
-                "definition": "Sääntöjen ja palkkioiden soveltaminen eri tavalla eri ihmisiin.",
-                "phrases": [
-                    "A saa etätyötä, sinä et (ilman syytä)",
-                    "Hyvä projekti A! (Vaikka sinä teit työn)",
-                    "Sinun virheesi on vakava (A:n sama virhe ok)",
-                    "Ei tästä ole tapana maksaa lisää"
-                ],
-                "goal": "Luo epävarmuutta ja viestittää, ettet ole tasavertainen muiden kanssa.",
-                "strategy": [
-                    "Vertaa tilannettasi kirjallisiin ohjeisiin.",
-                    "Dokumentoi poikkaamat tasapuolisuudessa.",
-                    "Kysy kirjallisesti perustelut eriarvoiselle kohtelulle."
-                ],
-                "logExample": "Kollega sai kiitoksen tiimipalaverissa projektista, jonka tein yksin."
+                "logExample": "Sovittu asia kiellettiin myöhemmin kokonaan."
             },
             "uhkailu": {
                 "name": "Uhkailu & Pelottelu",
-                "definition": "Epäsuora tai suora uhkaaminen työsuhteen tai maineen menetyksellä.",
+                "definition": "Suora tai epäsuora pelon käyttö hallinnan välineenä.",
                 "phrases": [
+                    "Tiedät mitä tästä seuraa",
+                    "Ehkä et sovi tänne",
                     "Olen puhunut sinusta johdolle",
-                    "Jos tämä toistuu, tiedät seuraukset",
-                    "Ehkä tämä ala ei sovi sinulle",
-                    "Toivottavasti et tee enää virheitä..."
+                    "Jos tämä toistuu, tiedät seuraukset"
                 ],
-                "goal": "Hallita sinua pelon avulla ja estää puolustautuminen.",
+                "goal": "Hiljentää ja hallita pelon avulla.",
                 "strategy": [
-                    "Tallenna kaikki kirjalliset uhat.",
-                    "Ota yhteys luottamusmieheen heti.",
-                    "Älä jää kahden kesken uhkailijan kanssa."
+                    "Dokumentoi uhat.",
+                    "Ota yhteys luottamusmieheen.",
+                    "Älä jää yksin uhkailijan kanssa."
                 ],
-                "logExample": "Esimies sanoi suljettujen ovien takana 'parasta alkaa etsiä uutta työtä'."
-            },
-            "sabotaasi": {
-                "name": "Sabotaasi",
-                "definition": "Työn tekemisen estäminen tai vaikeuttaminen tahallisesti.",
-                "phrases": [
-                    "(Tietoa annetaan väärin tai liian myöhään)",
-                    "En saanut viestiäsi (vaikka sai)",
-                    "Projekti siirrettiin toiselle kesken kaiken",
-                    "(Työvälineitä ei toimiteta pyynnöstä huolimatta)"
-                ],
-                "goal": "Saada sinut näyttämään epäpätevältä ja aiheuttaa turhautumista.",
-                "strategy": [
-                    "Kopioi tärkeät viestit kolmannelle osapuolelle.",
-                    "Varmista ohjeet kirjallisesti.",
-                    "Ilmoita esteistä välittömästi raportointilinjaa pitkin."
-                ],
-                "logExample": "Tärkeää Excel-pohjaa ei toimitettu, vaikka pyysin sitä 5 kertaa."
-            },
-            "maine": {
-                "name": "Maineen vahingoittaminen",
-                "definition": "Perättömien huhujen levittäminen tai osaamisen vääristely muille.",
-                "phrases": [
-                    "Hän on vaikea ihminen",
-                    "Hänen kanssaan kukaan ei halua työskennellä",
-                    "Kuulin että hän tekee paljon virheitä",
-                    "Hän ei ole tiimipelaaja"
-                ],
-                "goal": "Tuhota uskottavuutesi ja tuki-mahdollisuutesi organisaatiossa.",
-                "strategy": [
-                    "Keskustele suoraan kollegoillesi.",
-                    "Pyydä HR:ää selvittämään huhujen lähde.",
-                    "Pysy ammatillisena kaikessa viestinnässä."
-                ],
-                "logExample": "Kollega kertoi, että esimies oli puhunut minusta 'epävakaana' kahvihuoneessa."
-            },
-            "manipulaatio": {
-                "name": "Emotionaalinen manipulaatio",
-                "definition": "Tunteiden, kuten syyllisyyden tai pelon, käyttö toisen hallitsemiseen.",
-                "phrases": [
-                    "Luulin että olimme ystäviä",
-                    "Kun olet sairaana, muut kärsivät",
-                    "Olet ainoa joka voi pelastaa tämän",
-                    "Katsotaan ensi viikolla (mutta ei koskaan)"
-                ],
-                "goal": "Tehdä sinusta tottelevainen syyllisyyden tai väärän toivon avulla.",
-                "strategy": [
-                    "Tunnista 'hyvä päivä / huono päivä' -sykli.",
-                    "Pidä ammatilliset rajat.",
-                    "Älä ota vastuuta toisen tunteista."
-                ],
-                "logExample": "Esimies syyllisti sairaslomasta sanomalla sen tuhoavan tiimin hengen."
+                "logExample": "Esimies vihjasi työsuhteen päättymisellä ilman syytä."
             },
             "identiteetti": {
                 "name": "Identiteetin hyökkäys",
-                "definition": "Hyökkäys henkilökohtaisia ominaisuuksia, kuten ikää, sukupuolta tai taustaa kohtaan.",
+                "definition": "Hyökkäys henkilökohtaisia ominaisuuksia kohtaan.",
                 "phrases": [
+                    "Oletko liian vanha tähän?",
+                    "Naiset eivät ymmärrä tätä",
                     "Oletko ADHD vai miksi et keskity?",
-                    "Naiset eivät ymmärrä tätä teknistä puolta",
-                    "Tuon ikäisen on vaikea oppia uutta",
-                    "Oletpa sä herkkä tänään (viitaten ominaisuuteen)"
+                    "Tuon ikäisen on vaikea oppia uutta"
                 ],
-                "goal": "Nöyryyttää ja osoittaa, ettet kuulu joukkoon henkilökohtaisen syyn takia.",
+                "goal": "Nöyryyttää ja osoittaa ulkopuolisuus.",
                 "strategy": [
-                    "Tämä voi olla lakia rikkovaa syrjintää.",
-                    "Ota yhteyttä yhdenvertaisuusvaltuutettuun.",
-                    "Dokumentoi sanat sanatarkasti."
+                    "Tunnista syrjintä.",
+                    "Dokumentoi sanat tarkasti.",
+                    "Ota yhteys luottamusmieheen."
                 ],
-                "logExample": "Esimies kysyi 'johtuuko hitaus iästäsi' muiden kuullen."
+                "logExample": "Koulutuksessa viitattiin ikääni alentavasti."
             },
-            "thousand-cuts": {
-                "name": "Death by a Thousand Cuts",
-                "definition": "Jatkuva sarja pieniä mikroaggressioita, joita on vaikea eristää yksittäin.",
+            "sexual_harassment": {
+                "name": "Seksuaalinen häirintä",
+                "definition": "Seksuaalissävytteinen epäasiallinen käytös.",
                 "phrases": [
-                    "(Jatkuvat pienet korjaukset työhön)",
-                    "(Pienet huokaisut pyyntöjesi jälkeen)",
-                    "(Olematon palaute tehdyistä asioista)",
-                    "(Pieniä epäasiallisia vitsejä päivittäin)"
+                    "Hyvältä näytät tänään",
+                    "Älä ole niin jäykkä (ehdottelu)",
+                    "Kaksimieliset vitsit",
+                    "Ulkonäön kommentointi tunkeilevasti"
                 ],
-                "goal": "Kuluttaa uhrin psyyke hitaasti mutta varmasti loppuun.",
+                "goal": "Esineellistää ja nöyryyttää.",
                 "strategy": [
-                    "Dokumentoi KAIKKI pienetkin asiat – määrä ratkaisee.",
-                    "Katso kokonaiskuvaa, älä vain tätä päivää.",
-                    "Hae ulkopuolista validaatiota tilanteelle."
+                    "Sano selkeä lopetus.",
+                    "Ilmoita HR:lle.",
+                    "Tallenna kaikki todisteet."
                 ],
-                "logExample": "15 pientä epämiellyttävää kohtaamista saman päivän aikana. Masentava olo."
+                "logExample": "Sain epäasiallisia kommentteja ulkonäöstäni tauolla."
+            },
+            "eristaminen": {
+                "name": "Eristäminen & Ulossulkeminen",
+                "definition": "Tahallinen jättäminen vuorovaikutuksen ulkopuolelle.",
+                "phrases": [
+                    "Unohdin kutsua sinut",
+                    "Tämä ei kuulu sinulle",
+                    "Palaveri oli jo eilen",
+                    "(Hiljaisuus saapuessasi)"
+                ],
+                "goal": "Katkaista tukiverkostot.",
+                "strategy": [
+                    "Rakenna muita verkostoja.",
+                    "Kysy kirjallisesti syitä.",
+                    "Dokumentoi poissaolot."
+                ],
+                "logExample": "Tiimi piti suunnittelupalaverin ilman minua."
+            },
+            "ostrakismi": {
+                "name": "Ostrakismi",
+                "definition": "Järjestelmällinen huomiotta jättäminen ('kylmä olka').",
+                "phrases": [
+                    "(Ei vastausta tervehdykseen)",
+                    "(Huone hiljenee saapuessasi)",
+                    "(Keskustelu käydään ohitse)",
+                    "(Vastaamattomat viestit)"
+                ],
+                "goal": "Murentaa yhteenkuuluvuus.",
+                "strategy": [
+                    "Pue havainnot sanoiksi.",
+                    "Hae ulkopuolista validaatiota.",
+                    "Tallenna toistuvuus."
+                ],
+                "logExample": "Kukaan ei vastaa kysymyksiini yhteisellä kanavalla."
             },
             "mobbing": {
                 "name": "Mobbing (Ryhmäkiusaaminen)",
-                "definition": "Koko ryhmän tai usean henkilön kohdistama painostus yhtä henkilöä kohtaan.",
+                "definition": "Usean henkilön kohdistama paine yhtä kohtaan.",
                 "phrases": [
                     "Kaikkien mielestä olet vaikea",
-                    "Kukaan ei halua sinua tähän projektiin",
-                    "(Yhteinen nauru poistuessasi)",
-                    "(Yhteiset sopimukset sinua vastaan)"
+                    "Kukaan ei halua sinua",
+                    "Yhteinen nauru poistuessasi",
+                    "Yhteiset sopimukset sinua vastaan"
                 ],
-                "goal": "Poistaa uhri ryhmästä sosiaalisen paineen avulla.",
+                "goal": "Savustaa uhri ulos ryhmästä.",
                 "strategy": [
-                    "Etsi liittolaisia ryhmän ulkopuolelta.",
-                    "Dokumentoi osallistujat.",
-                    "Ota yhteys HR:ään välittömästi."
+                    "Etsi liittolaisia ulkopuolelta.",
+                    "Ota yhteys HR:ään välittömästi.",
+                    "Hae vertaistukea."
                 ],
-                "logExample": "Tiimi allekirjoitti valituksen minusta keskustelematta kanssani kertaakaan."
+                "logExample": "Koko tiimi kääntyi minua vastaan yhden aloitteesta."
+            },
+            "maine": {
+                "name": "Maineen vahingoittaminen",
+                "definition": "Perättömien huhujen levittäminen.",
+                "phrases": [
+                    "Kuulin että hän tekee virheitä",
+                    "Hän ei ole tiimipelaaja",
+                    "Hän on vaikea ihminen",
+                    "Hänen kanssaan kukaan ei halua työskennellä"
+                ],
+                "goal": "Tuhota uskottavuus.",
+                "strategy": [
+                    "Oikaise faktat heti.",
+                    "Anna työn tulosten puhua.",
+                    "Pyydä HR:ää selvittämään huhujen lähde."
+                ],
+                "logExample": "Minusta levitettiin valheellista tietoa johdolle."
+            },
+            "cyberbullying": {
+                "name": "Nettikiusaaminen",
+                "definition": "Häirintä digitaalisissa kanavissa.",
+                "phrases": [
+                    "(Mitätöinti chatissa)",
+                    "(Vapaa-ajan häirintäviestit)",
+                    "(Epäasialliset meemit)",
+                    "(Ulossulkeminen kanavista)"
+                ],
+                "goal": "Tehdä vapaa-ajasta turvatonta.",
+                "strategy": [
+                    "Screenshotaa kaikki.",
+                    "Laita ilmoitukset pois.",
+                    "Älä vastaa provokaatioon."
+                ],
+                "logExample": "Ryhmä-chatissa levitettiin halventavia meemejä minusta."
+            },
+            "kohtuuttomuus": {
+                "name": "Kohtuuttomat vaatimukset",
+                "definition": "Mahdottomien tavoitteiden asettaminen.",
+                "phrases": [
+                    "Tämä pitää olla valmis huomenna",
+                    "Muutkin pystyvät",
+                    "Oletko hidas vai miksi kesto tuntuu pitkältä?",
+                    "En ehdi katsoa priorisointia"
+                ],
+                "goal": "Uuvuttaa tai todistaa epäpätevyys.",
+                "strategy": [
+                    "Pyydä priorisointi kirjallisesti.",
+                    "Pidä työaikakirjanpitoa.",
+                    "Ilmoita ylikuormasta sähköpostilla."
+                ],
+                "logExample": "Sain viikon työn tehtäväksi yhdessä iltapäivässä."
+            },
+            "epaoikeudenmukaisuus": {
+                "name": "Epäoikeudenmukaisuus",
+                "definition": "Sääntöjen ja etujen epätasa-arvoinen soveltaminen.",
+                "phrases": [
+                    "Hän saa etätyötä, sinä et",
+                    "Hänelle saa antaa anteeksi",
+                    "Sinun virheesi on vakava (muiden ei)",
+                    "Hyvä projekti A! (vaikka sinä teit työn)"
+                ],
+                "goal": "Viestittää epäarvoisuudesta.",
+                "strategy": [
+                    "Vertaa ohjeistuksiin.",
+                    "Pyydä kirjalliset perustelut.",
+                    "Dokumentoi poikkeamat."
+                ],
+                "logExample": "Palkankorotus evättiin minulta ilman syytä, muille se annettiin."
             },
             "micromanagement": {
                 "name": "Mikrosäätö & Kyttäys",
-                "definition": "Liiallinen vahtiminen ja työn yksityiskohtiin puuttuminen ilman todellista tarvetta.",
+                "definition": "Liiallinen valvonta ja puuttuminen yksityiskohtiin.",
                 "phrases": [
-                    "Laita minut CC:ksi jokaiseen viestiin",
+                    "CC:ksi jokaiseen viestiin",
+                    "Avaa näyttösi tässä",
                     "Miksi käytit tätä fonttia?",
-                    "Kuinka monta minuuttia käytit tähän?",
-                    "Avaa näyttösi niin katson"
+                    "Kuinka monta minuuttia käytit tähän?"
                 ],
-                "goal": "Viedä ammatillinen autonomia ja aiheuttaa epävarmuutta.",
+                "goal": "Viedä ammatillinen autonomia.",
                 "strategy": [
-                    "Tarjoa raportoteja proaktiivisesti.",
-                    "Kysy autonomian asteesta.",
+                    "Raportoi proaktiivisesti.",
+                    "Kysy tarvittavasta tuesta.",
                     "Dokumentoi vaikutus tehokkuuteen."
                 ],
-                "logExample": "Esimies seurasi Teams-tilaa minuutin tarkkuudella ja vaati selityksen jokaisesta 'Poissa'-tilasta."
+                "logExample": "Esimies puuttui jokaisen sähköpostini kielioppiin ja fonttiin."
             },
             "credit_stealing": {
                 "name": "Kunnian varastaminen",
-                "definition": "Toisen tekemän työn tai ideoiden esittäminen omina.",
+                "definition": "Toisen ideoiden esittäminen omina.",
                 "phrases": [
-                    "Kuten sanoin aiemmin... (ideasi)",
+                    "Kuten sanoin (sinun ideasi)",
                     "Minä sain tämän valmiiksi",
                     "(Nimesi puuttuu raportista)",
                     "Tiimini teki tämän (vaikka teit yksin)"
                 ],
-                "goal": "Edistää omaa uraa toisen kustannuksella.",
+                "goal": "Edistää omaa uraa toisen työllä.",
                 "strategy": [
-                    "Merkitse nimesi jokaiseen dokumenttiin.",
-                    "Jaa ideoita laajalle piirille.",
+                    "Merkitse nimesi joka paikkaan.",
+                    "Jaa ideoita laajemmin.",
                     "Sano ääneen: 'Hienoa että jatkoit ideaani'."
                 ],
-                "logExample": "Ideani esiteltiin esimiehen omana keksintönä seuraavan viikon osastokokouksessa."
+                "logExample": "Palaverissa esittelemäni idea kirjattiin esimiehen nimiin raportissa."
             },
             "unjustified_warnings": {
                 "name": "Perusteettomat varoitukset",
-                "definition": "Varoitusten käyttö pelottelukeinona ilman todellista syytä.",
+                "definition": "Kurinpidon käyttö pelotteluna.",
                 "phrases": [
                     "Tämä on virallinen huomautus",
-                    "Nimesi on mustalla listalla",
+                    "Olet mustalla listalla",
                     "Varoituksia tulee, jos asenne ei muutu"
                 ],
-                "goal": "Luoda peruste irtisanomiselle tai hiljentää uhri.",
+                "goal": "Luoda peruste poistamiselle.",
                 "strategy": [
                     "Vastaa aina kirjallisesti.",
-                    "Ota yhteys liittoon HETI.",
+                    "Soita liittoon HETI.",
                     "Vaadi perusteet faktapohjaisina."
                 ],
-                "logExample": "Sain varoituksen myöhästymisestä, vaikka olin paikalla ajoissa (todisteena leimauslaite)."
+                "logExample": "Sain varoituksen 'asenneongelmasta', kun pyysin lakisääteistä taukoa."
             },
-            "cyberbullying": {
-                "name": "Nettikiusaaminen (Chat/Email)",
-                "definition": "Häirintä digitaalisissa kanavissa, usein työajan ulkopuolella.",
+            "passiivi-aggressio": {
+                "name": "Passiivi-aggressio",
+                "definition": "Piilotettu vihamielisyys ja epäsuora vastustaminen.",
                 "phrases": [
-                    "(Viestit vapaa-ajalla)",
-                    "(Mitätöinti chateissa)",
-                    "(Epäasialliset meemit ryhmässä)",
-                    "(Ulossulkeminen kanavista)"
+                    "Olipa upea suoritus (sarkasmi)",
+                    "Olen vain rehellinen",
+                    "(Silmien pyörittely)",
+                    "(Huokailu puheesi aikana)"
                 ],
-                "goal": "Tehdä vapaa-ajasta turvatonta ja nöyryyttää julkisesti.",
+                "goal": "Satuttaa ilman vastuuta teoista.",
                 "strategy": [
-                    "Ota kuvakaappaukset kaikesta.",
-                    "Älä vastaa provokaatioon.",
-                    "Aseta tekniset rajat viestintään."
+                    "Kysy suoraan tarkoitusta.",
+                    "Pysy viileän asiallisena.",
+                    "Dokumentoi sanat ja eleet."
                 ],
-                "logExample": "Slack-kanavalla levitettiin muokattua kuvaa minusta, jolle muut nauraivat emojeilla."
+                "logExample": "Esimies pyöritteli silmiään puheenvuorollani."
+            },
+            "thousand-cuts": {
+                "name": "Death by a Thousand Cuts",
+                "definition": "Jatkuva sarja pienenpieniä mikroaggressioita.",
+                "phrases": [
+                    "(Jatkuva pieni korjailu)",
+                    "(Huokailu pyyntöjesi jälkeen)",
+                    "(Olematon palaute)",
+                    "(Pieniä epäasiallisia vitsejä)"
+                ],
+                "goal": "Kuluttaa uhrin psyyke hitaasti.",
+                "strategy": [
+                    "Dokumentoi KAIKKI pienetkin asiat.",
+                    "Hae ulkopuolista tukea.",
+                    "Katso kokonaiskuvaa."
+                ],
+                "logExample": "Tänään oli 10 pientä epämiellyttävää kohtaamista."
+            },
+            "sarcasm_mockery": {
+                "name": "Sarkasmi & Pilkka",
+                "definition": "Aggressiivinen vitsailu hyökkäyksen peitteenä.",
+                "phrases": [
+                    "Meidän nero keksi taas jotain",
+                    "Olipa hieno suoritus (ivallinen)",
+                    "No sinä nyt olet aina noin huolellinen",
+                    "Älä nyt taas ala uhriutua"
+                ],
+                "goal": "Nöyryyttää ilman vastapuolen puolustusmahdollisuutta.",
+                "strategy": [
+                    "Kysy suoraan: 'Mikä tässä naurattaa?'.",
+                    "Älä naura mukana.",
+                    "Pysy vakavana."
+                ],
+                "logExample": "Lounaalla kaksi tiimiläistä matki puhetapaani ivallisesti."
+            },
+            "neglect_indifference": {
+                "name": "Välinpitämättömyys",
+                "definition": "Uhrin tarpeiden ja olemassaolon huomiotta jättäminen.",
+                "phrases": [
+                    "En ehdi nyt (eikä koskaan)",
+                    "(Sähköpostit ohitetaan)",
+                    "(Uhrin työpanosta ei kommentoida)",
+                    "(Kysymyksiin ei vastata viikkoihin)"
+                ],
+                "goal": "Tehdä uhrista merkityksetön.",
+                "strategy": [
+                    "Pyydä vastauksia kirjalloisesti.",
+                    "Ilmoita viestintäkatkoksista.",
+                    "Hae vahvistusta muilta."
+                ],
+                "logExample": "Esimies ei ole vastannut ohje-pyyntöihini kahteen viikkoon."
+            },
+            "withholding_info": {
+                "name": "Tiedon panttaaminen",
+                "definition": "Kriittisen tiedon tahallinen salaaminen.",
+                "phrases": [
+                    "Ai, eikö kukaan kertonut?",
+                    "Palaveri oli jo",
+                    "Me muutimme suunnitelmaa aamulla",
+                    "(Poistaminen jakelulistoilta)"
+                ],
+                "goal": "Saada uhri epäonnistumaan.",
+                "strategy": [
+                    "Sovi virallisista kanavista.",
+                    "Kysy aktiivisesti puuttuvaa tietoa.",
+                    "Dokumentoi viiveet."
+                ],
+                "logExample": "Projekti viivästyi, because en saanut tietoa muuttuneista toiveista."
+            },
+            "triangulation": {
+                "name": "Triangulaatio",
+                "definition": "Ihmisten pelaaminen toisiaan vastaan selän takana.",
+                "phrases": [
+                    "Matti sanoi että sinä...",
+                    "Esimies on huolissaan (vaikka ei ole)",
+                    "Liisa arvosteli työtäsi",
+                    "Tiimissä on sellaista puhetta että..."
+                ],
+                "goal": "Luoda konflikteja ja epäluottamusta.",
+                "strategy": [
+                    "Varmista asiat suoraan.",
+                    "Älä levitä huhuja.",
+                    "Vaadi suoraa palautetta."
+                ],
+                "logExample": "Kollega väitti esimiehen olevan tyytymätön, vaikka hän oli tyytyväinen."
+            },
+            "scapegoating": {
+                "name": "Syntipukitus",
+                "definition": "Yhden henkilön syyttäminen kollektiivisista virheistä.",
+                "phrases": [
+                    "Tämä epäonnistui sinun takiasi",
+                    "Olet heikoin lenkki",
+                    "Kaikki mureni kun tulit mukaan",
+                    "Your mistake cost us a lot"
+                ],
+                "goal": "Siirtää vastuu ja luoda yhteinen vihollinen.",
+                "strategy": [
+                    "Faktapohjainen vastine syytöksiin.",
+                    "Osoita työnjako selvästi.",
+                    "Hae tukea HR:ltä."
+                ],
+                "logExample": "Minua syytettiin budjettivajeesta, jota en edes hallinnoinut."
+            },
+            "concern_trolling": {
+                "name": "Valesympatia",
+                "definition": "Kritiikin verhoaminen huolestuneisuuteen.",
+                "phrases": [
+                    "Olen vain huolissani jaksamisestasi (ivalla)",
+                    "Ehkä tämä on liian raskasta?",
+                    "Haluan vain parastasi...",
+                    "Olemme kaikki huolissamme"
+                ],
+                "goal": "Murentaa itseluottamus.",
+                "strategy": [
+                    "Vastaa vain faktaan.",
+                    "Kysy konkreettisia perusteita.",
+                    "Aseta ammatillinen raja."
+                ],
+                "logExample": "Kollega huokaili 'huolestuneena' työpisteelläni muiden nähden."
+            },
+            "victim_playing": {
+                "name": "Uhriutuminen",
+                "definition": "Kiusaaja esittää itsensä uhrina välttääkseen vastuun.",
+                "phrases": [
+                    "Aina minua syytetään kaikesta!",
+                    "Minua kiusataan kun pyydän sinua tekemään työtäsi",
+                    "Etkö näe miten kovaa minä yritän?",
+                    "Nyt te kaikki hyökkäätte minua vastaan"
+                ],
+                "goal": "Kääntää huomio pois omasta käytöksestä.",
+                "strategy": [
+                    "Pysy tiukasti faktoissa.",
+                    "Älä pyydä anteeksi syyttä.",
+                    "Dokumentoi alkuperäinen tilanne."
+                ],
+                "logExample": "Kun huomautin huutamisesta, kollega alkoi itkeä ja väitti minua hyökkääjäksi."
+            },
+            "manipulaatio": {
+                "name": "Emotionaalinen manipulaatio",
+                "definition": "Tunteiden (syyllisyys, pelko) käyttö hallintaan.",
+                "phrases": [
+                    "Luulin että olemme ystäviä",
+                    "Kun olet sairas, muut kärsivät",
+                    "Olet ainoa joka voi pelastaa tämän",
+                    "Katsotaan ensi viikolla (mutta ei koskaan)"
+                ],
+                "goal": "Saada uhri kuuliaiseksi syyllisyyden avulla.",
+                "strategy": [
+                    "Aseta terveet rajat.",
+                    "Älä ota vastuuta toisen tunteista.",
+                    "Tunnista syyllistämisen kehä."
+                ],
+                "logExample": "Esimies syyllisti sairauslomasta sanoen sen tuhoavan tiimihengen."
+            },
+            "resources_denial": {
+                "name": "Resurssien kieltäminen",
+                "definition": "Työvälineiden tai avun epääminen.",
+                "phrases": [
+                    "Meillä ei ole budjettia tähän",
+                    "Tee se käsin",
+                    "Et tarvitse uutta konetta vielä",
+                    "Hae ohjeet itse (vaikka ne ovat lukittuina)"
+                ],
+                "goal": "Tehdä työnteosta tuskallista.",
+                "strategy": [
+                    "Tee viralliset pyynnöt kirjallisesti.",
+                    "Dokumentoi hukattu aika.",
+                    "Ilmoita resurssivajeesta."
+                ],
+                "logExample": "Kaikki muut saivat uudet lisenssit paitsi minä."
+            },
+            "underemployment": {
+                "name": "Alityöllistäminen",
+                "definition": "Työtehtävien muuttaminen selvästi osaamista vastaamattomiksi.",
+                "phrases": [
+                    "Tämä on tärkeintä nyt (hanttihommat)",
+                    "Hae tiimille kahvia",
+                    "Lataa nämä paperit koneelle koko päivä",
+                    "Emme uskalla antaa isompaa vastuuta"
+                ],
+                "goal": "Nöyryyttää ja savustaa ulos.",
+                "strategy": [
+                    "Pidä listaa tehtävistä.",
+                    "Ota puheeksi työnkuva.",
+                    "Varmista rajat liitosta."
+                ],
+                "logExample": "Asiantuntijatehtävistäni siirrettiin tekemään pelkkää skannausta."
+            },
+            "moving_goalposts": {
+                "name": "Maalitolppien siirto",
+                "definition": "Vaatimusten muuttaminen kesken kaiken.",
+                "phrases": [
+                    "Tarkoitimmekin oikeastaan tätä",
+                    "Tämä ei enää riitä",
+                    "Uusi sääntö onkin tämä...",
+                    "En ole tyytyväinen, vaikka teit mitä pyydettiin"
+                ],
+                "goal": "Varmistaa ettei onnistuminen ole mahdollista.",
+                "strategy": [
+                    "Vaadi tavoitteet kirjallisesti.",
+                    "Dokumentoi muutokset.",
+                    "Pyydä mitattavia kriteerejä."
+                ],
+                "logExample": "Raportin valmistuttua esimies sanoi haluavansakin aivan eri asioita."
+            },
+            "spatial_harassment": {
+                "name": "Tilahäirintä",
+                "definition": "Henkilökohtaisen tilan tunkeileva käyttö tai heikennys.",
+                "phrases": [
+                    "(Pöydän siirto pimeään nurkkaan)",
+                    "(Seisominen liian lähellä)",
+                    "(Tavaroiden siirtely pöydälläsi)",
+                    "(Tunkeutuminen omaan tilaan)"
+                ],
+                "goal": "Saada uhri tuntemaan olonsa turvattomaksi.",
+                "strategy": [
+                    "Pyydä selkeästi lisää tilaa.",
+                    "Pyydä työsuojelutarkastus.",
+                    "Pue luvaton koskeminen sanoiksi."
+                ],
+                "logExample": "Työpisteeeni siirrettiin WC:n viereen käytävälle."
+            },
+            "symbolic_demotion": {
+                "name": "Symbolinen alentaminen",
+                "definition": "Statuksen merkkien poistaminen tai arvovallan murentaminen.",
+                "phrases": [
+                    "Hän on vain tällainen avustaja",
+                    "(Nimen poisto listoilta)",
+                    "(Nimen poisto oveksesta)",
+                    "(Poistaminen johdon jakelulistoilta)"
+                ],
+                "goal": "Viestiä muille ettei uhri ole enää tärkeä.",
+                "strategy": [
+                    "Huomauta puuttuvista tiedoista.",
+                    "Varmista asemasi HR:stä.",
+                    "Käytä oikeaa titteliäsi."
+                ],
+                "logExample": "Nimikkeeni muutettiin sähköpostissa 'interniksi' koko osaston nähden."
             }
         },
         "modal": {

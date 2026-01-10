@@ -518,7 +518,7 @@ export default function QuizPage() {
                                         <div className="flex items-center gap-4">
                                             <div className="h-1px flex-1 bg-slate-200" />
                                             <h3 className="text-xl font-black uppercase tracking-widest text-slate-400">
-                                                {t(`quiz.categories.${catId}`)}
+                                                {t(`quiz.tactic_categories.${catId}`)}
                                             </h3>
                                             <div className="h-1px flex-1 bg-slate-200" />
                                         </div>
