@@ -554,7 +554,7 @@ export default function QuizPage() {
                                             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                                                 <Zap className="w-48 h-48" />
                                             </div>
-                                            <DialogTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] px-2 sm:px-0 relative z-10 break-words max-w-full">
+                                            <DialogTitle className="text-xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] px-4 sm:px-0 relative z-10 break-all sm:break-words max-w-full">
                                                 {t(`quiz.tactics.${selectedTactic.id}.name`)}
                                             </DialogTitle>
                                             <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
