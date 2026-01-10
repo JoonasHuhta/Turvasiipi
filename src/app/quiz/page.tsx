@@ -554,13 +554,13 @@ export default function QuizPage() {
                                             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                                                 <Zap className="w-48 h-48" />
                                             </div>
-                                            <DialogTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] pr-4 relative z-10 break-words max-w-full">
+                                            <DialogTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] px-2 sm:px-0 relative z-10 break-words max-w-full">
                                                 {t(`quiz.tactics.${selectedTactic.id}.name`)}
                                             </DialogTitle>
                                             <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
                                         </DialogHeader>
 
-                                        <div className="p-8 space-y-10 overflow-y-auto custom-scrollbar bg-slate-50/50">
+                                        <div className="p-4 sm:p-8 space-y-10 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-50/50">
                                             {/* Impact Visualization */}
                                             <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
                                                 <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
