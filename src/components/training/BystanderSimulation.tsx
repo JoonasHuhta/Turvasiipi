@@ -268,7 +268,7 @@ export default function BystanderSimulation({
     onExit
 }: {
     moduleId?: string;
-    onComplete: (score: number) => void;
+    onComplete: (score: number, passed: boolean) => void;
     onExit: () => void;
 }) {
     const [currentStepId, setCurrentStepId] = useState('start');
@@ -300,7 +300,12 @@ export default function BystanderSimulation({
         setSafety(prev => Math.min(100, Math.max(0, prev + choice.impact.safety)));
 
         if (choice.nextStep === 'finish') {
-            onComplete(solidarity + safety);
+            const finalSolidarity = solidarity + choice.impact.solidarity;
+            const finalSafety = safety + choice.impact.safety;
+            const totalScore = finalSolidarity + finalSafety;
+            const passed = totalScore >= 100;
+
+            onComplete(totalScore, passed);
             return;
         }
 

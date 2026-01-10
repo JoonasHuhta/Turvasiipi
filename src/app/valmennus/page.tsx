@@ -18,6 +18,7 @@ import {
     RotateCcw,
     ChevronRight,
     Trophy,
+    AlertCircle,
     Target,
     Zap,
     History,
@@ -39,7 +40,7 @@ export default function TrainingPage() {
     const { completeModule, awardBadge, getCertificationProgress, isModuleCompleted } = useProgress();
 
     // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete'>('hub');
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -559,11 +560,15 @@ export default function TrainingPage() {
                         >
                             <AssociationSimulation
                                 moduleId={currentModuleId || undefined}
-                                onComplete={(finalScore) => {
+                                onComplete={(finalScore, passed) => {
                                     setScore(finalScore);
-                                    completeModule('valmennus_leisure_assoc');
-                                    awardBadge('leisure_hero');
-                                    setView('finished');
+                                    if (passed) {
+                                        completeModule('valmennus_leisure_assoc');
+                                        awardBadge('leisure_hero');
+                                        setView('finished');
+                                    } else {
+                                        setView('failed');
+                                    }
                                 }}
                                 onExit={() => setView('category')}
                             />
@@ -581,11 +586,15 @@ export default function TrainingPage() {
                         >
                             <BystanderSimulation
                                 moduleId={currentModuleId || undefined}
-                                onComplete={(finalScore) => {
+                                onComplete={(finalScore, passed) => {
                                     setScore(finalScore);
-                                    completeModule('valmennus_bystander_sim');
-                                    awardBadge('bystander_hero');
-                                    setView('finished');
+                                    if (passed) {
+                                        completeModule('valmennus_bystander_sim');
+                                        awardBadge('bystander_hero');
+                                        setView('finished');
+                                    } else {
+                                        setView('failed');
+                                    }
                                 }}
                                 onExit={() => setView('category')}
                             />
@@ -718,6 +727,55 @@ export default function TrainingPage() {
                                     Takaisin hubiin
                                 </Button>
                             </div>
+                        </motion.div>
+                    )}
+
+                    {/* FAILED VIEW */}
+                    {view === 'failed' && (
+                        <motion.div
+                            key="failed"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="min-h-full flex flex-col justify-center p-6 py-12 max-w-lg mx-auto space-y-8 pb-32"
+                        >
+                            <div className="text-center space-y-4">
+                                <AlertCircle className="w-16 h-16 text-rose-500 mx-auto mb-2" />
+                                <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-none">
+                                    Harjoitus ei läpäisty
+                                </h2>
+                                <p className="text-slate-400 text-sm">
+                                    {selectedCategory?.type === 'process'
+                                        ? 'Prosessi jäi kesken. Kokeile rohkeampia valintoja viedäksesi tilannetta eteenpäin.'
+                                        : 'Vastauksesi eivät vielä riittäneet hyväksyttyyn suoritukseen.'}
+                                </p>
+                            </div>
+
+                            <Card className="bg-slate-900 border-rose-500/30 overflow-hidden rounded-[2rem] shadow-2xl">
+                                <div className="p-10 text-center space-y-6">
+                                    <div className="space-y-1">
+                                        <div className="text-rose-400 uppercase font-black tracking-widest text-[10px]">Tulos</div>
+                                        <div className="text-6xl font-black text-white">{score}<span className="text-xl text-slate-700">/{filteredScenarios.length > 0 ? filteredScenarios.length : 100}</span></div>
+                                    </div>
+
+                                    <div className="pt-4 grid gap-3">
+                                        <Button
+                                            onClick={() => {
+                                                if (selectedCategory?.id === 'return') setView('rtw-wizard');
+                                                else if (selectedCategory?.id === 'leisure') setView('association-sim');
+                                                else if (selectedCategory?.id === 'interactive') setView('bystander-sim');
+                                                else if (selectedCategory?.type === 'skill') setView('intro');
+                                                else setView('category');
+                                            }}
+                                            className="w-full h-14 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full uppercase font-black tracking-widest text-[10px] shadow-lg"
+                                        >
+                                            <RotateCcw className="w-4 h-4 mr-2" /> Yritä uudelleen
+                                        </Button>
+                                        <Button onClick={reset} variant="ghost" className="w-full h-12 text-slate-500 hover:text-white rounded-full uppercase font-black tracking-widest text-[10px]">
+                                            Takaisin valikkoon
+                                        </Button>
+                                    </div>
+                                </div>
+                            </Card>
                         </motion.div>
                     )}
 

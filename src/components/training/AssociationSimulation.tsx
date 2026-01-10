@@ -281,7 +281,7 @@ export default function AssociationSimulation({
     onExit
 }: {
     moduleId?: string;
-    onComplete: (score: number) => void;
+    onComplete: (score: number, passed: boolean) => void;
     onExit: () => void;
 }) {
     const [currentStepId, setCurrentStepId] = useState('start');
@@ -329,7 +329,12 @@ export default function AssociationSimulation({
 
         // Check for finish
         if (choice.nextStep === 'finish') {
-            onComplete(wellbeing + safety);
+            const finalWellbeing = wellbeing + choice.impact.wellbeing;
+            const finalSafety = safety + choice.impact.safety;
+            const totalScore = finalWellbeing + finalSafety;
+            const passed = totalScore >= 100;
+
+            onComplete(totalScore, passed);
             return;
         }
 
