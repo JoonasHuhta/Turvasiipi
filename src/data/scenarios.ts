@@ -46,7 +46,7 @@ export const trainingScenarios: TrainingScenario[] = [
     {
         id: 'e3',
         level: 'easy',
-        scenario: 'Esimies väittää palaverissa, ettei ole koskaan lupannut sinulle lisäresursseja, vaikka asvosta sovittiin kirjallisesti viikko sitten. Alat epäillä omaa muistiasi.',
+        scenario: 'Esimies väittää palaverissa, ettei ole koskaan lupannut sinulle lisäresursseja, vaikka asiasta sovittiin kirjallisesti viikko sitten. Alat epäillä omaa muistiasi.',
         question: 'Mikä taktiikka on kyseessä?',
         options: [
             { id: 'a', text: 'Gaslighting', isCorrect: true, feedback: 'Oikein. Gaslighting on pyrkimys saada uhri epäilemään omaa havaintokykyään tai muistiaan.' },
