@@ -39,13 +39,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         for (const key of keys) {
             if (current[key] === undefined) {
                 console.warn(`Translation key not found: ${path}`);
+                if (params && 'returnObjects' in params && params.returnObjects) {
+                    return null;
+                }
                 return path;
             }
             current = current[key];
         }
 
         if (params && 'returnObjects' in params && params.returnObjects) {
-            return current;
+            return typeof current === 'object' ? current : null;
         }
 
         let translation = current as string;

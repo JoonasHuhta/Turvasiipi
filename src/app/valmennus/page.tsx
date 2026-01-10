@@ -34,13 +34,14 @@ import { trainingHubData, TrainingCategory, TrainingModule } from "@/data/traini
 import { RTWWizard } from "@/components/training/RTWWizard";
 import AssociationSimulation from "@/components/training/AssociationSimulation";
 import BystanderSimulation from "@/components/training/BystanderSimulation";
+import OstracismToolkit from "@/components/training/OstracismToolkit";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
     const { completeModule, awardBadge, getCertificationProgress, isModuleCompleted } = useProgress();
 
     // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete'>('hub');
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete' | 'ostracism-toolkit'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -92,6 +93,10 @@ export default function TrainingPage() {
         }
 
         if (selectedCategory?.id === 'research') {
+            if (module.id === 'ostrakismi_toolkit') {
+                setView('ostracism-toolkit');
+                return;
+            }
             setView('concept-view');
             completeModule(module.id);
             return;
@@ -601,6 +606,33 @@ export default function TrainingPage() {
                         </motion.div>
                     )}
 
+                    {/* OSTRACISM TOOLKIT VIEW */}
+                    {view === 'ostracism-toolkit' && (
+                        <motion.div
+                            key="ostracism-toolkit"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="min-h-full"
+                        >
+                            <div className="max-w-4xl mx-auto mb-8">
+                                <Button
+                                    onClick={() => setView('category')}
+                                    variant="ghost"
+                                    className="text-slate-400 hover:text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-2 group"
+                                >
+                                    <X className="w-4 h-4 group-hover:rotate-90 transition-all" /> Takaisin valikkoon
+                                </Button>
+                            </div>
+                            <OstracismToolkit
+                                onComplete={() => {
+                                    if (currentModuleId) completeModule(currentModuleId);
+                                    setView('finished');
+                                }}
+                            />
+                        </motion.div>
+                    )}
+
                     {/* CONCEPT VIEW */}
                     {view === 'concept-view' && (
                         <motion.div
@@ -608,15 +640,15 @@ export default function TrainingPage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="min-h-full p-6 md:p-12 max-w-3xl mx-auto flex flex-col justify-center gap-8"
+                            className="min-h-full p-6 md:p-12 max-w-3xl mx-auto flex flex-col justify-center gap-6 md:gap-8"
                         >
-                            <Card className="bg-slate-900 border-indigo-500/30 p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                            <Card className="bg-slate-900 border-indigo-500/30 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full pointer-events-none" />
                                 <div className="space-y-8">
                                     <div className="flex items-center gap-3">
                                         <Badge className="bg-indigo-500 text-white border-none text-[8px] h-5 uppercase font-black tracking-widest px-3">Tutkimus & Käsitteet</Badge>
                                     </div>
-                                    <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">
+                                    <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none break-words">
                                         {currentModuleId === 'pluralistic_ignorance' ? 'Pluralistinen Ignoranssi' :
                                             currentModuleId === 'bystander_effect' ? 'Bystander-efekti Syväluotaus' : 'Tutkimustieto'}
                                     </h2>

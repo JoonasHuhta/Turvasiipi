@@ -144,6 +144,7 @@ export const trainingHubData: TrainingCategory[] = [
         type: 'skill',
         modules: [
             { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.', isCertificationModule: true },
+            { id: 'ostrakismi_toolkit', title: 'Ostrakismi-työkalupakki', description: 'Tunnista ja puutu hiljaiseen ulossulkemiseen.', isNew: true },
             { id: 'bystander_effect', title: 'Bystander-efekti Syväluotaus', description: 'Vastuun hajautumisen mekanismit.', isCertificationModule: true },
             { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true }
         ]

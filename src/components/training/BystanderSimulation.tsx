@@ -381,7 +381,7 @@ export default function BystanderSimulation({
                                             onClick={() => handleChoice(choice)}
                                             className="h-auto py-4 md:py-5 px-5 md:px-8 justify-between text-left bg-white text-slate-950 hover:bg-cyan-500 hover:text-white rounded-[1.2rem] md:rounded-[1.5rem] flex items-center group transition-all duration-300 shadow-lg"
                                         >
-                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1">{choice.text}</span>
+                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1 break-words">{choice.text}</span>
                                             <ArrowRight className="w-4 h-4 shrink-0 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                                         </Button>
                                     ))}

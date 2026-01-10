@@ -454,7 +454,7 @@
             "fyysiset": "Kehosi oireilee jo vakavasti. Tämä on selkeä viesti siitä, että rajasi on ylitetty.",
             "käyttäytyminen": "Muutos siviilielämässäsi kertoo siitä, että työ on alkanut hallita koko hyvinvointiasi."
         },
-        "categories": {
+        "risk_categories": {
             "itsetunto": {
                 "label": "Itsetunnon mureneminen",
                 "description": "Miltä sinusta tuntuu itsesi ja ammattitaitosi suhteen."
@@ -554,6 +554,12 @@
                 "criticism": "Selkeys odotuksista ja ammatillinen kehittyminen."
             }
         ],
+        "categories": {
+            "verbal": "Sanalliset ja emotionaaliset hyökkäykset",
+            "social": "Sosiaalinen eristäminen",
+            "passive": "Passiivinen vihamielisyys",
+            "power": "Työperäinen vallan väärinkäyttö"
+        },
         "tactics": {
             "mitatointi": {
                 "name": "Mitätöinti & Vähättely",
@@ -588,6 +594,23 @@
                     "Kysy kirjallisesti, miksi tieto ei kulkenut."
                 ],
                 "logExample": "Koko tiimi meni lounaalle ilman minua 3. päivä peräkkäin (10-12.12)."
+            },
+            "ostrakismi": {
+                "name": "Ostrakismi (Ulossulkeminen)",
+                "definition": "Järjestelmällinen huomiotta jättäminen ja 'kylmä olka'. Näkymätön kiusaamisen muoto, jossa uhri sivuutetaan ikään kuin häntä ei olisi olemassa.",
+                "phrases": [
+                    "(Tervehdykseen ei vastata)",
+                    "(Puhe keskeytyy kun tulet huoneeseen)",
+                    "(Keskustelu käydään ohitse, 'ghost in the room')",
+                    "(Vastaamattomat viestit, vaikka muiden viesteihin reagoidaan)"
+                ],
+                "goal": "Murentaa yhteenkuuluvuuden tunne ja ammatillinen itsetunto hitaasti.",
+                "strategy": [
+                    "Tunnista toistuvuus: yksittäinen unohtaminen vs. systemaattisuus.",
+                    "Pue sanoiksi havaittavat teot (esim. vastaamattomuus).",
+                    "Hae tukea esimieheltä tai HR:ltä inkluusion varmistamiseksi."
+                ],
+                "logExample": "Huomasin 'hiljaisen konsensuksen': kolme kollegaa lopetti tervehtimisen samaan aikaan."
             },
             "gaslighting": {
                 "name": "Gaslighting",
@@ -652,7 +675,7 @@
                 "goal": "Luo epävarmuutta ja viestittää, ettet ole tasavertainen muiden kanssa.",
                 "strategy": [
                     "Vertaa tilannettasi kirjallisiin ohjeisiin.",
-                    "Dokumentoi poikkeamat tasapuolisuudessa.",
+                    "Dokumentoi poikkaamat tasapuolisuudessa.",
                     "Kysy kirjallisesti perustelut eriarvoiselle kohtelulle."
                 ],
                 "logExample": "Kollega sai kiitoksen tiimipalaverissa projektista, jonka tein yksin."
@@ -758,6 +781,108 @@
                     "Hae ulkopuolista validaatiota tilanteelle."
                 ],
                 "logExample": "15 pientä epämiellyttävää kohtaamista saman päivän aikana. Masentava olo."
+            },
+            "mobbing": {
+                "name": "Mobbing (Ryhmäkiusaaminen)",
+                "definition": "Koko ryhmän tai usean henkilön kohdistama painostus yhtä henkilöä kohtaan.",
+                "phrases": [
+                    "Kaikkien mielestä olet vaikea",
+                    "Kukaan ei halua sinua tähän projektiin",
+                    "(Yhteinen nauru poistuessasi)",
+                    "(Yhteiset sopimukset sinua vastaan)"
+                ],
+                "goal": "Poistaa uhri ryhmästä sosiaalisen paineen avulla.",
+                "strategy": [
+                    "Etsi liittolaisia ryhmän ulkopuolelta.",
+                    "Dokumentoi osallistujat.",
+                    "Ota yhteys HR:ään välittömästi."
+                ],
+                "logExample": "Tiimi allekirjoitti valituksen minusta keskustelematta kanssani kertaakaan."
+            },
+            "micromanagement": {
+                "name": "Mikrosäätö & Kyttäys",
+                "definition": "Liiallinen vahtiminen ja työn yksityiskohtiin puuttuminen ilman todellista tarvetta.",
+                "phrases": [
+                    "Laita minut CC:ksi jokaiseen viestiin",
+                    "Miksi käytit tätä fonttia?",
+                    "Kuinka monta minuuttia käytit tähän?",
+                    "Avaa näyttösi niin katson"
+                ],
+                "goal": "Viedä ammatillinen autonomia ja aiheuttaa epävarmuutta.",
+                "strategy": [
+                    "Tarjoa raportoteja proaktiivisesti.",
+                    "Kysy autonomian asteesta.",
+                    "Dokumentoi vaikutus tehokkuuteen."
+                ],
+                "logExample": "Esimies seurasi Teams-tilaa minuutin tarkkuudella ja vaati selityksen jokaisesta 'Poissa'-tilasta."
+            },
+            "credit_stealing": {
+                "name": "Kunnian varastaminen",
+                "definition": "Toisen tekemän työn tai ideoiden esittäminen omina.",
+                "phrases": [
+                    "Kuten sanoin aiemmin... (ideasi)",
+                    "Minä sain tämän valmiiksi",
+                    "(Nimesi puuttuu raportista)",
+                    "Tiimini teki tämän (vaikka teit yksin)"
+                ],
+                "goal": "Edistää omaa uraa toisen kustannuksella.",
+                "strategy": [
+                    "Merkitse nimesi jokaiseen dokumenttiin.",
+                    "Jaa ideoita laajalle piirille.",
+                    "Sano ääneen: 'Hienoa että jatkoit ideaani'."
+                ],
+                "logExample": "Ideani esiteltiin esimiehen omana keksintönä seuraavan viikon osastokokouksessa."
+            },
+            "unjustified_warnings": {
+                "name": "Perusteettomat varoitukset",
+                "definition": "Varoitusten käyttö pelottelukeinona ilman todellista syytä.",
+                "phrases": [
+                    "Tämä on virallinen huomautus",
+                    "Nimesi on mustalla listalla",
+                    "Varoituksia tulee, jos asenne ei muutu"
+                ],
+                "goal": "Luoda peruste irtisanomiselle tai hiljentää uhri.",
+                "strategy": [
+                    "Vastaa aina kirjallisesti.",
+                    "Ota yhteys liittoon HETI.",
+                    "Vaadi perusteet faktapohjaisina."
+                ],
+                "logExample": "Sain varoituksen myöhästymisestä, vaikka olin paikalla ajoissa (todisteena leimauslaite)."
+            },
+            "cyberbullying": {
+                "name": "Nettikiusaaminen (Chat/Email)",
+                "definition": "Häirintä digitaalisissa kanavissa, usein työajan ulkopuolella.",
+                "phrases": [
+                    "(Viestit vapaa-ajalla)",
+                    "(Mitätöinti chateissa)",
+                    "(Epäasialliset meemit ryhmässä)",
+                    "(Ulossulkeminen kanavista)"
+                ],
+                "goal": "Tehdä vapaa-ajasta turvatonta ja nöyryyttää julkisesti.",
+                "strategy": [
+                    "Ota kuvakaappaukset kaikesta.",
+                    "Älä vastaa provokaatioon.",
+                    "Aseta tekniset rajat viestintään."
+                ],
+                "logExample": "Slack-kanavalla levitettiin muokattua kuvaa minusta, jolle muut nauraivat emojeilla."
+            }
+        },
+        "modal": {
+            "badge": "Taktinen analyysi",
+            "definition": "Määritelmä",
+            "phrases": "Tyypillisiä ilmaisualueita",
+            "strategy": "Vastatoimet & Strategia",
+            "log_instruction": "Esimerkki lokikirjaan",
+            "impact": {
+                "title": "Vaikutukset hyvinvointiin",
+                "stress": "Stressitaso",
+                "burnout": "Uupumusriski",
+                "selfEsteem": "Itsetunto"
+            },
+            "roles": {
+                "victim": "Uhri",
+                "witness": "Todistaja",
+                "manager": "Esimies"
             }
         },
         "step_actions": {

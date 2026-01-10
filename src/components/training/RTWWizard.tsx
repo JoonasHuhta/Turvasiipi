@@ -129,7 +129,7 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
                 <Badge className="bg-emerald-500/10 text-emerald-600 border-none px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">
                     Työhön paluun opas
                 </Badge>
-                <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tight">
+                <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tight break-words">
                     Paluusuunnitelman <br />
                     <span className="text-emerald-500">rakentaminen</span>
                 </h1>
@@ -156,14 +156,14 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-emerald-500/5"
+                        className="bg-white border border-slate-200 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-2xl shadow-emerald-500/5"
                     >
                         <div className="flex items-start gap-6 mb-10">
                             <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
                                 <currentStep.icon className="w-8 h-8" />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-black text-slate-900 mb-2 uppercase tracking-tight">{currentStep.title}</h2>
+                                <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 uppercase tracking-tight break-words">{currentStep.title}</h2>
                                 <p className="text-slate-500 text-lg">{currentStep.description}</p>
                             </div>
                         </div>

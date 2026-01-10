@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { EXPERT_LEVELS } from '@/lib/gamification-data';
 
 // --- TYPES ---
 
@@ -27,6 +28,7 @@ export interface UserProgress {
     completedModuleIds: string[];
     earnedBadgeIds: string[];
     points: number;
+    simulationScores: Record<string, number>; // moduleId -> score (0-100)
     streak: number;
     lastVisit: string | null;
 }
@@ -34,9 +36,11 @@ export interface UserProgress {
 interface ProgressContextType {
     progress: UserProgress;
     completeModule: (moduleId: string) => void;
+    saveSimulationScore: (moduleId: string, score: number) => void;
     awardBadge: (badgeId: string) => void;
     addPoints: (amount: number) => void;
     getLevel: () => number;
+    getExpertiseLevel: () => { totalScore: number; level: any; subLevel: any };
     getProgressPercentage: () => number;
     isModuleCompleted: (moduleId: string) => boolean;
     getCertificationProgress: () => { completed: number; total: number; percentage: number };
@@ -136,6 +140,7 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         completedModuleIds: [],
         earnedBadgeIds: [],
         points: 0,
+        simulationScores: {},
         streak: 0,
         lastVisit: null,
     });
@@ -145,7 +150,12 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         const saved = localStorage.getItem('suojasiipi_progress');
         if (saved) {
             try {
-                setProgress(JSON.parse(saved));
+                const parsed = JSON.parse(saved);
+                setProgress(prev => ({
+                    ...prev,
+                    ...parsed,
+                    simulationScores: parsed.simulationScores || {}
+                }));
             } catch (e) {
                 console.error("Failed to parse progress", e);
             }
@@ -190,6 +200,23 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
             ...prev,
             earnedBadgeIds: [...prev.earnedBadgeIds, badgeId]
         }));
+    };
+
+    const saveSimulationScore = (moduleId: string, score: number) => {
+        setProgress(prev => {
+            const currentScores = prev.simulationScores || {};
+            const currentScore = currentScores[moduleId] || 0;
+            // Only update if the new score is higher
+            if (score <= currentScore) return prev;
+
+            return {
+                ...prev,
+                simulationScores: {
+                    ...currentScores,
+                    [moduleId]: score
+                }
+            };
+        });
     };
 
     const addPoints = (amount: number) => {
@@ -246,6 +273,16 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return 30;
     };
 
+    const getExpertiseLevel = () => {
+        const scores = Object.values(progress.simulationScores || {});
+        const totalScore = scores.reduce((sum, s) => sum + s, 0);
+
+        const level = EXPERT_LEVELS.find(l => totalScore >= l.minPoints && totalScore <= l.maxPoints) || EXPERT_LEVELS[0];
+        const subLevel = level.subLevels.find(sl => totalScore >= sl.min && totalScore <= sl.max) || level.subLevels[0];
+
+        return { totalScore, level, subLevel };
+    };
+
     const getProgressPercentage = () => {
         const total = MODULES.length;
         const completed = progress.completedModuleIds.length;
@@ -276,9 +313,11 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         <ProgressContext.Provider value={{
             progress,
             completeModule,
+            saveSimulationScore,
             awardBadge,
             addPoints,
             getLevel,
+            getExpertiseLevel,
             getProgressPercentage,
             isModuleCompleted,
             getCertificationProgress

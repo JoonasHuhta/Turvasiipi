@@ -48,6 +48,7 @@ export interface GameState {
     history: string[]; // Phase IDs
     isGameOver: boolean;
     endingType?: 'A' | 'B' | 'C';
+    scoreSaved?: boolean;
 }
 
 export const INITIAL_STATS: GameStats = {

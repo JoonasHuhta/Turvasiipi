@@ -29,7 +29,7 @@ export interface StatConfigItem {
 }
 
 export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statConfig }: GameEngineProps) {
-    const { completeModule } = useProgress();
+    const { completeModule, saveSimulationScore } = useProgress();
     const { t } = useLanguage();
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
@@ -38,15 +38,29 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         logEntries: [],
         allies: [],
         history: [],
-        isGameOver: false
+        isGameOver: false,
+        scoreSaved: false
     });
 
     useEffect(() => {
-        if (state.currentPhaseId.startsWith('END_')) {
+        if (state.currentPhaseId.startsWith('END_') && !state.scoreSaved) {
             const moduleId = `sim_${state.profession}`;
+
+            // Calculate Performance Score (0-100)
+            // Weight stats: Self-Esteem (40%), Hope (40%), Team Acceptance (20%)
+            const finalStats = state.stats;
+            const performanceScore = Math.round(
+                (finalStats.selfEsteem * 0.4) +
+                (finalStats.hope * 0.4) +
+                (finalStats.teamAcceptance * 0.2)
+            );
+
             completeModule(moduleId);
+            saveSimulationScore(moduleId, performanceScore);
+
+            setState(prev => ({ ...prev, scoreSaved: true }));
         }
-    }, [state.currentPhaseId, state.profession, completeModule]);
+    }, [state.currentPhaseId, state.profession, completeModule, saveSimulationScore, state.stats, state.scoreSaved]);
 
     const [notification, setNotification] = useState<string | null>(null);
 
@@ -282,7 +296,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         <h3 className="text-sm font-bold uppercase tracking-wider text-indigo-400 mb-4 flex items-center gap-2">
                             <FileText className="w-4 h-4" /> Sinun tarinasi tilastot
                         </h3>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-3 gap-4">
                             <div>
                                 <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Logimerkintöjä</div>
                                 <div className="text-4xl font-black text-white">{state.logEntries.length}<span className="text-lg text-slate-700 ml-2">kpl</span></div>
@@ -290,6 +304,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             <div>
                                 <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Liittolaisia</div>
                                 <div className="text-4xl font-black text-white">{state.allies.length}</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-emerald-500 uppercase font-bold tracking-widest mb-1">Suoritus</div>
+                                <div className="text-4xl font-black text-white">
+                                    {Math.round((state.stats.selfEsteem * 0.4) + (state.stats.hope * 0.4) + (state.stats.teamAcceptance * 0.2))}
+                                    <span className="text-lg text-slate-700 ml-1">/100</span>
+                                </div>
                             </div>
                         </div>
                     </div>

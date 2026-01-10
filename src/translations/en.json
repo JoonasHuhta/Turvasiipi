@@ -454,7 +454,7 @@
             "fyysiset": "Physical symptoms are strong. Your body is reacting to chronic stress. Take this seriously.",
             "käyttäytyminen": "Changes in behavior suggest high vigilance. You are on high alert."
         },
-        "categories": {
+        "risk_categories": {
             "itsetunto": {
                 "label": "Erosion of Self-Esteem",
                 "description": "How you feel about yourself and your professional skills."
@@ -554,6 +554,12 @@
                 "criticism": "Clarity of expectations and professional development."
             }
         ],
+        "categories": {
+            "verbal": "Verbal and Emotional Attacks",
+            "social": "Social Isolation",
+            "passive": "Passive Hostility",
+            "power": "Work-related Abuse of Power"
+        },
         "tactics": {
             "mitatointi": {
                 "name": "Invalidation & Belittling",
@@ -588,6 +594,23 @@
                     "Ask in writing why information did not flow."
                 ],
                 "logExample": "Entire team went to lunch without me for 3rd day in a row (10-12.12)."
+            },
+            "ostrakismi": {
+                "name": "Ostracism (Exclusion)",
+                "definition": "Systematic ignoring and 'cold shoulder'. An invisible form of bullying where the victim is treated as if they don't exist.",
+                "phrases": [
+                    "(Greeting is not answered)",
+                    "(Speech is interrupted when you enter the room)",
+                    "(Conversation goes past you, 'ghost in the room')",
+                    "(Unanswered messages, while others' messages are reacted to)"
+                ],
+                "goal": "Slowly erode the sense of belonging and professional self-esteem.",
+                "strategy": [
+                    "Recognize recurrence: single forgetting vs. systematicity.",
+                    "Put observable acts into words (e.g., lack of response).",
+                    "Seek support from supervisor or HR to ensure inclusion."
+                ],
+                "logExample": "I noticed a 'silent consensus': three colleagues stopped greeting at the same time."
             },
             "gaslighting": {
                 "name": "Gaslighting",
@@ -758,6 +781,108 @@
                     "Seek outside validation for the situation."
                 ],
                 "logExample": "15 small unpleasant encounters within the same day. Depressing feeling."
+            },
+            "mobbing": {
+                "name": "Mobbing (Group Bullying)",
+                "definition": "Pressure directed by the entire group or several people at one person.",
+                "phrases": [
+                    "Everyone thinks you're difficult",
+                    "No one wants you in this project",
+                    "(Shared laughter as you leave)",
+                    "(Shared agreements against you)"
+                ],
+                "goal": "Remove the victim from the group through social pressure.",
+                "strategy": [
+                    "Find allies from outside the group.",
+                    "Document participants.",
+                    "Contact HR immediately."
+                ],
+                "logExample": "The team signed a complaint about me without discussing it with me once."
+            },
+            "micromanagement": {
+                "name": "Micromanagement",
+                "definition": "Excessive watching and interfering with work details without real need.",
+                "phrases": [
+                    "Put me in CC for every message",
+                    "Why did you use this font?",
+                    "How many minutes did you spend on this?",
+                    "Open your screen so I can watch"
+                ],
+                "goal": "Take away professional autonomy and cause uncertainty.",
+                "strategy": [
+                    "Provide reports proactively.",
+                    "Ask about degree of autonomy.",
+                    "Document impact on efficiency."
+                ],
+                "logExample": "Supervisor followed Teams status with minute precision and demanded explanation for every 'Away' status."
+            },
+            "credit_stealing": {
+                "name": "Credit Stealing",
+                "definition": "Presenting another's work or ideas as one's own.",
+                "phrases": [
+                    "As I said earlier... (your idea)",
+                    "I finished this",
+                    "(Your name missing from report)",
+                    "My team did this (even though you did it alone)"
+                ],
+                "goal": "Advance own career at another's expense.",
+                "strategy": [
+                    "Mark your name on every document.",
+                    "Share ideas with a wide circle.",
+                    "Say out loud: 'Great that you continued my idea'."
+                ],
+                "logExample": "My idea was presented as the supervisor's own invention at next week's department meeting."
+            },
+            "unjustified_warnings": {
+                "name": "Unjustified Warnings",
+                "definition": "Using warnings as an intimidation tactic without real cause.",
+                "phrases": [
+                    "This is a formal warning",
+                    "Your name is on the black list",
+                    "Warnings will come if attitude doesn't change"
+                ],
+                "goal": "Create a basis for dismissal or silence the victim.",
+                "strategy": [
+                    "Always respond in writing.",
+                    "Contact shop steward IMMEDIATELY.",
+                    "Demand justifications based on facts."
+                ],
+                "logExample": "Received a warning for being late, even though I was there on time (proof from clock-in device)."
+            },
+            "cyberbullying": {
+                "name": "Cyberbullying (Chat/Email)",
+                "definition": "Harassment in digital channels, often outside of working hours.",
+                "phrases": [
+                    "(Messages during free time)",
+                    "(Invalidation in chats)",
+                    "(Inappropriate memes in group)",
+                    "(Exclusion from channels)"
+                ],
+                "goal": "Make free time unsafe and humiliate publicly.",
+                "strategy": [
+                    "Take screenshots of everything.",
+                    "Do not respond to provocation.",
+                    "Set technical boundaries for communication."
+                ],
+                "logExample": "A modified image of me was spread on the Slack channel, which others laughed at with emojis."
+            }
+        },
+        "modal": {
+            "badge": "Tactical Analysis",
+            "definition": "Definition",
+            "phrases": "Typical Expressions",
+            "strategy": "Actions & Strategy",
+            "log_instruction": "Logbook Example",
+            "impact": {
+                "title": "Wellbeing Impacts",
+                "stress": "Stress Level",
+                "burnout": "Burnout Risk",
+                "selfEsteem": "Self-Esteem"
+            },
+            "roles": {
+                "victim": "Victim",
+                "witness": "Witness",
+                "manager": "Manager"
             }
         },
         "step_actions": {

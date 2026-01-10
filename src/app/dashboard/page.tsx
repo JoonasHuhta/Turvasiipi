@@ -10,7 +10,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
     Trophy, Star, Flame, Target, ChevronRight,
     Home, Brain, Wrench, HeartHandshake, Gamepad2,
-    Building2, GraduationCap, Sparkles, CheckCircle2, Circle
+    Building2, GraduationCap, Sparkles, CheckCircle2, Circle,
+    ChevronDown, ChevronUp, Info, Lightbulb
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,7 +31,7 @@ const CATEGORY_ICONS: Record<CategoryId, any> = {
 
 export default function DashboardPage() {
     const { t } = useLanguage();
-    const { progress, getLevel, getProgressPercentage, isModuleCompleted } = useProgress();
+    const { progress, getLevel, getExpertiseLevel, getProgressPercentage, isModuleCompleted } = useProgress();
     const [expandedCategory, setExpandedCategory] = useState<CategoryId | null>('CORE');
 
     const totalBadges = BADGES.length;
@@ -114,6 +115,9 @@ export default function DashboardPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* --- EXPERT PATH (NEW) --- */}
+                <ExpertisePathCard />
 
                 <Tabs defaultValue="modules" className="w-full">
                     <TabsList className="bg-white border p-1 rounded-2xl mb-8 w-full sm:w-auto h-auto flex flex-wrap gap-1">
@@ -269,6 +273,102 @@ export default function DashboardPage() {
                 </Tabs>
             </div>
         </div>
+    );
+}
+
+function ExpertisePathCard() {
+    const { getExpertiseLevel } = useProgress();
+    const { totalScore, level, subLevel } = getExpertiseLevel();
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    // Calculate progress within level
+    const levelRange = level.maxPoints - level.minPoints;
+    const levelProgress = totalScore - level.minPoints;
+    const progressPerc = Math.min(100, Math.max(0, (levelProgress / levelRange) * 100));
+
+    return (
+        <Card className="bg-white border-slate-200/60 shadow-xl shadow-slate-200/20 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-2xl">
+            <div className={cn("p-1 h-2", level.bg.replace('bg-', 'bg-').replace('100', '500'))} />
+            <div className="p-8 md:p-10 space-y-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div className="flex items-center gap-6">
+                        <div className={cn("w-20 h-20 rounded-[2rem] flex items-center justify-center text-4xl shadow-inner", level.bg)}>
+                            {level.icon}
+                        </div>
+                        <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                                <Badge variant="outline" className={cn("uppercase font-black text-[10px] tracking-widest px-3", level.color)}>
+                                    {level.name}
+                                </Badge>
+                                <span className="text-slate-300">/</span>
+                                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{totalScore} Performance Points</span>
+                            </div>
+                            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight leading-none">{subLevel.title}</h2>
+                            <p className="text-slate-500 font-medium">{subLevel.description}</p>
+                        </div>
+                    </div>
+
+                    <Button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        variant="ghost"
+                        className="rounded-full w-12 h-12 p-0 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50"
+                    >
+                        {isExpanded ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
+                    </Button>
+                </div>
+
+                <div className="space-y-3">
+                    <div className="flex justify-between items-end mb-1">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Progression to next rank</span>
+                        <span className="text-lg font-black text-slate-900">{Math.round(progressPerc)}%</span>
+                    </div>
+                    <div className="h-4 bg-slate-100 rounded-full overflow-hidden p-1 border shadow-inner">
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${progressPerc}%` }}
+                            className={cn("h-full rounded-full shadow-sm", level.bg.replace('bg-', 'bg-').replace('100', '500'))}
+                        />
+                    </div>
+                </div>
+
+                <AnimatePresence>
+                    {isExpanded && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="pt-6 border-t border-slate-100 overflow-hidden"
+                        >
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-2 text-indigo-600">
+                                        <Info className="w-4 h-4" />
+                                        <h4 className="font-black uppercase text-xs tracking-widest">Palaute suorituksestasi</h4>
+                                    </div>
+                                    <p className="text-slate-600 leading-relaxed font-medium bg-indigo-50/50 p-5 rounded-3xl border border-indigo-100/50">
+                                        {subLevel.feedback}
+                                    </p>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-2 text-amber-600">
+                                        <Lightbulb className="w-4 h-4" />
+                                        <h4 className="font-black uppercase text-xs tracking-widest">Suositellut askeleet</h4>
+                                    </div>
+                                    <ul className="space-y-3">
+                                        {subLevel.hints.map((hint: string, i: number) => (
+                                            <li key={i} className="flex gap-3 text-sm text-slate-600 font-medium">
+                                                <span className="text-amber-500">•</span>
+                                                {hint}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+        </Card>
     );
 }
 

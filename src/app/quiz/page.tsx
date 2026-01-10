@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { quizQuestions, getRiskLevel, QuizCategory } from "@/data/questions";
-import { bullyingTactics, Tactic } from "@/data/tactics";
+import { bullyingTactics, Tactic, TacticCategory } from "@/data/tactics";
 import { comparisonData, ComparisonPoint } from "@/data/comparison";
 import {
     ArrowRight,
@@ -26,7 +26,10 @@ import {
     Scale,
     XCircle,
     CheckCircle,
-    Zap
+    Zap,
+    Activity,
+    Quote,
+    BookOpen
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +37,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLanguage } from "@/context/LanguageContext";
 import { useProgress } from "@/context/ProgressContext";
+import { cn } from "@/lib/utils";
 
 export default function QuizPage() {
     const { t } = useLanguage();
@@ -504,77 +508,175 @@ export default function QuizPage() {
                             </CardContent>
                         </Card>
 
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {bullyingTactics.map((tactic) => (
-                                <Card
-                                    key={tactic.id}
-                                    className={`cursor-pointer transition-all hover:border-primary/50 group ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''}`}
-                                    onClick={() => setSelectedTactic(tactic)}
-                                >
-                                    <CardHeader className="p-5">
-                                        <CardTitle className="text-lg font-black uppercase tracking-tight group-hover:text-primary transition-colors">
-                                            {t(`quiz.tactics.${tactic.id}.name`)}
-                                        </CardTitle>
-                                        <CardDescription className="line-clamp-2 text-xs">
-                                            {t(`quiz.tactics.${tactic.id}.definition`)}
-                                        </CardDescription>
-                                    </CardHeader>
-                                </Card>
-                            ))}
+                        <div className="space-y-12 pb-20">
+                            {(['verbal', 'social', 'passive', 'power'] as TacticCategory[]).map((catId) => {
+                                const tacticsInCategory = bullyingTactics.filter(t => t.category === catId);
+                                if (tacticsInCategory.length === 0) return null;
+
+                                return (
+                                    <div key={catId} className="space-y-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="h-1px flex-1 bg-slate-200" />
+                                            <h3 className="text-xl font-black uppercase tracking-widest text-slate-400">
+                                                {t(`quiz.categories.${catId}`)}
+                                            </h3>
+                                            <div className="h-1px flex-1 bg-slate-200" />
+                                        </div>
+
+                                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {tacticsInCategory.map((tactic) => (
+                                                <Card
+                                                    key={tactic.id}
+                                                    className={`cursor-pointer transition-all hover:border-primary/50 group hover:shadow-lg rounded-2xl overflow-hidden ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''}`}
+                                                    onClick={() => setSelectedTactic(tactic)}
+                                                >
+                                                    <CardHeader className="p-5">
+                                                        <CardTitle className="text-lg font-black uppercase tracking-tight group-hover:text-primary transition-colors">
+                                                            {t(`quiz.tactics.${tactic.id}.name`)}
+                                                        </CardTitle>
+                                                        <CardDescription className="line-clamp-2 text-xs">
+                                                            {t(`quiz.tactics.${tactic.id}.definition`)}
+                                                        </CardDescription>
+                                                    </CardHeader>
+                                                </Card>
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
 
                         <Dialog open={!!selectedTactic} onOpenChange={(open: boolean) => !open && setSelectedTactic(null)}>
-                            <DialogContent className="max-w-2xl p-0 overflow-hidden border-none bg-slate-900 text-white rounded-[2rem] shadow-2xl">
+                            <DialogContent className="max-w-3xl p-0 overflow-hidden border-none bg-white text-slate-900 rounded-[2rem] shadow-2xl">
                                 {selectedTactic && (
-                                    <div className="flex flex-col">
-                                        <DialogHeader className="bg-primary text-white p-6 sm:p-8 space-y-0">
-                                            <Badge className="bg-white/20 text-white mb-2 uppercase font-black text-[10px] w-fit">{t('quiz.tactics_page.modal.badge')}</Badge>
-                                            <DialogTitle className="text-3xl sm:text-4xl font-black uppercase tracking-tighter leading-none">{t(`quiz.tactics.${selectedTactic.id}.name`)}</DialogTitle>
-                                            <DialogDescription className="hidden">Taktinen analyysi valitusta kiusaamisen muodosta.</DialogDescription>
+                                    <div className="flex flex-col max-h-[90vh]">
+                                        <DialogHeader className="bg-slate-900 text-white p-8 space-y-0 text-left relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                                                <Zap className="w-32 h-32" />
+                                            </div>
+                                            <Badge className="bg-primary hover:bg-primary text-white mb-2 uppercase font-black text-[10px] w-fit">
+                                                {t('quiz.modal.badge')} • {t(`quiz.categories.${selectedTactic.category}`)}
+                                            </Badge>
+                                            <DialogTitle className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none pr-12">
+                                                {t(`quiz.tactics.${selectedTactic.id}.name`)}
+                                            </DialogTitle>
+                                            <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
                                         </DialogHeader>
-                                        <CardContent className="p-6 sm:p-8 space-y-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
-                                            <section className="space-y-3">
-                                                <h4 className="text-primary font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                    <Info className="w-4 h-4" /> {t('quiz.tactics_page.modal.definition')}
+
+                                        <div className="p-8 space-y-10 overflow-y-auto custom-scrollbar bg-slate-50/50">
+                                            {/* Impact Visualization */}
+                                            <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
+                                                <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
+                                                    <Activity className="w-4 h-4 text-primary" /> {t('quiz.modal.impact.title')}
                                                 </h4>
-                                                <p className="text-lg font-light leading-relaxed">{t(`quiz.tactics.${selectedTactic.id}.definition`)}</p>
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                                    {[
+                                                        { label: t('quiz.modal.impact.stress'), value: selectedTactic.impact.stress, color: 'bg-rose-500' },
+                                                        { label: t('quiz.modal.impact.burnout'), value: selectedTactic.impact.burnout, color: 'bg-orange-500' },
+                                                        { label: t('quiz.modal.impact.selfEsteem'), value: selectedTactic.impact.selfEsteem, color: 'bg-indigo-500' }
+                                                    ].map((stat, i) => (
+                                                        <div key={i} className="space-y-2">
+                                                            <div className="flex justify-between text-[10px] font-black uppercase text-slate-400 tracking-widest">
+                                                                <span>{stat.label}</span>
+                                                                <span>{stat.value}%</span>
+                                                            </div>
+                                                            <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                                <motion.div
+                                                                    initial={{ width: 0 }}
+                                                                    animate={{ width: `${stat.value}%` }}
+                                                                    className={cn("h-full rounded-full", stat.color)}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </section>
 
-                                            <div className="grid md:grid-cols-2 gap-8">
+                                            <div className="grid md:grid-cols-2 gap-10">
                                                 <section className="space-y-4">
-                                                    <h4 className="text-primary font-black uppercase tracking-widest text-xs">{t('quiz.tactics_page.modal.phrases')}</h4>
-                                                    <ul className="space-y-2">
-                                                        {(t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }) as unknown as string[] || selectedTactic.phrases).map((phrase, i) => (
-                                                            <li key={i} className="bg-white/5 p-3 rounded-xl border border-white/10 italic text-sm text-white/80">
-                                                                &quot;{phrase}&quot;
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                                    <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
+                                                        <Quote className="w-4 h-4 text-primary" /> {t('quiz.modal.phrases')}
+                                                    </h4>
+                                                    <div className="space-y-2">
+                                                        {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }))
+                                                            ? (t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }) as string[])
+                                                            : selectedTactic.phrases).map((phrase, i) => (
+                                                                <div key={i} className="bg-white p-4 rounded-2xl border border-slate-100 italic text-sm text-slate-600 shadow-sm">
+                                                                    &quot;{phrase}&quot;
+                                                                </div>
+                                                            ))}
+                                                    </div>
                                                 </section>
 
                                                 <section className="space-y-4">
-                                                    <h4 className="text-primary font-black uppercase tracking-widest text-xs">{t('quiz.tactics_page.modal.strategy')}</h4>
-                                                    <ul className="space-y-3">
-                                                        {(t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }) as unknown as string[] || selectedTactic.strategy).map((item, i) => (
-                                                            <li key={i} className="flex items-start gap-3 text-sm text-white/90">
-                                                                <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                                                                <span>{item}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                                    <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
+                                                        <ShieldCheck className="w-4 h-4 text-primary" /> {t('quiz.modal.strategy')}
+                                                    </h4>
+                                                    <div className="space-y-3">
+                                                        {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }))
+                                                            ? (t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }) as string[])
+                                                            : selectedTactic.strategy).map((item, i) => (
+                                                                <div key={i} className="flex items-start gap-3 text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/50">
+                                                                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                                                                    <span className="font-medium">{item}</span>
+                                                                </div>
+                                                            ))}
+                                                    </div>
                                                 </section>
                                             </div>
 
-                                            <section className="bg-white/10 p-6 rounded-2xl border border-white/20 space-y-3">
-                                                <h4 className="text-primary font-black uppercase tracking-widest text-xs">{t('quiz.tactics_page.modal.log_instruction')}</h4>
-                                                <p className="font-mono text-sm leading-relaxed opacity-80">&quot;{t(`quiz.tactics.${selectedTactic.id}.logExample`)}&quot;</p>
+                                            {/* Role Based Advice */}
+                                            <section className="space-y-6">
+                                                <Tabs defaultValue="victim" className="w-full">
+                                                    <TabsList className="grid w-full grid-cols-3 bg-slate-100 p-1 rounded-2xl h-12">
+                                                        <TabsTrigger value="victim" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
+                                                            {t('quiz.modal.roles.victim')}
+                                                        </TabsTrigger>
+                                                        <TabsTrigger value="witness" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
+                                                            {t('quiz.modal.roles.witness')}
+                                                        </TabsTrigger>
+                                                        <TabsTrigger value="manager" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
+                                                            {t('quiz.modal.roles.manager')}
+                                                        </TabsTrigger>
+                                                    </TabsList>
+                                                    {(['victim', 'witness', 'manager'] as const).map((role) => (
+                                                        <TabsContent key={role} value={role} className="mt-6">
+                                                            <div className="bg-indigo-50/50 p-8 rounded-[2rem] border border-indigo-100 space-y-4">
+                                                                <div className="space-y-1">
+                                                                    <h5 className="font-black uppercase text-indigo-900">{selectedTactic.advice[role].title}</h5>
+                                                                    <p className="text-sm text-indigo-700 font-medium">{selectedTactic.advice[role].description}</p>
+                                                                </div>
+                                                                <div className="grid gap-2">
+                                                                    {selectedTactic.advice[role].actions.map((action, i) => (
+                                                                        <div key={i} className="flex items-center gap-3 text-xs font-bold text-indigo-950 bg-white/60 p-3 rounded-xl">
+                                                                            <ArrowRight className="w-4 h-4 text-indigo-500" />
+                                                                            {action}
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        </TabsContent>
+                                                    ))}
+                                                </Tabs>
                                             </section>
-                                        </CardContent>
-                                        <CardFooter className="p-6 bg-white/5 border-t border-white/10 flex justify-end">
-                                            <Button variant="ghost" className="text-white hover:bg-white/10 uppercase font-black tracking-widest text-xs" onClick={() => setSelectedTactic(null)}>
-                                                {t('quiz.tactics_page.modal.close')}
+
+                                            <section className="bg-slate-900 p-8 rounded-[2rem] text-white space-y-3 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                                                    <BookOpen className="w-20 h-20" />
+                                                </div>
+                                                <h4 className="text-primary font-black uppercase tracking-widest text-[10px]">{t('quiz.modal.log_instruction')}</h4>
+                                                <p className="font-mono text-sm leading-relaxed text-indigo-200">&quot;{t(`quiz.tactics.${selectedTactic.id}.logExample`)}&quot;</p>
+                                            </section>
+                                        </div>
+
+                                        <div className="p-8 bg-slate-50 border-t border-slate-100 flex justify-end">
+                                            <Button
+                                                className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-10 h-14 uppercase font-black tracking-widest text-xs shadow-xl shadow-slate-900/10"
+                                                onClick={() => setSelectedTactic(null)}
+                                            >
+                                                Sulje analyysi
                                             </Button>
-                                        </CardFooter>
+                                        </div>
                                     </div>
                                 )}
                             </DialogContent>

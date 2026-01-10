@@ -419,7 +419,7 @@ export default function AssociationSimulation({
                                             onClick={() => handleChoice(choice)}
                                             className="h-auto py-3 md:py-4 px-4 md:px-6 justify-between text-left bg-slate-900 hover:bg-indigo-600 text-white rounded-2xl flex items-center group transition-all"
                                         >
-                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1">{choice.text}</span>
+                                            <span className="font-bold text-sm tracking-tight leading-snug flex-1 break-words">{choice.text}</span>
                                             <ArrowRight className="w-4 h-4 shrink-0 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                                         </Button>
                                     ))}
