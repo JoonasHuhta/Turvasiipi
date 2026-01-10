@@ -550,14 +550,11 @@ export default function QuizPage() {
                             <DialogContent className="max-w-3xl p-0 overflow-hidden border-none bg-white text-slate-900 rounded-[2rem] shadow-2xl">
                                 {selectedTactic && (
                                     <div className="flex flex-col max-h-[90vh]">
-                                        <DialogHeader className="bg-slate-900 text-white p-8 space-y-0 text-left relative overflow-hidden">
+                                        <DialogHeader className="bg-slate-900 text-white p-6 sm:p-10 pb-12 sm:pb-20 space-y-0 text-left relative overflow-hidden">
                                             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                                                <Zap className="w-32 h-32" />
+                                                <Zap className="w-48 h-48" />
                                             </div>
-                                            <Badge className="bg-primary hover:bg-primary text-white mb-2 uppercase font-black text-[10px] w-fit">
-                                                {t('quiz.modal.badge')} • {t(`quiz.categories.${selectedTactic.category}`)}
-                                            </Badge>
-                                            <DialogTitle className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none pr-12">
+                                            <DialogTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] pr-4 relative z-10 break-words max-w-full">
                                                 {t(`quiz.tactics.${selectedTactic.id}.name`)}
                                             </DialogTitle>
                                             <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
@@ -669,9 +666,9 @@ export default function QuizPage() {
                                             </section>
                                         </div>
 
-                                        <div className="p-8 bg-slate-50 border-t border-slate-100 flex justify-end">
+                                        <div className="p-6 sm:p-8 bg-slate-50 border-t border-slate-100 flex justify-center sm:justify-end">
                                             <Button
-                                                className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-10 h-14 uppercase font-black tracking-widest text-xs shadow-xl shadow-slate-900/10"
+                                                className="w-full sm:w-auto bg-slate-900 text-white hover:bg-slate-800 rounded-full px-10 h-14 uppercase font-black tracking-widest text-xs shadow-xl shadow-slate-900/10 transition-transform active:scale-95"
                                                 onClick={() => setSelectedTactic(null)}
                                             >
                                                 Sulje analyysi
