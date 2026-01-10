@@ -478,6 +478,191 @@ export const bullyingTactics: Tactic[] = [
         }
     },
     {
+        id: "uhkailu",
+        category: "power",
+        name: "Uhkailu & Pelottelu",
+        definition: "Epäsuora tai suora uhkaaminen työsuhteen tai maineen menetyksellä.",
+        phrases: [
+            "Olen puhunut sinusta johdolle",
+            "Jos tämä toistuu, tiedät seuraukset",
+            "Ehkä tämä ala ei sovi sinulle",
+            "Toivottavasti et tee enää virheitä..."
+        ],
+        goal: "Hallita sinua pelon avulla ja estää puolustautuminen.",
+        strategy: [
+            "Tallenna kaikki kirjalliset uhat.",
+            "Ota yhteys luottamusmieheen heti.",
+            "Älä jää kahden kesken uhkailijan kanssa."
+        ],
+        logExample: "Esimies sanoi suljettujen ovien takana 'parasta alkaa etsiä uutta työtä'.",
+        impact: { stress: 95, burnout: 80, selfEsteem: 75 },
+        advice: {
+            victim: {
+                title: "Uhri: Pysy kylmänä ja dokumentoi",
+                description: "Uhkailu on usein bluffia, mutta se on otettava vakavasti.",
+                actions: ["Pyydä uhkaus kirjallisena", "Ota yhteys liiton lakimieheen", "Vältä kahdenkeskisiä tapaamisia"]
+            },
+            witness: {
+                title: "Todistaja: Ole objektiviivinen havainnoija",
+                description: "Todistajalla on kriittinen rooli uhkailun todentamisessa.",
+                actions: ["Kirjaa tapahtuma ylös heti", "Tarjoa moraalista tukea uhrille", "Kerro havaintosi esimiehen esimiehelle"]
+            },
+            manager: {
+                title: "Esimies: Nollatoleranssi pelolla johtamiselle",
+                description: "Uhkailu tuhoaa organisaation luottamuksen.",
+                actions: ["Puutu heti uhkaavaan puheeseen", "Selvitä ovatko uhat todellisia", "Vahvista turvallista ilmapiiriä"]
+            }
+        }
+    },
+    {
+        id: "maine",
+        category: "social",
+        name: "Maineen vahingoittaminen",
+        definition: "Perättömien huhujen levittäminen tai osaamisen vääristely muille.",
+        phrases: [
+            "Hän on vaikea ihminen",
+            "Hänen kanssaan kukaan ei halua työskennellä",
+            "Kuulin että hän tekee paljon virheitä",
+            "Hän ei ole tiimipelaaja"
+        ],
+        goal: "Tuhota uskottavuutesi ja tuki-mahdollisuutesi organisaatiossa.",
+        strategy: [
+            "Keskustele suoraan kollegoillesi.",
+            "Pyydä HR:ää selvittämään huhujen lähde.",
+            "Pysy ammatillisena kaikessa viestinnässä."
+        ],
+        logExample: "Kollega kertoi, että esimies oli puhunut minusta 'epävakaana' kahvihuoneessa.",
+        impact: { stress: 80, burnout: 60, selfEsteem: 90 },
+        advice: {
+            victim: {
+                title: "Uhri: Puolusta todellisuutta",
+                description: "Maine on hitaasti rakentuva, mutta nopeasti särkyvä.",
+                actions: ["Oikaise faktavirheet heti", "Anna työsi tulosten puhua puolestaan", "Ole avoin ja läpinäkyvä"]
+            },
+            witness: {
+                title: "Todistaja: Pysäytä huhut",
+                description: "Huhumylly vaatii yleisön toimiakseen.",
+                actions: ["Kysy: 'Mihin tämä tieto perustuu?'", "Älä levitä huhua eteenpäin", "Tuo esiin uhrin onnistumisia"]
+            },
+            manager: {
+                title: "Esimies: Suojele työntekijän mainetta",
+                description: "Maineonloukkaus on työpaikkahäirintää.",
+                actions: ["Puutu heti selän takana puhumiseen", "Vahvista asiallista viestintää", "Selvitä huhujen alkuperä"]
+            }
+        }
+    },
+    {
+        id: "manipulaatio",
+        category: "verbal",
+        name: "Emotionaalinen manipulaatio",
+        definition: "Tunteiden, kuten syyllisyyden tai pelon, käyttö toisen hallitsemiseen.",
+        phrases: [
+            "Luulin että olimme ystäviä",
+            "Kun olet sairaana, muut kärsivät",
+            "Olet ainoa joka voi pelastaa tämän",
+            "Katsotaan ensi viikolla (mutta ei koskaan)"
+        ],
+        goal: "Tehdä sinusta tottelevainen syyllisyyden tai väärän toivon avulla.",
+        strategy: [
+            "Tunnista 'hyvä päivä / huono päivä' -sykli.",
+            "Pidä ammatilliset rajat.",
+            "Älä ota vastuuta toisen tunteista."
+        ],
+        logExample: "Esimies syyllisti sairaslomasta sanomalla sen tuhoavan tiimin hengen.",
+        impact: { stress: 70, burnout: 55, selfEsteem: 80 },
+        advice: {
+            victim: {
+                title: "Uhri: Aseta rajat tunteille",
+                description: "Manipulaattori käyttää empatiaasi aseena sinua vastaan.",
+                actions: ["Tunnista syyllistäminen", "Pysy asiassa, älä tunteessa", "Vahvista omia rajojasi"]
+            },
+            witness: {
+                title: "Todistaja: Validoi rajat",
+                description: "Auta uhria näkemään manipulaatio.",
+                actions: ["Sano: 'Sairausloma on oikeus, ei syyllisyyden aihe'", "Tue uhrin terveitä rajoja", "Älä mene mukaan tunnelataukseen"]
+            },
+            manager: {
+                title: "Esimies: Johtajuus vaatii rehellisyyttä",
+                description: "Manipulointi murentaa johtajan uskottavuuden.",
+                actions: ["Viesti selkeästi ja rehellisesti", "Vältä tunteilla pelaamista", "Ota vastuu omista päätöksistäsi"]
+            }
+        }
+    },
+    {
+        id: "identiteetti",
+        category: "verbal",
+        name: "Identiteetin hyökkäys",
+        definition: "Hyökkäys henkilökohtaisia ominaisuuksia, kuten ikää, sukupuolta tai taustaa kohtaan.",
+        phrases: [
+            "Oletko ADHD vai miksi et keskity?",
+            "Naiset eivät ymmärrä tätä teknistä puolta",
+            "Tuon ikäisen on vaikea oppia uutta",
+            "Oletpa sä herkkä tänään (viitaten ominaisuuteen)"
+        ],
+        goal: "Nöyryyttää ja osoittaa, ettet kuulu joukkoon henkilökohtaisen syyn takia.",
+        strategy: [
+            "Tämä voi olla lakia rikkovaa syrjintää.",
+            "Ota yhteyttä yhdenvertaisuusvaltuutettuun.",
+            "Dokumentoi sanat sanatarkasti."
+        ],
+        logExample: "Esimies kysyi 'johtuuko hitaus iästäsi' muiden kuullen.",
+        impact: { stress: 85, burnout: 60, selfEsteem: 95 },
+        advice: {
+            victim: {
+                title: "Uhri: Kyse on syrjinnästä",
+                description: "Henkilökohtaiset ominaisuudet eivät kuulu työpaikan arvostelun piiriin.",
+                actions: ["Tunnista syrjintä heti", "Dokumentoi sanatarkasti", "Ota yhteys luottamusmieheen"]
+            },
+            witness: {
+                title: "Todistaja: Puutu heti",
+                description: "Syrjintä on kaikkien asia.",
+                actions: ["Sano: 'Tuollaiset kommentit eivät kuulu tänne'", "Tue uhria julkisesti", "Raportoi syrjinnästä eteenpäin"]
+            },
+            manager: {
+                title: "Esimies: Varmista yhdenvertaisuus",
+                description: "Syrjintä on laitonta ja tuhoisaa.",
+                actions: ["Kouluta itsesi yhdenvertaisuudesta", "Puutu heti 'vitsailuun'", "Luo inklusiivinen työkulttuuri"]
+            }
+        }
+    },
+    {
+        id: "thousand-cuts",
+        category: "passive",
+        name: "Death by a Thousand Cuts",
+        definition: "Jatkuva sarja pieniä mikroaggressioita, joita on vaikea eristää yksittäin.",
+        phrases: [
+            "(Jatkuvat pienet korjaukset työhön)",
+            "(Pienet huokaisut pyyntöjesi jälkeen)",
+            "(Olematon palaute tehdyistä asioista)",
+            "(Pieniä epäasiallisia vitsejä päivittäin)"
+        ],
+        goal: "Kuluttaa uhrin psyyke hitaasti mutta varmasti loppuun.",
+        strategy: [
+            "Dokumentoi KAIKKI pienetkin asiat – määrä ratkaisee.",
+            "Katso kokonaiskuvaa, älä vain tätä päivää.",
+            "Hae ulkopuolista validaatiota tilanteelle."
+        ],
+        logExample: "15 pientä epämiellyttävää kohtaamista saman päivän aikana. Masentava olo.",
+        impact: { stress: 95, burnout: 95, selfEsteem: 90 },
+        advice: {
+            victim: {
+                title: "Uhri: Tunnista kokonaisuus",
+                description: "Yksittäinen 'pisto' tuntuu pieneltä, mutta tuhat pistoa on tuskallista.",
+                actions: ["Pidä päiväkirjaa kaikista tapahtumista", "Hae vahvistusta ulkopuolelta", "Älä vähättele omaa kokemustasi"]
+            },
+            witness: {
+                title: "Todistaja: Huomioi toistuvuus",
+                description: "Pienetkin teot muuttuvat häirinnäksi toistuessaan.",
+                actions: ["Kiinnitä huomiota jatkuvaan piikittelyyn", "Kysy uhrilta hänen jaksamisestaan", "Tee havainnot näkyviksi esimiehelle"]
+            },
+            manager: {
+                title: "Esimies: Pysäytä mikroaggressiot",
+                description: "Hienovarainen kiusaaminen on vaikein lopettaa.",
+                actions: ["Seuraa tiimin vuorovaikutusta tarkasti", "Puutu pieniinkin epäasiallisuuksiin", "Rakenna kunnioituksen kulttuuria"]
+            }
+        }
+    },
+    {
         id: "cyberbullying",
         category: "verbal",
         name: "Nettikiusaaminen (Chat/Email)",
