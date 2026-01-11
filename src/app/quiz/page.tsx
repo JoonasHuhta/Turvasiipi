@@ -509,7 +509,7 @@ export default function QuizPage() {
                         </Card>
 
                         <div className="space-y-12 pb-20">
-                            {(['verbal', 'social', 'passive', 'power'] as TacticCategory[]).map((catId) => {
+                            {(['verbal', 'social', 'passive', 'power', 'manipulative', 'structural'] as TacticCategory[]).map((catId) => {
                                 const tacticsInCategory = bullyingTactics.filter(t => t.category === catId);
                                 if (tacticsInCategory.length === 0) return null;
 
@@ -561,16 +561,38 @@ export default function QuizPage() {
                                         </DialogHeader>
 
                                         <div className="p-4 sm:p-8 space-y-10 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-50/50">
+                                            {/* Enrichment: Definition & Goal */}
+                                            <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
+                                                <div className="space-y-4">
+                                                    <div className="space-y-2">
+                                                        <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
+                                                            <Info className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.definition')}
+                                                        </h4>
+                                                        <p className="text-slate-700 leading-relaxed font-medium">
+                                                            {t(`quiz.tactics.${selectedTactic.id}.definition`)}
+                                                        </p>
+                                                    </div>
+                                                    <div className="pt-4 border-t border-slate-100 space-y-2">
+                                                        <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
+                                                            <TrendingUp className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.goal')}
+                                                        </h4>
+                                                        <p className="text-slate-700 leading-relaxed font-medium">
+                                                            {t(`quiz.tactics.${selectedTactic.id}.goal`)}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
                                             {/* Impact Visualization */}
                                             <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
                                                 <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                    <Activity className="w-4 h-4 text-primary" /> {t('quiz.modal.impact.title')}
+                                                    <Activity className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.impact.title')}
                                                 </h4>
                                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                                     {[
-                                                        { label: t('quiz.modal.impact.stress'), value: selectedTactic.impact.stress, color: 'bg-rose-500' },
-                                                        { label: t('quiz.modal.impact.burnout'), value: selectedTactic.impact.burnout, color: 'bg-orange-500' },
-                                                        { label: t('quiz.modal.impact.selfEsteem'), value: selectedTactic.impact.selfEsteem, color: 'bg-indigo-500' }
+                                                        { label: t('quiz.tactics_page.modal.impact.stress'), value: selectedTactic.impact.stress, color: 'bg-rose-500' },
+                                                        { label: t('quiz.tactics_page.modal.impact.burnout'), value: selectedTactic.impact.burnout, color: 'bg-orange-500' },
+                                                        { label: t('quiz.tactics_page.modal.impact.selfEsteem'), value: selectedTactic.impact.selfEsteem, color: 'bg-indigo-500' }
                                                     ].map((stat, i) => (
                                                         <div key={i} className="space-y-2">
                                                             <div className="flex justify-between text-[10px] font-black uppercase text-slate-400 tracking-widest">
@@ -592,7 +614,7 @@ export default function QuizPage() {
                                             <div className="grid md:grid-cols-2 gap-10">
                                                 <section className="space-y-4">
                                                     <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                        <Quote className="w-4 h-4 text-primary" /> {t('quiz.modal.phrases')}
+                                                        <Quote className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.phrases')}
                                                     </h4>
                                                     <div className="space-y-2">
                                                         {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }))
@@ -607,7 +629,7 @@ export default function QuizPage() {
 
                                                 <section className="space-y-4">
                                                     <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                        <ShieldCheck className="w-4 h-4 text-primary" /> {t('quiz.modal.strategy')}
+                                                        <ShieldCheck className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.strategy')}
                                                     </h4>
                                                     <div className="space-y-3">
                                                         {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }))
@@ -627,13 +649,13 @@ export default function QuizPage() {
                                                 <Tabs defaultValue="victim" className="w-full">
                                                     <TabsList className="grid w-full grid-cols-3 bg-slate-100 p-1 rounded-2xl h-12">
                                                         <TabsTrigger value="victim" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                            {t('quiz.modal.roles.victim')}
+                                                            {t('quiz.tactics_page.modal.roles.victim')}
                                                         </TabsTrigger>
                                                         <TabsTrigger value="witness" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                            {t('quiz.modal.roles.witness')}
+                                                            {t('quiz.tactics_page.modal.roles.witness')}
                                                         </TabsTrigger>
                                                         <TabsTrigger value="manager" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                            {t('quiz.modal.roles.manager')}
+                                                            {t('quiz.tactics_page.modal.roles.manager')}
                                                         </TabsTrigger>
                                                     </TabsList>
                                                     {(['victim', 'witness', 'manager'] as const).map((role) => (
@@ -661,7 +683,7 @@ export default function QuizPage() {
                                                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                                                     <BookOpen className="w-20 h-20" />
                                                 </div>
-                                                <h4 className="text-primary font-black uppercase tracking-widest text-[10px]">{t('quiz.modal.log_instruction')}</h4>
+                                                <h4 className="text-primary font-black uppercase tracking-widest text-[10px]">{t('quiz.tactics_page.modal.log_instruction')}</h4>
                                                 <p className="font-mono text-sm leading-relaxed text-indigo-200">&quot;{t(`quiz.tactics.${selectedTactic.id}.logExample`)}&quot;</p>
                                             </section>
                                         </div>
