@@ -3,18 +3,23 @@ export type Emotion = "neutral" | "sad" | "anxious" | "angry" | "fearful";
 export type TimelineEvent = {
     id: string;
     timestamp: string; // ISO string
-    date: string; // Formatting helper
-    description?: string; // Legacy field, kept for backward compatibility
-    objectiveDescription: string; // "Mitä tapahtui?" (Fakta)
-    subjectiveEffect: string; // "Miltä se tuntui / vaikutus työkykyyn?"
-    evidence?: string; // "Onko todisteita?" (esim. "Screenshot", "Sähköposti")
-    peopleInvolved: string;
+    date?: string; // Formatting helper (Legacy)
+    type: string; // e.g., 'verbal', 'social'
+    title: string; // e.g., "Mitätöinti"
+    description: string; // Main description
+    intensity: number; // 1-5
+    peopleInvolved?: string;
+    witnesses?: string;
+    evidence?: string; // e.g. "Email, SMS"
     emotion: Emotion;
-    // Metadata for Sääkartta (Weather Map)
+    notes?: string;
+
+    // Legacy / Extended fields
+    objectiveDescription?: string;
+    subjectiveEffect?: string;
     city?: string;
     industry?: string;
     bullyingTypes?: string[];
-    severity?: number; // 1-10
+    severity?: number;
     consequences?: string;
-    witnesses?: string;
 };

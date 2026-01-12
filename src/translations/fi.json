@@ -128,7 +128,9 @@
         "q8": "Onko tekoälyn käyttö turvallista?",
         "a8": "Kyllä. Käytämme tekoälyä vain raporttien jäsennöimiseen, ja se tapahtuu erittäin suojatussa ympäristössä. Tietojasi ei käytetä tekoälyn kouluttamiseen, eivätkä ne koskaan tallennu pysyvästi mihinkään pilvipalveluun.",
         "q9": "Mitä on kiusaamisen lukutaito?",
-        "a9": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se ei tarkoita sitä, että jokaisen pitäisi olla asiantuntija tai sankari. Se tarkoittaa, että kukaan ei ole tilanteessa neuvoton."
+        "a9": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se ei tarkoita sitä, että jokaisen pitäisi olla asiantuntija tai sankari. Se tarkoittaa, että kukaan ei ole tilanteessa neuvoton.",
+        "q10": "Kenelle Turvasiipi on tehty?",
+        "a10": "Turvasiipi on suunniteltu kaikille, jotka haluavat ymmärtää työyhteisön valtadynamiikkaa ja tunnistaa piilevää henkistä väkivaltaa."
     },
     "timeline": {
         "page": {

@@ -17,6 +17,10 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { useSecureLocalStorage } from '@/hooks/useSecureLocalStorage';
+import { TimelineEvent } from '@/types';
+import { analyzePatterns, Insight } from '@/lib/analysis';
+import { AlertTriangle, Info as InfoIcon, ArrowRight as ArrowRightIcon } from 'lucide-react';
 
 const CATEGORY_ICONS: Record<CategoryId, any> = {
     CORE: Home,
@@ -33,6 +37,9 @@ export default function DashboardPage() {
     const { t } = useLanguage();
     const { progress, getLevel, getExpertiseLevel, getProgressPercentage, isModuleCompleted } = useProgress();
     const [expandedCategory, setExpandedCategory] = useState<CategoryId | null>('CORE');
+
+    // Fetch events for Insights
+    const { data: events } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
 
     const totalBadges = BADGES.length;
     const earnedBadgesCount = progress.earnedBadgeIds.length;
@@ -115,6 +122,9 @@ export default function DashboardPage() {
                         </div>
                     </div>
                 </div>
+
+                {/* --- INSIGHTS (NEW) --- */}
+                <InsightsSection events={events} />
 
                 {/* --- EXPERT PATH (NEW) --- */}
                 <ExpertisePathCard />
@@ -387,3 +397,43 @@ function StatItem({ label, value, total, color }: { label: string, value: number
 }
 
 const MODULE_COUNT = MODULES.length;
+
+function InsightsSection({ events }: { events: TimelineEvent[] }) {
+    const insights = analyzePatterns(events);
+
+    if (insights.length === 0) return null;
+
+    return (
+        <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h3 className="text-xl font-bold text-slate-900 ml-1">Huomiot & Oivallukset</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {insights.map(insight => (
+                    <Card key={insight.id} className={cn(
+                        "border-l-4 shadow-sm",
+                        insight.level === 'warning' ? "border-l-amber-500 bg-amber-50/50 border-y-amber-100 border-r-amber-100" : "border-l-indigo-500 bg-indigo-50/50 border-y-indigo-100 border-r-indigo-100"
+                    )}>
+                        <CardContent className="p-5 flex gap-4">
+                            <div className={cn(
+                                "w-10 h-10 rounded-full flex items-center justify-center shrink-0",
+                                insight.level === 'warning' ? "bg-amber-100 text-amber-600" : "bg-indigo-100 text-indigo-600"
+                            )}>
+                                {insight.level === 'warning' ? <AlertTriangle className="w-5 h-5" /> : <InfoIcon className="w-5 h-5" />}
+                            </div>
+                            <div className="space-y-2">
+                                <h4 className={cn("font-bold text-sm uppercase tracking-wide", insight.level === 'warning' ? "text-amber-800" : "text-indigo-800")}>
+                                    {insight.title}
+                                </h4>
+                                <p className="text-sm text-slate-600 leading-snug">
+                                    {insight.description}
+                                </p>
+                                <Link href="/timeline" className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 mt-2 transition-colors group">
+                                    Näytä merkinnät <ArrowRightIcon className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    );
+}

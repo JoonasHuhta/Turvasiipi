@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, ArrowRight, Save, Clock, MapPin, User, Quote, Users, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Save, Clock, MapPin, User, Quote, Users, ShieldCheck, CheckCircle2, Lightbulb } from "lucide-react";
 import { bullyingTactics, Tactic } from "@/data/tactics";
 import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
 import { TimelineEvent } from "@/types";
@@ -23,7 +23,7 @@ export default function LogPage() {
     const { t } = useLanguage();
     const { data: events, setData: setEvents } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
 
-    const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+    const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
     const [formData, setFormData] = useState({
         date: new Date().toISOString().split('T')[0],
@@ -72,7 +72,7 @@ export default function LogPage() {
         };
 
         setEvents([newEvent, ...events]);
-        router.push("/timeline");
+        setStep(5); // Go to Advice step instead of redirecting
     };
 
     const toggleEvidenceType = (type: string) => {
@@ -436,6 +436,49 @@ export default function LogPage() {
                     </div>
                 )}
 
+                {/* Step 5: Advice & Action Plan (NEW) */}
+                {step === 5 && (
+                    <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
+                        <div className="text-center space-y-2">
+                            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <CheckCircle2 className="w-8 h-8" />
+                            </div>
+                            <h1 className="text-2xl font-bold text-slate-900">Kirjaus tallennettu!</h1>
+                            <p className="text-slate-500">Tässä muutama asia, jotka voit tehdä seuraavaksi.</p>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-2 text-indigo-600">
+                                    <Lightbulb className="w-5 h-5" />
+                                    <h3 className="font-bold uppercase tracking-widest text-xs">Suositellut toimet ({selectedTactic?.name})</h3>
+                                </div>
+                                <div className="space-y-3">
+                                    {/* Mock advice if not in tactic data, or fetch real advice */}
+                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                        <span className="font-black text-slate-300 text-lg">1</span>
+                                        <p className="text-slate-700 text-sm font-medium">
+                                            Kirjaa ylös tuntemuksesi ja vaikutukset työkykyysi (esim. univaikeudet).
+                                        </p>
+                                    </div>
+                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                        <span className="font-black text-slate-300 text-lg">2</span>
+                                        <p className="text-slate-700 text-sm font-medium">
+                                            Jos mahdollista, mainitse asiasta rauhallisesti tekijälle ("Tuo kommentti tuntui minusta vähättelevältä").
+                                        </p>
+                                    </div>
+                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                        <span className="font-black text-slate-300 text-lg">3</span>
+                                        <p className="text-slate-700 text-sm font-medium">
+                                            Varmista, että sinulla on tukihenkilö (työterveys, luottamusmies tai kollega).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {/* Navigation Buttons */}
                 <div className="flex justify-between pt-6">
                     {step > 1 ? (
@@ -446,6 +489,7 @@ export default function LogPage() {
                         <div /> // Spacer
                     )}
 
+
                     {step < 4 ? (
                         <Button
                             onClick={handleNext}
@@ -454,12 +498,19 @@ export default function LogPage() {
                         >
                             Seuraava <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
-                    ) : (
+                    ) : step === 4 ? (
                         <Button
                             onClick={handleSave}
                             className="w-40 bg-emerald-600 hover:bg-emerald-700 font-bold text-white shadow-lg shadow-emerald-200"
                         >
                             Tallenna <Save className="w-4 h-4 ml-2" />
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={() => router.push('/timeline')}
+                            className="w-40 bg-slate-900 hover:bg-slate-800 font-bold text-white"
+                        >
+                            Valmis <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                     )}
                 </div>
