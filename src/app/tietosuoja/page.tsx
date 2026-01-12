@@ -150,7 +150,7 @@ export default function PrivacyPage() {
                                 Jos sinulla on kysymyksiä tietosuojasta tai haluat raportoida turvallisuusongelman, ota yhteyttä:
                             </p>
                             <p className="mt-4 font-mono text-sm bg-slate-100 p-3 rounded-lg">
-                                privacy@turvasiipi.fi
+                                turvasiipi@gmail.fi
                             </p>
                             <p className="text-xs mt-4 text-slate-500">
                                 Viimeksi päivitetty: 12.1.2026
