@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Phase, GameState, INITIAL_STATS, Choice, Profession, GameStats } from "@/lib/simulator/types";
 import { useProgress } from "@/context/ProgressContext";
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
     const { completeModule, saveSimulationScore } = useProgress();
     const { t } = useLanguage();
+    const mainContentRef = useRef<HTMLDivElement>(null);
+
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
         profession: profession as Profession,
@@ -85,6 +87,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             setState(prev => ({ ...prev, scoreSaved: true }));
         }
     }, [state.currentPhaseId, state.profession, completeModule, saveSimulationScore, state.stats, state.scoreSaved]);
+
+    // Reset scroll position when phase changes
+    useEffect(() => {
+        if (mainContentRef.current) {
+            mainContentRef.current.scrollTop = 0;
+        }
+    }, [state.currentPhaseId]);
 
     const [notification, setNotification] = useState<string | null>(null);
 
@@ -536,7 +545,10 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
             )}
 
             {/* MAIN CONTENT */}
-            <main className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar z-10">
+            <main
+                ref={mainContentRef}
+                className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar z-10"
+            >
                 <div className="min-h-full flex flex-col justify-center p-6 pb-12 transition-all">
 
                     {/* Scene Meta Info */}
