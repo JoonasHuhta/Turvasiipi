@@ -50,6 +50,7 @@ export default function QuizPage() {
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const tacticScrollRef = useRef<HTMLDivElement>(null);
 
     const handleAnswer = (isYes: boolean) => {
         setAnswers(prev => ({ ...prev, [quizQuestions[currentIndex].id]: isYes }));
@@ -71,6 +72,31 @@ export default function QuizPage() {
         setIsFinished(false);
         scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // Reset tactic modal scroll when opening
+    const handleTacticOpenChange = (open: boolean) => {
+        if (!open) {
+            setSelectedTactic(null);
+        } else if (open) {
+            // Small timeout to ensure the modal content is rendered
+            setTimeout(() => {
+                if (tacticScrollRef.current) {
+                    tacticScrollRef.current.scrollTop = 0;
+                }
+            }, 50); // Increased delay slightly
+        }
+    };
+
+    // Secondary reset when selectedTactic changes
+    useEffect(() => {
+        if (selectedTactic) {
+            setTimeout(() => {
+                if (tacticScrollRef.current) {
+                    tacticScrollRef.current.scrollTop = 0;
+                }
+            }, 50);
+        }
+    }, [selectedTactic]);
 
     const score = Object.values(answers).filter(Boolean).length;
     const progress = ((currentIndex + 1) / quizQuestions.length) * 100;
@@ -546,7 +572,7 @@ export default function QuizPage() {
                             })}
                         </div>
 
-                        <Dialog open={!!selectedTactic} onOpenChange={(open: boolean) => !open && setSelectedTactic(null)}>
+                        <Dialog open={!!selectedTactic} onOpenChange={handleTacticOpenChange}>
                             <DialogContent className="max-w-3xl p-0 overflow-hidden border-none bg-white text-slate-900 rounded-[2rem] shadow-2xl">
                                 {selectedTactic && (
                                     <div className="flex flex-col max-h-[90vh]">
@@ -554,13 +580,13 @@ export default function QuizPage() {
                                             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                                                 <Zap className="w-48 h-48" />
                                             </div>
-                                            <DialogTitle className="text-xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] px-4 sm:px-0 relative z-10 break-all sm:break-words max-w-full">
+                                            <DialogTitle className="text-xl sm:text-2xl md:text-4xl font-black uppercase tracking-tighter leading-tight relative z-10 break-words max-w-full">
                                                 {t(`quiz.tactics.${selectedTactic.id}.name`)}
                                             </DialogTitle>
                                             <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
                                         </DialogHeader>
 
-                                        <div className="p-4 sm:p-8 space-y-10 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-50/50">
+                                        <div ref={tacticScrollRef} className="p-4 sm:p-8 space-y-10 overflow-y-auto overflow-x-hidden custom-scrollbar bg-slate-50/50">
                                             {/* Enrichment: Definition & Goal */}
                                             <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
                                                 <div className="space-y-4">

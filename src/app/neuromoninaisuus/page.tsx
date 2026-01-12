@@ -4,10 +4,18 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Brain, Target, Scale, MessageCircle, AlertTriangle, Zap, Ear, Heart, BookOpen, ShieldCheck, ArrowRight, UserCheck, Briefcase } from "lucide-react";
+import { Brain, Target, Scale, MessageCircle, AlertTriangle, Zap, Ear, Heart, BookOpen, ShieldCheck, ArrowRight, UserCheck, Briefcase, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { useProgress } from "@/context/ProgressContext";
+import { cn } from "@/lib/utils";
 
 export default function NeurodiversityPage() {
+    const { completeModule, isModuleCompleted } = useProgress();
+    const isCompleted = isModuleCompleted('neuro_info');
+
+    const handleComplete = () => {
+        completeModule('neuro_info');
+    };
     return (
         <div className="min-h-screen bg-slate-50 py-12 px-4 animate-in fade-in duration-500">
             <div className="max-w-4xl mx-auto space-y-12">
@@ -346,6 +354,51 @@ export default function NeurodiversityPage() {
                             </Button>
                         </Link>
                     </div>
+                </div>
+
+                {/* COMPLETION SECTION */}
+                <div className="pt-8 border-t border-slate-200">
+                    <Card className={cn(
+                        "transition-all duration-500 rounded-3xl overflow-hidden border-2",
+                        isCompleted
+                            ? "bg-emerald-50 border-emerald-100 shadow-sm"
+                            : "bg-white border-indigo-100 shadow-xl"
+                    )}>
+                        <CardContent className="p-8 md:p-12 text-center space-y-6">
+                            <div className={cn(
+                                "w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-4xl mb-4 transition-all duration-500",
+                                isCompleted ? "bg-emerald-500 text-white rotate-12" : "bg-indigo-50 text-indigo-600"
+                            )}>
+                                {isCompleted ? <CheckCircle2 className="w-10 h-10" /> : <BookOpen className="w-10 h-10" />}
+                            </div>
+
+                            <div className="space-y-2">
+                                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900">
+                                    {isCompleted ? "Tieto tallennettu!" : "Saitko uutta tietoa?"}
+                                </h3>
+                                <p className="text-slate-600 max-w-sm mx-auto font-medium">
+                                    {isCompleted
+                                        ? "Olet suorittanut Neuromoninaisuus-infon. Pisteet on lisätty profiiliisi."
+                                        : "Kun olet lukenut materiaalin, voit kuitata sen suoritetuksi alta. Tämä kerryttää sertifiointipisteitäsi."}
+                                </p>
+                            </div>
+
+                            {!isCompleted ? (
+                                <Button
+                                    onClick={handleComplete}
+                                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-black uppercase tracking-widest px-10 py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all"
+                                >
+                                    Merkitse suoritetuksi (+75 pts)
+                                </Button>
+                            ) : (
+                                <Link href="/dashboard">
+                                    <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
+                                        Palaa työpöydälle
+                                    </Button>
+                                </Link>
+                            )}
+                        </CardContent>
+                    </Card>
                 </div>
 
             </div>
