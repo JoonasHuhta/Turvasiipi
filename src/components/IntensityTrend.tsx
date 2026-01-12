@@ -16,6 +16,10 @@ export function IntensityTrend({ data }: IntensityTrendProps) {
 
     if (data.length === 0) return null;
 
+    // Get translations once
+    const intensityLabel = t('overview.charts.intensity_label');
+    const dayLabel = t('overview.charts.intensity_day');
+
     // Format data for display
     const formattedData = data.map(item => ({
         ...item,
@@ -54,8 +58,8 @@ export function IntensityTrend({ data }: IntensityTrendProps) {
                                 border: '1px solid #e2e8f0',
                                 borderRadius: '8px'
                             }}
-                            formatter={(value: number) => [value.toFixed(1), t('overview.charts.intensity_label')]}
-                            labelFormatter={(label: string) => `${t('overview.charts.intensity_day')} ${label}`}
+                            formatter={(value: number | undefined) => value !== undefined ? [value.toFixed(1), intensityLabel] : ['', '']}
+                            labelFormatter={(label: string) => `${dayLabel} ${label}`}
                         />
                         <Line
                             type="monotone"

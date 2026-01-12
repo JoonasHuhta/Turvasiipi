@@ -42,7 +42,7 @@ export function TacticDistribution({ data }: TacticDistributionProps) {
                                 border: '1px solid #e2e8f0',
                                 borderRadius: '8px'
                             }}
-                            formatter={(value: number) => [`${value} kertaa`, 'Määrä']}
+                            formatter={(value: number | undefined) => value !== undefined ? [`${value} kertaa`, 'Määrä'] : ['', '']}
                         />
                         <Bar dataKey="count" radius={[8, 8, 0, 0]}>
                             {data.map((entry, index) => (
