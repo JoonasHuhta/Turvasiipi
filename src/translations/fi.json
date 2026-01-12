@@ -16,8 +16,9 @@
         "community": "Yhteisö",
         "stories": "Tarinat",
         "training": "Valmennus",
-        "empathy_spectrum": "Empatia-spektri",
-        "literacy_test": "Lukutaito-testi"
+        "empatiatesti": "Empatia-spektri",
+        "lukutaito-testi": "Lukutaito-testi",
+        "tactics": "Kiusaamisen muodot"
     },
     "dashboard": {
         "title": "Oma Polku",
@@ -506,9 +507,9 @@
             "25": "Tunnetko että 'en ole enää oma itseni'?"
         },
         "tactics_page": {
-            "title_start": "Taktiikka",
-            "title_highlight": "pankki",
-            "description": "Kiusaajilla on usein toistuvat strategiat. Kun tunnistat taktiikan, se menettää osan vallastaan sinuun.",
+            "title_start": "KIUSAAMISEN",
+            "title_highlight": "MUODOT",
+            "description": "Näkymätön väkivalta piiloutuu usein epämääräisyyden taakse. Tässä työkalupakissa teemme taktiikoista näkyviä.",
             "modal": {
                 "badge": "Taktinen analyysi",
                 "definition": "Määritelmä",

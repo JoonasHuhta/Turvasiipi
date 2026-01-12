@@ -11,7 +11,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, Trophy, LucideIcon } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, Trophy, LucideIcon, UserCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { Globe } from "lucide-react";
@@ -31,6 +31,7 @@ const getNavItems = (): NavItem[] => [
         icon: Search,
         children: [
             { href: "/quiz", labelKey: "nav.identify_risks", icon: Clipboard },
+            { href: "/taktiikat", labelKey: "nav.tactics", icon: Zap },
             { href: "/feeling-quiz", labelKey: "nav.victim_feelings", icon: Activity },
             { href: "/empatia-testi", labelKey: "nav.empathy_spectrum", icon: Heart },
             { href: "/lukutaito-testi", labelKey: "nav.literacy_test", icon: ClipboardList },
@@ -39,7 +40,7 @@ const getNavItems = (): NavItem[] => [
             { href: "/nuoret", labelKey: "nav.youth_work", icon: Users },
         ]
     },
-    { href: "/valmennus", labelKey: "nav.training", icon: Zap },
+    { href: "/valmennus", labelKey: "nav.training", icon: UserCheck },
     {
         labelKey: "nav.tools",
         icon: Wrench,
