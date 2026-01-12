@@ -73,6 +73,9 @@ export function TimelineEventForm({ onAdd }: TimelineEventFormProps) {
             emotion: selectedEmotion,
             severity,
             bullyingTypes: selectedTypes,
+            title: "Uusi merkintä", // Default title
+            type: selectedTypes[0] || "general",
+            intensity: severity,
         });
 
         // Reset form

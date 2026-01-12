@@ -16,8 +16,8 @@
         "community": "Yhteisö",
         "stories": "Tarinat",
         "training": "Valmennus",
-        "empatiatesti": "Empatia-spektri",
-        "lukutaito-testi": "Lukutaito-testi",
+        "empathy_spectrum": "Empatia-spektri",
+        "literacy_test": "Lukutaito-testi",
         "tactics": "Kiusaamisen muodot"
     },
     "dashboard": {

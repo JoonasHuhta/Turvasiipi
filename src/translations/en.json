@@ -17,7 +17,8 @@
         "stories": "Stories",
         "training": "Coaching",
         "empathy_spectrum": "Empathy Spectrum",
-        "literacy_test": "Literacy Test"
+        "literacy_test": "Literacy Test",
+        "tactics": "Forms of Bullying"
     },
     "dashboard": {
         "title": "My Journey",
@@ -128,7 +129,9 @@
         "q8": "Is the use of AI safe?",
         "a8": "Yes. We use AI only to structure reports, and it happens in a highly secure environment. Your data is not used for AI training, and it is never permanently stored in any cloud service.",
         "q9": "What is bullying literacy?",
-        "a9": "Bullying literacy is the ability to recognize, understand, and confront bullying in the work community – in time and together. It doesn't mean that every individual should be an expert or a hero. It means that no one is helpless in the situation."
+        "a9": "Bullying literacy is the ability to recognize, understand, and confront bullying in the work community – in time and together. It doesn't mean that every individual should be an expert or a hero. It means that no one is helpless in the situation.",
+        "q10": "Who is Turvasiipi for?",
+        "a10": "Turvasiipi is designed for everyone who wants to understand workplace power dynamics and recognize latent psychological violence."
     },
     "timeline": {
         "page": {
