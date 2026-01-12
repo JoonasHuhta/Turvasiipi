@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, ArrowRight, Save, Clock, MapPin, User, Quote, Users, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { bullyingTactics, Tactic } from "@/data/tactics";
@@ -61,11 +62,11 @@ export default function LogPage() {
         const newEvent: TimelineEvent = {
             id: crypto.randomUUID(),
             timestamp: new Date(`${formData.date}T${formData.time}`).toISOString(),
-            type: selectedTactic.category, // Simply mapping category to event type for now
+            type: selectedTactic.category,
             title: selectedTactic.name,
             description: formData.description,
             intensity: formData.intensity[0],
-            emotion: "neutral", // Default
+            emotion: "neutral",
             notes: `Paikka: ${formData.location}\nHenkilöt: ${formData.person}\nTodistajat: ${formData.witnesses}\nTodisteet: ${formData.evidenceType.join(", ")}`,
             peopleInvolved: formData.person
         };
@@ -142,7 +143,6 @@ export default function LogPage() {
                                 >
                                     <CardContent className="p-4 flex items-start gap-3">
                                         <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                                            {/* Ideally dynamic icons, mapped by category for now */}
                                             {tactic.category === 'verbal' && <Quote className="w-5 h-5 text-indigo-500" />}
                                             {tactic.category === 'social' && <Users className="w-5 h-5 text-pink-500" />}
                                             {tactic.category === 'power' && <ShieldCheck className="w-5 h-5 text-orange-500" />}
@@ -220,29 +220,124 @@ export default function LogPage() {
                     </div>
                 )}
 
-                {/* Step 3: Evidence & Impact */}
+                {/* Step 3: Description Builder (Sentence Blocks) */}
                 {step === 3 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
                         <div className="text-center space-y-2">
                             <h1 className="text-2xl font-bold text-slate-900">Mitä tapahtui?</h1>
-                            <p className="text-slate-500">Kuvaile omin sanoin tai lainaa suoraan.</p>
+                            <p className="text-slate-500">Rakenna kuvaus valitsemalla sopivat palikat.</p>
                         </div>
 
+                        {/* Sentence Builder Blocks */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {/* Subject Column */}
+                                <div className="space-y-3">
+                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Tekijä (Kuka?)</Label>
+                                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
+                                        {[
+                                            { id: 'esimies', label: 'Esimies', icon: '👔' },
+                                            { id: 'kollega', label: 'Kollega', icon: '👤' },
+                                            { id: 'johto', label: 'Johto', icon: '🏢' },
+                                            { id: 'asiakas', label: 'Asiakas', icon: '🤝' },
+                                            { id: 'ryhma', label: 'Työyhteisö', icon: '👥' },
+                                        ].map(sub => (
+                                            <div
+                                                key={sub.id}
+                                                onClick={() => setFormData(prev => ({
+                                                    ...prev,
+                                                    description: `${sub.label} ${prev.description.split(' ').slice(1).join(' ')}`
+                                                }))}
+                                                className={cn(
+                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
+                                                    formData.description.startsWith(sub.label) ? "border-indigo-500 bg-indigo-50" : "border-slate-100"
+                                                )}
+                                            >
+                                                <span className="text-xl">{sub.icon}</span>
+                                                <span className="font-medium text-slate-700">{sub.label}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Action Column */}
+                                <div className="space-y-3">
+                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Teko (Mitä?)</Label>
+                                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
+                                        {[
+                                            { id: 'yelled', label: 'huusi minulle', icon: '📢' },
+                                            { id: 'ignored', label: 'jätti huomioimatta', icon: '🔕' },
+                                            { id: 'criticized', label: 'arvosteli aiheetta', icon: '👎' },
+                                            { id: 'excluded', label: 'jätti ulkopuolelle', icon: '🚪' },
+                                            { id: 'mocked', label: 'vähätteli osaamistani', icon: '🤡' },
+                                            { id: 'threatened', label: 'uhkaili seurauksilla', icon: '⚠️' },
+                                            { id: 'withheld', label: 'panttasi tietoa', icon: '🤐' },
+                                        ].map(act => (
+                                            <div
+                                                key={act.id}
+                                                onClick={() => setFormData(prev => {
+                                                    const parts = prev.description.split(' ');
+                                                    const subject = parts.length > 0 && parts[0] ? parts[0] : 'Tekijä';
+                                                    return { ...prev, description: `${subject} ${act.label} ...` };
+                                                })}
+                                                className={cn(
+                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
+                                                    formData.description.includes(act.label) ? "border-rose-500 bg-rose-50" : "border-slate-100"
+                                                )}
+                                            >
+                                                <span className="text-xl">{act.icon}</span>
+                                                <span className="font-medium text-slate-700">{act.label}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Context Column */}
+                                <div className="space-y-3">
+                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Konteksti (Missä?)</Label>
+                                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
+                                        {[
+                                            { id: 'meeting', label: 'palaverissa', icon: '📅' },
+                                            { id: 'email', label: 'sähköpostitse', icon: '📧' },
+                                            { id: 'public', label: 'muiden kuullen', icon: '👀' },
+                                            { id: 'private', label: 'kahden kesken', icon: '🔒' },
+                                            { id: 'chat', label: 'pikaviestimessä', icon: '💬' },
+                                            { id: 'break', label: 'tauolla', icon: '☕' },
+                                        ].map(ctx => (
+                                            <div
+                                                key={ctx.id}
+                                                onClick={() => setFormData(prev => {
+                                                    const cleanDesc = prev.description.replace(/\s\.\.\.$/, '');
+                                                    return { ...prev, description: `${cleanDesc} ${ctx.label}.` };
+                                                })}
+                                                className={cn(
+                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
+                                                    formData.description.includes(ctx.label) ? "border-emerald-500 bg-emerald-50" : "border-slate-100"
+                                                )}
+                                            >
+                                                <span className="text-xl">{ctx.icon}</span>
+                                                <span className="font-medium text-slate-700">{ctx.label}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Separator />
+
                             <div className="space-y-2">
                                 <Label className="flex justify-between">
-                                    Kuvaus
-                                    <span className="text-xs text-slate-400 font-normal">Sitaatit nostavat todistusarvoa</span>
+                                    Lopputulos (voit muokata vapaasti)
                                 </Label>
                                 <Textarea
-                                    placeholder="Kerro mitä sanottiin tai tehtiin. Jos muistat tarkan lauseen, laita se lainausmerkkeihin."
-                                    className="min-h-[120px]"
+                                    className="min-h-[120px] text-lg leading-relaxed shadow-inner bg-slate-50 border-slate-200"
                                     value={formData.description}
                                     onChange={e => setFormData({ ...formData, description: e.target.value })}
+                                    placeholder="Valitse yltä palikat, niin lause muodostuu tähän..."
                                 />
                             </div>
 
-                            <div className="space-y-4">
+                            <div className="space-y-4 pt-4 border-t border-slate-100">
                                 <Label>Intensiteetti (1-5)</Label>
                                 <div className="px-2">
                                     <Slider
