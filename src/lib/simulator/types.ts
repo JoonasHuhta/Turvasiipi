@@ -1,4 +1,4 @@
-export type Profession = 'nurse' | 'teacher' | 'developer' | 'manager' | 'neuro' | 'youth';
+export type Profession = 'nurse' | 'teacher' | 'developer' | 'manager' | 'neuro' | 'youth' | 'performance_trap' | 'information_shadow';
 
 export interface GameStats {
     selfEsteem: number; // 0-100

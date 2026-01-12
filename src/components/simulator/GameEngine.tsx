@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phase, GameState, INITIAL_STATS, Choice } from "@/lib/simulator/types";
+import { Phase, GameState, INITIAL_STATS, Choice, Profession, GameStats } from "@/lib/simulator/types";
 import { useProgress } from "@/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress"; // Assuming shadcn progress exists, or I'll use standard
@@ -12,12 +12,17 @@ import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
 
+interface StatLabel {
+    label: string;
+    description: string;
+}
+
 interface GameEngineProps {
     scenario: Record<string, Phase>;
     initialPhaseId: string;
     onExit: () => void;
-    profession?: 'nurse' | 'teacher' | 'manager' | 'neuro' | 'youth';
-    statConfig?: StatConfigItem[];
+    profession?: string;
+    statLabels?: Partial<Record<keyof GameStats, StatLabel>>;
 }
 
 export interface StatConfigItem {
@@ -28,12 +33,31 @@ export interface StatConfigItem {
     color: string;
 }
 
-export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statConfig }: GameEngineProps) {
+export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statLabels }: GameEngineProps) {
+    const getStatConfig = () => {
+        const baseConfig = [
+            { id: 'selfEsteem', label: 'Itseluottamus', icon: Brain, color: 'bg-indigo-500', description: 'Uskosi omiin kykyihisi ja oikeuksiisi.' },
+            { id: 'teamAcceptance', label: 'Hyväksyntä', icon: Users, color: 'bg-cyan-500', description: 'Miten työyhteisö suhtautuu sinuun.' },
+            { id: 'physicalHealth', label: 'Jaksaminen', icon: Heart, color: 'bg-rose-500', description: 'Henkinen ja fyysinen kestävyytesi.' },
+            { id: 'hope', label: 'Toivo', icon: ArrowRight, color: 'bg-emerald-500', description: 'Uskosi parempaan tulevaisuuteen.' }
+        ];
+
+        if (!statLabels) return baseConfig;
+
+        return baseConfig.map(stat => {
+            const override = statLabels[stat.id as keyof GameStats];
+            if (override) {
+                return { ...stat, label: override.label, description: override.description };
+            }
+            return stat;
+        });
+    };
+
     const { completeModule, saveSimulationScore } = useProgress();
     const { t } = useLanguage();
     const [state, setState] = useState<GameState>({
         currentPhaseId: initialPhaseId,
-        profession: profession,
+        profession: profession as Profession,
         stats: { ...INITIAL_STATS },
         logEntries: [],
         allies: [],
@@ -73,7 +97,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     if (state.currentPhaseId.startsWith('END_')) {
 
         // --- NEURO ENDING ---
-        if (profession === 'neuro') {
+        const isNeuroRelated = ['neuro', 'performance_trap', 'information_shadow'].includes(profession);
+        if (isNeuroRelated) {
             const isBurnout = state.currentPhaseId === 'END_BURNOUT';
             const isNewStart = state.currentPhaseId === 'END_NEW_START';
 
@@ -103,12 +128,12 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                                 Päivän saldot
                             </h3>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                {statConfig?.map(stat => (
+                                {getStatConfig().map(stat => (
                                     <div key={stat.id} className="flex flex-col items-center gap-2">
                                         <div className={cn("p-2 rounded-lg bg-opacity-20 mb-1", stat.color.replace('bg-', 'bg-').replace('500', '900'), stat.color.replace('bg-', 'text-').replace('500', '400'))}>
                                             <stat.icon className="w-5 h-5" />
                                         </div>
-                                        <div className="text-2xl font-mono font-bold text-white">{state.stats[stat.id] || 0}%</div>
+                                        <div className="text-2xl font-mono font-bold text-white">{state.stats[stat.id as keyof GameStats] || 0}%</div>
                                         <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
                                     </div>
                                 ))}
@@ -461,17 +486,9 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         className="flex gap-2.5 cursor-pointer active:scale-95 transition-transform p-1.5 rounded-xl hover:bg-white/50"
                         onClick={() => setIsHelpOpen(true)}
                     >
-                        {statConfig ? (
-                            statConfig.map(stat => (
-                                <MiniStatBar key={stat.id} icon={stat.icon} value={state.stats[stat.id]} color={stat.color} />
-                            ))
-                        ) : (
-                            <>
-                                <MiniStatBar icon={Brain} value={state.stats.selfEsteem} color="bg-indigo-500" />
-                                <MiniStatBar icon={Users} value={state.stats.teamAcceptance} color="bg-cyan-500" />
-                                <MiniStatBar icon={Heart} value={state.stats.hope} color="bg-rose-500" />
-                            </>
-                        )}
+                        {getStatConfig().map(stat => (
+                            <MiniStatBar key={stat.id} icon={stat.icon} value={state.stats[stat.id as keyof GameStats]} color={stat.color} />
+                        ))}
                     </div>
 
                     <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 transition-colors">
@@ -489,43 +506,17 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             <h3 className="font-black text-slate-900 uppercase tracking-tight">Voimavarat</h3>
                         </div>
                         <div className="p-6 space-y-5">
-                            {statConfig ? (
-                                statConfig.map(stat => (
-                                    <div key={stat.id} className="flex items-center gap-4">
-                                        <div className={cn("p-3 rounded-xl", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
-                                            <stat.icon className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">{stat.label}</div>
-                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">{stat.description}</div>
-                                        </div>
+                            {getStatConfig().map(stat => (
+                                <div key={stat.id} className="flex items-center gap-4">
+                                    <div className={cn("p-3 rounded-xl", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
+                                        <stat.icon className="w-6 h-6" />
                                     </div>
-                                ))
-                            ) : (
-                                <>
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-indigo-100 text-indigo-600 rounded-xl"><Brain className="w-6 h-6" /></div>
-                                        <div>
-                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Itseluottamus</div>
-                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Uskosi omiin kykyihisi ja oikeuksiisi.</div>
-                                        </div>
+                                    <div>
+                                        <div className="font-black text-sm text-slate-900 uppercase tracking-tight">{stat.label}</div>
+                                        <div className="text-xs text-slate-500 leading-relaxed font-medium">{stat.description}</div>
                                     </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-cyan-100 text-cyan-600 rounded-xl"><Users className="w-6 h-6" /></div>
-                                        <div>
-                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Hyväksyntä</div>
-                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Miten työyhteisö suhtautuu sinuun.</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-rose-100 text-rose-600 rounded-xl"><Heart className="w-6 h-6" /></div>
-                                        <div>
-                                            <div className="font-black text-sm text-slate-900 uppercase tracking-tight">Jaksaminen</div>
-                                            <div className="text-xs text-slate-500 leading-relaxed font-medium">Henkinen ja fyysinen kestävyytesi.</div>
-                                        </div>
-                                    </div>
-                                </>
-                            )}
+                                </div>
+                            ))}
                         </div>
                         <div className="p-4 bg-slate-50 border-t">
                             <Button onClick={() => setIsHelpOpen(false)} className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-widest text-xs">Jatka simulaatiota</Button>

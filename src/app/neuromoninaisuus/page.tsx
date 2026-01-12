@@ -66,7 +66,53 @@ export default function NeurodiversityPage() {
                     </Card>
                 </div>
 
+                {/* LUSIKKATEORIA (NEW SECTION) */}
+                <section id="lusikkateoria" className="bg-indigo-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                    <div className="relative z-10 space-y-8">
+                        <div className="flex flex-col md:flex-row gap-8 items-center">
+                            <div className="flex-1 space-y-4">
+                                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-indigo-200 px-4 py-1 rounded-full text-xs font-black tracking-widest uppercase">
+                                    <Heart className="w-3 h-3" />
+                                    Energiapääoma
+                                </div>
+                                <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight leading-none">
+                                    Lusikkateoria <br />
+                                    <span className="text-indigo-400">ja jaksaminen</span>
+                                </h2>
+                                <p className="text-indigo-100/80 leading-relaxed font-medium">
+                                    Lusikkateoria on Christine Miserandinon kehittämä vertauskuva energian rajallisuudesta.
+                                    Se auttaa ymmärtämään, miksi arkipäiväiset asiat voivat uuvuttaa neuromoninaisen ihmisen nopeammin.
+                                </p>
+                            </div>
+                            <div className="flex-1 grid grid-cols-4 gap-4 max-w-sm">
+                                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                                    <div key={i} className={`aspect-square rounded-2xl flex items-center justify-center text-2xl bg-white/10 border border-white/10 ${i > 3 ? 'opacity-20 grayscale' : 'animate-pulse'}`}>
+                                        🥄
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 className="font-bold mb-3 text-indigo-300 uppercase text-xs tracking-wider">Mikä se on?</h4>
+                                <p className="text-sm text-indigo-50/70">Jokainen "lusikka" on yksikkö energiaa. Toisin kuin neurotyypillisillä, neuromoninaisilla lusikoita on usein vähemmän ja ne kuluvat nopeammin aistiärsykkeisiin tai sosiaaliseen maskaamiseen.</p>
+                            </div>
+                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 className="font-bold mb-3 text-rose-300 uppercase tracking-wider text-xs">Mikä kuluttaa?</h4>
+                                <p className="text-sm text-indigo-50/70">Meluisa tila, epäselvät ohjeet, muuttuvat aikataulut tai pakotettu small talk voivat viedä useita lusikoita kerralla ennen kuin varsinainen työ on edes alkanut.</p>
+                            </div>
+                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 className="font-bold mb-3 text-emerald-300 uppercase tracking-wider text-xs">Miten säästää?</h4>
+                                <p className="text-sm text-indigo-50/70">Oikeus vastamelukuulokkeisiin, kirjallinen kommunikaatio ja lupaus olla osallistumatta videopalavereihin voivat säästää kriittisiä lusikoita loppupäivään.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* MAIN CONTENT SECTIONS */}
+
                 <div className="space-y-8">
 
                     {/* 1. HAASTEET */}
@@ -135,65 +181,170 @@ export default function NeurodiversityPage() {
                         </div>
                     </section>
 
-                    {/* 3. TEORIA & TYÖKALUT */}
-                    <Accordion type="single" collapsible className="w-full bg-slate-100 p-4 rounded-xl">
-                        <AccordionItem value="item-1">
-                            <AccordionTrigger className="text-lg font-semibold text-slate-700">🥄 Lusikkateoria (Spoon Theory)</AccordionTrigger>
-                            <AccordionContent className="text-slate-600 leading-relaxed space-y-3">
-                                <p>
-                                    Kuvittele, että sinulla on aamulla 12 lusikkaa (energiaa). Suihku vie yhden, työmatka kaksi. Masking palaverissa vie kolme.
-                                    Kun lusikat loppuvat, seuraa "shutdown". Se ei ole laiskuutta, vaan resurssien täydellistä loppumista.
-                                </p>
-                            </AccordionContent>
-                        </AccordionItem>
-                        <AccordionItem value="item-2">
-                            <AccordionTrigger className="text-lg font-semibold text-slate-700">🤝 Kaksoisempatian ongelma</AccordionTrigger>
-                            <AccordionContent className="text-slate-600 leading-relaxed space-y-3">
-                                <p>
-                                    Tutkimukset osoittavat, että kommunikaatiokatkokset johtuvat usein kahdesta eri "kielestä", ei empatiakyvyn puutteesta.
-                                    Neurotyypillinen odottaa vihjailua, neuroepätyypillinen suoruutta. Molemmat voivat oppia ymmärtämään toisiaan.
-                                </p>
-                            </AccordionContent>
-                        </AccordionItem>
-                        <AccordionItem value="item-3">
-                            <AccordionTrigger className="text-lg font-semibold text-slate-700">⚖️ Laki ja Oikeutesi</AccordionTrigger>
-                            <AccordionContent className="text-slate-600 leading-relaxed space-y-3">
-                                <p><strong>Yhdenvertaisuuslaki:</strong> Työnantajan on tehtävä kohtuulliset mukautukset vammaisuuden perusteella. Tämä ei ole erityiskohtelua, vaan lainmukainen oikeus.</p>
-                                <p>Jos koet syrjintää, ota yhteyttä työterveyshuoltoon, työsuojeluvaltuutettuun tai liittoon.</p>
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
+                    {/* 3. DOUBLE EMPATHY DECODER (NEW) */}
+                    <section id="decoder" className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-pink-100 text-pink-600 rounded-lg">
+                                <MessageCircle className="w-5 h-5" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-slate-800">Kaksoisempatia-tulkki</h2>
+                        </div>
+                        <p className="text-slate-600 text-sm">Sama tilanne, kaksi eri kokemusta. Ymmärrys syntyy kuilun ylittämisestä.</p>
+
+                        <div className="grid gap-4">
+                            {[
+                                {
+                                    situation: "Kysymys palaverissa",
+                                    nt: "Hän on hiljaa. Onko hän valmistautunut huonosti?",
+                                    nd: "Prosessoin tietoa. Tarvitsen hetken jäsentää vastausta tarkasti.",
+                                    bridge: "Anna vastausaikaa tai mahdollisuus vastata kirjallisesti."
+                                },
+                                {
+                                    situation: "Kuulokkeet päässä",
+                                    nt: "Hän on epäsosiaalinen ja eristäytyy tiimistä.",
+                                    nd: "Suojelen aistejani, jotta voin keskittyä työhön tehokkaasti.",
+                                    bridge: "Kunnioita työrauhan tarvetta. Kommunikoi Slackissa."
+                                },
+                                {
+                                    situation: "Suora palaute",
+                                    nt: "Hän on töykeä ja hyökkäävä.",
+                                    nd: "Olen rehellinen ja tehokas. Faktoissa pysyminen on kunnioitusta.",
+                                    bridge: "Älä ota kritiikkiä henkilökohtaisesti. Keskity sisältöön."
+                                }
+                            ].map((item, i) => (
+                                <Card key={i} className="overflow-hidden border-slate-200">
+                                    <div className="bg-slate-50 border-b border-slate-100 px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-500">
+                                        Tilanne: {item.situation}
+                                    </div>
+                                    <div className="grid md:grid-cols-2">
+                                        <div className="p-4 border-b md:border-b-0 md:border-r border-slate-100 space-y-2">
+                                            <span className="text-[10px] font-bold text-indigo-600 uppercase">Neurotyypillinen tulkinta</span>
+                                            <p className="text-sm text-slate-600 italic">"{item.nt}"</p>
+                                        </div>
+                                        <div className="p-4 space-y-2 bg-amber-50/30">
+                                            <span className="text-[10px] font-bold text-amber-600 uppercase">Neuromoninainen kokemus</span>
+                                            <p className="text-sm text-slate-700 font-medium">"{item.nd}"</p>
+                                        </div>
+                                    </div>
+                                    <div className="p-4 bg-emerald-50 flex items-start gap-3">
+                                        <UserCheck className="w-4 h-4 text-emerald-600 mt-0.5" />
+                                        <p className="text-xs text-emerald-800 font-bold">Ratkaisu: {item.bridge}</p>
+                                    </div>
+                                </Card>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* 4. NEPSY LOG TEMPLATES (NEW) */}
+                    <section id="templates" className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                                <BookOpen className="w-5 h-5" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-slate-800">Nepsy-Log: Dokumentoinnin tueksi</h2>
+                        </div>
+                        <p className="text-slate-600 text-sm">Dokumentointi on paras suojasi Performance Trapia eli suoritusloukkua vastaan.</p>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <Card className="border-2 border-dashed border-slate-200 bg-transparent hover:border-indigo-300 transition-colors cursor-pointer group">
+                                <CardHeader>
+                                    <CardTitle className="text-base flex items-center justify-between">
+                                        Sovitut mukautukset
+                                        <ShieldCheck className="w-4 h-4 text-slate-300 group-hover:text-indigo-500" />
+                                    </CardTitle>
+                                    <CardDescription>Käytä kun sovit pelisäännöistä esimiehen kanssa.</CardDescription>
+                                </CardHeader>
+                                <CardContent className="bg-white m-4 rounded-xl p-4 text-[11px] font-mono text-slate-500 leading-relaxed border border-slate-100 italic">
+                                    "PVM: [TÄNÄÄN]<br />
+                                    OSALLISTUJAT: [NIMET]<br />
+                                    SOVITTU: Meluvaimennuskuulokkeet sallittu työpisteellä.<br />
+                                    PERUSTELU: Keskittymiskyvyn varmistaminen (Yhdenvertaisuuslaki).<br />
+                                    SEURANTA: [PVM]"
+                                </CardContent>
+                            </Card>
+
+                            <Card className="border-2 border-dashed border-slate-200 bg-transparent hover:border-rose-300 transition-colors cursor-pointer group">
+                                <CardHeader>
+                                    <CardTitle className="text-base flex items-center justify-between">
+                                        Viestinnän katkokset
+                                        <AlertTriangle className="w-4 h-4 text-slate-300 group-hover:text-rose-500" />
+                                    </CardTitle>
+                                    <CardDescription>Kirjaa ylös tilanteet, joissa jäit informaatiovarjoon.</CardDescription>
+                                </CardHeader>
+                                <CardContent className="bg-white m-4 rounded-xl p-4 text-[11px] font-mono text-slate-500 leading-relaxed border border-slate-100 italic">
+                                    "AIKA: [AIKA]<br />
+                                    TAPAHTUMA: Tiimissä tehtiin päätös X keittiössä.<br />
+                                    VAIKUTUS: Jäin tiedon ulkopuolelle, työni viivästyi 2h.<br />
+                                    REAKTIO: Pyysin päivitystä sähköpostitse."
+                                </CardContent>
+                            </Card>
+                        </div>
+                        <div className="bg-indigo-900 rounded-2xl p-6 text-white text-sm">
+                            <div className="flex gap-4 items-center">
+                                <Scale className="w-10 h-10 text-indigo-300 shrink-0" />
+                                <div>
+                                    <p className="font-bold mb-1">Muista oikeutesi:</p>
+                                    <p className="text-indigo-100 opacity-80">Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuulliset mukautukset. Dokumentoitu logi on näyttösi, jos näitä mukautuksia käytetään myöhemmin sinua vastaan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
 
                 {/* SIMULATION CALL TO ACTION */}
                 <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 text-center space-y-8 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 via-indigo-500 to-rose-500" />
+                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 via-indigo-500 to-rose-500" />
 
-                    <div className="space-y-4 relative z-10">
-                        <Badge className="bg-emerald-500 hover:bg-emerald-600 text-white border-none text-base px-4 py-1">Uutta</Badge>
-                        <h2 className="text-3xl md:text-4xl font-black tracking-tight">Koe päivä neuroepätyypillisenä</h2>
-                        <p className="text-slate-300 max-w-xl mx-auto text-lg leading-relaxed">
-                            Simulaatiossa olet Alex, graafinen suunnittelija.
-                            Pääset tekemään valintoja, jotka vaikuttavat energiaasi, keskittymiseesi ja tiimin ymmärrykseen.
-                            Tunnistatko tilanteet?
-                        </p>
+                    <div className="relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 text-left items-center">
+                        <div className="space-y-6">
+                            <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-none text-base px-4 py-1 uppercase font-black tracking-widest">Päivitetty</Badge>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.8] uppercase">
+                                Harjoittele <br />
+                                <span className="text-amber-400">itsepuolustusta</span>
+                            </h2>
+                            <p className="text-slate-300 text-lg leading-relaxed max-w-md">
+                                Työelämä voi olla miinakenttä. Simulaattorimme avulla voit harjoitella vaikeita tilanteita turvallisesti ennen niiden kohtaamista arjessa.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-4">
+                            <Link href="/simulaatio/neuro">
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
+                                    <h4 className="font-bold flex items-center justify-between">
+                                        Päivä neurokirjolla 🧩
+                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                    </h4>
+                                    <p className="text-xs text-slate-400 mt-1">Aistiyliherkkyydet ja energianhallinta.</p>
+                                </div>
+                            </Link>
+                            <Link href="/simulaatio/performance-trap">
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
+                                    <h4 className="font-bold flex items-center justify-between">
+                                        Suoritusloukku 📉
+                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                    </h4>
+                                    <p className="text-xs text-slate-400 mt-1">Kohtuullisten mukautusten puolustaminen.</p>
+                                </div>
+                            </Link>
+                            <Link href="/simulaatio/information-shadow">
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
+                                    <h4 className="font-bold flex items-center justify-between">
+                                        Informaatiovarjo 👤
+                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                    </h4>
+                                    <p className="text-xs text-slate-400 mt-1">Sosiaalisesta ulossulkemisesta selviytyminen.</p>
+                                </div>
+                            </Link>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto opacity-80 text-sm font-mono text-emerald-300 mb-6">
-                        <div className="bg-white/5 p-2 rounded">🔋 Energia</div>
-                        <div className="bg-white/5 p-2 rounded">🎯 Keskittyminen</div>
-                        <div className="bg-white/5 p-2 rounded">❤️ Hyvinvointi</div>
-                        <div className="bg-white/5 p-2 rounded">👥 Ymmärrys</div>
-                    </div>
-
-                    <div className="relative z-10">
-                        <Link href="/simulaatio/neuro">
-                            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg px-8 py-6 shadow-lg shadow-emerald-500/20 transition-all hover:scale-105">
-                                Kokeile simulaattoria nyt <ArrowRight className="w-5 h-5 ml-2" />
+                    <div className="pt-8 border-t border-white/10 relative z-10">
+                        <Link href="/simulaatio">
+                            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-full px-8">
+                                Katso kaikki skenaariot
                             </Button>
                         </Link>
-                        <p className="mt-4 text-xs text-slate-500">Kesto: n. 5 minuuttia • Ei tallenna henkilötietoja</p>
                     </div>
                 </div>
 
