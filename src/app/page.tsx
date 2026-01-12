@@ -447,6 +447,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Isolation Illustration */}
+      <section className="px-6 py-16 max-w-4xl mx-auto text-center">
+        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12 border border-indigo-100">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            Sosiaalinen eristäminen
+          </h2>
+          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+            Yksi yleisimmistä kiusaamisen muodoista on sosiaalinen eristäminen - uhri leikataan pois yhteisöstä.
+          </p>
+          <div className="relative max-w-2xl mx-auto">
+            <img
+              src="/isolation-scissors.png"
+              alt="Sosiaalinen eristäminen - sakset leikkaavat ihmisen pois ryhmästä"
+              className="w-full h-auto drop-shadow-lg"
+            />
+          </div>
+          <p className="text-sm text-slate-500 mt-6 italic">
+            Turvasiipi auttaa tunnistamaan ja dokumentoimaan tällaisia tilanteita.
+          </p>
+        </div>
+      </section>
+
     </div>
   );
 }
