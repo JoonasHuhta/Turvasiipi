@@ -157,6 +157,58 @@ export default function PrivacyPage() {
                             </p>
                         </div>
                     </section>
+
+                    {/* Developer Info */}
+                    <section className="bg-gradient-to-br from-indigo-50 to-slate-50 p-8 rounded-3xl border border-indigo-100 shadow-sm">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                                JH
+                            </div>
+                            <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <h2 className="text-xl font-bold text-slate-900">Tietoja sovelluksesta</h2>
+                                    <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs font-bold rounded-full border border-amber-200">
+                                        BETA
+                                    </span>
+                                </div>
+                                <p className="text-slate-600 mb-4">
+                                    Turvasiipi on beta-vaiheessa oleva sovellus, jonka on kehittänyt <strong className="text-slate-900">Joonas Huhta</strong>.
+                                    Sovellus on rakennettu auttamaan työpaikkakiusaamisen uhreja dokumentoinnissa ja toipumisessa.
+                                </p>
+                                <div className="space-y-2 text-sm">
+                                    <div className="flex items-center gap-2 text-slate-600">
+                                        <span className="font-semibold text-slate-700">Versio:</span> 1.0.0 (Beta)
+                                    </div>
+                                    <div className="flex items-center gap-2 text-slate-600">
+                                        <span className="font-semibold text-slate-700">Kehittäjä:</span> Joonas Huhta
+                                    </div>
+                                    <div className="flex items-center gap-2 text-slate-600">
+                                        <span className="font-semibold text-slate-700">Palaute:</span>
+                                        <a href="mailto:turvasiipi@gmail.fi" className="text-indigo-600 hover:text-indigo-700 font-medium underline">
+                                            turvasiipi@gmail.fi
+                                        </a>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-slate-600">
+                                        <span className="font-semibold text-slate-700">LinkedIn:</span>
+                                        <a
+                                            href="https://www.linkedin.com/in/joonas-huhta-2821a3260/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-indigo-600 hover:text-indigo-700 font-medium underline inline-flex items-center gap-1"
+                                        >
+                                            Joonas Huhta
+                                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <p className="text-xs text-slate-500 mt-4 italic">
+                                    Tämä sovellus ei kerää dataa. Kaikki tieto pysyy laitteellasi.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
                 {/* Footer Actions */}
