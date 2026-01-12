@@ -14,36 +14,24 @@ export default function NeuroSimulationPage() {
             initialPhaseId="START"
             onExit={() => router.push('/neuromoninaisuus')}
             profession="neuro" // Using 'neuro' theme for custom ending
-            statConfig={[
-                {
-                    id: 'physicalHealth',
+            statLabels={{
+                physicalHealth: {
                     label: 'Energia',
-                    description: 'Aloitus: 80/100. Masking ja aistiyliherkkyys kuluttavat tätä nopeasti.',
-                    icon: Battery,
-                    color: 'bg-emerald-500'
+                    description: 'Aloitus: 80/100. Masking ja aistiyliherkkyys kuluttavat tätä nopeasti.'
                 },
-                {
-                    id: 'selfEsteem',
+                selfEsteem: {
                     label: 'Keskittyminen',
-                    description: 'Aloitus: 80/100. Melu ja keskeytykset tuhoavat flow-tilan.',
-                    icon: Target,
-                    color: 'bg-amber-500' // Focus needs caution
+                    description: 'Aloitus: 80/100. Melu ja keskeytykset tuhoavat flow-tilan.'
                 },
-                {
-                    id: 'hope',
+                hope: {
                     label: 'Hyvinvointi',
-                    description: 'Aloitus: 80/100. Koetko olevasi oma itsesi vai esitätkö roolia?',
-                    icon: Heart,
-                    color: 'bg-rose-500'
+                    description: 'Aloitus: 80/100. Koetko olevasi oma itsesi vai esitätkö roolia?'
                 },
-                {
-                    id: 'teamAcceptance',
+                teamAcceptance: {
                     label: 'Ymmärrys',
-                    description: 'Aloitus: 60/100. Miten kollegat tulkitsevat käytöksesi?',
-                    icon: Users,
-                    color: 'bg-blue-500'
+                    description: 'Aloitus: 60/100. Miten kollegat tulkitsevat käytöksesi?'
                 }
-            ]}
+            }}
         />
     );
 }

@@ -11,12 +11,12 @@ export default function YouthSimulationPage() {
             initialPhaseId="START"
             onExit={() => window.location.href = '/nuoret'}
             profession="youth"
-            statConfig={[
-                { id: "selfEsteem", label: "Ammatillinen itsetunto", description: "Oma kokemus pystyvyydestä ja arvosta.", icon: Shield, color: "bg-indigo-500" },
-                { id: "hope", label: "Tulevaisuususko", description: "Luottamus siihen, että asiat järjestyvät.", icon: Smile, color: "bg-emerald-500" },
-                { id: "physicalHealth", label: "Fyysinen jaksaminen", description: "Unen ja palautumisen taso.", icon: Battery, color: "bg-rose-500" },
-                { id: "teamAcceptance", label: "Tiimin hyväksyntä", description: "Kuulumisen tunne työyhteisöön.", icon: User, color: "bg-amber-500" },
-            ]}
+            statLabels={{
+                selfEsteem: { label: "Ammatillinen itsetunto", description: "Oma kokemus pystyvyydestä ja arvosta." },
+                hope: { label: "Tulevaisuususko", description: "Luottamus siihen, että asiat järjestyvät." },
+                physicalHealth: { label: "Fyysinen jaksaminen", description: "Unen ja palautumisen taso." },
+                teamAcceptance: { label: "Tiimin hyväksyntä", description: "Kuulumisen tunne työyhteisöön." },
+            }}
         />
     );
 }
