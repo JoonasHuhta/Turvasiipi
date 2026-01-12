@@ -1,8 +1,11 @@
 import { TimelineEvent } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Frown, Meh, AlertCircle, Angry, Trash2 } from "lucide-react";
+import { Frown, Meh, AlertCircle, Angry, Trash2, Zap, Edit } from "lucide-react";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface TimelineListProps {
     events: TimelineEvent[];
@@ -11,6 +14,7 @@ interface TimelineListProps {
 
 export function TimelineList({ events, onDelete }: TimelineListProps) {
     const { t, language } = useLanguage();
+    const router = useRouter();
 
     if (events.length === 0) {
         return (
@@ -34,26 +38,41 @@ export function TimelineList({ events, onDelete }: TimelineListProps) {
     return (
         <div className="space-y-4">
             {events.map((event) => (
-                <Card key={event.id} className="relative overflow-hidden transition-all hover:shadow-md">
-                    <div className={`absolute left-0 top-0 bottom-0 w-1 ${event.emotion === 'angry' ? 'bg-red-400' :
-                        event.emotion === 'sad' ? 'bg-blue-400' :
-                            event.emotion === 'anxious' ? 'bg-yellow-400' :
-                                event.emotion === 'fearful' ? 'bg-purple-400' : 'bg-gray-400'
-                        }`} />
+                <Card key={event.id} className={cn(
+                    "relative overflow-hidden transition-all hover:shadow-md",
+                    event.isQuickLog && "bg-amber-50/30 border-l-4 border-l-amber-500"
+                )}>
+                    {!event.isQuickLog && (
+                        <div className={`absolute left-0 top-0 bottom-0 w-1 ${event.emotion === 'angry' ? 'bg-red-400' :
+                            event.emotion === 'sad' ? 'bg-blue-400' :
+                                event.emotion === 'anxious' ? 'bg-yellow-400' :
+                                    event.emotion === 'fearful' ? 'bg-purple-400' : 'bg-gray-400'
+                            }`} />
+                    )}
                     <CardHeader className="pb-2">
                         <div className="flex justify-between items-start">
-                            <div className="space-y-1">
-                                <CardTitle className="text-base font-medium flex items-center gap-2">
-                                    {getIcon(event.emotion)}
-                                    {new Date(event.timestamp).toLocaleString(language === 'fi' ? "fi-FI" : "en-US", {
-                                        weekday: 'short',
-                                        day: 'numeric',
-                                        month: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit'
-                                    })}
-                                </CardTitle>
-                                <p className="text-sm text-muted-foreground">{t('timeline.list.witnesses_prefix')} {event.peopleInvolved || t('timeline.list.no_witnesses')}</p>
+                            <div className="space-y-1 flex-1">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <CardTitle className="text-base font-medium flex items-center gap-2">
+                                        {!event.isQuickLog && getIcon(event.emotion)}
+                                        {event.isQuickLog && <Zap className="w-5 h-5 text-amber-500 fill-amber-500" />}
+                                        {new Date(event.timestamp).toLocaleString(language === 'fi' ? "fi-FI" : "en-US", {
+                                            weekday: 'short',
+                                            day: 'numeric',
+                                            month: 'numeric',
+                                            hour: '2-digit',
+                                            minute: '2-digit'
+                                        })}
+                                    </CardTitle>
+                                    {event.isQuickLog && (
+                                        <Badge className="bg-amber-500 hover:bg-amber-600 text-white text-[10px]">
+                                            ⚡ Keskeneräinen
+                                        </Badge>
+                                    )}
+                                </div>
+                                {!event.isQuickLog && (
+                                    <p className="text-sm text-muted-foreground">{t('timeline.list.witnesses_prefix')} {event.peopleInvolved || t('timeline.list.no_witnesses')}</p>
+                                )}
                             </div>
                             <Button
                                 variant="ghost"
@@ -90,6 +109,19 @@ export function TimelineList({ events, onDelete }: TimelineListProps) {
                                         {t(`timeline.types.${typeKey}`)}
                                     </span>
                                 ))}
+                            </div>
+                        )}
+
+                        {event.isQuickLog && (
+                            <div className="mt-4 pt-4 border-t border-amber-200">
+                                <Button
+                                    onClick={() => router.push(`/loki?quickLogId=${event.id}`)}
+                                    className="w-full bg-amber-500 hover:bg-amber-600 text-white"
+                                    size="sm"
+                                >
+                                    <Edit className="w-4 h-4 mr-2" />
+                                    Täydennä merkintä
+                                </Button>
                             </div>
                         )}
                     </CardContent>

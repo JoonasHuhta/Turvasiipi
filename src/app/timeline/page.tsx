@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/context/LanguageContext";
 import { useProgress } from "@/context/ProgressContext";
+import { QuickLogButton } from "@/components/QuickLogButton";
 
 export default function TimelinePage() {
     const { t } = useLanguage();
@@ -90,6 +91,9 @@ export default function TimelinePage() {
                     </div>
                 </div>
             </VaultWrapper>
+
+            {/* Quick Log Floating Button */}
+            <QuickLogButton />
         </div>
     );
 }

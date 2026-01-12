@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,11 +20,13 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function LogPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const { t } = useLanguage();
     const { data: events, setData: setEvents } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
 
     const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
+    const [quickLogId, setQuickLogId] = useState<string | null>(null);
     const [formData, setFormData] = useState({
         date: new Date().toISOString().split('T')[0],
         time: new Date().toTimeString().slice(0, 5),
@@ -35,6 +37,23 @@ export default function LogPage() {
         witnesses: "",
         evidenceType: [] as string[]
     });
+
+    // Check for quick log completion
+    useEffect(() => {
+        const quickLogIdParam = searchParams.get('quickLogId');
+        if (quickLogIdParam) {
+            const quickLog = events.find(e => e.id === quickLogIdParam && e.isQuickLog);
+            if (quickLog) {
+                setQuickLogId(quickLogIdParam);
+                setFormData(prev => ({
+                    ...prev,
+                    description: quickLog.quickLogText || quickLog.description,
+                    date: new Date(quickLog.timestamp).toISOString().split('T')[0],
+                    time: new Date(quickLog.timestamp).toTimeString().slice(0, 5)
+                }));
+            }
+        }
+    }, [searchParams, events]);
 
     const [meterScore, setMeterScore] = useState(0);
 
@@ -59,19 +78,41 @@ export default function LogPage() {
     const handleSave = () => {
         if (!selectedTactic) return;
 
-        const newEvent: TimelineEvent = {
-            id: crypto.randomUUID(),
-            timestamp: new Date(`${formData.date}T${formData.time}`).toISOString(),
-            type: selectedTactic.category,
-            title: selectedTactic.name,
-            description: formData.description,
-            intensity: formData.intensity[0],
-            emotion: "neutral",
-            notes: `Paikka: ${formData.location}\nHenkilöt: ${formData.person}\nTodistajat: ${formData.witnesses}\nTodisteet: ${formData.evidenceType.join(", ")}`,
-            peopleInvolved: formData.person
-        };
+        if (quickLogId) {
+            // Update existing quick log
+            const updatedEvents = events.map(e => {
+                if (e.id === quickLogId) {
+                    return {
+                        ...e,
+                        type: selectedTactic.category,
+                        title: selectedTactic.name,
+                        description: formData.description,
+                        intensity: formData.intensity[0],
+                        notes: `Paikka: ${formData.location}\nHenkilöt: ${formData.person}\nTodistajat: ${formData.witnesses}\nTodisteet: ${formData.evidenceType.join(", ")}`,
+                        peopleInvolved: formData.person,
+                        isQuickLog: false,
+                        completedAt: new Date().toISOString()
+                    };
+                }
+                return e;
+            });
+            setEvents(updatedEvents);
+        } else {
+            // Create new event
+            const newEvent: TimelineEvent = {
+                id: crypto.randomUUID(),
+                timestamp: new Date(`${formData.date}T${formData.time}`).toISOString(),
+                type: selectedTactic.category,
+                title: selectedTactic.name,
+                description: formData.description,
+                intensity: formData.intensity[0],
+                emotion: "neutral",
+                notes: `Paikka: ${formData.location}\nHenkilöt: ${formData.person}\nTodistajat: ${formData.witnesses}\nTodisteet: ${formData.evidenceType.join(", ")}`,
+                peopleInvolved: formData.person
+            };
+            setEvents([newEvent, ...events]);
+        }
 
-        setEvents([newEvent, ...events]);
         setStep(5); // Go to Advice step instead of redirecting
     };
 

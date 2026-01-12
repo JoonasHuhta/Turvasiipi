@@ -18,7 +18,11 @@
         "training": "Valmennus",
         "empathy_spectrum": "Empatia-spektri",
         "literacy_test": "Lukutaito-testi",
-        "tactics": "Kiusaamisen muodot"
+        "tactics": "Kiusaamisen muodot",
+        "log": "Loki",
+        "overview": "Yleiskatsaus",
+        "timeline": "Aikajana",
+        "reports": "Raportit"
     },
     "dashboard": {
         "title": "Oma Polku",
@@ -131,7 +135,51 @@
         "q9": "Mitä on kiusaamisen lukutaito?",
         "a9": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se ei tarkoita sitä, että jokaisen pitäisi olla asiantuntija tai sankari. Se tarkoittaa, että kukaan ei ole tilanteessa neuvoton.",
         "q10": "Kenelle Turvasiipi on tehty?",
-        "a10": "Turvasiipi on suunniteltu kaikille, jotka haluavat ymmärtää työyhteisön valtadynamiikkaa ja tunnistaa piilevää henkistä väkivaltaa."
+        "a10": "Turvasiipi on suunniteltu kaikille, jotka haluavat ymmärtää työpaikan valtadynamiikkaa ja tunnistaa piilevää psykologista väkivaltaa."
+    },
+    "overview": {
+        "title": "Yleiskatsaus",
+        "subtitle": "Visualisoi dokumentointisi kokonaiskuva",
+        "download_pdf": "Lataa PDF",
+        "time_range": {
+            "label": "Aikaväli:",
+            "7d": "7 päivää",
+            "30d": "30 päivää",
+            "3mo": "3 kuukautta",
+            "all": "Kaikki"
+        },
+        "stats": {
+            "events": "Tapahtumia",
+            "events_desc": "Dokumentoitua merkintää",
+            "duration": "Kesto",
+            "duration_desc": "Ensimmäisestä merkinnästä",
+            "trend": "Trendi",
+            "trend_increased": "Lisääntynyt",
+            "trend_decreased": "Vähentynyt",
+            "trend_stable": "Vakaa",
+            "avg_intensity": "Keskimääräinen vakavuus"
+        },
+        "insights": {
+            "title": "Älykkäät huomiot"
+        },
+        "charts": {
+            "tactics_title": "Kiusaamismuodot",
+            "tactics_desc": "Yleisimmät taktikat dokumentoiduissa tapahtumissa",
+            "tactics_count_singular": "kerta",
+            "tactics_count_plural": "kertaa",
+            "intensity_title": "Intensiteettitrendi",
+            "intensity_desc": "Keskimääräinen vakavuus ajan yli",
+            "intensity_label": "Vakavuus",
+            "intensity_day": "Päivä:",
+            "intensity_avg": "Keskiarvo:",
+            "intensity_highest": "Korkein:",
+            "intensity_lowest": "Matalin:"
+        },
+        "empty": {
+            "title": "Ei merkintöjä valitulla aikavälillä",
+            "desc": "Valitse pidempi aikaväli tai aloita dokumentointi"
+        },
+        "loading": "Ladataan..."
     },
     "timeline": {
         "page": {
@@ -274,8 +322,8 @@
                             "text": "Saat heti valmiin raportin, jonka voit toimittaa eteenpäin."
                         }
                     },
-                    "button": "Aloita analyysi (4.99 €)",
-                    "footer": "Kertamaksu. Ei sitoutumista."
+                    "button": "Kokeile ilmaiseksi (BETA)",
+                    "footer": "Ilmainen beta-testauksen ajan"
                 },
                 "payment": {
                     "title": "Vahvista tilaus",

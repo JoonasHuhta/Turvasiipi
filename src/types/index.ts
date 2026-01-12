@@ -22,4 +22,9 @@ export type TimelineEvent = {
     bullyingTypes?: string[];
     severity?: number;
     consequences?: string;
+
+    // Quick Log fields
+    isQuickLog?: boolean;        // Flag for incomplete entries
+    quickLogText?: string;        // Original quick text
+    completedAt?: string;         // ISO timestamp when user finished it
 };

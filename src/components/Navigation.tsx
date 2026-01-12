@@ -11,7 +11,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, Trophy, LucideIcon, UserCheck } from "lucide-react";
+import { Menu, Home, Clipboard, FileText, Heart, Users, ClipboardList, Gamepad2, Wrench, ChevronDown, Activity, Brain, Search, MessageSquare, Zap, Trophy, LucideIcon, UserCheck, PenTool, BarChart3, Clock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { Globe } from "lucide-react";
@@ -45,8 +45,10 @@ const getNavItems = (): NavItem[] => [
         labelKey: "nav.tools",
         icon: Wrench,
         children: [
-            { href: "/timeline", labelKey: "nav.documentation", icon: ClipboardList },
-            { href: "/raportti", labelKey: "nav.documents", icon: FileText },
+            { href: "/loki", labelKey: "nav.log", icon: PenTool },
+            { href: "/yleiskatsaus", labelKey: "nav.overview", icon: BarChart3 },
+            { href: "/timeline", labelKey: "nav.timeline", icon: Clock },
+            { href: "/raportti", labelKey: "nav.reports", icon: FileText },
         ]
     },
     {

@@ -390,7 +390,7 @@ export default function DocumentsPage() {
                                             <Button onClick={handleStartPremiumProcess} size="lg" className="bg-white text-indigo-900 hover:bg-indigo-50 font-bold text-lg h-14 px-8 shadow-lg shadow-indigo-900/50">
                                                 {t('report.page.premium_tab.intro.button')}
                                             </Button>
-                                            <p className="text-xs text-indigo-400 mt-3">{t('report.page.premium_tab.intro.footer')}</p>
+                                            <p className="text-xs text-indigo-400 mt-3">🎉 Ilmainen beta-testauksen ajan</p>
                                         </div>
                                     </div>
                                 )}
@@ -406,12 +406,14 @@ export default function DocumentsPage() {
                                             <div className="bg-slate-50 p-4 rounded-lg space-y-3 border border-slate-100">
                                                 <div className="flex justify-between text-sm">
                                                     <span>{t('report.page.premium_tab.payment.summary_title')}</span>
-                                                    <span className="font-bold">4.99 €</span>
+                                                    <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200">
+                                                        BETA - Ilmainen
+                                                    </Badge>
                                                 </div>
                                                 <Separator />
-                                                <div className="flex justify-between text-lg font-bold">
-                                                    <span>{t('report.page.premium_tab.payment.total')}</span>
-                                                    <span>4.99 €</span>
+                                                <div className="text-sm text-slate-600">
+                                                    <p className="font-medium">🎉 Beta-testausvaihe</p>
+                                                    <p className="text-xs mt-1">AI-analyysi on ilmainen beta-testauksen ajan. Kiitos palautteestasi!</p>
                                                 </div>
                                             </div>
 
@@ -432,9 +434,9 @@ export default function DocumentsPage() {
                                             <Button
                                                 onClick={handleSimulatePayment}
                                                 disabled={!consentGiven}
-                                                className="w-full h-12 text-lg bg-indigo-600 hover:bg-indigo-700 font-bold"
+                                                className="w-full h-12 text-lg bg-green-600 hover:bg-green-700 font-bold"
                                             >
-                                                <CreditCard className="w-5 h-5 mr-2" /> {t('report.page.premium_tab.payment.button')}
+                                                <Sparkles className="w-5 h-5 mr-2" /> Aloita AI-analyysi (Ilmainen)
                                             </Button>
 
                                             <div className="text-center">
