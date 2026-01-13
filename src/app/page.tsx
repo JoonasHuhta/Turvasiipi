@@ -52,6 +52,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Health Meter Widget */}
+      <section className="px-6 pb-12 -mt-8 relative z-20">
+        <div className="max-w-xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-xl shadow-indigo-100 p-8 border border-white relative overflow-hidden text-center hover:scale-[1.02] transition-transform duration-300">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-400 via-yellow-400 to-red-500" />
+            <h3 className="text-2xl font-black text-slate-900 mb-4">Onko työpaikkasi terve?</h3>
+
+            <div className="space-y-3 mb-6 font-bold text-left max-w-xs mx-auto">
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-100">
+                <span className="text-xl">✅</span> Testaa tiimisi tila
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-yellow-50 text-yellow-800 border border-yellow-100">
+                <span className="text-xl">🟡</span> Tunnista varhaiset merkit
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-red-50 text-red-800 border border-red-100">
+                <span className="text-xl">🔴</span> Hae apua kriisiin
+              </div>
+            </div>
+
+            <Link href="/lukutaito-testi">
+              <Button className="w-full rounded-xl h-12 text-lg font-bold bg-slate-900 hover:bg-slate-800 shadow-lg shadow-slate-900/10">
+                Tee nopea tarkistus <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Grid / Statistics - Mobile Optimized */}
       <section className="px-4 pb-16">
         <div className="max-w-md md:max-w-4xl mx-auto bg-white/70 backdrop-blur-sm border border-white/50 rounded-3xl p-6 md:p-10 shadow-sm">
