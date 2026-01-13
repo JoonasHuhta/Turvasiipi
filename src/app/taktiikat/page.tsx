@@ -47,6 +47,16 @@ export default function TacticsPage() {
             src: "/images/tactics/mockery.png",
             alt: "Pilkkaaminen ja nöyryyttäminen",
             caption: "Verbaalinen kiusaaminen ja pilkkaaminen voi olla yhtä vahingollista kuin fyysinen väkivalta."
+        },
+        {
+            src: "/images/tactics/ostracism.png",
+            alt: "Ostrakismi - näkymätön muuri",
+            caption: "Ostrakismi on täydellistä huomiotta jättämistä – kuin henkilöä ei olisi olemassakaan."
+        },
+        {
+            src: "/images/tactics/exclusion.png",
+            alt: "Ulkopuolelle jättäminen ja väärän kuvan luominen",
+            caption: "Missä olet pöydän ympärillä? Luoko joku sinusta vääränlaista mielikuvaa?"
         }
     ];
 
