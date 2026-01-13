@@ -36,13 +36,21 @@ import AssociationSimulation from "@/components/training/AssociationSimulation";
 import BystanderSimulation from "@/components/training/BystanderSimulation";
 import OstracismToolkit from "@/components/training/OstracismToolkit";
 import { ExitStrategy } from "@/components/training/ExitStrategy";
+import { SafetyRestoration } from "@/components/training/SafetyRestoration";
+import { BullyingPatterns } from "@/components/training/BullyingPatterns";
+import { ActionProtocols } from "@/components/training/ActionProtocols";
+import { DifficultConversations } from "@/components/training/DifficultConversations";
+import { MoralLabyrinth } from "@/components/training/MoralLabyrinth";
+import { RecoveryWellbeing } from "@/components/training/RecoveryWellbeing";
+import { OrganizationResources } from "@/components/training/OrganizationResources";
+import { CertificatesModule } from "@/components/training/CertificatesModule";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
     const { completeModule, awardBadge, getCertificationProgress, isModuleCompleted } = useProgress();
 
-    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete | exit-strategy
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete' | 'ostracism-toolkit' | 'exit-strategy'>('hub');
+    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete | exit-strategy | safety-restoration | bullying-patterns | action-protocols | conversations | labyrinth | recovery-wellbeing | org-resources | certificates
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete' | 'ostracism-toolkit' | 'exit-strategy' | 'safety-restoration' | 'bullying-patterns' | 'action-protocols' | 'conversations' | 'labyrinth' | 'recovery-wellbeing' | 'org-resources' | 'certificates'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,6 +83,12 @@ export default function TrainingPage() {
             return;
         }
 
+        if (selectedCategory?.id === 'recovery' && module.id === 'recovery_main') {
+            setCurrentModuleId(module.id);
+            setView('recovery-wellbeing');
+            return;
+        }
+
         // Special handling for the Leisure & Association Simulation
         if (selectedCategory?.id === 'leisure' && (module.id === 'association_basics' || module.id === 'hobby_boundaries' || module.id === 'transferable_skills')) {
             setView('association-sim');
@@ -94,7 +108,45 @@ export default function TrainingPage() {
         }
 
         if (selectedCategory?.id === 'return' && module.id === 'exit_strategy') {
+            setCurrentModuleId(module.id);
             setView('exit-strategy');
+            return;
+        }
+
+        if (selectedCategory?.id === 'return' && module.id === 'safety') {
+            setCurrentModuleId(module.id);
+            setView('safety-restoration');
+            return;
+        }
+
+
+
+        if (selectedCategory?.id === 'interactive') {
+            if (module.id === 'action_protocols') {
+                setCurrentModuleId(module.id);
+                setView('action-protocols');
+                return;
+            }
+            if (module.id === 'conversations') {
+                setCurrentModuleId(module.id);
+                setView('conversations');
+                return;
+            }
+            if (module.id === 'labyrinth') {
+                setCurrentModuleId(module.id);
+                setView('labyrinth');
+                return;
+            }
+        }
+
+        if (selectedCategory?.id === 'certificates' && module.id === 'cert_view') {
+            setView('certificates');
+            return;
+        }
+
+        if (selectedCategory?.id === 'organization' && module.id === 'org_knowledge') {
+            setCurrentModuleId(module.id);
+            setView('org-resources');
             return;
         }
 
@@ -107,6 +159,20 @@ export default function TrainingPage() {
             completeModule(module.id);
             return;
         }
+    };
+
+    const handleExit = () => {
+        setView('category');
+        setCurrentModuleId(null);
+    };
+
+    const handleConceptComplete = () => {
+        if (currentModuleId) {
+            completeModule(currentModuleId);
+            awardBadge('concept_learner'); // Award a generic badge or points
+        }
+        setView('category');
+        setCurrentModuleId(null);
     };
 
     const currentScenario = filteredScenarios[currentIndex];
@@ -785,6 +851,51 @@ export default function TrainingPage() {
                                 </Button>
                             </div>
                         </motion.div>
+                    )}
+
+                    {/* EXIT STRATEGY */}
+                    {view === 'exit-strategy' && (
+                        <ExitStrategy onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* SAFETY RESTORATION */}
+                    {view === 'safety-restoration' && (
+                        <SafetyRestoration onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* BULLYING PATTERNS */}
+                    {view === 'bullying-patterns' && (
+                        <BullyingPatterns onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* ACTION PROTOCOLS */}
+                    {view === 'action-protocols' && (
+                        <ActionProtocols onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* DIFFICULT CONVERSATIONS */}
+                    {view === 'conversations' && (
+                        <DifficultConversations onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* MORAL LABYRINTH */}
+                    {view === 'labyrinth' && (
+                        <MoralLabyrinth onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* RECOVERY & WELLBEING */}
+                    {view === 'recovery-wellbeing' && (
+                        <RecoveryWellbeing onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* ORGANIZATION RESOURCES */}
+                    {view === 'org-resources' && (
+                        <OrganizationResources onExit={handleExit} onComplete={() => handleConceptComplete()} />
+                    )}
+
+                    {/* CERTIFICATES MODULE */}
+                    {view === 'certificates' && (
+                        <CertificatesModule onExit={handleExit} />
                     )}
 
                     {/* FAILED VIEW */}

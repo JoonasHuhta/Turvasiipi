@@ -44,7 +44,7 @@ export const trainingHubData: TrainingCategory[] = [
         type: 'process',
         modules: [
             { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.' },
-            { id: 'safety', title: 'Turvallisuuden Palauttaminen', description: 'Miten tuntea olonsa turvalliseksi taas.', isLocked: true },
+            { id: 'safety', title: 'Turvallisuuden Palauttaminen', description: 'Miten tuntea olonsa turvalliseksi taas.', isNew: true },
             { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', isLocked: true },
             { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true },
             { id: 'exit_strategy', title: 'Exit-Strategia', description: 'Milloin on aika lähteä? Tunnista merkit ja tee suunnitelma.', isNew: true }
@@ -56,9 +56,9 @@ export const trainingHubData: TrainingCategory[] = [
         icon: Heart,
         description: 'Hermoston rauhoittaminen ja traumatiedon soveltaminen.',
         color: 'rose',
-        isLocked: true,
         type: 'process',
         modules: [
+            { id: 'recovery_main', title: 'Toipuminen & Hyvinvointi', description: 'Hermoston rauhoittaminen ja traumatiedon soveltaminen.', isNew: true },
             { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', isLocked: true },
             { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', isLocked: true },
             { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', isLocked: true },
@@ -75,34 +75,21 @@ export const trainingHubData: TrainingCategory[] = [
         modules: [
             { id: 'empathy', title: 'Peilisolu-Pelastus', description: 'Empatia-peli toisen asemaan astumiseen.', isCertificationModule: true },
             { id: 'bystander', title: 'Bystander-Herättäjä', description: 'Psykologisesti turvallinen puuttuminen.', isCertificationModule: true },
-            { id: 'conversations', title: 'Vaikeat Keskustelut', description: 'Harjoittele rajanvetoa keskustelussa.', isNew: true, isLocked: true },
-            { id: 'labyrinth', title: 'Moraalinen Labyrintti', description: 'Eettiset valinnat paineen alla.', isLocked: true }
+            { id: 'action_protocols', title: 'Konkreettiset Toimintamallit', description: 'Akuutit skriptit ja turvasuunnitelmat.', isNew: true },
+            { id: 'conversations', title: 'Vaikeat Keskustelut', description: 'Harjoittele rajanvetoa keskustelussa.', isNew: true },
+            { id: 'labyrinth', title: 'Moraalinen Labyrintti', description: 'Eettiset valinnat paineen alla.', isNew: true }
         ]
     },
-    {
-        id: 'lessons',
-        title: 'Lukutaidon Oppitunnit',
-        icon: GraduationCap,
-        description: 'Lyhyitä videoita ja tekstejä päivittäiseen oppimiseen.',
-        color: 'amber',
-        isLocked: true,
-        type: 'skill',
-        modules: [
-            { id: '20_modules', title: '20 Moduulia', description: '5-10 minuutin tietoiskuja.', isLocked: true },
-            { id: 'patterns', title: 'Tunnista Kuviot', description: 'Yleisimmät kiusaamisen strategiat.', isLocked: true },
-            { id: 'manager_reactions', title: 'Lue Esimiehen Reaktioita', description: 'Sanaton viestintä ja signaalit.', isLocked: true },
-            { id: 'documentation', title: 'Dokumentoi Oikein', description: 'Lakiin perustuva näyttöaineisto.', isLocked: true }
-        ]
-    },
+
     {
         id: 'organization',
         title: 'Organisaatioille',
         icon: Building2,
         description: 'Ratkaisuja koko työyhteisön parantamiseen.',
         color: 'slate',
-        isLocked: true,
         type: 'process',
         modules: [
+            { id: 'org_knowledge', title: 'Tietopankki: Työyhteisön Hyvinvointi', description: 'Rakenteelliset riskit ja johdon vastuu.', isNew: true },
             { id: 'b2b', title: 'Tilaa Koulutus (B2B)', description: 'Räätälöityä koulutusta yrityksellesi.', isLocked: true },
             { id: 'meter', title: 'Kulttuuri-Lämpömittari', description: 'Mittaa työyhteisön todellinen tila.', isLocked: true },
             { id: 'dna', title: 'Kiusaamisen DNA', description: 'Analysoi juurisyitä ja rakenteita.', isLocked: true },
@@ -115,11 +102,9 @@ export const trainingHubData: TrainingCategory[] = [
         icon: Award,
         description: 'Todisteet suoritetuista opinnoista ja taidoista.',
         color: 'blue',
-        isLocked: true,
         type: 'skill',
         modules: [
-            { id: 'cert_literacy', title: 'Lukutaito - Sertifikaatti', description: 'Todiste peruskurssin suorituksesta.', isLocked: true },
-            { id: 'cert_bystander', title: 'Bystander - Koulutus', description: 'Virallinen todistus puuttumisesta.', isLocked: true },
+            { id: 'cert_view', title: 'Omat Sertifikaatit', description: 'Tarkastele ja lataa todistuksia.', isNew: true },
             { id: 'download', title: 'Lataa Työnantajalle', description: 'Kaikki todisteet yhdessä paketissa.', isLocked: true }
         ]
     },
