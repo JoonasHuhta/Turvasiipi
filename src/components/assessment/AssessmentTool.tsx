@@ -112,6 +112,13 @@ function AssessmentRunner({ categories, mode, labels }: { categories: Category[]
         }
     };
 
+    const prevCategory = () => {
+        if (currentCategoryIndex > 0) {
+            setCurrentCategoryIndex(prev => prev - 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     const calculateResults = () => {
         let totalScore = 0;
         let maxScore = 0;
@@ -393,7 +400,20 @@ function AssessmentRunner({ categories, mode, labels }: { categories: Category[]
                         </div>
                     ))}
                 </div>
-                <div className="p-6 bg-slate-50 border-t border-slate-100 flex justify-end">
+                <div className="p-6 bg-slate-50 border-t border-slate-100 flex justify-between">
+                    {currentCategoryIndex > 0 ? (
+                        <Button
+                            onClick={prevCategory}
+                            variant="outline"
+                            size="lg"
+                            className="rounded-full px-8 font-bold text-slate-500 hover:text-slate-800"
+                        >
+                            Edellinen
+                        </Button>
+                    ) : (
+                        <div /> // Spacer
+                    )}
+
                     <Button
                         onClick={nextCategory}
                         disabled={currentCategory.questions.some(q => q.type === 'single-choice' && !answers[q.id])}

@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, CheckCircle2, XCircle, RotateCcw, Brain, BookOpen, Trophy, Play } from "lucide-react";
+import { ArrowRight, CheckCircle2, XCircle, RotateCcw, Brain, BookOpen, Trophy, Play, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/context/ProgressContext";
 
@@ -14,10 +14,13 @@ export default function TietovisaPage() {
     const { completeModule, awardBadge } = useProgress();
     const [selectedPart, setSelectedPart] = useState<QuizPart | 'ALL' | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [score, setScore] = useState(0);
+    const [userAnswers, setUserAnswers] = useState<boolean[]>([]);
     const [showExplanation, setShowExplanation] = useState(false);
     const [lastCorrect, setLastCorrect] = useState(false);
     const [gameEnded, setGameEnded] = useState(false);
+
+    // Derived score
+    const score = userAnswers.filter(Boolean).length;
 
     // Prepare questions based on selection
     const activeQuestions: QuizQuestion[] = selectedPart === 'ALL'
@@ -29,7 +32,7 @@ export default function TietovisaPage() {
     const handleStart = (part: QuizPart | 'ALL') => {
         setSelectedPart(part);
         setCurrentQuestionIndex(0);
-        setScore(0);
+        setUserAnswers([]);
         setShowExplanation(false);
         setGameEnded(false);
     };
@@ -38,7 +41,7 @@ export default function TietovisaPage() {
         const currentQ = activeQuestions[currentQuestionIndex];
         const isCorrect = value === currentQ.correctAnswer;
 
-        if (isCorrect) setScore(prev => prev + 1);
+        setUserAnswers(prev => [...prev, isCorrect]);
         setLastCorrect(isCorrect);
         setShowExplanation(true);
     };
@@ -53,6 +56,23 @@ export default function TietovisaPage() {
             if (score / activeQuestions.length >= 0.8) {
                 awardBadge('legal_expert');
             }
+        }
+    };
+
+    const prevQuestion = () => {
+        // If we are showing explanation, we just want to "undo" the answer attempt
+        if (showExplanation) {
+            setShowExplanation(false);
+            setUserAnswers(prev => prev.slice(0, -1));
+            return;
+        }
+
+        // If not showing explanation, we go to previous question AND reset it
+        if (currentQuestionIndex > 0) {
+            setCurrentQuestionIndex(prev => prev - 1);
+            // Also undo the answer for that previous question so user can try again
+            setUserAnswers(prev => prev.slice(0, -1));
+            setShowExplanation(false);
         }
     };
 
@@ -201,9 +221,23 @@ export default function TietovisaPage() {
     return (
         <div className="min-h-screen bg-slate-50 py-8 px-4 flex flex-col items-center">
             <div className="w-full max-w-3xl mb-8 flex items-center gap-4">
-                <Button variant="ghost" size="icon" onClick={resetGame}>
-                    <RotateCcw className="w-5 h-5 text-slate-400" />
-                </Button>
+                <div className="flex gap-2">
+                    <Button variant="outline" size="icon" onClick={resetGame} title="Lopeta peli">
+                        <XCircle className="w-5 h-5 text-slate-400" />
+                    </Button>
+                    {/* Back Button */}
+                    {(currentQuestionIndex > 0 || showExplanation) && (
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={prevQuestion}
+                            title="Edellinen kysymys / Uusi yritys"
+                            className="bg-white hover:bg-slate-50"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-slate-600" />
+                        </Button>
+                    )}
+                </div>
                 <div className="flex-1">
                     <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
                         <span>Edistyminen</span>

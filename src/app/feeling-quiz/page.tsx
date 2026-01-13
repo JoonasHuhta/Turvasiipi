@@ -58,6 +58,17 @@ export default function FeelingQuizPage() {
         }
     };
 
+    const prevQuestion = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(prev => prev - 1);
+            setShowValidation(false);
+            // We might want to keep the answer visible? 
+            // Current login resets showValidation to false, so it shows the question again.
+            // That is fine, user can re-answer.
+            scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     const resetQuiz = () => {
         setHasStarted(false);
         setCurrentIndex(0);
@@ -245,6 +256,11 @@ export default function FeelingQuizPage() {
             {/* Fixed Header */}
             <header className="shrink-0 h-14 sm:h-16 bg-white border-b px-4 sm:px-6 flex items-center justify-between z-30">
                 <div className="flex items-center gap-4 flex-1 max-w-md">
+                    {currentIndex > 0 && (
+                        <Button variant="ghost" size="icon" onClick={prevQuestion} className="-ml-2 mr-1">
+                            <ArrowLeft className="w-5 h-5 text-slate-500" />
+                        </Button>
+                    )}
                     <div className="flex flex-col flex-1">
                         <div className="flex justify-between items-center mb-1">
                             <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none">Edistyminen</span>
