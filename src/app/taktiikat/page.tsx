@@ -20,13 +20,43 @@ import {
     ShieldCheck,
     CheckCircle2,
     ArrowRight,
-    BookOpen
+    BookOpen,
+    ChevronLeft,
+    ChevronRight
 } from "lucide-react";
 
 export default function TacticsPage() {
     const { t } = useLanguage();
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const tacticScrollRef = useRef<HTMLDivElement>(null);
+
+    // Image carousel data
+    const carouselImages = [
+        {
+            src: "/images/tactics/social-isolation.png",
+            alt: "Sosiaalinen eristäminen - uhri leikataan pois yhteisöstä",
+            caption: "Yksi yleisimmistä kiusaamisen muodoista on sosiaalinen eristäminen – uhri leikataan pois yhteisöstä."
+        },
+        {
+            src: "/images/tactics/manipulation.png",
+            alt: "Manipulaatio - kädet solmussa",
+            caption: "Manipulaatio ja gaslighting ovat hienovaraisia mutta erittäin vahingollisia taktiikoita."
+        },
+        {
+            src: "/images/tactics/mockery.png",
+            alt: "Pilkkaaminen ja nöyryyttäminen",
+            caption: "Verbaalinen kiusaaminen ja pilkkaaminen voi olla yhtä vahingollista kuin fyysinen väkivalta."
+        }
+    ];
+
+    const nextImage = () => {
+        setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+    };
 
     // Reset tactic modal scroll when opening
     const handleTacticOpenChange = (open: boolean) => {
@@ -63,6 +93,77 @@ export default function TacticsPage() {
                         {t('quiz.tactics_page.description')}
                     </p>
                 </section>
+
+                {/* Image Carousel */}
+                <Card className="bg-gradient-to-br from-indigo-50 to-slate-50 border-indigo-100 overflow-hidden">
+                    <CardContent className="p-0">
+                        <div className="relative group">
+                            {/* Navigation Overlay - Placed outside image container to ensure visibility */}
+                            {carouselImages.length > 1 && (
+                                <div className="absolute top-0 left-0 right-0 aspect-video md:aspect-[21/9] z-20 flex items-center justify-between px-2 md:px-4 pointer-events-none">
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        onClick={prevImage}
+                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900/90 hover:bg-slate-800 shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
+                                        aria-label="Edellinen kuva"
+                                    >
+                                        <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                                    </Button>
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        onClick={nextImage}
+                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900/90 hover:bg-slate-800 shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
+                                        aria-label="Seuraava kuva"
+                                    >
+                                        <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                                    </Button>
+                                </div>
+                            )}
+
+                            {/* Main Image */}
+                            <div className="relative aspect-video md:aspect-[21/9] bg-white flex items-center justify-center overflow-hidden">
+                                <motion.img
+                                    key={currentImageIndex}
+                                    src={carouselImages[currentImageIndex].src}
+                                    alt={carouselImages[currentImageIndex].alt}
+                                    className="w-full h-full object-contain p-8 md:p-12 relative z-0"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.3 }}
+                                />
+                            </div>
+
+                            {/* Caption and Indicators */}
+                            <div className="bg-white border-t border-indigo-100 p-6">
+                                <p className="text-center text-sm text-slate-600 font-medium italic mb-4">
+                                    {carouselImages[currentImageIndex].caption}
+                                </p>
+
+                                {/* Indicators */}
+                                {carouselImages.length > 1 && (
+                                    <div className="flex justify-center gap-2">
+                                        {carouselImages.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => setCurrentImageIndex(index)}
+                                                className={cn(
+                                                    "w-2 h-2 rounded-full transition-all",
+                                                    index === currentImageIndex
+                                                        ? "bg-indigo-600 w-8"
+                                                        : "bg-slate-300 hover:bg-slate-400"
+                                                )}
+                                                aria-label={`Siirry kuvaan ${index + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
 
                 <Card className="bg-indigo-950 text-white border-none overflow-hidden relative group">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
