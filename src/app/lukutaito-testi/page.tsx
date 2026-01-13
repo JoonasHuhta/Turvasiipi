@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { IdentifyTab } from "./IdentifyTab";
 import { HealthyWorkplaceTab } from "./HealthyWorkplaceTab";
+import { AssessmentTool } from "@/components/assessment/AssessmentTool";
 
 
 export default function LiteracyTestPage() {
@@ -259,6 +260,12 @@ export default function LiteracyTestPage() {
                             >
                                 ⚖️ Varoitusmerkit
                             </TabsTrigger>
+                            <TabsTrigger
+                                value="assessment"
+                                className="h-full rounded-full px-4 md:px-8 text-xs md:text-sm font-bold uppercase tracking-widest data-[state=active]:bg-pink-500 data-[state=active]:text-white transition-all whitespace-nowrap"
+                            >
+                                📊 Itsearviointi
+                            </TabsTrigger>
                         </TabsList>
                     </div>
 
@@ -272,6 +279,10 @@ export default function LiteracyTestPage() {
 
                     <TabsContent value="identify" className="focus-visible:outline-none">
                         <IdentifyTab />
+                    </TabsContent>
+
+                    <TabsContent value="assessment" className="focus-visible:outline-none">
+                        <AssessmentTool />
                     </TabsContent>
                 </Tabs>
             </main>
