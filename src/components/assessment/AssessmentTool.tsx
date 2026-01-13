@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { ArrowRight, CheckCircle2, AlertTriangle, ShieldCheck, User, Users, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useProgress } from "@/context/ProgressContext";
 
 /**
  * Main Assessment Tool Component
@@ -68,6 +69,8 @@ function AssessmentRunner({ categories, mode, labels }: { categories: Category[]
     const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
     const currentCategory = categories[currentCategoryIndex];
 
+    const { awardBadge, addPoints } = useProgress();
+
     const handleAnswer = (qId: string, val: any) => {
         setAnswers(prev => ({ ...prev, [qId]: val }));
     };
@@ -98,6 +101,14 @@ function AssessmentRunner({ categories, mode, labels }: { categories: Category[]
         } else {
             setFinished(true);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // GAMIFICATION INTEGRATION
+            if (mode === 'organizational') {
+                awardBadge('risk_finder');
+                addPoints(50);
+            } else {
+                addPoints(50);
+            }
         }
     };
 

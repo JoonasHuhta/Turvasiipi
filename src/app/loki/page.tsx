@@ -17,6 +17,7 @@ import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
 import { TimelineEvent } from "@/types";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 
 export default function LogPage() {
     return (
@@ -30,9 +31,10 @@ function LogPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { t } = useLanguage();
+    const { awardBadge, addPoints } = useProgress();
     const { data: events, setData: setEvents } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
 
-    const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
+    const [step, setStep] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
     const [quickLogId, setQuickLogId] = useState<string | null>(null);
     const [formData, setFormData] = useState({
@@ -81,7 +83,7 @@ function LogPageContent() {
     }, [formData, selectedTactic]);
 
     const handleNext = () => setStep(prev => Math.min(4, prev + 1) as any);
-    const handleBack = () => setStep(prev => Math.max(1, prev - 1) as any);
+    const handleBack = () => setStep(prev => Math.max(0, prev - 1) as any);
 
     const handleSave = () => {
         if (!selectedTactic) return;
@@ -120,6 +122,10 @@ function LogPageContent() {
             };
             setEvents([newEvent, ...events]);
         }
+
+        // GAMIFICATION INTEGRATION
+        awardBadge('doc_start');
+        addPoints(20);
 
         setStep(5); // Go to Advice step instead of redirecting
     };
@@ -172,6 +178,55 @@ function LogPageContent() {
             </div>
 
             <main className="max-w-2xl mx-auto px-6 py-8 space-y-8">
+                {/* Step 0: Intro / Guide (NEW) */}
+                {step === 0 && (
+                    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="text-center space-y-4 mb-8">
+                            <h1 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
+                                Todisteiden kerääminen
+                            </h1>
+                            <p className="text-slate-600 font-medium max-w-md mx-auto">
+                                Käytännön ohje oikeudellisesti kestävän dokumentaation luomiseen.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-slate-500">1</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900">Ole neutraali ja tarkka</h3>
+                                    <p className="text-sm text-slate-500 mt-1">Kirjaa mitä tapahtui, ei vain miltä se tuntui. Käytä suoria lainauksia jos mahdollista.</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-slate-500">2</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900">Kirjaa heti</h3>
+                                    <p className="text-sm text-slate-500 mt-1">Muistikuvat haalistuvat nopeasti. Tuore kirjaus on uskottavampi todiste.</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-slate-500">3</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900">Etsi säännönmukaisuutta</h3>
+                                    <p className="text-sm text-slate-500 mt-1">Yksittäinen töykeä sana ei ole kiusaamista. Toistuvuus on avainasemassa.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl flex gap-3 text-indigo-800 text-sm">
+                            <ShieldCheck className="w-5 h-5 shrink-0" />
+                            <p>Tämä työkalu auttaa sinua jäsentämään tapahtumat tavalla, joka kestää tarkastelun.</p>
+                        </div>
+                    </div>
+                )}
+
                 {/* Step 1: Tactic Selection */}
                 {step === 1 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -530,12 +585,14 @@ function LogPageContent() {
 
                 {/* Navigation Buttons */}
                 <div className="flex justify-between pt-6">
-                    {step > 1 ? (
+                    {step > 0 ? (
                         <Button variant="outline" onClick={handleBack} className="w-32">
                             <ArrowLeft className="w-4 h-4 mr-2" /> Takaisin
                         </Button>
                     ) : (
-                        <div /> // Spacer
+                        <Button variant="ghost" onClick={() => router.back()} className="w-32 text-slate-400">
+                            Keskeytä
+                        </Button>
                     )}
 
 

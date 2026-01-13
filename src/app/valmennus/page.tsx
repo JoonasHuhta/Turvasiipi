@@ -35,13 +35,14 @@ import { RTWWizard } from "@/components/training/RTWWizard";
 import AssociationSimulation from "@/components/training/AssociationSimulation";
 import BystanderSimulation from "@/components/training/BystanderSimulation";
 import OstracismToolkit from "@/components/training/OstracismToolkit";
+import { ExitStrategy } from "@/components/training/ExitStrategy";
 
 export default function TrainingPage() {
     const { t } = useLanguage();
     const { completeModule, awardBadge, getCertificationProgress, isModuleCompleted } = useProgress();
 
-    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete
-    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete' | 'ostracism-toolkit'>('hub');
+    // VIEW STATE: hub | category | intro | playing | feedback | finished | rtw-wizard | association-sim | bystander-sim | concept-view | certification-complete | exit-strategy
+    const [view, setView] = useState<'hub' | 'category' | 'intro' | 'playing' | 'feedback' | 'finished' | 'failed' | 'rtw-wizard' | 'association-sim' | 'bystander-sim' | 'concept-view' | 'certification-complete' | 'ostracism-toolkit' | 'exit-strategy'>('hub');
     const [selectedCategory, setSelectedCategory] = useState<TrainingCategory | null>(null);
     const [currentLevel, setCurrentLevel] = useState<TrainingLevel | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -89,6 +90,11 @@ export default function TrainingPage() {
 
         if (selectedCategory?.id === 'interactive' && (module.id === 'empathy' || module.id === 'bystander')) {
             setView('bystander-sim');
+            return;
+        }
+
+        if (selectedCategory?.id === 'return' && module.id === 'exit_strategy') {
+            setView('exit-strategy');
             return;
         }
 
@@ -600,6 +606,25 @@ export default function TrainingPage() {
                                     } else {
                                         setView('failed');
                                     }
+                                }}
+                                onExit={() => setView('category')}
+                            />
+                        </motion.div>
+                    )}
+
+                    {/* EXIT STRATEGY VIEW */}
+                    {view === 'exit-strategy' && (
+                        <motion.div
+                            key="exit-strategy"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="min-h-full bg-slate-50"
+                        >
+                            <ExitStrategy
+                                onComplete={() => {
+                                    if (currentModuleId) completeModule(currentModuleId);
+                                    setView('finished');
                                 }}
                                 onExit={() => setView('category')}
                             />

@@ -46,7 +46,8 @@ export const trainingHubData: TrainingCategory[] = [
             { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.' },
             { id: 'safety', title: 'Turvallisuuden Palauttaminen', description: 'Miten tuntea olonsa turvalliseksi taas.', isLocked: true },
             { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', isLocked: true },
-            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true }
+            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true },
+            { id: 'exit_strategy', title: 'Exit-Strategia', description: 'Milloin on aika lähteä? Tunnista merkit ja tee suunnitelma.', isNew: true }
         ]
     },
     {
