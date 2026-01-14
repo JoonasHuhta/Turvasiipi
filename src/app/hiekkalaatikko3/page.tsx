@@ -95,6 +95,47 @@ export default function Hiekkalaatikko3Page() {
                     </div>
                 </header>
 
+                {/* CONTEXT 01 - The Threshold */}
+                <section className="mb-48 grid md:grid-cols-12 gap-8 items-start">
+                    <div className="md:col-span-3 pt-2">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600 bg-white/5 px-2 py-1 rounded-sm">
+                            Konteksti 01
+                        </span>
+                    </div>
+                    <div className="md:col-span-9 space-y-12">
+                        <div className="space-y-6">
+                            <h2 className="text-3xl md:text-4xl font-normal leading-tight text-slate-200">
+                                Työpaikkakiusaaminen ei yleensä ala selvästi.
+                            </h2>
+                            <p className="text-xl text-slate-500 leading-relaxed font-light">
+                                Se alkaa epämääräisenä tunteena, joka on vaikea selittää toisille — ja lopulta myös itselle.
+                            </p>
+                        </div>
+
+                        <div className="p-10 bg-white/[0.02] border border-white/5 rounded-sm space-y-8 relative overflow-hidden group">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-slate-800 group-hover:bg-slate-700 transition-colors"></div>
+                            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-600">Usein käy näin:</span>
+                            <ul className="space-y-6 text-lg text-slate-400 font-light italic">
+                                <li className="flex items-center gap-4">
+                                    <span className="text-slate-700">—</span> asiat jäävät kirjaamatta
+                                </li>
+                                <li className="flex items-center gap-4">
+                                    <span className="text-slate-700">—</span> muistikuvat hämärtyvät
+                                </li>
+                                <li className="flex items-center gap-4 italic font-normal text-slate-300">
+                                    <span className="text-slate-700">—</span> myöhemmin joku kysyy: <span className="text-slate-500">"miksi et sanonut aiemmin?"</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-2 pt-4">
+                            <p className="text-xl text-slate-300 font-normal">Turvasiipi on olemassa tätä hetkeä varten.</p>
+                            <p className="text-lg text-slate-500 italic">Sitä ennen kuin tiedät, mitä ajattelet.</p>
+                            <p className="text-lg text-slate-500 italic">Sitä ennen kuin tiedät, mitä teet.</p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* ARCHIVE FRAGMENTS - Core Content Focus */}
                 <section className="mb-48 space-y-16">
                     <div className="space-y-4">
@@ -157,7 +198,7 @@ export default function Hiekkalaatikko3Page() {
                     <ul className="space-y-4 text-slate-500 italic pt-4">
                         <li className="flex items-center gap-3">— Lukea muiden kokemuksia</li>
                         <li className="flex items-center gap-3">— Tehdä huomioita omasta olosta</li>
-                        <li className="flex items-center gap-3">— Aloittaa oma loki, kun siltav tuntuu</li>
+                        <li className="flex items-center gap-3">— Aloittaa oma loki, kun siltä tuntuu</li>
                     </ul>
                 </section>
 
