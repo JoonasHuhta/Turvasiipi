@@ -117,7 +117,7 @@ export default function Hiekkalaatikko3Page() {
                 )}
             </nav>
 
-            <main className="relative max-w-screen-md mx-auto px-8 pt-48 pb-32">
+            <main className="relative max-w-screen-md mx-auto px-8 pt-28 pb-32">
 
                 {/* HERO - The Sanctuary Entrance */}
                 <header className="mb-32 space-y-12">
