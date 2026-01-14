@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Shield, ShieldCheck, Lock, EyeOff, BookOpen, Feather, ArrowLeft } from "lucide-react";
+import { ArrowRight, Shield, ShieldCheck, Lock, EyeOff, BookOpen, Feather, ArrowLeft, Globe, Trophy, Gamepad2, Search, User, Wrench, Heart, ChevronDown } from "lucide-react";
 
 export default function Hiekkalaatikko3Page() {
     return (
@@ -15,16 +15,57 @@ export default function Hiekkalaatikko3Page() {
             <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-900/5 blur-[120px] rounded-full pointer-events-none"></div>
 
             {/* Navigation */}
-            <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center bg-gradient-to-b from-[#0A0A09] to-transparent">
-                <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm">
-                        <Feather className="w-4 h-4 text-slate-400" />
+            <nav className="fixed top-0 w-full z-50 bg-[#0A0A09]/80 backdrop-blur-md border-b border-white/5">
+                <div className="max-w-screen-xl mx-auto px-8 h-20 flex items-center justify-between">
+
+                    {/* Left side: Logo */}
+                    <div className="flex items-center gap-4 mr-8">
+                        <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm">
+                            <Feather className="w-4 h-4 text-slate-400" />
+                        </div>
+                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 whitespace-nowrap">Turvasiipi / 0.3</span>
                     </div>
-                    <span className="text-xs font-mono uppercase tracking-[0.2em] text-slate-500">Turvasiipi / 0.3</span>
+
+                    {/* Middle: Navigation Items */}
+                    <div className="hidden lg:flex items-center gap-8 text-[11px] font-mono uppercase tracking-widest text-slate-400 flex-1 justify-center">
+                        <div className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
+                            <Globe className="w-3.5 h-3.5" />
+                            <span>EN</span>
+                        </div>
+                        <div className="h-4 w-px bg-white/10 mx-1"></div>
+                        <Trophy className="w-4 h-4 hover:text-white cursor-pointer transition-colors" />
+                        <Link href="/simulaatio" className="flex items-center gap-2 hover:text-white transition-colors">
+                            <Gamepad2 className="w-4 h-4" />
+                            <span>Koe</span>
+                        </Link>
+                        <div className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
+                            <Search className="w-4 h-4" />
+                            <span>Tutki</span>
+                            <ChevronDown className="w-3 h-3 opacity-50" />
+                        </div>
+                        <div className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
+                            <User className="w-4 h-4" />
+                            <span>Valmennus</span>
+                        </div>
+                        <div className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
+                            <Wrench className="w-4 h-4" />
+                            <span>Välineet</span>
+                            <ChevronDown className="w-3 h-3 opacity-50" />
+                        </div>
+                    </div>
+
+                    {/* Right side: Apua + Close */}
+                    <div className="flex items-center gap-6">
+                        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg text-[11px] font-mono uppercase tracking-widest transition-colors cursor-pointer group">
+                            <Heart className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
+                            <span>Apua</span>
+                            <ChevronDown className="w-3 h-3 opacity-50 ml-1" />
+                        </div>
+                        <Link href="/" className="text-[10px] font-mono uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
+                            Sulje
+                        </Link>
+                    </div>
                 </div>
-                <Link href="/hiekkalaatikko2" className="text-xs font-mono uppercase tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                    <ArrowLeft className="w-3 h-3" /> Takaisin
-                </Link>
             </nav>
 
             <main className="relative max-w-screen-md mx-auto px-8 pt-48 pb-32">
