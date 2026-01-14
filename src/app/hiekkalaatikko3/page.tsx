@@ -228,32 +228,56 @@ export default function Hiekkalaatikko3Page() {
                 </section>
 
                 {/* FINAL CALL */}
-                <section className="text-center space-y-12">
-                    <h2 className="text-4xl font-normal leading-tight">
-                        Haluatko kokeilla, <br />
-                        miltä selkeys tuntuu?
-                    </h2>
-                    <div className="flex flex-col items-center gap-6">
+                <section className="text-center space-y-16">
+                    <div className="space-y-4">
+                        <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+                            Et ole velvollinen tietämään vielä, mitä tämä on.
+                        </h2>
+                        <p className="text-3xl md:text-4xl font-light italic text-slate-500">
+                            Riittää, että huomaat sen.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-8">
                         <Link href="/lukutaito-testi" className="group text-xl border-b border-white/20 pb-2 hover:border-white transition-all flex items-center gap-3">
                             Käy läpi tilanteesi rauhassa
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <span className="text-xs font-mono text-slate-600 uppercase tracking-widest">
-                            Ei vaadi kirjautumista. Täysin anonyymi.
-                        </span>
+
+                        <div className="space-y-2 text-center">
+                            <p className="text-[10px] font-mono text-slate-600 uppercase tracking-[0.2em]">
+                                PIENI HUOMAUTUS: VOIT LOPETTAA MILLOIN TAHANSA.
+                            </p>
+                            <p className="text-[10px] font-mono text-slate-600 uppercase tracking-[0.2em]">
+                                EI VAADI KIRJAUTUMISTA. TÄYSIN ANONYYMI.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
             </main>
 
             {/* Footer */}
-            <footer className="max-w-screen-md mx-auto px-8 py-24 border-t border-white/5 text-center">
-                <div className="inline-flex items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-                    <Shield className="w-5 h-5" />
-                    <Lock className="w-5 h-5" />
-                    <EyeOff className="w-5 h-5" />
+            <footer className="max-w-screen-md mx-auto px-8 py-32 border-t border-white/5 space-y-12">
+                <div className="space-y-4 text-center">
+                    <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-slate-600 leading-relaxed">
+                        Tämä palvelu ei korvaa työterveyttä tai oikeudellista neuvontaa.
+                    </p>
+                    <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-slate-600">
+                        Tämä ei ole kriisipalvelu.
+                    </p>
+                    <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-slate-500 font-medium">
+                        Jos olet välittömässä vaarassa, hae apua heti.
+                    </p>
                 </div>
-                <p className="mt-8 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600">
+
+                <div className="flex justify-center items-center gap-8 opacity-20 grayscale">
+                    <Shield className="w-4 h-4" />
+                    <Lock className="w-4 h-4" />
+                    <EyeOff className="w-4 h-4" />
+                </div>
+
+                <p className="text-[9px] font-mono uppercase tracking-[0.4em] text-slate-700 text-center">
                     Turvasiipi Vault Environment / 2026
                 </p>
             </footer>
