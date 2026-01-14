@@ -71,9 +71,9 @@ export default function Hiekkalaatikko3Page() {
             <main className="relative max-w-screen-md mx-auto px-8 pt-48 pb-32">
 
                 {/* HERO - The Sanctuary Entrance */}
-                <header className="mb-40 space-y-12">
+                <header className="mb-32 space-y-12">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                        <Lock className="w-3 h-3" /> Täysin yksityinen tila
+                        <Lock className="w-3 h-3" /> Vain sinun silmillesi
                     </div>
 
                     <h1 className="text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight">
@@ -82,75 +82,24 @@ export default function Hiekkalaatikko3Page() {
 
                     <div className="max-w-xl space-y-8">
                         <p className="text-2xl text-slate-400 leading-relaxed font-light">
-                            Tämä on arkisto, joka ei kysy lupaa tai vaadi päätöksiä.
-                            Vain paikka, jossa voit hengittää ja jäsentää sen, mitä tuntuu vaikealta sanoittaa.
+                            Tämä on tila, joka ei painosta päätöksiin.
+                            Vain paikka, jossa voit hengittää ja antaa muistiinpanojen kertoa totuuden, jota on vaikea pukea sanoiksi.
                         </p>
 
                         <div className="flex flex-wrap gap-6 pt-4">
-                            <Link href="#" className="px-8 py-4 bg-white text-black hover:bg-slate-200 transition-all rounded-sm font-medium flex items-center gap-3 group">
-                                Aloita tästä
+                            <Link href="/lukutaito-testi" className="px-8 py-4 bg-white text-black hover:bg-slate-200 transition-all rounded-sm font-medium flex items-center gap-3 group">
+                                Tutki tilannettasi
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                            <Link href="#" className="px-8 py-4 bg-transparent border border-white/20 hover:border-white/40 transition-all rounded-sm font-medium">
-                                Mitä tämä on?
                             </Link>
                         </div>
                     </div>
                 </header>
 
-                {/* THE VALUES / ATMOSPHERE */}
-                <section className="grid gap-24 mb-48">
-
-                    <div className="flex flex-col md:flex-row gap-12 items-start">
-                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
-                            <EyeOff className="w-6 h-6 text-slate-400" />
-                        </div>
-                        <div className="space-y-4">
-                            <h2 className="text-xl font-medium">Näkymätön suoja</h2>
-                            <p className="text-lg text-slate-500 leading-relaxed">
-                                Kaikki mitä teet täällä, pysyy laitteellasi. Ei pilvitallennusta, ei seurantaa, ei algoritmia joka arvioisi hätääsi. Vain sinä ja koodi, joka palvelee sinua.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-12 items-start">
-                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
-                            <BookOpen className="w-6 h-6 text-slate-400" />
-                        </div>
-                        <div className="space-y-4">
-                            <h2 className="text-xl font-medium">Oman kokemuksen arkisto</h2>
-                            <p className="text-lg text-slate-500 leading-relaxed">
-                                Kiusaaminen on usein sumua. Me tarjoamme rakenteita, jotka auttavat hälventämään sitä — päivämääriä, havaintoja ja faktoja, joita kukaan ei voi kiistää myöhemmin.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-12 items-start">
-                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
-                            <ShieldCheck className="w-6 h-6 text-slate-400" />
-                        </div>
-                        <div className="space-y-4">
-                            <h2 className="text-xl font-medium">Päätösvalta on sinulla</h2>
-                            <p className="text-lg text-slate-500 leading-relaxed">
-                                Emme kehota sinua tekemään rikosilmoitusta tai ottamaan yhteyttä HR:ään. Me annamme sinulle tiedot, jotta voit päättää itse, kun olet siihen valmis.
-                            </p>
-                        </div>
-                    </div>
-
-                </section>
-
-                {/* THE FOCUS QUOTE */}
-                <section className="py-24 border-y border-white/5 mb-48">
-                    <blockquote className="text-3xl md:text-4xl text-center font-light italic text-slate-300 leading-snug max-w-2xl mx-auto">
-                        "Ensimmäinen askel ulos kiusaamisesta on lakata selittämästä sitä parhain päin."
-                    </blockquote>
-                </section>
-
-                {/* ARCHIVE FRAGMENTS - Anonymous stories */}
+                {/* ARCHIVE FRAGMENTS - Core Content Focus */}
                 <section className="mb-48 space-y-16">
-                    <div className="text-center space-y-4">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-500">Arkiston fragmentteja</h2>
-                        <h3 className="text-3xl font-normal text-slate-200">Et ole ainoa, joka epäilee muistiaan.</h3>
+                    <div className="space-y-4">
+                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-500">Tunnistatko näitä?</h2>
+                        <h3 className="text-3xl font-normal text-slate-200">Et ole ainoa, joka epäilee omaa muistiaan.</h3>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
@@ -169,44 +118,54 @@ export default function Hiekkalaatikko3Page() {
                     </div>
                 </section>
 
-                {/* THE VAULT VISUALIZATION */}
-                <section className="mb-48 grid md:grid-cols-12 gap-12 items-center">
-                    <div className="md:col-span-6 space-y-8">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-500">Turvateknologia</h2>
-                        <h3 className="text-4xl font-normal leading-tight">Kirjoitettu näkymättömiin, <br />mutta pysyvästi.</h3>
-                        <p className="text-lg text-slate-400 leading-relaxed">
-                            Käytämme digitaalista allekirjoitusta, joka on kuin sinetti kirjekuoressa. Kun teet merkinnän, se aikaleimataan tavalla, jota ei voi väärentää.
-                        </p>
-                        <div className="space-y-4 pt-4">
-                            <div className="flex items-center gap-4 text-sm font-mono text-slate-500">
-                                <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
-                                Paikallinen salaus (Ei pilveä)
-                            </div>
-                            <div className="flex items-center gap-4 text-sm font-mono text-slate-500">
-                                <div className="w-2 h-2 rounded-full bg-blue-500/50"></div>
-                                Muokkaamaton aikajana
-                            </div>
-                            <div className="flex items-center gap-4 text-sm font-mono text-slate-500">
-                                <div className="w-2 h-2 rounded-full bg-orange-500/50"></div>
-                                Vain sinun avaimesi alla
-                            </div>
+                {/* THE CORE VALUE PROPOSITION - Human Benefit Focus */}
+                <section className="grid gap-24 mb-48">
+
+                    <div className="flex flex-col md:flex-row gap-12 items-start">
+                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
+                            <EyeOff className="w-6 h-6 text-slate-400" />
+                        </div>
+                        <div className="space-y-4">
+                            <h2 className="text-xl font-medium">Turvallinen tila ajatella</h2>
+                            <p className="text-lg text-slate-500 leading-relaxed">
+                                Täällä kukaan ei keskeytä, vähättele tai vaadi selityksiä. Voit jättää ajatuksesi talteen ja palata niihin silloin, kun olet itse valmis kohtaamaan ne.
+                            </p>
                         </div>
                     </div>
-                    <div className="md:col-span-12 lg:col-span-5 lg:col-start-8">
-                        <div className="aspect-square relative flex items-center justify-center">
-                            {/* Abstract Vault Visual */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-orange-500/5 rounded-full blur-3xl"></div>
-                            <div className="relative w-64 h-64 border border-white/10 rounded-full flex items-center justify-center animate-[spin_20s_linear_infinite]">
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full"></div>
-                                <div className="w-48 h-48 border border-white/5 rounded-full flex items-center justify-center animate-[spin_15s_linear_infinite_reverse]">
-                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1 h-1 bg-white/40 rounded-full"></div>
-                                    <div className="w-32 h-32 border border-white/20 rounded-full flex items-center justify-center bg-white/[0.02] backdrop-blur-sm">
-                                        <Lock className="w-8 h-8 text-white/20" />
-                                    </div>
-                                </div>
-                            </div>
+
+                    <div className="flex flex-col md:flex-row gap-12 items-start">
+                        <div className="flex-shrink-0 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center">
+                            <BookOpen className="w-6 h-6 text-slate-400" />
+                        </div>
+                        <div className="space-y-4">
+                            <h2 className="text-xl font-medium">Sumun hälventäminen</h2>
+                            <p className="text-lg text-slate-500 leading-relaxed">
+                                Kiusaaminen on usein sumua. Me tarjoamme tapoja nähdä sen läpi — päivämääriä, havaintoja ja faktoja, jotka auttavat sinua saamaan otteen omasta arjestasi uudelleen.
+                            </p>
                         </div>
                     </div>
+
+                </section>
+
+                {/* JOURNEY OF UNDERSTANDING */}
+                <section className="mb-48 max-w-2xl space-y-8">
+                    <h2 className="text-xs font-mono uppercase tracking-widest text-slate-500">Mitä tästä eteenpäin?</h2>
+                    <h3 className="text-4xl font-normal leading-tight">Sinun ei tarvitse tietää <br />kaikkea heti.</h3>
+                    <p className="text-lg text-slate-400 leading-relaxed">
+                        Suurin kynnys on usein se ensimmäinen kerta, kun myöntää itselleen, että kaikki ei ole kohdallaan. Turvasiipi on rinnallasi tässä hitaassa prosessissa.
+                    </p>
+                    <ul className="space-y-4 text-slate-500 italic pt-4">
+                        <li className="flex items-center gap-3">— Lukea muiden kokemuksia</li>
+                        <li className="flex items-center gap-3">— Tehdä huomioita omasta olosta</li>
+                        <li className="flex items-center gap-3">— Aloittaa oma loki, kun siltav tuntuu</li>
+                    </ul>
+                </section>
+
+                {/* THE FOCUS QUOTE */}
+                <section className="py-24 border-t border-white/5 mb-48">
+                    <blockquote className="text-3xl md:text-4xl text-center font-light italic text-slate-300 leading-snug max-w-2xl mx-auto">
+                        "Ensimmäinen askel ulos kiusaamisesta on lakata selittämästä sitä parhain päin."
+                    </blockquote>
                 </section>
 
                 {/* REFLECTION MOMENT */}
@@ -272,6 +231,7 @@ export default function Hiekkalaatikko3Page() {
 
                 body {
                     font-family: var(--font-sans);
+                    background-color: #0A0A09;
                 }
             `}</style>
         </div>
