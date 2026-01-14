@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Shield, ShieldCheck, Lock, EyeOff, BookOpen, Feather, ArrowLeft, Globe, Trophy, Gamepad2, Search, User, Wrench, Heart, ChevronDown } from "lucide-react";
+import { ArrowRight, Shield, ShieldCheck, Lock, EyeOff, BookOpen, Feather, ArrowLeft, Globe, Trophy, Gamepad2, Search, User, Wrench, Heart, ChevronDown, Menu, X } from "lucide-react";
 
 export default function Hiekkalaatikko3Page() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div className="min-h-screen bg-[#0A0A09] text-[#E5E5E0] font-serif selection:bg-slate-800 antialiased overflow-x-hidden">
 
@@ -54,18 +57,64 @@ export default function Hiekkalaatikko3Page() {
                         </div>
                     </div>
 
-                    {/* Right side: Apua + Close */}
-                    <div className="flex items-center gap-6">
+                    {/* Right side: Apua + Close + Mobile Menu Trigger */}
+                    <div className="flex items-center gap-4">
                         <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg text-[11px] font-mono uppercase tracking-widest transition-colors cursor-pointer group">
                             <Heart className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
                             <span>Apua</span>
                             <ChevronDown className="w-3 h-3 opacity-50 ml-1" />
                         </div>
-                        <Link href="/" className="text-[10px] font-mono uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
+
+                        <Link href="/" className="hidden sm:block text-[10px] font-mono uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
                             Sulje
                         </Link>
+
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="lg:hidden p-2 text-slate-400 hover:text-white transition-colors"
+                        >
+                            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
                     </div>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMenuOpen && (
+                    <div className="lg:hidden fixed inset-0 top-20 bg-[#0A0A09]/95 backdrop-blur-xl z-[60] p-8 animate-in fade-in slide-in-from-top-4">
+                        <div className="space-y-8">
+                            <div className="flex flex-col gap-6 text-sm font-mono uppercase tracking-widest text-slate-400">
+                                <div className="flex items-center gap-3 py-2 border-b border-white/5">
+                                    <Globe className="w-4 h-4" />
+                                    <span>English</span>
+                                </div>
+                                <Link href="/simulaatio" className="flex items-center gap-3 py-2 border-b border-white/5">
+                                    <Gamepad2 className="w-4 h-4" />
+                                    <span>Koe Simulaatio</span>
+                                </Link>
+                                <div className="flex items-center gap-3 py-2 border-b border-white/5">
+                                    <Search className="w-4 h-4" />
+                                    <span>Tutki</span>
+                                </div>
+                                <div className="flex items-center gap-3 py-2 border-b border-white/5">
+                                    <User className="w-4 h-4" />
+                                    <span>Valmennus</span>
+                                </div>
+                                <div className="flex items-center gap-3 py-2 border-b border-white/5">
+                                    <Wrench className="w-4 h-4" />
+                                    <span>Välineet</span>
+                                </div>
+                                <div className="flex items-center gap-3 py-2 text-white bg-white/5 px-4 rounded-lg">
+                                    <Heart className="w-4 h-4 text-slate-400" />
+                                    <span>Apua</span>
+                                </div>
+                            </div>
+
+                            <Link href="/" className="block text-center pt-8 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600">
+                                — Sulje Arkisto —
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </nav>
 
             <main className="relative max-w-screen-md mx-auto px-8 pt-48 pb-32">
