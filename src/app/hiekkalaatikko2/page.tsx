@@ -1,22 +1,74 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Globe, Trophy, Gamepad2, Search, User, Wrench, Heart, ChevronDown, Feather } from "lucide-react";
 
 export default function Hiekkalaatikko2Page() {
     const currentDate = new Date().toLocaleDateString('fi-FI', { day: 'numeric', month: 'numeric', year: 'numeric' });
 
     return (
-        <div className="min-h-screen bg-[#FAFAF9] text-slate-900 font-serif selection:bg-slate-200 antialiased">
+        <div className="min-h-screen bg-[#FDFBF7] text-slate-900 font-serif selection:bg-slate-200 antialiased">
 
-            {/* Top Bar - Minimal */}
-            <nav className="fixed top-0 w-full bg-[#FAFAF9]/95 backdrop-blur-sm z-50 border-b border-slate-200/50">
-                <div className="max-w-screen-lg mx-auto px-6 h-16 flex items-center justify-between">
-                    <div className="text-xs font-mono text-slate-400 uppercase tracking-widest">
-                        Turvasiipi <span className="mx-2">/</span> {currentDate}
+            {/* Top Bar - With specific items from user image */}
+            <nav className="fixed top-0 w-full bg-[#FDFBF7]/95 backdrop-blur-sm z-50 border-b border-slate-200/50">
+                <div className="max-w-screen-xl mx-auto px-6 h-16 flex items-center justify-between">
+
+                    {/* Left side: Logo/Date */}
+                    <div className="flex items-center gap-4 mr-8">
+                        <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm">
+                            <Feather className="w-5 h-5 stroke-[1.5]" />
+                        </div>
+                        <div className="text-xs font-mono text-slate-400 uppercase tracking-widest">
+                            Turvasiipi <span className="mx-2">/</span> {currentDate}
+                        </div>
                     </div>
-                    <div className="flex gap-6 text-sm font-medium text-slate-500">
-                        <Link href="/" className="hover:text-slate-900 transition-colors">Sulje</Link>
+
+                    {/* Middle: Navigation Items */}
+                    <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 flex-1 justify-end mr-8">
+
+                        <div className="flex items-center gap-2 hover:text-slate-900 cursor-pointer">
+                            <Globe className="w-4 h-4" />
+                            <span>EN</span>
+                        </div>
+
+                        <div className="h-4 w-px bg-slate-200 mx-2"></div>
+
+                        <Link href="#" className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-600">
+                            <Trophy className="w-4 h-4" />
+                        </Link>
+
+                        <Link href="#" className="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                            <Gamepad2 className="w-4 h-4" />
+                            <span>Koe</span>
+                        </Link>
+
+                        <div className="flex items-center gap-2 hover:text-slate-900 cursor-pointer group relative">
+                            <Search className="w-4 h-4" />
+                            <span>Tutki</span>
+                            <ChevronDown className="w-3 h-3 text-slate-400" />
+                        </div>
+
+                        <Link href="#" className="flex items-center gap-2 hover:text-slate-900 transition-colors">
+                            <User className="w-4 h-4" />
+                            <span>Valmennus</span>
+                        </Link>
+
+                        <div className="flex items-center gap-2 hover:text-slate-900 cursor-pointer">
+                            <Wrench className="w-4 h-4" />
+                            <span>Välineet</span>
+                            <ChevronDown className="w-3 h-3 text-slate-400" />
+                        </div>
+
+                    </div>
+
+                    {/* Right: Needs help CTA */}
+                    <div className="flex items-center gap-4">
+                        <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg text-sm font-medium transition-colors cursor-pointer">
+                            <Heart className="w-4 h-4" />
+                            <span>Apua</span>
+                            <ChevronDown className="w-3 h-3 text-slate-500 ml-1" />
+                        </div>
+                        <Link href="/" className="text-xs font-medium text-slate-400 hover:text-slate-900 transition-colors ml-2">Sulje</Link>
                     </div>
                 </div>
             </nav>
@@ -28,7 +80,7 @@ export default function Hiekkalaatikko2Page() {
                     <div className="space-y-8">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-slate-900">
                             Ehkä tämä ei ole kiusaamista.<br />
-                            <span className="text-slate-500 italic">Mutta ehkä tämä ei ole ok.</span>
+                            <span className="text-slate-500 italic">Mutta miksi minusta tuntuu tältä?</span>
                         </h1>
 
                         <div className="space-y-6 pt-4 max-w-lg">
