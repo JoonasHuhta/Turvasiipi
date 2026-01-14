@@ -10,15 +10,13 @@ export default function Hiekkalaatikko2Page() {
         <div className="min-h-screen bg-[#FDFBF7] text-slate-900 font-serif selection:bg-slate-200 antialiased">
 
             {/* Top Bar - With specific items from user image */}
-            <nav className="fixed top-0 w-full bg-[#FDFBF7]/95 backdrop-blur-sm z-50 border-b border-slate-200/50">
+            <nav className="fixed top-0 w-full bg-[#FDFBF7]/95 backdrop-blur-sm z-50 border-b border-slate-300">
                 <div className="max-w-screen-xl mx-auto px-6 h-16 flex items-center justify-between">
 
                     {/* Left side: Logo/Date */}
                     <div className="flex items-center gap-4 mr-8">
-                        <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm">
-                            <Feather className="w-5 h-5 stroke-[1.5]" />
-                        </div>
-                        <div className="text-xs font-mono text-slate-400 uppercase tracking-widest">
+                        <img src="/logo-wip-5.png" alt="Turvasiipi Logo" className="w-10 h-10 rounded-full border border-slate-200 object-cover" />
+                        <div className="text-xs font-mono text-slate-500 uppercase tracking-widest">
                             Turvasiipi <span className="mx-2">/</span> {currentDate}
                         </div>
                     </div>
@@ -80,7 +78,7 @@ export default function Hiekkalaatikko2Page() {
                     <div className="space-y-8">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-slate-900">
                             Ehkä tämä ei ole kiusaamista.<br />
-                            <span className="text-slate-500 italic">Mutta miksi minusta tuntuu tältä?</span>
+                            <span className="text-slate-500 italic text-[0.88em] inline-block mt-1">Mutta miksi minusta tuntuu tältä?</span>
                         </h1>
 
                         <div className="space-y-6 pt-4 max-w-lg">
@@ -99,7 +97,7 @@ export default function Hiekkalaatikko2Page() {
                                 Katso, tunnistatko tämän
                                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <p className="mt-4 text-xs font-mono text-slate-400 uppercase tracking-wider">
+                            <p className="mt-4 text-xs font-mono text-slate-500 uppercase tracking-wider">
                                 Pieni huomautus: Useimmat käyttäjät aloittavat vain lukemalla.
                             </p>
                         </div>
@@ -107,9 +105,9 @@ export default function Hiekkalaatikko2Page() {
                 </section>
 
                 {/* SECTION 1: MIKSI TÄMÄ ON OLEMASSA */}
-                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-200 pt-16">
+                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-300 pt-16">
                     <div className="md:col-span-4">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-400 sticky top-24">
+                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-600 sticky top-24">
                             Konteksti 01
                         </h2>
                     </div>
@@ -143,9 +141,9 @@ export default function Hiekkalaatikko2Page() {
                 </section>
 
                 {/* SECTION 2: ONKO TÄMÄ KIUSAAMISTA? */}
-                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-200 pt-16">
+                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-300 pt-16">
                     <div className="md:col-span-4">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-400 sticky top-24">
+                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-600 sticky top-24">
                             Määrittely 02
                         </h2>
                     </div>
@@ -174,9 +172,9 @@ export default function Hiekkalaatikko2Page() {
                 </section>
 
                 {/* SECTION 3: YKSITYINEN LOKI */}
-                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-200 pt-16">
+                <section className="grid md:grid-cols-12 gap-12 mb-32 border-t border-slate-300 pt-16">
                     <div className="md:col-span-4">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-400 sticky top-24">
+                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-600 sticky top-24">
                             Todistusaineisto 03
                         </h2>
                     </div>
@@ -212,9 +210,9 @@ export default function Hiekkalaatikko2Page() {
                 </section>
 
                 {/* SECTION 4: MIKSI MERKITSEE / TÄMÄ EI TEE PÄÄTÖKSIÄ */}
-                <section className="grid md:grid-cols-12 gap-12 mb-24 border-t border-slate-200 pt-16">
+                <section className="grid md:grid-cols-12 gap-12 mb-24 border-t border-slate-300 pt-16">
                     <div className="md:col-span-4">
-                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-400 sticky top-24">
+                        <h2 className="text-xs font-mono uppercase tracking-widest text-slate-600 sticky top-24">
                             Reunaehdot 04
                         </h2>
                     </div>
@@ -240,7 +238,7 @@ export default function Hiekkalaatikko2Page() {
                         </div>
 
                         {/* Ei tee päätöksiä */}
-                        <div className="space-y-6 pt-8 border-t border-slate-100">
+                        <div className="space-y-6 pt-8 border-t border-slate-200">
                             <h3 className="text-xl font-medium text-slate-900">
                                 Tämä ei tee päätöksiä puolestasi
                             </h3>
@@ -270,7 +268,7 @@ export default function Hiekkalaatikko2Page() {
                             Tee rauhallinen tilannekartoitus
                             <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <p className="mt-6 text-xs font-mono text-slate-400 uppercase tracking-wider">
+                        <p className="mt-6 text-xs font-mono text-slate-500 uppercase tracking-wider">
                             Pieni huomautus: Voit lopettaa milloin tahansa.<br />
                             Mitään ei tallennu ilman lupaasi.
                         </p>
@@ -278,8 +276,8 @@ export default function Hiekkalaatikko2Page() {
                 </section>
 
                 {/* FOOTER */}
-                <footer className="pt-12 border-t border-slate-200 text-center">
-                    <div className="inline-flex flex-col gap-2 text-xs font-mono text-slate-400 max-w-sm mx-auto">
+                <footer className="pt-12 border-t border-slate-300 text-center">
+                    <div className="inline-flex flex-col gap-2 text-xs font-mono text-slate-500 max-w-sm mx-auto">
                         <p>Tämä palvelu ei korvaa työterveyttä tai oikeudellista neuvontaa.</p>
                         <p>Tämä ei ole kriisipalvelu.</p>
                         <p className="text-slate-500 font-bold">Jos olet välittömässä vaarassa, hae apua heti.</p>
