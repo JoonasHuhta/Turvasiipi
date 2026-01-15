@@ -23,18 +23,18 @@ export default function YouthPage() {
     };
 
     return (
-        <main className="min-h-screen bg-slate-50 pb-20">
+        <main className="min-h-screen bg-[#FDFBF7] pb-20">
             {/* HERO */}
-            <section className="bg-indigo-900 text-white py-16 px-4">
+            <section className="bg-[#2B2B2B] text-white py-16 px-4">
                 <div className="max-w-4xl mx-auto space-y-6">
-                    <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-indigo-200 text-sm font-medium">
+                    <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[#E8DDD0] text-sm font-medium">
                         <GraduationCap className="w-4 h-4" />
                         Nuoret työelämässä
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black leading-tight">
-                        Työelämä ei ole <span className="text-indigo-300">selviytymiskoe</span>.
+                        Työelämä ei ole <span className="text-[#5B4B8A] italic">selviytymiskoe</span>.
                     </h1>
-                    <p className="text-xl text-indigo-100 max-w-2xl leading-relaxed">
+                    <p className="text-xl text-[#E8DDD0] max-w-2xl leading-relaxed">
                         Oletko ensimmäisessä työpaikassa? Tuntuuko, että sinua testataan tai vaaditaan mahdottomia?
                         Tämä on oppaasi oikeuksiin, rajoihin ja siihen, miten tunnistat hyväksikäytön.
                     </p>
@@ -46,7 +46,7 @@ export default function YouthPage() {
                 <Tabs defaultValue="intro" className="space-y-8">
 
                     {/* NAV TABS */}
-                    <TabsList className="bg-white p-1 shadow-lg rounded-xl flex flex-wrap h-auto gap-1 border border-slate-100">
+                    <TabsList className="bg-white p-1 shadow-lg rounded-xl flex flex-wrap h-auto gap-1 border border-[#E8DDD0]">
                         <TabsTrigger value="intro" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-indigo-50 data-[state=active]:text-indigo-700">Tilannekuva 2026</TabsTrigger>
                         <TabsTrigger value="career" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">Ammatinvalinta</TabsTrigger>
                         <TabsTrigger value="interview" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700">Haastattelu & Riskit</TabsTrigger>
@@ -59,11 +59,11 @@ export default function YouthPage() {
                         <Card className="border-0 shadow-lg">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2 text-2xl">
-                                    <Info className="w-6 h-6 text-indigo-500" />
+                                    <Info className="w-6 h-6 text-[#5B4B8A]" />
                                     Miksi tämä opas on olemassa?
                                 </CardTitle>
                             </CardHeader>
-                            <CardContent className="space-y-6 text-slate-700 leading-relaxed">
+                            <CardContent className="space-y-6 text-[#4A4A4A] leading-relaxed">
                                 <p>
                                     <strong>Hei. Olen työelämän asiantuntija.</strong> Olen seurannut tiiviisti viime vuosien trendejä, tutkimuksia (kuten Nuorisobarometreja) sekä nuorten aitoja kokemuksia keskustelufoorumeilla.
                                 </p>
@@ -83,7 +83,7 @@ export default function YouthPage() {
                                     </div>
                                 </div>
 
-                                <p className="font-medium text-indigo-900 bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                                <p className="font-medium text-[#2B2B2B] bg-[#FDFBF7] p-4 rounded-lg border border-[#E8DDD0]">
                                     "Ongelma ei ole nuoren herkkyys – vaan valtasuhde."
                                 </p>
                             </CardContent>

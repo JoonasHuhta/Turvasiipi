@@ -93,19 +93,19 @@ export default function TacticsPage() {
     }, [selectedTactic]);
 
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4">
+        <div className="min-h-screen bg-[#FDFBF7] py-12 px-4">
             <div className="max-w-4xl mx-auto space-y-12 animate-in slide-in-from-bottom-4 duration-700 pb-20">
                 <section className="text-center space-y-4">
-                    <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 uppercase">
-                        {t('quiz.tactics_page.title_start')} <span className="text-primary italic">{t('quiz.tactics_page.title_highlight')}</span>
+                    <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[#2B2B2B] uppercase">
+                        {t('quiz.tactics_page.title_start')} <span className="text-[#5B4B8A] italic">{t('quiz.tactics_page.title_highlight')}</span>
                     </h1>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+                    <p className="text-lg text-[#4A4A4A] max-w-2xl mx-auto font-serif">
                         {t('quiz.tactics_page.description')}
                     </p>
                 </section>
 
                 {/* Image Carousel */}
-                <Card className="bg-gradient-to-br from-indigo-50 to-slate-50 border-indigo-100 overflow-hidden">
+                <Card className="bg-white border-[#E8DDD0] overflow-hidden">
                     <CardContent className="p-0">
                         <div className="relative group">
                             {/* Navigation Overlay - Placed outside image container to ensure visibility */}
@@ -115,7 +115,7 @@ export default function TacticsPage() {
                                         variant="ghost"
                                         size="icon"
                                         onClick={prevImage}
-                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900/90 hover:bg-slate-800 shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
+                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#2B2B2B]/90 hover:bg-[#4A4A4A] shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
                                         aria-label="Edellinen kuva"
                                     >
                                         <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-white" />
@@ -124,7 +124,7 @@ export default function TacticsPage() {
                                         variant="ghost"
                                         size="icon"
                                         onClick={nextImage}
-                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900/90 hover:bg-slate-800 shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
+                                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#2B2B2B]/90 hover:bg-[#4A4A4A] shadow-2xl transition-all border-2 border-white pointer-events-auto cursor-pointer"
                                         aria-label="Seuraava kuva"
                                     >
                                         <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-white" />
@@ -147,8 +147,8 @@ export default function TacticsPage() {
                             </div>
 
                             {/* Caption and Indicators */}
-                            <div className="bg-white border-t border-indigo-100 p-6">
-                                <p className="text-center text-sm text-slate-600 font-medium italic mb-4">
+                            <div className="bg-white border-t border-[#E8DDD0] p-6">
+                                <p className="text-center text-sm text-[#4A4A4A] font-medium italic mb-4">
                                     {carouselImages[currentImageIndex].caption}
                                 </p>
 
@@ -162,8 +162,8 @@ export default function TacticsPage() {
                                                 className={cn(
                                                     "w-2 h-2 rounded-full transition-all",
                                                     index === currentImageIndex
-                                                        ? "bg-indigo-600 w-8"
-                                                        : "bg-slate-300 hover:bg-slate-400"
+                                                        ? "bg-[#5B4B8A] w-8"
+                                                        : "bg-[#E8DDD0] hover:bg-[#D8CCC0]"
                                                 )}
                                                 aria-label={`Siirry kuvaan ${index + 1}`}
                                             />
@@ -201,18 +201,18 @@ export default function TacticsPage() {
                         return (
                             <div key={catId} className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <div className="h-1px flex-1 bg-slate-200" />
-                                    <h3 className="text-xl font-black uppercase tracking-widest text-slate-400">
+                                    <div className="h-px flex-1 bg-[#E8DDD0]" />
+                                    <h3 className="text-xl font-black uppercase tracking-widest text-[#4A4A4A]/50">
                                         {t(`quiz.tactic_categories.${catId}`)}
                                     </h3>
-                                    <div className="h-1px flex-1 bg-slate-200" />
+                                    <div className="h-px flex-1 bg-[#E8DDD0]" />
                                 </div>
 
                                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                     {tacticsInCategory.map((tactic) => (
                                         <Card
                                             key={tactic.id}
-                                            className={`cursor-pointer transition-all hover:border-primary/50 group hover:shadow-lg rounded-2xl overflow-hidden ${selectedTactic?.id === tactic.id ? 'border-primary ring-2 ring-primary/20' : ''}`}
+                                            className={`cursor-pointer transition-all hover:border-[#5B4B8A]/50 group hover:shadow-lg rounded-2xl overflow-hidden bg-white border border-[#E8DDD0] ${selectedTactic?.id === tactic.id ? 'border-[#5B4B8A] ring-2 ring-[#5B4B8A]/20' : ''}`}
                                             onClick={() => setSelectedTactic(tactic)}
                                         >
                                             <CardHeader className="p-5">
@@ -386,6 +386,6 @@ export default function TacticsPage() {
                     </DialogContent>
                 </Dialog>
             </div>
-        </div>
+        </div >
     );
 }

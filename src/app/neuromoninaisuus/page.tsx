@@ -17,7 +17,7 @@ export default function NeurodiversityPage() {
         completeModule('neuro_info');
     };
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4 animate-in fade-in duration-500">
+        <div className="min-h-screen bg-[#FDFBF7] py-12 px-4 animate-in fade-in duration-500">
             <div className="max-w-4xl mx-auto space-y-12">
 
                 {/* HEADER */}
@@ -25,10 +25,10 @@ export default function NeurodiversityPage() {
                     <Badge variant="outline" className="bg-indigo-50 text-indigo-700 border-indigo-200 px-3 py-1 text-sm">
                         Oppimiskeskus
                     </Badge>
-                    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                    <h1 className="text-4xl md:text-5xl font-black text-[#2B2B2B] tracking-tight leading-tight">
                         Neuromoninaisuus työelämässä
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed">
                         Aivosi toimivat eri tavalla? Se on voimavarasi.
                         <br />
                         <span className="text-base mt-2 block">
@@ -39,7 +39,7 @@ export default function NeurodiversityPage() {
 
                 {/* INTRODUCTION CARDS */}
                 <div className="grid md:grid-cols-2 gap-6">
-                    <Card className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow">
+                    <Card className="bg-white border-[#E8DDD0] shadow-lg hover:shadow-xl transition-shadow">
                         <CardHeader className="flex flex-row items-center gap-4 pb-2">
                             <div className="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
                                 <Brain className="w-8 h-8" />
@@ -49,7 +49,7 @@ export default function NeurodiversityPage() {
                                 <CardDescription>15-20% väestöstä</CardDescription>
                             </div>
                         </CardHeader>
-                        <CardContent className="text-slate-600 space-y-2 text-sm">
+                        <CardContent className="text-[#4A4A4A] space-y-2 text-sm">
                             <p><strong>ADHD (5%):</strong> Luovuus, energisyys, "out-of-the-box" ajattelu. Haasteina keskittyminen ja impulssikontrolli.</p>
                             <p><strong>Autismikirjo (2%):</strong> Systeemiajattelu, yksityiskohtien havaitseminen, johdonmukaisuus. Haasteina sosiaalinen kommunikaatio.</p>
                             <p><strong>Dysleksia (10%):</strong> Visuaalinen ajattelu, kokonaisuuksien hahmottaminen.</p>
@@ -75,7 +75,7 @@ export default function NeurodiversityPage() {
                 </div>
 
                 {/* LUSIKKATEORIA (NEW SECTION) */}
-                <section id="lusikkateoria" className="bg-indigo-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                <section id="lusikkateoria" className="bg-[#2B2B2B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
                     <div className="relative z-10 space-y-8">
                         <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -125,7 +125,7 @@ export default function NeurodiversityPage() {
 
                     {/* 1. HAASTEET */}
                     <section id="haasteet">
-                        <h2 className="text-2xl font-bold flex items-center gap-3 mb-6 text-slate-800">
+                        <h2 className="text-2xl font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
                             <AlertTriangle className="w-6 h-6 text-amber-500" />
                             Miksi työelämä kuormittaa?
                         </h2>

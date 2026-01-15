@@ -152,9 +152,9 @@ function LogPageContent() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-20">
+        <div className="min-h-screen bg-[#FDFBF7] pb-20">
             {/* Header with Evidence Meter */}
-            <div className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm px-6 py-4">
+            <div className="sticky top-0 z-50 bg-[#FDFBF7]/95 backdrop-blur-sm border-b border-[#E8DDD0] shadow-sm px-6 py-4">
                 <div className="max-w-3xl mx-auto flex items-center justify-between gap-6">
                     <Button variant="ghost" size="sm" onClick={() => router.back()}>
                         <ArrowLeft className="w-4 h-4 mr-2" /> Keskeytä
@@ -163,11 +163,11 @@ function LogPageContent() {
                     <div className="flex-1">
                         <div className="flex justify-between text-xs font-bold uppercase tracking-wider mb-1">
                             <span>Todistusvoima</span>
-                            <span className={cn("transition-colors", meterScore > 70 ? "text-emerald-600" : "text-slate-500")}>
+                            <span className={cn("transition-colors", meterScore > 70 ? "text-emerald-600" : "text-[#4A4A4A]")}>
                                 {meterScore}%
                             </span>
                         </div>
-                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-2 bg-[#E8DDD0] rounded-full overflow-hidden">
                             <div
                                 className={cn("h-full transition-all duration-500 ease-out", getMeterColor(meterScore))}
                                 style={{ width: `${meterScore}%` }}
@@ -182,45 +182,45 @@ function LogPageContent() {
                 {step === 0 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="text-center space-y-4 mb-8">
-                            <h1 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
+                            <h1 className="text-2xl md:text-3xl font-serif font-black uppercase tracking-tight text-[#2B2B2B]">
                                 Todisteiden kerääminen
                             </h1>
-                            <p className="text-slate-600 font-medium max-w-md mx-auto">
+                            <p className="text-[#4A4A4A] font-medium max-w-md mx-auto">
                                 Käytännön ohje oikeudellisesti kestävän dokumentaation luomiseen.
                             </p>
                         </div>
 
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                        <div className="bg-white p-6 rounded-sm shadow-sm border border-[#E8DDD0] space-y-4">
                             <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                    <span className="font-bold text-slate-500">1</span>
+                                <div className="w-10 h-10 rounded-full bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-[#5B4B8A]">1</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900">Ole neutraali ja tarkka</h3>
-                                    <p className="text-sm text-slate-500 mt-1">Kirjaa mitä tapahtui, ei vain miltä se tuntui. Käytä suoria lainauksia jos mahdollista.</p>
+                                    <h3 className="font-bold text-[#2B2B2B]">Ole neutraali ja tarkka</h3>
+                                    <p className="text-sm text-[#4A4A4A] mt-1">Kirjaa mitä tapahtui, ei vain miltä se tuntui. Käytä suoria lainauksia jos mahdollista.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                    <span className="font-bold text-slate-500">2</span>
+                                <div className="w-10 h-10 rounded-full bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-[#5B4B8A]">2</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900">Kirjaa heti</h3>
-                                    <p className="text-sm text-slate-500 mt-1">Muistikuvat haalistuvat nopeasti. Tuore kirjaus on uskottavampi todiste.</p>
+                                    <h3 className="font-bold text-[#2B2B2B]">Kirjaa heti</h3>
+                                    <p className="text-sm text-[#4A4A4A] mt-1">Muistikuvat haalistuvat nopeasti. Tuore kirjaus on uskottavampi todiste.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                    <span className="font-bold text-slate-500">3</span>
+                                <div className="w-10 h-10 rounded-full bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center shrink-0">
+                                    <span className="font-bold text-[#5B4B8A]">3</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-900">Etsi säännönmukaisuutta</h3>
-                                    <p className="text-sm text-slate-500 mt-1">Yksittäinen töykeä sana ei ole kiusaamista. Toistuvuus on avainasemassa.</p>
+                                    <h3 className="font-bold text-[#2B2B2B]">Etsi säännönmukaisuutta</h3>
+                                    <p className="text-sm text-[#4A4A4A] mt-1">Yksittäinen töykeä sana ei ole kiusaamista. Toistuvuus on avainasemassa.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl flex gap-3 text-indigo-800 text-sm">
+                        <div className="bg-[#FDFBF7] border border-[#E8DDD0] p-4 rounded-sm flex gap-3 text-[#5B4B8A] text-sm">
                             <ShieldCheck className="w-5 h-5 shrink-0" />
                             <p>Tämä työkalu auttaa sinua jäsentämään tapahtumat tavalla, joka kestää tarkastelun.</p>
                         </div>
@@ -231,8 +231,8 @@ function LogPageContent() {
                 {step === 1 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-slate-900">Mitä tapahtui?</h1>
-                            <p className="text-slate-500">Valitse tilannetta parhaiten kuvaava palikka.</p>
+                            <h1 className="text-2xl font-serif font-bold text-[#2B2B2B]">Mitä tapahtui?</h1>
+                            <p className="text-[#4A4A4A]">Valitse tilannetta parhaiten kuvaava palikka.</p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -241,20 +241,20 @@ function LogPageContent() {
                                     key={tactic.id}
                                     className={cn(
                                         "cursor-pointer transition-all hover:shadow-md border-2",
-                                        selectedTactic?.id === tactic.id ? "border-indigo-600 bg-indigo-50 shadow-md" : "border-transparent hover:border-slate-200"
+                                        selectedTactic?.id === tactic.id ? "border-[#5B4B8A] bg-[#FDFBF7] shadow-md" : "border-transparent hover:border-[#E8DDD0]"
                                     )}
                                     onClick={() => setSelectedTactic(tactic)}
                                 >
                                     <CardContent className="p-4 flex items-start gap-3">
                                         <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                                            {tactic.category === 'verbal' && <Quote className="w-5 h-5 text-indigo-500" />}
-                                            {tactic.category === 'social' && <Users className="w-5 h-5 text-pink-500" />}
-                                            {tactic.category === 'power' && <ShieldCheck className="w-5 h-5 text-orange-500" />}
-                                            {!['verbal', 'social', 'power'].includes(tactic.category) && <User className="w-5 h-5 text-slate-500" />}
+                                            {tactic.category === 'verbal' && <Quote className="w-5 h-5 text-[#5B4B8A]" />}
+                                            {tactic.category === 'social' && <Users className="w-5 h-5 text-emerald-600" />}
+                                            {tactic.category === 'power' && <ShieldCheck className="w-5 h-5 text-orange-600" />}
+                                            {!['verbal', 'social', 'power'].includes(tactic.category) && <User className="w-5 h-5 text-[#4A4A4A]" />}
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-slate-900">{tactic.name}</h3>
-                                            <p className="text-sm text-slate-500 line-clamp-2">{tactic.definition}</p>
+                                            <h3 className="font-bold text-[#2B2B2B]">{tactic.name}</h3>
+                                            <p className="text-sm text-[#4A4A4A] line-clamp-2">{tactic.definition}</p>
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -267,16 +267,16 @@ function LogPageContent() {
                 {step === 2 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-slate-900">Milloin ja missä?</h1>
-                            <p className="text-slate-500">Tarkat tiedot lisäävät uskottavuutta.</p>
+                            <h1 className="text-2xl font-serif font-bold text-[#2B2B2B]">Milloin ja missä?</h1>
+                            <p className="text-[#4A4A4A]">Tarkat tiedot lisäävät uskottavuutta.</p>
                         </div>
 
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                        <div className="bg-white p-6 rounded-sm shadow-sm border border-[#E8DDD0] space-y-6">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label>Päivämäärä</Label>
                                     <div className="relative">
-                                        <Clock className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                                        <Clock className="absolute left-3 top-3 w-4 h-4 text-[#5B4B8A]" />
                                         <Input
                                             type="date"
                                             className="pl-10"
@@ -298,7 +298,7 @@ function LogPageContent() {
                             <div className="space-y-2">
                                 <Label>Paikka / Tilanne</Label>
                                 <div className="relative">
-                                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-[#5B4B8A]" />
                                     <Input
                                         placeholder="Esim. Kahvihuone, Teams-palaveri..."
                                         className="pl-10"
@@ -311,7 +311,7 @@ function LogPageContent() {
                             <div className="space-y-2">
                                 <Label>Kuka oli osallisena?</Label>
                                 <div className="relative">
-                                    <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                                    <User className="absolute left-3 top-3 w-4 h-4 text-[#5B4B8A]" />
                                     <Input
                                         placeholder="Henkilön nimi tai titteli"
                                         className="pl-10"
@@ -328,16 +328,16 @@ function LogPageContent() {
                 {step === 3 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-slate-900">Mitä tapahtui?</h1>
-                            <p className="text-slate-500">Rakenna kuvaus valitsemalla sopivat palikat.</p>
+                            <h1 className="text-2xl font-serif font-bold text-[#2B2B2B]">Mitä tapahtui?</h1>
+                            <p className="text-[#4A4A4A]">Rakenna kuvaus valitsemalla sopivat palikat.</p>
                         </div>
 
                         {/* Sentence Builder Blocks */}
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                        <div className="bg-white p-6 rounded-sm shadow-sm border border-[#E8DDD0] space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 {/* Subject Column */}
                                 <div className="space-y-3">
-                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Tekijä (Kuka?)</Label>
+                                    <Label className="text-xs uppercase tracking-wider text-[#5B4B8A] font-bold">Tekijä (Kuka?)</Label>
                                     <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
                                         {[
                                             { id: 'esimies', label: 'Esimies', icon: '👔' },
@@ -353,8 +353,8 @@ function LogPageContent() {
                                                     description: `${sub.label} ${prev.description.split(' ').slice(1).join(' ')}`
                                                 }))}
                                                 className={cn(
-                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
-                                                    formData.description.startsWith(sub.label) ? "border-indigo-500 bg-indigo-50" : "border-slate-100"
+                                                    "p-3 rounded-sm border cursor-pointer transition-all hover:bg-[#FDFBF7] flex items-center gap-3",
+                                                    formData.description.startsWith(sub.label) ? "border-[#5B4B8A] bg-[#FDFBF7]" : "border-[#E8DDD0]"
                                                 )}
                                             >
                                                 <span className="text-xl">{sub.icon}</span>
@@ -366,7 +366,7 @@ function LogPageContent() {
 
                                 {/* Action Column */}
                                 <div className="space-y-3">
-                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Teko (Mitä?)</Label>
+                                    <Label className="text-xs uppercase tracking-wider text-[#5B4B8A] font-bold">Teko (Mitä?)</Label>
                                     <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
                                         {[
                                             { id: 'yelled', label: 'huusi minulle', icon: '📢' },
@@ -385,8 +385,8 @@ function LogPageContent() {
                                                     return { ...prev, description: `${subject} ${act.label} ...` };
                                                 })}
                                                 className={cn(
-                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
-                                                    formData.description.includes(act.label) ? "border-rose-500 bg-rose-50" : "border-slate-100"
+                                                    "p-3 rounded-sm border cursor-pointer transition-all hover:bg-[#FDFBF7] flex items-center gap-3",
+                                                    formData.description.includes(act.label) ? "border-rose-500 bg-rose-50" : "border-[#E8DDD0]"
                                                 )}
                                             >
                                                 <span className="text-xl">{act.icon}</span>
@@ -398,7 +398,7 @@ function LogPageContent() {
 
                                 {/* Context Column */}
                                 <div className="space-y-3">
-                                    <Label className="text-xs uppercase tracking-wider text-slate-400 font-bold">Konteksti (Missä?)</Label>
+                                    <Label className="text-xs uppercase tracking-wider text-[#5B4B8A] font-bold">Konteksti (Missä?)</Label>
                                     <div className="space-y-2 max-h-60 overflow-y-auto pr-1 custom-scrollbar">
                                         {[
                                             { id: 'meeting', label: 'palaverissa', icon: '📅' },
@@ -415,8 +415,8 @@ function LogPageContent() {
                                                     return { ...prev, description: `${cleanDesc} ${ctx.label}.` };
                                                 })}
                                                 className={cn(
-                                                    "p-3 rounded-xl border-2 cursor-pointer transition-all hover:bg-slate-50 flex items-center gap-3",
-                                                    formData.description.includes(ctx.label) ? "border-emerald-500 bg-emerald-50" : "border-slate-100"
+                                                    "p-3 rounded-sm border cursor-pointer transition-all hover:bg-[#FDFBF7] flex items-center gap-3",
+                                                    formData.description.includes(ctx.label) ? "border-emerald-500 bg-emerald-50" : "border-[#E8DDD0]"
                                                 )}
                                             >
                                                 <span className="text-xl">{ctx.icon}</span>
@@ -434,14 +434,14 @@ function LogPageContent() {
                                     Lopputulos (voit muokata vapaasti)
                                 </Label>
                                 <Textarea
-                                    className="min-h-[120px] text-lg leading-relaxed shadow-inner bg-slate-50 border-slate-200"
+                                    className="min-h-[120px] text-lg leading-relaxed shadow-inner bg-[#FDFBF7] border-[#E8DDD0]"
                                     value={formData.description}
                                     onChange={e => setFormData({ ...formData, description: e.target.value })}
                                     placeholder="Valitse yltä palikat, niin lause muodostuu tähän..."
                                 />
                             </div>
 
-                            <div className="space-y-4 pt-4 border-t border-slate-100">
+                            <div className="space-y-4 pt-4 border-t border-[#E8DDD0]">
                                 <Label>Intensiteetti (1-5)</Label>
                                 <div className="px-2">
                                     <Slider
@@ -452,7 +452,7 @@ function LogPageContent() {
                                         onValueChange={val => setFormData({ ...formData, intensity: val })}
                                         className="py-4"
                                     />
-                                    <div className="flex justify-between text-xs text-slate-400 uppercase font-bold tracking-wider">
+                                    <div className="flex justify-between text-xs text-[#5B4B8A] uppercase font-bold tracking-wider">
                                         <span>Lievä</span>
                                         <span>Kohtalainen</span>
                                         <span className="text-rose-500">Vakava</span>
@@ -493,11 +493,11 @@ function LogPageContent() {
                 {step === 4 && (
                     <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-500">
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-slate-900">Yhteenveto</h1>
-                            <p className="text-slate-500">Tarkista tiedot ennen tallennusta.</p>
+                            <h1 className="text-2xl font-serif font-bold text-[#2B2B2B]">Yhteenveto</h1>
+                            <p className="text-[#4A4A4A]">Tarkista tiedot ennen tallennusta.</p>
                         </div>
 
-                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div className="bg-white rounded-sm shadow-sm border border-[#E8DDD0] overflow-hidden">
                             <div className={cn("p-4 text-white flex items-center justify-between", getMeterColor(meterScore))}>
                                 <div className="font-bold flex items-center gap-2">
                                     <ShieldCheck className="w-5 h-5" />
@@ -547,33 +547,33 @@ function LogPageContent() {
                             <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <CheckCircle2 className="w-8 h-8" />
                             </div>
-                            <h1 className="text-2xl font-bold text-slate-900">Kirjaus tallennettu!</h1>
-                            <p className="text-slate-500">Tässä muutama asia, jotka voit tehdä seuraavaksi.</p>
+                            <h1 className="text-2xl font-serif font-bold text-[#2B2B2B]">Kirjaus tallennettu!</h1>
+                            <p className="text-[#4A4A4A]">Tässä muutama asia, jotka voit tehdä seuraavaksi.</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
                             <div className="space-y-4">
-                                <div className="flex items-center gap-2 text-indigo-600">
+                                <div className="flex items-center gap-2 text-[#5B4B8A]">
                                     <Lightbulb className="w-5 h-5" />
                                     <h3 className="font-bold uppercase tracking-widest text-xs">Suositellut toimet ({selectedTactic?.name})</h3>
                                 </div>
                                 <div className="space-y-3">
                                     {/* Mock advice if not in tactic data, or fetch real advice */}
-                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <span className="font-black text-slate-300 text-lg">1</span>
-                                        <p className="text-slate-700 text-sm font-medium">
+                                    <div className="flex gap-4 p-4 bg-[#FDFBF7] rounded-sm border border-[#E8DDD0]">
+                                        <span className="font-black text-[#5B4B8A]/20 text-lg">1</span>
+                                        <p className="text-[#4A4A4A] text-sm font-medium">
                                             Kirjaa ylös tuntemuksesi ja vaikutukset työkykyysi (esim. univaikeudet).
                                         </p>
                                     </div>
-                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <span className="font-black text-slate-300 text-lg">2</span>
-                                        <p className="text-slate-700 text-sm font-medium">
+                                    <div className="flex gap-4 p-4 bg-[#FDFBF7] rounded-sm border border-[#E8DDD0]">
+                                        <span className="font-black text-[#5B4B8A]/20 text-lg">2</span>
+                                        <p className="text-[#4A4A4A] text-sm font-medium">
                                             Jos mahdollista, mainitse asiasta rauhallisesti tekijälle ("Tuo kommentti tuntui minusta vähättelevältä").
                                         </p>
                                     </div>
-                                    <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <span className="font-black text-slate-300 text-lg">3</span>
-                                        <p className="text-slate-700 text-sm font-medium">
+                                    <div className="flex gap-4 p-4 bg-[#FDFBF7] rounded-sm border border-[#E8DDD0]">
+                                        <span className="font-black text-[#5B4B8A]/20 text-lg">3</span>
+                                        <p className="text-[#4A4A4A] text-sm font-medium">
                                             Varmista, että sinulla on tukihenkilö (työterveys, luottamusmies tai kollega).
                                         </p>
                                     </div>
@@ -586,11 +586,11 @@ function LogPageContent() {
                 {/* Navigation Buttons */}
                 <div className="flex justify-between pt-6">
                     {step > 0 ? (
-                        <Button variant="outline" onClick={handleBack} className="w-32">
+                        <Button variant="outline" onClick={handleBack} className="w-32 border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">
                             <ArrowLeft className="w-4 h-4 mr-2" /> Takaisin
                         </Button>
                     ) : (
-                        <Button variant="ghost" onClick={() => router.back()} className="w-32 text-slate-400">
+                        <Button variant="ghost" onClick={() => router.back()} className="w-32 text-[#5B4B8A] hover:bg-[#5B4B8A]/10">
                             Keskeytä
                         </Button>
                     )}
@@ -600,7 +600,7 @@ function LogPageContent() {
                         <Button
                             onClick={handleNext}
                             disabled={step === 1 && !selectedTactic}
-                            className="w-32 bg-indigo-600 hover:bg-indigo-700 font-bold"
+                            className="w-32 bg-[#2B2B2B] hover:bg-[#4A4A4A] font-bold uppercase tracking-widest text-xs"
                         >
                             Seuraava <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
@@ -614,7 +614,7 @@ function LogPageContent() {
                     ) : (
                         <Button
                             onClick={() => router.push('/timeline')}
-                            className="w-40 bg-slate-900 hover:bg-slate-800 font-bold text-white"
+                            className="w-40 bg-[#2B2B2B] hover:bg-[#4A4A4A] font-bold text-white uppercase tracking-widest text-xs"
                         >
                             Valmis <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>

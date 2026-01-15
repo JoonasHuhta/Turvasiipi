@@ -111,26 +111,26 @@ export const MODULES: Module[] = [
 ];
 
 export const BADGES: Badge[] = [
-    { id: 'welcome', title: 'Tervetuloa Turvasiipeen', icon: '🏠', description: 'Kävit ensimmäistä kertaa etusivulla.' },
+    { id: 'welcome', title: 'Muna', icon: '🥚', description: 'Loit ensimmäisen lokimerkinnän tai aloitit matkan.' },
     { id: 'nurse_complete', title: 'Hoitajan Silmin', icon: '🩺', description: 'Suoritit hoitajan kokemuksen.' },
     { id: 'teacher_complete', title: 'Opettajan Taakka', icon: '📚', description: 'Suoritit opettajan kokemuksen.' },
     { id: 'manager_complete', title: 'Asiantuntijan Kriisi', icon: '💼', description: 'Suoritit esimiehen kokemuksen.' },
     { id: 'youth_complete', title: 'Nuoren Kokemus', icon: '🌱', description: 'Suoritit nuorten kokemuksen.' },
     { id: 'neuro_complete', title: 'Neuromoninaisuuden Ymmärrys', icon: '🧩', description: 'Suoritit neuromoninaisuus-kokemuksen.' },
-    { id: 'empathy_master', title: 'Empatian Mestari', icon: '⭐', description: 'Suoritit kaikki 5 kokemusta.', isMastery: true },
+    { id: 'empathy_master', title: 'Rohkeus', icon: '🪶', description: 'Suoritit kaikki simulaattorit.', isMastery: true },
     { id: 'legal_expert', title: 'Lakitiedon Tuntija', icon: '🎓', description: 'Läpäisit tietovisan vähintään 80% oikein.' },
     { id: 'risk_finder', title: 'Riskin Tunnistaja', icon: '🔍', description: 'Suoritit työyhteisön riskikyselyn.' },
     { id: 'valid_feelings', title: 'Tunteeni Ovat Oikeutettuja', icon: '💚', description: 'Suoritit tunnetestin ja sait validoinnin.' },
     { id: 'doc_start', title: 'Dokumentoinnin Aloittaja', icon: '📝', description: 'Teit ensimmäisen aikajanamerkinnän.' },
-    { id: 'training_easy', title: 'Tunnistamisen Alkeet', icon: '⚡', description: 'Suoritit Helppo-tason valmennuksen.' },
-    { id: 'training_medium', title: 'Tunnistamisen Edistynyt', icon: '🔥', description: 'Suoritit Keskitaso-valmennuksen.' },
-    { id: 'training_master', title: 'Tunnistamisen Mestari', icon: '🏆', description: 'Suoritit Mestari-tason valmennuksen.' },
-    { id: 'training_rtw', title: 'Työhönpaluun Arkkitehti', icon: '🏗️', description: 'Rakensit kattavan paluusuunnitelman työhön.' },
-    { id: 'leisure_hero', title: 'Harrastuksen Turvamies', icon: '🛡️', description: 'Suojelit harrastusyhdistyksen psykologista turvallisuutta.' },
-    { id: 'bystander_hero', title: 'Bystander-Sankari', icon: '🤝', description: 'Olet aktiivinen todistaja ja murtat bystander-efektin.' },
-    { id: 'literacy_master', title: 'Lukutaidon Mestari', icon: '📖', description: 'Sait vähintään 85% oikein lukutaito-testissä.' },
-    { id: 'empathy_profile_known', title: 'Empatiaprofiili Tunnettu', icon: '🧠', description: 'Suoritit empatia-spektri testin.' },
-    { id: 'bullying_literacy_cert', title: 'Kiusaamisen Lukutaito -Sertifikaatti', icon: '📜', description: 'Suoritit koko organisaatiotason lukutaitokoulutuksen.', isMastery: true },
+    { id: 'knowledge_hunger', title: 'Tiedon Janoisuus', icon: '📖', description: 'Luit kaikki 12 taktiikkaa.' },
+    { id: 'self_awareness', title: 'Itsetuntemus', icon: '🔍', description: 'Teit kaikki itsearvioinnit.' },
+    { id: 'voice_found', title: 'Äänen Löytäminen', icon: '💬', description: 'Jaoit ensimmäisen tarinasi.' },
+    { id: 'persistence_7', title: 'Sinnikkyys', icon: '⏰', description: 'Käytit sovellusta 7 päivänä peräkkäin.' },
+    { id: 'analyzer', title: 'Analysoija', icon: '📊', description: 'Loit ensimmäisen PDF-raportin.' },
+    { id: 'trainee_path', title: 'Valmennettava', icon: '🌟', description: 'Suoritit koko valmennuspolun.' },
+    { id: 'turvasiipi_master', title: 'Turvasiipi', icon: '🦅', description: 'Saavutit korkeimman tason.', isMastery: true },
+    { id: 'night_owl', title: 'Yökyöpeli', icon: '🦉', description: 'Käytit sovellusta yöaikaan.' },
+    { id: 'mallard', title: 'Sinisorsa', icon: '🦆', description: 'Palasit sovellukseen useita kertoja päivässä.' },
 ];
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
@@ -264,23 +264,21 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     const getLevel = () => {
         const { points } = progress;
-        if (points < 500) return 1;
-        if (points < 2500) return 5;
-        if (points < 7500) return 10;
-        if (points < 15000) return 15;
-        if (points < 30000) return 20;
-        if (points < 50000) return 25;
-        return 30;
+        if (points < 100) return 1;
+        if (points < 300) return 2;
+        if (points < 600) return 3;
+        if (points < 1000) return 4;
+        if (points < 1500) return 5;
+        if (points < 2500) return 6;
+        return 7;
     };
 
     const getExpertiseLevel = () => {
-        const scores = Object.values(progress.simulationScores || {});
-        const totalScore = scores.reduce((sum, s) => sum + s, 0);
+        const { points } = progress;
+        const level = EXPERT_LEVELS.find(l => points >= l.minPoints && points <= l.maxPoints) || EXPERT_LEVELS[EXPERT_LEVELS.length - 1];
+        const subLevel = level.subLevels[0]; // Simplified as we now use points for main level
 
-        const level = EXPERT_LEVELS.find(l => totalScore >= l.minPoints && totalScore <= l.maxPoints) || EXPERT_LEVELS[0];
-        const subLevel = level.subLevels.find(sl => totalScore >= sl.min && totalScore <= sl.max) || level.subLevels[0];
-
-        return { totalScore, level, subLevel };
+        return { totalScore: points, level, subLevel };
     };
 
     const getProgressPercentage = () => {

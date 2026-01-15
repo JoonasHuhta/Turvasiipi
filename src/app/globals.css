@@ -4,70 +4,74 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    /* Soft slate white */
-    --foreground: 222 47% 11%;
-    /* Dark slate text */
+    /* Background: #FDFBF7 */
+    --background: 36 50% 98%;
+    /* Foreground (Headings/Strong text): #2B2B2B */
+    --foreground: 0 0% 17%;
 
+    /* Cards: #FFFFFF */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 17%;
 
+    /* Popovers same as cards */
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary: 236 71% 52%;
-    /* Indigo/Royal Blue matches the wing */
-    --primary-foreground: 210 40% 98%;
+    /* Primary (Action/Links): #5B4B8A */
+    --primary: 255 30% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 100% 96%;
-    /* Very soft amber background for secondary */
-    --secondary-foreground: 32 95% 44%;
-    /* Deep amber/orange text matches logo curve */
+    /* Secondary (Muted actions): #FDFBF7 (background) or slightly darker? */
+    /* Let's use a soft gray/slate for secondary buttons if needed */
+    --secondary: 33 36% 96%;
+    --secondary-foreground: 0 0% 17%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted (Body text typically): #4A4A4A */
+    /* Shadcn uses muted for backgrounds, muted-foreground for text */
+    --muted: 33 36% 96%;
+    --muted-foreground: 0 0% 29%;
+    /* #4A4A4A */
 
-    --accent: 236 71% 52%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent (Hover states etc): #5B4B8A with opacity? */
+    --accent: 33 36% 94%;
+    --accent-foreground: 255 30% 42%;
 
+    /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 236 71% 52%;
+    /* Borders: #E8DDD0 */
+    --border: 33 36% 86%;
+    --input: 33 36% 86%;
+    --ring: 255 30% 42%;
 
-    --radius: 0.75rem;
+    --radius: 0.125rem;
+    /* 2px - rounded-sm for "Document" feel */
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
-
+    /* We are enforcing a single "Warm Document" theme, so Dark Mode is essentially the same or inverted carefully. */
+    /* For now, sticking to the requested palette which was light-mode focused. */
+    /* If user requests dark mode later, we design it. For now mapping to same to prevent broken dark mode. */
+    --background: 36 50% 98%;
+    --foreground: 0 0% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 17%;
+    --primary: 255 30% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 33 36% 96%;
+    --secondary-foreground: 0 0% 17%;
+    --muted: 33 36% 96%;
+    --muted-foreground: 0 0% 29%;
+    --accent: 33 36% 94%;
+    --accent-foreground: 255 30% 42%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 217 91% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 33 36% 86%;
+    --input: 33 36% 86%;
+    --ring: 255 30% 42%;
   }
 }
 
@@ -78,7 +82,6 @@
 
   body {
     @apply bg-background text-foreground;
-    max-width: 100vw;
-    overflow-x: hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

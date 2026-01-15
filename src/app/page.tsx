@@ -1,502 +1,228 @@
-"use client";
-
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Star, Brain, ClipboardCheck, FileText, Users, Heart, ShieldCheck, Award } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useLanguage } from "@/context/LanguageContext";
-import { useEffect } from "react";
-import { useProgress } from "@/context/ProgressContext";
+import { ArrowRight } from "lucide-react";
 
-export default function Home() {
-  const { t } = useLanguage();
-  const { completeModule } = useProgress();
-
-  useEffect(() => {
-    completeModule('landing');
-  }, [completeModule]);
-
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white">
-      {/* Hero Section */}
-      <section className="relative px-6 pt-8 pb-12 md:pt-12 md:pb-24 text-center max-w-5xl mx-auto">
-
-        {/* Decorative background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
-
-        <div className="flex justify-center mb-8 relative">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full opacity-100" />
-            <img src="/logo.png" alt="Turvasiipi Logo" className="w-28 h-28 md:w-36 md:h-36 object-contain relative z-10 drop-shadow-sm" />
-          </div>
-        </div>
-
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-          {t('hero.title')}
+    <div className="px-6 sm:px-8 max-w-screen-md mx-auto space-y-32 pb-32 pt-20">
+      {/* HERO */}
+      <header className="space-y-12">
+        <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-[#2B2B2B]">
+          Kai tämä on normaalia työelämää. <br />
+          <span className="text-[#4A4A4A] font-normal italic">Vai onko?</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-          {t('hero.subtitle')}
-        </p>
+        <div className="space-y-8 max-w-2xl">
+          <h2 className="text-2xl font-serif text-[#4A4A4A] leading-relaxed">
+            Jos alat epäillä omaa havainnointikykyäsi ja muistojasi, se on merkki siitä, että jotain on todella vialla.
+          </h2>
 
-        <div className="flex flex-col items-center gap-6">
-          <Link href="/quiz">
-            <Button className="rounded-full w-full md:w-auto h-14 px-8 text-lg font-semibold shadow-xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-105 transition-all bg-primary hover:bg-primary/90" size="lg">
-              {t('hero.cta')} <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
-          <p className="text-sm text-slate-500 font-medium bg-white/60 backdrop-blur px-4 py-1.5 rounded-full border border-slate-200/50">
-            {t('hero.stats_info')}
-          </p>
+          <div className="space-y-6">
+            <p className="text-lg text-[#4A4A4A] leading-relaxed">
+              Turvasiipi auttaa sinua näkemään mitä tapahtuu – ennen kuin alat kyseenalaistaa itseäsi.
+            </p>
+            <p className="text-lg text-[#4A4A4A] leading-relaxed">
+              Sinun ei tarvitse olla varma. <br />
+              Eikä vielä valmis tekemään mitään.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 pt-4 items-start sm:items-center">
+            <Link
+              href="/lukutaito-testi"
+              className="px-8 py-4 bg-[#2B2B2B] text-white hover:bg-[#5B4B8A] transition-colors rounded-sm font-medium tracking-wide flex items-center gap-3 shadow-lg shadow-black/5"
+            >
+              Tutki tilannettasi <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="#"
+              className="px-6 py-4 text-[#5B4B8A] hover:bg-[#5B4B8A]/5 rounded-sm font-medium transition-colors"
+            >
+              Lue ensin miten tämä toimii
+            </Link>
+          </div>
+
+          <div className="text-[11px] font-mono text-[#4A4A4A] uppercase tracking-wider space-y-1 border-l-2 border-[#E8DDD0] pl-4">
+            <p>Useimmat aloittavat vain lukemalla.</p>
+            <p>Voit lopettaa milloin tahansa.</p>
+          </div>
         </div>
-      </section>
+      </header>
 
-      {/* Health Meter Widget */}
-      <section className="px-6 pb-12 -mt-8 relative z-20">
-        <div className="max-w-xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-xl shadow-indigo-100 p-8 border border-white relative overflow-hidden text-center hover:scale-[1.02] transition-transform duration-300">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-400 via-yellow-400 to-red-500" />
-            <h3 className="text-2xl font-black text-slate-900 mb-4">Onko työpaikkasi terve?</h3>
+      {/* SCROLL 1 - WHY EXISTS */}
+      <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
+        <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Miksi tämä on niin vaikeaa?</span>
 
-            <div className="space-y-3 mb-6 font-bold text-left max-w-xs mx-auto">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-100">
-                <span className="text-xl">✅</span> Testaa tiimisi tila
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-yellow-50 text-yellow-800 border border-yellow-100">
-                <span className="text-xl">🟡</span> Tunnista varhaiset merkit
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-red-50 text-red-800 border border-red-100">
-                <span className="text-xl">🔴</span> Hae apua kriisiin
-              </div>
+        <div className="grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-8 space-y-8">
+            <p className="text-xl leading-relaxed text-[#2B2B2B]">
+              Työpaikkakiusaaminen ei yleensä ala selvästi. Se alkaa epämääräisenä tunteena, jota on vaikea selittää toisille – ja lopulta myös itselle.
+            </p>
+
+            <div className="bg-white p-8 rounded-sm shadow-sm border border-[#E8DDD0] space-y-6">
+              <h3 className="text-sm font-bold uppercase tracking-wide text-[#4A4A4A]">Usein käy näin:</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4 text-lg text-[#4A4A4A]">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#E8DDD0]" />
+                  <span>Tapahtumat jäävät kirjaamatta</span>
+                </li>
+                <li className="flex items-start gap-4 text-lg text-[#4A4A4A]">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#E8DDD0]" />
+                  <span>Muistikuvat hämärtyvät ajan myötä</span>
+                </li>
+                <li className="flex items-start gap-4 text-lg text-[#4A4A4A]">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#E8DDD0]" />
+                  <span>Alat epäillä: "Olenko minä ongelma?"</span>
+                </li>
+                <li className="flex items-start gap-4 text-lg text-[#4A4A4A]">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#E8DDD0]" />
+                  <span className="italic">Myöhemmin joku kysyy: "Miksi et sanonut aiemmin?"</span>
+                </li>
+              </ul>
             </div>
 
-            <Link href="/lukutaito-testi">
-              <Button className="w-full rounded-xl h-12 text-lg font-bold bg-slate-900 hover:bg-slate-800 shadow-lg shadow-slate-900/10">
-                Tee nopea tarkistus <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
+            <div className="space-y-4 pl-8 border-l-4 border-[#5B4B8A]/20">
+              <p className="text-lg font-medium text-[#2B2B2B]">Turvasiipi on olemassa tätä hetkeä varten.</p>
+              <p className="text-lg text-[#4A4A4A]">Sitä ennen kuin tiedät, mitä ajattelet.</p>
+              <p className="text-lg text-[#4A4A4A]">Sitä ennen kuin tiedät, mitä teet.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Grid / Statistics - Mobile Optimized */}
-      <section className="px-4 pb-16">
-        <div className="max-w-md md:max-w-4xl mx-auto bg-white/70 backdrop-blur-sm border border-white/50 rounded-3xl p-6 md:p-10 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            {/* Left Column: Header + Stats */}
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
-                  <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">!</span>
-                  {t('stats.title')}
-                </h3>
-              </div>
+      {/* IS THIS BULLYING? */}
+      <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#2B2B2B] leading-tight max-w-2xl">
+          "Onko tämä kiusaamista vai vain huonoa johtamista?"
+        </h2>
 
-              <ul className="space-y-3">
-                {[
-                  t('stats.stat1'),
-                  t('stats.stat2'),
-                  t('stats.stat3'),
-                  t('stats.stat4'),
-                  t('stats.stat5')
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-700 font-medium bg-white/50 p-2.5 rounded-lg border border-slate-100/50">
-                    <span className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0 shadow-[0_0_8px_rgba(239,68,68,0.4)]" />
+        <div className="grid md:grid-cols-2 gap-16">
+          <div className="space-y-6 text-lg leading-relaxed text-[#4A4A4A]">
+            <p>Ehkä se ei ole kiusaamista.</p>
+            <p>Ehkä se on vain konfliktia.</p>
+            <p>Ehkä muut eivät koe tätä ongelmana.</p>
+          </div>
+          <div className="space-y-6 text-lg leading-relaxed text-[#4A4A4A]">
+            <p className="font-medium text-[#2B2B2B]">Turvasiipi auttaa sinua nimeämään kokemuksesi ilman dramatisointia tai vähättelyä.</p>
+            <p>Et saa diagnoosia etkä tuomiota.</p>
+            <p>Saat jäsennyksen.</p>
+            <div className="pt-4 p-6 bg-white border border-[#E8DDD0] rounded-sm">
+              <p className="italic text-[#5B4B8A]">Tarkoitus ei ole vakuuttaa ketään. Vaan nähdä itse, mitä on tapahtunut.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-8">
+          <button className="text-[#5B4B8A] font-bold text-lg hover:underline decoration-2 underline-offset-4 flex items-center gap-2">
+            Tunnista merkkejä rauhassa <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* PRIVATE LOG */}
+      <section className="space-y-12 border-t border-[#E8DDD0] pt-24 bg-white -mx-8 px-8 py-24 shadow-sm border-b">
+        <div className="max-w-screen-md mx-auto space-y-12">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-[#2B2B2B]">Kirjoita ylös ennen kuin alat unohtaa.</h2>
+            <p className="text-xl text-[#4A4A4A] leading-relaxed">
+              Muisti ei ole puolueeton. Se muuttuu ajan, stressin ja selittelyn mukana.
+            </p>
+          </div>
+
+          <div className="bg-[#FDFBF7] p-8 border border-[#E8DDD0] rounded-sm relative">
+            <span className="absolute top-4 right-4 text-xs font-mono text-[#5B4B8A] uppercase tracking-wider border border-[#5B4B8A]/20 px-2 py-1 rounded-sm">Yksityinen loki</span>
+            <div className="space-y-6">
+              <p className="text-lg text-[#2B2B2B]">Turvasiipi tarjoaa henkilökohtaisen lokin, johon voit kirjata tapahtumat silloin kun ne ovat vielä tuoreita:</p>
+              <ul className="grid sm:grid-cols-2 gap-4">
+                {['Mitä tapahtui', 'Milloin (päivämäärä, kellonaika)', 'Ketkä olivat paikalla', 'Miltä se tuntui'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-[#4A4A4A]">
+                    <div className="w-4 h-4 border border-[#E8DDD0] bg-white flex items-center justify-center">
+                      <div className="w-2 h-2 text-[#5B4B8A]" />
+                    </div>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
+          </div>
 
-            {/* Right Column: Warning + Solution */}
-            <div className="space-y-4">
-              {/* Warning Block */}
-              <div className="bg-amber-50 border border-amber-100 rounded-xl p-5 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-amber-100/50 rounded-bl-full -mr-4 -mt-4" />
-                <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-2">
-                  <span className="text-xl">⚠️</span> {t('stats.warning_title')}
-                </h4>
-                <p className="text-sm text-amber-800/90 leading-relaxed">
-                  {t('stats.warning_desc')}
-                </p>
-              </div>
+          <div className="grid sm:grid-cols-2 gap-8 text-[13px] text-[#4A4A4A] font-mono leading-relaxed border-t border-[#E8DDD0] pt-8">
+            <p>Vain sinä hallitset tietoja.</p>
+            <p>Merkintöjä ei voi muokata jälkikäteen.</p>
+            <p>Kaikki data tallennetaan vain sinun laitteellesi.</p>
+            <p className="font-bold text-[#2B2B2B]">Tämä ei ole kertomus. Tämä on muistia varten.</p>
+          </div>
 
-              {/* Solution Block */}
-              <div className="bg-gradient-to-br from-emerald-500 to-teal-600 border border-emerald-400/20 rounded-xl p-5 shadow-lg text-white relative overflow-hidden group">
-                <h4 className="font-bold text-white flex items-center gap-2 mb-2">
-                  <span className="text-xl">✅</span> {t('stats.solution_title')}
-                </h4>
-                <p className="text-sm text-emerald-50 leading-relaxed mb-3">
-                  {t('stats.solution_desc')}
-                </p>
-                <p className="text-sm font-bold text-white/90 border-t border-white/20 pt-2">
-                  {t('stats.solution_footer')}
-                </p>
-              </div>
-            </div>
+          <button className="bg-[#5B4B8A] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#4A3A7A] transition-colors shadow-md">
+            Aloita kirjaaminen →
+          </button>
+        </div>
+      </section>
+
+      {/* EARLY RECORDING */}
+      <section className="space-y-12 pt-24">
+        <h2 className="text-3xl font-bold text-[#2B2B2B]">Useimmat odottavat liian kauan.</h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <p className="text-lg text-[#4A4A4A]">Kun tilanne vihdoin tunnistetaan, voimat ovat jo lopussa.</p>
+            <p className="text-lg font-medium text-[#2B2B2B]">Varhainen kirjaaminen ei tee tilanteesta vakavampaa. Se tekee siitä selkeämmän.</p>
+          </div>
+          <div className="bg-white p-6 border border-[#E8DDD0] rounded-sm">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A] mb-4">Tutkimusten mukaan</h4>
+            <ul className="space-y-4 text-[#4A4A4A]">
+              <li className="flex gap-4"><span className="text-[#E8DDD0] font-bold">•</span> Kiusaaminen jatkuu usein 1–3 vuotta ennen toimenpiteitä</li>
+              <li className="flex gap-4"><span className="text-[#E8DDD0] font-bold">•</span> Moni ehtii kyseenalaistaa oman kokemuksensa kokonaan</li>
+              <li className="flex gap-4"><span className="text-[#E8DDD0] font-bold">•</span> Konkreettinen näyttö puuttuu, kun sitä tarvittaisiin</li>
+            </ul>
           </div>
         </div>
       </section>
 
+      {/* NO DECISIONS FOR YOU */}
+      <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
+        <h2 className="text-3xl font-bold text-[#2B2B2B]">Turvasiipi ei pakota sinua mihinkään.</h2>
 
-      <section className="space-y-12 py-12 md:py-24 px-4 container mx-auto max-w-6xl">
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">{t('features.title')}</h2>
-          <p className="text-slate-600">{t('features.subtitle')}</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Card 1: Understand / Clarity */}
-          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 text-purple-600">
-                <Brain className="w-6 h-6" />
-              </div>
-              <CardTitle className="text-xl">{t('features.understand_title')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                {t('features.understand_desc')}
+        <div className="grid md:grid-cols-2 gap-16">
+          <div className="space-y-6">
+            <p className="text-lg text-[#4A4A4A]">Se antaa sinulle aineiston, jota voit käyttää – tai olla käyttämättä.</p>
+            <div className="bg-[#5B4B8A]/5 p-6 rounded-sm border border-[#5B4B8A]/10">
+              <p className="text-[#5B4B8A] italic font-medium">
+                Moni ei koskaan vie asiaa eteenpäin. Silti he sanovat jälkeenpäin olevansa tyytyväisiä, että alkoivat kirjata ajoissa.
               </p>
-              <Link href="/quiz" className="text-purple-600 font-semibold text-sm hover:underline flex items-center gap-1">
-                {t('features.understand_cta')} <ArrowRight className="w-3 h-3" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          {/* Card 2: Document / Protect */}
-          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 text-blue-600">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <CardTitle className="text-xl">{t('features.doc_title')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                {t('features.doc_desc')}
-              </p>
-              <Link href="/timeline" className="text-blue-600 font-semibold text-sm hover:underline flex items-center gap-1">
-                {t('features.doc_cta')} <ArrowRight className="w-3 h-3" />
-              </Link>
-            </CardContent>
-          </Card>
-
-          {/* Card 3: Recover / Strengthen */}
-          <Card className="bg-white/50 backdrop-blur border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            <CardHeader>
-              <div className="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 text-emerald-600">
-                <Heart className="w-6 h-6 fill-current" />
-              </div>
-              <CardTitle className="text-xl">{t('features.recover_title')}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-                {t('features.recover_desc')}
-              </p>
-              <Link href="/valmennus" className="text-emerald-600 font-semibold text-sm hover:underline flex items-center gap-1">
-                {t('features.recover_cta')} <ArrowRight className="w-3 h-3" />
-              </Link>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section id="antigravity-flow" className="py-24 bg-slate-50 border-t border-slate-100 overflow-hidden relative">
-        <div className="container mx-auto max-w-5xl px-4 relative z-10">
-          <div className="text-center mb-20 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900">{t('how_it_works.title')}</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              {t('how_it_works.subtitle')}
-            </p>
+            </div>
+            <p className="text-lg font-bold text-[#2B2B2B]">Koska he tietävät mitä tapahtui. Eivätkä enää epäile itseään.</p>
           </div>
 
-          <div className="relative space-y-24">
-            {/* Connecting Line */}
-            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-indigo-200 via-purple-200 to-emerald-200 -translate-x-1/2 rounded-full" />
-
-            {/* Step 1: Validate */}
-            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
-              <div className="flex-1 md:text-right order-2 md:order-1 space-y-4">
-                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-indigo-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-indigo-50">1</div>
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">{t('how_it_works.step1_title')}</h3>
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  {t('how_it_works.step1_desc')}
-                </p>
-                <Link href="/quiz">
-                  <span className="inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-700 mt-2">
-                    {t('how_it_works.step1_cta')} <ArrowRight className="w-4 h-4 ml-1" />
-                  </span>
-                </Link>
-              </div>
-
-              {/* Number Badge (Desktop) */}
-              <div className="hidden md:flex flex-none w-14 h-14 bg-indigo-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
-                1
-              </div>
-
-              <div className="flex-1 order-3 w-full">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-indigo-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
-                  <div className="absolute top-0 right-0 p-4 opacity-10">
-                    <Brain className="w-24 h-24 text-indigo-600" />
-                  </div>
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
-                      <Brain className="w-6 h-6 text-indigo-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{t('how_it_works.step1_card_title')}</h4>
-                      <p className="text-sm text-slate-500">{t('how_it_works.step1_card_desc')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 2: Document */}
-            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
-              <div className="flex-1 order-3 md:order-1 w-full">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-blue-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
-                  <div className="absolute top-0 right-0 p-4 opacity-10">
-                    <ClipboardCheck className="w-24 h-24 text-blue-600" />
-                  </div>
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                      <ClipboardCheck className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{t('how_it_works.step2_card_title')}</h4>
-                      <p className="text-sm text-slate-500">{t('how_it_works.step2_card_desc')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Number Badge (Desktop) */}
-              <div className="hidden md:flex flex-none w-14 h-14 bg-blue-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
-                2
-              </div>
-
-              <div className="flex-1 md:text-left order-2 md:order-3 space-y-4">
-                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-blue-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-blue-50">2</div>
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{t('how_it_works.step2_title')}</h3>
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  {t('how_it_works.step2_desc')}
-                </p>
-                <Link href="/timeline">
-                  <span className="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700 mt-2">
-                    {t('how_it_works.step2_cta')} <ArrowRight className="w-4 h-4 ml-1" />
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Step 3: Analyze */}
-            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
-              <div className="flex-1 md:text-right order-2 md:order-1 space-y-4">
-                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-purple-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-purple-50">3</div>
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">{t('how_it_works.step3_title')}</h3>
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  {t('how_it_works.step3_desc')}
-                </p>
-                <Link href="/raportti">
-                  <span className="inline-flex items-center font-semibold text-purple-600 hover:text-purple-700 mt-2">
-                    {t('how_it_works.step3_cta')} <ArrowRight className="w-4 h-4 ml-1" />
-                  </span>
-                </Link>
-              </div>
-
-              {/* Number Badge (Desktop) */}
-              <div className="hidden md:flex flex-none w-14 h-14 bg-purple-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
-                3
-              </div>
-
-              <div className="flex-1 order-3 w-full">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-purple-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
-                  <div className="absolute top-0 right-0 p-4 opacity-10">
-                    <FileText className="w-24 h-24 text-purple-600" />
-                  </div>
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center shrink-0">
-                      <FileText className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{t('how_it_works.step3_card_title')}</h4>
-                      <p className="text-sm text-slate-500">{t('how_it_works.step3_card_desc')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 4: Recover */}
-            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group">
-              <div className="flex-1 order-3 md:order-1 w-full">
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100/50 hover:shadow-md transition-shadow relative overflow-hidden group-hover:-translate-y-1 duration-300">
-                  <div className="absolute top-0 right-0 p-4 opacity-10">
-                    <Users className="w-24 h-24 text-emerald-600" />
-                  </div>
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
-                      <Heart className="w-6 h-6 text-emerald-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{t('how_it_works.step4_card_title')}</h4>
-                      <p className="text-sm text-slate-500">{t('how_it_works.step4_card_desc')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Number Badge (Desktop) */}
-              <div className="hidden md:flex flex-none w-14 h-14 bg-emerald-600 rounded-full items-center justify-center text-white font-bold text-xl shadow-xl ring-8 ring-slate-50 relative z-10 order-1 md:order-2 group-hover:scale-110 transition-transform">
-                4
-              </div>
-
-              <div className="flex-1 md:text-left order-2 md:order-3 space-y-4">
-                <div className="inline-flex md:hidden items-center justify-center w-12 h-12 bg-emerald-600 rounded-full text-white font-bold text-xl mb-4 shadow-lg ring-4 ring-emerald-50">4</div>
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">{t('how_it_works.step4_title')}</h3>
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  {t('how_it_works.step4_desc')}
-                </p>
-                <Link href="/valmennus">
-                  <span className="inline-flex items-center font-semibold text-emerald-600 hover:text-emerald-700 mt-2">
-                    {t('how_it_works.step4_cta')} <ArrowRight className="w-4 h-4 ml-1" />
-                  </span>
-                </Link>
-              </div>
-            </div>
-
+          <div className="space-y-4 text-sm font-mono text-[#4A4A4A] bg-white p-8 border border-[#E8DDD0]">
+            <p className="uppercase tracking-widest font-bold text-[#2B2B2B] mb-2">Turvasiipi ei:</p>
+            <ul className="space-y-3">
+              <li>• Kehota sinua toimimaan</li>
+              <li>• Ota yhteyttä työnantajaan</li>
+              <li>• Arvioi ketään ihmisenä</li>
+              <li>• Kerro sinulle mitä tehdä</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold text-slate-900">{t('faq.title')}</h2>
-            <p className="text-slate-600">{t('faq.subtitle')}</p>
+      {/* FINAL CALL */}
+      <section className="text-center space-y-12 pt-12 pb-24">
+        <div className="h-px w-24 bg-[#5B4B8A] mx-auto mb-12"></div>
+        <h2 className="text-4xl font-bold text-[#2B2B2B]">Et ole velvollinen tietämään vielä, mitä tämä on.</h2>
+        <p className="text-2xl italic text-[#4A4A4A]">Riittää, että huomaat sen.</p>
+
+        <div className="flex flex-col items-center gap-8">
+          <Link
+            href="/lukutaito-testi"
+            className="text-xl font-bold text-[#2B2B2B] border-b-2 border-[#5B4B8A] pb-1 hover:text-[#5B4B8A] transition-colors flex items-center gap-3"
+          >
+            Tee rauhallinen tilannekartoitus <ArrowRight className="w-6 h-6" />
+          </Link>
+          <div className="text-[10px] font-mono uppercase tracking-widest text-[#4A4A4A] space-y-1">
+            <p>Voit lopettaa milloin tahansa.</p>
+            <p>Mitään ei tallennu ilman lupaasi.</p>
           </div>
-
-          <Accordion type="single" collapsible className="w-full">
-
-            <AccordionItem value="item-1" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q1')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a1')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q2')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a2')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q3')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a3')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q4')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a4')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q5')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a5')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-7" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q7')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a7')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-8" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q8')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a8')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-9" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q9')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a9')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-10" className="border-b border-slate-100">
-              <AccordionTrigger className="text-left text-lg font-medium text-slate-800 hover:text-indigo-600 hover:no-underline py-4">
-                {t('faq.q10')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a10')}
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="border-b-0">
-              <AccordionTrigger className="text-left text-lg font-medium text-rose-600 hover:text-rose-700 hover:no-underline py-4">
-                {t('faq.q6')}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-600 leading-relaxed pb-4">
-                {t('faq.a6')}
-              </AccordionContent>
-            </AccordionItem>
-
-          </Accordion>
         </div>
       </section>
-
-      {/* Isolation Illustration */}
-      <section className="px-6 py-16 max-w-4xl mx-auto text-center">
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12 border border-indigo-100">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-            Sosiaalinen eristäminen
-          </h2>
-          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            Yksi yleisimmistä kiusaamisen muodoista on sosiaalinen eristäminen - uhri leikataan pois yhteisöstä.
-          </p>
-          <div className="relative max-w-2xl mx-auto">
-            <img
-              src="/isolation-scissors.png"
-              alt="Sosiaalinen eristäminen - sakset leikkaavat ihmisen pois ryhmästä"
-              className="w-full h-auto drop-shadow-lg"
-            />
-          </div>
-          <p className="text-sm text-slate-500 mt-6 italic">
-            Turvasiipi auttaa tunnistamaan ja dokumentoimaan tällaisia tilanteita.
-          </p>
-        </div>
-      </section>
-
     </div>
   );
 }

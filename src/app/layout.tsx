@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -9,11 +7,9 @@ import { ProgressProvider } from "@/context/ProgressContext";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Turvasiipi - Turvallinen tuki työpaikkakiusaamiseen",
-  description: "Työkalu työpaikkakiusaamisen tunnistamiseen ja dokumentointiin.",
+  title: "Turvasiipi - Turvallinen loki ja tuki",
+  description: "Työkalu työpaikkakiusaamisen tunnistamiseen, dokumentointiin ja ymmärtämiseen.",
 };
 
 export default function RootLayout({
@@ -23,24 +19,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi">
-      <body className={inter.className} suppressHydrationWarning>
+      <body className="font-serif min-h-screen bg-[#FDFBF7] text-[#2B2B2B] antialiased selection:bg-[#E8DDD0] selection:text-[#2B2B2B]" suppressHydrationWarning>
         <LanguageProvider>
           <ProgressProvider>
-            <div className="min-h-screen bg-background flex flex-col items-stretch overflow-x-hidden">
-              <header className="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
-                  <Link href="/" className="flex items-center gap-3 group transition-all">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-blue-400/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <Image src="/logo.png" alt="Turvasiipi Logo" width={48} height={48} className="w-12 h-12 object-contain relative z-10" />
-                    </div>
-                    <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Turvasiipi</h1>
-                  </Link>
+            <div className="flex flex-col min-h-screen">
+
+              {/* Global Header (Warm Document Style) */}
+              <header className="fixed top-0 w-full z-50 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#E8DDD0]">
+                <div className="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+
+                  {/* Brand */}
+                  <div className="flex items-center gap-4">
+                    <Link href="/" className="text-sm font-bold tracking-tight text-[#2B2B2B] hover:text-[#5B4B8A] transition-colors">
+                      TURVASIIPI
+                    </Link>
+                    <span className="hidden sm:inline-block text-[11px] font-mono text-[#4A4A4A] bg-white px-2 py-0.5 border border-[#E8DDD0] rounded-sm">
+                      BETA
+                    </span>
+                  </div>
+
+                  {/* Navigation (Desktop Links + Mobile Trigger) */}
                   <Navigation />
                 </div>
               </header>
 
-              <main className="w-full flex-1">
+              <main className="flex-1 w-full pt-20">
                 {children}
               </main>
 

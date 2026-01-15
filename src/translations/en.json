@@ -137,50 +137,6 @@
         "q10": "Who is Turvasiipi for?",
         "a10": "Turvasiipi is designed for everyone who wants to understand workplace power dynamics and recognize latent psychological violence."
     },
-    "overview": {
-        "title": "Overview",
-        "subtitle": "Visualize the big picture of your documentation",
-        "download_pdf": "Download PDF",
-        "time_range": {
-            "label": "Time range:",
-            "7d": "7 days",
-            "30d": "30 days",
-            "3mo": "3 months",
-            "all": "All"
-        },
-        "stats": {
-            "events": "Events",
-            "events_desc": "Documented entries",
-            "duration": "Duration",
-            "duration_desc": "Since first entry",
-            "trend": "Trend",
-            "trend_increased": "Increased",
-            "trend_decreased": "Decreased",
-            "trend_stable": "Stable",
-            "avg_intensity": "Average severity"
-        },
-        "insights": {
-            "title": "Smart Insights"
-        },
-        "charts": {
-            "tactics_title": "Forms of Bullying",
-            "tactics_desc": "Most common tactics in documented events",
-            "tactics_count_singular": "time",
-            "tactics_count_plural": "times",
-            "intensity_title": "Intensity Trend",
-            "intensity_desc": "Average severity over time",
-            "intensity_label": "Severity",
-            "intensity_day": "Day:",
-            "intensity_avg": "Average:",
-            "intensity_highest": "Highest:",
-            "intensity_lowest": "Lowest:"
-        },
-        "empty": {
-            "title": "No entries in selected time range",
-            "desc": "Select a longer time range or start documenting"
-        },
-        "loading": "Loading..."
-    },
     "timeline": {
         "page": {
             "title": "Documentation",
@@ -261,10 +217,11 @@
     "report": {
         "page": {
             "title": "Tools & Documents",
-            "subtitle": "Manage documents, use ready-made message templates, and create a smart overview.",
+            "subtitle": "Visualize your documentation at a glance. Manage safe harbor entries, use professional templates, and create clear documents that are hard to ignore.",
             "back_to_timeline": "Back to timeline",
             "loading": "Loading tools...",
             "tabs": {
+                "overview": "Overview",
                 "report": "Report",
                 "templates": "Templates",
                 "premium": "AI Analysis"
@@ -346,6 +303,38 @@
                     "download": "Download PDF"
                 }
             }
+        },
+        "overview": {
+            "title": "Overview",
+            "subtitle": "Visualize the big picture of your documentation",
+            "download_pdf": "Download PDF",
+            "ranges": {
+                "label": "Time range:",
+                "7d": "7 days",
+                "30d": "30 days",
+                "3m": "3 months",
+                "all": "All"
+            },
+            "stats": {
+                "events": "Events",
+                "events_desc": "Documented entries",
+                "duration": "Duration",
+                "duration_desc": "Since first entry",
+                "trend": "Trend",
+                "trend_increased": "Increased",
+                "trend_decreased": "Decreased",
+                "trend_stable": "Stable",
+                "avg_intensity": "Average severity",
+                "level_stable": "Stable",
+                "days": "days",
+                "score_label": "/ 5.0"
+            },
+            "chart": {
+                "title": "Events over time",
+                "no_data": "No entries in selected time range",
+                "no_data_desc": "Select a longer time range or start documenting"
+            },
+            "loading": "Loading..."
         },
         "templates": {
             "employer-notice-tsl28": {

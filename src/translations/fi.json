@@ -137,50 +137,6 @@
         "q10": "Kenelle Turvasiipi on tehty?",
         "a10": "Turvasiipi on suunniteltu kaikille, jotka haluavat ymmärtää työpaikan valtadynamiikkaa ja tunnistaa piilevää psykologista väkivaltaa."
     },
-    "overview": {
-        "title": "Yleiskatsaus",
-        "subtitle": "Visualisoi dokumentointisi kokonaiskuva",
-        "download_pdf": "Lataa PDF",
-        "time_range": {
-            "label": "Aikaväli:",
-            "7d": "7 päivää",
-            "30d": "30 päivää",
-            "3mo": "3 kuukautta",
-            "all": "Kaikki"
-        },
-        "stats": {
-            "events": "Tapahtumia",
-            "events_desc": "Dokumentoitua merkintää",
-            "duration": "Kesto",
-            "duration_desc": "Ensimmäisestä merkinnästä",
-            "trend": "Trendi",
-            "trend_increased": "Lisääntynyt",
-            "trend_decreased": "Vähentynyt",
-            "trend_stable": "Vakaa",
-            "avg_intensity": "Keskimääräinen vakavuus"
-        },
-        "insights": {
-            "title": "Älykkäät huomiot"
-        },
-        "charts": {
-            "tactics_title": "Kiusaamismuodot",
-            "tactics_desc": "Yleisimmät taktikat dokumentoiduissa tapahtumissa",
-            "tactics_count_singular": "kerta",
-            "tactics_count_plural": "kertaa",
-            "intensity_title": "Intensiteettitrendi",
-            "intensity_desc": "Keskimääräinen vakavuus ajan yli",
-            "intensity_label": "Vakavuus",
-            "intensity_day": "Päivä:",
-            "intensity_avg": "Keskiarvo:",
-            "intensity_highest": "Korkein:",
-            "intensity_lowest": "Matalin:"
-        },
-        "empty": {
-            "title": "Ei merkintöjä valitulla aikavälillä",
-            "desc": "Valitse pidempi aikaväli tai aloita dokumentointi"
-        },
-        "loading": "Ladataan..."
-    },
     "timeline": {
         "page": {
             "title": "Dokumentointi",
@@ -261,10 +217,11 @@
     "report": {
         "page": {
             "title": "Työkalut & Asiakirjat",
-            "subtitle": "Hallitse dokumentteja, käytä valmiita viestipohjia ja luo älykäs tilannekuva.",
+            "subtitle": "Hallitse dokumentteja, käytä valmiita viestipohjia ja luo älykäs tilannekuva. Luo selkeitä dokumentteja, joita on vaikea sivuuttaa.",
             "back_to_timeline": "Takaisin aikajanaan",
             "loading": "Ladataan työkaluja...",
             "tabs": {
+                "overview": "Yleiskatsaus",
                 "report": "Raportti",
                 "templates": "Viestipohjat",
                 "premium": "AI-Analyysi"
@@ -346,6 +303,40 @@
                     "download": "Lataa PDF"
                 }
             }
+        },
+        "overview": {
+            "title": "Yleiskatsaus",
+            "subtitle": "Visualisoi dokumentointisi kokonaiskuva",
+            "download_pdf": "Lataa PDF",
+            "ranges": {
+                "label": "Aikaväli:",
+                "7d": "7 päivää",
+                "30d": "30 päivää",
+                "3m": "3 kuukautta",
+                "all": "Kaikki"
+            },
+            "stats": {
+                "events": "Tapahtumia",
+                "events_desc": "Dokumentoitua merkintää",
+                "duration": "Kesto",
+                "duration_desc": "Ensimmäisestä merkinnästä",
+                "trend": "Trendi",
+                "trend_increased": "Lisääntynyt",
+                "trend_decreased": "Vähentynyt",
+                "trend_stable": "Vakaa",
+                "avg_intensity": "Keskimääräinen vakavuus",
+                "level_stable": "Vakaa",
+                "level_rising": "Nouseva",
+                "level_falling": "Laskeva",
+                "days": "päivää",
+                "score_label": "/ 5.0"
+            },
+            "chart": {
+                "title": "Tapahtumat aikajanalla",
+                "no_data": "Ei merkintöjä valitulla aikavälillä",
+                "no_data_desc": "Valitse pidempi aikaväli tai aloita dokumentointi"
+            },
+            "loading": "Ladataan..."
         },
         "templates": {
             "employer-notice-tsl28": {

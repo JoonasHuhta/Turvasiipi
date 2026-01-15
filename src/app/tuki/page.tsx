@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Shield, Lock, Server, Mail, HeartHandshake, Phone, Wind, BrainCircuit, Activity, AlertTriangle, BookOpen, Scale, Landmark, Users } from "lucide-react";
+import { Shield, Phone, Wind, HeartHandshake, AlertTriangle, BookOpen, Scale, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,366 +14,255 @@ export default function SupportPage() {
     const { t } = useLanguage();
 
     return (
-        <div className="space-y-8 pb-20 animate-in fade-in max-w-5xl mx-auto pt-8 px-4">
+        <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-16">
 
-            <div className="text-center space-y-4 mb-8">
-                <div className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+            <div className="space-y-6 text-center max-w-2xl mx-auto">
+                <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border border-[#5B4B8A] px-3 py-1 rounded-sm inline-block">
                     {t('support.hero.badge')}
-                </div>
-                <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">{t('support.hero.title')}</h1>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                </span>
+                <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#2B2B2B] leading-tight text-balance">
+                    {t('support.hero.title')}
+                </h1>
+                <p className="text-lg text-[#4A4A4A] leading-relaxed">
                     {t('support.hero.subtitle')}
                 </p>
             </div>
 
             <Tabs defaultValue="plan" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-slate-100 rounded-2xl mb-8 gap-1">
-                    <TabsTrigger value="plan" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                <TabsList className="flex flex-col sm:flex-row w-full sm:w-auto bg-transparent border-b border-[#E8DDD0] p-0 mb-12 gap-6 sm:gap-12 justify-center h-auto">
+                    <TabsTrigger value="plan" className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]">
                         {t('support.tabs.plan')}
                     </TabsTrigger>
-                    <TabsTrigger value="exercises" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                    <TabsTrigger value="exercises" className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]">
                         {t('support.tabs.exercises')}
                     </TabsTrigger>
-                    <TabsTrigger value="contacts" className="rounded-xl py-3 text-sm md:text-md font-semibold data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-slate-900 text-slate-500">
+                    <TabsTrigger value="contacts" className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]">
                         {t('support.tabs.contacts')}
                     </TabsTrigger>
                 </TabsList>
 
                 {/* --- TAB 1: ACTION PLAN --- */}
-                <TabsContent value="plan" className="space-y-6">
+                <TabsContent value="plan" className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     {/* PHASE 1 */}
-                    <Card className="border-l-4 border-l-yellow-400">
-                        <CardHeader>
-                            <div className="flex items-center gap-2 text-yellow-600 font-bold text-xs uppercase tracking-widest mb-1">
-                                <AlertTriangle className="w-4 h-4" /> {t('support.plan_tab.phase1.label')}
-                            </div>
-                            <CardTitle>{t('support.plan_tab.phase1.title')}</CardTitle>
-                            <CardDescription>{t('support.plan_tab.phase1.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Accordion type="single" collapsible className="w-full">
-                                <AccordionItem value="p1-1">
-                                    <AccordionTrigger>{t('support.plan_tab.phase1.steps.step1.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase1.steps.step1.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="p1-2">
-                                    <AccordionTrigger className="font-bold text-indigo-600">{t('support.plan_tab.phase1.steps.step2.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase1.steps.step2.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="p1-3">
-                                    <AccordionTrigger>{t('support.plan_tab.phase1.steps.step3.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase1.steps.step3.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
-                        </CardContent>
-                    </Card>
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors group">
+                        <div className="flex items-center gap-2 text-[#5B4B8A] font-bold text-xs uppercase tracking-widest mb-4">
+                            <AlertTriangle className="w-4 h-4" /> {t('support.plan_tab.phase1.label')}
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-[#2B2B2B] mb-2">{t('support.plan_tab.phase1.title')}</h3>
+                        <p className="text-[#4A4A4A] mb-8 leading-relaxed max-w-2xl">{t('support.plan_tab.phase1.description')}</p>
+
+                        <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="p1-1" className="border-[#E8DDD0]">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase1.steps.step1.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase1.steps.step1.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="p1-2" className="border-[#E8DDD0]">
+                                <AccordionTrigger className="text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase1.steps.step2.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase1.steps.step2.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="p1-3" className="border-none">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase1.steps.step3.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase1.steps.step3.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
 
                     {/* PHASE 2 */}
-                    <Card className="border-l-4 border-l-orange-500">
-                        <CardHeader>
-                            <div className="flex items-center gap-2 text-orange-600 font-bold text-xs uppercase tracking-widest mb-1">
-                                <AlertTriangle className="w-4 h-4" /> {t('support.plan_tab.phase2.label')}
-                            </div>
-                            <CardTitle>{t('support.plan_tab.phase2.title')}</CardTitle>
-                            <CardDescription>{t('support.plan_tab.phase2.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Accordion type="single" collapsible className="w-full">
-                                <AccordionItem value="p2-1">
-                                    <AccordionTrigger>{t('support.plan_tab.phase2.steps.step1.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase2.steps.step1.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="p2-2">
-                                    <AccordionTrigger>{t('support.plan_tab.phase2.steps.step2.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase2.steps.step2.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="p2-3">
-                                    <AccordionTrigger>{t('support.plan_tab.phase2.steps.step3.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase2.steps.step3.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
-                        </CardContent>
-                    </Card>
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors group">
+                        <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-xs uppercase tracking-widest mb-4">
+                            <AlertTriangle className="w-4 h-4" /> {t('support.plan_tab.phase2.label')}
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-[#2B2B2B] mb-2">{t('support.plan_tab.phase2.title')}</h3>
+                        <p className="text-[#4A4A4A] mb-8 leading-relaxed max-w-2xl">{t('support.plan_tab.phase2.description')}</p>
+
+                        <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="p2-1" className="border-[#E8DDD0]">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase2.steps.step1.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase2.steps.step1.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="p2-2" className="border-[#E8DDD0]">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase2.steps.step2.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase2.steps.step2.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="p2-3" className="border-none">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase2.steps.step3.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase2.steps.step3.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
 
                     {/* PHASE 3 */}
-                    <Card className="border-l-4 border-l-emerald-500">
-                        <CardHeader>
-                            <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest mb-1">
-                                <HeartHandshake className="w-4 h-4" /> {t('support.plan_tab.phase3.label')}
-                            </div>
-                            <CardTitle>{t('support.plan_tab.phase3.title')}</CardTitle>
-                            <CardDescription>{t('support.plan_tab.phase3.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Accordion type="single" collapsible className="w-full">
-                                <AccordionItem value="p3-1">
-                                    <AccordionTrigger>{t('support.plan_tab.phase3.steps.step1.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase3.steps.step1.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="p3-2">
-                                    <AccordionTrigger>{t('support.plan_tab.phase3.steps.step2.trigger')}</AccordionTrigger>
-                                    <AccordionContent>
-                                        {t('support.plan_tab.phase3.steps.step2.content')}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
-                        </CardContent>
-                    </Card>
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors group">
+                        <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-xs uppercase tracking-widest mb-4">
+                            <HeartHandshake className="w-4 h-4" /> {t('support.plan_tab.phase3.label')}
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-[#2B2B2B] mb-2">{t('support.plan_tab.phase3.title')}</h3>
+                        <p className="text-[#4A4A4A] mb-8 leading-relaxed max-w-2xl">{t('support.plan_tab.phase3.description')}</p>
+
+                        <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="p3-1" className="border-[#E8DDD0]">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase3.steps.step1.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase3.steps.step1.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="p3-2" className="border-none">
+                                <AccordionTrigger className="text-[#2B2B2B] hover:text-[#5B4B8A] font-bold text-left">{t('support.plan_tab.phase3.steps.step2.trigger')}</AccordionTrigger>
+                                <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-4">
+                                    {t('support.plan_tab.phase3.steps.step2.content')}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
                 </TabsContent>
 
                 {/* --- TAB 2: EXERCISES --- */}
-                <TabsContent value="exercises" className="grid gap-8 md:grid-cols-2">
+                <TabsContent value="exercises" className="grid gap-8 md:grid-cols-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
                     {/* BREATHING */}
-                    <Card className="md:col-span-2 border-indigo-100 bg-indigo-50/30">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-indigo-800">
-                                <Wind className="w-6 h-6" /> {t('support.exercises_tab.breathing.title')}
-                            </CardTitle>
-                            <CardDescription>{t('support.exercises_tab.breathing.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <BreathingExercise555 />
-                        </CardContent>
-                    </Card>
+                    <div className="md:col-span-2 bg-[#FDFBF7] border border-[#E8DDD0] p-8 rounded-sm">
+                        <div className="flex items-center gap-2 text-[#5B4B8A] font-bold text-xs uppercase tracking-widest mb-4">
+                            <Wind className="w-4 h-4" /> {t('support.exercises_tab.breathing.title')}
+                        </div>
+                        <p className="text-[#4A4A4A] mb-8 max-w-xl">{t('support.exercises_tab.breathing.description')}</p>
+                        <BreathingExercise555 />
+                    </div>
 
                     {/* GROUNDING */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="text-lg">{t('support.exercises_tab.grounding.title')}</CardTitle>
-                            <CardDescription>{t('support.exercises_tab.grounding.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4 text-sm text-slate-700">
-                            <ul className="space-y-3">
-                                <li className="flex items-center gap-3"><span className="text-xl">👀</span> <strong>5</strong> {t('support.exercises_tab.grounding.items.see')}</li>
-                                <li className="flex items-center gap-3"><span className="text-xl">✋</span> <strong>4</strong> {t('support.exercises_tab.grounding.items.touch')}</li>
-                                <li className="flex items-center gap-3"><span className="text-xl">👂</span> <strong>3</strong> {t('support.exercises_tab.grounding.items.hear')}</li>
-                                <li className="flex items-center gap-3"><span className="text-xl">👃</span> <strong>2</strong> {t('support.exercises_tab.grounding.items.smell')}</li>
-                                <li className="flex items-center gap-3"><span className="text-xl">👄</span> <strong>1</strong> {t('support.exercises_tab.grounding.items.taste')}</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
+                    <div className="bg-white border border-[#E8DDD0] p-6 rounded-sm">
+                        <h3 className="font-serif font-bold text-xl text-[#2B2B2B] mb-2">{t('support.exercises_tab.grounding.title')}</h3>
+                        <p className="text-sm text-[#4A4A4A] mb-6">{t('support.exercises_tab.grounding.description')}</p>
+                        <ul className="space-y-4 text-sm text-[#2B2B2B]">
+                            <li className="flex items-center gap-3"><span className="font-mono font-bold text-[#5B4B8A]">5</span> {t('support.exercises_tab.grounding.items.see')}</li>
+                            <li className="flex items-center gap-3"><span className="font-mono font-bold text-[#5B4B8A]">4</span> {t('support.exercises_tab.grounding.items.touch')}</li>
+                            <li className="flex items-center gap-3"><span className="font-mono font-bold text-[#5B4B8A]">3</span> {t('support.exercises_tab.grounding.items.hear')}</li>
+                            <li className="flex items-center gap-3"><span className="font-mono font-bold text-[#5B4B8A]">2</span> {t('support.exercises_tab.grounding.items.smell')}</li>
+                            <li className="flex items-center gap-3"><span className="font-mono font-bold text-[#5B4B8A]">1</span> {t('support.exercises_tab.grounding.items.taste')}</li>
+                        </ul>
+                    </div>
 
                     {/* BOUNDARIES */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="text-lg">{t('support.exercises_tab.boundaries.title')}</CardTitle>
-                            <CardDescription>{t('support.exercises_tab.boundaries.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-3">
+                    <div className="bg-white border border-[#E8DDD0] p-6 rounded-sm">
+                        <h3 className="font-serif font-bold text-xl text-[#2B2B2B] mb-2">{t('support.exercises_tab.boundaries.title')}</h3>
+                        <p className="text-sm text-[#4A4A4A] mb-6">{t('support.exercises_tab.boundaries.description')}</p>
+                        <div className="space-y-3">
                             <QuoteBox>{t('support.exercises_tab.boundaries.quotes.not_accept')}</QuoteBox>
                             <QuoteBox>{t('support.exercises_tab.boundaries.quotes.speak_properly')}</QuoteBox>
                             <QuoteBox>{t('support.exercises_tab.boundaries.quotes.not_continue')}</QuoteBox>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
                     {/* DARVO */}
-                    <Card className="md:col-span-2 border-slate-200 bg-slate-50">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <Shield className="w-5 h-5" /> {t('support.exercises_tab.darvo.title')}
-                            </CardTitle>
-                            <CardDescription>{t('support.exercises_tab.darvo.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-red-50 p-4 rounded-lg border border-red-100">
-                                <h4 className="font-bold text-red-800 mb-2">{t('support.exercises_tab.darvo.attack')}</h4>
-                                <p className="italic text-red-700">{t('support.exercises_tab.darvo.attack_text')}</p>
+                    <div className="md:col-span-2 bg-white border border-[#E8DDD0] p-8 rounded-sm">
+                        <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-xs uppercase tracking-widest mb-4">
+                            <Shield className="w-4 h-4" /> {t('support.exercises_tab.darvo.title')}
+                        </div>
+                        <p className="text-[#4A4A4A] mb-8">{t('support.exercises_tab.darvo.description')}</p>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="bg-[#FAFAFA] p-6 border border-[#E8DDD0] rounded-sm">
+                                <h4 className="font-bold text-[#2B2B2B] mb-2 uppercase tracking-wide text-xs">{t('support.exercises_tab.darvo.attack')}</h4>
+                                <p className="italic text-[#4A4A4A] leading-relaxed">"{t('support.exercises_tab.darvo.attack_text')}"</p>
                             </div>
-                            <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
-                                <h4 className="font-bold text-emerald-800 mb-2">{t('support.exercises_tab.darvo.response')}</h4>
-                                <p className="font-medium text-emerald-900">{t('support.exercises_tab.darvo.response_text')}</p>
+                            <div className="bg-[#FDFBF7] p-6 border border-[#5B4B8A] rounded-sm">
+                                <h4 className="font-bold text-[#5B4B8A] mb-2 uppercase tracking-wide text-xs">{t('support.exercises_tab.darvo.response')}</h4>
+                                <p className="font-bold text-[#2B2B2B] leading-relaxed">"{t('support.exercises_tab.darvo.response_text')}"</p>
                             </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* STRENGTH LIST */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle className="text-lg">{t('support.exercises_tab.strengths.title')}</CardTitle>
-                            <CardDescription>{t('support.exercises_tab.strengths.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <p className="text-sm text-slate-500">{t('support.exercises_tab.strengths.instruction')}</p>
-                            <div className="space-y-2">
-                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder={`1. ${t('support.exercises_tab.strengths.placeholder')}`} />
-                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder={`2. ${t('support.exercises_tab.strengths.placeholder')}`} />
-                                <input className="w-full border-b border-slate-200 focus:outline-none focus:border-indigo-500 py-1 bg-transparent" placeholder={`3. ${t('support.exercises_tab.strengths.placeholder')}`} />
-                            </div>
-                            <p className="text-center italic text-indigo-600 font-medium pt-2">{t('support.exercises_tab.strengths.footer')}</p>
-                        </CardContent>
-                    </Card>
-
-                    {/* EMERGENCY KIT */}
-                    <Card className="bg-rose-50 border-rose-100">
-                        <CardHeader>
-                            <CardTitle className="text-lg text-rose-900">{t('support.exercises_tab.emergency_kit.title')}</CardTitle>
-                            <CardDescription className="text-rose-700">{t('support.exercises_tab.emergency_kit.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-2">
-                            <div className="flex items-center gap-2">
-                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>{t('support.exercises_tab.emergency_kit.items.playlist')}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>{t('support.exercises_tab.emergency_kit.items.friend')}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <input type="checkbox" className="w-4 h-4 accent-rose-600" checked readOnly /> <span className="font-bold">{t('support.exercises_tab.emergency_kit.items.crisis_line')}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <input type="checkbox" className="w-4 h-4 accent-rose-600" /> <span>{t('support.exercises_tab.emergency_kit.items.movie')}</span>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* CONFLICT SIMULATION */}
-                    <Card className="md:col-span-2">
-                        <CardHeader>
-                            <CardTitle className="text-lg">{t('support.exercises_tab.simulation.title')}</CardTitle>
-                            <CardDescription>{t('support.exercises_tab.simulation.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div className="bg-slate-50 p-4 rounded-lg">
-                                <p className="font-bold text-slate-700 text-sm mb-1">{t('support.exercises_tab.simulation.q1.label')}</p>
-                                <p className="italic mb-2">{t('support.exercises_tab.simulation.q1.text')}</p>
-                                <p className="font-bold text-indigo-700 text-sm mb-1">{t('support.exercises_tab.simulation.q1.ans_label')}</p>
-                                <p className="text-indigo-900 font-medium">{t('support.exercises_tab.simulation.q1.ans_text')}</p>
-                            </div>
-                            <div className="bg-slate-50 p-4 rounded-lg">
-                                <p className="font-bold text-slate-700 text-sm mb-1">{t('support.exercises_tab.simulation.q2.label')}</p>
-                                <p className="italic mb-2">{t('support.exercises_tab.simulation.q2.text')}</p>
-                                <p className="font-bold text-indigo-700 text-sm mb-1">{t('support.exercises_tab.simulation.q2.ans_label')}</p>
-                                <p className="text-indigo-900 font-medium">{t('support.exercises_tab.simulation.q2.ans_text')}</p>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* FUTURE PLANNING */}
-                    <Card className="md:col-span-2 bg-gradient-to-r from-indigo-50 to-purple-50 border-none">
-                        <CardHeader>
-                            <CardTitle className="text-lg">{t('support.exercises_tab.future.title')}</CardTitle>
-                            <CardDescription>{t('support.exercises_tab.future.description')}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
-                            <p className="font-medium text-slate-700">{t('support.exercises_tab.future.subtitle')}</p>
-                            <div className="space-y-3">
-                                <CheckItem time={t('support.exercises_tab.future.times.1vk')}>{t('support.exercises_tab.future.steps.cv')}</CheckItem>
-                                <CheckItem time={t('support.exercises_tab.future.times.2vk')}>{t('support.exercises_tab.future.steps.search')}</CheckItem>
-                                <CheckItem time={t('support.exercises_tab.future.times.continuous')}>{t('support.exercises_tab.future.steps.rest')}</CheckItem>
-                            </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
                 </TabsContent>
 
 
                 {/* --- TAB 3: CONTACT INFO --- */}
-                <TabsContent value="contacts" className="grid gap-6 md:grid-cols-2">
-                    <Card className="border-l-4 border-l-rose-500">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-rose-700">
-                                <Phone className="w-5 h-5" /> {t('support.contacts_tab.acute.title')}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
+                <TabsContent value="contacts" className="grid gap-6 md:grid-cols-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors group">
+                        <div className="flex items-center gap-2 text-[#5B4B8A] font-bold text-xs uppercase tracking-widest mb-4">
+                            <Phone className="w-4 h-4" /> {t('support.contacts_tab.acute.title')}
+                        </div>
+                        <div className="space-y-8">
                             <div>
-                                <h3 className="font-bold text-lg">{t('support.contacts_tab.acute.mieli.title')}</h3>
-                                <div className="text-3xl font-black text-slate-900 my-1">09 2525 0111</div>
-                                <p className="text-sm text-slate-500">{t('support.contacts_tab.acute.mieli.hours')}</p>
+                                <h3 className="font-serif font-bold text-xl text-[#2B2B2B] mb-1">{t('support.contacts_tab.acute.mieli.title')}</h3>
+                                <div className="text-3xl font-bold text-[#2B2B2B] font-mono tracking-tight group-hover:text-[#5B4B8A] transition-colors">09 2525 0111</div>
+                                <p className="text-sm text-[#4A4A4A] mt-2">{t('support.contacts_tab.acute.mieli.hours')}</p>
                             </div>
-                            <div className="pt-4 border-t">
-                                <h3 className="font-bold text-lg">{t('support.contacts_tab.acute.riku.title')}</h3>
-                                <div className="text-3xl font-black text-slate-900 my-1">116 006</div>
-                                <p className="text-sm text-slate-500">{t('support.contacts_tab.acute.riku.text')}</p>
+                            <div className="pt-8 border-t border-[#FAFAFA]">
+                                <h3 className="font-serif font-bold text-xl text-[#2B2B2B] mb-1">{t('support.contacts_tab.acute.riku.title')}</h3>
+                                <div className="text-3xl font-bold text-[#2B2B2B] font-mono tracking-tight group-hover:text-[#5B4B8A] transition-colors">116 006</div>
+                                <p className="text-sm text-[#4A4A4A] mt-2">{t('support.contacts_tab.acute.riku.text')}</p>
                             </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
-                    <Card className="border-l-4 border-l-blue-500">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-blue-700">
-                                <Scale className="w-5 h-5" /> {t('support.contacts_tab.authorities.title')}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-6">
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors">
+                        <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-xs uppercase tracking-widest mb-4">
+                            <Scale className="w-4 h-4" /> {t('support.contacts_tab.authorities.title')}
+                        </div>
+                        <div className="space-y-8">
                             <div>
-                                <h3 className="font-bold text-base">{t('support.contacts_tab.authorities.avi.label')}</h3>
-                                <p className="text-sm text-slate-600 mb-1">{t('support.contacts_tab.authorities.avi.sub')}</p>
-                                <a href="https://avi.fi" target="_blank" rel="noopener noreferrer" className="text-blue-600 text-sm hover:underline">{t('support.contacts_tab.authorities.avi.link')}</a>
+                                <h3 className="font-bold text-[#2B2B2B] mb-1">{t('support.contacts_tab.authorities.avi.label')}</h3>
+                                <p className="text-sm text-[#4A4A4A] mb-2 leading-relaxed">{t('support.contacts_tab.authorities.avi.sub')}</p>
+                                <a href="https://avi.fi" target="_blank" rel="noopener noreferrer" className="text-[#5B4B8A] text-sm font-bold hover:underline flex items-center gap-1">
+                                    Siirry sivustolle <ArrowRight className="w-3 h-3" />
+                                </a>
                             </div>
                             <div>
-                                <h3 className="font-bold text-base">{t('support.contacts_tab.authorities.unions.label')}</h3>
-                                <p className="text-sm text-slate-600">{t('support.contacts_tab.authorities.unions.sub')}</p>
+                                <h3 className="font-bold text-[#2B2B2B] mb-1">{t('support.contacts_tab.authorities.unions.label')}</h3>
+                                <p className="text-sm text-[#4A4A4A] leading-relaxed">{t('support.contacts_tab.authorities.unions.sub')}</p>
                             </div>
-                            <div>
-                                <h3 className="font-bold text-base">{t('support.contacts_tab.authorities.legal.label')}</h3>
-                                <p className="text-sm text-slate-600">{t('support.contacts_tab.authorities.legal.sub')}</p>
-                            </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
-                    <Card className="border-l-4 border-l-emerald-500">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-emerald-700">
-                                <Users className="w-5 h-5" /> {t('support.contacts_tab.peer_support.title')}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-3">
-                            <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
-                                <span>☺</span> {t('support.contacts_tab.peer_support.items.fb')}
+                    <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm hover:border-[#5B4B8A] transition-colors">
+                        <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-xs uppercase tracking-widest mb-4">
+                            <Users className="w-4 h-4" /> {t('support.contacts_tab.peer_support.title')}
+                        </div>
+                        <div className="space-y-4">
+                            <a href="#" className="flex items-center gap-3 text-[#4A4A4A] hover:text-[#5B4B8A] hover:underline font-medium p-2 hover:bg-[#FAFAFA] rounded-sm transition-all">
+                                <Users className="w-4 h-4" /> {t('support.contacts_tab.peer_support.items.fb')}
                             </a>
-                            <a href="https://mieli.fi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
-                                <span>☺</span> {t('support.contacts_tab.peer_support.items.mieli')}
+                            <a href="https://mieli.fi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#4A4A4A] hover:text-[#5B4B8A] hover:underline font-medium p-2 hover:bg-[#FAFAFA] rounded-sm transition-all">
+                                <HeartHandshake className="w-4 h-4" /> {t('support.contacts_tab.peer_support.items.mieli')}
                             </a>
-                            <a href="#" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
-                                <span>☺</span> {t('support.contacts_tab.peer_support.items.local')}
+                            <a href="https://discord.gg/2pwqw8Rhtu" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#4A4A4A] hover:text-[#5B4B8A] hover:underline font-medium p-2 hover:bg-[#FAFAFA] rounded-sm transition-all">
+                                <div className="w-4 h-4 flex items-center justify-center font-bold text-[10px]">D</div> {t('support.contacts_tab.peer_support.items.discord')}
                             </a>
-                            <a href="https://discord.gg/2pwqw8Rhtu" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 hover:text-emerald-700">
-                                <span>💬</span> {t('support.contacts_tab.peer_support.items.discord')}
-                            </a>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
-                    <Card className="border-none bg-slate-900 text-white">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-yellow-400">
-                                <BookOpen className="w-5 h-5" /> {t('support.contacts_tab.knowledge.title')}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
+                    <div className="bg-[#2B2B2B] text-white p-8 rounded-sm">
+                        <div className="flex items-center gap-2 text-white/70 font-bold text-xs uppercase tracking-widest mb-4">
+                            <BookOpen className="w-4 h-4" /> {t('support.contacts_tab.knowledge.title')}
+                        </div>
+                        <div className="space-y-6">
                             <div>
-                                <h3 className="font-bold text-base text-blue-200">{t('support.contacts_tab.knowledge.ttl.label')}</h3>
-                                <p className="text-sm text-slate-400">{t('support.contacts_tab.knowledge.ttl.sub')}</p>
-                                <p className="text-xs text-slate-500 mt-1">ttl.fi</p>
+                                <h3 className="font-bold text-white text-lg mb-1">{t('support.contacts_tab.knowledge.ttl.label')}</h3>
+                                <p className="text-sm text-white/60 mb-1">{t('support.contacts_tab.knowledge.ttl.sub')}</p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-base text-blue-200">{t('support.contacts_tab.knowledge.ttk.label')}</h3>
-                                <p className="text-sm text-slate-400">{t('support.contacts_tab.knowledge.ttk.sub')}</p>
-                                <p className="text-xs text-slate-500 mt-1">ttk.fi</p>
+                                <h3 className="font-bold text-white text-lg mb-1">{t('support.contacts_tab.knowledge.ttk.label')}</h3>
+                                <p className="text-sm text-white/60 mb-1">{t('support.contacts_tab.knowledge.ttk.sub')}</p>
                             </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
                 </TabsContent>
             </Tabs>
 
-            <div className="text-center pt-8 border-t border-slate-100">
-                <p className="text-emerald-600 font-bold text-lg flex items-center justify-center gap-2">
+            <div className="text-center pt-12 border-t border-[#E8DDD0]">
+                <p className="text-[#2B2B2B] font-serif font-bold text-lg">
                     {t('support.footer.remember')}
                 </p>
-                <p className="text-slate-400 text-xs mt-2 italic">
+                <p className="text-[#4A4A4A] text-xs mt-2 uppercase tracking-wide">
                     {t('support.footer.disclaimer')}
                 </p>
             </div>
@@ -386,22 +274,8 @@ export default function SupportPage() {
 
 function QuoteBox({ children }: { children: React.ReactNode }) {
     return (
-        <div className="bg-indigo-50 px-4 py-3 rounded-tr-xl rounded-bl-xl rounded-br-xl border-l-4 border-l-indigo-400 text-indigo-900 font-medium italic">
-            {children}
-        </div>
-    );
-}
-
-function CheckItem({ time, children }: { time: string, children: React.ReactNode }) {
-    return (
-        <div className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-slate-100">
-            <div className="w-6 h-6 rounded-full border-2 border-indigo-200 flex items-center justify-center text-transparent hover:text-indigo-600 cursor-pointer transition-colors">
-                ✓
-            </div>
-            <div className="flex-1">
-                <p className="text-slate-800 font-medium">{children}</p>
-                <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">{time}</p>
-            </div>
+        <div className="bg-[#FAFAFA] px-4 py-3 border-l-2 border-[#5B4B8A] text-[#2B2B2B] italic text-sm">
+            "{children}"
         </div>
     );
 }
@@ -423,7 +297,7 @@ function BreathingExercise555() {
         let phaseIndex = 0;
 
         const runPhase = () => {
-            if (!isRunning) return; // Safety check
+            if (!isRunning) return;
             setStatus(phases[phaseIndex].text);
             phaseIndex = (phaseIndex + 1) % phases.length;
         };
@@ -435,20 +309,20 @@ function BreathingExercise555() {
     }, [isRunning, t]);
 
     return (
-        <div className="flex flex-col items-center justify-center py-6 gap-6">
-            <div className="relative flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center py-8 gap-8">
+            <div className="relative flex items-center justify-center h-48 w-48">
                 <motion.div
                     animate={isRunning ? {
-                        scale: [1, 1.3, 1.3, 1, 1], // In(1->1.3), Hold(1.3), Out(1.3->1)
-                        opacity: [0.6, 1, 1, 0.6, 0.6],
-                    } : { scale: 1, opacity: 0.6 }}
+                        scale: [1, 1.3, 1.3, 1, 1],
+                        opacity: [0.3, 0.6, 0.6, 0.3, 0.3],
+                    } : { scale: 1, opacity: 0.1 }}
                     transition={isRunning ? {
-                        duration: 15, // 5+5+5
+                        duration: 15,
                         repeat: Infinity,
                         ease: "easeInOut",
                         times: [0, 0.33, 0.66, 1]
                     } : {}}
-                    className="w-40 h-40 rounded-full bg-indigo-300/30 absolute blur-xl"
+                    className="w-full h-full rounded-full bg-[#5B4B8A] absolute blur-3xl"
                 />
                 <motion.div
                     animate={isRunning ? {
@@ -460,9 +334,9 @@ function BreathingExercise555() {
                         ease: "easeInOut",
                         times: [0, 0.33, 0.66, 1]
                     } : {}}
-                    className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative z-10 shadow-xl text-white font-bold text-center px-4"
+                    className="w-32 h-32 rounded-full border border-[#5B4B8A] bg-white flex items-center justify-center relative z-10 shadow-sm"
                 >
-                    {status}
+                    <span className="font-bold text-[#5B4B8A] uppercase tracking-widest text-xs text-center px-2">{status}</span>
                 </motion.div>
             </div>
 
@@ -472,8 +346,11 @@ function BreathingExercise555() {
                     if (isRunning) setStatus(t('support.exercises_tab.breathing.start'));
                 }}
                 variant={isRunning ? "outline" : "default"}
-                size="sm"
-                className="rounded-full px-6"
+                size="lg"
+                className={`rounded-full px-8 uppercase font-bold tracking-widest text-xs transition-all ${isRunning
+                        ? "border-[#E8DDD0] text-[#4A4A4A] hover:bg-[#FAFAFA]"
+                        : "bg-[#2B2B2B] text-white hover:bg-[#4A4A4A]"
+                    }`}
             >
                 {isRunning ? t('support.exercises_tab.breathing.stop') : t('support.exercises_tab.breathing.start_exercise')}
             </Button>
