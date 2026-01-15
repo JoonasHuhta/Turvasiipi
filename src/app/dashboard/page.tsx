@@ -24,7 +24,7 @@ import { AlertTriangle, Info as InfoIcon, ArrowRight as ArrowRightIcon } from 'l
 
 export default function DashboardPage() {
     const { t } = useLanguage();
-    const { progress, getLevel, getProgressPercentage, isModuleCompleted } = useProgress();
+    const { progress, getExpertiseLevel, getProgressPercentage, isModuleCompleted } = useProgress();
     const [expandedCategory, setExpandedCategory] = useState<CategoryId | null>('CORE');
 
     // Fetch events for Insights
@@ -32,7 +32,7 @@ export default function DashboardPage() {
 
     const totalBadges = BADGES.length;
     const earnedBadgesCount = progress.earnedBadgeIds.length;
-    const level = getLevel();
+    const { level, subLevel } = getExpertiseLevel();
     const progressPerc = getProgressPercentage();
 
     return (
@@ -42,7 +42,7 @@ export default function DashboardPage() {
             <div className="flex flex-col md:flex-row gap-8 justify-between items-start border-b border-[#E8DDD0] pb-8">
                 <div className="space-y-2">
                     <span className="text-[11px] font-mono text-[#4A4A4A] uppercase tracking-widest border border-[#E8DDD0] px-2 py-0.5 rounded-sm inline-flex items-center gap-2">
-                        <User className="w-3 h-3" /> {t('dashboard.level')} {level.level}
+                        <User className="w-3 h-3" /> {t('dashboard.level')} {level.id}
                     </span>
                     <h1 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('dashboard.title')}</h1>
                     <p className="text-sm text-[#4A4A4A] font-mono tracking-tight">ID: {progress.completedModuleIds.length > 0 ? 'ACTIVE_USER' : 'NEW_USER'} // STATUS: ONLINE</p>

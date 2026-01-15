@@ -326,6 +326,8 @@
                 "trend_stable": "Stable",
                 "avg_intensity": "Average severity",
                 "level_stable": "Stable",
+                "level_rising": "Rising",
+                "level_falling": "Falling",
                 "days": "days",
                 "score_label": "/ 5.0"
             },
