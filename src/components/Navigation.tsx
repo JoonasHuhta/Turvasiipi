@@ -150,55 +150,76 @@ export function Navigation() {
                             <Menu className="w-6 h-6" />
                         </button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="bg-[#FDFBF7] border-l border-[#E8DDD0] overflow-y-auto">
+                    <SheetContent side="right" className="bg-[#FDFBF7] border-l border-[#E8DDD0] overflow-y-auto w-[300px] sm:w-[400px]">
                         <SheetTitle className="sr-only">Valikko</SheetTitle>
-                        <div className="space-y-6 pb-12 mt-8">
-                            <Link href="/simulaatio" className="block py-3 text-lg font-serif border-b border-[#E8DDD0]" onClick={() => setIsMenuOpen(false)}>Koe Simulaatio</Link>
+                        <div className="flex flex-col gap-8 pb-12 mt-8">
 
-                            <div className="space-y-4 pt-2">
-                                <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Tutki</span>
-                                <div className="pl-4 space-y-3 border-l border-[#E8DDD0]">
-                                    <Link href="/quiz" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Tunnista riskit</Link>
-                                    <Link href="/lukutaito-testi" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Työyhteisön tilanne</Link>
-                                    <Link href="/taktiikat" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Kiusaamisen muodot</Link>
-                                    <Link href="/feeling-quiz" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Uhrin tuntemukset</Link>
-                                    <Link href="/empatia-testi" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Empatia-spektri</Link>
-                                    <Link href="/tietovisa" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Tietovisa (Faktat)</Link>
-                                    <Link href="/neuromoninaisuus" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Neuromoninaisuus</Link>
-                                    <Link href="/nuoret" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Nuoret työelämässä</Link>
+                            {/* Main Direct Links */}
+                            <div className="space-y-1">
+                                <Link
+                                    href="/simulaatio"
+                                    className="block py-2 px-4 -mx-4 text-xl font-serif text-[#2B2B2B] hover:bg-[#E8DDD0]/30 transition-colors rounded-sm"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Koe Simulaatio
+                                </Link>
+                                <Link
+                                    href="/valmennus"
+                                    className="block py-2 px-4 -mx-4 text-xl font-serif text-[#2B2B2B] hover:bg-[#E8DDD0]/30 transition-colors rounded-sm"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Valmennus
+                                </Link>
+                            </div>
+
+                            {/* Divider with subtle styling */}
+                            <div className="h-px w-full bg-[#E8DDD0]/50" />
+
+                            {/* Dropdown Groups */}
+                            <div className="space-y-6">
+                                <div className="space-y-3">
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Tutki</span>
+                                    <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
+                                        <Link href="/quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tunnista riskit</Link>
+                                        <Link href="/lukutaito-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Työyhteisön tilanne</Link>
+                                        <Link href="/taktiikat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Kiusaamisen muodot</Link>
+                                        <Link href="/feeling-quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Uhrin tuntemukset</Link>
+                                        <Link href="/empatia-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Empatia-spektri</Link>
+                                        <Link href="/tietovisa" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tietovisa (Faktat)</Link>
+                                        <Link href="/neuromoninaisuus" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Neuromoninaisuus</Link>
+                                        <Link href="/nuoret" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Nuoret työelämässä</Link>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Välineet</span>
+                                    <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
+                                        <Link href="/loki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Loki</Link>
+                                        <Link href="/timeline" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Aikajana</Link>
+                                        <Link href="/raportti" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Raportointi</Link>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Apua</span>
+                                    <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
+                                        <Link href="/tuki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tukipalvelut</Link>
+                                        <Link href="/yhteiso" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Yhteisö</Link>
+                                        <Link href="/tarinat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tarinat</Link>
+                                    </div>
                                 </div>
                             </div>
 
-                            <Link href="/valmennus" className="block py-3 text-lg font-serif border-b border-[#E8DDD0]" onClick={() => setIsMenuOpen(false)}>Valmennus</Link>
-
-                            <div className="space-y-4 pt-2">
-                                <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Välineet</span>
-                                <div className="pl-4 space-y-3 border-l border-[#E8DDD0]">
-                                    <Link href="/loki" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Loki</Link>
-                                    <Link href="/timeline" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Aikajana</Link>
-                                    <Link href="/raportti" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Raportointi</Link>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4 pt-2">
-                                <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Apua</span>
-                                <div className="pl-4 space-y-3 border-l border-[#E8DDD0]">
-                                    <Link href="/tuki" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Tukipalvelut</Link>
-                                    <Link href="/yhteiso" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Yhteisö</Link>
-                                    <Link href="/tarinat" className="block text-[#4A4A4A]" onClick={() => setIsMenuOpen(false)}>Tarinat</Link>
-                                </div>
-                            </div>
-
-                            <div className="pt-8 flex flex-col gap-4">
+                            <div className="pt-4 border-t border-[#E8DDD0]/50 flex flex-col gap-6">
                                 <Link
                                     href="/profiili"
-                                    className="text-sm font-bold uppercase tracking-widest text-[#2B2B2B] flex items-center gap-3"
+                                    className="text-sm font-bold uppercase tracking-widest text-[#2B2B2B] flex items-center gap-3 hover:text-[#5B4B8A] transition-colors p-2 -mx-2 rounded-sm hover:bg-[#E8DDD0]/30"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     <span className="text-2xl" aria-hidden="true">{expertise.icon}</span>
                                     <span>Profiili - {expertise.name}</span>
                                 </Link>
-                                <LanguageToggle className="justify-start" />
+                                <LanguageToggle className="justify-start px-2" />
                             </div>
                         </div>
                     </SheetContent>
