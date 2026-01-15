@@ -21,13 +21,18 @@ export default function SimulatorPage() {
 
                 <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] leading-[1.1] tracking-tight">
                     Tämä ei ole peli. <br />
-                    <span className="text-[#4A4A4A] font-normal italic">Se on kokemus siitä, miksi lähteminen on niin vaikeaa.</span>
+                    <span className="text-[#4A4A4A] font-normal italic">Se on yritys selvitä mahdollisimman vähin vaurioin.</span>
                 </h1>
 
-                <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-xl">
-                    Simulaatiot ovat turvallinen tila kokea dynaamisia tilanteita, joissa ei ole oikeita vastauksia.
-                    Vain seurauksia.
-                </p>
+                <div className="space-y-6 max-w-xl">
+                    <p className="text-lg text-[#4A4A4A] leading-relaxed">
+                        Simulaatioissa kohtaat työelämän tilanteita, joissa ei ole oikeita vastauksia.
+                        Valinnat kasaantuvat. Pienet teot voivat lopulta murentaa toimintakyvyn.
+                    </p>
+                    <p className="text-lg text-[#4A4A4A] leading-relaxed">
+                        Täällä voit kokeilla, ymmärtää ja valmistautua – turvallisesti.
+                    </p>
+                </div>
 
                 <div className="pt-4">
                     <Dialog>
