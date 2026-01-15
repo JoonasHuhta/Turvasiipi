@@ -159,9 +159,9 @@ export default function HomePage() {
             <p className="font-bold text-[#2B2B2B]">Tämä ei ole kertomus. Tämä on muistia varten.</p>
           </div>
 
-          <button className="bg-[#5B4B8A] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#4A3A7A] transition-colors shadow-md">
+          <Link href="/loki" className="bg-[#5B4B8A] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#4A3A7A] transition-colors shadow-md inline-block">
             Aloita kirjaaminen →
-          </button>
+          </Link>
         </div>
       </section>
 
