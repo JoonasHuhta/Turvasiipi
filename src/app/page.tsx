@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
