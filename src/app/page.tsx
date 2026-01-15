@@ -35,7 +35,7 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-6 pt-4 items-start sm:items-center">
             <Link
-              href="/lukutaito-testi"
+              href="/feeling-quiz"
               className="px-8 py-4 bg-[#2B2B2B] text-white hover:bg-[#5B4B8A] transition-colors rounded-sm font-medium tracking-wide flex items-center gap-3 shadow-lg shadow-black/5"
             >
               Tutki tilannettasi <ArrowRight className="w-4 h-4" />
