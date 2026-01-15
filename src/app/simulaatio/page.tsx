@@ -141,6 +141,22 @@ export default function SimulatorPage() {
                             description="Puun ja kuoren välissä. Kun joudut toteuttamaan arvojesi vastaisia päätöksiä."
                         />
                     </Link>
+                </div>
+            </section>
+
+            {/* NUORET - Vulnerability Context */}
+            <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
+                <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                    <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
+                        <Zap className="w-6 h-6 text-[#5B4B8A]" />
+                        Nuoret työelämässä
+                    </h2>
+                    <p className="text-[#4A4A4A] italic max-w-md">
+                        Ensimmäiset kokemukset muokkaavat käsitystä siitä, mikä on normaalia.
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
                     <Link href="/simulaatio/nuoret">
                         <SimulationCard
                             icon={<Zap className="w-5 h-5" />}
