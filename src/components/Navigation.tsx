@@ -216,8 +216,8 @@ export function Navigation() {
                                     className="text-sm font-bold uppercase tracking-widest text-[#2B2B2B] flex items-center gap-3 hover:text-[#5B4B8A] transition-colors p-2 -mx-2 rounded-sm hover:bg-[#E8DDD0]/30"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    <span className="text-2xl" aria-hidden="true">{expertise.icon}</span>
-                                    <span>Profiili - {expertise.name}</span>
+                                    <span className="text-2xl shrink-0" aria-hidden="true">{expertise.icon}</span>
+                                    <span className="whitespace-normal break-words leading-tight">Profiili — {expertise.name}</span>
                                 </Link>
                                 <LanguageToggle className="justify-start px-2" />
                             </div>
