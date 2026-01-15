@@ -41,7 +41,7 @@ export default function HomePage() {
               Tutki tilannettasi <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="#"
+              href="#miksi"
               className="px-6 py-4 text-[#5B4B8A] hover:bg-[#5B4B8A]/5 rounded-sm font-medium transition-colors"
             >
               Lue ensin miten tämä toimii
@@ -56,7 +56,7 @@ export default function HomePage() {
       </header>
 
       {/* SCROLL 1 - WHY EXISTS */}
-      <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
+      <section id="miksi" className="space-y-12 border-t border-[#E8DDD0] pt-24 scroll-mt-24">
         <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Miksi tämä on niin vaikeaa?</span>
 
         <div className="grid md:grid-cols-12 gap-12">
@@ -119,9 +119,9 @@ export default function HomePage() {
         </div>
 
         <div className="pt-8">
-          <button className="text-[#5B4B8A] font-bold text-lg hover:underline decoration-2 underline-offset-4 flex items-center gap-2">
+          <Link href="/taktiikat" className="text-[#5B4B8A] font-bold text-lg hover:underline decoration-2 underline-offset-4 flex items-center gap-2">
             Tunnista merkkejä rauhassa <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </section>
 
