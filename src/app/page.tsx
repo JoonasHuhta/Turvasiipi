@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function HomePage() {
   return (
@@ -223,6 +229,112 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* FAQ SECTION */}
+      <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
+        <div className="text-center space-y-4">
+          <h2 className="text-3xl font-bold text-[#2B2B2B]">Usein kysytyt kysymykset</h2>
+          <p className="text-lg text-[#4A4A4A]">Mietityttääkö jokin? Tässä vastauksia yleisimpiin kysymyksiin.</p>
+        </div>
+
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          <AccordionItem value="item-1" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Mikä on Turvasiipi?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Turvasiipi on yksityinen työkalu, joka auttaa sinua tunnistamaan ja dokumentoimaan työpaikkakiusaamista. Kaikki tiedot tallennetaan vain sinun laitteellesi – emme kerää mitään palvelimillemme.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Kuka näkee kirjoittamani asiat?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Vain sinä. Kaikki merkinnät tallennetaan selaimeesi paikallisesti. Emme lähetä tietoja minnekään, emmekä voi nähdä niitä. Tämä on täysin yksityinen työkalu.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Voiko työnantajani nähdä, että käytän tätä?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Ei. Turvasiipi toimii täysin paikallisesti selaimessasi. Työnantajasi ei voi nähdä, että käytät sovellusta, ellet itse jaa tietoja. Suosittelemme käyttämään omaa laitettasi, ei työnantajan laitetta.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-4" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Miten dokumentointi toimii?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Kirjaat tapahtumat lyhyesti: mitä tapahtui, milloin, ketkä olivat paikalla, ja miltä se tuntui. Merkintöjä ei voi muokata jälkikäteen, jotta ne säilyvät luotettavina. Voit myöhemmin luoda raportin tai viedä tiedot.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-5" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Näkyykö Tarinat-osiossa jakamani tarina muille?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Kyllä, mutta täysin anonyymisti. Tarinat jaetaan ilman nimeä, työpaikkaa tai muita tunnistetietoja. Voit itse päättää, haluatko jakaa tarinasi vai ei.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-6" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Miten Turvasiipi auttaa minua toipumaan?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Turvasiipi ei korvaa ammattiapua, mutta se auttaa sinua näkemään tilanteen selkeämmin. Dokumentointi vähentää epävarmuutta ja auttaa sinua luottamaan omaan havaintokykyyn. Yhteisö-osio tarjoaa vertaistukea.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-7" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Onko tekoälyn käyttö turvallista?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Turvasiipi ei käytä tekoälyä perusominaisuuksissa. Simulaatiot ja testit toimivat ennalta määritellyillä skenaarioilla. Tietosi eivät koskaan mene tekoälypalveluihin.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-8" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Mitä on kiusaamisen lukutaito?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Kyky tunnistaa kiusaamisen merkit, ymmärtää sen dynamiikkaa ja nimetä kokemuksesi. Samalla tavalla kuin medialukutaito auttaa ymmärtämään mediaa, kiusaamisen lukutaito auttaa ymmärtämään työpaikkadynamiikkaa.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-9" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
+              Kenelle Turvasiipi on tehty?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
+              Kaikille, jotka epäilevät kokevansa työpaikkakiusaamista tai huonoa kohtelua. Erityisesti niille, jotka eivät ole vielä varmoja, mitä tapahtuu, mutta tuntevat että jotain on vialla.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-10" className="border border-[#E8DDD0] bg-white rounded-sm px-6 border-l-4 border-l-red-500">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-red-700">
+              Olen välittömässä vaarassa. Mitä teen?
+            </AccordionTrigger>
+            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6 space-y-4">
+              <p className="font-bold text-red-700">Jos olet välittömässä vaarassa, ota yhteyttä hätänumeroon 112.</p>
+              <p>Turvasiipi ei ole kriisipalvelu. Jos tarvitset akuuttia apua, ota yhteyttä:</p>
+              <ul className="space-y-2 pl-4">
+                <li>• <strong>Kriisipuhelin:</strong> 09 2525 0111 (24/7)</li>
+                <li>• <strong>Mieli ry:</strong> mieli.fi</li>
+                <li>• <strong>Työsuojeluviranomainen:</strong> tyosuojelu.fi</li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
     </div>
   );
 }

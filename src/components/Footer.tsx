@@ -26,7 +26,12 @@ export function Footer() {
                     </ul>
                 </div>
 
-                <div className="pt-12 border-t border-[#E8DDD0]/50 max-w-xs mx-auto">
+                <div className="pt-12 border-t border-[#E8DDD0]/50 max-w-xs mx-auto space-y-4">
+                    <div>
+                        <Link href="/turvaseloste" className="text-[11px] font-mono uppercase tracking-widest text-[#4A4A4A]/70 hover:text-[#5B4B8A] transition-colors">
+                            Turvaseloste
+                        </Link>
+                    </div>
                     <button
                         onClick={() => setShowDeveloperInfo(true)}
                         className="text-[10px] font-mono uppercase tracking-widest text-[#4A4A4A]/50 hover:text-[#5B4B8A] transition-colors"
