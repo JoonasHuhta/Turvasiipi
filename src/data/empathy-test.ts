@@ -33,10 +33,16 @@ export type EmpathyProfile = {
 export const getEmpathyProfile = (scores: { cognitive: number, affective: number, moral: number }): EmpathyProfile => {
     const total = scores.cognitive + scores.affective + scores.moral;
 
-    if (total >= 40) return {
+    if (total >= 42) return {
         title: "Syväymmärtävä Auttaja",
         description: "Olet harvinaisen korkean empatian omaava henkilö. Tunnet muiden tuskan, ymmärrät sen syyt ja olet valmis toimimaan oikeudenmukaisuuden puolesta. Olet työyhteisön todellinen turvasatama.",
         icon: "🌟"
+    };
+
+    if (total <= 18) return {
+        title: "Vieras Ulkopuolinen",
+        description: "Sinun on tällä hetkellä vaikea tavoittaa muiden tunteita tai nähdä heidän näkökulmiaan. Tämä voi johtua stressistä, suojautumisesta tai yksinkertaisesti harjoituksen puutteesta. Turvasiipi auttaa sinua rakentamaan siltoja muihin.",
+        icon: "🌑"
     };
 
     if (scores.moral >= 14) return {
@@ -59,7 +65,7 @@ export const getEmpathyProfile = (scores: { cognitive: number, affective: number
 
     return {
         title: "Kasvava Empaatti",
-        description: "Empatiasi on tasapainoista ja tilaa on vielä kehittymiselle. Turvasiiven harjoitukset auttavat sinua syventämään ymmärrystäsi ja rohkeuttasi puuttua tilanteisiin.",
+        description: "Empatiasi on orastavalla tasolla. Tunnet välillä piston sydämessäsi tai ymmärrät toisen mieltä, mutta tarvitset vielä harjoitusta ja rohkeutta muuttaa nämä tunteet selkeäksi toiminnaksi.",
         icon: "🌱"
     };
 };

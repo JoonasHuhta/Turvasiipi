@@ -124,6 +124,7 @@ export const BADGES: Badge[] = [
     { id: 'doc_start', title: 'Dokumentoinnin Aloittaja', icon: '📝', description: 'Teit ensimmäisen aikajanamerkinnän.' },
     { id: 'knowledge_hunger', title: 'Tiedon Janoisuus', icon: '📖', description: 'Luit kaikki 12 taktiikkaa.' },
     { id: 'self_awareness', title: 'Itsetuntemus', icon: '🔍', description: 'Teit kaikki itsearvioinnit.' },
+    { id: 'empathy_profile_known', title: 'Itsetuntemus', icon: '🧬', description: 'Tunnistit oman empatiaprofiilisi.' },
     { id: 'voice_found', title: 'Äänen Löytäminen', icon: '💬', description: 'Jaoit ensimmäisen tarinasi.' },
     { id: 'persistence_7', title: 'Sinnikkyys', icon: '⏰', description: 'Käytit sovellusta 7 päivänä peräkkäin.' },
     { id: 'analyzer', title: 'Analysoija', icon: '📊', description: 'Loit ensimmäisen PDF-raportin.' },

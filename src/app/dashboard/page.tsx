@@ -45,7 +45,9 @@ export default function DashboardPage() {
                         <User className="w-3 h-3" /> {t('dashboard.level')} {level.id}
                     </span>
                     <h1 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('dashboard.title')}</h1>
-                    <p className="text-sm text-[#4A4A4A] font-mono tracking-tight">ID: {progress.completedModuleIds.length > 0 ? 'ACTIVE_USER' : 'NEW_USER'} // STATUS: ONLINE</p>
+                    <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase">
+                        Sertifioitu käyttäjä // {progress.completedModuleIds.length} suoritusta // Aktiivinen
+                    </p>
                 </div>
 
                 <div className="flex gap-8 text-right">
