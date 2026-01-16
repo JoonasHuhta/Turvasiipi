@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Brain, Heart, Scale, ChevronRight, RotateCcw, Trophy, ArrowRight, Shield } from "lucide-react";
+import { Fingerprint, Heart, Scale, ChevronRight, RotateCcw, Trophy, ArrowRight, Shield } from "lucide-react";
 import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -63,7 +63,7 @@ export default function EmpathyTestPage() {
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center text-[#5B4B8A] shadow-sm">
-                            <Brain className="w-6 h-6" />
+                            <Fingerprint className="w-6 h-6" />
                         </div>
                         <div>
                             <h1 className="font-serif font-bold text-[#2B2B2B] leading-none">Empatia-Spektri</h1>
@@ -96,7 +96,7 @@ export default function EmpathyTestPage() {
                                 </div>
                                 <CardContent className="p-8 space-y-10 bg-white">
                                     <div className="grid grid-cols-3 gap-4">
-                                        <IconFeature icon={Brain} label="Järki" color="text-[#5B4B8A]" />
+                                        <IconFeature icon={Fingerprint} label="Järki" color="text-[#5B4B8A]" />
                                         <IconFeature icon={Heart} label="Tunne" color="text-rose-600" />
                                         <IconFeature icon={Scale} label="Teot" color="text-emerald-700" />
                                     </div>
