@@ -368,21 +368,14 @@ export default function HomePage() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-9" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
-            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
-              {t('faq.q8')}
-            </AccordionTrigger>
-            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
-              {t('faq.a8')}
-            </AccordionContent>
-          </AccordionItem>
 
-          <AccordionItem value="item-10" className="border border-[#E8DDD0] bg-white rounded-sm px-6 border-l-4 border-l-red-500">
-            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-red-700">
+
+          <AccordionItem value="item-10" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
+            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
               {t('faq.q9')}
             </AccordionTrigger>
             <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6 space-y-4">
-              <p className="font-bold text-red-700">{t('faq.a9_title')}</p>
+              <p className="font-bold text-[#2B2B2B]">{t('faq.a9_title')}</p>
               <p>{t('faq.a9_text')}</p>
               <ul className="space-y-2 pl-4">
                 <li>{t('faq.a9_list_1').replace(/\*\*/g, '')}</li>

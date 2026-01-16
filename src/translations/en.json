@@ -25,32 +25,6 @@
         "reports": "Reports",
         "guide": "How to Document?"
     },
-    "faq": {
-        "title": "Frequently Asked Questions",
-        "subtitle": "Wondering about something? Here are answers to common questions.",
-        "q1": "What is Turvasiipi?",
-        "a1": "Turvasiipi is a private tool that helps you recognize and document workplace bullying. All data is stored only on your device – we do not collect anything on our servers.",
-        "q2": "Who sees the things I write?",
-        "a2": "Only you. All entries are stored locally in your browser. We do not send data anywhere, and we cannot see it. This is a completely private tool.",
-        "q3": "Can my employer see that I am using this?",
-        "a3": "No. Turvasiipi works completely locally in your browser. Your employer cannot see that you are using the application unless you share the data yourself. We recommend using your own device, not your employer's device.",
-        "q4": "How does documentation work?",
-        "a4": "You record events briefly: what happened, when, who was present, and how it felt. Entries cannot be edited later so they remain reliable. You can later create a report or export the data.",
-        "q5": "Is the story I share in the Stories section visible to others?",
-        "a5": "Yes, but completely anonymously. Stories are shared without name, workplace, or other identifying information. You can decide yourself if you want to share your story or not.",
-        "q6": "How does Turvasiipi help me recover?",
-        "a6": "Turvasiipi does not replace professional help, but it helps you see the situation more clearly. Documentation reduces uncertainty and helps you trust your own perception. The Community section offers peer support.",
-        "q7": "What is bullying literacy?",
-        "a7": "The ability to recognize signs of bullying, understand its dynamics, and name your experience. Just as media literacy helps understand media, bullying literacy helps understand workplace dynamics.",
-        "q8": "Who is Turvasiipi for?",
-        "a8": "For everyone who suspects they are experiencing workplace bullying or poor treatment. Especially for those who are not yet sure what is happening but feel that something is wrong.",
-        "q9": "I am in immediate danger. What do I do?",
-        "a9_title": "If you are in immediate danger, contact emergency number 112.",
-        "a9_text": "Turvasiipi is not a crisis service. If you need acute help, contact:",
-        "a9_list_1": "• **Crisis Helpline:** 09 2525 0111 (24/7)",
-        "a9_list_2": "• **Mieli ry:** mieli.fi",
-        "a9_list_3": "• **Occupational Safety and Health Authority:** tyosuojelu.fi"
-    },
     "simulation": {
         "header": {
             "label": "Simulation Environment",
@@ -142,30 +116,6 @@
                 "label": "Team Acceptance",
                 "desc": "Sense of belonging to the work community."
             }
-        }
-    },
-    "timeline": {
-        "page": {
-            "label": "Tools — Logbook",
-            "title": "Logbook",
-            "status_open": "Open",
-            "subtitle": "All colors turn grey, but ink stays black.",
-            "confirm_delete": "Are you sure you want to delete this entry?",
-            "loading": "Loading logbook...",
-            "entry_count": "{{count}} entries",
-            "tools": {
-                "guide_title": "How to Document Correctly?",
-                "guide_desc": "Read the guide to creating legally valid and credible notes.",
-                "guide_btn": "Read Documentation Guide",
-                "new_title": "New Entry?",
-                "new_desc": "Use guided logging to ensure your entry is legally valid and strong evidence.",
-                "new_btn": "Open Logbook"
-            },
-            "history_title": "Event History"
-        },
-        "empty": {
-            "title": "No entries",
-            "subtitle": "Start logging by pressing 'New Entry' button."
         }
     },
     "log_tool": {
@@ -597,7 +547,7 @@
         "q1": "What is Turvasiipi?",
         "a1": "Turvasiipi is a free digital tool for documenting, identifying, and addressing workplace bullying and inappropriate treatment. We provide information, tools, and peer support to everyone who encounters inappropriate behavior.",
         "q2": "Who sees the things I write?",
-        "a2": "No one but you. All information is stored **only on your own device** (phone or computer). We don't have a server that collects your data, nor do we see your logbooks or reports.",
+        "a2": "No one but you. All information is stored only on your own device (phone or computer). We don't have a server that collects your data, nor do we see your logbooks or reports.",
         "q3": "Can my employer see that I use this?",
         "a3": "No. The app doesn't require logging in with work email, nor does it leave traces on the company's network (except browser history). We recommend using the app on your own device or in Private Browsing (Incognito) mode.",
         "q4": "How does documentation work?",
@@ -605,15 +555,55 @@
         "q5": "Is the story I share in the Stories section visible to others?",
         "a5": "Yes, but only if you choose to publish it. Publishing is fully anonymous (or with a pseudonym of your choice). We don't store IP addresses, so stories cannot be traced back to you.",
         "q6": "I am in immediate danger. What should I do?",
-        "a6": "If you experience violence or an acute threat, call the emergency number **112** immediately. Turvasiipi is a documentation tool, not a crisis service. In mental distress, call the Crisis Hotline: **010 195 202**.",
+        "a6": "If you experience violence or an acute threat, call the emergency number 112 immediately. Turvasiipi is a documentation tool, not a crisis service. In mental distress, call the Crisis Hotline: 010 195 202.",
         "q7": "How does Turvasiipi help me recover?",
         "a7": "Beyond passive documentation, the app provides active tools: simulators and coaching modules. They allow you to practice difficult situations safely, strengthen your resilience, and learn to set boundaries tactically.",
-        "q8": "Is the use of AI safe?",
-        "a8": "Yes. We use AI only to structure reports, and it happens in a highly secure environment. Your data is not used for AI training, and it is never permanently stored in any cloud service.",
         "q9": "What is bullying literacy?",
-        "a9": "Bullying literacy is the ability to recognize, understand, and confront bullying in the work community – in time and together. It doesn't mean that every individual should be an expert or a hero. It means that no one is helpless in the situation.",
+        "a9_title": "What is bullying literacy?",
+        "a9_text": "Bullying literacy is the ability to recognize, understand, and confront bullying in the work community – in time and together. It:",
+        "a9_list_1": "Identifies latent and subtle forms of bullying.",
+        "a9_list_2": "Understands the dynamics and effects of the phenomenon.",
+        "a9_list_3": "Provides tools to intervene constructively.",
         "q10": "Who is Turvasiipi for?",
         "a10": "Turvasiipi is designed for everyone who wants to understand workplace power dynamics and recognize latent psychological violence."
+    },
+    "privacy_page": {
+        "title": "Privacy Policy",
+        "subtitle": "Your data belongs to you. Here is how we protect your privacy.",
+        "back": "Back to Home",
+        "principles": {
+            "title": "Privacy Principles",
+            "local_title": "Local Storage",
+            "local_desc": "All entries and reports you create are stored solely on your own device (browser LocalStorage). We do not send them to cloud services.",
+            "anonymous_title": "Full Anonymity",
+            "anonymous_desc": "We do not collect personal data. Using the service does not require registration, name, or email.",
+            "encryption_title": "Encryption (Optional)",
+            "encryption_desc": "You can choose to protect your data with a PIN code, in which case it is encrypted with AES-256 standard."
+        },
+        "data_collection": {
+            "title": "What Data Do We Store?",
+            "local_label": "On Your Device:",
+            "local_list_1": "Log entries and timeline",
+            "local_list_2": "Coaching progress",
+            "local_list_3": "Application settings",
+            "server_label": "On Servers (Technical Maintenance):",
+            "server_desc": "Our hosting provider (Vercel) may collect standard technical logs (such as IP addresses) to ensure service security and functionality. We do not use this data to identify users.",
+            "cookies_title": "Cookies",
+            "cookies_desc": "We do not use marketing cookies or third-party tracking tools (such as Google Analytics)."
+        },
+        "gdpr": {
+            "title": "EU General Data Protection Regulation (GDPR)",
+            "desc": "Since we do not collect or process your personal data on our servers, we do not act as a traditional data controller. However, we respect your privacy in the spirit of GDPR:",
+            "right_1": "Right to Access: You have direct access to all data on your device.",
+            "right_2": "Right to Erase: You can clear all data in the application settings (\"Clear Data\").",
+            "right_3": "Right to Portability: You can save your reports as PDF files."
+        },
+        "contact": {
+            "title": "Contact",
+            "desc": "If you have questions about security:",
+            "email": "turvasiipi@gmail.com",
+            "updated": "Last updated: 17.1.2026"
+        }
     },
     "timeline": {
         "page": {

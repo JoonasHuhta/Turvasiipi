@@ -25,32 +25,6 @@
         "reports": "Raportit",
         "guide": "Miten kirjaan?"
     },
-    "faq": {
-        "title": "Usein kysytyt kysymykset",
-        "subtitle": "Mietityttääkö jokin? Tässä vastauksia yleisimpiin kysymyksiin.",
-        "q1": "Mikä on Turvasiipi?",
-        "a1": "Turvasiipi on yksityinen työkalu, joka auttaa sinua tunnistamaan ja dokumentoimaan työpaikkakiusaamista. Kaikki tiedot tallennetaan vain sinun laitteellesi – emme kerää mitään palvelimillemme.",
-        "q2": "Kuka näkee kirjoittamani asiat?",
-        "a2": "Vain sinä. Kaikki merkinnät tallennetaan selaimeesi paikallisesti. Emme lähetä tietoja minnekään, emmekä voi nähdä niitä. Tämä on täysin yksityinen työkalu.",
-        "q3": "Voiko työnantajani nähdä, että käytän tätä?",
-        "a3": "Ei. Turvasiipi toimii täysin paikallisesti selaimessasi. Työnantajasi ei voi nähdä, että käytät sovellusta, ellet itse jaa tietoja. Suosittelemme käyttämään omaa laitettasi, ei työnantajan laitetta.",
-        "q4": "Miten dokumentointi toimii?",
-        "a4": "Kirjaat tapahtumat lyhyesti: mitä tapahtui, milloin, ketkä olivat paikalla, ja miltä se tuntui. Merkintöjä ei voi muokata jälkikäteen, jotta ne säilyvät luotettavina. Voit myöhemmin luoda raportin tai viedä tiedot.",
-        "q5": "Näkyykö Tarinat-osiossa jakamani tarina muille?",
-        "a5": "Kyllä, mutta täysin anonyymisti. Tarinat jaetaan ilman nimeä, työpaikkaa tai muita tunnistetietoja. Voit itse päättää, haluatko jakaa tarinasi vai ei.",
-        "q6": "Miten Turvasiipi auttaa minua toipumaan?",
-        "a6": "Turvasiipi ei korvaa ammattiapua, mutta se auttaa sinua näkemään tilanteen selkeämmin. Dokumentointi vähentää epävarmuutta ja auttaa sinua luottamaan omaan havaintokykyyn. Yhteisö-osio tarjoaa vertaistukea.",
-        "q7": "Mitä on kiusaamisen lukutaito?",
-        "a7": "Kyky tunnistaa kiusaamisen merkit, ymmärtää sen dynamiikkaa ja nimetä kokemuksesi. Samalla tavalla kuin medialukutaito auttaa ymmärtämään mediaa, kiusaamisen lukutaito auttaa ymmärtämään työpaikkadynamiikkaa.",
-        "q8": "Kenelle Turvasiipi on tehty?",
-        "a8": "Kaikille, jotka epäilevät kokevansa työpaikkakiusaamista tai huonoa kohtelua. Erityisesti niille, jotka eivät ole vielä varmoja, mitä tapahtuu, mutta tuntevat että jotain on vialla.",
-        "q9": "Olen välittömässä vaarassa. Mitä teen?",
-        "a9_title": "Jos olet välittömässä vaarassa, ota yhteyttä hätänumeroon 112.",
-        "a9_text": "Turvasiipi ei ole kriisipalvelu. Jos tarvitset akuuttia apua, ota yhteyttä:",
-        "a9_list_1": "• **Kriisipuhelin:** 09 2525 0111 (24/7)",
-        "a9_list_2": "• **Mieli ry:** mieli.fi",
-        "a9_list_3": "• **Työsuojeluviranomainen:** tyosuojelu.fi"
-    },
     "simulation": {
         "header": {
             "label": "Simulaatio ympäristö",
@@ -142,30 +116,6 @@
                 "label": "Tiimin hyväksyntä",
                 "desc": "Kuulumisen tunne työyhteisöön."
             }
-        }
-    },
-    "timeline": {
-        "page": {
-            "label": "Välineet — Lokikirja",
-            "title": "Lokikirja",
-            "status_open": "Avoin",
-            "subtitle": "Kaikki värit muuttuvat harmaaksi, mutta muste pysyy mustana.",
-            "confirm_delete": "Haluatko varmasti poistaa tämän merkinnän?",
-            "loading": "Ladataan lokikirjaa...",
-            "entry_count": "{{count}} merkintää",
-            "tools": {
-                "guide_title": "Miten kirjaan oikein?",
-                "guide_desc": "Lue opas juridisesti pätevien ja todistusvoimaisten muistiinpanojen tekemiseen.",
-                "guide_btn": "Lue dokumentointiopas",
-                "new_title": "Uusi merkintä?",
-                "new_desc": "Käytä ohjattua kirjaamista varmistaaksesi, että merkintäsi on juridisesti pätevä ja todistusvoimainen.",
-                "new_btn": "Avaa lokikirja"
-            },
-            "history_title": "Tapahtumahistoria"
-        },
-        "empty": {
-            "title": "Ei merkintöjä",
-            "subtitle": "Aloita kirjaaminen painamalla 'Uusi merkintä' -painiketta."
         }
     },
     "log_tool": {
@@ -597,7 +547,7 @@
         "q1": "Mikä on Turvasiipi?",
         "a1": "Turvasiipi on ilmainen digitaalinen työkalu työpaikkakiusaamisen ja epäasiallisen kohtelun dokumentointiin, tunnistamiseen ja käsittelyyn. Tarjoamme tietoa, työkaluja ja vertaistukea kaikille, jotka kohtaavat epäasiallista käytöstä.",
         "q2": "Kuka näkee kirjoittamani asiat?",
-        "a2": "Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan **vain sinun omalle laitteellesi** (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi, emmekä me näe lokikirjojasi tai raporttejasi.",
+        "a2": "Ei kukaan muu kuin sinä. Kaikki tiedot tallennetaan vain sinun omalle laitteellesi (puhelin tai tietokone). Meillä ei ole palvelinta, joka keräisi tietojasi, emmekä me näe lokikirjojasi tai raporttejasi.",
         "q3": "Voiko työnantajani nähdä, että käytän tätä?",
         "a3": "Ei. Sovellus ei vaadi kirjautumista työsähköpostilla eikä se jätä jälkiä yrityksen verkkoon (paitsi selainhistoriaan). Suosittelemme käyttämään sovellusta omalla laitteellasi tai selaimen Yksityinen selaus (Incognito) -tilassa.",
         "q4": "Miten dokumentointi toimii?",
@@ -605,13 +555,15 @@
         "q5": "Näkyykö Tarinat-osiossa jakamani tarina muille?",
         "a5": "Kyllä, mutta vain jos päätät julkaista sen. Julkaisu on täysin anonyymia (tai valitsemallasi nimimerkillä). Emme tallenna IP-osoitteita, joten tarinoita ei voi jäljittää sinuun.",
         "q6": "Olen välittömässä vaarassa. Mitä teen?",
-        "a6": "Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon **112**. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: **010 195 202**.",
+        "a6": "Jos koet väkivaltaa tai akuuttia uhkaa, soita heti hätänumeroon 112. Turvasiipi on dokumentointityökalu, ei kriisipalvelu. Henkisessä hädässä soita Kriisipuhelimeen: 010 195 202.",
         "q7": "Miten Turvasiipi auttaa minua toipumaan?",
         "a7": "Sovellus tarjoaa passiivisen dokumentoinnin lisäksi aktiivisia työkaluja: simulaattoreita ja valmennusmoduuleja. Niiden avulla voit harjoitella vaikeita tilanteita turvallisesti, vahvistaa resilienssiäsi ja oppia asettamaan rajoja taktisesti.",
-        "q8": "Onko tekoälyn käyttö turvallista?",
-        "a8": "Kyllä. Käytämme tekoälyä vain raporttien jäsennöimiseen, ja se tapahtuu erittäin suojatussa ympäristössä. Tietojasi ei käytetä tekoälyn kouluttamiseen, eivätkä ne koskaan tallennu pysyvästi mihinkään pilvipalveluun.",
         "q9": "Mitä on kiusaamisen lukutaito?",
-        "a9": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se ei tarkoita sitä, että jokaisen pitäisi olla asiantuntija tai sankari. Se tarkoittaa, että kukaan ei ole tilanteessa neuvoton.",
+        "a9_title": "Mitä on kiusaamisen lukutaito?",
+        "a9_text": "Kiusaamisen lukutaito on kykyä tunnistaa, ymmärtää ja kohdata kiusaamista työyhteisössä – ajoissa ja yhdessä. Se:",
+        "a9_list_1": "Tunnistaa piilevät ja hienovaraiset kiusaamisen muodot.",
+        "a9_list_2": "Ymmärtää ilmiön dynamiikan ja vaikutukset.",
+        "a9_list_3": "Antaa välineet puuttua tilanteeseen rakentavasti.",
         "q10": "Kenelle Turvasiipi on tehty?",
         "a10": "Turvasiipi on suunniteltu kaikille, jotka haluavat ymmärtää työpaikan valtadynamiikkaa ja tunnistaa piilevää psykologista väkivaltaa."
     },
@@ -3329,5 +3281,43 @@
                 "isCritical": true
             }
         ]
+    },
+    "privacy_page": {
+        "title": "Tietosuojaseloste",
+        "subtitle": "Tietosi kuuluvat sinulle. Tässä kerromme, miten huolehdimme yksityisyydestäsi.",
+        "back": "Takaisin etusivulle",
+        "principles": {
+            "title": "Tietosuojaperiaatteet",
+            "local_title": "Paikallinen tallennus",
+            "local_desc": "Kaikki luomasi merkinnät ja raportit tallennetaan vain ja ainoastaan käyttämällesi laitteelle (selaimen LocalStorage). Emme lähetä niitä pilvipalveluihin.",
+            "anonymous_title": "Täysi anonyymiys",
+            "anonymous_desc": "Emme kerää henkilötietoja. Palvelun käyttö ei vaadi rekisteröitymistä, nimeä tai sähköpostiosoitetta.",
+            "encryption_title": "Salaus (Vapaaehtoinen)",
+            "encryption_desc": "Voit halutessasi suojata tietosi PIN-koodilla, jolloin ne salataan AES-256-standardilla."
+        },
+        "data_collection": {
+            "title": "Mitä tietoja tallennamme?",
+            "local_label": "Laitteellasi:",
+            "local_list_1": "Lokimerkinnät ja aikajana",
+            "local_list_2": "Valmennuksen edistyminen",
+            "local_list_3": "Sovelluksen asetukset",
+            "server_label": "Palvelimilla (Tekninen ylläpito):",
+            "server_desc": "Hosting-palveluntarjoajamme (Vercel) saattaa kerätä tavanomaisia teknisiä lokitietoja (kuten IP-osoitteet) palvelun tietoturvan ja toimivuuden varmistamiseksi. Emme käytä näitä tietoja käyttäjien tunnistamiseen.",
+            "cookies_title": "Evästeet",
+            "cookies_desc": "Emme käytä markkinointievästeitä tai kolmannen osapuolen seurantatyökaluja (kuten Google Analytics)."
+        },
+        "gdpr": {
+            "title": "EU:n Yleinen tietosuoja-asetus (GDPR)",
+            "desc": "Koska emme kerää tai käsittele henkilötietojasi palvelimillamme, emme toimi perinteisenä rekisterinpitäjänä. Kunnioitamme kuitenkin yksityisyyttäsi GDPR:n hengen mukaisesti:",
+            "right_1": "Oikeus tietohin: Sinulla on pääsy kaikkeen dataan suoraan laitteellasi.",
+            "right_2": "Oikeus poistaa tiedot: Voit tyhjentää kaiken tiedon sovelluksen asetuksista (\"Tyhjennä tiedot\").",
+            "right_3": "Oikeus siirtää tiedot: Voit tallentaa raporttisi PDF-muodossa."
+        },
+        "contact": {
+            "title": "Yhteystiedot",
+            "desc": "Jos sinulla on kysyttävää tietoturvasta:",
+            "email": "turvasiipi@gmail.com",
+            "updated": "Viimeksi päivitetty: 17.1.2026"
+        }
     }
 }
