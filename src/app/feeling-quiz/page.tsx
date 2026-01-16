@@ -129,22 +129,20 @@ export default function FeelingQuizPage() {
                     </p>
                 </section>
 
-                <div className="grid gap-6 sm:grid-cols-2">
+                <div className="grid gap-3 sm:grid-cols-2 lg:gap-6">
                     {[
-                        { title: "Matala kynnys", text: "Vastaa rehellisesti omassa tahdissasi. Kukaan ei näe vastauksiasi.", icon: "🔒" },
-                        { title: "Välitön palaute", text: "Opit normalisoivaa tietoa jokaisen vastauksen jälkeen.", icon: "💙" },
+                        { title: "Matala kynnys", text: "Vastaa omassa tahdissasi. Kukaan ei näe vastauksiasi.", icon: "🔒" },
+                        { title: "Välitön palaute", text: "Saat normalisoivaa tietoa jokaisen vastauksen jälkeen.", icon: "💙" },
                         { title: "Painotettu analyysi", text: "Tunnistaa vakavimmat merkit, kuten gaslightingin.", icon: "📊" },
                         { title: "Kriisiavun ohjaus", text: "Tunnistaa akuutin avun tarpeen välittömästi.", icon: "🚨" }
                     ].map((item, i) => (
-                        <Card key={i} className="border-none bg-slate-50 overflow-hidden group">
-                            <CardContent className="p-6 flex items-start gap-4">
-                                <span className="text-3xl group-hover:scale-110 transition-transform">{item.icon}</span>
-                                <div className="space-y-1">
-                                    <h3 className="font-bold text-slate-900">{item.title}</h3>
-                                    <p className="text-sm text-slate-600 leading-tight">{item.text}</p>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <div key={i} className="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 items-start hover:bg-slate-100 transition-colors">
+                            <span className="text-2xl pt-1 shrink-0">{item.icon}</span>
+                            <div className="space-y-1">
+                                <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">{item.title}</h3>
+                                <p className="text-sm text-slate-600 leading-snug">{item.text}</p>
+                            </div>
+                        </div>
                     ))}
                 </div>
 
