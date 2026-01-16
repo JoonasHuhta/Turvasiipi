@@ -152,7 +152,23 @@ export function Navigation() {
                     </SheetTrigger>
                     <SheetContent side="right" className="bg-[#FDFBF7] border-l border-[#E8DDD0] overflow-y-auto w-[300px] sm:w-[400px]">
                         <SheetTitle className="sr-only">Valikko</SheetTitle>
-                        <div className="flex flex-col gap-8 pb-12 mt-8">
+                        <div className="flex flex-col gap-8 pb-12 mt-8 px-6">
+
+                            {/* Profile Section (Moved to Top) */}
+                            <div className="flex flex-col gap-6">
+                                <Link
+                                    href="/profiili"
+                                    className="text-sm font-bold uppercase tracking-widest text-[#2B2B2B] flex items-center gap-3 hover:text-[#5B4B8A] transition-colors p-2 -mx-2 rounded-sm hover:bg-[#E8DDD0]/30"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <span className="text-2xl shrink-0" aria-hidden="true">{expertise.icon}</span>
+                                    <span className="whitespace-normal break-words leading-tight">Profiili — {expertise.name}</span>
+                                </Link>
+                                <LanguageToggle className="justify-start px-2" />
+                            </div>
+
+                            {/* Divider */}
+                            <div className="h-px w-full bg-[#E8DDD0]/50" />
 
                             {/* Main Direct Links */}
                             <div className="space-y-1">
@@ -210,17 +226,6 @@ export function Navigation() {
                                 </div>
                             </div>
 
-                            <div className="pt-4 border-t border-[#E8DDD0]/50 flex flex-col gap-6">
-                                <Link
-                                    href="/profiili"
-                                    className="text-sm font-bold uppercase tracking-widest text-[#2B2B2B] flex items-center gap-3 hover:text-[#5B4B8A] transition-colors p-2 -mx-2 rounded-sm hover:bg-[#E8DDD0]/30"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    <span className="text-2xl shrink-0" aria-hidden="true">{expertise.icon}</span>
-                                    <span className="whitespace-normal break-words leading-tight">Profiili — {expertise.name}</span>
-                                </Link>
-                                <LanguageToggle className="justify-start px-2" />
-                            </div>
                         </div>
                     </SheetContent>
                 </Sheet>
