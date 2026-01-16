@@ -22,18 +22,17 @@ export default function NeurodiversityPage() {
 
                 {/* HEADER */}
                 <div className="text-center space-y-6">
-                    <Badge variant="outline" className="bg-indigo-50 text-indigo-700 border-indigo-200 px-3 py-1 text-sm">
+                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
                         Oppimiskeskus
-                    </Badge>
-                    <h1 className="text-4xl md:text-5xl font-black text-[#2B2B2B] tracking-tight leading-tight">
+                    </span>
+                    <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#2B2B2B] tracking-tight leading-tight">
                         Neuromoninaisuus työelämässä
                     </h1>
-                    <p className="text-xl text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed">
-                        Aivosi toimivat eri tavalla? Se on voimavarasi.
-                        <br />
-                        <span className="text-base mt-2 block">
-                            Neuromoninaisuus kattaa tilat kuten autismikirjon, ADHD, dysleksia ja dyspraksia. Se ei ole sairaus, vaan osa ihmisen luonnollista vaihtelua.
-                        </span>
+                    <p className="text-xl text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed font-serif italic">
+                        "Aivosi toimivat eri tavalla? Se on voimavarasi."
+                    </p>
+                    <p className="text-sm text-[#666] max-w-xl mx-auto leading-relaxed">
+                        Neuromoninaisuus kattaa tilat kuten autismikirjon, ADHD, dysleksia ja dyspraksia. Se ei ole sairaus, vaan osa ihmisen luonnollista vaihtelua.
                     </p>
                 </div>
 
@@ -56,17 +55,17 @@ export default function NeurodiversityPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-slate-900 to-indigo-900 text-white border-none shadow-lg">
+                    <Card className="bg-white border-[#E8DDD0] shadow-sm hover:shadow-md transition-all">
                         <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                            <div className="p-3 bg-white/10 text-white rounded-xl">
+                            <div className="p-3 bg-[#FDFBF7] text-[#5B4B8A] rounded-xl border border-[#E8DDD0]">
                                 <Zap className="w-8 h-8" />
                             </div>
                             <div>
-                                <CardTitle className="text-xl">Supervoimat</CardTitle>
-                                <CardDescription className="text-indigo-200">Tutkittuja vahvuuksia</CardDescription>
+                                <CardTitle className="text-xl font-serif">Supervoimat</CardTitle>
+                                <CardDescription className="text-[#5B4B8A] font-mono text-[10px] uppercase tracking-wider">Tutkittuja vahvuuksia</CardDescription>
                             </div>
                         </CardHeader>
-                        <CardContent className="text-indigo-50 space-y-2 text-sm">
+                        <CardContent className="text-[#4A4A4A] space-y-2 text-sm leading-relaxed">
                             <p>🏆 <strong>Tuottavuus:</strong> Autism at Work -ohjelmissa jopa 140% tuottavampia ja vähemmän virheitä.</p>
                             <p>💡 <strong>Innovaatio:</strong> Kuvioiden tunnistaminen ja monimutkainen ongelmanratkaisu.</p>
                             <p>🔍 <strong>Hyperfokus:</strong> Kyky uppoutua täysin tehtävään ja tuottaa poikkeuksellista laatua.</p>
@@ -75,27 +74,25 @@ export default function NeurodiversityPage() {
                 </div>
 
                 {/* LUSIKKATEORIA (NEW SECTION) */}
-                <section id="lusikkateoria" className="bg-[#2B2B2B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                {/* LUSIKKATEORIA */}
+                <section id="lusikkateoria" className="bg-white rounded-[2.5rem] p-8 md:p-12 text-[#2B2B2B] relative overflow-hidden shadow-sm border border-[#E8DDD0]">
                     <div className="relative z-10 space-y-8">
-                        <div className="flex flex-col md:flex-row gap-8 items-center">
+                        <div className="flex flex-col md:flex-row gap-8 items-center text-center md:text-left">
                             <div className="flex-1 space-y-4">
-                                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-indigo-200 px-4 py-1 rounded-full text-xs font-black tracking-widest uppercase">
-                                    <Heart className="w-3 h-3" />
+                                <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
                                     Energiapääoma
-                                </div>
-                                <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight leading-none">
-                                    Lusikkateoria <br />
-                                    <span className="text-indigo-400">ja jaksaminen</span>
+                                </span>
+                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">
+                                    Lusikkateoria ja jaksaminen
                                 </h2>
-                                <p className="text-indigo-100/80 leading-relaxed font-medium">
+                                <p className="text-[#4A4A4A] leading-relaxed font-medium">
                                     Lusikkateoria on Christine Miserandinon kehittämä vertauskuva energian rajallisuudesta.
                                     Se auttaa ymmärtämään, miksi arkipäiväiset asiat voivat uuvuttaa neuromoninaisen ihmisen nopeammin.
                                 </p>
                             </div>
                             <div className="flex-1 grid grid-cols-4 gap-4 max-w-sm">
                                 {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                                    <div key={i} className={`aspect-square rounded-2xl flex items-center justify-center text-2xl bg-white/10 border border-white/10 ${i > 3 ? 'opacity-20 grayscale' : 'animate-pulse'}`}>
+                                    <div key={i} className={`aspect-square rounded-2xl flex items-center justify-center text-2xl bg-white border border-[#E8DDD0] shadow-sm ${i > 3 ? 'opacity-20 grayscale' : 'animate-pulse'}`}>
                                         🥄
                                     </div>
                                 ))}
@@ -103,17 +100,17 @@ export default function NeurodiversityPage() {
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-6">
-                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                                <h4 className="font-bold mb-3 text-indigo-300 uppercase text-xs tracking-wider">Mikä se on?</h4>
-                                <p className="text-sm text-indigo-50/70">Jokainen "lusikka" on yksikkö energiaa. Toisin kuin neurotyypillisillä, neuromoninaisilla lusikoita on usein vähemmän ja ne kuluvat nopeammin aistiärsykkeisiin tai sosiaaliseen maskaamiseen.</p>
+                            <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
+                                <h4 className="font-bold mb-3 text-[#5B4B8A] uppercase text-[10px] tracking-widest">Mikä se on?</h4>
+                                <p className="text-sm text-[#4A4A4A]">Jokainen "lusikka" on yksikkö energiaa. Toisin kuin neurotyypillisillä, neuromoninaisilla lusikoita on usein vähemmän ja ne kuluvat nopeammin aistiärsykkeisiin tai sosiaaliseen maskaamiseen.</p>
                             </div>
-                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                                <h4 className="font-bold mb-3 text-rose-300 uppercase tracking-wider text-xs">Mikä kuluttaa?</h4>
-                                <p className="text-sm text-indigo-50/70">Meluisa tila, epäselvät ohjeet, muuttuvat aikataulut tai pakotettu small talk voivat viedä useita lusikoita kerralla ennen kuin varsinainen työ on edes alkanut.</p>
+                            <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
+                                <h4 className="font-bold mb-3 text-rose-700 uppercase tracking-widest text-[10px]">Mikä kuluttaa?</h4>
+                                <p className="text-sm text-[#4A4A4A]">Meluisa tila, epäselvät ohjeet, muuttuvat aikataulut tai pakotettu small talk voivat viedä useita lusikoita kerralla ennen kuin varsinainen työ on edes alkanut.</p>
                             </div>
-                            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                                <h4 className="font-bold mb-3 text-emerald-300 uppercase tracking-wider text-xs">Miten säästää?</h4>
-                                <p className="text-sm text-indigo-50/70">Oikeus vastamelukuulokkeisiin, kirjallinen kommunikaatio ja lupaus olla osallistumatta videopalavereihin voivat säästää kriittisiä lusikoita loppupäivään.</p>
+                            <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
+                                <h4 className="font-bold mb-3 text-emerald-700 uppercase tracking-widest text-[10px]">Miten säästää?</h4>
+                                <p className="text-sm text-[#4A4A4A]">Oikeus vastamelukuulokkeisiin, kirjallinen kommunikaatio ja lupaus olla osallistumatta videopalavereihin voivat säästää kriittisiä lusikoita loppupäivään.</p>
                             </div>
                         </div>
                     </div>
@@ -125,8 +122,8 @@ export default function NeurodiversityPage() {
 
                     {/* 1. HAASTEET */}
                     <section id="haasteet">
-                        <h2 className="text-2xl font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
-                            <AlertTriangle className="w-6 h-6 text-amber-500" />
+                        <h2 className="text-2xl font-serif font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
+                            <AlertTriangle className="w-6 h-6 text-amber-600" />
                             Miksi työelämä kuormittaa?
                         </h2>
                         <div className="grid md:grid-cols-2 gap-4">
@@ -161,8 +158,8 @@ export default function NeurodiversityPage() {
                     </section>
 
                     {/* 2. MITÄ VOIT TEHDÄ */}
-                    <section id="toiminta" className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
-                        <h2 className="text-2xl font-bold flex items-center gap-3 mb-6 text-slate-800">
+                    <section id="toiminta" className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-[#E8DDD0]">
+                        <h2 className="text-2xl font-serif font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
                             <UserCheck className="w-6 h-6 text-emerald-600" />
                             Mitä voit tehdä?
                         </h2>
@@ -192,10 +189,10 @@ export default function NeurodiversityPage() {
                     {/* 3. DOUBLE EMPATHY DECODER (NEW) */}
                     <section id="decoder" className="space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-pink-100 text-pink-600 rounded-lg">
+                            <div className="p-2 bg-[#FDFBF7] text-[#5B4B8A] rounded-lg border border-[#E8DDD0]">
                                 <MessageCircle className="w-5 h-5" />
                             </div>
-                            <h2 className="text-2xl font-bold text-slate-800">Kaksoisempatia-tulkki</h2>
+                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">Kaksoisempatia-tulkki</h2>
                         </div>
                         <p className="text-slate-600 text-sm">Sama tilanne, kaksi eri kokemusta. Ymmärrys syntyy kuilun ylittämisestä.</p>
 
@@ -246,12 +243,12 @@ export default function NeurodiversityPage() {
                     {/* 4. NEPSY LOG TEMPLATES (NEW) */}
                     <section id="templates" className="space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                            <div className="p-2 bg-[#FDFBF7] text-[#5B4B8A] rounded-lg border border-[#E8DDD0]">
                                 <BookOpen className="w-5 h-5" />
                             </div>
-                            <h2 className="text-2xl font-bold text-slate-800">Nepsy-Log: Dokumentoinnin tueksi</h2>
+                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">Nepsy-Log</h2>
                         </div>
-                        <p className="text-slate-600 text-sm">Dokumentointi on paras suojasi Performance Trapia eli suoritusloukkua vastaan.</p>
+                        <p className="text-slate-600 text-sm font-medium">Dokumentoinnin tueksi Performance Trapia eli suoritusloukkua vastaan.</p>
 
                         <div className="grid md:grid-cols-2 gap-6">
                             <Card className="border-2 border-dashed border-slate-200 bg-transparent hover:border-indigo-300 transition-colors cursor-pointer group">
@@ -287,12 +284,12 @@ export default function NeurodiversityPage() {
                                 </CardContent>
                             </Card>
                         </div>
-                        <div className="bg-indigo-900 rounded-2xl p-6 text-white text-sm">
+                        <div className="bg-[#FDFBF7] rounded-2xl p-6 text-[#2B2B2B] text-sm border border-[#E8DDD0] shadow-sm">
                             <div className="flex gap-4 items-center">
-                                <Scale className="w-10 h-10 text-indigo-300 shrink-0" />
+                                <Scale className="w-10 h-10 text-[#5B4B8A] shrink-0 opacity-50" />
                                 <div>
-                                    <p className="font-bold mb-1">Muista oikeutesi:</p>
-                                    <p className="text-indigo-100 opacity-80">Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuulliset mukautukset. Dokumentoitu logi on näyttösi, jos näitä mukautuksia käytetään myöhemmin sinua vastaan.</p>
+                                    <h4 className="font-bold mb-1 font-serif">Muista oikeutesi:</h4>
+                                    <p className="text-[#4A4A4A] leading-relaxed">Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuulliset mukautukset. Dokumentoitu logi on näyttösi, jos näitä mukautuksia käytetään myöhemmin sinua vastaan.</p>
                                 </div>
                             </div>
                         </div>
@@ -301,55 +298,57 @@ export default function NeurodiversityPage() {
                 </div>
 
                 {/* SIMULATION CALL TO ACTION */}
-                <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 text-center space-y-8 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 via-indigo-500 to-rose-500" />
+                {/* SIMULATION CALL TO ACTION */}
+                <div className="bg-white border border-[#E8DDD0] rounded-3xl p-8 md:p-12 text-[#2B2B2B] relative overflow-hidden shadow-sm">
+                    <div className="absolute top-0 left-0 w-full h-1.5 bg-[#5B4B8A]/20" />
 
                     <div className="relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 text-left items-center">
                         <div className="space-y-6">
-                            <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-none text-base px-4 py-1 uppercase font-black tracking-widest">Päivitetty</Badge>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.8] uppercase">
-                                Harjoittele <br />
-                                <span className="text-amber-400">itsepuolustusta</span>
+                            <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
+                                Harjoittelu
+                            </span>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#2B2B2B] leading-tight">
+                                Harjoittele itsepuolustusta turvallisesti
                             </h2>
-                            <p className="text-slate-300 text-lg leading-relaxed max-w-md">
-                                Työelämä voi olla miinakenttä. Simulaattorimme avulla voit harjoitella vaikeita tilanteita turvallisesti ennen niiden kohtaamista arjessa.
+                            <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-md">
+                                Työelämä voi olla miinakenttä. Simulaattorimme avulla voit harjoitella vaikeita tilanteita ennen niiden kohtaamista arjessa.
                             </p>
                         </div>
 
                         <div className="grid gap-4">
                             <Link href="/simulaatio/neuro">
-                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
-                                    <h4 className="font-bold flex items-center justify-between">
+                                <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
+                                    <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
                                         Päivä neurokirjolla 🧩
-                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-slate-400 mt-1">Aistiyliherkkyydet ja energianhallinta.</p>
+                                    <p className="text-xs text-[#666] mt-1">Aistiyliherkkyydet ja energianhallinta.</p>
                                 </div>
                             </Link>
                             <Link href="/simulaatio/performance-trap">
-                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
-                                    <h4 className="font-bold flex items-center justify-between">
+                                <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
+                                    <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
                                         Suoritusloukku 📉
-                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-slate-400 mt-1">Kohtuullisten mukautusten puolustaminen.</p>
+                                    <p className="text-xs text-[#666] mt-1">Kohtuullisten mukautusten puolustaminen.</p>
                                 </div>
                             </Link>
                             <Link href="/simulaatio/information-shadow">
-                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group cursor-pointer">
-                                    <h4 className="font-bold flex items-center justify-between">
+                                <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
+                                    <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
                                         Informaatiovarjo 👤
-                                        <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-slate-400 mt-1">Sosiaalisesta ulossulkemisesta selviytyminen.</p>
+                                    <p className="text-xs text-[#666] mt-1">Sosiaalisesta ulossulkemisesta selviytyminen.</p>
                                 </div>
                             </Link>
                         </div>
                     </div>
 
-                    <div className="pt-8 border-t border-white/10 relative z-10">
+                    <div className="pt-8 mt-8 border-t border-[#E8DDD0] relative z-10 text-center lg:text-left">
                         <Link href="/simulaatio">
-                            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-full px-8">
+                            <Button variant="outline" className="border-[#E8DDD0] text-[#5B4B8A] hover:bg-[#FDFBF7] rounded-full px-8 font-serif">
                                 Katso kaikki skenaariot
                             </Button>
                         </Link>
@@ -366,8 +365,8 @@ export default function NeurodiversityPage() {
                     )}>
                         <CardContent className="p-8 md:p-12 text-center space-y-6">
                             <div className={cn(
-                                "w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-4xl mb-4 transition-all duration-500",
-                                isCompleted ? "bg-emerald-500 text-white rotate-12" : "bg-indigo-50 text-indigo-600"
+                                "w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-4xl mb-4 transition-all duration-500 shadow-sm border border-[#E8DDD0]",
+                                isCompleted ? "bg-emerald-500 text-white rotate-12" : "bg-white text-[#5B4B8A]"
                             )}>
                                 {isCompleted ? <CheckCircle2 className="w-10 h-10" /> : <BookOpen className="w-10 h-10" />}
                             </div>
