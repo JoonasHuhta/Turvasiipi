@@ -73,7 +73,7 @@ export default function EmpathyTestPage() {
                 </div>
             </header>
 
-            <main className="flex-1 flex flex-col items-center justify-center p-4">
+            <main className="flex-1 flex flex-col items-center pt-6 md:justify-center p-4">
                 <AnimatePresence mode="wait">
 
                     {/* --- INTRO --- */}
@@ -118,7 +118,7 @@ export default function EmpathyTestPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="max-w-2xl w-full space-y-8"
+                            className="max-w-2xl w-full space-y-4 md:space-y-8"
                         >
                             <div className="space-y-3">
                                 <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-[#5B4B8A]">
@@ -129,7 +129,7 @@ export default function EmpathyTestPage() {
                             </div>
 
                             <Card className="border border-[#E8DDD0] shadow-sm rounded-3xl overflow-hidden bg-white">
-                                <CardHeader className="p-8 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0]">
+                                <CardHeader className="p-6 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0]">
                                     <div className="flex items-center gap-2 mb-4">
                                         <span className={cn(
                                             "text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-sm border",
@@ -156,7 +156,7 @@ export default function EmpathyTestPage() {
                                                 key={opt.value}
                                                 variant="outline"
                                                 onClick={() => handleAnswer(opt.value)}
-                                                className="h-14 justify-start text-lg font-serif font-bold px-8 rounded-2xl border-[#E8DDD0] bg-white hover:border-[#5B4B8A] hover:bg-[#FDFBF7] transition-all text-[#2B2B2B]"
+                                                className="h-auto py-4 justify-start text-base sm:text-lg font-serif font-bold px-6 sm:px-8 rounded-2xl border-[#E8DDD0] bg-white hover:border-[#5B4B8A] hover:bg-[#FDFBF7] transition-all text-[#2B2B2B] whitespace-normal text-left"
                                             >
                                                 {opt.label}
                                             </Button>
