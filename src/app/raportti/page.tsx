@@ -18,7 +18,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import Link from "next/link";
 import { analyzeEvents, generateSummaryChecklist } from "@/helpers/reportAnalysis";
 import { templates, TemplateCategory, Template } from "@/data/templates";
-import { generatePremiumReport, AIReportResult } from "@/actions/generateReport";
+// import { generatePremiumReport, AIReportResult } from "@/actions/generateReport";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function DocumentsPage() {
@@ -30,9 +30,9 @@ export default function DocumentsPage() {
     const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
     // Premium AI State
-    const [aiStep, setAiStep] = useState<'intro' | 'payment' | 'processing' | 'result'>('intro');
-    const [consentGiven, setConsentGiven] = useState(false);
-    const [aiResult, setAiResult] = useState<AIReportResult | null>(null);
+    // const [aiStep, setAiStep] = useState<'intro' | 'payment' | 'processing' | 'result'>('intro');
+    // const [consentGiven, setConsentGiven] = useState(false);
+    // const [aiResult, setAiResult] = useState<AIReportResult | null>(null);
 
     // Stats
     const stats = mounted ? analyzeEvents(events) : null;
@@ -103,6 +103,7 @@ export default function DocumentsPage() {
         }
     };
 
+    /*
     const handleStartPremiumProcess = () => {
         setAiStep('payment');
     };
@@ -120,11 +121,12 @@ export default function DocumentsPage() {
                 description: e.description?.replace(/Matti|Teppo|Maija/g, "[NIMI POISTETTU]")
             })));
 
-            const result = await generatePremiumReport(anonymizedData);
-            setAiResult(result);
+            // const result = await generatePremiumReport(anonymizedData);
+            // setAiResult(result);
             setAiStep('result');
         }, 3500);
     };
+    */
 
 
     const filteredTemplates = activeCategory === 'all'
@@ -184,12 +186,14 @@ export default function DocumentsPage() {
                             >
                                 <FileCheck className="w-4 h-4 mr-2" /> {t('report.page.tabs.templates')}
                             </TabsTrigger>
+                            {/* PREMIUM TAB HIDDEN TEMPORARILY
                             <TabsTrigger
                                 value="premium"
                                 className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]"
                             >
                                 <Sparkles className="w-4 h-4 mr-2" /> {t('report.page.tabs.premium')}
                             </TabsTrigger>
+                            */}
                         </TabsList>
 
                         {/* OVERVIEW CONTENT */}
@@ -541,7 +545,7 @@ export default function DocumentsPage() {
                             </Dialog>
                         </TabsContent>
 
-                        {/* PREMIUM AI CONTENT - "EXPERT REQUEST" STYLE */}
+                        {/* PREMIUM AI CONTENT HIDDEN TEMPORARILY
                         <TabsContent value="premium" className="focus-visible:outline-none focus-visible:ring-0">
                             <div className="bg-[#FDFBF7] border border-[#E8DDD0] rounded-sm p-8 md:p-12 min-h-[600px] flex flex-col items-center justify-center relative overflow-hidden">
 
@@ -673,6 +677,7 @@ export default function DocumentsPage() {
                                 )}
                             </div>
                         </TabsContent>
+                        */}
                     </Tabs>
                 </div>
             </VaultWrapper>

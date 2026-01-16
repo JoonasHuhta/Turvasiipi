@@ -56,6 +56,7 @@ export default function PrivacyPage() {
 
                 {/* Detailed Sections */}
                 <div className="space-y-8">
+                    {/* 
                     <section className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                             <Shield className="w-6 h-6 text-emerald-500" />
@@ -81,6 +82,7 @@ export default function PrivacyPage() {
                             </div>
                         </div>
                     </section>
+                    */}
 
                     <section className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">

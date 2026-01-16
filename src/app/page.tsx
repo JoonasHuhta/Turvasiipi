@@ -7,6 +7,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function HomePage() {
   return (
@@ -20,7 +28,7 @@ export default function HomePage() {
 
         <div className="space-y-8 max-w-2xl">
           <h2 className="text-2xl font-serif text-[#4A4A4A] leading-relaxed">
-            Jos alat epäillä omaa havainnointikykyäsi ja muistojasi, se on merkki siitä, että jotain on todella vialla.
+            Jos alat epäillä omaa havainnointikykyäsi ja muistojasi, se on merkki siitä, että jotain voi olla vialla.
           </h2>
 
           <div className="space-y-6">
@@ -40,12 +48,67 @@ export default function HomePage() {
             >
               Tutki tilannettasi <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="#miksi"
-              className="px-6 py-4 text-[#5B4B8A] hover:bg-[#5B4B8A]/5 rounded-sm font-medium transition-colors"
-            >
-              Lue ensin miten tämä toimii
-            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button
+                  className="px-6 py-4 text-[#5B4B8A] hover:bg-[#5B4B8A]/5 rounded-sm font-medium transition-colors cursor-pointer"
+                >
+                  Lue ensin miten tämä toimii
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#FDFBF7] border-[#E8DDD0]">
+                <DialogHeader className="mb-8">
+                  <DialogTitle className="text-3xl font-serif font-bold text-[#2B2B2B] mb-2">Näin Turvasiipi toimii</DialogTitle>
+                  <DialogDescription className="text-lg text-[#4A4A4A]">Neljä askelta, jotka muuttavat epävarmuuden toimintasuunnitelmaksi.</DialogDescription>
+                </DialogHeader>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Step 1 */}
+                  <div className="space-y-4">
+                    <div className="w-10 h-10 rounded-full bg-[#5B4B8A] text-white flex items-center justify-center font-bold text-lg">1</div>
+                    <h3 className="text-xl font-bold text-[#2B2B2B]">Tunnista tilanne</h3>
+                    <p className="text-[#4A4A4A]">Onko se kiusaamista vai "huonoa huumoria"? Käytä tieteeseen perustuvia testejämme nimeämään kokemuksesi ja poistamaan epävarmuus.</p>
+                    <div className="bg-white p-4 border border-[#E8DDD0] rounded-sm">
+                      <h4 className="font-bold text-xs uppercase tracking-widest text-[#5B4B8A] mb-1">Objektiivinen arvio</h4>
+                      <p className="text-sm text-[#4A4A4A]">Saat heti palautteen tilanteesi vakavuudesta ilman vähättelyä.</p>
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="space-y-4">
+                    <div className="w-10 h-10 rounded-full bg-[#5B4B8A] text-white flex items-center justify-center font-bold text-lg">2</div>
+                    <h3 className="text-xl font-bold text-[#2B2B2B]">Suojaa itsesi</h3>
+                    <p className="text-[#4A4A4A]">Sinun sanasi on arvokas, mutta data on voimaa. Kirjaa tapahtumat turvalliseen lokikirjaan heti kun ne tapahtuvat.</p>
+                    <div className="bg-white p-4 border border-[#E8DDD0] rounded-sm">
+                      <h4 className="font-bold text-xs uppercase tracking-widest text-[#5B4B8A] mb-1">Murtamaton lokikirja</h4>
+                      <p className="text-sm text-[#4A4A4A]">Vain sinun hallussasi oleva aikajana, jota on mahdotonta vääristellä.</p>
+                    </div>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="space-y-4">
+                    <div className="w-10 h-10 rounded-full bg-[#5B4B8A] text-white flex items-center justify-center font-bold text-lg">3</div>
+                    <h3 className="text-xl font-bold text-[#2B2B2B]">Luo faktapohja</h3>
+                    <p className="text-[#4A4A4A]">Kun on aika toimia, sovellus auttaa sinua muotoilemaan merkintäsi selkeäksi raportiksi.</p>
+                    <div className="bg-white p-4 border border-[#E8DDD0] rounded-sm">
+                      <h4 className="font-bold text-xs uppercase tracking-widest text-[#5B4B8A] mb-1">Valmis tilannekuva</h4>
+                      <p className="text-sm text-[#4A4A4A]">Tiivistä hajanaiset merkinnät raportiksi, joka puhuu puolestasi.</p>
+                    </div>
+                  </div>
+
+                  {/* Step 4 */}
+                  <div className="space-y-4">
+                    <div className="w-10 h-10 rounded-full bg-[#5B4B8A] text-white flex items-center justify-center font-bold text-lg">4</div>
+                    <h3 className="text-xl font-bold text-[#2B2B2B]">Ota ohjat takaisin</h3>
+                    <p className="text-[#4A4A4A]">Et ole voimaton. Harjoittele vaikeita kohtaamisia simulaattoreissa ja hanki työkaluja.</p>
+                    <div className="bg-white p-4 border border-[#E8DDD0] rounded-sm">
+                      <h4 className="font-bold text-xs uppercase tracking-widest text-[#5B4B8A] mb-1">Taitojen rakentaminen</h4>
+                      <p className="text-sm text-[#4A4A4A]">Vahvista resilienssiäsi ja opi toimimaan taktisesti vaikeissa tilanteissa.</p>
+                    </div>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
           <div className="text-[11px] font-mono text-[#4A4A4A] uppercase tracking-wider space-y-1 border-l-2 border-[#E8DDD0] pl-4">
@@ -57,7 +120,7 @@ export default function HomePage() {
 
       {/* SCROLL 1 - WHY EXISTS */}
       <section id="miksi" className="space-y-12 border-t border-[#E8DDD0] pt-24 scroll-mt-24">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A]">Miksi tämä on niin vaikeaa?</span>
+        <h2 className="text-3xl font-bold text-[#2B2B2B]">Miksi minusta tuntuu tältä?</h2>
 
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-8 space-y-8">
@@ -99,7 +162,7 @@ export default function HomePage() {
       {/* IS THIS BULLYING? */}
       <section className="space-y-12 border-t border-[#E8DDD0] pt-24">
         <h2 className="text-3xl md:text-4xl font-bold text-[#2B2B2B] leading-tight max-w-2xl">
-          "Onko tämä kiusaamista vai vain huonoa johtamista?"
+          Onko tämä kiusaamista vai vain huonoa johtamista?
         </h2>
 
         <div className="grid md:grid-cols-2 gap-16">
@@ -292,14 +355,7 @@ export default function HomePage() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-7" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
-            <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
-              Onko tekoälyn käyttö turvallista?
-            </AccordionTrigger>
-            <AccordionContent className="text-[#4A4A4A] leading-relaxed pb-6">
-              Turvasiipi ei käytä tekoälyä perusominaisuuksissa. Simulaatiot ja testit toimivat ennalta määritellyillä skenaarioilla. Tietosi eivät koskaan mene tekoälypalveluihin.
-            </AccordionContent>
-          </AccordionItem>
+
 
           <AccordionItem value="item-8" className="border border-[#E8DDD0] bg-white rounded-sm px-6">
             <AccordionTrigger className="hover:no-underline py-6 text-left text-lg font-medium text-[#2B2B2B]">
