@@ -31,49 +31,8 @@ export default function TacticsPage() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const tacticScrollRef = useRef<HTMLDivElement>(null);
 
-    // Image carousel data
-    const carouselImages = [
-        {
-            src: "/images/tactics/social-isolation.png",
-            alt: "Sosiaalinen eristäminen - uhri leikataan pois yhteisöstä",
-            caption: "Yksi yleisimmistä kiusaamisen muodoista on sosiaalinen eristäminen – uhri leikataan pois yhteisöstä."
-        },
-        {
-            src: "/images/tactics/manipulation.png",
-            alt: "Manipulaatio - kädet solmussa",
-            caption: "Manipulaatio ja gaslighting ovat hienovaraisia mutta erittäin vahingollisia taktiikoita."
-        },
-        {
-            src: "/images/tactics/mockery.png",
-            alt: "Pilkkaaminen ja nöyryyttäminen",
-            caption: "Verbaalinen kiusaaminen ja pilkkaaminen voi olla yhtä vahingollista kuin fyysinen väkivalta."
-        },
-        {
-            src: "/images/tactics/ostracism.png",
-            alt: "Ostrakismi - näkymätön muuri",
-            caption: "Ostrakismi on täydellistä huomiotta jättämistä – kuin henkilöä ei olisi olemassakaan."
-        },
-        {
-            src: "/images/tactics/exclusion.png",
-            alt: "Ulkopuolelle jättäminen ja väärän kuvan luominen",
-            caption: "Missä olet pöydän ympärillä? Luoko joku sinusta vääränlaista mielikuvaa?"
-        },
-        {
-            src: "/images/tactics/magnified-errors.png",
-            alt: "Virheiden suurennuslasi - pienet asiat paisutellaan suuriksi",
-            caption: "Pienimmätkin virheet voidaan ottaa suurennuslasin alle ja paisutella niitä, kunnes ne varjostavat kaikkea muuta tekemistä."
-        },
-        {
-            src: "/images/tactics/unreasonable-requirements.png",
-            alt: "Kohtuuttomat vaatimukset - mahdottomat tavoitteet",
-            caption: "Asetetaan tavoitteita, joita on mahdoton saavuttaa, tai vaaditaan suorituksia ilman riittäviä resursseja."
-        },
-        {
-            src: "/images/tactics/unreasonable-workload.png",
-            alt: "Kohtuuton työtaakka - epäoikeudenmukainen jako",
-            caption: "Työtehtävien epäoikeudenmukainen jakautuminen ja kohtuuttomat vaatimukset uuvuttavat tekijän."
-        }
-    ];
+    // Image carousel data from translations
+    const carouselImages = (t('quiz.tactics_page.carousel', { returnObjects: true }) as Array<{ src: string; alt: string; caption: string }>) || [];
 
     const nextImage = () => {
         setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);

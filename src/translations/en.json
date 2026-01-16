@@ -22,7 +22,485 @@
         "log": "Log",
         "overview": "Overview",
         "timeline": "Timeline",
-        "reports": "Reports"
+        "reports": "Reports",
+        "guide": "How to Document?"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Wondering about something? Here are answers to common questions.",
+        "q1": "What is Turvasiipi?",
+        "a1": "Turvasiipi is a private tool that helps you recognize and document workplace bullying. All data is stored only on your device – we do not collect anything on our servers.",
+        "q2": "Who sees the things I write?",
+        "a2": "Only you. All entries are stored locally in your browser. We do not send data anywhere, and we cannot see it. This is a completely private tool.",
+        "q3": "Can my employer see that I am using this?",
+        "a3": "No. Turvasiipi works completely locally in your browser. Your employer cannot see that you are using the application unless you share the data yourself. We recommend using your own device, not your employer's device.",
+        "q4": "How does documentation work?",
+        "a4": "You record events briefly: what happened, when, who was present, and how it felt. Entries cannot be edited later so they remain reliable. You can later create a report or export the data.",
+        "q5": "Is the story I share in the Stories section visible to others?",
+        "a5": "Yes, but completely anonymously. Stories are shared without name, workplace, or other identifying information. You can decide yourself if you want to share your story or not.",
+        "q6": "How does Turvasiipi help me recover?",
+        "a6": "Turvasiipi does not replace professional help, but it helps you see the situation more clearly. Documentation reduces uncertainty and helps you trust your own perception. The Community section offers peer support.",
+        "q7": "What is bullying literacy?",
+        "a7": "The ability to recognize signs of bullying, understand its dynamics, and name your experience. Just as media literacy helps understand media, bullying literacy helps understand workplace dynamics.",
+        "q8": "Who is Turvasiipi for?",
+        "a8": "For everyone who suspects they are experiencing workplace bullying or poor treatment. Especially for those who are not yet sure what is happening but feel that something is wrong.",
+        "q9": "I am in immediate danger. What do I do?",
+        "a9_title": "If you are in immediate danger, contact emergency number 112.",
+        "a9_text": "Turvasiipi is not a crisis service. If you need acute help, contact:",
+        "a9_list_1": "• **Crisis Helpline:** 09 2525 0111 (24/7)",
+        "a9_list_2": "• **Mieli ry:** mieli.fi",
+        "a9_list_3": "• **Occupational Safety and Health Authority:** tyosuojelu.fi"
+    },
+    "simulation": {
+        "header": {
+            "label": "Simulation Environment",
+            "title": "This is not a game.",
+            "title_span": "It is an attempt to survive with minimal damage.",
+            "p1": "In simulations, you encounter work life situations where there are no right answers. Choices accumulate. Small actions can eventually crumble your ability to function.",
+            "p2": "Here you can experience, understand, and prepare – safely.",
+            "cta_how": "[ How does this work? ]",
+            "dialog": {
+                "title": "Simulation Principles",
+                "p1_bold": "No winning.",
+                "p1_text": "You cannot \"beat\" bullying. You can only try to survive with minimal damage.",
+                "p2_bold": "Small actions accumulate.",
+                "p2_text": "A single event might feel insignificant. A hundred of them crumble capacity.",
+                "p3_bold": "The goal is to understand.",
+                "p3_text": "Identify structures so you can protect yourself in real life."
+            }
+        },
+        "neuro": {
+            "title": "Neurodiversity",
+            "subtitle": "Work life is built for neurotypicals. Experience what a \"normal\" day feels like without this filter.",
+            "cards": {
+                "neuro": {
+                    "title": "A Day on the Spectrum",
+                    "desc": "Sensory sensitivities and 'masking'. Experience the cost of energy."
+                },
+                "performance": {
+                    "title": "Performance Trap",
+                    "desc": "When conscientiousness turns into a weapon against you."
+                },
+                "shadow": {
+                    "title": "Information Shadow",
+                    "desc": "Silent exclusion. When information simply 'gets forgotten'."
+                }
+            }
+        },
+        "sector": {
+            "title": "Professions",
+            "subtitle": "Power usage takes different forms in different fields.",
+            "cards": {
+                "nurse": {
+                    "title": "Nurse",
+                    "desc": "Hierarchical violence and unwritten ward rules."
+                },
+                "teacher": {
+                    "title": "Teacher",
+                    "desc": "When pressure comes from management, parents, and students."
+                },
+                "it": {
+                    "title": "IT Specialist",
+                    "desc": "Unrealistic schedules and 'crunch' culture burnout."
+                },
+                "manager": {
+                    "title": "Manager",
+                    "desc": "Between a rock and a hard place. When you have to implement decisions against your values."
+                }
+            }
+        },
+        "youth": {
+            "title": "Youth in Work Life",
+            "subtitle": "First experiences shape the perception of what is normal.",
+            "cards": {
+                "new": {
+                    "title": "Young Worker",
+                    "desc": "First summer job. Where is the line of exploitation?"
+                }
+            }
+        },
+        "card": {
+            "new": "New",
+            "start": "Start"
+        }
+    },
+    "simulation_youth": {
+        "stats": {
+            "self_esteem": {
+                "label": "Professional Self-Esteem",
+                "desc": "Your sense of capability and worth."
+            },
+            "hope": {
+                "label": "Faith in Future",
+                "desc": "Trust that things will work out."
+            },
+            "health": {
+                "label": "Physical Stamina",
+                "desc": "Level of sleep and recovery."
+            },
+            "acceptance": {
+                "label": "Team Acceptance",
+                "desc": "Sense of belonging to the work community."
+            }
+        }
+    },
+    "timeline": {
+        "page": {
+            "label": "Tools — Logbook",
+            "title": "Logbook",
+            "status_open": "Open",
+            "subtitle": "All colors turn grey, but ink stays black.",
+            "confirm_delete": "Are you sure you want to delete this entry?",
+            "loading": "Loading logbook...",
+            "entry_count": "{{count}} entries",
+            "tools": {
+                "guide_title": "How to Document Correctly?",
+                "guide_desc": "Read the guide to creating legally valid and credible notes.",
+                "guide_btn": "Read Documentation Guide",
+                "new_title": "New Entry?",
+                "new_desc": "Use guided logging to ensure your entry is legally valid and strong evidence.",
+                "new_btn": "Open Logbook"
+            },
+            "history_title": "Event History"
+        },
+        "empty": {
+            "title": "No entries",
+            "subtitle": "Start logging by pressing 'New Entry' button."
+        }
+    },
+    "log_tool": {
+        "header": {
+            "title": "Gathering Evidence",
+            "subtitle": "Practical guide to creating legally sound documentation.",
+            "steps": {
+                "step1_title": "Be Neutral and Precise",
+                "step1_text": "Record what happened, not just how it felt. Use direct quotes if possible.",
+                "step2_title": "Record Immediately",
+                "step2_text": "Memories fade quickly. A fresh entry is more credible evidence.",
+                "step3_title": "Look for Patterns",
+                "step3_text": "A single rude word is not bullying. Repetition is key."
+            },
+            "help_text": "This tool helps you structure events in a way that withstands scrutiny."
+        },
+        "meter": {
+            "label": "Evidence Strength",
+            "feedback": {
+                "low": "Initial observation. Add time and location to strengthen the entry.",
+                "med": "Good start! Do you have quotes or witnesses?",
+                "high": "Excellent, strong documentation."
+            }
+        },
+        "step1": {
+            "title": "What happened?",
+            "subtitle": "Choose the block that best describes the situation."
+        },
+        "step2": {
+            "title": "When and where?",
+            "subtitle": "Precise details increase credibility.",
+            "date": "Date",
+            "time": "Time",
+            "location": "Place / Situation",
+            "location_placeholder": "E.g. Coffee room, Teams meeting...",
+            "person": "Who was involved?",
+            "person_placeholder": "Name or title"
+        },
+        "step3": {
+            "title": "What happened?",
+            "subtitle": "Build a description by selecting suitable blocks.",
+            "col_subject": "Perpetrator (Who?)",
+            "col_action": "Action (What?)",
+            "col_context": "Context (Where?)",
+            "result_label": "Result (you can edit freely)",
+            "result_placeholder": "Select blocks above to form a sentence here...",
+            "intensity": {
+                "label": "Intensity (1-5)",
+                "low": "Mild",
+                "med": "Moderate",
+                "high": "Severe"
+            },
+            "witnesses": "Were there witnesses?",
+            "witnesses_placeholder": "Names or 'No witnesses'",
+            "evidence": "Is there other evidence?"
+        },
+        "step4": {
+            "title": "Summary",
+            "subtitle": "Check details before saving.",
+            "labels": {
+                "event": "Event",
+                "time": "Time",
+                "location": "Location",
+                "person": "People",
+                "desc": "Description",
+                "no_desc": "No description."
+            },
+            "at": "at"
+        },
+        "step5": {
+            "title": "Entry Saved!",
+            "subtitle": "Here are a few things you can do next.",
+            "actions_title": "Recommended Actions",
+            "actions": {
+                "a1": "Record your feelings and effects on work ability (e.g. sleep problems).",
+                "a2": "If possible, mention it calmly to the perpetrator ('That comment felt dismissive to me').",
+                "a3": "Ensure you have a support person (occupational health, shop steward, or colleague)."
+            }
+        },
+        "buttons": {
+            "back": "Back",
+            "cancel": "Cancel",
+            "next": "Next",
+            "save": "Save",
+            "done": "Done"
+        },
+        "builder": {
+            "subjects": {
+                "esimies": "Manager",
+                "kollega": "Colleague",
+                "johto": "Management",
+                "asiakas": "Client",
+                "ryhma": "Team"
+            },
+            "actions": {
+                "yelled": "yelled at me",
+                "ignored": "ignored me",
+                "criticized": "criticized without cause",
+                "excluded": "excluded me",
+                "mocked": "belittled my skills",
+                "threatened": "threatened with consequences",
+                "withheld": "withheld information"
+            },
+            "contexts": {
+                "meeting": "in a meeting",
+                "email": "via email",
+                "public": "in front of others",
+                "private": "in private",
+                "chat": "in instant messaging",
+                "break": "during a break"
+            }
+        }
+    },
+    "landing": {
+        "hero": {
+            "title_main": "I guess this is normal work life.",
+            "title_span": "Or is it?",
+            "subtitle": "If you start doubting your own perception and memories, it's a sign that something might be wrong.",
+            "text_1": "Turvasiipi helps you see what is happening – before you start questioning yourself.",
+            "text_2": "You don't need to be sure. Or ready to do anything yet.",
+            "cta_main": "Examine your situation",
+            "cta_how": "Read how this works first",
+            "read_first": "Most people start by just reading.",
+            "quit_anytime": "You can stop at any time.",
+            "dialog": {
+                "title": "How Turvasiipi Works",
+                "desc": "Four steps that turn uncertainty into an action plan.",
+                "step1_title": "Identify the Situation",
+                "step1_text": "Is it bullying or \"bad humor\"? Use our science-based tests to name your experience and remove hesitation.",
+                "step1_sub": "Objective Assessment",
+                "step1_sub_text": "Get immediate feedback on the severity of your situation without downplaying.",
+                "step2_title": "Protect Yourself",
+                "step2_text": "Your word is valuable, but data is power. Record events in a secure logbook as they happen.",
+                "step2_sub": "Unbreakable Logbook",
+                "step2_sub_text": "A timeline held only by you, impossible to distort or deny.",
+                "step3_title": "Build a Fact Base",
+                "step3_text": "When it's time to act, the app helps you format your entries into a clear, legally structured report.",
+                "step3_sub": "Ready Situation View",
+                "step3_sub_text": "Summarize scattered entries into a report that speaks for you.",
+                "step4_title": "Take Back Control",
+                "step4_text": "You are not powerless. Practice difficult encounters in simulators and gain tactical tools.",
+                "step4_sub": "Skill Building",
+                "step4_sub_text": "Strengthen your resilience and learn to act tactically in difficult situations."
+            }
+        },
+        "why": {
+            "title": "Why do I feel like this?",
+            "p1": "Workplace bullying usually doesn't start clearly. It begins as a vague feeling that is hard to explain to others – and eventually to yourself.",
+            "list_title": "It often goes like this:",
+            "list_1": "Events go unrecorded",
+            "list_2": "Memories fade over time",
+            "list_3": "You start suspecting: \"Am I the problem?\"",
+            "list_4": "Later someone asks: \"Why didn't you say something earlier?\"",
+            "conclusion_1": "Turvasiipi exists for this moment.",
+            "conclusion_2": "Before you know what you think.",
+            "conclusion_3": "Before you know what to do."
+        },
+        "comparison": {
+            "title": "Is this bullying or just poor management?",
+            "p1": "Maybe it's not bullying.",
+            "p2": "Maybe it's just conflict.",
+            "p3": "Maybe others don't see this as a problem.",
+            "p4": "Turvasiipi helps you name your experience without dramatizing or downplaying it.",
+            "p5": "You won't get a diagnosis or a verdict.",
+            "p6": "You get structure.",
+            "quote": "The goal is not to convince anyone. But to see for yourself what has happened.",
+            "cta": "Identify signs in peace"
+        },
+        "log": {
+            "title": "Write it down before you forget.",
+            "subtitle": "Memory is not impartial. It changes with time, stress, and rationalization.",
+            "label": "Private Log",
+            "text": "Turvasiipi offers a personal logbook where you can record events while they are still fresh:",
+            "points": {
+                "what": "What happened",
+                "when": "When (date, time)",
+                "who": "Who was present",
+                "feeling": "How it felt"
+            },
+            "footer_1": "Only you control the data.",
+            "footer_2": "Entries cannot be edited later.",
+            "footer_3": "All data is saved only on your device.",
+            "footer_bold": "This is not a story. This is for memory.",
+            "cta": "Start Documenting"
+        },
+        "early": {
+            "title": "Most wait too long.",
+            "p1": "When the situation is finally recognized, strength is already gone.",
+            "p2": "Early recording doesn't make the situation more serious. It makes it clearer.",
+            "research_title": "According to research",
+            "research_1": "Bullying often continues for 1–3 years before action is taken",
+            "research_2": "Many time to question their own experience entirely",
+            "research_3": "Concrete evidence is missing when it would be needed"
+        },
+        "freedom": {
+            "title": "Turvasiipi forces you to nothing.",
+            "p1": "It gives you material that you can use – or not use.",
+            "quote": "Many never take the matter forward. Yet they say afterwards they are satisfied they started documenting early.",
+            "p2": "Because they know what happened. And they no longer doubt themselves.",
+            "list_title": "Turvasiipi does not:",
+            "list_1": "Tell you to act",
+            "list_2": "Contact your employer",
+            "list_3": "Judge anyone as a person",
+            "list_4": "Tell you what to do"
+        },
+        "final": {
+            "title": "You are not obligated to know yet what this is.",
+            "subtitle": "It is enough that you notice it.",
+            "cta": "Do a calm situation assessment",
+            "disclaimer_1": "You can stop at any time.",
+            "disclaimer_2": "Nothing is saved without your permission."
+        }
+    },
+    "guide": {
+        "hero": {
+            "back": "Back",
+            "title_start": "Documentation",
+            "title_end": "Masterclass",
+            "subtitle": "How to turn scattered experiences into legally valid evidence without burning out."
+        },
+        "intro": {
+            "title": "Why is this important?",
+            "text": "It is worth making as concrete, diary-like notes as possible about workplace bullying. One coherent log is stronger evidence than a hundred scattered sticky notes.",
+            "memory_title": "Protect your memory",
+            "memory_text": "Stress impairs memory. By recording events immediately, you preserve details that would otherwise vanish.",
+            "patterns_title": "Reveals patterns",
+            "patterns_text": "A single event can be explained away as a misunderstanding. A timeline reveals a systematic pattern."
+        },
+        "psych": {
+            "title": "Why is starting difficult?",
+            "card1_title": "\"I don't want to be difficult\"",
+            "card1_text": "Fear of being labeled is common. Remember: documentation is just for you. It is not a report yet. It is insurance.",
+            "card2_title": "\"Am I just imagining it?\"",
+            "card2_text": "Uncertainty is part of it. That's exactly why writing helps: when you see events on paper, you start separating facts from feelings."
+        },
+        "formula": {
+            "title": "5-Point Formula",
+            "subtitle": "This structure makes your entry legally strong.",
+            "step1": {
+                "title": "Time",
+                "desc": "Date and time (approximate is enough)"
+            },
+            "step2": {
+                "title": "Location",
+                "desc": "Where did it happen? (Meeting room, Teams, Break room)"
+            },
+            "step3": {
+                "title": "People",
+                "desc": "Who did it? Who else was present (witnesses)?"
+            },
+            "step4": {
+                "title": "Action",
+                "desc": "What was said or done? Use direct quotes if you can."
+            },
+            "step5": {
+                "title": "Impact",
+                "desc": "How did it affect your work or well-being right then?"
+            }
+        },
+        "template": {
+            "title": "Copyable Template",
+            "button": "Copy Template",
+            "copied": "Template copied to clipboard!",
+            "content": "1. Time: \n2. Location: \n3. People: \n4. Action: \n5. Impact: \n6. Follow-up: "
+        },
+        "followup": {
+            "title": "Important Addition: Follow-up",
+            "text": "Also record what you did after the situation. This reveals if the issue is not addressed.",
+            "example": "\"16.1.2026: Told occupational safety. Next meeting supervisor lashed out again.\""
+        },
+        "training": {
+            "title": "Emotion vs. Observation",
+            "subtitle": "Practice translating emotional language into concrete observations.",
+            "reveal": "See better version",
+            "emotion_label": "Emotional Language",
+            "observation_label": "Observation",
+            "cards": [
+                {
+                    "bad": "He humiliated me.",
+                    "good": "He said: 'You will never become a competent teacher', and others laughed.",
+                    "expl": "Humiliation is an interpretation. The quote and laughter are facts that can be proven."
+                },
+                {
+                    "bad": "The atmosphere is toxic.",
+                    "good": "In team meetings 3/4 times last week, the supervisor joked about my appearance.",
+                    "expl": "Toxicity is an abstract concept. Repeated jokes are a concrete act."
+                },
+                {
+                    "bad": "He is a narcissist and hates me.",
+                    "good": "He didn't answer my greeting in the morning, but greeted others present.",
+                    "expl": "Don't diagnose. Describe only what an outsider would observe on video."
+                }
+            ]
+        },
+        "witness": {
+            "title": "Protecting Witnesses",
+            "text": "Asking a colleague to be a witness can be scary. Remember, you don't have to demand that they \"choose a side\".",
+            "anonymize": "Anonymize your log: Don't record names before the official process. Use codes.",
+            "list": [
+                "Log: \"Witness A (team member) confirmed the issue.\"",
+                "Ask HR for an anonymized summary.",
+                "Ask neutrally: \"Would it be ok to tell about your observations if asked?\"",
+                "Give a way out: \"I understand well if you don't want to.\"",
+                "Don't pressure: Fear of retaliation is real. Respect it."
+            ]
+        },
+        "security": {
+            "title": "Technical Security",
+            "dont_use_work": "Don't use work devices for notes.",
+            "list": [
+                "One log: Google Docs (private account), Notion, or notebook at home.",
+                "Backup: Email yourself weekly.",
+                "Hard evidence: Take screenshots of chats immediately."
+            ]
+        },
+        "templates_link": {
+            "title": "Need an official document?",
+            "text": "Sometimes a log entry isn't enough. We have prepared ready-made templates (e.g., notification of occupational safety, response to warning) so you don't have to think about the wording alone.",
+            "button": "Browse Templates"
+        },
+        "motivation": {
+            "title": "Small Step Challenge",
+            "today": "Today",
+            "today_text": "Write ONLY yesterday's event in 5 minutes.",
+            "tomorrow": "Tomorrow",
+            "tomorrow_text": "Add one old memory to the list.",
+            "week": "In a Week",
+            "week_text": "You'll see the pattern yourself. It is empowering.",
+            "quote": "\"This is your safety, not a battle. Write as much as you can manage.\""
+        },
+        "cta": {
+            "title": "Ready to try?",
+            "text": "The best time to start is now. Even with just one sentence.",
+            "button": "Open Logbook"
+        }
     },
     "dashboard": {
         "title": "My Journey",
@@ -568,7 +1046,110 @@
                 },
                 "log_instruction": "Log like this:",
                 "close": "Close Analysis"
-            }
+            },
+            "carousel": [
+                {
+                    "src": "/images/tactics/social-isolation.png",
+                    "alt": "Social Isolation - cut off from community",
+                    "caption": "One of the most common forms of bullying is social isolation – the victim is cut off from the community."
+                },
+                {
+                    "src": "/images/tactics/manipulation.png",
+                    "alt": "Manipulation - hands tied",
+                    "caption": "Manipulation and gaslighting are subtle but highly damaging tactics."
+                },
+                {
+                    "src": "/images/tactics/mockery.png",
+                    "alt": "Mockery and Humiliation",
+                    "caption": "Verbal bullying and mockery can be as damaging as physical violence."
+                },
+                {
+                    "src": "/images/tactics/ostracism.png",
+                    "alt": "Ostracism - invisible wall",
+                    "caption": "Ostracism is complete ignoring – as if the person does not exist."
+                },
+                {
+                    "src": "/images/tactics/exclusion.png",
+                    "alt": "Exclusion and false image",
+                    "caption": "Where are you around the table? Is someone creating a false image of you?"
+                },
+                {
+                    "src": "/images/tactics/magnified-errors.png",
+                    "alt": "Magnifying errors - small things blown up",
+                    "caption": "Even the smallest errors can be put under a magnifying glass and blown up until they overshadow everything else."
+                },
+                {
+                    "src": "/images/tactics/unreasonable-requirements.png",
+                    "alt": "Unreasonable requirements - impossible goals",
+                    "caption": "Setting goals that are impossible to achieve, or demanding performance without sufficient resources."
+                },
+                {
+                    "src": "/images/tactics/unreasonable-workload.png",
+                    "alt": "Unreasonable workload - unfair distribution",
+                    "caption": "Unfair distribution of tasks and unreasonable demands exhaust the worker."
+                }
+            ]
+        },
+        "page": {
+            "label": "Situation Mapping",
+            "title": "Is it Bullying?",
+            "subtitle": "Go through the checklist.",
+            "description": "This is not a diagnosis. It is a tool to help you see if the structural signs of bullying are met in your situation.",
+            "what_measures_title": "What does this measure?",
+            "what_measures_list": [
+                "Repetition",
+                "Imbalance of power",
+                "Health impact",
+                "Isolation"
+            ],
+            "what_not_measures_title": "What does this not measure?",
+            "what_not_measures_list": [
+                "Anyone's 'evilness'",
+                "Legal guilt",
+                "Single arguments"
+            ],
+            "start_btn": "Start Mapping",
+            "analysis_label": "Analysis",
+            "analysis_title": "Signs: {{score}} / {{total}}",
+            "recommendations_title": "Recommended Actions:",
+            "back_home": "Return Home",
+            "retry": "Try Again",
+            "progress": "{{answered}} / {{total}} answered",
+            "yes": "Yes",
+            "no": "No",
+            "view_analysis": "View Analysis",
+            "answer_all_hint": "Answer all items to see the result."
+        },
+        "tietovisa_page": {
+            "label": "Research / Fact Bank",
+            "title": "Work Life Fact Bank",
+            "description": "Test your knowledge on research, laws, and psychology. Information is the best protection against uncertainty.",
+            "all_data_title": "Full Material",
+            "all_data_desc": "Go through all {{count}} questions as a comprehensive review.",
+            "start_btn": "Start Test",
+            "part_label": "Part {{id}}",
+            "questions_count": "{{count}} questions",
+            "expert_feedback": {
+                "observer": {
+                    "title": "Observer",
+                    "text": "There are gaps in basic knowledge. It is important to distinguish facts from beliefs."
+                },
+                "alert": {
+                    "title": "Observant",
+                    "text": "Good basic knowledge. You identify most structures correctly."
+                },
+                "expert": {
+                    "title": "Expert",
+                    "text": "Excellent performance. You understand the phenomenon deeply and broadly."
+                }
+            },
+            "back_menu": "Back to Menu",
+            "interrupt": "Interrupt",
+            "correct": "Correct",
+            "wrong": "Wrong",
+            "correct_answer": "Correct answer: {{answer}}",
+            "explanation": "Explanation",
+            "next": "Next"
         },
         "compare_page": {
             "badge": "Distinguish two different things",
@@ -1505,5 +2086,1248 @@
             "remember": "💚 Remember: You are not alone. You are not to blame. You have a right to help.",
             "disclaimer": "This material is intended for information and support. It does not replace help provided by a professional."
         }
+    },
+    "lukutaito_page": {
+        "header": {
+            "badge": "Work Community Status",
+            "title": "Identify Community Status",
+            "description": "A healthy workplace is the foundation. Identify where your community stands so you can act correctly."
+        },
+        "tabs": {
+            "team_check": "Check Team",
+            "thermometer": "Thermometer",
+            "quicktest": "Quick Test",
+            "warnings": "Warning Signs",
+            "self": "Self-Assessment"
+        },
+        "team_checklist": {
+            "title": "Check Your Team",
+            "subtitle": "Check the items that are true for your workplace.",
+            "badges": {
+                "checks": "Checks",
+                "crisis": "CRISIS",
+                "healthy": "HEALTHY"
+            },
+            "status": {
+                "crisis_text": "Acute action needed. Contact occupational safety. 🔴",
+                "healthy_text": "Your work community seems to be doing well. Keep it up! 🟢"
+            },
+            "criteria": {
+                "interaction": {
+                    "title": "Interaction and Communication",
+                    "items": [
+                        "Feedback is given constructively and privately",
+                        "Criticism is balanced - everyone receives it",
+                        "Praise is given publicly, criticism privately",
+                        "Mistakes are treated as learning opportunities",
+                        "Jokes do not target one specific person",
+                        "Inappropriate behavior is addressed when pointed out"
+                    ]
+                },
+                "info": {
+                    "title": "Information Flow and Decision Making",
+                    "items": [
+                        "Everyone receives the same information at the same time",
+                        "Meeting invitations are sent to all relevant people",
+                        "Decisions are justified transparently",
+                        "Changes are announced in advance",
+                        "Resources are distributed equitably",
+                        "Expectations are clear and consistent"
+                    ]
+                },
+                "power": {
+                    "title": "Power Dynamics",
+                    "items": [
+                        "The supervisor listens and accepts feedback",
+                        "Hierarchy does not prevent open discussion",
+                        "Mistakes can be discussed without fear",
+                        "Disagreements are resolved professionally",
+                        "Everyone has an equal right to be heard",
+                        "Power positions are not misused"
+                    ]
+                },
+                "atmosphere": {
+                    "title": "Atmosphere and Community",
+                    "items": [
+                        "People chat casually with each other",
+                        "No one is systematically left out",
+                        "Lunches and breaks are spent together",
+                        "Successes are celebrated as a team",
+                        "Help is asked for and given freely",
+                        "The atmosphere doesn't change when someone enters"
+                    ]
+                },
+                "feelings": {
+                    "title": "My Emotional Reactions",
+                    "items": [
+                        "You enjoy your work most of the time",
+                        "You sleep well and don't wake up thinking about work",
+                        "Going to work does not cause anxiety",
+                        "You can be yourself at work",
+                        "You trust your colleagues and supervisor",
+                        "You feel you belong to the community"
+                    ]
+                }
+            }
+        },
+        "thermometer": {
+            "title": "Well-being Thermometer",
+            "levels": {
+                "excellent": {
+                    "label": "Excellent — Safety Culture",
+                    "desc": "Open interaction, learning from mistakes, psychological safety is high."
+                },
+                "healthy": {
+                    "label": "Healthy — As It Should Be",
+                    "desc": "Work flows, conflicts are resolved professionally, clear roles."
+                },
+                "concern": {
+                    "label": "Concern — Early Signs",
+                    "desc": "Cliques, silence, lack of clarity, occasional inappropriate behavior."
+                },
+                "warning": {
+                    "label": "Warning — Systematic Problem",
+                    "desc": "Constant fear, sick leave, isolation, open hostility."
+                }
+            }
+        },
+        "quicktest": {
+            "title_prefix": "Scenario",
+            "result_title": "Result: {{score}} / {{total}}",
+            "result_desc": "Test completed. Continue practicing to improve your identification skills.",
+            "retry_btn": "Try Again",
+            "yes_btn": "Yes",
+            "yes_desc": "This is bullying",
+            "no_btn": "No",
+            "no_desc": "This is conflict/other",
+            "correct_title": "Correct Interpretation",
+            "wrong_title": "Wrong Interpretation",
+            "next_btn": "Next",
+            "scenarios": [
+                {
+                    "id": 1,
+                    "text": "A supervisor gives strict feedback on a late report and demands immediate corrections.",
+                    "isBullying": false,
+                    "explanation": "Professional feedback on work and management requires direction, which is not bullying even if it feels unpleasant."
+                },
+                {
+                    "id": 2,
+                    "text": "A colleague repeatedly leaves one team member out of lunch invites, even though everyone else is asked.",
+                    "isBullying": true,
+                    "explanation": "Isolation and exclusion are some of the most typical forms of social bullying."
+                },
+                {
+                    "id": 3,
+                    "text": "A supervisor points out a mistake in front of the whole team and sarcastically mocks the employee's skills.",
+                    "isBullying": true,
+                    "explanation": "Public humiliation and questioning competence in an inappropriate way is bullying."
+                },
+                {
+                    "id": 4,
+                    "text": "An employee is given new, challenging tasks that they are qualified for but that require learning.",
+                    "isBullying": false,
+                    "explanation": "Changing job descriptions or challenging employees is not bullying if based on work needs and not unreasonable."
+                },
+                {
+                    "id": 5,
+                    "text": "User accounts are 'accidentally' closed multiple times a month right before important deadlines.",
+                    "isBullying": true,
+                    "explanation": "Sabotaging work is systematic bullying aimed at destabilizing the victim's position."
+                },
+                {
+                    "id": 6,
+                    "text": "An employee receives an invitation to change negotiations along with the rest of the department.",
+                    "isBullying": false,
+                    "explanation": "Statutory employer actions, such as change negotiations, are not bullying."
+                },
+                {
+                    "id": 7,
+                    "text": "An employee's free-time hobbies are repeatedly laughed at in the break room.",
+                    "isBullying": true,
+                    "explanation": "Mockery and insults directed at personal life constitute bullying."
+                },
+                {
+                    "id": 8,
+                    "text": "A team member disagrees with your idea in a weekly meeting and presents opposing arguments.",
+                    "isBullying": false,
+                    "explanation": "Disagreements and debating issues are part of a normal work community."
+                },
+                {
+                    "id": 9,
+                    "text": "All responsibilities are taken away from an employee without justification, leaving them with no tasks.",
+                    "isBullying": true,
+                    "explanation": "Leaving someone with empty tasks is passive bullying aimed at crushing the employee."
+                },
+                {
+                    "id": 10,
+                    "text": "False rumors about an employee's private life are spread at the workplace.",
+                    "isBullying": true,
+                    "explanation": "Harassment directed at reputation and gossiping is clear bullying."
+                },
+                {
+                    "id": 11,
+                    "text": "The supervisor asks for an explanation for repeated Monday absences.",
+                    "isBullying": false,
+                    "explanation": "The employer has the right and duty to monitor absences and address them."
+                },
+                {
+                    "id": 12,
+                    "text": "An employee is constantly given impossible deadlines known to be unachievable.",
+                    "isBullying": true,
+                    "explanation": "Exhausting someone with unreasonable demands is a form of workplace bullying."
+                },
+                {
+                    "id": 13,
+                    "text": "The work community has a loud volume and stressful atmosphere due to rush.",
+                    "isBullying": false,
+                    "explanation": "A bad atmosphere or rush is not automatically bullying if it doesn't target any specific individual."
+                },
+                {
+                    "id": 14,
+                    "text": "An employee is consistently interrupted in meetings or not listened to.",
+                    "isBullying": true,
+                    "explanation": "Restricting speech and ignoring is silencing, which is bullying."
+                },
+                {
+                    "id": 15,
+                    "text": "Workplace rules (e.g., working hours) are applied strictly to all employees.",
+                    "isBullying": false,
+                    "explanation": "Equitable application of rules is not bullying."
+                },
+                {
+                    "id": 16,
+                    "text": "An employee's emails are not answered for weeks, even though matters require decisions from others.",
+                    "isBullying": true,
+                    "explanation": "Withholding information and not responding to hinder work is bullying."
+                },
+                {
+                    "id": 17,
+                    "text": "The person perceived as a bully is stressed and exhausted themselves.",
+                    "isBullying": true,
+                    "explanation": "Bullying doesn't stop, even if the perpetrator's motive is burnout. The action remains bullying."
+                },
+                {
+                    "id": 18,
+                    "text": "At the workplace Christmas party, someone jokes tastelessly on a general level.",
+                    "isBullying": false,
+                    "explanation": "Bad behavior or tasteless humor is unpleasant, but not yet bullying if it is a one-off and not directed at anyone."
+                },
+                {
+                    "id": 19,
+                    "text": "An employee is granted a smaller bonus than others due to weaker results.",
+                    "isBullying": false,
+                    "explanation": "Justified different treatment (e.g., performance pay) is not bullying."
+                },
+                {
+                    "id": 20,
+                    "text": "The supervisor moves an employee's workstation to a cleaning closet without a work-related reason.",
+                    "isBullying": true,
+                    "explanation": "Physical isolation and humiliating space arrangements are clear bullying."
+                }
+            ]
+        },
+        "warning_signs": {
+            "yellow": {
+                "title": "YELLOW - Early Signs",
+                "subtitle": "Discomfort and Intuition: \"Something is wrong\"",
+                "description": "Situations feel odd, but are easily explained away with \"humor\" or \"busy schedule\".",
+                "power_signs_title": "Power Signs",
+                "power_signs_list": [
+                    "The supervisor jokes repeatedly at your expense",
+                    "Your expertise is subtly belittled",
+                    "Feedback is given differently than to others"
+                ],
+                "atmosphere_signs_title": "Atmosphere Signs",
+                "atmosphere_signs_list": [
+                    "People go quiet when you arrive",
+                    "Eye contact is avoided",
+                    "\"Humor\" feels uncomfortable but \"don't be so sensitive\""
+                ],
+                "check_yourself": {
+                    "label": "Check Yourself",
+                    "text": "\"Do you wake up at night thinking about work situations? If yes → monitor closely\""
+                },
+                "what_to_do": {
+                    "title": "What do I do now?",
+                    "steps": [
+                        "Start an \"emotion diary\" - record daily: how it felt, why, who was present",
+                        "Do a 60-second self-assessment once a week",
+                        "Write down facts as soon as something happens",
+                        "Don't ponder alone - talk to a trusted friend"
+                    ]
+                }
+            },
+            "orange": {
+                "title": "ORANGE - Recurring Signs",
+                "subtitle": "Systematic Harassment: \"This is no longer a coincidence\"",
+                "description": "The action is no longer random. It repeats and starts affecting your work ability.",
+                "power_abuse_title": "Abuse of Power",
+                "power_abuse_list": [
+                    "Changing performance requirements (\"do better\" without clear criteria)",
+                    "\"Gotcha tactics\" - when you meet expectations, they change",
+                    "Resources or tools are denied without justification"
+                ],
+                "doc_criteria_title": "Documentation Criteria (Important!)",
+                "doc_criteria_list": [
+                    "Repetition: 3-5+ times a week/month",
+                    "Targeting: Only you, not others",
+                    "Impact: Your performance or well-being declines"
+                ],
+                "check_yourself": {
+                    "label": "Check Yourself",
+                    "text": "\"Have you told anyone about the situation? If not → time to speak to a representative\""
+                },
+                "what_to_do": {
+                    "title": "What do I do now?",
+                    "steps": [
+                        "Save all emails and messages in a separate folder",
+                        "Identify witnesses - who was there?",
+                        "Contact the union OR occupational safety (you don't need both immediately)",
+                        "Book an appointment with occupational health to record symptoms"
+                    ]
+                }
+            },
+            "red": {
+                "title": "RED - Serious Dangers",
+                "subtitle": "Crisis and Health Risk: \"Your safety is threatened\"",
+                "description": "The situation is dangerous to health. It is no longer a \"conflict\" but violence.",
+                "fear_title": "Fear Dominates",
+                "fear_list": [
+                    "You fear retaliation if you speak up",
+                    "You dare not use your rights (e.g., sick leave)",
+                    "You consider quitting without a new job"
+                ],
+                "physical_signs_title": "Physical Signs",
+                "physical_signs_list": [
+                    "Insomnia or nightmares about work",
+                    "Stomach issues before leaving for work",
+                    "Panic attacks, palpitations",
+                    "Constant fatigue despite rest"
+                ],
+                "check_yourself": {
+                    "label": "Check Yourself",
+                    "text": "\"Do you feel you have no way out? If yes → seek help NOW\""
+                },
+                "what_to_do": {
+                    "title": "What do I do now?",
+                    "steps": [
+                        "Call a crisis line NOW (not \"soon\" or \"tomorrow\")",
+                        "Consider immediate sick leave - this IS an illness",
+                        "Tell someone close to you - do NOT be alone with this",
+                        "Physically remove yourself from the situation if possible"
+                    ]
+                }
+            },
+            "conflict_vs_bullying": {
+                "title": "Normal Conflict vs. Bullying",
+                "headers": {
+                    "situation": "Situation",
+                    "healthy": "Healthy Workplace",
+                    "warning": "Warning Sign"
+                },
+                "rows": [
+                    {
+                        "situation": "Disagreement",
+                        "healthy": "Discussed professionally, solution sought",
+                        "warning": "One party belittled, issue left hanging"
+                    },
+                    {
+                        "situation": "Mistake",
+                        "healthy": "\"What did we learn?\" - process analyzed",
+                        "warning": "\"You again?\" - repeatedly the same person's \"stupidity\""
+                    },
+                    {
+                        "situation": "Feedback",
+                        "healthy": "Constructive, two-way",
+                        "warning": "One-way, public, humiliating"
+                    },
+                    {
+                        "situation": "Joke",
+                        "healthy": "Everyone laughs, no one insulted",
+                        "warning": "One is always the target, \"don't be sensitive\""
+                    },
+                    {
+                        "situation": "Bad Day",
+                        "healthy": "Colleague apologizes for tension",
+                        "warning": "Recurring, targeted only at you"
+                    }
+                ]
+            }
+        },
+        "self_assessment": {
+            "title": "Self-Assessment Tools",
+            "description": "Try new assessment tools. Data is not permanently saved to any database, but works in this session.",
+            "menu": {
+                "situation": {
+                    "title": "Identify Situation",
+                    "desc": "Anonymous tool to structure your own experiences. Identify if it is bullying.",
+                    "btn": "START"
+                },
+                "culture": {
+                    "title": "Work Culture Assessment",
+                    "desc": "Assess your team's status. How are leadership, interaction, and safety realized?",
+                    "btn": "START"
+                }
+            },
+            "results": {
+                "title": "RESULTS",
+                "analysis_title": "Area Analysis",
+                "click_hint": "Click an area to see detailed analysis and recommendations.",
+                "expand_hint": "Click to expand recommendations",
+                "retry_btn": "Try Again",
+                "back_btn": "Back to Start",
+                "show_recommendations": "Read Recommendations",
+                "show_actions": "Show Action Plan",
+                "situations": {
+                    "high_risk_title": "SERIOUS PROBLEMS DETECTED",
+                    "high_risk_desc": "Your well-being is at risk. Your experiences point to repeated inappropriate treatment. We recommend starting documentation and talking to a representative.",
+                    "low_risk_title": "SITUATION SEEMS CALM",
+                    "low_risk_desc": "No immediate alarm signs visible, but keep healthy boundaries."
+                },
+                "cultures": {
+                    "excellent_title": "HEALTHY WORK CULTURE",
+                    "excellent_desc": "Things are well in your work community. Leadership and interaction work.",
+                    "ok_title": "ROOM FOR IMPROVEMENT",
+                    "ok_desc": "There are challenges affecting atmosphere and coping. More open discussion and clearer rules would be needed.",
+                    "bad_title": "ALARMING SITUATION",
+                    "bad_desc": "There are serious deficiencies in work culture requiring immediate intervention from management."
+                },
+                "badges": {
+                    "risk_high": "HIGH RISK",
+                    "risk_low": "LOW RISK",
+                    "excellent": "EXCELLENT",
+                    "ok": "FAIR",
+                    "bad": "POOR",
+                    "critical": "Critical",
+                    "needs_improvement": "Needs Improvement",
+                    "excellent_label": "Excellent",
+                    "serious_risk": "Serious Risk",
+                    "attention": "Noteworthy",
+                    "low_risk": "Low Risk"
+                }
+            },
+            "situation_data": {
+                "Käytös": [
+                    {
+                        "id": "k1",
+                        "text": "My colleagues joke repeatedly at my expense",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k2",
+                        "text": "I receive public criticism for errors when others do not",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k3",
+                        "text": "My expertise is belittled or nullified",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k4",
+                        "text": "I am told \"don't be so sensitive\" when I mention an insult",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k5",
+                        "text": "I am regularly left out of important meetings without reason",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k6",
+                        "text": "I don't receive the same information as other team members",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k7",
+                        "text": "My tasks are changed without explanation",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k8",
+                        "text": "Feedback is given to me differently than to others",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k9",
+                        "text": "Conversations go quiet when I arrive",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k10",
+                        "text": "I am systematically excluded from social situations",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k11",
+                        "text": "Colleagues avoid eye contact with me",
+                        "category": "Behavior",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "k12",
+                        "text": "Lunch or breaks are taken without me",
+                        "category": "Behavior",
+                        "type": "slider"
+                    }
+                ],
+                "Valtasuhteet": [
+                    {
+                        "id": "v1",
+                        "text": "My supervisor treats me differently than others",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "v2",
+                        "text": "Performance requirements change constantly without clear basis",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "v3",
+                        "text": "I fear retaliation if I raise a concern",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "v4",
+                        "text": "Resources or tools are denied to me without reason",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "v5",
+                        "text": "Decisions concerning me are made without justification",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "v6",
+                        "text": "I do not have the same access to information as others",
+                        "category": "Power Dynamics",
+                        "type": "slider"
+                    }
+                ],
+                "Omat reaktiot": [
+                    {
+                        "id": "r1",
+                        "text": "I sleep poorly or have nightmares about work",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r2",
+                        "text": "I have stomach issues before leaving for work",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r3",
+                        "text": "I feel constant fatigue despite rest",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r4",
+                        "text": "My heart races before certain meetings",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r5",
+                        "text": "I think about work situations in free time or at night",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r6",
+                        "text": "I suspect I am the problem myself",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r7",
+                        "text": "I actively avoid certain people or situations",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "r8",
+                        "text": "My work motivation has dropped significantly",
+                        "category": "My Reactions",
+                        "type": "slider"
+                    }
+                ],
+                "Toistuvuus ja kesto": [
+                    {
+                        "id": "t1",
+                        "text": "How long has the situation continued?",
+                        "category": "Frequency and Duration",
+                        "type": "single_choice",
+                        "options": [
+                            "Under a week",
+                            "1-4 weeks",
+                            "1-3 months",
+                            "3-6 months",
+                            "Over 6 months"
+                        ]
+                    },
+                    {
+                        "id": "t2",
+                        "text": "How often do your experiences repeat?",
+                        "category": "Frequency and Duration",
+                        "type": "single_choice",
+                        "options": [
+                            "Once",
+                            "Occasionally",
+                            "Weekly",
+                            "Daily",
+                            "Multiple times a day"
+                        ]
+                    },
+                    {
+                        "id": "t3",
+                        "text": "Is the situation getting worse?",
+                        "category": "Frequency and Duration",
+                        "type": "single_choice",
+                        "options": [
+                            "No",
+                            "Stayed the same",
+                            "Yes, slowly",
+                            "Yes, rapidly"
+                        ]
+                    }
+                ]
+            },
+            "culture_data": {
+                "Johtaminen ja valtasuhteet": [
+                    {
+                        "id": "c1",
+                        "text": "My supervisor gives feedback equitably to everyone",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c2",
+                        "text": "Criticism is given constructively and privately",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c3",
+                        "text": "Praise is given publicly, criticism privately",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c4",
+                        "text": "Mistakes are treated as learning opportunities",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c5",
+                        "text": "Decisions are justified transparently",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c6",
+                        "text": "Subordinates' opinions are listened to and considered",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c7",
+                        "text": "Changes are communicated in advance",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c8",
+                        "text": "Resources are distributed equitably",
+                        "category": "Leadership and Power",
+                        "type": "slider"
+                    }
+                ],
+                "Vuorovaikutus ja ilmapiiri": [
+                    {
+                        "id": "c9",
+                        "text": "Everyone receives the same information at the same time",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c10",
+                        "text": "Meeting invites are sent to everyone relevant",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c11",
+                        "text": "Jokes do not target one person repeatedly",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c12",
+                        "text": "Lunches and breaks are run together",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c13",
+                        "text": "No one is systematically left out",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c14",
+                        "text": "Inappropriate behavior is addressed immediately",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c15",
+                        "text": "Atmosphere issues can be discussed openly",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c16",
+                        "text": "If I mention offensive behavior, it is reacted to",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c17",
+                        "text": "Silent acceptance (bystanding) is not acceptable",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c18",
+                        "text": "Teasing is not \"just a joke\" - apology",
+                        "category": "Interaction and Atmosphere",
+                        "type": "slider"
+                    }
+                ],
+                "Tukirakenteet ja prosessit": [
+                    {
+                        "id": "c19",
+                        "text": "I know where to report bullying concerns",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c20",
+                        "text": "Safety representative contact info is easily available",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c21",
+                        "text": "Processes for bullying cases are clear",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c22",
+                        "text": "Reports are handled quickly (under 7 days)",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c23",
+                        "text": "I can raise my concerns without fear of consequences",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c24",
+                        "text": "Reporting is confidential",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c25",
+                        "text": "Those interfering are supported, not punished",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c26",
+                        "text": "Recurring cases are addressed effectively",
+                        "category": "Support Structures",
+                        "type": "slider"
+                    }
+                ],
+                "Psykologinen turvallisuus": [
+                    {
+                        "id": "c27",
+                        "text": "I can be myself at work",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c28",
+                        "text": "Disagreements are resolved professionally",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c29",
+                        "text": "Mistakes can be discussed without fear",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c30",
+                        "text": "Help is asked for and given freely",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c31",
+                        "text": "I feel I belong to the community",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c32",
+                        "text": "The atmosphere doesn't change when someone enters",
+                        "category": "Psychological Safety",
+                        "type": "slider"
+                    }
+                ],
+                "Puuttumisen rohkeus": [
+                    {
+                        "id": "c33",
+                        "text": "I would intervene if I saw inappropriate behavior",
+                        "category": "Courage to Intervene",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c34",
+                        "text": "I would intervene even if the target was influential",
+                        "category": "Courage to Intervene",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c35",
+                        "text": "My colleagues would support me if I intervened",
+                        "category": "Courage to Intervene",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c36",
+                        "text": "I know a safe way to intervene",
+                        "category": "Courage to Intervene",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c37",
+                        "text": "I have intervened in the last 3 months when seeing issue",
+                        "category": "Courage to Intervene",
+                        "type": "slider"
+                    }
+                ],
+                "Seuranta ja kehitys": [
+                    {
+                        "id": "c38",
+                        "text": "Atmosphere surveys are done regularly",
+                        "category": "Monitoring and Dev",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c39",
+                        "text": "Survey results lead to concrete actions",
+                        "category": "Monitoring and Dev",
+                        "type": "slider"
+                    },
+                    {
+                        "id": "c40",
+                        "text": "Training on identifying bullying is organized",
+                        "category": "Monitoring and Dev",
+                        "type": "slider"
+                    }
+                ]
+            },
+            "feedback": {
+                "Käytös": {
+                    "risk": {
+                        "low": "Situation is calm. Occasional disagreements are normal, but don't seem to repeat.",
+                        "medium": "Some worrying features detected. Pay attention if certain jokes or comments repeat.",
+                        "high": "HIGH RISK: You report repeated inappropriate behavior. This may meet bullying criteria."
+                    }
+                },
+                "Valtasuhteet": {
+                    "risk": {
+                        "low": "You feel treated equally.",
+                        "medium": "Unclear management or decision making.",
+                        "high": "HIGH RISK: Unequal treatment or power abuse is evident."
+                    }
+                },
+                "Omat reaktiot": {
+                    "risk": {
+                        "low": "Work does not significantly affect your off-time.",
+                        "medium": "Work things stay on mind, but you still recover.",
+                        "high": "ALARMING: Symptoms point to serious load (insomnia, anxiety)."
+                    }
+                },
+                "Toistuvuus ja kesto": {
+                    "risk": {
+                        "low": "Situations are isolated.",
+                        "medium": "Situation has continued for a while.",
+                        "high": "Prolonged or repeated situation requires immediate intervention."
+                    }
+                },
+                "Johtaminen ja valtasuhteet": {
+                    "culture": {
+                        "low": "Serious flaws in leadership. Unclear responsibilities and lack of support load you.",
+                        "medium": "Leadership works partly, but transparency could improve.",
+                        "high": "Leadership is fair and support is available."
+                    }
+                },
+                "Vuorovaikutus ja ilmapiiri": {
+                    "culture": {
+                        "low": "Atmosphere is inflamed or fearful. Issues are not discussed.",
+                        "medium": "Atmosphere is professional, but not particularly open.",
+                        "high": "Work community is safe and pleasant to be in."
+                    }
+                },
+                "Tukirakenteet ja prosessit": {
+                    "culture": {
+                        "low": "Process to address problems is missing or inactive.",
+                        "medium": "Processes exist, but practical function varies.",
+                        "high": "Support structures (e.g. safety rep, HR) work well."
+                    }
+                },
+                "Psykologinen turvallisuus": {
+                    "culture": {
+                        "low": "Making mistakes is feared and difference is not accepted.",
+                        "medium": "Basic safety is OK, but vulnerability is avoided.",
+                        "high": "Top level: You can be completely yourself in the team."
+                    }
+                },
+                "Puuttumisen rohkeus": {
+                    "culture": {
+                        "low": "Issues are not dared or wanted to be addressed.",
+                        "medium": "Intervention is individual responsibility, not common habit.",
+                        "high": "Everyone takes responsibility for shared atmosphere."
+                    }
+                },
+                "Seuranta ja kehitys": {
+                    "culture": {
+                        "low": "Problems are swept under rug and not monitored.",
+                        "medium": "Surveys are done, but actions sometimes stall.",
+                        "high": "Development is continuous and data-reactive."
+                    }
+                }
+            },
+            "answers": {
+                "slider": {
+                    "never": "Never",
+                    "sometimes": "Sometimes",
+                    "always": "Constantly",
+                    "disagree": "Disagree",
+                    "neutral": "N/A",
+                    "agree": "Agree"
+                }
+            }
+        }
+    },
+    "feeling_quiz": {
+        "page": {
+            "badge": "Self-Assessment",
+            "title_prefix": "Victim's",
+            "title_highlight": "Feelings",
+            "intro": "Do you suspect workplace bullying? This 5-minute test helps you articulate your feelings and normalize your trauma.",
+            "features": {
+                "threshold": {
+                    "title": "Low Barrier",
+                    "text": "Answer at your own pace. No one sees your answers."
+                },
+                "feedback": {
+                    "title": "Immediate Feedback",
+                    "text": "Get normalizing information after each answer."
+                },
+                "analysis": {
+                    "title": "Weighted Analysis",
+                    "text": "Identifies the most serious signs, such as gaslighting."
+                },
+                "crisis": {
+                    "title": "Crisis Aid Guidance",
+                    "text": "Identifies immediate need for help."
+                }
+            },
+            "start_btn": "Start Assessment",
+            "progress": "Progress",
+            "quit_btn": "Quit",
+            "continue_btn": "Continue",
+            "validation_prefix": "VALIDATION"
+        },
+        "results": {
+            "badge": "Analysis Complete",
+            "title": "Your",
+            "title_highlight": "Results",
+            "risk_level": "Risk Level",
+            "score": "Score",
+            "immediate_support": "You need immediate support for your situation.",
+            "severe_load": "You are experiencing severe and systematic strain.",
+            "active_action": "Your situation requires active monitoring and action.",
+            "manageable": "Your situation seems manageable at the moment.",
+            "call_crisis": "Call Crisis Helpline",
+            "start_docs": "Start Documentation",
+            "weighted_strain": "Weighted Strain",
+            "remember_title": "💙 Remember this:",
+            "remember_text": "These results do not define your worth as a person. They only measure how heavily your current environment affects you. You do not deserve this. Turvasiipi is here to help you build a path back to safety.",
+            "retry_btn": "Retake Test"
+        },
+        "categories": {
+            "itseepaily": "Self-doubt & Shame",
+            "eristyksisyys": "Isolation",
+            "halvaantuminen": "Paralysis",
+            "pelko": "Fear & Insecurity",
+            "identiteetti": "Erosion of Identity",
+            "fyysiset": "Physical Symptoms"
+        },
+        "risk_levels": {
+            "critical": "Critical",
+            "high": "High",
+            "moderate": "Moderate",
+            "mild": "Mild"
+        },
+        "options": {
+            "daily": "Yes, daily",
+            "often": "Yes, often",
+            "sometimes": "Sometimes",
+            "rarely": "Rarely",
+            "never": "Never"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "category": "itseepaily",
+                "question": "I often think: \"I am too sensitive\" or \"I take things too heavily\"",
+                "validationTitle": "💙 IMPORTANT INFO",
+                "validationText": "68% of workplace bullying victims think this. This thought is often a result of gaslighting, where your feelings have been repeatedly trivialized. You are NOT too sensitive."
+            },
+            {
+                "id": 2,
+                "category": "itseepaily",
+                "question": "I doubt my professional skills or competence (even though my results are objectively good)",
+                "validationTitle": "💙 RECOGNIZE INVALIDATION",
+                "validationText": "71% of victims start doubting their competence. If you have been constantly criticized or invalidated, it erodes your self-confidence despite real results."
+            },
+            {
+                "id": 3,
+                "category": "itseepaily",
+                "question": "I compare myself to others and think: \"Others are coping, why not me?\"",
+                "validationTitle": "💙 IMPORTANT UNDERSTANDING",
+                "validationText": "62% of victims compare themselves to others. Remember that you are treated differently than others. It's not about coping, but an uneven playing field."
+            },
+            {
+                "id": 4,
+                "category": "itseepaily",
+                "question": "I think that I deserve this treatment or that \"maybe there is something wrong with me\"",
+                "validationTitle": "💙 HEAR THIS CAREFULLY",
+                "validationText": "54% of victims start believing they deserve the treatment. No one deserves humiliation or fear. The fault lies with the bully and structures, not you."
+            },
+            {
+                "id": 5,
+                "category": "itseepaily",
+                "question": "I apologize for things that are not my fault",
+                "validationTitle": "💙 RECOGNIZE THE PATTERN",
+                "validationText": "Constant apologizing is a survival mechanism in a toxic environment. You don't need to apologize for your existence or things you cannot influence."
+            },
+            {
+                "id": 6,
+                "category": "itseepaily",
+                "question": "I think that \"if only I were better/tried harder, this would stop\"",
+                "validationTitle": "💙 IMPORTANT TRUTH",
+                "validationText": "This is a common fallacy. Bullying is not about your performance, but power. You cannot 'earn' good treatment by being better – it is your fundamental right."
+            },
+            {
+                "id": 7,
+                "category": "eristyksisyys",
+                "question": "I feel alone with this",
+                "validationTitle": "💙 YOU ARE NOT ALONE",
+                "validationText": "72% of victims feel alone. Isolation is a deliberate bullying tactic to deprive the victim of support and external validation."
+            },
+            {
+                "id": 8,
+                "category": "eristyksisyys",
+                "question": "I fear that no one will believe me if I tell",
+                "validationTitle": "💙 WE BELIEVE YOU",
+                "validationText": "68% of victims fear disbelief. Bullying is often subtle and happens behind closed doors, which feeds this fear."
+            },
+            {
+                "id": 9,
+                "category": "eristyksisyys",
+                "question": "Others do not intervene, so I think that \"maybe this is normal\"",
+                "validationTitle": "💙 BYSTANDER EFFECT",
+                "validationText": "58% of victims interpret others' silence as approval. In reality, others often fear becoming targets themselves and freeze."
+            },
+            {
+                "id": 10,
+                "category": "eristyksisyys",
+                "question": "I cannot talk about this to anyone",
+                "validationTitle": "💙 SHAME IS A WEAPON",
+                "validationText": "63% of victims feel they cannot talk to anyone. Shame is the bully's strongest weapon. Speaking up is the first step to breaking the power."
+            },
+            {
+                "id": 11,
+                "category": "eristyksisyys",
+                "question": "I think that HR/management will not help because they protect the company/bully",
+                "validationTitle": "💙 UNFORTUNATELY COMMON",
+                "validationText": "55% of victims share this concern. It is important to document everything carefully and seek help outside the organization if necessary."
+            },
+            {
+                "id": 12,
+                "category": "halvaantuminen",
+                "question": "I don't know what to do next",
+                "validationTitle": "💙 82% FEEL THIS WAY",
+                "validationText": "This is a normal trauma response. Excessive stress paralyzes decision-making. Turvasiipi helps you take one small step at a time."
+            },
+            {
+                "id": 13,
+                "category": "halvaantuminen",
+                "question": "I fear the situation will get worse if I try to intervene",
+                "validationTitle": "💙 REALISTIC FEAR",
+                "validationText": "69% of victims fear retaliation. That is why it is important to build evidence (documentation) before you officially raise the issue."
+            },
+            {
+                "id": 14,
+                "category": "halvaantuminen",
+                "question": "I don't have the strength to fight or try anymore",
+                "validationTitle": "💙 EXHAUSTION IS REAL",
+                "validationText": "76% of victims feel exhaustion. Your body is telling you that you have fought too long and too alone. Now is the time to rest and seek support."
+            },
+            {
+                "id": 15,
+                "category": "halvaantuminen",
+                "question": "I think that \"I should just endure this\" or \"I am not a victim\"",
+                "validationTitle": "💙 'ENDURING' IS TOXIC",
+                "validationText": "61% of victims try to 'just endure'. Enduring does not stop bullying, it only consumes your health. Seeking help is courage, not weakness."
+            },
+            {
+                "id": 16,
+                "category": "halvaantuminen",
+                "question": "My memory has weakened - I don't remember exactly what happened",
+                "validationTitle": "💙 TRAUMA AND MEMORY",
+                "validationText": "48% of victims suffer from memory problems. Constant stress affects the brain's memory center. That is why documenting immediately after events is critical."
+            },
+            {
+                "id": 17,
+                "category": "pelko",
+                "question": "I fear going to work (especially on Monday mornings)",
+                "validationTitle": "💙 74% FEEL THIS",
+                "validationText": "Monday anxiety is a serious sign of insecurity. Your body warns you of an unhealthy environment before you are even there."
+            },
+            {
+                "id": 18,
+                "category": "pelko",
+                "question": "I don't know when the 'next blow' will come - I am in a constant state of alertness",
+                "validationTitle": "💙 CONSTANT ALERTNESS",
+                "validationText": "67% of victims live in a 'fight or flight' state. This consumes the nervous system and is a typical PTSD symptom. You need a safe distance to recover."
+            },
+            {
+                "id": 19,
+                "category": "pelko",
+                "question": "I fear losing my job if I speak up / report",
+                "validationTitle": "💙 REALISTIC FEAR",
+                "validationText": "71% of victims fear for their job. However, the law protects the reporter from retaliation. Documentation is your best protection against illegal actions."
+            },
+            {
+                "id": 20,
+                "category": "pelko",
+                "question": "Work matters follow me home - messages or thoughts take over free time",
+                "validationTitle": "💙 NO BOUNDARY",
+                "validationText": "When work follows you home as nightmares or thoughts, recovery is prevented. This is one of the strongest predictors of burnout and trauma."
+            },
+            {
+                "id": 21,
+                "category": "identiteetti",
+                "question": "I am no longer myself - my personality has changed",
+                "validationTitle": "💙 IDENTITY",
+                "validationText": "64% of victims feel they have lost themselves. This is not permanent, but it tells how deep long-term bullying strikes."
+            },
+            {
+                "id": 22,
+                "category": "identiteetti",
+                "question": "I have lost my joy - things that used to delight me no longer interest me",
+                "validationTitle": "💙 ANHEDONIA",
+                "validationText": "68% of victims suffer from loss of joy. It is a symptom of depression and burnout that requires stopping and often professional help."
+            },
+            {
+                "id": 23,
+                "category": "identiteetti",
+                "question": "I remember how I was before - and I would like to be that person again",
+                "validationTitle": "💙 MEMORY OF OLD SELF",
+                "validationText": "59% of victims miss their 'former self'. That person has not disappeared, they are just traumatized and protecting themselves. Recovery is the path back."
+            },
+            {
+                "id": 24,
+                "category": "identiteetti",
+                "question": "I look in the mirror and don't recognize myself",
+                "validationTitle": "💙 DISSOCIATION",
+                "validationText": "41% of victims feel estranged from themselves. Body and mind can create distance from painful reality. This is a sign to seek help."
+            },
+            {
+                "id": 25,
+                "category": "fyysiset",
+                "question": "I don't sleep properly - I wake up at night or suffer from nightmares",
+                "validationTitle": "💙 81% SUFFER SLEEP DISORDERS",
+                "validationText": "Insomnia is the body's way of screaming about overload. Sleep is critical for recovery, and its constant disruption requires reaction."
+            },
+            {
+                "id": 26,
+                "category": "fyysiset",
+                "question": "I have stomach issues or nausea especially before work",
+                "validationTitle": "💙 THE BODY KEEPS SCORE",
+                "validationText": "58% of victims suffer from stomach symptoms. Your body reacts to fear physically before your mind has time to analyze the situation."
+            },
+            {
+                "id": 27,
+                "category": "fyysiset",
+                "question": "My heart pounds or I feel anxiety in work situations",
+                "validationTitle": "💙 PANIC REACTION",
+                "validationText": "64% of victims experience anxiety symptoms. It is the body's natural alarm system against an unjust and threatening situation."
+            },
+            {
+                "id": 28,
+                "category": "fyysiset",
+                "question": "I have been sick more often this year than before",
+                "validationTitle": "💙 IMMUNE PROTECTION",
+                "validationText": "58% of victims get sick more often. Long-term stress and high cortisol weaken your immune system."
+            },
+            {
+                "id": 29,
+                "category": "fyysiset",
+                "question": "I use alcohol, medication, or other means to cope",
+                "validationTitle": "💙 SELF-MEDICATION",
+                "validationText": "31% of victims resort to substances to numb their pain. It is a human reaction to unbearable feeling, but exhausts the body further."
+            },
+            {
+                "id": 30,
+                "category": "fyysiset",
+                "question": "I have considered suicide or feel that life has no meaning",
+                "validationTitle": "🚨 CRISIS AID NOW",
+                "validationText": "This is the most serious possible sign. You are not alone, and help is available 24/7. Call the crisis helpline immediately: 09 2525 0111.",
+                "isCritical": true
+            }
+        ]
     }
 }

@@ -42,33 +42,32 @@ export default function QuizPage() {
             <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 space-y-12">
                 <header className="space-y-6">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">
-                        Tilannekartoitus
+                        {t('quiz.page.label')}
                     </span>
                     <h1 className="text-4xl font-bold text-[#2B2B2B] leading-tight">
-                        Onko kyse kiusaamisesta? <br />
-                        <span className="text-[#4A4A4A] font-normal italic">Käy läpi tarkistuslista.</span>
+                        {t('quiz.page.title')} <br />
+                        <span className="text-[#4A4A4A] font-normal italic">{t('quiz.page.subtitle')}</span>
                     </h1>
                     <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-xl">
-                        Tämä ei ole diagnoosi. Tämä on työkalu, joka auttaa sinua näkemään, täyttyvätkö kiusaamisen rakenteelliset tunnusmerkit tilanteessasi.
+                        {t('quiz.page.description')}
                     </p>
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 text-sm text-[#4A4A4A]">
                     <div className="space-y-4 p-6 bg-white border border-[#E8DDD0] rounded-sm">
-                        <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">Mitä tämä mittaa?</strong>
+                        <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">{t('quiz.page.what_measures_title')}</strong>
                         <ul className="space-y-2 list-disc list-inside">
-                            <li>Toistuvuutta</li>
-                            <li>Epätasapainoa voimasuhteissa</li>
-                            <li>Vaikutuksia terveyteen</li>
-                            <li>Eristämistä</li>
+                            {(t('quiz.page.what_measures_list', { returnObjects: true }) as string[]).map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
                         </ul>
                     </div>
                     <div className="space-y-4 p-6 bg-white border border-[#E8DDD0] rounded-sm">
-                        <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">Mitä tämä ei mittaa?</strong>
+                        <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">{t('quiz.page.what_not_measures_title')}</strong>
                         <ul className="space-y-2 list-disc list-inside">
-                            <li>Kenenkään "pahuutta"</li>
-                            <li>Juridista syyllisyyttä</li>
-                            <li>Yksittäisiä riitoja</li>
+                            {(t('quiz.page.what_not_measures_list', { returnObjects: true }) as string[]).map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -77,7 +76,7 @@ export default function QuizPage() {
                     onClick={() => setHasStarted(true)}
                     className="bg-[#2B2B2B] text-white px-8 py-4 rounded-sm font-medium hover:bg-[#5B4B8A] transition-colors flex items-center gap-2"
                 >
-                    Aloita kartoitus <ArrowRight className="w-4 h-4" />
+                    {t('quiz.page.start_btn')} <ArrowRight className="w-4 h-4" />
                 </button>
             </div>
         );
@@ -90,9 +89,9 @@ export default function QuizPage() {
         return (
             <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 space-y-12">
                 <div className="space-y-4">
-                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">Analyysi</span>
+                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">{t('quiz.page.analysis_label')}</span>
                     <h1 className="text-4xl font-bold text-[#2B2B2B]">
-                        Tunnusmerkkejä: {score} / {quizQuestions.length}
+                        {t('quiz.page.analysis_title', { score, total: quizQuestions.length })}
                     </h1>
                 </div>
 
@@ -110,7 +109,7 @@ export default function QuizPage() {
                 </div>
 
                 <div className="space-y-6 pt-8 border-t border-[#E8DDD0]">
-                    <h3 className="text-lg font-bold text-[#2B2B2B]">Suositellut toimenpiteet:</h3>
+                    <h3 className="text-lg font-bold text-[#2B2B2B]">{t('quiz.page.recommendations_title')}</h3>
                     <div className="grid gap-4">
                         {((t(`quiz.tiered_recommendations.${risk.key || 'stable'}`, { returnObjects: true }) as any[]) || []).map((item: any, i: number) => (
                             <div key={i} className="bg-white p-6 border border-[#E8DDD0] rounded-sm hover:border-[#5B4B8A] transition-colors group cursor-pointer">
@@ -123,10 +122,10 @@ export default function QuizPage() {
 
                 <div className="pt-8 flex flex-col sm:flex-row gap-6">
                     <Link href="/" className="text-[#5B4B8A] font-bold hover:underline flex items-center gap-2">
-                        <ArrowRight className="w-4 h-4 rotate-180" /> Palaa etusivulle
+                        <ArrowRight className="w-4 h-4 rotate-180" /> {t('quiz.page.back_home')}
                     </Link>
                     <button onClick={reset} className="text-[#4A4A4A] hover:text-[#2B2B2B] flex items-center gap-2 text-sm">
-                        <RotateCcw className="w-4 h-4" /> Tee uudelleen
+                        <RotateCcw className="w-4 h-4" /> {t('quiz.page.retry')}
                     </button>
                 </div>
             </div>
@@ -136,9 +135,9 @@ export default function QuizPage() {
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 space-y-16">
             <header className="flex items-center justify-between border-b border-[#E8DDD0] pb-6 sticky top-20 bg-[#FDFBF7]/95 backdrop-blur-sm z-10">
-                <span className="text-sm font-bold text-[#2B2B2B]">Kysymykset</span>
+                <span className="text-sm font-bold text-[#2B2B2B]">{t('quiz.page.label')}</span>
                 <span className="text-[11px] font-mono text-[#4A4A4A]">
-                    {Object.keys(answers).length} / {quizQuestions.length} vastattu
+                    {t('quiz.page.progress', { answered: Object.keys(answers).length, total: quizQuestions.length })}
                 </span>
             </header>
 
@@ -159,7 +158,7 @@ export default function QuizPage() {
                                         : "bg-white text-[#4A4A4A] border-[#E8DDD0] hover:border-[#5B4B8A]"
                                 )}
                             >
-                                Kyllä
+                                {t('quiz.page.yes')}
                             </button>
                             <button
                                 onClick={() => handleAnswer(q.id, false)}
@@ -170,7 +169,7 @@ export default function QuizPage() {
                                         : "bg-white text-[#4A4A4A] border-[#E8DDD0] hover:border-[#5B4B8A]"
                                 )}
                             >
-                                Ei
+                                {t('quiz.page.no')}
                             </button>
                         </div>
                     </div>
@@ -183,11 +182,11 @@ export default function QuizPage() {
                     disabled={Object.keys(answers).length < quizQuestions.length}
                     className="w-full sm:w-auto bg-[#5B4B8A] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#4A3A7A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                    Katso analyysi <ArrowRight className="w-4 h-4" />
+                    {t('quiz.page.view_analysis')} <ArrowRight className="w-4 h-4" />
                 </button>
                 {Object.keys(answers).length < quizQuestions.length && (
                     <p className="text-center text-xs text-[#4A4A4A] mt-4 font-mono">
-                        Vastaa kaikkiin kohtiin nähdäksesi tuloksen.
+                        {t('quiz.page.answer_all_hint')}
                     </p>
                 )}
             </div>

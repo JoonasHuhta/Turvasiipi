@@ -50,61 +50,61 @@ export function Navigation() {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8 text-[12px] font-medium tracking-wide text-[#4A4A4A]">
                 <Link href="/simulaatio" className={cn("hover:text-[#5B4B8A] transition-colors uppercase", pathname === '/simulaatio' && "text-[#5B4B8A] font-bold")}>
-                    Koe
+                    {t('nav.simulation')}
                 </Link>
 
                 <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center gap-1 hover:text-[#5B4B8A] transition-colors uppercase outline-none">
-                        Tutki <ChevronDown className="w-3 h-3 opacity-50" />
+                        {t('nav.explore')} <ChevronDown className="w-3 h-3 opacity-50" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="w-56 bg-white border-[#E8DDD0] rounded-sm shadow-sm py-2">
                         <DropdownMenuItem asChild>
-                            <Link href="/quiz" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Tunnista riskit</Link>
+                            <Link href="/quiz" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.identify_risks')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/lukutaito-testi" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Työyhteisön tilanne</Link>
+                            <Link href="/lukutaito-testi" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.literacy_test')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/taktiikat" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Kiusaamisen muodot</Link>
+                            <Link href="/taktiikat" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.tactics')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/feeling-quiz" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Uhrin tuntemukset</Link>
+                            <Link href="/feeling-quiz" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.victim_feelings')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/empatia-testi" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Empatia-spektri</Link>
+                            <Link href="/empatia-testi" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.empathy_spectrum')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/tietovisa" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Tietovisa (Faktat)</Link>
+                            <Link href="/tietovisa" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.quiz_facts')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Neuromoninaisuus</Link>
+                            <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.neuromoninaisuus')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/nuoret" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Nuoret työelämässä</Link>
+                            <Link href="/nuoret" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.youth_work')}</Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
 
                 <Link href="/valmennus" className={cn("hover:text-[#5B4B8A] transition-colors uppercase", pathname.startsWith('/valmennus') && "text-[#5B4B8A] font-bold")}>
-                    Valmennus
+                    {t('nav.training')}
                 </Link>
 
                 <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center gap-1 hover:text-[#5B4B8A] transition-colors uppercase outline-none">
-                        Välineet <ChevronDown className="w-3 h-3 opacity-50" />
+                        {t('nav.tools')} <ChevronDown className="w-3 h-3 opacity-50" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start" className="w-48 bg-white border-[#E8DDD0] rounded-sm shadow-sm py-2">
                         <DropdownMenuItem asChild>
-                            <Link href="/loki" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Loki</Link>
+                            <Link href="/loki" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.log')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/timeline" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Aikajana</Link>
+                            <Link href="/timeline" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.timeline')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/dokumentointi-opas" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Miten kirjaan?</Link>
+                            <Link href="/dokumentointi-opas" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.guide')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/raportti" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Raportointi</Link>
+                            <Link href="/raportti" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.reports')}</Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -129,18 +129,18 @@ export function Navigation() {
                 <DropdownMenu>
                     <DropdownMenuTrigger className="hidden md:flex items-center gap-2 px-4 py-2 bg-white border border-[#E8DDD0] hover:border-[#5B4B8A]/30 rounded-full text-[11px] font-bold tracking-wide text-[#5B4B8A] transition-all cursor-pointer shadow-sm hover:shadow-md uppercase">
                         <Heart className="w-3.5 h-3.5" />
-                        <span>Apua</span>
+                        <span>{t('nav.help')}</span>
                         <ChevronDown className="w-3 h-3 opacity-50" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-48 bg-white border-[#E8DDD0] rounded-sm shadow-sm py-2">
                         <DropdownMenuItem asChild>
-                            <Link href="/tuki" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Tukipalvelut</Link>
+                            <Link href="/tuki" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.support_services')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/yhteiso" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Yhteisö</Link>
+                            <Link href="/yhteiso" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.community')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/tarinat" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Tarinat</Link>
+                            <Link href="/tarinat" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.stories')}</Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -180,14 +180,14 @@ export function Navigation() {
                                     className="block py-2 px-4 -mx-4 text-xl font-serif text-[#2B2B2B] hover:bg-[#E8DDD0]/30 transition-colors rounded-sm"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    Koe Simulaatio
+                                    {t('nav.simulation')}
                                 </Link>
                                 <Link
                                     href="/valmennus"
                                     className="block py-2 px-4 -mx-4 text-xl font-serif text-[#2B2B2B] hover:bg-[#E8DDD0]/30 transition-colors rounded-sm"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    Valmennus
+                                    {t('nav.training')}
                                 </Link>
                             </div>
 
@@ -197,39 +197,38 @@ export function Navigation() {
                             {/* Dropdown Groups */}
                             <div className="space-y-6">
                                 <div className="space-y-3">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Tutki</span>
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">{t('nav.explore')}</span>
                                     <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
-                                        <Link href="/quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tunnista riskit</Link>
-                                        <Link href="/lukutaito-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Työyhteisön tilanne</Link>
-                                        <Link href="/taktiikat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Kiusaamisen muodot</Link>
-                                        <Link href="/feeling-quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Uhrin tuntemukset</Link>
-                                        <Link href="/empatia-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Empatia-spektri</Link>
-                                        <Link href="/tietovisa" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tietovisa (Faktat)</Link>
-                                        <Link href="/neuromoninaisuus" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Neuromoninaisuus</Link>
-                                        <Link href="/nuoret" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Nuoret työelämässä</Link>
+                                        <Link href="/quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.identify_risks')}</Link>
+                                        <Link href="/lukutaito-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.literacy_test')}</Link>
+                                        <Link href="/taktiikat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.tactics')}</Link>
+                                        <Link href="/feeling-quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.victim_feelings')}</Link>
+                                        <Link href="/empatia-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.empathy_spectrum')}</Link>
+                                        <Link href="/tietovisa" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.quiz_facts')}</Link>
+                                        <Link href="/neuromoninaisuus" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.neuromoninaisuus')}</Link>
+                                        <Link href="/nuoret" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.youth_work')}</Link>
                                     </div>
                                 </div>
 
                                 <div className="space-y-3">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Välineet</span>
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">{t('nav.tools')}</span>
                                     <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
-                                        <Link href="/loki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Loki</Link>
-                                        <Link href="/timeline" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Aikajana</Link>
-                                        <Link href="/dokumentointi-opas" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Miten kirjaan?</Link>
-                                        <Link href="/raportti" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Raportointi</Link>
+                                        <Link href="/loki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.log')}</Link>
+                                        <Link href="/timeline" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.timeline')}</Link>
+                                        <Link href="/dokumentointi-opas" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.guide')}</Link>
+                                        <Link href="/raportti" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.reports')}</Link>
                                     </div>
                                 </div>
 
                                 <div className="space-y-3">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">Apua</span>
+                                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#5B4B8A] opacity-70">{t('nav.help')}</span>
                                     <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
-                                        <Link href="/tuki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tukipalvelut</Link>
-                                        <Link href="/yhteiso" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Yhteisö</Link>
-                                        <Link href="/tarinat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Tarinat</Link>
+                                        <Link href="/tuki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.support_services')}</Link>
+                                        <Link href="/yhteiso" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.community')}</Link>
+                                        <Link href="/tarinat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.stories')}</Link>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </SheetContent>
                 </Sheet>

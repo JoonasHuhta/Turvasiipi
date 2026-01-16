@@ -2,13 +2,6 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-    feelingsQuestions,
-    categoryWeights,
-    getFeelingsRiskLevel,
-    FeelingQuestion,
-    FeelingCategory
-} from "@/data/feelings-quiz";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,18 +12,50 @@ import {
     ArrowLeft,
     RotateCcw,
     CheckCircle2,
-    AlertTriangle,
     ShieldAlert,
     Phone,
-    MessageCircle,
     Heart,
-    Info
 } from "lucide-react";
 import Link from "next/link";
 import { useProgress } from "@/context/ProgressContext";
+import { useLanguage } from "@/context/LanguageContext";
+
+type FeelingCategory =
+    | "itseepaily"
+    | "eristyksisyys"
+    | "halvaantuminen"
+    | "pelko"
+    | "identiteetti"
+    | "fyysiset";
+
+interface FeelingQuestion {
+    id: number;
+    category: FeelingCategory;
+    question: string;
+    validationTitle: string;
+    validationText: string;
+    isCritical?: boolean;
+}
+
+const categoryWeights: Record<FeelingCategory, number> = {
+    itseepaily: 3,
+    eristyksisyys: 2,
+    halvaantuminen: 2,
+    pelko: 2,
+    identiteetti: 1.5,
+    fyysiset: 3
+};
 
 export default function FeelingQuizPage() {
     const { completeModule } = useProgress();
+    const { t, language } = useLanguage();
+
+    // Fetch questions from translation logic
+    const questions = useMemo(() => {
+        const q = t('feeling_quiz.questions', { returnObjects: true });
+        return Array.isArray(q) ? (q as FeelingQuestion[]) : [];
+    }, [language, t]);
+
     const [hasStarted, setHasStarted] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -38,16 +63,21 @@ export default function FeelingQuizPage() {
     const [isFinished, setIsFinished] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    const currentQuestion = feelingsQuestions[currentIndex];
+    // Safeguard if questions aren't loaded yet
+    const currentQuestion = questions[currentIndex];
+
+    // Reset quiz if language changes significantly or questions reload?
+    // Actually better to just keep state but the text updates dynamically.
 
     const handleAnswer = (value: number) => {
+        if (!currentQuestion) return;
         setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }));
         setShowValidation(true);
         scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const nextQuestion = () => {
-        if (currentIndex < feelingsQuestions.length - 1) {
+        if (currentIndex < questions.length - 1) {
             setCurrentIndex(prev => prev + 1);
             setShowValidation(false);
             scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,9 +92,6 @@ export default function FeelingQuizPage() {
         if (currentIndex > 0) {
             setCurrentIndex(prev => prev - 1);
             setShowValidation(false);
-            // We might want to keep the answer visible? 
-            // Current login resets showValidation to false, so it shows the question again.
-            // That is fine, user can re-answer.
             scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
@@ -79,17 +106,25 @@ export default function FeelingQuizPage() {
     };
 
     const totalScore = useMemo(() => {
+        if (!questions.length) return 0;
         let score = 0;
         Object.entries(answers).forEach(([id, value]) => {
-            const question = feelingsQuestions.find(q => q.id === Number(id));
+            const question = questions.find(q => q.id === Number(id));
             if (question) {
+                // Determine category from question data (which comes from translation now, so key must suffice)
+                // Note: The translation JSON 'category' string matches FeelingCategory type
                 score += value * (categoryWeights[question.category] || 1);
             }
         });
         return Math.round(score);
-    }, [answers]);
+    }, [answers, questions]);
 
-    const risk = getFeelingsRiskLevel(totalScore);
+    const risk = useMemo(() => {
+        if (totalScore >= 81) return { level: t('feeling_quiz.risk_levels.critical'), color: "text-red-600", bg: "bg-red-50", border: "border-red-200" };
+        if (totalScore >= 51) return { level: t('feeling_quiz.risk_levels.high'), color: "text-orange-600", bg: "bg-orange-50", border: "border-orange-200" };
+        if (totalScore >= 21) return { level: t('feeling_quiz.risk_levels.moderate'), color: "text-yellow-600", bg: "bg-yellow-50", border: "border-yellow-200" };
+        return { level: t('feeling_quiz.risk_levels.mild'), color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200" };
+    }, [totalScore, t]);
 
     // Calculate categorical breakdowns
     const categoricalData = useMemo(() => {
@@ -102,39 +137,58 @@ export default function FeelingQuizPage() {
             fyysiset: { score: 0, max: 0 }
         };
 
-        feelingsQuestions.forEach(q => {
-            const weight = categoryWeights[q.category] || 1;
-            data[q.category].max += 4 * weight;
-            if (answers[q.id] !== undefined) {
-                data[q.category].score += answers[q.id] * weight;
+        questions.forEach(q => {
+            // Ensure category exists in our record
+            if (data[q.category]) {
+                const weight = categoryWeights[q.category] || 1;
+                data[q.category].max += 4 * weight;
+                if (answers[q.id] !== undefined) {
+                    data[q.category].score += answers[q.id] * weight;
+                }
             }
         });
 
         return data;
-    }, [answers]);
+    }, [answers, questions]);
 
     if (!hasStarted) {
         return (
             <div className="max-w-3xl mx-auto py-12 px-6 space-y-12 animate-in fade-in duration-700 pb-32">
                 <section className="text-center space-y-6">
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest border border-primary/20">
-                        <Heart className="w-3 h-3 fill-current" /> Itsearviointi
+                        <Heart className="w-3 h-3 fill-current" /> {t('feeling_quiz.page.badge')}
                     </div>
                     <h1 className="text-4xl sm:text-7xl font-black tracking-tighter text-slate-900 uppercase leading-[0.85] break-words hyphens-auto">
-                        Uhrin <br />
-                        <span className="text-primary italic">tuntemukset</span>
+                        {t('feeling_quiz.page.title_prefix')} <br />
+                        <span className="text-primary italic">{t('feeling_quiz.page.title_highlight')}</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-xl mx-auto font-light leading-relaxed">
-                        Epäiletkö työpaikkakiusaamista? Tämä 5 minuutin testi auttaa sinua sanoittamaan tunteitasi ja normalisoimaan traumaasi.
+                        {t('feeling_quiz.page.intro')}
                     </p>
                 </section>
 
                 <div className="grid gap-3 sm:grid-cols-2 lg:gap-6">
                     {[
-                        { title: "Matala kynnys", text: "Vastaa omassa tahdissasi. Kukaan ei näe vastauksiasi.", icon: "🔒" },
-                        { title: "Välitön palaute", text: "Saat normalisoivaa tietoa jokaisen vastauksen jälkeen.", icon: "💙" },
-                        { title: "Painotettu analyysi", text: "Tunnistaa vakavimmat merkit, kuten gaslightingin.", icon: "📊" },
-                        { title: "Kriisiavun ohjaus", text: "Tunnistaa akuutin avun tarpeen välittömästi.", icon: "🚨" }
+                        {
+                            title: t('feeling_quiz.page.features.threshold.title'),
+                            text: t('feeling_quiz.page.features.threshold.text'),
+                            icon: "🔒"
+                        },
+                        {
+                            title: t('feeling_quiz.page.features.feedback.title'),
+                            text: t('feeling_quiz.page.features.feedback.text'),
+                            icon: "💙"
+                        },
+                        {
+                            title: t('feeling_quiz.page.features.analysis.title'),
+                            text: t('feeling_quiz.page.features.analysis.text'),
+                            icon: "📊"
+                        },
+                        {
+                            title: t('feeling_quiz.page.features.crisis.title'),
+                            text: t('feeling_quiz.page.features.crisis.text'),
+                            icon: "🚨"
+                        }
                     ].map((item, i) => (
                         <div key={i} className="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 items-start hover:bg-slate-100 transition-colors">
                             <span className="text-2xl pt-1 shrink-0">{item.icon}</span>
@@ -152,7 +206,7 @@ export default function FeelingQuizPage() {
                         onClick={() => setHasStarted(true)}
                         className="rounded-full px-12 py-8 text-xl font-black uppercase tracking-widest shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
                     >
-                        Aloita arviointi <ArrowRight className="w-6 h-6 ml-2" />
+                        {t('feeling_quiz.page.start_btn')} <ArrowRight className="w-6 h-6 ml-2" />
                     </Button>
                 </div>
             </div>
@@ -163,8 +217,10 @@ export default function FeelingQuizPage() {
         return (
             <div className="max-w-4xl mx-auto py-12 px-6 animate-in zoom-in-95 fade-in duration-500 pb-32">
                 <header className="text-center space-y-4 mb-12">
-                    <Badge className="bg-primary/10 text-primary border-primary/20 uppercase font-black tracking-widest">Analyysi valmis</Badge>
-                    <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-none">Arviosi <span className="text-primary italic">tulokset</span></h1>
+                    <Badge className="bg-primary/10 text-primary border-primary/20 uppercase font-black tracking-widest">{t('feeling_quiz.results.badge')}</Badge>
+                    <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-none">
+                        {t('feeling_quiz.results.title')} <span className="text-primary italic">{t('feeling_quiz.results.title_highlight')}</span>
+                    </h1>
                 </header>
 
                 <div className="grid lg:grid-cols-12 gap-8">
@@ -176,31 +232,31 @@ export default function FeelingQuizPage() {
                         <div className="relative z-10 space-y-6">
                             <div className="flex items-center gap-3">
                                 <Badge className={`uppercase font-black px-4 py-1 rounded-full ${totalScore > 50 ? 'bg-red-600 text-white' : 'bg-emerald-600 text-white'}`}>
-                                    Riskitaso: {risk.level}
+                                    {t('feeling_quiz.results.risk_level')}: {risk.level}
                                 </Badge>
-                                <span className="text-xl font-black text-slate-400">Pisteet: {totalScore}</span>
+                                <span className="text-xl font-black text-slate-400">{t('feeling_quiz.results.score')}: {totalScore}</span>
                             </div>
 
                             <p className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.1] text-slate-900">
-                                {totalScore > 80 ? "Tarvitset välitöntä tukea tilanteeseesi." :
-                                    totalScore > 50 ? "Koet vakavaa ja systemaattista kuormitusta." :
-                                        totalScore > 20 ? "Tilanteesi vaatii aktiivista seurantaa ja toimia." :
-                                            "Tilanteesi vaikuttaa tällä hetkellä hallittavalta."}
+                                {totalScore > 80 ? t('feeling_quiz.results.immediate_support') :
+                                    totalScore > 50 ? t('feeling_quiz.results.severe_load') :
+                                        totalScore > 20 ? t('feeling_quiz.results.active_action') :
+                                            t('feeling_quiz.results.manageable')}
                             </p>
 
                             <div className="flex flex-wrap gap-4 pt-4">
                                 {totalScore > 80 ? (
                                     <>
                                         <Button className="bg-red-600 hover:bg-red-700 text-white rounded-full px-8 py-6 font-black uppercase tracking-widest gap-2" asChild>
-                                            <a href="tel:0925250111"><Phone className="w-5 h-5" /> Soita kriisipuhelimeen</a>
+                                            <a href="tel:0925250111"><Phone className="w-5 h-5" /> {t('feeling_quiz.results.call_crisis')}</a>
                                         </Button>
                                         <Button variant="outline" className="rounded-full px-8 py-6 font-black uppercase tracking-widest border-2" asChild>
-                                            <Link href="/timeline">Aloita dokumentointi</Link>
+                                            <Link href="/timeline">{t('feeling_quiz.results.start_docs')}</Link>
                                         </Button>
                                     </>
                                 ) : (
                                     <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 font-black uppercase tracking-widest shadow-xl shadow-primary/20" asChild>
-                                        <Link href="/timeline">Aloita dokumentointi</Link>
+                                        <Link href="/timeline">{t('feeling_quiz.results.start_docs')}</Link>
                                     </Button>
                                 )}
                             </div>
@@ -215,18 +271,13 @@ export default function FeelingQuizPage() {
                                     <div className="flex justify-between items-end">
                                         <div className="space-y-0.5">
                                             <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">
-                                                {cat === 'itseepaily' ? 'Gaslighting & Itseepäily' :
-                                                    cat === 'eristyksisyys' ? 'Eristyneisyys' :
-                                                        cat === 'halvaantuminen' ? 'Halvaantuminen' :
-                                                            cat === 'pelko' ? 'Pelko & Turvattomuus' :
-                                                                cat === 'identiteetti' ? 'Identiteetin mureneminen' :
-                                                                    'Fyysiset oireet'}
+                                                {t(`feeling_quiz.categories.${cat}` as any)}
                                             </h4>
-                                            <p className="font-bold text-slate-900">Painotettu rasitus</p>
+                                            <p className="font-bold text-slate-900">{t('feeling_quiz.results.weighted_strain')}</p>
                                         </div>
-                                        <span className="font-black text-2xl text-primary">{Math.round((data.score / data.max) * 100)}%</span>
+                                        <span className="font-black text-2xl text-primary">{Math.round((data.score / (data.max || 1)) * 100)}%</span>
                                     </div>
-                                    <Progress value={(data.score / data.max) * 100} className="h-3 bg-white" />
+                                    <Progress value={(data.score / (data.max || 1)) * 100} className="h-3 bg-white" />
                                 </div>
                             </Card>
                         ))}
@@ -234,20 +285,21 @@ export default function FeelingQuizPage() {
                 </div>
 
                 <div className="mt-12 p-8 bg-slate-900 text-white rounded-[2.5rem] space-y-6">
-                    <h3 className="text-2xl font-black uppercase tracking-tight italic text-primary">💙 Muista tämä:</h3>
+                    <h3 className="text-2xl font-black uppercase tracking-tight italic text-primary">{t('feeling_quiz.results.remember_title')}</h3>
                     <p className="text-lg font-light leading-relaxed opacity-90">
-                        Nämä tulokset eivät määritä arvoasi ihmisenä. Ne mittaavat vain sitä, kuinka raskaalla tavalla nykyinen ympäristösi vaikuttaa sinuun.
-                        <strong> Kukaan ei ansaitse tätä.</strong> Turvasiipi on täällä auttaakseen sinua rakentamaan polun takaisin turvaan.
+                        {t('feeling_quiz.results.remember_text')}
                     </p>
                     <div className="flex justify-center pt-4">
                         <Button variant="ghost" className="text-white/50 hover:text-white uppercase text-xs font-black tracking-widest" onClick={resetQuiz}>
-                            <RotateCcw className="w-4 h-4 mr-2" /> Tee testi uudelleen
+                            <RotateCcw className="w-4 h-4 mr-2" /> {t('feeling_quiz.results.retry_btn')}
                         </Button>
                     </div>
                 </div>
             </div>
         );
     }
+
+    if (!currentQuestion) return null; // Safe exit if loading
 
     return (
         <div className="fixed inset-0 z-[100] flex flex-col font-sans overflow-hidden bg-white">
@@ -261,13 +313,13 @@ export default function FeelingQuizPage() {
                     )}
                     <div className="flex flex-col flex-1">
                         <div className="flex justify-between items-center mb-1">
-                            <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none">Edistyminen</span>
-                            <span className="text-[10px] text-primary font-black leading-none">{currentIndex + 1} / {feelingsQuestions.length}</span>
+                            <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none">{t('feeling_quiz.page.progress')}</span>
+                            <span className="text-[10px] text-primary font-black leading-none">{currentIndex + 1} / {questions.length}</span>
                         </div>
-                        <Progress value={((currentIndex + 1) / feelingsQuestions.length) * 100} className="h-1" />
+                        <Progress value={((currentIndex + 1) / questions.length) * 100} className="h-1" />
                     </div>
                 </div>
-                <Button variant="ghost" size="sm" onClick={resetQuiz} className="ml-4 opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest h-8 px-2">Lopeta</Button>
+                <Button variant="ghost" size="sm" onClick={resetQuiz} className="ml-4 opacity-50 hover:opacity-100 uppercase text-[10px] font-black tracking-widest h-8 px-2">{t('feeling_quiz.page.quit_btn')}</Button>
             </header>
 
             {/* Main Content (Scrollable) */}
@@ -283,12 +335,7 @@ export default function FeelingQuizPage() {
                         >
                             <div className="space-y-4">
                                 <Badge className="bg-primary text-white uppercase font-black tracking-widest px-3 py-0.5 text-[9px]">
-                                    {currentQuestion.category === 'itseepaily' ? 'Itseepäily & Häpeä' :
-                                        currentQuestion.category === 'eristyksisyys' ? 'Eristyneisyys' :
-                                            currentQuestion.category === 'halvaantuminen' ? 'Halvaantuminen' :
-                                                currentQuestion.category === 'pelko' ? 'Pelko & Turvattomuus' :
-                                                    currentQuestion.category === 'identiteetti' ? 'Identiteetin mureneminen' :
-                                                        'Fyysiset oireet'}
+                                    {t(`feeling_quiz.categories.${currentQuestion.category}` as any)}
                                 </Badge>
                                 <h2 className="text-2xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase transition-all break-words hyphens-auto">
                                     {currentQuestion.question}
@@ -297,11 +344,11 @@ export default function FeelingQuizPage() {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pb-6">
                                 {[
-                                    { label: "Kyllä, päivittäin", value: 4 },
-                                    { label: "Kyllä, usein", value: 3 },
-                                    { label: "Joskus", value: 2 },
-                                    { label: "Harvoin", value: 1 },
-                                    { label: "Ei koskaan", value: 0 }
+                                    { label: t('feeling_quiz.options.daily'), value: 4 },
+                                    { label: t('feeling_quiz.options.often'), value: 3 },
+                                    { label: t('feeling_quiz.options.sometimes'), value: 2 },
+                                    { label: t('feeling_quiz.options.rarely'), value: 1 },
+                                    { label: t('feeling_quiz.options.never'), value: 0 }
                                 ].map((opt, i) => (
                                     <Button
                                         key={opt.label}
@@ -355,7 +402,7 @@ export default function FeelingQuizPage() {
                             onClick={nextQuestion}
                             className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl h-16 text-xl font-black uppercase tracking-widest shadow-xl shadow-primary/40 group active:scale-95 transition-all"
                         >
-                            Jatka <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                            {t('feeling_quiz.page.continue_btn')} <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
                         </Button>
                     )}
                 </div>

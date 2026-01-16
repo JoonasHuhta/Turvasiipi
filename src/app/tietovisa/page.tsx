@@ -80,9 +80,9 @@ export default function TietovisaPage() {
 
     const getExpertFeedback = (score: number, total: number) => {
         const percentage = (score / total) * 100;
-        if (percentage < 40) return { title: "Havainnoija", text: "Perustiedoissa on vielä aukkoja. On tärkeää tunnistaa faktat uskomuksista." };
-        if (percentage < 80) return { title: "Tarkkaavainen", text: "Hyvä perustietämys. Tunnistat useimmat rakenteet oikein." };
-        return { title: "Asiantuntija", text: "Erinomainen suoritus. Ymmärrät ilmiön syvällisesti ja monipuolisesti." };
+        if (percentage < 40) return t('tietovisa_page.expert_feedback.observer', { returnObjects: true }) as { title: string, text: string };
+        if (percentage < 80) return t('tietovisa_page.expert_feedback.alert', { returnObjects: true }) as { title: string, text: string };
+        return t('tietovisa_page.expert_feedback.expert', { returnObjects: true }) as { title: string, text: string };
     };
 
     // --- VIEW: MENU ---
@@ -91,11 +91,11 @@ export default function TietovisaPage() {
             <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-12 animate-in fade-in duration-500">
                 <div className="space-y-6 border-b border-[#E8DDD0] pb-8">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border border-[#5B4B8A] px-3 py-1 rounded-sm inline-block">
-                        Tutki / Faktapankki
+                        {t('tietovisa_page.label')}
                     </span>
-                    <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">Työelämän faktapankki</h1>
+                    <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">{t('tietovisa_page.title')}</h1>
                     <p className="text-lg text-[#4A4A4A] max-w-2xl leading-relaxed">
-                        Testaa tietosi tutkimuksista, laeista ja psykologiasta. Tieto on paras suoja epävarmuutta vastaan.
+                        {t('tietovisa_page.description')}
                     </p>
                 </div>
 
@@ -106,13 +106,13 @@ export default function TietovisaPage() {
                     >
                         <Library className="w-12 h-12 text-white/10 absolute top-4 right-4" />
                         <h3 className="text-2xl font-serif font-bold mb-2 group-hover:underline decoration-1 underline-offset-4">
-                            Koko aineisto
+                            {t('tietovisa_page.all_data_title')}
                         </h3>
                         <p className="text-white/70 mb-6 font-mono text-sm max-w-xl">
-                            Käy läpi kaikki 35 kysymystä kattavana tarkasteluna.
+                            {t('tietovisa_page.all_data_desc', { count: activeQuestions.length || 35 })}
                         </p>
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-                            Aloita testi <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            {t('tietovisa_page.start_btn')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </button>
 
@@ -124,7 +124,7 @@ export default function TietovisaPage() {
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#5B4B8A] border border-[#E8DDD0] bg-[#FDFBF7] px-2 py-1 rounded-sm">
-                                    Osa {part.id}
+                                    {t('tietovisa_page.part_label', { id: part.id })}
                                 </span>
                                 <FileText className="w-5 h-5 text-[#E8DDD0] group-hover:text-[#5B4B8A] transition-colors" />
                             </div>
@@ -132,7 +132,7 @@ export default function TietovisaPage() {
                                 {part.title}
                             </h3>
                             <p className="text-sm text-[#4A4A4A] font-mono">
-                                {part.questions.length} kysymystä
+                                {t('tietovisa_page.questions_count', { count: part.questions.length })}
                             </p>
                         </button>
                     ))}
@@ -163,7 +163,7 @@ export default function TietovisaPage() {
 
                     <div className="pt-8 border-t border-[#FAFAFA]">
                         <Button onClick={resetGame} variant="outline" className="border-[#2B2B2B] text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white uppercase font-bold tracking-widest text-xs px-8 py-6 rounded-sm transition-all">
-                            <RotateCcw className="w-4 h-4 mr-2" /> Palaa hakemistoon
+                            <RotateCcw className="w-4 h-4 mr-2" /> {t('tietovisa_page.back_menu')}
                         </Button>
                     </div>
                 </div>
@@ -181,7 +181,7 @@ export default function TietovisaPage() {
             <div className="w-full flex items-center justify-between mb-8 border-b border-[#E8DDD0] pb-4">
                 <Button variant="ghost" onClick={resetGame} className="text-[#4A4A4A] hover:text-[#2B2B2B] pl-0 hover:bg-transparent">
                     <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                        <XCircle className="w-4 h-4" /> Keskeytä
+                        <XCircle className="w-4 h-4" /> {t('tietovisa_page.interrupt')}
                     </span>
                 </Button>
                 <div className="text-xs font-mono text-[#5B4B8A]">
@@ -208,7 +208,7 @@ export default function TietovisaPage() {
                     <div className="bg-white border border-[#E8DDD0] p-8 md:p-12 rounded-sm shadow-sm">
                         <div className="flex items-center gap-2 mb-6">
                             <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] border border-[#5B4B8A] px-2 py-0.5 rounded-sm">
-                                Kysymys {question.id}
+                                {t('quiz.modal.definition').replace('Määritelmä', 'Kysymys')} {question.id}
                             </span>
                         </div>
 
@@ -238,19 +238,19 @@ export default function TietovisaPage() {
                                 <div className={`p-6 border-l-4 ${lastCorrect ? 'border-[#5B4B8A] bg-[#FDFBF7]' : 'border-[#4A4A4A] bg-[#FAFAFA]'}`}>
                                     <h3 className="font-bold font-serif text-xl text-[#2B2B2B] mb-2 flex items-center gap-2">
                                         {lastCorrect ? (
-                                            <><CheckCircle2 className="w-5 h-5 text-[#5B4B8A]" /> Oikein</>
+                                            <><CheckCircle2 className="w-5 h-5 text-[#5B4B8A]" /> {t('tietovisa_page.correct')}</>
                                         ) : (
-                                            <><XCircle className="w-5 h-5 text-[#4A4A4A]" /> Väärin</>
+                                            <><XCircle className="w-5 h-5 text-[#4A4A4A]" /> {t('tietovisa_page.wrong')}</>
                                         )}
                                     </h3>
                                     <p className="text-sm font-mono text-[#4A4A4A]">
-                                        Oikea vastaus: {question.correctAnswer}
+                                        {t('tietovisa_page.correct_answer', { answer: question.correctAnswer })}
                                     </p>
                                 </div>
 
                                 <div className="space-y-2">
                                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A] flex items-center gap-2">
-                                        <BookOpen className="w-3 h-3" /> Selitys
+                                        <BookOpen className="w-3 h-3" /> {t('tietovisa_page.explanation')}
                                     </h4>
                                     <p className="text-[#2B2B2B] leading-relaxed text-lg font-serif">
                                         {question.explanation}
@@ -262,7 +262,7 @@ export default function TietovisaPage() {
                                         onClick={nextQuestion}
                                         className="bg-[#2B2B2B] text-white hover:bg-[#4A4A4A] uppercase font-bold tracking-widest text-xs px-8 h-12 rounded-sm"
                                     >
-                                        Seuraava <ArrowRight className="w-4 h-4 ml-2" />
+                                        {t('tietovisa_page.next')} <ArrowRight className="w-4 h-4 ml-2" />
                                     </Button>
                                 </div>
                             </div>
