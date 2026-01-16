@@ -87,7 +87,9 @@ export default function ProfilePage() {
                 <div className="space-y-2">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest">Käyttäjäprofiili</span>
                     <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">Saavutuksesi</h1>
-                    <p className="text-lg text-[#4A4A4A]">Kehityksesi ja keräämäsi asiantuntijuus.</p>
+                    <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase mt-1">
+                        Sertifioitu käyttäjä // {progress.completedModuleIds.length} suoritusta // Aktiivinen
+                    </p>
                 </div>
                 <div className="flex gap-3">
                     <Button variant="outline" className="border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">

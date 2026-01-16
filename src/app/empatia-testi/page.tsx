@@ -194,7 +194,7 @@ export default function EmpathyTestPage() {
                                     </div>
 
                                     <div className="pt-8 space-y-4">
-                                        <Link href="/dashboard">
+                                        <Link href="/profiili">
                                             <Button className="w-full h-16 rounded-2xl text-xl font-serif font-bold bg-[#2B2B2B] hover:bg-[#5B4B8A] text-white transition-colors shadow-lg">
                                                 Katso palkinnot <Trophy className="ml-2 w-6 h-6" />
                                             </Button>

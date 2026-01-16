@@ -341,9 +341,9 @@ export default function YouthPage() {
                                     Merkitse suoritetuksi (+75 pts)
                                 </Button>
                             ) : (
-                                <Link href="/dashboard">
+                                <Link href="/profiili">
                                     <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
-                                        Palaa työpöydälle
+                                        Palaa saavutuksiin
                                     </Button>
                                 </Link>
                             )}

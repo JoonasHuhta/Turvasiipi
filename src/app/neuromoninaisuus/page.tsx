@@ -390,9 +390,9 @@ export default function NeurodiversityPage() {
                                     Merkitse suoritetuksi (+75 pts)
                                 </Button>
                             ) : (
-                                <Link href="/dashboard" className="block w-full sm:inline-block sm:w-auto">
+                                <Link href="/profiili" className="block w-full sm:inline-block sm:w-auto">
                                     <Button variant="outline" className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
-                                        Palaa työpöydälle
+                                        Palaa saavutuksiin
                                     </Button>
                                 </Link>
                             )}
