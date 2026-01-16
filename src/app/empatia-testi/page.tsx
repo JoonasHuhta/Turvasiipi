@@ -52,17 +52,17 @@ export default function EmpathyTestPage() {
     const profile = gameState === 'results' ? getEmpathyProfile(calculateScores()) : null;
 
     return (
-        <div className="min-h-screen bg-slate-50 flex flex-col">
+        <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
             {/* --- HEADER --- */}
-            <header className="bg-white border-b border-slate-200 p-4 sticky top-0 z-50">
+            <header className="bg-white border-b border-[#E8DDD0] p-4 sticky top-0 z-50">
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-lg">
+                        <div className="w-10 h-10 rounded-xl bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center text-[#5B4B8A] shadow-sm">
                             <Brain className="w-6 h-6" />
                         </div>
                         <div>
-                            <h1 className="font-black uppercase tracking-tight text-slate-900 leading-none">Empatia-Spektri</h1>
-                            <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Kognitiivinen • Affektiivinen • Moraalinen</span>
+                            <h1 className="font-serif font-bold text-[#2B2B2B] leading-none">Empatia-Spektri</h1>
+                            <span className="text-[9px] text-[#5B4B8A] uppercase font-mono tracking-widest border-b border-[#5B4B8A]/20">Kognitiivinen • Affektiivinen • Moraalinen</span>
                         </div>
                     </div>
                 </div>
@@ -80,23 +80,24 @@ export default function EmpathyTestPage() {
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="max-w-2xl w-full"
                         >
-                            <Card className="border-none shadow-2xl overflow-hidden rounded-3xl">
-                                <div className="bg-slate-900 p-12 text-center text-white space-y-6">
-                                    <h2 className="text-4xl font-black leading-none">Tunne itsesi, <br />suojaa muita.</h2>
-                                    <p className="text-slate-400 text-lg">
+                            <Card className="border border-[#E8DDD0] shadow-sm overflow-hidden rounded-3xl bg-white">
+                                <div className="bg-[#FDFBF7] p-12 text-center space-y-6 relative border-b border-[#E8DDD0]">
+                                    <div className="absolute top-0 left-0 w-full h-1 bg-[#5B4B8A]/20" />
+                                    <h2 className="text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">Tunne itsesi, <br />suojaa muita.</h2>
+                                    <p className="text-[#4A4A4A] text-lg font-serif italic max-w-md mx-auto">
                                         Empatia ei ole vain "tuntemista" – se on myös ymmärtämistä ja toimintaa.
                                         Tämä testi kartoittaa empatiasi vahvuudet kolmella eri tasolla.
                                     </p>
                                 </div>
-                                <CardContent className="p-8 space-y-8 bg-white">
+                                <CardContent className="p-8 space-y-10 bg-white">
                                     <div className="grid grid-cols-3 gap-4">
-                                        <IconFeature icon={Brain} label="Järki" color="text-blue-500" />
-                                        <IconFeature icon={Heart} label="Tunne" color="text-red-500" />
-                                        <IconFeature icon={Scale} label="Teot" color="text-emerald-500" />
+                                        <IconFeature icon={Brain} label="Järki" color="text-[#5B4B8A]" />
+                                        <IconFeature icon={Heart} label="Tunne" color="text-rose-600" />
+                                        <IconFeature icon={Scale} label="Teot" color="text-emerald-700" />
                                     </div>
                                     <Button
                                         onClick={() => setGameState('playing')}
-                                        className="w-full h-16 rounded-full text-xl font-black bg-slate-900 hover:bg-slate-800 shadow-xl shadow-slate-900/10"
+                                        className="w-full h-16 rounded-2xl text-xl font-serif font-bold bg-[#2B2B2B] hover:bg-[#5B4B8A] text-white transition-colors shadow-lg"
                                     >
                                         Aloita testi <ArrowRight className="ml-2 w-6 h-6" />
                                     </Button>
@@ -114,29 +115,31 @@ export default function EmpathyTestPage() {
                             exit={{ opacity: 0, x: -20 }}
                             className="max-w-2xl w-full space-y-8"
                         >
-                            <div className="space-y-2">
-                                <div className="flex justify-between text-xs font-black uppercase tracking-widest text-slate-400">
+                            <div className="space-y-3">
+                                <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-[#5B4B8A]">
                                     <span>Kysymys {currentIndex + 1} / {empathyQuestions.length}</span>
                                     <span>{Math.round(((currentIndex) / empathyQuestions.length) * 100)}%</span>
                                 </div>
-                                <Progress value={((currentIndex) / empathyQuestions.length) * 100} className="h-2 bg-slate-200" />
+                                <Progress value={((currentIndex) / empathyQuestions.length) * 100} className="h-1.5 bg-[#E8DDD0]" />
                             </div>
 
-                            <Card className="border-none shadow-xl rounded-3xl overflow-hidden">
-                                <CardHeader className="p-10 bg-white border-b border-slate-50">
-                                    <Badge className={cn(
-                                        "w-fit mb-4 uppercase font-black text-[10px] tracking-widest",
-                                        empathyQuestions[currentIndex].category === 'cognitive' ? "bg-blue-100 text-blue-700" :
-                                            empathyQuestions[currentIndex].category === 'affective' ? "bg-red-100 text-red-700" :
-                                                "bg-emerald-100 text-emerald-700"
-                                    )}>
-                                        {CATEGORY_LABELS[empathyQuestions[currentIndex].category]}
-                                    </Badge>
-                                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+                            <Card className="border border-[#E8DDD0] shadow-sm rounded-3xl overflow-hidden bg-white">
+                                <CardHeader className="p-8 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0]">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <span className={cn(
+                                            "text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-sm border",
+                                            empathyQuestions[currentIndex].category === 'cognitive' ? "border-[#5B4B8A]/20 text-[#5B4B8A]" :
+                                                empathyQuestions[currentIndex].category === 'affective' ? "border-rose-600/20 text-rose-600" :
+                                                    "border-emerald-700/20 text-emerald-700"
+                                        )}>
+                                            {CATEGORY_LABELS[empathyQuestions[currentIndex].category]}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#2B2B2B] leading-tight">
                                         {empathyQuestions[currentIndex].text}
                                     </h3>
                                 </CardHeader>
-                                <CardContent className="p-8 bg-slate-50/30">
+                                <CardContent className="p-6 md:p-8 bg-white">
                                     <div className="grid gap-3">
                                         {[
                                             { label: 'Täysin samaa mieltä', value: 4 },
@@ -148,7 +151,7 @@ export default function EmpathyTestPage() {
                                                 key={opt.value}
                                                 variant="outline"
                                                 onClick={() => handleAnswer(opt.value)}
-                                                className="h-14 justify-start text-lg font-bold px-8 rounded-2xl border-slate-200 bg-white hover:border-indigo-500 hover:bg-indigo-50 transition-all"
+                                                className="h-14 justify-start text-lg font-serif font-bold px-8 rounded-2xl border-[#E8DDD0] bg-white hover:border-[#5B4B8A] hover:bg-[#FDFBF7] transition-all text-[#2B2B2B]"
                                             >
                                                 {opt.label}
                                             </Button>
@@ -168,29 +171,35 @@ export default function EmpathyTestPage() {
                             className="max-w-2xl w-full"
                         >
                             <Card className="border-none shadow-2xl overflow-hidden rounded-3xl">
-                                <div className="bg-indigo-600 p-12 text-center text-white space-y-4">
-                                    <div className="text-7xl mb-4">{profile.icon}</div>
-                                    <Badge className="bg-white/20 text-white border-white/20 uppercase font-black tracking-widest">Profiilisi on valmis</Badge>
-                                    <h2 className="text-4xl font-black leading-none">{profile.title}</h2>
+                                <div className="bg-[#5B4B8A] p-12 text-center text-white space-y-6 relative overflow-hidden">
+                                    <div className="text-7xl relative z-10">{profile.icon}</div>
+                                    <div className="space-y-2 relative z-10">
+                                        <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest border border-white/20 px-2 py-0.5 rounded-sm">
+                                            Profiili valmis
+                                        </span>
+                                        <h2 className="text-4xl font-serif font-bold leading-tight">{profile.title}</h2>
+                                    </div>
+                                    {/* Subtle decorative circle */}
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 font-serif" />
                                 </div>
-                                <CardContent className="p-10 space-y-8 bg-white">
-                                    <p className="text-slate-600 text-lg leading-relaxed text-center">
+                                <CardContent className="p-8 md:p-12 space-y-8 bg-white">
+                                    <p className="text-[#4A4A4A] text-lg leading-relaxed text-center font-serif italic">
                                         {profile.description}
                                     </p>
 
-                                    <div className="grid grid-cols-3 gap-2">
-                                        <ScoreBar label="Järki" score={calculateScores().cognitive} max={16} color="bg-blue-500" />
-                                        <ScoreBar label="Tunne" score={calculateScores().affective} max={16} color="bg-red-500" />
-                                        <ScoreBar label="Teot" score={calculateScores().moral} max={16} color="bg-emerald-500" />
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <ScoreBar label="Järki" score={calculateScores().cognitive} max={16} color="bg-[#5B4B8A]" />
+                                        <ScoreBar label="Tunne" score={calculateScores().affective} max={16} color="bg-rose-600" />
+                                        <ScoreBar label="Teot" score={calculateScores().moral} max={16} color="bg-emerald-700" />
                                     </div>
 
-                                    <div className="pt-6 space-y-4">
+                                    <div className="pt-8 space-y-4">
                                         <Link href="/dashboard">
-                                            <Button className="w-full h-16 rounded-full text-xl font-black bg-slate-900 hover:bg-slate-800">
+                                            <Button className="w-full h-16 rounded-2xl text-xl font-serif font-bold bg-[#2B2B2B] hover:bg-[#5B4B8A] text-white transition-colors shadow-lg">
                                                 Katso palkinnot <Trophy className="ml-2 w-6 h-6" />
                                             </Button>
                                         </Link>
-                                        <Button variant="ghost" onClick={reset} className="w-full text-slate-400 font-bold">
+                                        <Button variant="ghost" onClick={reset} className="w-full text-[#4A4A4A] font-medium hover:text-[#2B2B2B]">
                                             <RotateCcw className="mr-2 w-4 h-4" /> Tee testi uudelleen
                                         </Button>
                                     </div>
@@ -207,11 +216,11 @@ export default function EmpathyTestPage() {
 
 function IconFeature({ icon: Icon, label, color }: { icon: any, label: string, color: string }) {
     return (
-        <div className="flex flex-col items-center gap-2">
-            <div className={cn("w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center", color)}>
-                <Icon className="w-6 h-6" />
+        <div className="flex flex-col items-center gap-3">
+            <div className={cn("w-14 h-14 rounded-2xl bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center shadow-sm", color)}>
+                <Icon className="w-7 h-7" />
             </div>
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400">{label}</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#5B4B8A]">{label}</span>
         </div>
     );
 }
@@ -221,9 +230,9 @@ function ScoreBar({ label, score, max, color }: { label: string, score: number, 
     return (
         <div className="space-y-2">
             <div className="flex justify-between items-end">
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{label}</span>
+                <span className="text-[9px] font-mono uppercase tracking-widest text-[#5B4B8A]">{label}</span>
             </div>
-            <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-[#E8DDD0] rounded-full overflow-hidden">
                 <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${perc}%` }}
