@@ -62,6 +62,16 @@ export default function TacticsPage() {
             src: "/images/tactics/magnified-errors.png",
             alt: "Virheiden suurennuslasi - pienet asiat paisutellaan suuriksi",
             caption: "Pienimmätkin virheet voidaan ottaa suurennuslasin alle ja paisutella niitä, kunnes ne varjostavat kaikkea muuta tekemistä."
+        },
+        {
+            src: "/images/tactics/unreasonable-requirements.png",
+            alt: "Kohtuuttomat vaatimukset - mahdottomat tavoitteet",
+            caption: "Asetetaan tavoitteita, joita on mahdoton saavuttaa, tai vaaditaan suorituksia ilman riittäviä resursseja."
+        },
+        {
+            src: "/images/tactics/unreasonable-workload.png",
+            alt: "Kohtuuton työtaakka - epäoikeudenmukainen jako",
+            caption: "Työtehtävien epäoikeudenmukainen jakautuminen ja kohtuuttomat vaatimukset uuvuttavat tekijän."
         }
     ];
 
