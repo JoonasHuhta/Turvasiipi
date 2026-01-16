@@ -363,7 +363,7 @@ export default function NeurodiversityPage() {
                             ? "bg-emerald-50 border-emerald-100 shadow-sm"
                             : "bg-white border-indigo-100 shadow-xl"
                     )}>
-                        <CardContent className="p-8 md:p-12 text-center space-y-6">
+                        <CardContent className="p-6 md:p-12 text-center space-y-6">
                             <div className={cn(
                                 "w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-4xl mb-4 transition-all duration-500 shadow-sm border border-[#E8DDD0]",
                                 isCompleted ? "bg-emerald-500 text-white rotate-12" : "bg-white text-[#5B4B8A]"
@@ -385,13 +385,13 @@ export default function NeurodiversityPage() {
                             {!isCompleted ? (
                                 <Button
                                     onClick={handleComplete}
-                                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-black uppercase tracking-widest px-10 py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all"
+                                    className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all h-auto whitespace-normal"
                                 >
                                     Merkitse suoritetuksi (+75 pts)
                                 </Button>
                             ) : (
-                                <Link href="/dashboard">
-                                    <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
+                                <Link href="/dashboard" className="block w-full sm:inline-block sm:w-auto">
+                                    <Button variant="outline" className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
                                         Palaa työpöydälle
                                     </Button>
                                 </Link>
