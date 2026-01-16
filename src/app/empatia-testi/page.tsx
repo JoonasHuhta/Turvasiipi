@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { empathyQuestions, getEmpathyProfile, EmpathyProfile } from "@/data/empathy-test";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,11 @@ export default function EmpathyTestPage() {
         setCurrentIndex(0);
         setAnswers({});
     };
+
+    // Scroll to top when question or state changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentIndex, gameState]);
 
     const calculateScores = () => {
         const scores = { cognitive: 0, affective: 0, moral: 0 };
