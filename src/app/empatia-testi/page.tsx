@@ -86,15 +86,15 @@ export default function EmpathyTestPage() {
                             className="max-w-2xl w-full"
                         >
                             <Card className="border border-[#E8DDD0] shadow-sm overflow-hidden rounded-3xl bg-white">
-                                <div className="bg-[#FDFBF7] p-12 text-center space-y-6 relative border-b border-[#E8DDD0]">
+                                <div className="bg-[#FDFBF7] p-8 md:p-12 text-center space-y-4 md:space-y-6 relative border-b border-[#E8DDD0]">
                                     <div className="absolute top-0 left-0 w-full h-1 bg-[#5B4B8A]/20" />
-                                    <h2 className="text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">Tunne itsesi, <br />suojaa muita.</h2>
-                                    <p className="text-[#4A4A4A] text-lg font-serif italic max-w-md mx-auto">
+                                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">Tunne itsesi, <br />suojaa muita.</h2>
+                                    <p className="text-[#4A4A4A] text-base md:text-lg font-serif italic max-w-md mx-auto">
                                         Empatia ei ole vain "tuntemista" – se on myös ymmärtämistä ja toimintaa.
                                         Tämä testi kartoittaa empatiasi vahvuudet kolmella eri tasolla.
                                     </p>
                                 </div>
-                                <CardContent className="p-8 space-y-10 bg-white">
+                                <CardContent className="p-6 md:p-8 space-y-6 md:space-y-10 bg-white">
                                     <div className="grid grid-cols-3 gap-4">
                                         <IconFeature icon={Fingerprint} label="Järki" color="text-[#5B4B8A]" />
                                         <IconFeature icon={Heart} label="Tunne" color="text-rose-600" />
@@ -171,19 +171,19 @@ export default function EmpathyTestPage() {
                             className="max-w-2xl w-full"
                         >
                             <Card className="border-none shadow-2xl overflow-hidden rounded-3xl">
-                                <div className="bg-[#5B4B8A] p-12 text-center text-white space-y-6 relative overflow-hidden">
-                                    <div className="text-7xl relative z-10">{profile.icon}</div>
+                                <div className="bg-[#5B4B8A] p-8 md:p-12 text-center text-white space-y-4 md:space-y-6 relative overflow-hidden">
+                                    <div className="text-6xl md:text-7xl relative z-10">{profile.icon}</div>
                                     <div className="space-y-2 relative z-10">
                                         <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest border border-white/20 px-2 py-0.5 rounded-sm">
                                             Profiili valmis
                                         </span>
-                                        <h2 className="text-4xl font-serif font-bold leading-tight">{profile.title}</h2>
+                                        <h2 className="text-3xl md:text-4xl font-serif font-bold leading-tight">{profile.title}</h2>
                                     </div>
                                     {/* Subtle decorative circle */}
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 font-serif" />
                                 </div>
-                                <CardContent className="p-8 md:p-12 space-y-8 bg-white">
-                                    <p className="text-[#4A4A4A] text-lg leading-relaxed text-center font-serif italic">
+                                <CardContent className="p-6 md:p-12 space-y-6 md:space-y-8 bg-white">
+                                    <p className="text-[#4A4A4A] text-base md:text-lg leading-relaxed text-center font-serif italic">
                                         {profile.description}
                                     </p>
 
