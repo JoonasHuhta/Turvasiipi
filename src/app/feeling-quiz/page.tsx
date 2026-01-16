@@ -281,9 +281,9 @@ export default function FeelingQuizPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
-                            className="max-w-2xl mx-auto w-full space-y-4 pt-1"
+                            className="max-w-2xl mx-auto w-full space-y-8 pt-6 sm:pt-12"
                         >
-                            <div className="space-y-2">
+                            <div className="space-y-4">
                                 <Badge className="bg-primary text-white uppercase font-black tracking-widest px-3 py-0.5 text-[9px]">
                                     {currentQuestion.category === 'itseepaily' ? 'Itseepäily & Häpeä' :
                                         currentQuestion.category === 'eristyksisyys' ? 'Eristyneisyys' :
@@ -292,12 +292,12 @@ export default function FeelingQuizPage() {
                                                     currentQuestion.category === 'identiteetti' ? 'Identiteetin mureneminen' :
                                                         'Fyysiset oireet'}
                                 </Badge>
-                                <h2 className="text-lg sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase transition-all">
+                                <h2 className="text-2xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] selection:bg-primary selection:text-white uppercase transition-all break-words hyphens-auto">
                                     {currentQuestion.question}
                                 </h2>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-2 pb-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pb-6">
                                 {[
                                     { label: "Kyllä, päivittäin", value: 4 },
                                     { label: "Kyllä, usein", value: 3 },
@@ -310,8 +310,8 @@ export default function FeelingQuizPage() {
                                         variant="outline"
                                         onClick={() => handleAnswer(opt.value)}
                                         className={cn(
-                                            "h-11 sm:h-16 rounded-xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-[11px] sm:text-base font-bold transition-all text-slate-700 text-center px-1 leading-tight",
-                                            i === 4 && "col-span-2"
+                                            "min-h-[3.5rem] h-auto py-3 rounded-xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 text-sm sm:text-base font-bold transition-all text-slate-700 text-center px-2 leading-tight whitespace-normal",
+                                            i === 4 && "col-span-1 sm:col-span-2"
                                         )}
                                     >
                                         {opt.label}
