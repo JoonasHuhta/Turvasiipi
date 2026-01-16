@@ -65,6 +65,11 @@ function LogPageContent() {
         }
     }, [searchParams, events]);
 
+    // Scroll to top on step change
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [step]);
+
     const [meterScore, setMeterScore] = useState(0);
 
     // Calculate Evidence Meter Score

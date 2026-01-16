@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { TimelineEventForm } from "@/components/TimelineEventForm";
+
 import { TimelineList } from "@/components/TimelineList";
 import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
 import { VaultWrapper } from "@/components/VaultWrapper";
@@ -23,13 +23,6 @@ export default function TimelinePage() {
     useEffect(() => {
         setMounted(true);
     }, []);
-
-    const handleAddEvent = (newEvent: Omit<TimelineEvent, "id">) => {
-        const eventWithId = { ...newEvent, id: crypto.randomUUID() };
-        setEvents([eventWithId, ...events]);
-        completeModule('timeline');
-        awardBadge('doc_start');
-    };
 
     const handleDeleteEvent = (id: string) => {
         if (confirm(t('timeline.page.confirm_delete'))) {
@@ -68,31 +61,38 @@ export default function TimelinePage() {
                     {/* LEFT COLUMN: Tools & Help */}
                     <div className="lg:col-span-1 space-y-8 order-2 lg:order-1">
 
-                        {/* AI Helper Card - Redesigned */}
+                        {/* Documentation Guide Teaser */}
                         <div className="bg-[#FDFBF7] border border-[#E8DDD0] p-6 space-y-4 rounded-sm">
                             <div className="flex items-start gap-4">
                                 <div className="bg-white p-2 border border-[#E8DDD0] rounded-sm">
-                                    <Sparkles className="w-5 h-5 text-[#5B4B8A]" />
+                                    <FileText className="w-5 h-5 text-[#5B4B8A]" />
                                 </div>
                                 <div className="space-y-1">
-                                    <h4 className="font-bold text-[#2B2B2B] text-sm uppercase tracking-wide">Kaipaatko selkeyttä?</h4>
+                                    <h4 className="font-bold text-[#2B2B2B] text-sm uppercase tracking-wide">Miten kirjaan oikein?</h4>
                                     <p className="text-sm text-[#4A4A4A] leading-relaxed">
-                                        Tekoäly voi auttaa koostamaan merkinnöistäsi yhteenvedon tai raportin.
+                                        Lue opas juridisesti pätevien ja todistusvoimaisten muistiinpanojen tekemiseen.
                                     </p>
                                 </div>
                             </div>
-                            <Link href="/raportti" className="block">
+                            <Link href="/dokumentointi-opas" className="block">
                                 <Button variant="outline" className="w-full bg-white border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B] justify-between group">
-                                    <span>{t('timeline.page.ai_button')}</span>
+                                    <span>Lue dokumentointiopas</span>
                                     <ArrowRight className="w-4 h-4 text-[#E8DDD0] group-hover:text-[#5B4B8A] transition-colors" />
                                 </Button>
                             </Link>
                         </div>
 
-                        {/* Form Container */}
-                        <div className="bg-white p-6 border border-[#E8DDD0] rounded-sm shadow-sm">
-                            <h3 className="font-bold text-[#2B2B2B] mb-4">Lisää uusi merkintä</h3>
-                            <TimelineEventForm onAdd={handleAddEvent} />
+                        {/* New Entry CTA - Replacing old form */}
+                        <div className="bg-gradient-to-br from-[#2B2B2B] to-[#4A4A4A] p-6 rounded-sm shadow-md text-white space-y-4">
+                            <h3 className="font-serif font-bold text-xl">Uusi merkintä?</h3>
+                            <p className="text-white/80 text-sm leading-relaxed">
+                                Käytä ohjattua kirjaamista varmistaaksesi, että merkintäsi on juridisesti pätevä ja todistusvoimainen.
+                            </p>
+                            <Link href="/loki" className="block">
+                                <Button className="w-full bg-white text-[#2B2B2B] hover:bg-slate-100 font-bold uppercase tracking-wider group">
+                                    Avaa lokikirja <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                </Button>
+                            </Link>
                         </div>
 
                     </div>

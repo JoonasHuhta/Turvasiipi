@@ -101,6 +101,9 @@ export function Navigation() {
                             <Link href="/timeline" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Aikajana</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
+                            <Link href="/dokumentointi-opas" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Miten kirjaan?</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
                             <Link href="/raportti" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">Raportointi</Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -212,6 +215,7 @@ export function Navigation() {
                                     <div className="pl-4 space-y-3 border-l-2 border-[#E8DDD0]/50 ml-1">
                                         <Link href="/loki" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Loki</Link>
                                         <Link href="/timeline" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Aikajana</Link>
+                                        <Link href="/dokumentointi-opas" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Miten kirjaan?</Link>
                                         <Link href="/raportti" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>Raportointi</Link>
                                     </div>
                                 </div>
