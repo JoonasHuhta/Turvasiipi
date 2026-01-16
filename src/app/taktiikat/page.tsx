@@ -57,6 +57,11 @@ export default function TacticsPage() {
             src: "/images/tactics/exclusion.png",
             alt: "Ulkopuolelle jättäminen ja väärän kuvan luominen",
             caption: "Missä olet pöydän ympärillä? Luoko joku sinusta vääränlaista mielikuvaa?"
+        },
+        {
+            src: "/images/tactics/magnified-errors.png",
+            alt: "Virheiden suurennuslasi - pienet asiat paisutellaan suuriksi",
+            caption: "Pienimmätkin virheet voidaan ottaa suurennuslasin alle ja paisutella niitä, kunnes ne varjostavat kaikkea muuta tekemistä."
         }
     ];
 
