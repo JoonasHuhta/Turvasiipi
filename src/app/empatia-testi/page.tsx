@@ -59,21 +59,21 @@ export default function EmpathyTestPage() {
     return (
         <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
             {/* --- HEADER --- */}
-            <header className="bg-white border-b border-[#E8DDD0] p-4 sticky top-0 z-50">
+            <header className="bg-white border-b border-[#E8DDD0] p-3 sticky top-0 z-50">
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center text-[#5B4B8A] shadow-sm">
-                            <Fingerprint className="w-6 h-6" />
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center text-[#5B4B8A] shadow-sm">
+                            <Fingerprint className="w-5 h-5" />
                         </div>
                         <div>
-                            <h1 className="font-serif font-bold text-[#2B2B2B] leading-none">Empatia-Spektri</h1>
-                            <span className="text-[9px] text-[#5B4B8A] uppercase font-mono tracking-widest border-b border-[#5B4B8A]/20">Kognitiivinen • Affektiivinen • Moraalinen</span>
+                            <h1 className="font-serif font-bold text-[#2B2B2B] leading-none text-sm sm:text-base">Empatia-Spektri</h1>
+                            <span className="text-[8px] text-[#5B4B8A] uppercase font-mono tracking-widest hidden sm:inline">Kognitiivinen • Affektiivinen • Moraalinen</span>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <main className="flex-1 flex flex-col items-center pt-6 md:justify-center p-4">
+            <main className="flex-1 flex flex-col items-center pt-2 md:justify-center p-3">
                 <AnimatePresence mode="wait">
 
                     {/* --- INTRO --- */}
@@ -120,32 +120,27 @@ export default function EmpathyTestPage() {
                             exit={{ opacity: 0, x: -20 }}
                             className="max-w-2xl w-full space-y-4 md:space-y-8"
                         >
-                            <div className="space-y-3">
+                            <div className="space-y-2">
                                 <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-[#5B4B8A]">
-                                    <span>Kysymys {currentIndex + 1} / {empathyQuestions.length}</span>
-                                    <span>{Math.round(((currentIndex) / empathyQuestions.length) * 100)}%</span>
-                                </div>
-                                <Progress value={((currentIndex) / empathyQuestions.length) * 100} className="h-1.5 bg-[#E8DDD0]" />
-                            </div>
-
-                            <Card className="border border-[#E8DDD0] shadow-sm rounded-3xl overflow-hidden bg-white">
-                                <CardHeader className="p-6 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0]">
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <span className={cn(
-                                            "text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-sm border",
-                                            empathyQuestions[currentIndex].category === 'cognitive' ? "border-[#5B4B8A]/20 text-[#5B4B8A]" :
-                                                empathyQuestions[currentIndex].category === 'affective' ? "border-rose-600/20 text-rose-600" :
-                                                    "border-emerald-700/20 text-emerald-700"
-                                        )}>
+                                    <span>
+                                        <span className="opacity-50">Kysymys</span> {currentIndex + 1}/{empathyQuestions.length}
+                                        <span className="ml-2 text-[9px] px-1 border border-[#5B4B8A]/20 rounded-sm">
                                             {CATEGORY_LABELS[empathyQuestions[currentIndex].category]}
                                         </span>
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#2B2B2B] leading-tight">
+                                    </span>
+                                    <span>{Math.round(((currentIndex) / empathyQuestions.length) * 100)}%</span>
+                                </div>
+                                <Progress value={((currentIndex) / empathyQuestions.length) * 100} className="h-1 bg-[#E8DDD0]" />
+                            </div>
+
+                            <Card className="border border-[#E8DDD0] shadow-sm rounded-2xl overflow-hidden bg-white">
+                                <CardHeader className="p-5 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0]">
+                                    <h3 className="text-xl md:text-3xl font-serif font-bold text-[#2B2B2B] leading-tight">
                                         {empathyQuestions[currentIndex].text}
                                     </h3>
                                 </CardHeader>
-                                <CardContent className="p-6 md:p-8 bg-white">
-                                    <div className="grid gap-3">
+                                <CardContent className="p-4 md:p-8 bg-white">
+                                    <div className="grid gap-2">
                                         {[
                                             { label: 'Täysin samaa mieltä', value: 4 },
                                             { label: 'Jokseenkin samaa mieltä', value: 3 },
@@ -156,7 +151,7 @@ export default function EmpathyTestPage() {
                                                 key={opt.value}
                                                 variant="outline"
                                                 onClick={() => handleAnswer(opt.value)}
-                                                className="h-auto py-4 justify-start text-base sm:text-lg font-serif font-bold px-6 sm:px-8 rounded-2xl border-[#E8DDD0] bg-white hover:border-[#5B4B8A] hover:bg-[#FDFBF7] transition-all text-[#2B2B2B] whitespace-normal text-left"
+                                                className="h-auto py-3.5 justify-start text-sm sm:text-lg font-serif font-bold px-5 sm:px-8 rounded-xl border-[#E8DDD0] bg-white hover:border-[#5B4B8A] hover:bg-[#FDFBF7] transition-all text-[#2B2B2B] whitespace-normal text-left"
                                             >
                                                 {opt.label}
                                             </Button>
