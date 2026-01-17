@@ -379,6 +379,16 @@
                 "quiz": "Riskikartoitus",
                 "loki": "Lokikirja (Reflektio)",
                 "simulaatio": "Simulaatiot"
+            },
+            "descs": {
+                "tietovisa": "Tutkittua tietoa kiusaamisen ilmiöstä.",
+                "quiz": "Tunnista riskit ja nimeä tilanteet.",
+                "loki": "Dokumentoi tapahtumat turvalliseen lokiin.",
+                "simulaatio": "Harjoittele haastavia tilanteita turvallisesti.",
+                "taktiikat": "Opi tunnistamaan kiusaamisen eri muodot.",
+                "lukutaito": "Testaa työyhteisösi tila.",
+                "timeline": "Hahmota tapahtumien jatkumo aikajanalla.",
+                "neuro": "Ymmärrä neuromoninaisuuden vaikutus kokemuksiin."
             }
         }
     },

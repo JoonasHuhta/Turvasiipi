@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, BookOpen, PenTool, Shield, AlertTriangle } from "lucide-react";
+import { ArrowRight, BookOpen, PenTool, Shield, AlertTriangle, FileText, History, Brain } from "lucide-react";
 import {
     Accordion,
     AccordionContent,
@@ -23,7 +23,6 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
     const [isOpen, setIsOpen] = useState(false);
 
     // If no level selected or contract not locked, show nothing (Choice & Control)
-    // Wait, plan said "Show Recommendations" button appears after contract locked.
     if (!selectedLevel || !isContractLocked) return null;
 
     const getRecommendations = (level: Level) => {
@@ -34,8 +33,15 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
                         href: "/tietovisa",
                         title: t("start_here.recommendations.links.tietovisa"),
                         icon: BookOpen,
-                        desc: "Tutkittua tietoa kiusaamisen ilmiöstä.",
+                        desc: t("start_here.recommendations.descs.tietovisa"),
                         color: "bg-emerald-100 text-emerald-800"
+                    },
+                    {
+                        href: "/taktiikat",
+                        title: t("nav.tactics"), // Reuse existing nav key
+                        icon: FileText,
+                        desc: t("start_here.recommendations.descs.taktiikat"),
+                        color: "bg-emerald-100/50 text-emerald-800"
                     }
                 ];
             case "exercises":
@@ -44,8 +50,15 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
                         href: "/quiz",
                         title: t("start_here.recommendations.links.quiz"),
                         icon: PenTool,
-                        desc: "Tunnista riskit ja nimeä tilanteet.",
+                        desc: t("start_here.recommendations.descs.quiz"),
                         color: "bg-blue-100 text-blue-800"
+                    },
+                    {
+                        href: "/lukutaito-testi",
+                        title: t("nav.literacy_test"), // Reuse existing nav key
+                        icon: PenTool,
+                        desc: t("start_here.recommendations.descs.lukutaito"),
+                        color: "bg-blue-100/50 text-blue-800"
                     }
                 ];
             case "reflection":
@@ -54,14 +67,14 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
                         href: "/loki",
                         title: t("start_here.recommendations.links.loki"),
                         icon: Shield,
-                        desc: "Dokumentoi tapahtumat turvalliseen lokiin.",
+                        desc: t("start_here.recommendations.descs.loki"),
                         color: "bg-amber-100 text-amber-800"
                     },
                     {
-                        href: "/hiekkalaatikko",
-                        title: "Hiekkalaatikko (Sandbox)",
-                        icon: PenTool,
-                        desc: "Kokeile työkaluja vapaasti.",
+                        href: "/timeline",
+                        title: t("nav.timeline"), // Reuse nav key
+                        icon: History,
+                        desc: t("start_here.recommendations.descs.timeline"),
                         color: "bg-amber-100/50 text-amber-800"
                     }
                 ];
@@ -71,8 +84,15 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
                         href: "/simulaatio",
                         title: t("start_here.recommendations.links.simulaatio"),
                         icon: AlertTriangle,
-                        desc: "Harjoittele haastavia tilanteita simulaatioissa.",
+                        desc: t("start_here.recommendations.descs.simulaatio"),
                         color: "bg-red-100 text-red-800"
+                    },
+                    {
+                        href: "/neuromoninaisuus",
+                        title: t("nav.neuromoninaisuus"), // Reuse nav key
+                        icon: Brain,
+                        desc: t("start_here.recommendations.descs.neuro"),
+                        color: "bg-red-100/50 text-red-800"
                     }
                 ];
         }

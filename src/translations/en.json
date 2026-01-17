@@ -617,6 +617,16 @@
                 "quiz": "Risk Identification",
                 "loki": "Logbook (Reflection)",
                 "simulaatio": "Simulations"
+            },
+            "descs": {
+                "tietovisa": "Researched information about the phenomenon of bullying.",
+                "quiz": "Identify risks and name situations.",
+                "loki": "Document events in a secure log.",
+                "simulaatio": "Practice challenging situations safely.",
+                "taktiikat": "Learn to identify different forms of bullying.",
+                "lukutaito": "Test the state of your work community.",
+                "timeline": "Visualize the sequence of events on a timeline.",
+                "neuro": "Understand the impact of neurodiversity on experiences."
             }
         }
     },
