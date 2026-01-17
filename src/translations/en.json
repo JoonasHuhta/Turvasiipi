@@ -604,7 +604,8 @@
             "placeholder": "E.g., 'Today I only read facts', or 'If I feel anxious, I stop immediately'.",
             "lock_button": "Lock for Myself",
             "locked_toast": "Your path is activated! ✨",
-            "locked_message": "Contract is active. Remember, you can always change your mind."
+            "locked_message": "Contract is active. Remember, you can always change your mind.",
+            "privacy_note": "Nothing is saved anywhere. It's just for you."
         },
         "recommendations": {
             "show_button": "Show Recommendations",
@@ -618,6 +619,7 @@
         }
     },
     "privacy_page": {
+        "title": "Privacy Policy",
         "subtitle": "Your data belongs to you. Here is how we protect your privacy.",
         "back": "Back to Home",
         "principles": {
@@ -657,8 +659,18 @@
     "timeline": {
         "page": {
             "title": "Documentation",
+            "label": "Timeline",
+            "history_title": "Event History",
             "subtitle": "Your encrypted local timeline.",
             "status_open": "OPEN",
+            "tools": {
+                "guide_title": "Documentation Guide",
+                "guide_desc": "How to record events properly.",
+                "guide_btn": "Read Guide",
+                "new_title": "New Entry",
+                "new_desc": "Log event immediately while it's fresh.",
+                "new_btn": "Open Log"
+            },
             "ai_help_title": "Hard to put into words?",
             "ai_help_text": "AI can help organize scattered notes into a report.",
             "ai_button": "Go to Reporting",
