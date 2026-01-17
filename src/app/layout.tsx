@@ -33,7 +33,7 @@ export default function RootLayout({
                     <Link href="/" className="text-sm font-bold tracking-tight text-[#2B2B2B] hover:text-[#5B4B8A] transition-colors">
                       TURVASIIPI
                     </Link>
-                    <span className="hidden sm:inline-block text-[11px] font-mono text-[#4A4A4A] bg-white px-2 py-0.5 border border-[#E8DDD0] rounded-sm">
+                    <span className="inline-block text-[11px] font-mono text-[#4A4A4A] bg-white px-2 py-0.5 border border-[#E8DDD0] rounded-sm">
                       BETA
                     </span>
                   </div>
