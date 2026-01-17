@@ -567,8 +567,57 @@
         "q10": "Who is Turvasiipi for?",
         "a10": "Turvasiipi is designed for everyone who wants to understand workplace power dynamics and recognize latent psychological violence."
     },
+    "start_here": {
+        "hero": {
+            "line1": "Some of us carry broken wings without knowing.",
+            "line2": "Many have experienced things at work that leave a mark.",
+            "permission_title": "You have permission to consider:",
+            "permission_1": "What is good for me today?",
+            "permission_2": "What might make me feel worse?",
+            "permission_3": "Do I need professional help?",
+            "closing": "Try in peace. Explore quietly. You decide your boundaries.",
+            "scroll_hint": "Continue when ready"
+        },
+        "selector": {
+            "title": "Define Your Path",
+            "levels": {
+                "facts": {
+                    "label": "Facts",
+                    "preview": "Safe choice. Learn by reading only. No stories, no emotions."
+                },
+                "exercises": {
+                    "label": "Light Exercises",
+                    "preview": "Small reflections without deep diving. Good if you are unsure."
+                },
+                "reflection": {
+                    "label": "Reflection",
+                    "preview": "Write down your own thoughts. Your own space, your own words."
+                },
+                "simulation": {
+                    "label": "Deep Simulations",
+                    "preview": "Warning: Realistic situations. May trigger emotions. Choose only if you feel strong."
+                }
+            }
+        },
+        "contract": {
+            "label": "Personal Safety Contract",
+            "placeholder": "E.g., 'Today I only read facts', or 'If I feel anxious, I stop immediately'.",
+            "lock_button": "Lock for Myself",
+            "locked_toast": "Your path is activated! ✨",
+            "locked_message": "Contract is active. Remember, you can always change your mind."
+        },
+        "recommendations": {
+            "show_button": "Show Recommendations",
+            "title": "Tools Selected for You",
+            "links": {
+                "tietovisa": "Fact Bank (Facts)",
+                "quiz": "Risk Identification",
+                "loki": "Logbook (Reflection)",
+                "simulaatio": "Simulations"
+            }
+        }
+    },
     "privacy_page": {
-        "title": "Privacy Policy",
         "subtitle": "Your data belongs to you. Here is how we protect your privacy.",
         "back": "Back to Home",
         "principles": {

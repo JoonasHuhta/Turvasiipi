@@ -53,6 +53,10 @@ export function Navigation() {
                     {t('nav.simulation')}
                 </Link>
 
+                <Link href="/aloita" className={cn("hover:text-[#5B4B8A] transition-colors uppercase", pathname === '/aloita' && "text-[#5B4B8A] font-bold")}>
+                    Aloita tästä 🛡️
+                </Link>
+
                 <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center gap-1 hover:text-[#5B4B8A] transition-colors uppercase outline-none">
                         {t('nav.explore')} <ChevronDown className="w-3 h-3 opacity-50" />

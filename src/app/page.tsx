@@ -47,8 +47,14 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-6 pt-4 items-start sm:items-center">
             <Link
-              href="/quiz"
+              href="/aloita"
               className="px-8 py-4 bg-[#2B2B2B] text-white hover:bg-[#5B4B8A] transition-colors rounded-sm font-medium tracking-wide flex items-center gap-3 shadow-lg shadow-black/5"
+            >
+              Aloita tästä 🛡️ <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/quiz"
+              className="px-6 py-4 text-[#4A4A4A] border-2 border-[#E8DDD0] hover:border-[#5B4B8A] hover:bg-[#5B4B8A]/5 transition-all rounded-sm font-medium tracking-wide flex items-center gap-3"
             >
               {t('landing.hero.cta_main')} <ArrowRight className="w-4 h-4" />
             </Link>
