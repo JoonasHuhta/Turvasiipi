@@ -1133,37 +1133,6 @@
             "view_analysis": "Katso analyysi",
             "answer_all_hint": "Vastaa kaikkiin kohtiin nähdäksesi tuloksen."
         },
-        "tietovisa_page": {
-            "label": "Tutki / Faktapankki",
-            "title": "Työelämän faktapankki",
-            "description": "Testaa tietosi tutkimuksista, laeista ja psykologiasta. Tieto on paras suoja epävarmuutta vastaan.",
-            "all_data_title": "Koko aineisto",
-            "all_data_desc": "Käy läpi kaikki {{count}} kysymystä kattavana tarkasteluna.",
-            "start_btn": "Aloita testi",
-            "part_label": "Osa {{id}}",
-            "questions_count": "{{count}} kysymystä",
-            "expert_feedback": {
-                "observer": {
-                    "title": "Havainnoija",
-                    "text": "Perustiedoissa on vielä aukkoja. On tärkeää tunnistaa faktat uskomuksista."
-                },
-                "alert": {
-                    "title": "Tarkkaavainen",
-                    "text": "Hyvä perustietämys. Tunnistat useimmat rakenteet oikein."
-                },
-                "expert": {
-                    "title": "Asiantuntija",
-                    "text": "Erinomainen suoritus. Ymmärrät ilmiön syvällisesti ja monipuolisesti."
-                }
-            },
-            "back_menu": "Palaa hakemistoon",
-            "interrupt": "Keskeytä",
-            "correct": "Oikein",
-            "wrong": "Väärin",
-            "correct_answer": "Oikea vastaus: {{answer}}",
-            "explanation": "Selitys",
-            "next": "Seuraava"
-        },
         "compare_page": {
             "badge": "Erota kaksi erilaista asiaa",
             "title_start": "Kiusaaminen",
@@ -3380,5 +3349,36 @@
             "email": "turvasiipi@gmail.com",
             "updated": "Viimeksi päivitetty: 17.1.2026"
         }
+    },
+    "tietovisa_page": {
+        "label": "Tutki / Faktapankki",
+        "title": "Työelämän faktapankki",
+        "description": "Testaa tietosi tutkimuksista, laeista ja psykologiasta. Tieto on paras suoja epävarmuutta vastaan.",
+        "all_data_title": "Koko aineisto",
+        "all_data_desc": "Käy läpi kaikki {{count}} kysymystä kattavana tarkasteluna.",
+        "start_btn": "Aloita testi",
+        "part_label": "Osa {{id}}",
+        "questions_count": "{{count}} kysymystä",
+        "expert_feedback": {
+            "observer": {
+                "title": "Havainnoija",
+                "text": "Perustiedoissa on vielä aukkoja. On tärkeää tunnistaa faktat uskomuksista."
+            },
+            "alert": {
+                "title": "Tarkkaavainen",
+                "text": "Hyvä perustietämys. Tunnistat useimmat rakenteet oikein."
+            },
+            "expert": {
+                "title": "Asiantuntija",
+                "text": "Erinomainen suoritus. Ymmärrät ilmiön syvällisesti ja monipuolisesti."
+            }
+        },
+        "back_menu": "Palaa hakemistoon",
+        "interrupt": "Keskeytä",
+        "correct": "Oikein",
+        "wrong": "Väärin",
+        "correct_answer": "Oikea vastaus: {{answer}}",
+        "explanation": "Selitys",
+        "next": "Seuraava"
     }
 }

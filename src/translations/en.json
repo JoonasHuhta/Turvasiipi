@@ -1171,37 +1171,6 @@
             "view_analysis": "View Analysis",
             "answer_all_hint": "Answer all items to see the result."
         },
-        "tietovisa_page": {
-            "label": "Research / Fact Bank",
-            "title": "Work Life Fact Bank",
-            "description": "Test your knowledge on research, laws, and psychology. Information is the best protection against uncertainty.",
-            "all_data_title": "Full Material",
-            "all_data_desc": "Go through all {{count}} questions as a comprehensive review.",
-            "start_btn": "Start Test",
-            "part_label": "Part {{id}}",
-            "questions_count": "{{count}} questions",
-            "expert_feedback": {
-                "observer": {
-                    "title": "Observer",
-                    "text": "There are gaps in basic knowledge. It is important to distinguish facts from beliefs."
-                },
-                "alert": {
-                    "title": "Observant",
-                    "text": "Good basic knowledge. You identify most structures correctly."
-                },
-                "expert": {
-                    "title": "Expert",
-                    "text": "Excellent performance. You understand the phenomenon deeply and broadly."
-                }
-            },
-            "back_menu": "Back to Menu",
-            "interrupt": "Interrupt",
-            "correct": "Correct",
-            "wrong": "Wrong",
-            "correct_answer": "Correct answer: {{answer}}",
-            "explanation": "Explanation",
-            "next": "Next"
-        },
         "compare_page": {
             "badge": "Distinguish two different things",
             "title_start": "Bullying",
@@ -3380,5 +3349,36 @@
                 "isCritical": true
             }
         ]
+    },
+    "tietovisa_page": {
+        "label": "Research / Fact Bank",
+        "title": "Work Life Fact Bank",
+        "description": "Test your knowledge on research, laws, and psychology. Information is the best protection against uncertainty.",
+        "all_data_title": "Full Material",
+        "all_data_desc": "Go through all {{count}} questions as a comprehensive review.",
+        "start_btn": "Start Test",
+        "part_label": "Part {{id}}",
+        "questions_count": "{{count}} questions",
+        "expert_feedback": {
+            "observer": {
+                "title": "Observer",
+                "text": "There are gaps in basic knowledge. It is important to distinguish facts from beliefs."
+            },
+            "alert": {
+                "title": "Observant",
+                "text": "Good basic knowledge. You identify most structures correctly."
+            },
+            "expert": {
+                "title": "Expert",
+                "text": "Excellent performance. You understand the phenomenon deeply and broadly."
+            }
+        },
+        "back_menu": "Back to Menu",
+        "interrupt": "Interrupt",
+        "correct": "Correct",
+        "wrong": "Wrong",
+        "correct_answer": "Correct answer: {{answer}}",
+        "explanation": "Explanation",
+        "next": "Next"
     }
 }
