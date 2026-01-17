@@ -54,7 +54,7 @@ export function Navigation() {
                 </Link>
 
                 <Link href="/aloita" className={cn("hover:text-[#5B4B8A] transition-colors uppercase", pathname === '/aloita' && "text-[#5B4B8A] font-bold")}>
-                    Aloita tästä 🛡️
+                    {t('nav.start_here')}
                 </Link>
 
                 <DropdownMenu>
