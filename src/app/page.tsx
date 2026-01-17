@@ -50,7 +50,7 @@ export default function HomePage() {
               href="/aloita"
               className="px-8 py-4 bg-[#2B2B2B] text-white hover:bg-[#5B4B8A] transition-colors rounded-sm font-medium tracking-wide flex items-center gap-3 shadow-lg shadow-black/5"
             >
-              Aloita tästä 🛡️ <ArrowRight className="w-4 h-4" />
+              {t('landing.hero.cta_start')} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/quiz"
