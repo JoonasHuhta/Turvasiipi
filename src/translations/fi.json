@@ -331,50 +331,51 @@
     },
     "start_here": {
         "hero": {
-            "line1": "Ennen kuin tiedät, mitä tämä on.",
-            "line2": "Ennen kuin tiedät, mitä teet.",
-            "permission_title": "Sinulla on lupa",
-            "permission_1": "Olla epävarma",
-            "permission_2": "Pysähtyä ja hengittää",
-            "permission_3": "Määritellä omat rajasi",
-            "closing": "Tämä on sinun polkusi. Vain sinä päätät, miten edetä.",
-            "scroll_hint": "Jatka"
+            "line1": "Jotkut meistä ovat siipirikkoisia tietämättään.",
+            "line2": "Moni on kokenut työpaikalla sellaista, joka jättää jäljen.",
+            "permission_title": "Sinulla on lupa miettiä:",
+            "permission_1": "Mikä minulle sopii tänään?",
+            "permission_2": "Mikä voi pahentaa oloani?",
+            "permission_3": "Tarvitsenko ammattiapua?",
+            "closing": "Kokeile rauhassa. Tutki hiljaa. Sinä päätät rajasi.",
+            "scroll_hint": "Jatka, kun olet valmis"
         },
         "selector": {
-            "title": "Valitse intensiteettisi",
+            "title": "Määritä polkusi",
             "levels": {
                 "facts": {
-                    "label": "Vain faktat",
-                    "preview": "Haluan vain tietoa ilman henkilökohtaista pohdintaa."
+                    "label": "Faktat",
+                    "preview": "Turvallinen valinta. Tutustu ilmiöön vain lukemalla. Ei tarinoita, ei tunteita."
                 },
                 "exercises": {
-                    "label": "Harjoitukset",
-                    "preview": "Haluan tunnistaa merkkejä ja tehdä kevyitä harjoituksia."
+                    "label": "Kevyet harjoitukset",
+                    "preview": "Pieniä pohdintoja ilman syvää sukellusta. Sopii, jos olet epävarma."
                 },
                 "reflection": {
-                    "label": "Pohdinta",
-                    "preview": "Olen valmis kirjoittamaan ja reflektoimaan kokemuksiani."
+                    "label": "Reflektio",
+                    "preview": "Kirjoita omia ajatuksiasi ylös. Sinun oma tilasi, omat sanasi."
                 },
                 "simulation": {
-                    "label": "Simulaatiot",
-                    "preview": "Haluan harjoitella vaikeita tilanteita turvallisesti."
+                    "label": "Syvät simulaatiot",
+                    "preview": "Varoitus: Todentuntuisia tilanteita. Voi laukaista tunteita. Valitse vain, jos olet voimissasi."
                 }
             }
         },
         "contract": {
-            "label": "Henkilökohtainen sopimus",
-            "placeholder": "Kirjoita itsellesi lupaus siitä, miten haluat suojella itseäsi tänään. Esim: 'Luotan vaistooni' tai 'Annan itselleni luvan lopettaa, jos tuntuu liian raskaalta.'",
-            "lock_button": "Lukitse",
-            "locked_toast": "Sopimus lukittu. Tämä on sinun.",
+            "label": "Henkilökohtainen turvasopimus",
+            "placeholder": "Esim. 'Tänään luen vain faktoja', tai 'Jos ahdistaa, lopetan heti'.",
+            "lock_button": "Lukitse itselleni",
+            "locked_toast": "Polkusi on aktivoitu! ✨",
+            "locked_message": "Sopimus on voimassa. Muista, että voit aina muuttaa mieltäsi.",
             "privacy_note": "Kirjoitus ei tallennu minnekään. Se on vain sinulle."
         },
         "recommendations": {
-            "title": "Suositellut polut sinulle",
             "show_button": "Näytä suositukset",
+            "title": "Sinulle valitut työkalut",
             "links": {
-                "tietovisa": "Tietovisa",
-                "quiz": "Tunnista riskit",
-                "loki": "Turvallinen loki",
+                "tietovisa": "Tietopankki (Faktat)",
+                "quiz": "Riskikartoitus",
+                "loki": "Lokikirja (Reflektio)",
                 "simulaatio": "Simulaatiot"
             }
         }
