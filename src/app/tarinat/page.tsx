@@ -98,6 +98,7 @@ export default function TarinatPage() {
     const [serverReactions, setServerReactions] = useState<Record<string, Record<string, number>>>({});
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         // Fetch reactions
         fetch('/api/stories/likes')

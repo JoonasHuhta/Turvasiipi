@@ -11,6 +11,7 @@ export default function HiekkalaatikkoPage() {
     const [timestamp, setTimestamp] = useState("");
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setTimestamp(new Date().toLocaleDateString('fi-FI', { weekday: 'long', day: 'numeric', month: 'long' }));
     }, []);
 

@@ -28,6 +28,7 @@ export function LikertSlider({
     const [localValue, setLocalValue] = useState([value]);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLocalValue([value]);
     }, [value]);
 

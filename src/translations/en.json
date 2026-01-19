@@ -18,6 +18,7 @@
         "training": "Coaching",
         "empathy_spectrum": "Empathy Spectrum",
         "literacy_test": "Workplace Situation",
+        "impact_profile": "Impact Profile",
         "tactics": "Forms of Bullying",
         "log": "Log",
         "overview": "Overview",
@@ -25,6 +26,58 @@
         "reports": "Reports",
         "guide": "How to Document?",
         "start_here": "Start Here 🛡️"
+    },
+    "impact_profile": {
+        "nav_title": "Impact Profile",
+        "hero": {
+            "title": "Recognize your impact on the work community",
+            "subtitle": "Bullying doesn't always look like bullying. It can look like efficiency, control, or high standards. This test helps you see the shadows of your leadership style – and turn them into strengths.",
+            "start_btn": "Start Test"
+        },
+        "test": {
+            "progress": "Question {{current}} / {{total}}",
+            "agree": "Strongly Agree",
+            "disagree": "Strongly Disagree"
+        },
+        "results": {
+            "title": "Your Impact Profile",
+            "meter_label": "Direction of Impact",
+            "constructive": "Constructive",
+            "destructive": "Destructive",
+            "read_more": "Read more about research",
+            "anonymous_note": "This result is visible only to you. It is your tool for growth."
+        },
+        "profiles": {
+            "A": {
+                "title": "The Builder (Constructive Influencer)",
+                "subtitle": "You create space for success.",
+                "description": "Your style combines high professionalism with respect for humanity. You create psychological safety around you, where people dare to bring up mistakes and new ideas without fear of embarrassment.",
+                "impact": "Your team is committed and innovative. They feel your standards are fair and that you support them in difficult spots.",
+                "why": "According to research, a sense of safety is the single biggest factor behind high team performance. You are an asset to the work community.",
+                "motivation": "You already hold the keys. Continue on this path and spread this culture of safety around you.",
+                "next_step": "How could you help others find the same balance? Check out the 'Defender Role' and learn to support colleagues who face inappropriate treatment."
+            },
+            "B": {
+                "title": "The Pressure Cooker (Consuming Performer)",
+                "subtitle": "Goals first, people second.",
+                "description": "You value efficiency, quality, and results above all. You are often the one keeping schedules. However, you easily use harsh means – sarcasm, pressure with haste, or public criticism – to get things moving.",
+                "impact": "A 'quiet distress' prevails around you. People may perform under fear, but their creativity and commitment crumble. The risk of covering up mistakes increases because your feedback is perceived as an attack.",
+                "why": "A consuming style burns the team out and eventually turns against results. You can get the same (or better) results with less friction by smoothing the sharpest edges of your communication.",
+                "motivation": "Do you want to be a respected expert or a feared controller?",
+                "next_step": "Take the 5-day change challenge. It teaches you how demandingness and kindness fit in the same sentence.",
+                "action_btn": "Start 5-Day Challenge"
+            },
+            "C": {
+                "title": "The Gatekeeper (Power-Centric Actor)",
+                "subtitle": "You control the situation, but at what cost?",
+                "description": "Your methods rely heavily on control, information management, and maintaining social hierarchy. You use power in a way that excludes people or questions their professional competence in the eyes of others.",
+                "impact": "You create an atmosphere of fear and cliques. Your actions cause trauma symptoms, burnout, and insecurity in targets. Many may consider changing jobs because of you.",
+                "why": "This style meets the criteria for workplace bullying. It is a serious risk to your organization and your own professional reputation. in modern work life, such use of power eventually leads to formal processes.",
+                "motivation": "Your identity doesn't have to be a 'bully'. You can dismantle this role and build a new way to influence based on true expertise, not crushing others.",
+                "next_step": "We direct you to the 'Anatomy of Power' module. Stop to reflect: what do you need to dare to face your colleagues as equals?",
+                "action_btn": "Go to Anatomy of Power"
+            }
+        }
     },
     "simulation": {
         "header": {

@@ -16,6 +16,7 @@ export function DailyPoll() {
     useEffect(() => {
         // Load Question
         const question = getDailyPoll();
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPoll(question);
 
         // Load Vote Status

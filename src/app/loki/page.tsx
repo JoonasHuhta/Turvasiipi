@@ -53,6 +53,7 @@ function LogPageContent() {
         if (quickLogIdParam) {
             const quickLog = events.find(e => e.id === quickLogIdParam && e.isQuickLog);
             if (quickLog) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setQuickLogId(quickLogIdParam);
                 setFormData(prev => ({
                     ...prev,
@@ -83,6 +84,7 @@ function LogPageContent() {
         if (formData.witnesses) score += 20;
         if (formData.evidenceType.length > 0) score += 10;
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMeterScore(Math.min(100, score));
     }, [formData, selectedTactic]);
 

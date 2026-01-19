@@ -28,6 +28,7 @@ export default function OverviewPage() {
     const [timeRange, setTimeRange] = useState<TimeRange>('30d');
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 

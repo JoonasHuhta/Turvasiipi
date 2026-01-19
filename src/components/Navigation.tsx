@@ -28,14 +28,9 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 
-export function Navigation() {
-    const pathname = usePathname();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { language, setLanguage, t } = useLanguage();
-    const { getExpertiseLevel } = useProgress();
-    const { level: expertise } = getExpertiseLevel(); // Fixed destructuring
-
-    const LanguageToggle = ({ className }: { className?: string }) => (
+const LanguageToggle = ({ className }: { className?: string }) => {
+    const { language, setLanguage } = useLanguage();
+    return (
         <button
             onClick={() => setLanguage(language === 'fi' ? 'en' : 'fi')}
             className={cn("flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#4A4A4A] hover:text-[#5B4B8A] transition-colors", className)}
@@ -44,6 +39,16 @@ export function Navigation() {
             {language === 'fi' ? 'EN' : 'FI'}
         </button>
     );
+};
+
+export function Navigation() {
+    const pathname = usePathname();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { language, setLanguage, t } = useLanguage();
+    const { getExpertiseLevel } = useProgress();
+    const { level: expertise } = getExpertiseLevel(); // Fixed destructuring
+
+
 
     return (
         <>

@@ -32,6 +32,7 @@ export function LightMap() {
             const litTime = parseInt(localLit);
             // Reset local "you have lit" state after 24 hours so you can light again
             if (Date.now() - litTime < 24 * 60 * 60 * 1000) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setHasLit(true);
             } else {
                 localStorage.removeItem("hasLitLight");
