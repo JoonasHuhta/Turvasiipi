@@ -75,6 +75,9 @@ export function Navigation() {
                             <Link href="/feeling-quiz" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.victim_feelings')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
+                            <Link href="/vaikutusprofiili" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.impact_profile')}</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
                             <Link href="/empatia-testi" className="cursor-pointer font-medium text-[#4A4A4A] hover:bg-[#FDFBF7] hover:text-[#5B4B8A]">{t('nav.empathy_spectrum')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
@@ -207,6 +210,7 @@ export function Navigation() {
                                         <Link href="/lukutaito-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.literacy_test')}</Link>
                                         <Link href="/taktiikat" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.tactics')}</Link>
                                         <Link href="/feeling-quiz" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.victim_feelings')}</Link>
+                                        <Link href="/vaikutusprofiili" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.impact_profile')}</Link>
                                         <Link href="/empatia-testi" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.empathy_spectrum')}</Link>
                                         <Link href="/tietovisa" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.quiz_facts')}</Link>
                                         <Link href="/neuromoninaisuus" className="block text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.neuromoninaisuus')}</Link>

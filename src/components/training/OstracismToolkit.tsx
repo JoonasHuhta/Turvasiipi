@@ -13,9 +13,10 @@ import { cn } from "@/lib/utils";
 
 interface OstracismToolkitProps {
     onComplete: () => void;
+    onExit: () => void;
 }
 
-export default function OstracismToolkit({ onComplete }: OstracismToolkitProps) {
+export default function OstracismToolkit({ onComplete, onExit }: OstracismToolkitProps) {
     const [activeTab, setActiveTab] = useState<'basics' | 'signs' | 'manager' | 'strategies'>('basics');
 
     return (
@@ -27,6 +28,8 @@ export default function OstracismToolkit({ onComplete }: OstracismToolkitProps) 
                     <div className="flex items-center gap-3 text-indigo-400">
                         <Ghost className="w-8 h-8" />
                         <span className="text-xs font-black uppercase tracking-[0.2em]">Koulutusmoduuli</span>
+                        <div className="flex-1" />
+                        <Button variant="ghost" className="text-indigo-200 hover:text-white hover:bg-white/10" onClick={onExit}>Sulje</Button>
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Ostrakismi-työkalupakki</h1>
                     <p className="text-slate-400 text-lg max-w-2xl font-medium">

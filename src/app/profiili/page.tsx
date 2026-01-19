@@ -86,10 +86,17 @@ export default function ProfilePage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                 <div className="space-y-2">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest">Käyttäjäprofiili</span>
-                    <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">Saavutuksesi</h1>
-                    <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase mt-1">
-                        Sertifioitu käyttäjä // {progress.completedModuleIds.length} suoritusta // Aktiivinen
-                    </p>
+                    <h1 className="text-4xl font-serif font-bold text-[#2B2B2B] flex items-center gap-3">
+                        Saavutuksesi
+                    </h1>
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
+                        <span className="bg-[#5B4B8A] text-white px-2 py-0.5 rounded-sm text-[10px] uppercase font-bold tracking-wider">
+                            {expertise.name}
+                        </span>
+                        <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase">
+                            // {progress.completedModuleIds.length} suoritusta // Aktiivinen
+                        </p>
+                    </div>
                 </div>
                 <div className="flex gap-3">
                     <Button variant="outline" className="border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">
@@ -102,7 +109,7 @@ export default function ProfilePage() {
             </div>
 
             <Tabs defaultValue="kunniataulu" className="w-full">
-                <TabsList className="bg-[#FDFBF7] border border-[#E8DDD0] p-1 mb-8 w-full flex justify-start sm:w-auto h-auto overflow-x-auto overflow-y-hidden no-scrollbar">
+                <TabsList className="bg-transparent sm:bg-[#FDFBF7] border-0 sm:border border-[#E8DDD0] p-0 sm:p-1 mb-8 w-full flex flex-col sm:flex-row gap-2 sm:gap-0 justify-start sm:w-auto h-auto">
                     <TabsTrigger value="kunniataulu" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
                         <Trophy className="w-3.5 h-3.5" /> Kunniataulu
                     </TabsTrigger>

@@ -19,12 +19,65 @@
         "empathy_spectrum": "Empatia-spektri",
         "literacy_test": "Työyhteisön tilanne",
         "tactics": "Kiusaamisen muodot",
-        "log": "Loki",
+        "log": "Päiväkirja",
         "overview": "Yleiskatsaus",
         "timeline": "Aikajana",
         "reports": "Raportit",
         "guide": "Miten kirjaan?",
-        "start_here": "Aloita tästä 🛡️"
+        "start_here": "Aloita tästä 🛡️",
+        "impact_profile": "Vaikutusprofiili"
+    },
+    "impact_profile": {
+        "nav_title": "Vaikutusprofiili",
+        "hero": {
+            "title": "Tunnista vaikutuksesi työyhteisöön",
+            "subtitle": "Kiusaaminen ei aina näytä kiusaamiselta. Se voi näyttää tehokkuudelta, kontrollilta tai vaativuudelta. Tämä testi auttaa sinua näkemään johtamistyylisi varjopuolet – ja kääntämään ne vahvuuksiksi.",
+            "start_btn": "Aloita testi"
+        },
+        "test": {
+            "progress": "Kysymys {{current}} / {{total}}",
+            "agree": "Täysin samaa mieltä",
+            "disagree": "Täysin eri mieltä"
+        },
+        "results": {
+            "title": "Vaikutusprofiilisi",
+            "meter_label": "Vaikutuksen suunta",
+            "constructive": "Rakentava",
+            "destructive": "Haitallinen",
+            "read_more": "Lue lisää tutkimuksesta",
+            "anonymous_note": "Tämä tulos on vain sinun nähtävissäsi. Se on työkalusi kasvuun."
+        },
+        "profiles": {
+            "A": {
+                "title": "Rakentava Vaikuttaja (The Builder)",
+                "subtitle": "Luot tilaa onnistumisille.",
+                "description": "Sinun tyylisi yhdistää korkean ammattitaidon ja ihmisyyden kunnioittamisen. Luot ympärillesi psykologista turvallisuutta, jossa ihmiset uskaltavat tuoda esiin virheitä ja uusia ideoita ilman pelkoa nolaamisesta.",
+                "impact": "Tiimisi on sitoutunut ja innovatiivinen. He kokevat, että vaatimustasosi on oikeudenmukainen ja että tuet heitä vaikeissa paikoissa.",
+                "why": "Tutkimusten mukaan turvallisuuden tunne on suurin yksittäinen tekijä tiimin huippusuorituksen taustalla. Olet työyhteisön voimavara.",
+                "motivation": "Sinulla on jo avaimet käsissäsi. Jatka samalla tiellä ja levitä tätä turvallisuuden kulttuuria ympärillesi.",
+                "next_step": "Miten voisit auttaa muita löytämään saman tasapainon? Tutustu ”Puolustaja-rooliin” ja opi tukemaan kollegoita, jotka kohtaavat epäasiallista kohtelua."
+            },
+            "B": {
+                "title": "Kuluttava Suorittaja (The Pressure Cooker)",
+                "subtitle": "Tavoitteet edellä, ihminen perässä.",
+                "description": "Arvostat tehokkuutta, laatua ja tuloksia yli kaiken. Olet usein se, joka pitää huolta aikatauluista. Käytät kuitenkin herkästi kovia keinoja – sarkasmia, kiireellä painostamista tai julkista kritiikkiä – saadaksesi asiat etenemään.",
+                "impact": "Ympärilläsi vallitsee ”hiljainen hätä”. Ihmiset saattavat suoriutua pelon alla, mutta heidän luovuutensa ja sitoutumisensa murenevat. Riski virheiden peittelyyn kasvaa, koska palautteesi koetaan hyökkäävänä.",
+                "why": "Kuluttava tyyli polttaa tiimin loppuun ja kääntyy lopulta tuloksia vastaan. Voit saada samat (tai paremmat) tulokset pienemmällä kitkalla, kun hiot viestintäsi terävimpiä kulmia.",
+                "motivation": "Haluatko olla arvostettu asiantuntija vai pelätty kontrollori?",
+                "next_step": "Ota vastaan 5 päivän muutoshaaste. Se opettaa sinulle, miten vaativuus ja ystävällisyys mahtuvat samaan lauseeseen.",
+                "action_btn": "Aloita 5 päivän haaste"
+            },
+            "C": {
+                "title": "Valtakeskeinen Toimija (The Gatekeeper)",
+                "subtitle": "Hallitset tilannetta, mutta millä hinnalla?",
+                "description": "Toimintatapasi painottuvat vahvasti kontrolliin, tiedon hallintaan ja sosiaalisen hierarkian ylläpitoon. Käytät valtaasi tavalla, joka rajaa ihmisiä ulkopuolelle tai kyseenalaistaa heidän ammattitaitonsa muiden silmissä.",
+                "impact": "Luot työyhteisöön pelon ilmapiirin ja klikkejä. Toimintasi aiheuttaa kohteissa traumaoireita, uupumusta ja turvattomuutta. Moni saattaa harkita työpaikan vaihtoa sinun vuoksesi.",
+                "why": "Tämä toimintatyyli täyttää työpaikkakiusaamisen tunnusmerkit. Se on vakava riski organisaatiollesi ja omalle ammatilliselle maineellesi. Nykyaikaisessa työelämässä tällainen vallankäyttö johtaa ennen pitkää virallisiin prosesseihin ja oikeusturvasi vaarantumiseen.",
+                "motivation": "Identiteettisi ei tarvitse olla ”kiusaaja”. Voit purkaa tämän roolin ja rakentaa tilalle uuden tavan vaikuttaa, joka perustuu todelliseen asiantuntijuuteen, ei muiden nujertamiseen.",
+                "next_step": "Ohjaamme sinut ”Vallan anatomia” -moduuliin. Pysähdy pohtimaan: mitä tarvitset, jotta uskaltaisit kohdata kollegasi tasavertaisina?",
+                "action_btn": "Siirry Vallan anatomia -moduuliin"
+            }
+        }
     },
     "simulation": {
         "header": {
@@ -250,8 +303,8 @@
                 "step1_sub": "Objektiivinen arvio",
                 "step1_sub_text": "Saat heti palautteen tilanteesi vakavuudesta ilman vähättelyä.",
                 "step2_title": "Suojaa itsesi",
-                "step2_text": "Sinun sanasi on arvokas, mutta data on voimaa. Kirjaa tapahtumat turvalliseen lokikirjaan heti kun ne tapahtuvat.",
-                "step2_sub": "Murtamaton lokikirja",
+                "step2_text": "Sinun sanasi on arvokas, mutta data on voimaa. Kirjaa tapahtumat turvalliseen päiväkirjaan heti kun ne tapahtuvat.",
+                "step2_sub": "Murtamaton päiväkirja",
                 "step2_sub_text": "Vain sinun hallussasi oleva aikajana, jota on mahdotonta vääristellä.",
                 "step3_title": "Luo faktapohja",
                 "step3_text": "Kun on aika toimia, sovellus auttaa sinua muotoilemaan merkintäsi selkeäksi raportiksi.",
@@ -289,8 +342,8 @@
         "log": {
             "title": "Kirjoita ylös ennen kuin alat unohtaa.",
             "subtitle": "Muisti ei ole puolueeton. Se muuttuu ajan, stressin ja selittelyn mukana.",
-            "label": "Yksityinen loki",
-            "text": "Turvasiipi tarjoaa henkilökohtaisen lokin, johon voit kirjata tapahtumat silloin kun ne ovat vielä tuoreita:",
+            "label": "Yksityinen päiväkirja",
+            "text": "Turvasiipi tarjoaa henkilökohtaisen päiväkirjan, johon voit kirjata tapahtumat silloin kun ne ovat vielä tuoreita:",
             "points": {
                 "what": "Mitä tapahtui",
                 "when": "Milloin (päivämäärä, kellonaika)",
@@ -377,13 +430,13 @@
             "links": {
                 "tietovisa": "Tietopankki (Faktat)",
                 "quiz": "Riskikartoitus",
-                "loki": "Lokikirja (Reflektio)",
+                "loki": "Päiväkirja (Reflektio)",
                 "simulaatio": "Simulaatiot"
             },
             "descs": {
                 "tietovisa": "Tutkittua tietoa kiusaamisen ilmiöstä.",
                 "quiz": "Tunnista riskit ja nimeä tilanteet.",
-                "loki": "Dokumentoi tapahtumat turvalliseen lokiin.",
+                "loki": "Dokumentoi tapahtumat turvalliseen päiväkirjaan.",
                 "simulaatio": "Harjoittele haastavia tilanteita turvallisesti.",
                 "taktiikat": "Opi tunnistamaan kiusaamisen eri muodot.",
                 "lukutaito": "Testaa työyhteisösi tila.",
@@ -401,7 +454,7 @@
         },
         "intro": {
             "title": "Miksi tämä on tärkeää?",
-            "text": "Työpaikkakiusaamisesta kannattaa tehdä mahdollisimman konkreettisia, päiväkirjamaisia muistiinpanoja. Yksi koherentti loki on vahvempi todiste kuin sata hajanaista muistilappua.",
+            "text": "Työpaikkakiusaamisesta kannattaa tehdä mahdollisimman konkreettisia, päiväkirjamaisia muistiinpanoja. Yksi koherentti päiväkirja on vahvempi todiste kuin sata hajanaista muistilappua.",
             "memory_title": "Suojaa muistisi",
             "memory_text": "Stressi heikentää muistia. Kirjaamalla tapahtumat heti, säilytät yksityiskohdat, jotka muuten katoaisivat.",
             "patterns_title": "Paljastaa toistuvuuden",
@@ -476,7 +529,7 @@
         "witness": {
             "title": "Todistajien suojaaminen",
             "text": "Kollegan pyytäminen todistajaksi voi olla pelottavaa. Muista, että sinun ei tarvitse vaatia heiltä \"puolen valitsemista\".",
-            "anonymize": "Anonymisoi lokisi: Älä kirjaa nimiä ennen virallista prosessia. Käytä koodeja.",
+            "anonymize": "Anonymisoi päiväkirjasi: Älä kirjaa nimiä ennen virallista prosessia. Käytä koodeja.",
             "list": [
                 "Kirjaa: \"Todistaja A (tiimin jäsen) vahvisti asian.\"",
                 "Pyydä HR:ltä anonymisoitu yhteenveto.",
@@ -489,14 +542,14 @@
             "title": "Tekninen suoja",
             "dont_use_work": "Älä käytä työlaitteita muistiinpanoihin.",
             "list": [
-                "Yksi loki: Google Docs (oma tili), Notion tai vihko kotona.",
+                "Yksi päiväkirja: Google Docs (oma tili), Notion tai vihko kotona.",
                 "Varmuuskopio: Lähetä itsellesi sähköpostia viikoittain.",
                 "Kovat todisteet: Ota kuvakaappaukset chateista heti."
             ]
         },
         "templates_link": {
             "title": "Tarvitsetko virallisen asiakirjan?",
-            "text": "Joskus pelkkä lokimerkintä ei riitä. Olemme laatineet valmiita pohjia (esim. ilmoitus työturvallisuudesta, vastine varoitukseen), jotta sinun ei tarvitse miettiä sanamuotoja yksin.",
+            "text": "Joskus pelkkä päiväkirjamerkintä ei riitä. Olemme laatineet valmiita pohjia (esim. ilmoitus työturvallisuudesta, vastine varoitukseen), jotta sinun ei tarvitse miettiä sanamuotoja yksin.",
             "button": "Selaa mallipohjia"
         },
         "motivation": {
@@ -512,7 +565,7 @@
         "cta": {
             "title": "Oletko valmis kokeilemaan?",
             "text": "Paras aika aloittaa on nyt. Vaikka vain yhdellä lauseella.",
-            "button": "Avaa Lokikirja"
+            "button": "Avaa Päiväkirja"
         }
     },
     "dashboard": {
@@ -650,7 +703,7 @@
                 "guide_btn": "Lue opas",
                 "new_title": "Uusi merkintä",
                 "new_desc": "Kirjaa tapahtuma heti, kun se on vielä tuoreessa muistissa.",
-                "new_btn": "Avaa loki"
+                "new_btn": "Avaa päiväkirja"
             }
         },
         "form": {
@@ -3340,11 +3393,11 @@
         "data_collection": {
             "title": "Mitä tietoja tallennamme?",
             "local_label": "Laitteellasi:",
-            "local_list_1": "Lokimerkinnät ja aikajana",
+            "local_list_1": "Päiväkirjamerkinnät ja aikajana",
             "local_list_2": "Valmennuksen edistyminen",
             "local_list_3": "Sovelluksen asetukset",
             "server_label": "Palvelimilla (Tekninen ylläpito):",
-            "server_desc": "Hosting-palveluntarjoajamme (Vercel) saattaa kerätä tavanomaisia teknisiä lokitietoja (kuten IP-osoitteet) palvelun tietoturvan ja toimivuuden varmistamiseksi. Emme käytä näitä tietoja käyttäjien tunnistamiseen.",
+            "server_desc": "Hosting-palveluntarjoajamme (Vercel) saattaa kerätä tavanomaisia teknisiä käyttötietoja (kuten IP-osoitteet) palvelun tietoturvan ja toimivuuden varmistamiseksi. Emme käytä näitä tietoja käyttäjien tunnistamiseen.",
             "cookies_title": "Evästeet",
             "cookies_desc": "Emme käytä markkinointievästeitä tai kolmannen osapuolen seurantatyökaluja (kuten Google Analytics)."
         },

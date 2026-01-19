@@ -10,7 +10,7 @@ export interface AIReportResult {
 }
 
 const SYSTEM_PROMPT = `
-Olet empaattinen ja asiantunteva työsuojeluasiantuntija. Tehtäväsi on analysoida käyttäjän toimittama lokikirja työpaikkakiusaamisesta ja laatia siitä selkeä, jäsennelty raportti.
+Olet empaattinen ja asiantunteva työsuojeluasiantuntija. Tehtäväsi on analysoida käyttäjän toimittama päiväkirja työpaikkakiusaamisesta ja laatia siitä selkeä, jäsennelty raportti.
 
 Toimi seuraavasti:
 1.  **Analysoi:** Tunnista toistuva käyttäytyminen, vallankäyttö ja mahdolliset lakirikkomukset (Työturvallisuuslaki).
@@ -50,7 +50,7 @@ export async function generatePremiumReport(anonymizedData: string): Promise<AIR
             anthropic_version: "bedrock-2023-05-31",
             max_tokens: 4000,
             messages: [
-                { role: "user", content: `${SYSTEM_PROMPT}\n\nLOKIKIRJA:\n${anonymizedData}` }
+                { role: "user", content: `${SYSTEM_PROMPT}\n\nPÄIVÄKIRJA:\n${anonymizedData}` }
             ],
             temperature: 0.5,
         };
