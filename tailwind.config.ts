@@ -52,6 +52,15 @@ const config = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
+                suojasiipi: {
+                    primary: "#5B4B8A",
+                    secondary: "#E8DDD0",
+                    bg: "#FDFBF7",
+                    text: {
+                        main: "#2B2B2B",
+                        body: "#4A4A4A"
+                    }
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",

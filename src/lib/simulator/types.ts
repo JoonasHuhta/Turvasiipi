@@ -39,11 +39,17 @@ export interface Phase {
     isCrisis?: boolean; // Triggers visual warning style
 }
 
+export interface LogEntry {
+    day: number;
+    note: string;
+    timestamp: string; // e.g. "12:00"
+}
+
 export interface GameState {
     currentPhaseId: string;
     profession: Profession;
     stats: GameStats;
-    logEntries: { day: number; note: string; timestamp: string }[];
+    logEntries: LogEntry[];
     allies: string[];
     history: string[]; // Phase IDs
     isGameOver: boolean;

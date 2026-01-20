@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { Printer, ArrowLeft, BrainCircuit, CalendarRange, Scale, AlertTriangle, FileCheck, Copy, Check, FileText, Lock, Sparkles, CreditCard, Loader2, Download, ShieldCheck, Mail, Info, ExternalLink, ChevronRight, LayoutDashboard, TrendingUp, BarChart3 } from "lucide-react";
+import { Printer, ArrowLeft, CalendarRange, Scale, AlertTriangle, FileCheck, Copy, Check, FileText, Download, Mail, Info, ChevronRight, LayoutDashboard, TrendingUp, BarChart3 } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import Link from "next/link";
 import { analyzeEvents, generateSummaryChecklist } from "@/helpers/reportAnalysis";
@@ -29,10 +29,7 @@ export default function DocumentsPage() {
     const [copiedId, setCopiedId] = useState<string | null>(null);
     const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
-    // Premium AI State
-    // const [aiStep, setAiStep] = useState<'intro' | 'payment' | 'processing' | 'result'>('intro');
-    // const [consentGiven, setConsentGiven] = useState(false);
-    // const [aiResult, setAiResult] = useState<AIReportResult | null>(null);
+
 
     // Stats
     const stats = mounted ? analyzeEvents(events) : null;
@@ -104,30 +101,7 @@ export default function DocumentsPage() {
         }
     };
 
-    /*
-    const handleStartPremiumProcess = () => {
-        setAiStep('payment');
-    };
 
-    const handleSimulatePayment = () => {
-        // Find "processing" state
-        setAiStep('processing');
-
-        // Simulate API call
-        setTimeout(async () => {
-            // Basic anonymization (simulated)
-            const anonymizedData = JSON.stringify(events.map(e => ({
-                ...e,
-                peopleInvolved: "Henkilö A",
-                description: e.description?.replace(/Matti|Teppo|Maija/g, "[NIMI POISTETTU]")
-            })));
-
-            // const result = await generatePremiumReport(anonymizedData);
-            // setAiResult(result);
-            setAiStep('result');
-        }, 3500);
-    };
-    */
 
 
     const filteredTemplates = activeCategory === 'all'
@@ -143,83 +117,76 @@ export default function DocumentsPage() {
         { id: 'communication', label: t('report.page.templates_tab.categories.communication') },
     ];
 
-    if (!mounted) return <div className="p-32 text-center text-[#5B4B8A] font-mono animate-pulse">{t('report.page.loading')}</div>;
+    if (!mounted) return <div className="p-32 text-center text-suojasiipi-primary font-mono animate-pulse">{t('report.page.loading')}</div>;
 
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-12">
             <VaultWrapper isLocked={isLocked} hasData={hasData} onUnlock={unlock}>
                 <div className="space-y-12 pb-20 animate-in fade-in duration-500">
                     {/* Header (Hidden in Print) */}
-                    <div className="print:hidden space-y-6 border-b border-[#E8DDD0] pb-8">
+                    <div className="print:hidden space-y-6 border-b border-suojasiipi-secondary pb-8">
                         <div className="flex items-center gap-4">
-                            <Link href="/timeline" className="text-sm font-bold text-[#5B4B8A] hover:underline flex items-center gap-2">
+                            <Link href="/timeline" className="text-sm font-bold text-suojasiipi-primary hover:underline flex items-center gap-2">
                                 <ArrowLeft className="w-4 h-4" /> {t('report.page.back_to_timeline')}
                             </Link>
                         </div>
                         <div className="space-y-2">
-                            <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest">
+                            <span className="text-[11px] font-mono text-suojasiipi-primary uppercase tracking-widest">
                                 Välineet &mdash; Raportointi
                             </span>
-                            <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">{t('report.page.title')}</h1>
-                            <p className="text-lg text-[#4A4A4A] max-w-2xl leading-relaxed">
+                            <h1 className="text-4xl font-serif font-bold text-suojasiipi-text-main">{t('report.page.title')}</h1>
+                            <p className="text-lg text-suojasiipi-text-body max-w-2xl leading-relaxed">
                                 {t('report.page.subtitle')}
                             </p>
                         </div>
                     </div>
 
                     <Tabs defaultValue="overview" className="w-full">
-                        <TabsList className="flex flex-col sm:flex-row w-full sm:w-auto bg-transparent border-b border-[#E8DDD0] p-0 mb-12 gap-6 sm:gap-8 justify-start h-auto">
+                        <TabsList className="flex flex-col sm:flex-row w-full sm:w-auto bg-transparent border-b border-suojasiipi-secondary p-0 mb-12 gap-6 sm:gap-8 justify-start h-auto">
                             <TabsTrigger
                                 value="overview"
-                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]"
+                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-suojasiipi-primary data-[state=active]:text-suojasiipi-primary text-suojasiipi-text-body font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-suojasiipi-text-main"
                             >
                                 <LayoutDashboard className="w-4 h-4 mr-2" /> {t('report.page.tabs.overview')}
                             </TabsTrigger>
                             <TabsTrigger
                                 value="report"
-                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]"
+                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-suojasiipi-primary data-[state=active]:text-suojasiipi-primary text-suojasiipi-text-body font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-suojasiipi-text-main"
                             >
                                 <Printer className="w-4 h-4 mr-2" /> {t('report.page.tabs.report')}
                             </TabsTrigger>
                             <TabsTrigger
                                 value="templates"
-                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]"
+                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-suojasiipi-primary data-[state=active]:text-suojasiipi-primary text-suojasiipi-text-body font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-suojasiipi-text-main"
                             >
                                 <FileCheck className="w-4 h-4 mr-2" /> {t('report.page.tabs.templates')}
                             </TabsTrigger>
-                            {/* PREMIUM TAB HIDDEN TEMPORARILY
-                            <TabsTrigger
-                                value="premium"
-                                className="px-0 py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#5B4B8A] data-[state=active]:text-[#5B4B8A] text-[#4A4A4A] font-bold uppercase tracking-widest text-xs bg-transparent shadow-none transition-all hover:text-[#2B2B2B]"
-                            >
-                                <Sparkles className="w-4 h-4 mr-2" /> {t('report.page.tabs.premium')}
-                            </TabsTrigger>
-                            */}
+
                         </TabsList>
 
                         {/* OVERVIEW CONTENT */}
                         <TabsContent value="overview" className="focus-visible:outline-none focus-visible:ring-0 space-y-8 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                                 <div>
-                                    <h2 className="text-2xl font-serif font-bold text-[#2B2B2B] flex items-center gap-3">
-                                        <BarChart3 className="w-6 h-6 text-[#5B4B8A]" />
+                                    <h2 className="text-2xl font-serif font-bold text-suojasiipi-text-main flex items-center gap-3">
+                                        <BarChart3 className="w-6 h-6 text-suojasiipi-primary" />
                                         {t('report.overview.title')}
                                     </h2>
-                                    <p className="text-[#4A4A4A] mt-1">{t('report.overview.subtitle')}</p>
+                                    <p className="text-suojasiipi-text-body mt-1">{t('report.overview.subtitle')}</p>
                                 </div>
-                                <Button variant="outline" className="border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">
+                                <Button variant="outline" className="border-suojasiipi-secondary hover:border-suojasiipi-primary text-suojasiipi-text-main">
                                     <Download className="w-4 h-4 mr-2" /> {t('report.overview.download_pdf')}
                                 </Button>
                             </div>
 
-                            <div className="bg-white p-2 rounded-lg border border-[#E8DDD0] inline-flex self-start">
+                            <div className="bg-white p-2 rounded-lg border border-suojasiipi-secondary inline-flex self-start">
                                 {(['7d', '30d', '3m', 'all'] as const).map(range => (
                                     <button
                                         key={range}
                                         onClick={() => setTimeRange(range)}
                                         className={`px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wide transition-all ${timeRange === range
-                                            ? "bg-[#5B4B8A] text-white shadow-sm"
-                                            : "text-[#4A4A4A] hover:bg-[#FDFBF7]"
+                                            ? "bg-suojasiipi-primary text-white shadow-sm"
+                                            : "text-suojasiipi-text-body hover:bg-suojasiipi-bg"
                                             }`}
                                     >
                                         {t(`report.overview.ranges.${range}`)}
@@ -229,43 +196,43 @@ export default function DocumentsPage() {
 
                             {/* Stats Grid */}
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                <Card className="bg-white border-[#E8DDD0] shadow-sm">
+                                <Card className="bg-white border-suojasiipi-secondary shadow-sm">
                                     <CardContent className="p-6">
-                                        <div className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] mb-2">{t('report.overview.stats.events')}</div>
-                                        <div className="text-4xl font-serif font-bold text-[#2B2B2B]">{overviewStats.count}</div>
-                                        <div className="text-xs text-[#4A4A4A] mt-1">{t('report.overview.stats.events_desc')}</div>
+                                        <div className="text-[10px] uppercase font-bold tracking-widest text-suojasiipi-primary mb-2">{t('report.overview.stats.events')}</div>
+                                        <div className="text-4xl font-serif font-bold text-suojasiipi-text-main">{overviewStats.count}</div>
+                                        <div className="text-xs text-suojasiipi-text-body mt-1">{t('report.overview.stats.events_desc')}</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-white border-[#E8DDD0] shadow-sm">
+                                <Card className="bg-white border-suojasiipi-secondary shadow-sm">
                                     <CardContent className="p-6">
-                                        <div className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] mb-2">{t('report.overview.stats.duration')}</div>
-                                        <div className="text-4xl font-serif font-bold text-[#2B2B2B]">
-                                            {overviewStats.duration} <span className="text-base font-normal text-[#4A4A4A]">{t('report.overview.stats.days')}</span>
+                                        <div className="text-[10px] uppercase font-bold tracking-widest text-suojasiipi-primary mb-2">{t('report.overview.stats.duration')}</div>
+                                        <div className="text-4xl font-serif font-bold text-suojasiipi-text-main">
+                                            {overviewStats.duration} <span className="text-base font-normal text-suojasiipi-text-body">{t('report.overview.stats.days')}</span>
                                         </div>
-                                        <div className="text-xs text-[#4A4A4A] mt-1">{t('report.overview.stats.duration_desc')}</div>
+                                        <div className="text-xs text-suojasiipi-text-body mt-1">{t('report.overview.stats.duration_desc')}</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-white border-[#E8DDD0] shadow-sm">
+                                <Card className="bg-white border-suojasiipi-secondary shadow-sm">
                                     <CardContent className="p-6">
-                                        <div className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] mb-2">{t('report.overview.stats.trend')}</div>
-                                        <div className="text-4xl font-serif font-bold text-[#2B2B2B] flex items-center gap-2">
+                                        <div className="text-[10px] uppercase font-bold tracking-widest text-suojasiipi-primary mb-2">{t('report.overview.stats.trend')}</div>
+                                        <div className="text-4xl font-serif font-bold text-suojasiipi-text-main flex items-center gap-2">
                                             <TrendingUp className="w-6 h-6 text-emerald-600" />
                                             {overviewStats.trend}
                                         </div>
-                                        <div className="text-xs text-[#4A4A4A] mt-1">{t('report.overview.stats.level_stable')}</div>
+                                        <div className="text-xs text-suojasiipi-text-body mt-1">{t('report.overview.stats.level_stable')}</div>
                                     </CardContent>
                                 </Card>
-                                <Card className="bg-white border-[#E8DDD0] shadow-sm">
+                                <Card className="bg-white border-suojasiipi-secondary shadow-sm">
                                     <CardContent className="p-6">
-                                        <div className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] mb-2">{t('report.overview.stats.avg_intensity')}</div>
+                                        <div className="text-[10px] uppercase font-bold tracking-widest text-suojasiipi-primary mb-2">{t('report.overview.stats.avg_intensity')}</div>
                                         <div className="flex items-baseline gap-2">
                                             <div className="flex gap-1">
                                                 {[1, 2, 3, 4, 5].map(i => (
-                                                    <div key={i} className={`w-3 h-3 rounded-full ${i <= Number(overviewStats.avgSeverity) ? "bg-[#5B4B8A]" : "bg-[#E8DDD0]"}`} />
+                                                    <div key={i} className={`w-3 h-3 rounded-full ${i <= Number(overviewStats.avgSeverity) ? "bg-suojasiipi-primary" : "bg-suojasiipi-secondary"}`} />
                                                 ))}
                                             </div>
                                         </div>
-                                        <div className="text-xs text-[#4A4A4A] mt-2 font-mono">
+                                        <div className="text-xs text-suojasiipi-text-body mt-2 font-mono">
                                             {overviewStats.avgSeverity} {t('report.overview.stats.score_label')}
                                         </div>
                                     </CardContent>
@@ -546,139 +513,8 @@ export default function DocumentsPage() {
                             </Dialog>
                         </TabsContent>
 
-                        {/* PREMIUM AI CONTENT HIDDEN TEMPORARILY
-                        <TabsContent value="premium" className="focus-visible:outline-none focus-visible:ring-0">
-                            <div className="bg-[#FDFBF7] border border-[#E8DDD0] rounded-sm p-8 md:p-12 min-h-[600px] flex flex-col items-center justify-center relative overflow-hidden">
 
-                                {aiStep === 'intro' && (
-                                    <div className="max-w-2xl text-center space-y-12 animate-in fade-in duration-500">
-                                        <div className="w-20 h-20 bg-white border border-[#E8DDD0] rounded-full flex items-center justify-center mx-auto shadow-sm">
-                                            <Sparkles className="w-8 h-8 text-[#5B4B8A]" />
-                                        </div>
-                                        <div className="space-y-6">
-                                            <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('report.page.premium_tab.intro.title')}</h2>
-                                            <p className="text-[#4A4A4A] text-lg leading-relaxed font-serif italic text-balance">
-                                                "{t('report.page.premium_tab.intro.description')}"
-                                            </p>
-                                        </div>
 
-                                        <div className="grid md:grid-cols-3 gap-6 text-left">
-                                            <div className="bg-white p-6 border border-[#E8DDD0] rounded-sm">
-                                                <ShieldCheck className="w-5 h-5 text-[#5B4B8A] mb-3" />
-                                                <h3 className="font-bold text-[#2B2B2B] text-sm uppercase tracking-wide mb-2">{t('report.page.premium_tab.intro.features.anonymized.title')}</h3>
-                                                <p className="text-xs text-[#4A4A4A]">{t('report.page.premium_tab.intro.features.anonymized.text')}</p>
-                                            </div>
-                                            <div className="bg-white p-6 border border-[#E8DDD0] rounded-sm">
-                                                <BrainCircuit className="w-5 h-5 text-[#5B4B8A] mb-3" />
-                                                <h3 className="font-bold text-[#2B2B2B] text-sm uppercase tracking-wide mb-2">{t('report.page.premium_tab.intro.features.ai_analysis.title')}</h3>
-                                                <p className="text-xs text-[#4A4A4A]">{t('report.page.premium_tab.intro.features.ai_analysis.text')}</p>
-                                            </div>
-                                            <div className="bg-white p-6 border border-[#E8DDD0] rounded-sm">
-                                                <FileText className="w-5 h-5 text-[#5B4B8A] mb-3" />
-                                                <h3 className="font-bold text-[#2B2B2B] text-sm uppercase tracking-wide mb-2">{t('report.page.premium_tab.intro.features.pdf_ready.title')}</h3>
-                                                <p className="text-xs text-[#4A4A4A]">{t('report.page.premium_tab.intro.features.pdf_ready.text')}</p>
-                                            </div>
-                                        </div>
-
-                                        <div className="pt-8">
-                                            <Button onClick={handleStartPremiumProcess} size="lg" className="bg-[#2B2B2B] text-white hover:bg-[#4A4A4A] font-bold uppercase tracking-widest text-xs h-14 px-10 rounded-sm">
-                                                {t('report.page.premium_tab.intro.button')}
-                                            </Button>
-                                            <p className="text-[10px] text-[#5B4B8A] mt-4 font-mono tracking-widest uppercase">Beta-vaihe &mdash; Maksuton</p>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {aiStep === 'payment' && (
-                                    <div className="w-full max-w-lg bg-white border border-[#E8DDD0] p-8 md:p-12 shadow-sm rounded-sm animate-in slide-in-from-bottom-4 duration-500">
-                                        <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#E8DDD0]">
-                                            <h3 className="text-xl font-serif font-bold text-[#2B2B2B]">{t('report.page.premium_tab.payment.title')}</h3>
-                                            <div className="text-[10px] uppercase font-bold text-[#5B4B8A] border border-[#5B4B8A] px-2 py-0.5 rounded-sm">TestMode</div>
-                                        </div>
-
-                                        <div className="space-y-8">
-                                            <div className="bg-[#FDFBF7] p-4 border border-[#E8DDD0] space-y-2">
-                                                <div className="flex justify-between text-sm font-bold text-[#2B2B2B]">
-                                                    <span>{t('report.page.premium_tab.payment.summary_title')}</span>
-                                                    <span className="text-[#5B4B8A]">0.00 €</span>
-                                                </div>
-                                                <p className="text-xs text-[#4A4A4A]">AI-analyysi on ilmainen beta-testauksen ajan.</p>
-                                            </div>
-
-                                            <div className="space-y-4">
-                                                <div className="flex items-start space-x-3">
-                                                    <Checkbox id="consent" checked={consentGiven} onCheckedChange={(c) => setConsentGiven(!!c)} />
-                                                    <div className="grid gap-1.5 leading-none">
-                                                        <label htmlFor="consent" className="text-sm font-medium leading-tight cursor-pointer text-[#2B2B2B]">
-                                                            {t('report.page.premium_tab.payment.consent_label')}
-                                                        </label>
-                                                        <p className="text-xs text-[#4A4A4A] leading-relaxed">
-                                                            {t('report.page.premium_tab.payment.consent_info')}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <Button
-                                                onClick={handleSimulatePayment}
-                                                disabled={!consentGiven}
-                                                className="w-full h-12 text-xs font-bold uppercase tracking-widest bg-[#2B2B2B] text-white hover:bg-[#4A4A4A] rounded-sm disabled:opacity-50"
-                                            >
-                                                Aloita analyysi
-                                            </Button>
-
-                                            <div className="text-center">
-                                                <button onClick={() => setAiStep('intro')} className="text-[#4A4A4A] text-xs hover:underline">
-                                                    {t('report.page.premium_tab.payment.cancel')}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {aiStep === 'processing' && (
-                                    <div className="text-center space-y-8 animate-in fade-in duration-500">
-                                        <div className="relative mx-auto w-16 h-16">
-                                            <Loader2 className="w-16 h-16 text-[#5B4B8A] animate-spin" />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <h3 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('report.page.premium_tab.processing.title')}</h3>
-                                            <p className="text-[#4A4A4A]">{t('report.page.premium_tab.processing.subtitle')}</p>
-                                        </div>
-                                        <div className="text-xs font-mono text-[#5B4B8A] whitespace-pre-wrap max-w-md mx-auto leading-relaxed border-t border-[#E8DDD0] pt-4">
-                                            {t('report.page.premium_tab.processing.steps')}
-                                        </div>
-                                    </div>
-                                )}
-
-                                {aiStep === 'result' && aiResult && (
-                                    <div className="w-full max-w-4xl bg-white border border-[#E8DDD0] shadow-xl animate-in scale-95 duration-500 rounded-sm">
-                                        <div className="bg-[#FDFBF7] p-4 border-b border-[#E8DDD0] flex justify-between items-center">
-                                            <div className="flex items-center gap-2 text-[#2B2B2B] font-bold text-sm uppercase tracking-wide">
-                                                <Check className="w-4 h-4 text-emerald-600" /> {t('report.page.premium_tab.result.ready')}
-                                            </div>
-                                            <Button size="sm" variant="ghost" onClick={() => setAiStep('intro')} className="text-[#4A4A4A] hover:text-[#2B2B2B]">
-                                                {t('report.page.premium_tab.result.close')}
-                                            </Button>
-                                        </div>
-                                        <div className="p-8 md:p-12 max-h-[60vh] overflow-y-auto custom-scrollbar">
-                                            <div className="whitespace-pre-wrap font-serif text-[#2B2B2B] text-sm leading-relaxed">
-                                                {aiResult.report}
-                                            </div>
-                                        </div>
-                                        <div className="p-6 bg-[#FAFAFA] border-t border-[#E8DDD0] flex justify-end gap-3">
-                                            <Button variant="outline" className="border-[#E8DDD0] bg-white hover:border-[#5B4B8A]" onClick={() => navigator.clipboard.writeText(aiResult.report || "")}>
-                                                <Copy className="w-4 h-4 mr-2" /> {t('report.page.premium_tab.result.copy')}
-                                            </Button>
-                                            <Button className="bg-[#2B2B2B] text-white hover:bg-[#4A4A4A]">
-                                                <Download className="w-4 h-4 mr-2" /> {t('report.page.premium_tab.result.download')}
-                                            </Button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        </TabsContent>
-                        */}
                     </Tabs>
                 </div>
             </VaultWrapper>

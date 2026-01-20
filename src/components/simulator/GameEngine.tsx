@@ -4,13 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import { Phase, GameState, INITIAL_STATS, Choice, Profession, GameStats } from "@/lib/simulator/types";
 import { useProgress } from "@/context/ProgressContext";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress"; // Assuming shadcn progress exists, or I'll use standard
-import { Card } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
-import { Brain, Heart, Users, Calendar, Clock, MapPin, AlertTriangle, FileText, Briefcase, User, ArrowRight } from "lucide-react";
+import { Clock, MapPin, AlertTriangle, Briefcase, User, ArrowRight, Brain, Heart, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+
+// Ending Components
+import { NeuroEnding } from "@/components/simulator/endings/NeuroEnding";
+import { YouthEnding } from "@/components/simulator/endings/YouthEnding";
+import { ManagerEnding } from "@/components/simulator/endings/ManagerEnding";
+import { GenericEnding } from "@/components/simulator/endings/GenericEnding";
 
 interface StatLabel {
     label: string;
@@ -96,7 +98,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     }, [state.currentPhaseId]);
 
     const [notification, setNotification] = useState<string | null>(null);
-
     const [changedStat, setChangedStat] = useState<string | null>(null);
     const [isHelpOpen, setIsHelpOpen] = useState(false);
 
@@ -104,262 +105,30 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
 
     // Check for Endings
     if (state.currentPhaseId.startsWith('END_')) {
-
         // --- NEURO ENDING ---
         const isNeuroRelated = ['neuro', 'performance_trap', 'information_shadow'].includes(profession);
         if (isNeuroRelated) {
-            const isBurnout = state.currentPhaseId === 'END_BURNOUT';
-            const isNewStart = state.currentPhaseId === 'END_NEW_START';
-
-            return (
-                <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
-                    <Card className="max-w-3xl w-full bg-slate-900 border-indigo-900/30 p-6 md:p-12 text-center space-y-8 shadow-2xl shadow-indigo-900/10 relative">
-                        <div className="text-6xl mb-4 animate-in zoom-in spin-in-3 duration-700">
-                            {isBurnout ? '🔋' : (isNewStart ? '🌟' : '🧩')}
-                        </div>
-
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                            {isBurnout ? "Päivä päättyi uupumiseen" : (isNewStart ? "Uusi alku" : "Päivä pulkassa")}
-                        </h1>
-
-                        <div className="prose prose-invert prose-lg mx-auto text-slate-300 leading-relaxed">
-                            <p>
-                                {isBurnout
-                                    ? "Lopulta maski putosi. Jatkuva yrittäminen sopeutua muuttiin joka ei jousta, vei voimasi. Tämä ei ole epäonnistuminen, vaan merkki siitä, että ympäristön on muututtava."
-                                    : "Selvisit päivästä. Olet tehnyt lukemattomia näkymättömiä valintoja säästääksesi energiaasi ja tullaksesi ymmärretyksi."}
-                            </p>
-                        </div>
-
-                        {/* FINAL STATS GRID */}
-                        <div className="bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-6 flex items-center justify-center gap-2">
-                                <Brain className="w-4 h-4" />
-                                Päivän saldot
-                            </h3>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                {getStatConfig().map(stat => (
-                                    <div key={stat.id} className="flex flex-col items-center gap-2">
-                                        <div className={cn("p-2 rounded-lg bg-opacity-20 mb-1", stat.color.replace('bg-', 'bg-').replace('500', '900'), stat.color.replace('bg-', 'text-').replace('500', '400'))}>
-                                            <stat.icon className="w-5 h-5" />
-                                        </div>
-                                        <div className="text-2xl font-mono font-bold text-white">{state.stats[stat.id as keyof GameStats] || 0}%</div>
-                                        <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                            <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold h-12 rounded-full px-8" onClick={onExit}>
-                                Palaa Neuromoninaisuus-sivulle
-                            </Button>
-                            <Button size="lg" variant="outline" className="border-slate-700 text-slate-400 hover:bg-slate-800 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                                Yritä uudelleen
-                            </Button>
-                        </div>
-                    </Card>
-                </div>
-            );
+            return <NeuroEnding currentPhaseId={state.currentPhaseId} stats={state.stats} onExit={onExit} />
         }
 
-
-        // --- YOUTH ENDING (New) ---
+        // --- YOUTH ENDING ---
         if (profession === 'youth') {
-            const isGrowth = state.currentPhaseId === 'END_GROWTH';
-            const isBurnout = state.currentPhaseId === 'END_BURNOUT';
-
-            return (
-                <div className="fixed inset-0 z-[100] bg-slate-50 text-slate-900 flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
-                    <Card className="max-w-2xl w-full border-0 shadow-2xl overflow-hidden bg-white relative">
-                        <div className={cn("h-3 w-full", isGrowth ? "bg-emerald-500" : "bg-rose-500")} />
-
-                        <div className="p-8 md:p-12 text-center space-y-8">
-                            <div className="text-6xl mb-4 animate-in zoom-in duration-500">
-                                {isGrowth ? '🌱' : '📉'}
-                            </div>
-
-                            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 leading-tight">
-                                {isGrowth ? "Toimijuus palautettu" : (isBurnout ? "Lopputulos: Uupumus" : "Lopputulos: Leimautuminen")}
-                            </h1>
-
-                            <div className="prose prose-slate prose-lg mx-auto text-slate-600 leading-relaxed">
-                                {isGrowth && (
-                                    <p>
-                                        <strong>Onneksi olkoon.</strong> Tämä oli vaikein mahdollinen valinta. Kieltäydyit ottamasta syytä niskoillesi asiasta,
-                                        joka kuului johdon vastuulle. Vaikka tilanne oli epämukava, säilytit itsekunnioituksesi.
-                                        Tämä taito suojaa sinua koko loppu-urasi ajan.
-                                    </p>
-                                )}
-                                {isBurnout && (
-                                    <p>
-                                        Jäit odottamaan, että tilanne paranisi itsestään. Valitettavasti myrkyllisessä ympäristössä hiljaisuus tulkitaan luvaksi jatkaa.
-                                        Moni nuori uupuu juuri näin. Muista: sinulla on lupa lähteä.
-                                    </p>
-                                )}
-                                {!isGrowth && !isBurnout && (
-                                    <p>
-                                        Annoit tunteiden viedä. Se on inhimillistä, mutta valitettavasti tässä ympäristössä se antoi heille aseen sinua vastaan.
-                                        Seuraavalla kerralla: kirjaa faktat, ja puhu rakenteista.
-                                    </p>
-                                )}
-                            </div>
-
-                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 text-left">
-                                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
-                                    <Brain className="w-4 h-4" />
-                                    Oppimiskokemus
-                                </h3>
-                                <div className="space-y-3 text-sm text-slate-700">
-                                    <p>✅ <strong>Tärkein oppi:</strong> Jos työpaikka vaatii sinua kestämään huonoa kohtelua, vika ei ole sinussa.</p>
-                                    <p>🛡️ <strong>Suojakeino:</strong> Dokumentoi aina perehdytyksen puutteet sähköpostiin ("Varmistan vain, että ymmärsin oikein...").</p>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                                <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white h-12 rounded-full px-8" onClick={onExit}>
-                                    Palaa Nuoret-sivulle
-                                </Button>
-                                <Button size="lg" variant="outline" className="h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                                    Kokeile toisella valinnalla
-                                </Button>
-                            </div>
-                        </div>
-                    </Card>
-                </div>
-            );
+            return <YouthEnding currentPhaseId={state.currentPhaseId} onExit={onExit} />
         }
 
         // --- MANAGER ENDING ---
         if (profession === 'manager' || state.currentPhaseId === 'END_MANAGER') {
-            return (
-                <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
-                    <Card className="max-w-3xl w-full bg-slate-900 border-red-900/30 p-6 md:p-12 text-center space-y-6 shadow-2xl shadow-red-900/10 relative">
-                        <div className="text-6xl mb-4 grayscale opacity-50">
-                            📉
-                        </div>
-
-                        <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                            Simulaatio päättynyt
-                        </h1>
-
-                        <div className="prose prose-invert prose-lg mx-auto text-slate-400">
-                            <p>
-                                Olet nähnyt, miten "tehokas" johtaminen voi tuhota työyhteisön.
-                                Pienet, rationalisoidut valinnat kasautuivat järjestelmäviaksi.
-                            </p>
-                        </div>
-
-                        <div className="bg-red-950/30 p-4 md:p-6 rounded-xl text-left space-y-6 border border-red-900/30">
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-red-400 mb-2 flex items-center gap-2">
-                                <AlertTriangle className="w-4 h-4" />
-                                Tuhon Anatomia
-                            </h3>
-
-                            <div className="grid md:grid-cols-3 gap-6">
-                                {/* Inhimillinen */}
-                                <div className="space-y-2">
-                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Inhimillinen romahdus</div>
-                                    <div className="text-lg font-medium text-red-200">Vakava työuupumus</div>
-                                    <p className="text-xs text-red-300/70 leading-relaxed">
-                                        Antti jäi 6 kk sairauslomalle. Kaksi muuta tiimiläistä on irtisanoutunut pelon ilmapiirin takia.
-                                    </p>
-                                </div>
-
-                                {/* Taloudellinen */}
-                                <div className="space-y-2">
-                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Taloudellinen isku</div>
-                                    <div className="text-2xl font-mono text-white">~112 000 €</div>
-                                    <div className="text-xs text-slate-500 space-y-1 bg-black/20 p-2 rounded">
-                                        <div className="flex justify-between"><span>Sairauspoissaolot:</span> <span className="text-slate-400">35 000€</span></div>
-                                        <div className="flex justify-between"><span>Rekrytointi (2 hlö):</span> <span className="text-slate-400">25 000€</span></div>
-                                        <div className="flex justify-between"><span>Tuottavuusvaje:</span> <span className="text-slate-400">52 000€</span></div>
-                                    </div>
-                                </div>
-
-                                {/* Mainehaitta */}
-                                <div className="space-y-2">
-                                    <div className="text-xs text-red-300/60 uppercase font-semibold">Mainehaitta</div>
-                                    <div className="text-lg font-medium text-red-200">Korjaamaton vahinko</div>
-                                    <p className="text-xs text-red-300/70 leading-relaxed">
-                                        Sisäpiirin tiedot huonosta johtamisesta ovat levinneet. Rekrytointi on vaikeutunut ja brändimielikuva on romahtanut.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                            <Button size="lg" variant="default" className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 h-12 rounded-full px-8" onClick={onExit}>
-                                Palaa etusivulle
-                            </Button>
-                            <Button size="lg" variant="outline" className="border-red-900/30 text-red-400 hover:bg-red-950/30 hover:text-red-300 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                                Yritä uudelleen
-                            </Button>
-                        </div>
-                    </Card>
-                </div>
-            );
+            return <ManagerEnding onExit={onExit} />
         }
 
         // --- GENERIC ENDING (Nurse/Teacher) ---
-        return (
-            <div className="fixed inset-0 z-[100] bg-slate-950 text-white flex items-center justify-center p-4 overflow-y-auto no-scrollbar">
-                <Card className="max-w-2xl w-full bg-slate-900 border-white/10 p-8 md:p-12 text-center space-y-8 shadow-2xl relative">
-                    <div className="text-6xl mb-4 animate-in zoom-in duration-700">
-                        {state.currentPhaseId === 'END_C' ? '🛡️' : '💔'}
-                    </div>
-
-                    <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                        {state.currentPhaseId === 'END_A' && "Lopputulos: Uupumus"}
-                        {state.currentPhaseId === 'END_B' && "Lopputulos: Irtisanoutuminen"}
-                        {state.currentPhaseId === 'END_C' && "Lopputulos: Selviytyminen"}
-                    </h1>
-
-                    <div className="prose prose-invert prose-lg mx-auto text-slate-300">
-                        {state.currentPhaseId === 'END_A' && (
-                            <p>Jatkoit sinnittelyä ilman tukea. Terveytesi petti ennen kuin ehdit reagoida. Tämä on valitettavan yleinen tarina hoitoalalla.</p>
-                        )}
-                        {state.currentPhaseId === 'END_B' && (
-                            <p>Päätit suojella itseäsi poistumalla tilanteesta. Se on rohkea teko, mutta samalla menetys alalle.</p>
-                        )}
-                        {state.currentPhaseId === 'END_C' && (
-                            <p>Otit Turvasiiven käyttöösi. Dokumentointi antoi sinulle faktatietoa, ja yhteisön tuki voimaa. Taistelu ei ole ohi, mutta et ole enää yksin.</p>
-                        )}
-                    </div>
-
-                    <div className="bg-white/5 p-6 rounded-2xl text-left space-y-2 border border-white/5 backdrop-blur-sm shadow-inner">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-indigo-400 mb-4 flex items-center gap-2">
-                            <FileText className="w-4 h-4" /> Sinun tarinasi tilastot
-                        </h3>
-                        <div className="grid grid-cols-3 gap-4">
-                            <div>
-                                <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Logimerkintöjä</div>
-                                <div className="text-4xl font-black text-white">{state.logEntries.length}<span className="text-lg text-slate-700 ml-2">kpl</span></div>
-                            </div>
-                            <div>
-                                <div className="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Liittolaisia</div>
-                                <div className="text-4xl font-black text-white">{state.allies.length}</div>
-                            </div>
-                            <div>
-                                <div className="text-xs text-emerald-500 uppercase font-bold tracking-widest mb-1">Suoritus</div>
-                                <div className="text-4xl font-black text-white">
-                                    {Math.round((state.stats.selfEsteem * 0.4) + (state.stats.hope * 0.4) + (state.stats.teamAcceptance * 0.2))}
-                                    <span className="text-lg text-slate-700 ml-1">/100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                        <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white h-12 rounded-full px-8 font-bold" onClick={onExit}>
-                            Palaa etusivulle
-                        </Button>
-                        <Button size="lg" variant="outline" className="border-white/10 text-slate-400 hover:bg-white/5 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                            Yritä uudelleen
-                        </Button>
-                    </div>
-                </Card>
-            </div>
-        );
+        return <GenericEnding
+            currentPhaseId={state.currentPhaseId}
+            stats={state.stats}
+            logEntries={state.logEntries}
+            allies={state.allies}
+            onExit={onExit}
+        />
     }
 
     if (!currentPhase) {
@@ -427,8 +196,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         setNotification(msg);
         setTimeout(() => setNotification(null), 3000);
     };
-
-
 
     // Calculate dynamic text size based on content length
     const getContentTextSize = (length: number, isMobile: boolean) => {
@@ -672,24 +439,3 @@ function MiniStatBar({ icon: Icon, value, color }: any) {
         </div>
     );
 }
-
-// Original StatBar kept just in case but likely unused now
-function StatBar({ icon: Icon, value, label, color, isAnimating }: any) {
-    return (
-        <div className={cn("flex items-center gap-2 min-w-[100px] snap-center transition-all px-2 py-1 rounded-lg", isAnimating && "bg-slate-100 animate-pulse")}>
-            <div className={cn("p-1.5 rounded-md shrink-0", color.replace('bg-', 'text-').replace('500', '600'), "bg-opacity-10 bg-current")}>
-                <Icon className="w-4 h-4" />
-            </div>
-            <div className="flex flex-col">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-none mb-0.5">{label}</span>
-                <div className="h-1.5 w-16 bg-slate-100 rounded-full overflow-hidden">
-                    <div
-                        className={cn("h-full rounded-full transition-all duration-500", color)}
-                        style={{ width: `${value}%` }}
-                    />
-                </div>
-            </div>
-        </div>
-    );
-}
-
