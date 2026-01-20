@@ -65,11 +65,11 @@ export default function YouthPage() {
                             </CardHeader>
                             <CardContent className="space-y-6 text-[#4A4A4A] leading-relaxed">
                                 <p>
-                                    <strong>Hei. Olen työelämän asiantuntija.</strong> Olen seurannut tiiviisti viime vuosien trendejä, tutkimuksia (kuten Nuorisobarometreja) sekä nuorten aitoja kokemuksia keskustelufoorumeilla.
+                                    <strong>Nuorten asema työelämässä on muuttunut.</strong> Viime vuosien tutkimukset (kuten Nuorisobarometrit) ja keskustelut osoittavat huolestuttavan trendin: nuoret kokevat aiempaa enemmän uupumusta ja epävarmuutta.
                                 </p>
                                 <p>
-                                    Tilanne työmarkkinoilla vuonna 2026 on haastava: työelämä on pirstaloitunutta, ja nuoret kokevat aiempaa enemmän uupumusta.
-                                    Erityisen huolestuttavaa on se, että nuoria käytetään usein "halpana ja joustavana työvoimana", jolle ei kerrota heidän oikeuksistaan.
+                                    Työmarkkinatilanne vuonna 2026 on haastava ja pirstaloitunut.
+                                    Erityisen huolestuttavaa on ilmiö, jossa nuoria käytetään "halpana ja joustavana työvoimana", olettaen ettei heillä ole tietoa omista oikeuksistaan.
                                 </p>
 
                                 <div className="grid md:grid-cols-2 gap-4 my-6">

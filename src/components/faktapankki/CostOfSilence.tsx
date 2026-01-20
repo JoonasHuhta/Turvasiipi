@@ -1,6 +1,20 @@
 "use client";
 
+import { CheckCircle2, BookOpen, TrendingUp, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useProgress } from "@/context/ProgressContext";
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+
 export function CostOfSilence() {
+    const { completeModule, isModuleCompleted } = useProgress();
+    const isCompleted = isModuleCompleted('cost_of_silence_info');
+
+    const handleComplete = () => {
+        completeModule('cost_of_silence_info');
+    };
+
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg space-y-24">
             {/* Introduction */}
@@ -221,6 +235,51 @@ export function CostOfSilence() {
                     </p>
                 </div>
             </section>
+
+            {/* COMPLETION SECTION */}
+            <div className="border-t border-slate-200 pt-8 pb-20">
+                <Card className={cn(
+                    "transition-all duration-500 rounded-3xl overflow-hidden border-2",
+                    isCompleted
+                        ? "bg-emerald-50 border-emerald-100 shadow-sm"
+                        : "bg-white border-indigo-100 shadow-xl"
+                )}>
+                    <CardContent className="p-8 md:p-12 text-center space-y-6">
+                        <div className={cn(
+                            "w-20 h-20 rounded-3xl mx-auto flex items-center justify-center text-4xl mb-4 transition-all duration-500",
+                            isCompleted ? "bg-emerald-500 text-white rotate-12" : "bg-indigo-50 text-indigo-600"
+                        )}>
+                            {isCompleted ? <CheckCircle2 className="w-10 h-10" /> : <BookOpen className="w-10 h-10" />}
+                        </div>
+
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900">
+                                {isCompleted ? "Tieto on valtaa!" : "Oletko lukenut kaiken?"}
+                            </h3>
+                            <p className="text-slate-600 max-w-sm mx-auto font-medium">
+                                {isCompleted
+                                    ? "Olet suorittanut teoriaosuuden. Pisteet on lisätty profiiliisi."
+                                    : "Kuittaa teoriaosuus luetuksi kerätäksesi pisteitä ja edistääksesi asiantuntijuuttasi."}
+                            </p>
+                        </div>
+
+                        {!isCompleted ? (
+                            <Button
+                                onClick={handleComplete}
+                                className="bg-indigo-600 hover:bg-indigo-700 text-white font-black uppercase tracking-widest px-10 py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all"
+                            >
+                                Merkitse luetuksi (+100 pts)
+                            </Button>
+                        ) : (
+                            <div className="flex justify-center gap-4">
+                                <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-8 py-6 rounded-2xl cursor-default">
+                                    Suoritettu
+                                </Button>
+                            </div>
+                        )}
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }

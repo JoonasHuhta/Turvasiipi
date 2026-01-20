@@ -59,6 +59,8 @@ export const MODULES: Module[] = [
 
     // AWARENESS
     { id: 'tietovisa', categoryId: 'AWARENESS', title: 'Tietovisa', points: 150, path: '/faktapankki' },
+    { id: 'cost_of_silence_info', categoryId: 'AWARENESS', title: 'Hiljaisuuden hinta (Teoria)', points: 100, path: '/faktapankki' },
+    { id: 'cost_simulation_game', categoryId: 'AWARENESS', title: 'Hiljaisuuden hinta (Simulaatio)', points: 200, path: '/faktapankki' },
     { id: 'quiz_risks', categoryId: 'AWARENESS', title: 'Tunnista Riskit', points: 100, path: '/quiz' },
     { id: 'feeling_quiz', categoryId: 'AWARENESS', title: 'Uhrin Tuntemukset', points: 100, path: '/feeling-quiz' },
     { id: 'neuro_info', categoryId: 'AWARENESS', title: 'Neuromoninaisuus-info', points: 75, path: '/neuromoninaisuus' },

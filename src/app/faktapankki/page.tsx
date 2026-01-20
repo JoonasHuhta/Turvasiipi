@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { QuizView } from "@/components/faktapankki/QuizView";
 import { CostOfSilence } from "@/components/faktapankki/CostOfSilence";
+import { CostSimulation } from "@/components/faktapankki/CostSimulation";
 import { Brain, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Tab = 'quiz' | 'costs';
+type Tab = 'quiz' | 'costs' | 'simulation';
 
 export default function FaktapankkiPage() {
     const [activeTab, setActiveTab] = useState<Tab>('quiz');
@@ -21,8 +22,8 @@ export default function FaktapankkiPage() {
                 </span>
 
                 <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] leading-[1.1] tracking-tight">
-                    Tieto on suojaa <br />
-                    <span className="text-[#4A4A4A] font-normal italic">työelämän pelisäännöt</span>
+                    Tunnista ilmiöt, <br />
+                    <span className="text-[#4A4A4A] font-normal italic">ymmärrä vaikutukset</span>
                 </h1>
 
                 <div className="space-y-6 max-w-xl">
@@ -52,7 +53,18 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        Hiljaisuuden hinta
+                        Teoria: Hiljaisuuden hinta
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('simulation')}
+                        className={cn(
+                            "flex items-center gap-3 pb-4 border-b-2 transition-all text-sm font-bold uppercase tracking-widest",
+                            activeTab === 'simulation'
+                                ? "border-[#5B4B8A] text-[#5B4B8A]"
+                                : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
+                        )}
+                    >
+                        Kokeilu: Vaikutukset
                     </button>
                 </div>
             </header>
@@ -61,6 +73,7 @@ export default function FaktapankkiPage() {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
                 {activeTab === 'quiz' && <QuizView />}
                 {activeTab === 'costs' && <CostOfSilence />}
+                {activeTab === 'simulation' && <CostSimulation />}
             </div>
         </div>
     );
