@@ -30,7 +30,7 @@ export function SafetyRecommendations({ selectedLevel, isContractLocked }: Safet
             case "facts":
                 return [
                     {
-                        href: "/tietovisa",
+                        href: "/faktapankki",
                         title: t("start_here.recommendations.links.tietovisa"),
                         icon: BookOpen,
                         desc: t("start_here.recommendations.descs.tietovisa"),

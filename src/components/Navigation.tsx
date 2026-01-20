@@ -86,7 +86,7 @@ export function Navigation() {
                             <Link href="/empatia-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.empathy_spectrum')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="/tietovisa" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.quiz_facts')}</Link>
+                            <Link href="/faktapankki" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.quiz_facts')}</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
                             <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.neuromoninaisuus')}</Link>
@@ -217,7 +217,7 @@ export function Navigation() {
                                         <Link href="/feeling-quiz" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.victim_feelings')}</Link>
                                         <Link href="/vaikutusprofiili" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.impact_profile')}</Link>
                                         <Link href="/empatia-testi" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.empathy_spectrum')}</Link>
-                                        <Link href="/tietovisa" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.quiz_facts')}</Link>
+                                        <Link href="/faktapankki" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.quiz_facts')}</Link>
                                         <Link href="/neuromoninaisuus" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.neuromoninaisuus')}</Link>
                                         <Link href="/nuoret" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={() => setIsMenuOpen(false)}>{t('nav.youth_work')}</Link>
                                     </div>

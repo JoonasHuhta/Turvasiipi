@@ -2,17 +2,15 @@
 
 import { useState } from "react";
 import { comprehensiveQuizData, QuizPart, QuizQuestion } from "@/data/tietovisa-questions";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle2, XCircle, RotateCcw, BookOpen, ChevronLeft, Library, FileText, Check } from "lucide-react";
+import { ArrowRight, CheckCircle2, XCircle, RotateCcw, BookOpen, Library, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/context/ProgressContext";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function TietovisaPage() {
+export function QuizView() {
     const { completeModule, awardBadge } = useProgress();
-    const { t } = useLanguage(); // Assuming translation hook usage though mostly static text here for now
+    const { t } = useLanguage();
     const [selectedPart, setSelectedPart] = useState<QuizPart | 'ALL' | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userAnswers, setUserAnswers] = useState<boolean[]>([]);
@@ -54,22 +52,9 @@ export default function TietovisaPage() {
         } else {
             setGameEnded(true);
             completeModule('tietovisa');
-            if (score / activeQuestions.length >= 0.8) {
+            if (activeQuestions.length > 0 && score / activeQuestions.length >= 0.8) {
                 awardBadge('legal_expert');
             }
-        }
-    };
-
-    const prevQuestion = () => {
-        if (showExplanation) {
-            setShowExplanation(false);
-            setUserAnswers(prev => prev.slice(0, -1));
-            return;
-        }
-        if (currentQuestionIndex > 0) {
-            setCurrentQuestionIndex(prev => prev - 1);
-            setUserAnswers(prev => prev.slice(0, -1));
-            setShowExplanation(false);
         }
     };
 
@@ -79,7 +64,7 @@ export default function TietovisaPage() {
     };
 
     const getExpertFeedback = (score: number, total: number) => {
-        const percentage = (score / total) * 100;
+        const percentage = total === 0 ? 0 : (score / total) * 100;
         if (percentage < 40) return t('tietovisa_page.expert_feedback.observer', { returnObjects: true }) as { title: string, text: string };
         if (percentage < 80) return t('tietovisa_page.expert_feedback.alert', { returnObjects: true }) as { title: string, text: string };
         return t('tietovisa_page.expert_feedback.expert', { returnObjects: true }) as { title: string, text: string };
@@ -88,12 +73,9 @@ export default function TietovisaPage() {
     // --- VIEW: MENU ---
     if (!selectedPart) {
         return (
-            <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-12 animate-in fade-in duration-500">
+            <div className="space-y-12 animate-in fade-in duration-500">
                 <div className="space-y-6 border-b border-[#E8DDD0] pb-8">
-                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border border-[#5B4B8A] px-3 py-1 rounded-sm inline-block">
-                        {t('tietovisa_page.label')}
-                    </span>
-                    <h1 className="text-4xl font-serif font-bold text-[#2B2B2B]">{t('tietovisa_page.title')}</h1>
+                    <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('tietovisa_page.title')}</h2>
                     <p className="text-lg text-[#4A4A4A] max-w-2xl leading-relaxed">
                         {t('tietovisa_page.description')}
                     </p>
@@ -109,7 +91,7 @@ export default function TietovisaPage() {
                             {t('tietovisa_page.all_data_title')}
                         </h3>
                         <p className="text-white/70 mb-6 font-mono text-sm max-w-xl">
-                            {t('tietovisa_page.all_data_desc', { count: activeQuestions.length || 35 })}
+                            {t('tietovisa_page.all_data_desc', { count: comprehensiveQuizData.flatMap(p => p.questions).length })}
                         </p>
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
                             {t('tietovisa_page.start_btn')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -147,7 +129,7 @@ export default function TietovisaPage() {
         const percentage = Math.round((score / activeQuestions.length) * 100);
 
         return (
-            <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 flex flex-col items-center text-center animate-in fade-in duration-500">
+            <div className="flex flex-col items-center text-center animate-in fade-in duration-500">
                 <div className="bg-white border border-[#E8DDD0] p-12 rounded-sm w-full space-y-8 shadow-sm">
                     <div className="w-20 h-20 bg-[#FDFBF7] rounded-full flex items-center justify-center mx-auto border border-[#E8DDD0]">
                         <span className="font-serif font-bold text-2xl text-[#2B2B2B]">{percentage}%</span>
@@ -176,8 +158,7 @@ export default function TietovisaPage() {
     const progressPerc = ((currentQuestionIndex) / activeQuestions.length) * 100;
 
     return (
-        <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 flex flex-col items-center">
-
+        <div className="flex flex-col items-center w-full">
             <div className="w-full flex items-center justify-between mb-8 border-b border-[#E8DDD0] pb-4">
                 <Button variant="ghost" onClick={resetGame} className="text-[#4A4A4A] hover:text-[#2B2B2B] pl-0 hover:bg-transparent">
                     <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2">
