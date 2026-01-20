@@ -120,6 +120,7 @@ const PELASTUSLIIVIT_SCENARIO: ScenarioStep[] = [
     }
 ];
 
+// Retaining the old Bystander scenario here just in case, but it won't be used for the new module.
 const BYSTANDER_EFFECT_SCENARIO: ScenarioStep[] = [
     {
         id: 'start',
@@ -190,76 +191,6 @@ const BYSTANDER_EFFECT_SCENARIO: ScenarioStep[] = [
     }
 ];
 
-const PSYCHOLOGICAL_SAFETY_SCENARIO: ScenarioStep[] = [
-    {
-        id: 'start',
-        speaker: 'Sisäinen ääni',
-        type: 'dialogue',
-        text: '"Pitäisikö minun sanoa jotain? Mutta mitä jos he kääntyvät minua vastaan? Olenko liian kokematon puuttumaan?"',
-        choices: [
-            {
-                text: 'Tunnista pelko ja muistuta itseäsi: "Minä voin vaikuttaa ja suojella."',
-                nextStep: 'internal_ready',
-                impact: { solidarity: 10, safety: 20 },
-                feedback: 'CBT-pohjainen sisäinen puhe vahvistaa kykyäsi toimia paineen alla.',
-                strategyType: 'internal'
-            },
-            {
-                text: 'Ajattele: "Joku muu varmasti puuttuu pian."',
-                nextStep: 'bystander_trap',
-                impact: { solidarity: -5, safety: -5 },
-                feedback: 'Tämä on klassinen bystander-ansa (vastuun hajautuminen).',
-                strategyType: 'passive'
-            }
-        ]
-    },
-    {
-        id: 'internal_ready',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Tunnet itsesi varmemmaksi. Arvioit tilanteen: Kiusaaja on yksin, sinulla on kolme kollegaa vierelläsi. Riski on matala.',
-        choices: [
-            {
-                text: 'Kutsu muut koolle: "Hei, katsotaanko tätä yhdessä?"',
-                nextStep: 'safety_success',
-                impact: { solidarity: 20, safety: 25 },
-                feedback: 'Ryhmäpuuttuminen nostaa onnistumisen todennäköisyyttä 3-4 kertaiseksi.',
-                strategyType: 'collective'
-            }
-        ]
-    },
-    {
-        id: 'bystander_trap',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Kukaan ei puutu. Tilanne jatkuu tuskallisen kauan. Jälkeenpäin kaikki ovat hiljaa ja välttävät katsekontaktia.',
-        choices: [
-            {
-                text: 'Puhu asiasta ääneen nyt: "Toivoisin että olisimme puuttuneet."',
-                nextStep: 'safety_success',
-                impact: { solidarity: 15, safety: 10 },
-                feedback: 'Jälkikäteen puuttuminen on parempi kuin ei puuttumista ollenkaan.',
-                strategyType: 'internal'
-            }
-        ]
-    },
-    {
-        id: 'safety_success',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Olet vahvistanut omaa ja muiden psykologista turvallisuutta. Harjoitus tekee puuttumisesta jatkossa helpompaa.',
-        choices: [
-            {
-                text: 'Viimeistele harjoitus',
-                nextStep: 'finish',
-                impact: { solidarity: 10, safety: 10 },
-                feedback: 'Puuttumisen taito kehittyy harjoittelemalla.',
-                strategyType: 'internal'
-            }
-        ]
-    }
-];
-
 // --- COMPONENT ---
 
 export default function BystanderSimulation({
@@ -274,7 +205,6 @@ export default function BystanderSimulation({
     const [currentStepId, setCurrentStepId] = useState('start');
     const [solidarity, setSolidarity] = useState(50);
     const [safety, setSafety] = useState(50);
-    const [history, setHistory] = useState<string[]>(['start']);
 
     // Get the correct scenario based on moduleId
     const getScenario = () => {
@@ -321,7 +251,9 @@ export default function BystanderSimulation({
                         <HandHelping className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-xl font-black uppercase tracking-tight text-white leading-none">Bystander-Herättäjä</h2>
+                        <h2 className="text-xl font-black uppercase tracking-tight text-white leading-none">
+                            {moduleId === 'empathy' ? 'Peilisolu-Pelastus' : 'Bystander-Simulaatio'}
+                        </h2>
                         <p className="text-cyan-500/60 text-[10px] font-black uppercase tracking-widest mt-1">Interaktiivinen simulaattori</p>
                     </div>
                 </div>
@@ -393,31 +325,6 @@ export default function BystanderSimulation({
                         <div className="absolute -top-24 -left-24 w-64 h-64 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
                         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
                     </Card>
-
-                    {/* DEBRIEFING / TIPS */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Card className="bg-cyan-600 p-8 rounded-[2rem] text-white shadow-2xl shadow-cyan-900/40 relative overflow-hidden group">
-                            <div className="relative z-10 flex flex-col gap-3">
-                                <div className="flex items-center gap-2">
-                                    <Scale className="w-4 h-4 text-cyan-200" />
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-cyan-100">Pluralistinen ignoranssi</span>
-                                </div>
-                                <p className="text-xs font-medium leading-relaxed">
-                                    Kaikki voivat yksityisesti paheksua kiusaamista, mutta kukaan ei puhu, koska luulee olevansa ainoa. Puhuminen murtaa tämän harhan heti.
-                                </p>
-                            </div>
-                            <Zap className="absolute -bottom-4 -right-4 w-24 h-24 text-white/10 group-hover:scale-110 transition-transform" />
-                        </Card>
-                        <Card className="bg-white/5 border-white/10 p-8 rounded-[2rem] flex flex-col gap-3 backdrop-blur-sm">
-                            <div className="flex items-center gap-2">
-                                <Shield className="w-4 h-4 text-emerald-400" />
-                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Turvallisuus ensin</span>
-                            </div>
-                            <p className="text-xs font-medium leading-relaxed text-slate-300">
-                                Arvioi aina psykologinen turvallisuus ennen konfrontaatiota. Usein matalan kynnyksen tuki uhrille on tehokkaampaa kuin huutaminen.
-                            </p>
-                        </Card>
-                    </div>
                 </div>
 
                 {/* SIDEBAR */}
@@ -434,7 +341,7 @@ export default function BystanderSimulation({
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-xs font-black text-white uppercase tracking-tight">Tunnista</p>
-                                    <p className="text-[10px] leading-relaxed text-slate-400 font-medium">Älä ohita vitsailua pelkkänä huumorina, jos se tuntuu kiusaamiselta.</p>
+                                    <p className="text-[10px] leading-relaxed text-slate-400 font-medium">Havaitse hienovaraiset merkit.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
@@ -442,29 +349,11 @@ export default function BystanderSimulation({
                                     <span className="text-xs font-bold">2</span>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-xs font-black text-white uppercase tracking-tight">Arvioi turva</p>
-                                    <p className="text-[10px] leading-relaxed text-slate-400 font-medium">Tarkista ryhmän tuki ja oma riskisi ennen puuttumista.</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="shrink-0 w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                                    <span className="text-xs font-bold">3</span>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-xs font-black text-white uppercase tracking-tight">Toimi kollektiivisesti</p>
-                                    <p className="text-[10px] leading-relaxed text-slate-400 font-medium">Bystander-efekti murtuu, kun joku sanoo sen ääneen muiden puolesta.</p>
+                                    <p className="text-xs font-black text-white uppercase tracking-tight">Toimi</p>
+                                    <p className="text-[10px] leading-relaxed text-slate-400 font-medium">Valitse turvallinen puuttumistapa.</p>
                                 </div>
                             </div>
                         </div>
-                    </Card>
-
-                    <Card className="bg-gradient-to-br from-indigo-900/50 to-slate-900 border-indigo-500/20 p-8 rounded-[2.5rem] text-white shadow-xl">
-                        <div className="flex items-center gap-3 mb-4">
-                            <Badge className="bg-cyan-500 hover:bg-cyan-600 text-[8px] font-black">NEUROTIP</Badge>
-                        </div>
-                        <p className="text-[11px] leading-relaxed opacity-80 font-medium italic">
-                            Neuroepätyypillisille suositellaan "Chat-valmistelua": kirjoita kommentti etukäteen luonnokseen. Visuaalinen "turvallisuusmittari" auttaa arvioimaan, milloin on liian kuluttavaa puuttua itse ja milloin kannattaa hakea liittolaisia.
-                        </p>
                     </Card>
                 </div>
             </div>

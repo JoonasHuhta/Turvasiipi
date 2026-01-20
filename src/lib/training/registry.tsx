@@ -5,6 +5,7 @@ import { ComponentType } from "react";
 const RTWWizard = dynamic(() => import("@/components/training/RTWWizard").then(m => m.RTWWizard));
 const AssociationSimulation = dynamic(() => import("@/components/training/AssociationSimulation"));
 const BystanderSimulation = dynamic(() => import("@/components/training/BystanderSimulation"));
+const BystanderMasterclass = dynamic(() => import("@/components/training/BystanderMasterclass")); // New 4-stage module
 const OstracismToolkit = dynamic(() => import("@/components/training/OstracismToolkit"));
 const ExitStrategy = dynamic(() => import("@/components/training/ExitStrategy").then(m => m.ExitStrategy));
 const SafetyRestoration = dynamic(() => import("@/components/training/SafetyRestoration").then(m => m.SafetyRestoration));
@@ -31,8 +32,8 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'transferable_skills': AssociationSimulation,
 
     // Interactive Skills
-    'empathy': BystanderSimulation,
-    'bystander': BystanderSimulation,
+    'empathy': BystanderSimulation, // Classic scenario-based simulation
+    'bystander': BystanderMasterclass, // New 4-stage 5D masterclass
     'labyrinth': MoralLabyrinth,
 
     // Acute Help

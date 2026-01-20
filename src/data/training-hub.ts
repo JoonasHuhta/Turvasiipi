@@ -29,10 +29,10 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'rose',
         type: 'process',
         modules: [
-            { id: 'action_protocols', title: 'Konkreettiset Toimintamallit', description: 'Akuutit skriptit ja turvasuunnitelmat.', isNew: true },
-            { id: 'conversations', title: 'Vaikeat Keskustelut', description: 'Rajanveto ja itsensä suojaaminen.', isNew: true },
-            { id: 'safety', title: 'Turvallisuuden Palauttaminen', description: 'Miten tuntea olonsa turvalliseksi taas.', isNew: true },
-            { id: 'exit_strategy', title: 'Exit-Strategia', description: 'Milloin on aika lähteä? Tunnista merkit.', isNew: true }
+            { id: 'action_protocols', title: 'Konkreettiset Toimintamallit', description: 'Akuutit skriptit ja turvasuunnitelmat.', isNew: true, points: 150 },
+            { id: 'conversations', title: 'Vaikeat Keskustelut', description: 'Rajanveto ja itsensä suojaaminen.', isNew: true, points: 200 },
+            { id: 'safety', title: 'Turvallisuuden Palauttaminen', description: 'Miten tuntea olonsa turvalliseksi taas.', isNew: true, points: 150 },
+            { id: 'exit_strategy', title: 'Exit-Strategia', description: 'Milloin on aika lähteä? Tunnista merkit.', isNew: true, points: 100 }
         ]
     },
     {
@@ -43,11 +43,11 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'indigo',
         type: 'skill',
         modules: [
-            { id: 'basic', title: 'Kiusaamisen Lukutaito (Sertifikaatti)', description: 'Peruskurssi: Tunnista peruskuviot ja dynamiikka.', isCertificationModule: true },
-            { id: 'ostrakismi_toolkit', title: 'Ostrakismi-työkalupakki', description: 'Tunnista ja puutu hiljaiseen ulossulkemiseen.', isNew: true },
-            { id: 'bystander_effect', title: 'Bystander-efekti', description: 'Miksi muut eivät puutu? Vastuun hajautuminen.' },
-            { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.', isCertificationModule: true },
-            { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true }
+            { id: 'basic', title: 'Kiusaamisen Lukutaito (Sertifikaatti)', description: 'Peruskurssi: Tunnista peruskuviot ja dynamiikka.', isCertificationModule: true, points: 300 },
+            { id: 'ostrakismi_toolkit', title: 'Ostrakismi-työkalupakki', description: 'Tunnista ja puutu hiljaiseen ulossulkemiseen.', isNew: true, points: 200 },
+            { id: 'bystander_effect', title: 'Bystander-efekti', description: 'Miksi muut eivät puutu? Vastuun hajautuminen.', points: 100 },
+            { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.', isCertificationModule: true, points: 150 },
+            { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true, points: 150 }
         ]
     },
     {
@@ -58,11 +58,11 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'emerald',
         type: 'process',
         modules: [
-            { id: 'recovery_main', title: 'Toipuminen & Hyvinvointi', description: 'Hermoston rauhoittaminen ja traumatiedon soveltaminen.', isNew: true },
-            { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', isLocked: true },
-            { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', isLocked: true },
-            { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', isLocked: true },
-            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', isLocked: true }
+            { id: 'recovery_main', title: 'Toipuminen & Hyvinvointi', description: 'Hermoston rauhoittaminen ja traumatiedon soveltaminen.', isNew: true, points: 200 },
+            { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', isLocked: true, points: 150 },
+            { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', isLocked: true, points: 200 },
+            { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', isLocked: true, points: 100 },
+            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', isLocked: true, points: 50 }
         ]
     },
     {
@@ -73,10 +73,10 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'blue',
         type: 'process',
         modules: [
-            { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.' },
-            { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', isLocked: true },
-            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true },
-            { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Osaaminen harrastuksista työelämään.' }
+            { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.', points: 500 },
+            { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', isLocked: true, points: 150 },
+            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true, points: 200 },
+            { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Osaaminen harrastuksista työelämään.', points: 150 }
         ]
     },
     {
@@ -87,9 +87,9 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'purple',
         type: 'skill',
         modules: [
-            { id: 'empathy', title: 'Peilisolu-Pelastus (Sertifikaatti)', description: 'Empatia-peli toisen asemaan astumiseen.', isCertificationModule: true },
-            { id: 'bystander', title: 'Bystander-Herättäjä (Sertifikaatti)', description: 'Psykologisesti turvallinen puuttuminen.', isCertificationModule: true },
-            { id: 'labyrinth', title: 'Moraalinen Labyrintti', description: 'Eettiset valinnat paineen alla.', isNew: true }
+            { id: 'empathy', title: 'Peilisolu-Pelastus (Sertifikaatti)', description: 'Empatia-peli toisen asemaan astumiseen.', isCertificationModule: true, points: 250 },
+            { id: 'bystander', title: 'Bystander-Herättäjä (Sertifikaatti)', description: 'Psykologisesti turvallinen puuttuminen.', isCertificationModule: true, points: 250 },
+            { id: 'labyrinth', title: 'Moraalinen Labyrintti', description: 'Eettiset valinnat paineen alla.', isNew: true, points: 200 }
         ]
     },
     {
@@ -100,13 +100,13 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'slate',
         type: 'process',
         modules: [
-            { id: 'org_knowledge', title: 'Tietopankki: Työhyvinvointi', description: 'Rakenteelliset riskit ja johdon vastuu.', isNew: true },
-            { id: 'meter', title: 'Kulttuuri-Lämpömittari', description: 'Mittaa työyhteisön todellinen tila.', isLocked: true },
-            { id: 'audit', title: 'Empatia-Audit', description: 'Arvioi organisaation empatiakykyä.', isLocked: true },
-            { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', isLocked: true },
-            { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', isLocked: true },
-            { id: 'b2b', title: 'Tilaa Koulutus (B2B)', description: 'Räätälöityä koulutusta yrityksellesi.', isLocked: true },
-            { id: 'dna', title: 'Kiusaamisen DNA', description: 'Analysoi juurisyitä ja rakenteita.', isLocked: true }
+            { id: 'org_knowledge', title: 'Tietopankki: Työhyvinvointi', description: 'Rakenteelliset riskit ja johdon vastuu.', isNew: true, points: 150 },
+            { id: 'meter', title: 'Kulttuuri-Lämpömittari', description: 'Mittaa työyhteisön todellinen tila.', isLocked: true, points: 100 },
+            { id: 'audit', title: 'Empatia-Audit', description: 'Arvioi organisaation empatiakykyä.', isLocked: true, points: 200 },
+            { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', isLocked: true, points: 300 },
+            { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', isLocked: true, points: 400 },
+            { id: 'b2b', title: 'Tilaa Koulutus (B2B)', description: 'Räätälöityä koulutusta yrityksellesi.', isLocked: true, points: 0 },
+            { id: 'dna', title: 'Kiusaamisen DNA', description: 'Analysoi juurisyitä ja rakenteita.', isLocked: true, points: 150 }
         ]
     },
     {
@@ -117,8 +117,8 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'pink',
         type: 'skill',
         modules: [
-            { id: 'association_basics', title: 'Yhdistystoiminnan Varjopuolet', description: 'Vallankäyttö ja klikit hallitustyöskentelyssä.', isCertificationModule: true },
-            { id: 'hobby_boundaries', title: 'Harrastuksen Rajat', description: 'Miten pitää hauskaa ja asettaa rajat samaan aikaan.' }
+            { id: 'association_basics', title: 'Yhdistystoiminnan Varjopuolet', description: 'Vallankäyttö ja klikit hallitustyöskentelyssä.', isCertificationModule: true, points: 200 },
+            { id: 'hobby_boundaries', title: 'Harrastuksen Rajat', description: 'Miten pitää hauskaa ja asettaa rajat samaan aikaan.', points: 100 }
         ]
     },
     {
@@ -129,8 +129,8 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'amber',
         type: 'skill',
         modules: [
-            { id: 'cert_view', title: 'Omat Sertifikaatit', description: 'Tarkastele ja lataa todistuksia.', isNew: true },
-            { id: 'download', title: 'Lataa Työnantajalle', description: 'Kaikki todisteet yhdessä paketissa.', isLocked: true }
+            { id: 'cert_view', title: 'Omat Sertifikaatit', description: 'Tarkastele ja lataa todistuksia.', isNew: true, points: 50 },
+            { id: 'download', title: 'Lataa Työnantajalle', description: 'Kaikki todisteet yhdessä paketissa.', isLocked: true, points: 50 }
         ]
     }
 ];

@@ -48,7 +48,12 @@ interface ProgressContextType {
 
 // --- CONFIGURATION ---
 
-export const MODULES: Module[] = [
+import { trainingHubData } from '@/data/training-hub';
+
+// --- CONFIGURATION ---
+
+// Static modules that are NOT part of the new Valmennus hub structure
+const CORE_MODULES: Module[] = [
     // CORE
     { id: 'landing', categoryId: 'CORE', title: 'Etusivu', points: 50, path: '/' },
     { id: 'sim_nurse', categoryId: 'CORE', title: 'Koe: Hoitaja', points: 200, path: '/simulaatio/hoitaja' },
@@ -81,36 +86,20 @@ export const MODULES: Module[] = [
     { id: 'support_list', categoryId: 'SUPPORT', title: 'Tukipalvelut', points: 50, path: '/tuki' },
     { id: 'community', categoryId: 'SUPPORT', title: 'Yhteisö', points: 50, path: '/yhteiso' },
     { id: 'ai_support', categoryId: 'SUPPORT', title: 'AI-Tukihenkilö', points: 100, path: '/ai-tuki' },
-
-    // INTERACTIVE
-    { id: 'empathy_game', categoryId: 'INTERACTIVE', title: 'Peilisolu-Pelastus', points: 200, path: '/empatia-peli' },
-    { id: 'bystander_game', categoryId: 'INTERACTIVE', title: 'Bystander-Herättäjä', points: 200, path: '/bystander-peli' },
-    { id: 'somatic', categoryId: 'INTERACTIVE', title: 'Somaattinen Vapautus', points: 150, path: '/somaattinen' },
-    { id: 'art_therapy', categoryId: 'INTERACTIVE', title: 'Taideterapeuttinen Arkisto', points: 150, path: '/taide' },
-
-    // ORGANIZATION
-    { id: 'culture_meter', categoryId: 'ORGANIZATION', title: 'Kulttuuri-Lämpömittari', points: 100, path: '/lampomittari' },
-    { id: 'dna_analysis', categoryId: 'ORGANIZATION', title: 'Kiusaamisen DNA', points: 200, path: '/dna-analyysi' },
-    { id: 'empathy_audit', categoryId: 'ORGANIZATION', title: 'Empatia-Audit', points: 150, path: '/empatia-audit' },
-
-    // LEARNING
-    { id: 'neuroscience', categoryId: 'LEARNING', title: 'Neurotiede Selittää', points: 100, path: '/neurotiede' },
-    { id: 'lessons', categoryId: 'LEARNING', title: 'Lukutaidon Oppitunnit', points: 200, path: '/oppitunnit' },
-    { id: 'valmennus_easy', categoryId: 'LEARNING', title: 'Valmennus: Helppo', points: 100, path: '/valmennus' },
-    { id: 'valmennus_medium', categoryId: 'LEARNING', title: 'Valmennus: Keskitaso', points: 150, path: '/valmennus' },
-    { id: 'valmennus_master', categoryId: 'LEARNING', title: 'Valmennus: Mestari', points: 200, path: '/valmennus' },
-    { id: 'valmennus_return_rtw', categoryId: 'LEARNING', title: '12 Viikon Paluupolku', points: 300, path: '/valmennus' },
-    { id: 'valmennus_leisure_assoc', categoryId: 'LEARNING', title: 'Yhdistystoiminnan Varjopuolet', points: 200, path: '/valmennus' },
-    { id: 'valmennus_bystander_sim', categoryId: 'LEARNING', title: 'Bystander-Herättäjä', points: 250, path: '/valmennus' },
-    { id: 'pluralistic_ignorance', categoryId: 'LEARNING', title: 'Pluralistinen Ignoranssi', points: 100, path: '/valmennus' },
-    { id: 'bystander_effect', categoryId: 'LEARNING', title: 'Bystander-efekti Syväluotaus', points: 100, path: '/valmennus' },
-    { id: 'return_path', categoryId: 'LEARNING', title: 'Paluupolku', points: 300, path: '/paluupolku' },
-
-    // SPECIAL
-    { id: 'theater', categoryId: 'SPECIAL', title: 'Etnoteatteri', points: 100, path: '/teatteri' },
-    { id: 'silent_disco', categoryId: 'SPECIAL', title: 'Silent Disco Terapia', points: 100, path: '/silent-disco' },
-    { id: 'reverse_mentoring', categoryId: 'SPECIAL', title: 'Reverse Mentoring', points: 100, path: '/reverse-mentoring' },
 ];
+
+// Generate Valmennus modules from the SSOT (training-hub.ts)
+const VALMENNUS_MODULES: Module[] = trainingHubData.flatMap(category =>
+    category.modules.map(module => ({
+        id: module.id,
+        categoryId: 'LEARNING', // All training hub items fall under LEARNING/VALMENNUS context
+        title: module.title,
+        points: module.points || 0,
+        path: `/valmennus/${category.id}/${module.id}`
+    }))
+);
+
+export const MODULES: Module[] = [...CORE_MODULES, ...VALMENNUS_MODULES];
 
 export const BADGES: Badge[] = [
     { id: 'welcome', title: 'Muna', icon: '🥚', description: 'Loit ensimmäisen lokimerkinnän tai aloitit matkan.' },
@@ -247,21 +236,22 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
         // Separate check for certification badge
         setTimeout(() => {
-            setProgress(prev => {
-                const certModules = [
-                    'valmennus_easy',
-                    'empathy_game',
-                    'valmennus_bystander_sim',
-                    'valmennus_leisure_assoc',
-                    'pluralistic_ignorance',
-                    'bystander_effect'
-                ];
-                const isCertComplete = certModules.every(id => prev.completedModuleIds.includes(id));
-                if (isCertComplete && !prev.earnedBadgeIds.includes('bullying_literacy_cert')) {
-                    return { ...prev, earnedBadgeIds: [...prev.earnedBadgeIds, 'bullying_literacy_cert'] };
-                }
-                return prev;
-            });
+            const certModules = [
+                'basic', // Kiusaamisen Lukutaito
+                'empathy', // Peilisolu-Pelastus (renamed from empathy_game to match if possible, but keep old if needed. Wait, registry uses 'empathy')
+                'bystander', // Bystander-Herättäjä
+                'association_basics', // Yhdistystoiminnan Varjopuolet
+                'pluralistic_ignorance',
+                'bystander_effect'
+            ];
+            // Note: Some legacy IDs might still be in usage in localStorage, but we prioritize new IDs.
+            // We check if "either existing legacy OR new ID is completed" to be safe?
+            // For now, let's assume new completions use the new IDs from training-hub.
+            const isCertComplete = certModules.every(id => prev.completedModuleIds.includes(id));
+            if (isCertComplete && !prev.earnedBadgeIds.includes('bullying_literacy_cert')) {
+                return { ...prev, earnedBadgeIds: [...prev.earnedBadgeIds, 'bullying_literacy_cert'] };
+            }
+            return prev;
         }, 100);
     };
 

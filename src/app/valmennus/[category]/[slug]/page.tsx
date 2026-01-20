@@ -7,6 +7,7 @@ import { getModuleComponent } from "@/lib/training/registry";
 import { useProgress } from "@/context/ProgressContext";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import ComingSoonModule from "@/components/training/ComingSoonModule";
 
 export default function ModulePage() {
     const params = useParams();
@@ -47,11 +48,12 @@ export default function ModulePage() {
 
     if (!ModuleComponent) {
         return (
-            <div className="min-h-screen flex items-center justify-center flex-col gap-4 bg-slate-50">
-                <h1 className="text-2xl font-bold text-slate-900">Moduulia ei ole vielä toteutettu React-komponenttina.</h1>
-                <p className="text-slate-500">ID: {moduleId}</p>
-                <Button onClick={handleExit}>Palaa takaisin</Button>
-            </div>
+            <ComingSoonModule
+                moduleId={moduleId}
+                title={module.title}
+                description={module.description}
+                onExit={handleExit}
+            />
         );
     }
 
