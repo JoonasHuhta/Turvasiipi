@@ -49,7 +49,10 @@ export default function TrainingPage() {
                     {view !== 'hub' && (
                         <Button
                             variant="ghost"
-                            onClick={() => setView('hub')}
+                            onClick={() => {
+                                setView('hub');
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                             className="mr-2"
                         >
                             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -98,6 +101,7 @@ export default function TrainingPage() {
                                         onClick={() => {
                                             setSelectedCategory(category);
                                             setView('category');
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
                                         }}
                                         className={cn(
                                             "flex items-center gap-4 md:gap-6 p-5 md:p-8 rounded-[2rem] border transition-all text-left relative overflow-hidden group",

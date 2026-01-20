@@ -1,6 +1,6 @@
 "use client";
 
- 
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
@@ -26,6 +26,15 @@ export default function HomePage() {
     <div className="px-6 sm:px-8 max-w-screen-md mx-auto space-y-32 pb-32 pt-20">
       {/* HERO */}
       <header className="space-y-12">
+        {/* Bird Logo */}
+        <div className="flex justify-start mb-8">
+          <img
+            src="/bird-logo.png"
+            alt="Turvasiipi logo"
+            className="w-24 h-24 md:w-32 md:h-32 object-contain opacity-90"
+          />
+        </div>
+
         <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-[#2B2B2B]">
           {t('landing.hero.title_main')} <br />
           <span className="text-[#4A4A4A] font-normal italic">{t('landing.hero.title_span')}</span>
