@@ -17,6 +17,7 @@ import { Printer, ArrowLeft, CalendarRange, Scale, AlertTriangle, FileCheck, Cop
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import Link from "next/link";
 import { analyzeEvents, generateSummaryChecklist } from "@/helpers/reportAnalysis";
+import { format } from "date-fns";
 import { templates, TemplateCategory, Template } from "@/data/templates";
 // import { generatePremiumReport, AIReportResult } from "@/actions/generateReport";
 import { useLanguage } from "@/context/LanguageContext";
@@ -103,23 +104,27 @@ export default function DocumentsPage() {
 
         setIsGenerating(true);
         try {
+            // Wait a moment for rendering
+            await new Promise(resolve => setTimeout(resolve, 500));
+
             const canvas = await html2canvas(element, {
-                scale: 2,
+                scale: 2, // High quality
                 useCORS: true,
                 logging: false,
-                backgroundColor: '#ffffff'
+                backgroundColor: '#ffffff',
+                windowWidth: 800, // Force specific width matches PDFReport width
             });
 
-            const imgData = canvas.toDataURL('image/png');
+            const imgData = canvas.toDataURL('image/jpeg', 0.9); // JPEG for smaller size
             const pdf = new jsPDF('p', 'mm', 'a4');
-            const imgProps = pdf.getImageProperties(imgData);
             const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
             pdf.save(`Turvasiipi-Raportti-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
         } catch (error) {
             console.error("PDF generation failed:", error);
+            alert("PDF luonti epäonnistui. Yritä uudelleen.");
         } finally {
             setIsGenerating(false);
         }
