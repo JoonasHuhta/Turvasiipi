@@ -9,6 +9,7 @@ const BystanderMasterclass = dynamic(() => import("@/components/training/Bystand
 const OstracismToolkit = dynamic(() => import("@/components/training/OstracismToolkit"));
 const ExitStrategy = dynamic(() => import("@/components/training/ExitStrategy").then(m => m.ExitStrategy));
 const SafetyRestoration = dynamic(() => import("@/components/training/SafetyRestoration").then(m => m.SafetyRestoration));
+const SomaticRelease = dynamic(() => import("@/components/training/SomaticRelease")); // New module
 const ActionProtocols = dynamic(() => import("@/components/training/ActionProtocols").then(m => m.ActionProtocols));
 const DifficultConversations = dynamic(() => import("@/components/training/DifficultConversations").then(m => m.DifficultConversations));
 const MoralLabyrinth = dynamic(() => import("@/components/training/MoralLabyrinth").then(m => m.MoralLabyrinth));
@@ -39,6 +40,7 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     // Acute Help
     'exit_strategy': ExitStrategy,
     'safety': SafetyRestoration,
+    'somatic': SomaticRelease,
     'action_protocols': ActionProtocols,
     'conversations': DifficultConversations,
 
