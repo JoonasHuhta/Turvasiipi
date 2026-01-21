@@ -20,11 +20,17 @@ import { analyzeEvents, generateSummaryChecklist } from "@/helpers/reportAnalysi
 import { templates, TemplateCategory, Template } from "@/data/templates";
 // import { generatePremiumReport, AIReportResult } from "@/actions/generateReport";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
+import { PDFReport } from "@/components/reports/PDFReport";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 export default function DocumentsPage() {
     const { t, language } = useLanguage();
+    const { progress } = useProgress();
     const { data: events, isLocked, hasData, unlock } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
     const [mounted, setMounted] = useState(false);
+    const [isGenerating, setIsGenerating] = useState(false);
     const [activeCategory, setActiveCategory] = useState<TemplateCategory | 'all'>('all');
     const [copiedId, setCopiedId] = useState<string | null>(null);
     const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
@@ -89,6 +95,34 @@ export default function DocumentsPage() {
 
     const handlePrint = () => {
         window.print();
+    };
+
+    const handleDownloadPDF = async () => {
+        const element = document.getElementById('pdf-report-content');
+        if (!element) return;
+
+        setIsGenerating(true);
+        try {
+            const canvas = await html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                logging: false,
+                backgroundColor: '#ffffff'
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save(`Turvasiipi-Raportti-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
+        } catch (error) {
+            console.error("PDF generation failed:", error);
+        } finally {
+            setIsGenerating(false);
+        }
     };
 
     const handleCopy = async (text: string, id: string) => {
@@ -174,8 +208,14 @@ export default function DocumentsPage() {
                                     </h2>
                                     <p className="text-suojasiipi-text-body mt-1">{t('report.overview.subtitle')}</p>
                                 </div>
-                                <Button variant="outline" className="border-suojasiipi-secondary hover:border-suojasiipi-primary text-suojasiipi-text-main">
-                                    <Download className="w-4 h-4 mr-2" /> {t('report.overview.download_pdf')}
+                                <Button
+                                    variant="outline"
+                                    onClick={handleDownloadPDF}
+                                    disabled={isGenerating}
+                                    className="border-suojasiipi-secondary hover:border-suojasiipi-primary text-suojasiipi-text-main"
+                                >
+                                    <Download className={`w-4 h-4 mr-2 ${isGenerating ? 'animate-bounce' : ''}`} />
+                                    {isGenerating ? 'Luodaan...' : t('report.overview.download_pdf')}
                                 </Button>
                             </div>
 
@@ -518,6 +558,11 @@ export default function DocumentsPage() {
                     </Tabs>
                 </div>
             </VaultWrapper>
+
+            {/* Hidden PDF Content */}
+            <div className="fixed top-[-9999px] left-[-9999px] opacity-0 pointer-events-none">
+                <PDFReport events={events} progress={progress} language={language as 'fi' | 'en'} />
+            </div>
         </div>
     );
 }

@@ -103,10 +103,9 @@ export const trainingHubData: TrainingCategory[] = [
             { id: 'culture_thermometer', title: 'Kulttuuri-lämpömittari', description: 'Mittaa psykologinen turvallisuus.', points: 200 },
             { id: 'empathy_audit', title: 'Empatia-audit', description: 'Johdon testaus ja auditointi.', points: 200 },
             { id: 'org_cost_calculator', title: 'Kustannuslaskuri', description: 'Laske hiljaisuuden hinta.', points: 150 },
-            { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', isLocked: true, points: 300 },
-            { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', isLocked: true, points: 400 },
-            { id: 'b2b', title: 'Tilaa Koulutus (B2B)', description: 'Räätälöityä koulutusta yrityksellesi.', isLocked: true, points: 0 },
-            { id: 'dna', title: 'Kiusaamisen DNA', description: 'Analysoi juurisyitä ja rakenteita.', isLocked: true, points: 150 }
+            { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', points: 300 },
+            { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', points: 400 },
+            { id: 'b2b', title: 'Yhteistyö & Räätälöinti', description: 'Pilotointi ja keskustelunavaus.', points: 0 }
         ]
     },
     {

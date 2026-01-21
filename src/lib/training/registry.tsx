@@ -25,6 +25,9 @@ const IdentityModule = dynamic(() => import("@/components/training/IdentityModul
 const OrgCostCalculator = dynamic(() => import("@/components/training/OrgCostCalculator")); // New module
 const CultureThermometer = dynamic(() => import("@/components/training/CultureThermometer")); // New module
 const EmpathyAudit = dynamic(() => import("@/components/training/EmpathyAudit")); // New module
+const ManagerTraining = dynamic(() => import("@/components/training/ManagerTraining").then(m => m.ManagerTraining)); // New module
+const HRMasterclass = dynamic(() => import("@/components/training/HRMasterclass").then(m => m.HRMasterclass)); // New module
+const B2BInquiry = dynamic(() => import("@/components/training/B2BInquiry").then(m => m.B2BInquiry)); // New module
 const OrganizationResources = dynamic(() => import("@/components/training/OrganizationResources").then(m => m.OrganizationResources));
 const CertificatesModule = dynamic(() => import("@/components/training/CertificatesModule").then(m => m.CertificatesModule));
 
@@ -57,7 +60,10 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'culture_thermometer': CultureThermometer,
     'empathy_audit': EmpathyAudit,
     'org_cost_calculator': OrgCostCalculator,
+    'manager': ManagerTraining,
     'conversations': DifficultConversations,
+    'hr': HRMasterclass,
+    'b2b': B2BInquiry,
 
     // Understand
     'basic': LiteracyModule,
