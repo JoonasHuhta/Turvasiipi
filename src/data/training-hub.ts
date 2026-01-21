@@ -75,8 +75,7 @@ export const trainingHubData: TrainingCategory[] = [
         modules: [
             { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.', points: 500 },
             { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', points: 150 },
-            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true, points: 200 },
-            { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Osaaminen harrastuksista työelämään.', points: 150 }
+            { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', points: 200 }
         ]
     },
     {

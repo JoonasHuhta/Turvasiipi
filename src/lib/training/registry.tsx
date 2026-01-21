@@ -21,6 +21,7 @@ const DefaultModeNetwork = dynamic(() => import("@/components/training/DefaultMo
 const LiteracyModule = dynamic(() => import("@/components/training/LiteracyModule")); // New module
 const MindfulnessGrounding = dynamic(() => import("@/components/training/MindfulnessGrounding")); // New module
 const BoundariesModule = dynamic(() => import("@/components/training/BoundariesModule")); // New module
+const IdentityModule = dynamic(() => import("@/components/training/IdentityModule")); // New module
 const OrganizationResources = dynamic(() => import("@/components/training/OrganizationResources").then(m => m.OrganizationResources));
 const CertificatesModule = dynamic(() => import("@/components/training/CertificatesModule").then(m => m.CertificatesModule));
 
@@ -36,9 +37,9 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     // Return & Re-orientation
     'path_12_week': RTWWizard,
     'boundaries': BoundariesModule,
+    'identity': IdentityModule,
     'association_basics': AssociationSimulation,
     'hobby_boundaries': AssociationSimulation,
-    'transferable_skills': AssociationSimulation,
 
     // Interactive Skills
     'empathy': BystanderSimulation, // Classic scenario-based simulation
