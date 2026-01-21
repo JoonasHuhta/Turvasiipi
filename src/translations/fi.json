@@ -3169,28 +3169,28 @@
                 "category": "itseepaily",
                 "question": "Ajattelen usein: \"Olen liian herkkä\" tai \"Otan asiat liian raskaasti\"",
                 "validationTitle": "💙 TÄRKEÄ TIETO",
-                "validationText": "68% työpaikkakiusaamisen uhreista ajattelee tämän. Tämä ajatus on usein seurausta gaslightingista, jossa tunteitasi on vähätelty toistuvasti. Sinä ET ole liian herkkä."
+                "validationText": "Monet kiusaamisen uhrit ajattelevat tämän. Tämä ajatus on usein seurausta gaslightingista, jossa tunteitasi on vähätelty toistuvasti. Sinä ET ole liian herkkä."
             },
             {
                 "id": 2,
                 "category": "itseepaily",
                 "question": "Epäilen ammattitaitoani tai osaamistani työssä (vaikka tulokseni ovat objektiivisesti hyviä)",
                 "validationTitle": "💙 TUNNISTA MITÄTÖINTI",
-                "validationText": "71% uhreista alkaa epäillä osaamistaan. Jos sinua on jatkuvasti arvosteltu tai mitätöity, se murentaa itseluottamustasi huolimatta todellisista tuloksistasi."
+                "validationText": "On hyvin yleistä alkaa epäillä osaamistaan. Jos sinua on jatkuvasti arvosteltu tai mitätöity, se murentaa itseluottamustasi huolimatta todellisista tuloksistasi."
             },
             {
                 "id": 3,
                 "category": "itseepaily",
                 "question": "Vertailen itseäni muihin ja ajattelen: \"Muut pärjäävät, miksi en minä?\"",
                 "validationTitle": "💙 TÄRKEÄ YMMÄRRYS",
-                "validationText": "62% uhreista vertailee itseään muihin. Muista, että sinua kohdellaan eri tavalla kuin muita. Kyse ei ole pärjäämisestä, vaan epätasaisesta pelikentästä."
+                "validationText": "Monet uhrit vertailevat itseään muihin. Muista, että sinua kohdellaan eri tavalla kuin muita. Kyse ei ole pärjäämisestä, vaan epätasaisesta pelikentästä."
             },
             {
                 "id": 4,
                 "category": "itseepaily",
                 "question": "Ajattelen että ansaitsen tämän kohtelun tai että \"ehkä minussa on jotain vikaa\"",
                 "validationTitle": "💙 KUULE TÄMÄ HUOLELLISESTI",
-                "validationText": "54% uhreista alkaa uskoa ansaitsevansa kohtelun. Kukaan ei ansaitse nöyryytystä tai pelkoa. Syy on kiusaajassa ja rakenteissa, ei sinussa."
+                "validationText": "Monet uhrit alkavat uskoa ansaitsevansa kohtelun. Kukaan ei ansaitse nöyryytystä tai pelkoa. Syy on kiusaajassa ja rakenteissa, ei sinussa."
             },
             {
                 "id": 5,
@@ -3211,41 +3211,41 @@
                 "category": "eristyksisyys",
                 "question": "Tunnen olevani yksin tämän kanssa",
                 "validationTitle": "💙 ET OLE YKSIN",
-                "validationText": "72% uhreista tuntee olevansa yksin. Eristäminen on tietoinen kiusaamistaktiikka, jolla viedään uhrilta tuki ja ulkoinen validointi."
+                "validationText": "Suurin osa uhreista tuntee olevansa yksin. Eristäminen on tietoinen kiusaamistaktiikka, jolla viedään uhrilta tuki ja ulkoinen validointi."
             },
             {
                 "id": 8,
                 "category": "eristyksisyys",
                 "question": "Pelkään että kukaan ei usko minua jos kerron",
                 "validationTitle": "💙 ME USKOMME SINUA",
-                "validationText": "68% uhreista pelkää epäuskoa. Kiusaaminen on usein hienovaraista ja tapahtuu suljettujen ovien takana, mikä ruokkii tätä pelkoa."
+                "validationText": "Monet uhrit pelkäävät epäuskoa. Kiusaaminen on usein hienovaraista ja tapahtuu suljettujen ovien takana, mikä ruokkii tätä pelkoa."
             },
             {
                 "id": 9,
                 "category": "eristyksisyys",
                 "question": "Muut eivät puutu tilanteeseen, joten ajattelen että \"ehkä tämä on normaalia\"",
                 "validationTitle": "💙 BYSTANDER EFFECT",
-                "validationText": "58% uhreista tulkitsee muiden hiljaisuuden hyväksynnäksi. Todellisuudessa muutkin usein pelkäävät kohteeksi joutumista ja jähmettyvät."
+                "validationText": "Monet uhrit tulkitsevat muiden hiljaisuuden hyväksynnäksi. Todellisuudessa muutkin usein pelkäävät kohteeksi joutumista ja jähmettyvät."
             },
             {
                 "id": 10,
                 "category": "eristyksisyys",
                 "question": "En voi puhua tästä kenellekään",
                 "validationTitle": "💙 HÄPEÄ ON ASE",
-                "validationText": "63% uhreista tuntee, ettei voi puhua kenellekään. Häpeä on kiusaajan vahvin ase. Puhuminen on ensimmäinen askel vallan murtamiseen."
+                "validationText": "Monet uhrit tuntevat, etteivät voi puhua kenellekään. Häpeä on kiusaajan vahvin ase. Puhuminen on ensimmäinen askel vallan murtamiseen."
             },
             {
                 "id": 11,
                 "category": "eristyksisyys",
                 "question": "Luulen että HR/johto ei auta, koska he suojelevat yritystä/kiusaajaa",
                 "validationTitle": "💙 VALITETTAVAN YLEISTÄ",
-                "validationText": "55% uhreista jakaa tämän huolen. On tärkeää dokumentoida kaikki huolellisesti ja tarvittaessa hakea apua organisaation ulkopuolelta."
+                "validationText": "Monet uhrit jakavat tämän huolen. On tärkeää dokumentoida kaikki huolellisesti ja tarvittaessa hakea apua organisaation ulkopuolelta."
             },
             {
                 "id": 12,
                 "category": "halvaantuminen",
                 "question": "En tiedä mitä pitäisi tehdä seuraavaksi",
-                "validationTitle": "💙 82% TUNTEE NÄIN",
+                "validationTitle": "💙 TÄMÄ ON ERITTÄIN YLEISTÄ",
                 "validationText": "Tämä on normaali trauma-reaktio. Liiallinen stressi halvaannuttaa päätöksenteon. Turvasiipi auttaa sinua ottamaan yhden pienen askeleen kerrallaan."
             },
             {
@@ -3253,34 +3253,34 @@
                 "category": "halvaantuminen",
                 "question": "Pelkään että tilanne pahenee jos yritän puuttua siihen",
                 "validationTitle": "💙 REALISTINEN PELKO",
-                "validationText": "69% uhreista pelkää kostoa. Siksi on tärkeää rakentaa todistusaineisto (dokumentointi) ennen kuin nostat asian virallisesti esiin."
+                "validationText": "Monet uhrit pelkäävät kostoa. Siksi on tärkeää rakentaa todistusaineisto (dokumentointi) ennen kuin nostat asian virallisesti esiin."
             },
             {
                 "id": 14,
                 "category": "halvaantuminen",
                 "question": "En jaksa enää taistella tai yrittää",
                 "validationTitle": "💙 UUPUMUS ON TODELLINEN",
-                "validationText": "76% uhreista tuntee uupumusta. Kehosi kertoo, että olet taistellut liian kauan ja liian yksin. Nyt on aika levätä ja hakea tukea."
+                "validationText": "Suurin osa uhreista tuntee uupumusta. Kehosi kertoo, että olet taistellut liian kauan ja liian yksin. Nyt on aika levätä ja hakea tukea."
             },
             {
                 "id": 15,
                 "category": "halvaantuminen",
                 "question": "Ajattelen että \"minun pitäisi vain kestää tämä\" tai \"en ole uhri\"",
                 "validationTitle": "💙 'KESTÄMINEN' ON MYRKKYÄ",
-                "validationText": "61% uhreista yrittää 'vain kestää'. Kestäminen ei lopeta kiusaamista, se vain kuluttaa terveyttäsi. Avun hakeminen on rohkeutta, ei heikkoutta."
+                "validationText": "Monet uhrit yrittävät 'vain kestää'. Kestäminen ei lopeta kiusaamista, se vain kuluttaa terveyttäsi. Avun hakeminen on rohkeutta, ei heikkoutta."
             },
             {
                 "id": 16,
                 "category": "halvaantuminen",
                 "question": "Muistini on heikentynyt - en muista tarkkaan mitä on tapahtunut",
                 "validationTitle": "💙 TRAUMA JA MUISTI",
-                "validationText": "48% uhreista kärsii muistiongelmista. Jatkuva stressi vaikuttaa aivojen muistikeskukseen. Siksi dokumentointi heti tapahtumien jälkeen on kriittistä."
+                "validationText": "Monet uhrit kärsivät muistiongelmista. Jatkuva stressi vaikuttaa aivojen muistikeskukseen. Siksi dokumentointi heti tapahtumien jälkeen on kriittistä."
             },
             {
                 "id": 17,
                 "category": "pelko",
                 "question": "Pelkään mennä töihin (erityisesti maanantaiaamuna)",
-                "validationTitle": "💙 74% TUNTEE TÄMÄN",
+                "validationTitle": "💙 TÄMÄ ON ERITTÄIN YLEISTÄ",
                 "validationText": "Maanantai-ahdistus on vakava merkki turvattomuudesta. Kehosi varoittaa sinua epäterveestä ympäristöstä jo ennen kuin olet edes paikalla."
             },
             {
@@ -3288,14 +3288,14 @@
                 "category": "pelko",
                 "question": "En tiedä milloin 'seuraava isku' tulee - olen jatkuvassa valppaustilassa",
                 "validationTitle": "💙 JATKUVA VALPPAUSTILA",
-                "validationText": "67% uhreista elää 'fight or flight' -tilassa. Tämä kuluttaa hermostoa ja on tyypillinen PTSD-oire. Tarvitset turvallisen etäisyyden tilanteeseen palautuaksesi."
+                "validationText": "Monet uhrit elävät 'fight or flight' -tilassa. Tämä kuluttaa hermostoa ja on tyypillinen PTSD-oire. Tarvitset turvallisen etäisyyden tilanteeseen palautuaksesi."
             },
             {
                 "id": 19,
                 "category": "pelko",
                 "question": "Pelkään että menetän työpaikkani jos puhun / raportoin",
                 "validationTitle": "💙 REALISTINEN PELKO",
-                "validationText": "71% uhreista pelkää työpaikkansa puolesta. Laki kuitenkin suojaa raportoijaa kostoilta. Dokumentointi on paras suojasi laittomia toimia vastaan."
+                "validationText": "Monet uhrit pelkäävät työpaikkansa puolesta. Laki kuitenkin suojaa raportoijaa kostoilta. Dokumentointi on paras suojasi laittomia toimia vastaan."
             },
             {
                 "id": 20,
@@ -3309,34 +3309,34 @@
                 "category": "identiteetti",
                 "question": "En ole enää oma itseni - persoonallisuuteni on muuttunut",
                 "validationTitle": "💙 IDENTITEETTI",
-                "validationText": "64% uhreista tuntee menettäneensä itsensä. Tämä ei ole pysyvää, mutta se kertoo siitä, kuinka syvälle pitkäaikainen kiusaaminen iskee."
+                "validationText": "Monet uhrit tuntevat menettäneensä itsensä. Tämä ei ole pysyvää, mutta se kertoo siitä, kuinka syvälle pitkäaikainen kiusaaminen iskee."
             },
             {
                 "id": 22,
                 "category": "identiteetti",
                 "question": "Olen menettänyt iloni - asiat jotka ennen ilahduttivat eivät enää kiinnosta",
                 "validationTitle": "💙 ANHEDONIA",
-                "validationText": "68% uhreista kärsii ilon menetyksestä. Se on masennuksen ja burnoutin oire, joka vaatii pysähtymistä ja usein ammattilaisen apua."
+                "validationText": "Monet uhrit kärsivät ilon menetyksestä. Se on masennuksen ja burnoutin oire, joka vaatii pysähtymistä ja usein ammattilaisen apua."
             },
             {
                 "id": 23,
                 "category": "identiteetti",
                 "question": "Muistan miten olin ennen - ja haluaisin olla taas se henkilö",
                 "validationTitle": "💙 MUISTO VANHASTA ITSESSTÄ",
-                "validationText": "59% uhreista kaipaa 'entistä itseään'. Se henkilö ei ole kadonnut, hän on vain traumatisoitunut ja suojautumassa. Toipuminen on polku takaisin."
+                "validationText": "Monet uhrit kaipaavat 'entistä itseään'. Se henkilö ei ole kadonnut, hän on vain traumatisoitunut ja suojautumassa. Toipuminen on polku takaisin."
             },
             {
                 "id": 24,
                 "category": "identiteetti",
                 "question": "Katson peiliin enkä tunnista itseäni",
                 "validationTitle": "💙 DISSOSIAATIO",
-                "validationText": "41% uhreista kokee vierautta itseään kohtaan. Kehosi ja mieli voivat luoda etäisyyttä kivuliaaseen todellisuuteen. Tämä on merkki hakea apua."
+                "validationText": "Monet uhrit kokevat vierautta itseään kohtaan. Kehosi ja mieli voivat luoda etäisyyttä kivuliaaseen todellisuuteen. Tämä on merkki hakea apua."
             },
             {
                 "id": 25,
                 "category": "fyysiset",
                 "question": "En nuku kunnolla - heräilen öisin tai kärsin painajaisista",
-                "validationTitle": "💙 81% KÄRSII UNIHÄIRIÖISTÄ",
+                "validationTitle": "💙 TÄMÄ ON ERITTÄIN YLEISTÄ",
                 "validationText": "Unettomuus on kehon tapa huutaa ylikuormituksesta. Uni on kriittinen palautumiselle, ja sen jatkuva häiriintyminen vaatii reagointia."
             },
             {
@@ -3344,28 +3344,28 @@
                 "category": "fyysiset",
                 "question": "Minulla on vatsavaivoja tai pahoinvointia erityisesti ennen työtä",
                 "validationTitle": "💙 KEHO PITÄÄ KIRJAA",
-                "validationText": "58% uhreista kärsii vatsaoireista. Kehosi reagoi pelkoon fyysisesti jo ennen kuin mielesi ehtii analysoida tilannetta."
+                "validationText": "Monet uhrit kärsivät vatsaoireista. Kehosi reagoi pelkoon fyysisesti jo ennen kuin mielesi ehtii analysoida tilannetta."
             },
             {
                 "id": 27,
                 "category": "fyysiset",
                 "question": "Sydämeni hakkaa tai tunnen ahdistusta työtilanteissa",
                 "validationTitle": "💙 PANIIKKIREAKTIO",
-                "validationText": "64% uhreista kokee ahdistusoireita. Se on kehon luonnollinen hälytysjärjestelmä epäoikeudenmukaista ja uhkaavaa tilannetta kohtaan."
+                "validationText": "Monet uhrit kokevat ahdistusoireita. Se on kehon luonnollinen hälytysjärjestelmä epäoikeudenmukaista ja uhkaavaa tilannetta kohtaan."
             },
             {
                 "id": 28,
                 "category": "fyysiset",
                 "question": "Olen ollut useammin sairaana tänä vuonna kuin aiemmin",
                 "validationTitle": "💙 IMMUUNISUOJA",
-                "validationText": "58% uhreista sairastaa useammin. Pitkäaikainen stressi ja korkea kortisoli heikentävät tutkitusti vastustuskykyäsi."
+                "validationText": "Monet uhrit sairastuvat useammin. Pitkäaikainen stressi ja korkea kortisoli heikentävät tutkitusti vastustuskykyäsi."
             },
             {
                 "id": 29,
                 "category": "fyysiset",
                 "question": "Käytän alkoholia, lääkkeitä tai muita keinoja selvitäkseni",
                 "validationTitle": "💙 ITSEHOITO",
-                "validationText": "31% uhreista turvautuu päihteisiin turruttaakseen kipunsa. Se on inhimillinen reaktio sietämättömään oloon, mutta uuvuttaa kehoa entisestään."
+                "validationText": "Osa uhreista turvautuu päihteisiin turruttaakseen kipunsa. Se on inhimillinen reaktio sietämättömään oloon, mutta uuvuttaa kehoa entisestään."
             },
             {
                 "id": 30,
