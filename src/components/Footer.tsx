@@ -72,8 +72,8 @@ export function Footer() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="font-bold text-[#2B2B2B]">Palaute:</span>
-                                        <a href="mailto:turvasiipi@gmail.fi" className="text-[#5B4B8A] hover:underline">
-                                            turvasiipi@gmail.fi
+                                        <a href="mailto:turvasiipi@gmail.com" className="text-[#5B4B8A] hover:underline">
+                                            turvasiipi@gmail.com
                                         </a>
                                     </div>
                                     <div className="flex items-center gap-2">

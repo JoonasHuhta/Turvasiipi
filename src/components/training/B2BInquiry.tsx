@@ -23,7 +23,16 @@ export const B2BInquiry: React.FC<B2BInquiryProps> = ({ onExit, onComplete }) =>
 
     const handleEmailClick = () => {
         completeModule("b2b");
-        window.location.href = "mailto:joonas@turvasiipi.fi?subject=Yhteistyö / Turvasiipi";
+        const subject = "Yhteistyö / Turvasiipi";
+        const email = "turvasiipi@gmail.com";
+        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
