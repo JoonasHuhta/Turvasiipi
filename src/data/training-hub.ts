@@ -47,7 +47,7 @@ export const trainingHubData: TrainingCategory[] = [
             { id: 'ostrakismi_toolkit', title: 'Ostrakismi-työkalupakki', description: 'Tunnista ja puutu hiljaiseen ulossulkemiseen.', isNew: true, points: 200 },
             { id: 'bystander_effect', title: 'Bystander-efekti', description: 'Miksi muut eivät puutu? Vastuun hajautuminen.', points: 100 },
             { id: 'pluralistic_ignorance', title: 'Pluralistinen Ignoranssi', description: 'Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä.', isCertificationModule: true, points: 150 },
-            { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', isLocked: true, points: 150 }
+            { id: 'gaslighting_mechanisms', title: 'Gaslightingin Mekanismit', description: 'Miten todellisuutta manipuloidaan.', points: 150 }
         ]
     },
     {
@@ -59,10 +59,10 @@ export const trainingHubData: TrainingCategory[] = [
         type: 'process',
         modules: [
             { id: 'recovery_main', title: 'Toipuminen & Hyvinvointi', description: 'Hermoston rauhoittaminen ja traumatiedon soveltaminen.', isNew: true, points: 200 },
-            { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', isLocked: true, points: 150 },
-            { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', isLocked: true, points: 200 },
-            { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', isLocked: true, points: 100 },
-            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', isLocked: true, points: 50 }
+            { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', points: 150 },
+            { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', points: 200 },
+            { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', points: 100 },
+            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', points: 50 }
         ]
     },
     {
@@ -74,7 +74,7 @@ export const trainingHubData: TrainingCategory[] = [
         type: 'process',
         modules: [
             { id: 'path_12_week', title: '12 Viikon Paluupolku', description: 'Vaiheittainen suunnitelma paluuseen.', points: 500 },
-            { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', isLocked: true, points: 150 },
+            { id: 'boundaries', title: 'Rajojen Asettaminen', description: 'Uudet pelisäännöt omalle työlle.', points: 150 },
             { id: 'identity', title: 'Identiteetin Rakentaminen', description: 'Kuka olen kiusaamisen jälkeen.', isLocked: true, points: 200 },
             { id: 'transferable_skills', title: 'Siirrettävät Taidot', description: 'Osaaminen harrastuksista työelämään.', points: 150 }
         ]

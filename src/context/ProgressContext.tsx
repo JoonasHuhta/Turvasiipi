@@ -230,29 +230,25 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
                 changed = true;
             }
 
-            if (changed) return { ...prev, earnedBadgeIds: newEarnedBadges };
-            return prev;
-        });
-
-        // Separate check for certification badge
-        setTimeout(() => {
+            // Certification badge check
             const certModules = [
                 'basic', // Kiusaamisen Lukutaito
-                'empathy', // Peilisolu-Pelastus (renamed from empathy_game to match if possible, but keep old if needed. Wait, registry uses 'empathy')
+                'empathy', // Peilisolu-Pelastus
                 'bystander', // Bystander-Herättäjä
                 'association_basics', // Yhdistystoiminnan Varjopuolet
                 'pluralistic_ignorance',
                 'bystander_effect'
             ];
-            // Note: Some legacy IDs might still be in usage in localStorage, but we prioritize new IDs.
-            // We check if "either existing legacy OR new ID is completed" to be safe?
-            // For now, let's assume new completions use the new IDs from training-hub.
+
             const isCertComplete = certModules.every(id => prev.completedModuleIds.includes(id));
-            if (isCertComplete && !prev.earnedBadgeIds.includes('bullying_literacy_cert')) {
-                return { ...prev, earnedBadgeIds: [...prev.earnedBadgeIds, 'bullying_literacy_cert'] };
+            if (isCertComplete && !newEarnedBadges.includes('bullying_literacy_cert')) {
+                newEarnedBadges.push('bullying_literacy_cert');
+                changed = true;
             }
+
+            if (changed) return { ...prev, earnedBadgeIds: newEarnedBadges };
             return prev;
-        }, 100);
+        });
     };
 
     const getLevel = () => {

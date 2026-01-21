@@ -9,11 +9,18 @@ const BystanderMasterclass = dynamic(() => import("@/components/training/Bystand
 const OstracismToolkit = dynamic(() => import("@/components/training/OstracismToolkit"));
 const ExitStrategy = dynamic(() => import("@/components/training/ExitStrategy").then(m => m.ExitStrategy));
 const SafetyRestoration = dynamic(() => import("@/components/training/SafetyRestoration").then(m => m.SafetyRestoration));
-const SomaticRelease = dynamic(() => import("@/components/training/SomaticRelease")); // New module
+const SomaticRelease = dynamic(() => import("@/components/training/SomaticRelease"));
+const BystanderTheory = dynamic(() => import("@/components/training/BystanderTheory"));
+const GaslightingMechanisms = dynamic(() => import("@/components/training/GaslightingMechanisms")); // New module
 const ActionProtocols = dynamic(() => import("@/components/training/ActionProtocols").then(m => m.ActionProtocols));
 const DifficultConversations = dynamic(() => import("@/components/training/DifficultConversations").then(m => m.DifficultConversations));
 const MoralLabyrinth = dynamic(() => import("@/components/training/MoralLabyrinth").then(m => m.MoralLabyrinth));
 const RecoveryWellbeing = dynamic(() => import("@/components/training/RecoveryWellbeing").then(m => m.RecoveryWellbeing));
+const TraumaBrain = dynamic(() => import("@/components/training/TraumaBrain")); // New module
+const DefaultModeNetwork = dynamic(() => import("@/components/training/DefaultModeNetwork")); // New module
+const LiteracyModule = dynamic(() => import("@/components/training/LiteracyModule")); // New module
+const MindfulnessGrounding = dynamic(() => import("@/components/training/MindfulnessGrounding")); // New module
+const BoundariesModule = dynamic(() => import("@/components/training/BoundariesModule")); // New module
 const OrganizationResources = dynamic(() => import("@/components/training/OrganizationResources").then(m => m.OrganizationResources));
 const CertificatesModule = dynamic(() => import("@/components/training/CertificatesModule").then(m => m.CertificatesModule));
 
@@ -28,6 +35,7 @@ export interface ModuleProps {
 export const ModuleRegistry: Record<string, ComponentType<any>> = {
     // Return & Re-orientation
     'path_12_week': RTWWizard,
+    'boundaries': BoundariesModule,
     'association_basics': AssociationSimulation,
     'hobby_boundaries': AssociationSimulation,
     'transferable_skills': AssociationSimulation,
@@ -45,11 +53,17 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'conversations': DifficultConversations,
 
     // Understand
+    'basic': LiteracyModule,
     'ostrakismi_toolkit': OstracismToolkit,
-    // Note: 'basic' (Literacy) is handled separately currently, but could be added here if componentized
+    'bystander_effect': BystanderTheory,
+    'pluralistic_ignorance': BystanderTheory,
+    'gaslighting_mechanisms': GaslightingMechanisms,
 
     // Recovery
     'recovery_main': RecoveryWellbeing,
+    'trauma_brain': TraumaBrain,
+    'dmn': DefaultModeNetwork,
+    'mindfulness': MindfulnessGrounding,
 
     // Organization
     'org_knowledge': OrganizationResources,
