@@ -29,118 +29,83 @@ export const OrganizationResources: React.FC<OrganizationResourcesProps> = ({ on
 
     const resources = [
         {
-            id: "structure",
-            title: "1. Rakenteellinen riski – Ei yksilön ongelma",
+            id: "systemic-risks",
+            title: "1. Organisaatioriskit (5 kriittistä tekijää)",
             icon: ShieldAlert,
             content: (
-                <div className="space-y-4 text-slate-700">
-                    <p><strong>Tutkimusnäyttö osoittaa:</strong> Työpaikkakiusaaminen ei synny sattumalta. Se liittyy usein epäselviin rooleihin, heikkoon johtamiseen, kuormitukseen ja muutostilanteisiin.</p>
-                    <p>Organisaatioissa, joissa vastuu siirretään yksilöille (“kemiat eivät kohdanneet”), kiusaaminen jatkuu herkemmin ja pitkittyy.</p>
-                    <div className="bg-slate-100 p-4 rounded-lg border-l-4 border-slate-500 font-medium">
-                        Keskeinen periaate: Työpaikkakiusaaminen on aina työyhteisön ja johdon vastuukysymys.
+                <div className="space-y-6 text-slate-700">
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900 italic underline">1. Epäselvät roolit ja valta-alueet</h4>
+                        <p>Syntyy ”harmaa alue”, jossa epäviralliset valtasuhteet ja epäoikeudenmukainen kuormituksen jakaminen normalisoituvat. LMX-näkökulmasta osa saa tukea, osa jää syntipukiksi.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900 italic underline">2. Heikko tai hajautunut tiedonkulku</h4>
+                        <p>Vain ”lähiverkolle” kulkeva informaatio ruokkii epäluottamusta. Psykologinen sopimus rikkoutuu, kun ihminen kokee tulevansa ohitetuksi päätöksissä.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900 italic underline">3. Epäoikeudenmukainen johtaminen (Sisäpiirit)</h4>
+                        <p>Kun esihenkilöllä on selkeä suosikki- vs. ulkoryhmä-jako, syntyy rakenteellinen kiusaamisalttius. Interactional Justice -vaje ennustaa konflikteja.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900 italic underline">4. Näennäiset puuttumisprosessit</h4>
+                        <p>Jos prosessit ovat hukkuneet paperille tai koetaan hitaiksi, viesti on: kiusaaminen kannattaa. Tämä on organisaation suurin luottamusrikkomus.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900 italic underline">5. Korkea kuormitus + Matala vaikutusvalta</h4>
+                        <p>Turhautuminen purkautuu henkilöihin eikä rakenteisiin. Syntyy ”oppinut avuttomuus”, jossa kukaan ei enää usko muutokseen.</p>
                     </div>
                 </div>
             )
         },
         {
-            id: "psych-safety",
-            title: "2. Psykologinen turvallisuus – Hyvinvoinnin perusta",
-            icon: Users,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p><strong>Amy Edmondsonin tutkimukset:</strong> Psykologisesti turvallisissa tiimeissä uskalletaan puhua ongelmista ajoissa, virheisiin puututaan rakentavasti ja tuottavuus on parempaa.</p>
-                    <p><strong>Se EI tarkoita:</strong> Vaatimustason laskemista tai konfliktien välttelyä.</p>
-                    <p><strong>Se tarkoittaa:</strong> Oikeutta tulla kuulluksi ja nostaa esiin epäkohtia ilman pelkoa seurauksista.</p>
-                </div>
-            )
-        },
-        {
-            id: "early-signs",
-            title: "3. Varhaiset merkit – Tunnista epäsuorat signaalit",
-            icon: Activity,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p>Työpaikkakiusaaminen näkyy usein ensin epäsuorina signaaleina:</p>
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Lisääntyneet sairauspoissaolot</li>
-                        <li>Vetäytyminen palavereissa</li>
-                        <li>Vaihtuvuus tai siirtymiset sivuun</li>
-                        <li>Epäselvä puhe “ongelmallisesta henkilöstä”</li>
-                        <li>Hiljainen hyväksyntä epäasialliselle käytökselle</li>
-                    </ul>
-                    <p><strong>Tutkimusten mukaan:</strong> Varhainen puuttuminen on merkittävin tekijä haittojen minimoimisessa.</p>
-                </div>
-            )
-        },
-        {
-            id: "leadership",
-            title: "4. Johtamisen rooli – Ratkaiseva vaikutus",
-            icon: Briefcase,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p>Esihenkilön toiminta (tai toimimattomuus) määrittää tilanteen suunnan. Kiusaaminen harvoin jatkuu, jos puuttuminen on nopeaa, rajat ovat selkeät ja prosessit ovat oikeudenmukaisia.</p>
-                    <p><strong>Haaste:</strong> Monet esihenkilöt eivät ole saaneet koulutusta konfliktien, vallan tai trauman kohtaamiseen. Tämä tietopankki tukee johtoa tässä vastuussa.</p>
-                </div>
-            )
-        },
-        {
-            id: "trauma-informed",
-            title: "5. Traumainformoitu työyhteisö",
-            icon: BookOpen,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p>Tarkoittaa, että organisaatio ymmärtää ihmisten reaktioiden voivan liittyä kuormitukseen, ei patologisoi oireita eikä kiirehdi “ratkaisuja” ilman kuulemista.</p>
-                    <p>Käytännössä tämä näkyy selkeinä toimintamalleina, rauhallisena ja johdonmukaisena viestintänä sekä ihmisten kohtaamisena arvokkaasti myös vaikeissa tilanteissa.</p>
-                </div>
-            )
-        },
-        {
-            id: "responsibilities",
-            title: "6. Vastuut ja velvoitteet",
+            id: "financial-impact",
+            title: "2. Taloudellinen vaikutus ja laskenta",
             icon: Scale,
             content: (
                 <div className="space-y-4 text-slate-700">
-                    <p>Organisaatiolla on työturvallisuusvastuu, velvollisuus ehkäistä ja puuttua epäasialliseen kohteluun sekä vastuu dokumentoinnista ja prosesseista.</p>
-                    <p><strong>Huomio:</strong> Pelkkä ohje ei riitä, jos sitä ei tunneta, uskalleta käyttää tai jos sen käyttö johtaa kielteisiin seurauksiin ilmoittajalle.</p>
+                    <p>Yksi pitkittynyt kiusaamistapaus keskijohtajatasolla voi maksaa organisaatiolle <strong>80 000 – 150 000 €</strong>.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <h5 className="font-bold text-orange-950 text-sm mb-1">X-kustannukset</h5>
+                            <p className="text-xs">Sairauspoissaolot, sairausloman palkka + sivukulut (~400€/pv).</p>
+                        </div>
+                        <div className="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <h5 className="font-bold text-orange-950 text-sm mb-1">Presenteeismi</h5>
+                            <p className="text-xs">Tehon lasku (20-40%) työntekijän ollessa paikalla.</p>
+                        </div>
+                        <div className="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <h5 className="font-bold text-orange-950 text-sm mb-1">Vaihtuvuus</h5>
+                            <p className="text-xs">0.5 - 1.5 x vuosipalkka (haku, perehdytys, tuottavuuden menetys).</p>
+                        </div>
+                        <div className="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <h5 className="font-bold text-orange-950 text-sm mb-1">Johto & HR</h5>
+                            <p className="text-xs">20-80 tuntia selvitystyötä ja juridiikkaa tapausta kohden.</p>
+                        </div>
+                    </div>
+                    <div className="bg-slate-100 p-4 rounded-lg font-medium text-sm">
+                        Kaava: Kokonaishinta ≈ SA + Presenteeismi + Vaihtuvuus + HR/Johto + Maine
+                    </div>
                 </div>
             )
         },
         {
-            id: "cost",
-            title: "7. Vaikenemisen hinta",
-            icon: AlertTriangle,
+            id: "decisive-moments",
+            title: "3. Johdon ratkaisevat hetket",
+            icon: Briefcase,
             content: (
-                <div className="space-y-4 text-slate-700">
-                    <p>Tutkimusten mukaan työpaikkakiusaaminen lisää sairauspoissaoloja, työkyvyttömyysriskiä, henkilöstön vaihtuvuutta ja organisaation mainehaittoja.</p>
-                    <p>Ennen kaikkea se heikentää luottamusta, sitoutumista ja työn merkityksellisyyttä.</p>
-                </div>
-            )
-        },
-        {
-            id: "actions",
-            title: "8. Mitä organisaatio voi tehdä toisin",
-            icon: CheckCircle2,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p><strong>Tutkitusti vaikuttavia toimia:</strong></p>
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Selkeät ja tunnetut toimintamallit</li>
-                        <li>Koulutus esihenkilöille ja HR:lle</li>
-                        <li>Ulkopuolinen tuki vaikeissa tilanteissa</li>
-                        <li>Kulttuuri, jossa puhuminen on turvallista</li>
-                    </ul>
-                    <p><strong>Ydinajatus:</strong> Hyvinvoiva työyhteisö ei synny sattumalta – se rakennetaan tietoisesti.</p>
-                </div>
-            )
-        },
-        {
-            id: "target",
-            title: "9. Kenelle tämä tietopankki on?",
-            icon: Users,
-            content: (
-                <div className="space-y-4 text-slate-700">
-                    <p>Johto, esihenkilöt, HR, työsuojelu, kehittäjät ja konsultit.</p>
-                    <p>Tietopankkia voi käyttää koulutusten tukena, päätöksenteon pohjana ja yhteisen kielen luomisessa.</p>
+                <div className="space-y-6 text-slate-700">
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900">1. Ensimmäinen signaali</h4>
+                        <p className="text-sm">Vitsit, eristäminen, hämmennys. Valinta: <strong>Pysäytä</strong> (reagoi heti) vai <strong>Mahdollista</strong> (vähättele huumoriksi).</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900">2. Ensimmäinen ilmoitus</h4>
+                        <p className="text-sm">Valinta: <strong>Pysäytä</strong> (kiitä, dokumentoi, selvitä) vai <strong>Mahdollista</strong> (syyllistä herkkydestä).</p>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-bold text-slate-900">3. Seurannan jatkuvuus</h4>
+                        <p className="text-sm">Valinta: <strong>Pysäytä</strong> (tarkista toimet 1, 3 ja 6kk välein) vai <strong>Mahdollista</strong> (oletus että asia on ohi).</p>
+                    </div>
                 </div>
             )
         }

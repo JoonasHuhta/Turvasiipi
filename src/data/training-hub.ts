@@ -99,9 +99,10 @@ export const trainingHubData: TrainingCategory[] = [
         color: 'slate',
         type: 'process',
         modules: [
-            { id: 'org_knowledge', title: 'Tietopankki: Työhyvinvointi', description: 'Rakenteelliset riskit ja johdon vastuu.', isNew: true, points: 150 },
-            { id: 'meter', title: 'Kulttuuri-Lämpömittari', description: 'Mittaa työyhteisön todellinen tila.', isLocked: true, points: 100 },
-            { id: 'audit', title: 'Empatia-Audit', description: 'Arvioi organisaation empatiakykyä.', isLocked: true, points: 200 },
+            { id: 'org_knowledge', title: 'Tietopankki: Työhyvinvointi', description: 'Organisaatiotason riskitekijät.', points: 150 },
+            { id: 'culture_thermometer', title: 'Kulttuuri-lämpömittari', description: 'Mittaa psykologinen turvallisuus.', points: 200 },
+            { id: 'empathy_audit', title: 'Empatia-audit', description: 'Johdon testaus ja auditointi.', points: 200 },
+            { id: 'org_cost_calculator', title: 'Kustannuslaskuri', description: 'Laske hiljaisuuden hinta.', points: 150 },
             { id: 'manager', title: 'Esimiesten Koulutus', description: 'Johtamisvastuu ja puuttumisen kynnys.', isLocked: true, points: 300 },
             { id: 'hr', title: 'HR & Johdon Masterclass', description: 'Strateginen vastaaminen ja kulttuurimuutos.', isLocked: true, points: 400 },
             { id: 'b2b', title: 'Tilaa Koulutus (B2B)', description: 'Räätälöityä koulutusta yrityksellesi.', isLocked: true, points: 0 },

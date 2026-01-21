@@ -22,6 +22,9 @@ const LiteracyModule = dynamic(() => import("@/components/training/LiteracyModul
 const MindfulnessGrounding = dynamic(() => import("@/components/training/MindfulnessGrounding")); // New module
 const BoundariesModule = dynamic(() => import("@/components/training/BoundariesModule")); // New module
 const IdentityModule = dynamic(() => import("@/components/training/IdentityModule")); // New module
+const OrgCostCalculator = dynamic(() => import("@/components/training/OrgCostCalculator")); // New module
+const CultureThermometer = dynamic(() => import("@/components/training/CultureThermometer")); // New module
+const EmpathyAudit = dynamic(() => import("@/components/training/EmpathyAudit")); // New module
 const OrganizationResources = dynamic(() => import("@/components/training/OrganizationResources").then(m => m.OrganizationResources));
 const CertificatesModule = dynamic(() => import("@/components/training/CertificatesModule").then(m => m.CertificatesModule));
 
@@ -51,6 +54,9 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'safety': SafetyRestoration,
     'somatic': SomaticRelease,
     'action_protocols': ActionProtocols,
+    'culture_thermometer': CultureThermometer,
+    'empathy_audit': EmpathyAudit,
+    'org_cost_calculator': OrgCostCalculator,
     'conversations': DifficultConversations,
 
     // Understand
