@@ -13,7 +13,7 @@ interface LanguageContextType {
     t: (key: string, params?: Record<string, string | number> | { returnObjects: boolean }) => any;
 }
 
-const translations: Record<Language, Translations> = { fi, en };
+const translations: Record<Language, any> = { fi, en };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 

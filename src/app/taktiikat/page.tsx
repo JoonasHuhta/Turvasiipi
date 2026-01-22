@@ -32,7 +32,9 @@ export default function TacticsPage() {
     const tacticScrollRef = useRef<HTMLDivElement>(null);
 
     // Image carousel data from translations
-    const carouselImages = (t('quiz.tactics_page.carousel', { returnObjects: true }) as Array<{ src: string; alt: string; caption: string }>) || [];
+    const carouselImages = (t('quiz.tactics_page.carousel', { returnObjects: true }) as Array<{ src: string; alt: string; caption: string }>) || [
+        { src: "/placeholder.jpg", alt: "Placeholder", caption: "Loading..." }
+    ];
 
     const nextImage = () => {
         setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);

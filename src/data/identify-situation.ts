@@ -18,6 +18,36 @@ export interface LevelData {
 
 export const identifyLevels: LevelData[] = [
     {
+        color: 'green' as any, // Cast to any to avoid TS error if types are strict
+        title: 'VIHREÄ - Vahvuudet ja Turvallisuus',
+        subtitle: 'Turvallinen työympäristö',
+        description: 'Työympäristössäsi on vahvoja tukirakenteita ja psykologista turvallisuutta.',
+        signs: [
+            {
+                category: 'Johtamisen vahvuudet',
+                items: [
+                    { id: 'g_l1', text: 'Esihenkilösi antaa rakentavaa palautetta' },
+                    { id: 'g_l2', text: 'Odotukset ovat selkeitä ja johdonmukaisia' },
+                    { id: 'g_l3', text: 'Virheistä voi puhua avoimesti' }
+                ]
+            },
+            {
+                category: 'Työyhteisön tuki',
+                items: [
+                    { id: 'g_t1', text: 'Saat tukea kollegoiltasi' },
+                    { id: 'g_t2', text: 'Tunnet kuuluvasi yhteisöön' },
+                    { id: 'g_t3', text: 'Epäasiallisuuteen puututaan välittömästi' }
+                ]
+            }
+        ],
+        checkYourself: 'Odotatko maanantaiaamuja mielenkiinnolla? Jos kyllä → jatka vahvuuksien ylläpitoa',
+        whatToDo: [
+            'Jatka avointa viestintää',
+            'Tue kollegoitasi haastavissa tilanteissa',
+            'Jaa hyviä käytäntöjä muiden kanssa'
+        ]
+    },
+    {
         color: 'yellow',
         title: 'KELTAINEN - Varhaiset merkit',
         subtitle: 'Epämukavuus ja intuitio',
@@ -97,9 +127,9 @@ export const identifyLevels: LevelData[] = [
     },
     {
         color: 'red',
-        title: 'PUNAINEN - Vakavat vaarat',
-        subtitle: 'Kriisi ja terveysvaara',
-        description: 'Tilanne on terveydelle vaarallinen. Kyse ei ole enää "konfliktista" vaan väkivallasta.',
+        title: 'PUNAINEN - Vakava riski terveydelle',
+        subtitle: 'Tilanne vaatii välitöntä huomiota',
+        description: 'Tilanne on terveydelle vakavasti kuormittava ja vaatii ammattilaisen arvion.',
         signs: [
             {
                 category: 'Pelko hallitsee',

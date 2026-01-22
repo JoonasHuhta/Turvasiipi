@@ -1039,6 +1039,209 @@
             "tactics": "Tactic Bank",
             "compare": "Bullying vs Criticism"
         },
+        "tactics_page": {
+            "title_start": "IDENTIFY",
+            "title_highlight": "TACTICS",
+            "description": "Bullying has many faces. Learn to identify hidden forms so you can protect yourself.",
+            "carousel": [
+                {
+                    "src": "/images/tactics/social-isolation.png",
+                    "alt": "Isolation",
+                    "caption": "Silent exclusion is one of the most common forms of bullying."
+                },
+                {
+                    "src": "/images/tactics/mockery.png",
+                    "alt": "Shaming",
+                    "caption": "Public shaming is not feedback, it is use of power."
+                },
+                {
+                    "src": "/images/tactics/manipulation.png",
+                    "alt": "Gaslighting",
+                    "caption": "Distorting reality makes the victim doubt their own sanity."
+                }
+            ],
+            "modal": {
+                "definition": "Definition",
+                "goal": "Goal",
+                "impact": {
+                    "title": "Impacts",
+                    "stress": "Stress",
+                    "burnout": "Burnout",
+                    "selfEsteem": "Self Esteem"
+                },
+                "phrases": "Typical Phrases",
+                "strategy": "Counter-strategy",
+                "log_instruction": "How to log?",
+                "roles": {
+                    "victim": "As Target",
+                    "witness": "As Witness",
+                    "manager": "As Manager"
+                }
+            }
+        },
+        "tactic_categories": {
+            "verbal": "Verbal & Emotional",
+            "social": "Social & Isolating",
+            "passive": "Passive & Hidden",
+            "power": "Power & Status",
+            "manipulative": "Manipulative & Confusing",
+            "structural": "Structural & Spatial"
+        },
+        "tactics": {
+            "mitatointi": {
+                "name": "Invalidation & Belittling",
+                "definition": "Constant belittling and questioning of your skills, proposals, and achievements. The goal is to make you feel incompetent in the eyes of others and in your own mind.",
+                "phrases": [
+                    "That is a useless suggestion",
+                    "Don't you really know this?",
+                    "Anyone could have done that",
+                    "Why are you making a fuss about this?"
+                ],
+                "goal": "Erode self-confidence, take away professional credibility, and limit influence in the work community.",
+                "strategy": [
+                    "Document positive feedback from other colleagues and clients.",
+                    "Do not expect recognition from the bully; it is a conscious decision not to give it.",
+                    "Validate your expertise with external experts and networks."
+                ],
+                "logExample": "Supervisor ignored my suggestion calling it 'useless' in front of the whole team."
+            },
+            "gaslighting": {
+                "name": "Gaslighting",
+                "definition": "Psychological manipulation where the bully intentionally distorts information to make you doubt your own perceptions, memory, and sanity.",
+                "phrases": [
+                    "I never said that",
+                    "You are too sensitive",
+                    "It was a joke, don't take it heavily",
+                    "You are just imagining things"
+                ],
+                "goal": "Make the victim doubt their own observations, making them easier to control and unsure of their boundaries.",
+                "strategy": [
+                    "Write things down immediately after the event when memories are fresh.",
+                    "Use email and written messages to confirm all agreements.",
+                    "Do not get into arguments about memories with the bully; trust your own notes."
+                ],
+                "logExample": "Project schedule agreed on Monday was completely denied on Wednesday."
+            },
+            "uhkailu": {
+                "name": "Threats & Intimidation",
+                "definition": "Direct or indirect use of fear as a tool for control and power. Threats can target employment, reputation, or social status.",
+                "phrases": [
+                    "You know what follows from this",
+                    "Maybe you don't fit here",
+                    "I have spoken to management about you",
+                    "If this happens again, you know the consequences"
+                ],
+                "goal": "Silence the victim, prevent defense, and force submission through fear.",
+                "strategy": [
+                    "Document all threats, including indirect and 'between the lines' ones.",
+                    "Contact the shop steward or occupational safety representative immediately.",
+                    "Avoid being left alone with the threatener; ask a witness to join meetings."
+                ],
+                "logExample": "Supervisor hinted behind closed doors that 'career continuation is threatened' if I don't agree to overtime."
+            },
+            "identiteetti": {
+                "name": "Identity Attack",
+                "definition": "Attack on personal characteristics such as age, gender, disability, origin, or other part of identity. This is often also discrimination.",
+                "phrases": [
+                    "Are you too old for this?",
+                    "Women don't understand this",
+                    "Are you ADHD or why don't you focus?",
+                    "It's hard to learn new things at that age"
+                ],
+                "goal": "Humiliate the victim, demonstrate their 'inferiority', and signal that they do not belong to the work community due to a personal characteristic.",
+                "strategy": [
+                    "Identify that this is most often illegal discrimination (Equality Act).",
+                    "Document words precisely and mention possible witnesses.",
+                    "Contact the shop steward or equality ombudsman immediately."
+                ],
+                "logExample": "In a training session, my age was referred to condescendingly: 'we can't expect seniors to keep up'."
+            },
+            "sexual_harassment": {
+                "name": "Sexual Harassment",
+                "definition": "Sexual-toned inappropriate and unwelcome behavior that the target does not want. It can be verbal, non-verbal, or physical.",
+                "phrases": [
+                    "You look good today (condescendingly)",
+                    "Don't be so stiff (sexual innuendo)",
+                    "Double entendre jokes and hints",
+                    "Intrusive commenting on appearance"
+                ],
+                "goal": "Objectify the target, use power, and create a humiliating or hostile atmosphere.",
+                "strategy": [
+                    "Say clearly and loudly: 'Stop, this is disturbing and inappropriate'.",
+                    "Report the incident immediately to HR or supervisor (if supervisor is not the harasser).",
+                    "Save all evidence: messages, images, and notes of situations."
+                ],
+                "logExample": "Colleague made several sexually toned comments and hints during lunch break."
+            },
+            "eristaminen": {
+                "name": "Isolation & Exclusion",
+                "definition": "Intentional and systematic exclusion from interaction and information flow. The aim is to make the victim invisible in the eyes of others.",
+                "phrases": [
+                    "(Silence when entering)",
+                    "(Leaving out of email distribution)",
+                    "(Ignoring in meetings)",
+                    "(Not invited to coffee)"
+                ],
+                "goal": "Weaken the victim's social support network, cause feelings of loneliness, and drive them out of the community.",
+                "strategy": [
+                    "Document concretely who was invited, who was left out, and when.",
+                    "Ask calmly via email why you were dropped from distribution.",
+                    "Seek support from outside work or from other teams."
+                ],
+                "logExample": "I was the only team member not invited to the project kick-off meeting."
+            },
+            "tyon_estaminen": {
+                "name": "Obstruction of Work",
+                "definition": "Withholding information, resources, or tools needed for work, or giving unreasonable tasks/deadlines.",
+                "phrases": [
+                    "I forgot to send the file",
+                    "You should know this",
+                    "Deadline is tomorrow morning (given at 4 PM)",
+                    "No budget for this"
+                ],
+                "goal": "Sabotage the victim's work performance, create mistakes, and justify disciplinary measures.",
+                "strategy": [
+                    "Document requests for information and the lack of response.",
+                    "Bring up resource shortages in writing.",
+                    "Keep a log of impossible deadlines and workload."
+                ],
+                "logExample": "Essential files for the task were sent 2 hours before the deadline despite requests."
+            },
+            "maine": {
+                "name": "Damage to Reputation",
+                "definition": "Spreading false rumors, distorting skills to others, or blacklisting the victim behind their back.",
+                "phrases": [
+                    "He is a difficult person",
+                    "No one wants to work with him",
+                    "I heard he makes a lot of mistakes",
+                    "He is not a team player"
+                ],
+                "goal": "Destroy the victim's credibility, trust, and chances of advancement or getting support in the organization.",
+                "strategy": [
+                    "Speak directly with colleagues and correct false information professionally.",
+                    "Ask HR to investigate the source of rumors.",
+                    "Maintain absolute professionalism to make badmouthing look baseless."
+                ],
+                "logExample": "I heard the manager called me 'unstable' in front of other team members."
+            },
+            "cyberbullying": {
+                "name": "Cyberbullying",
+                "definition": "Harassment and inappropriate behavior in digital channels (Slack, Teams, email). It often intrudes into free time as well.",
+                "phrases": [
+                    "(Derogatory memes or images)",
+                    "(Constant questioning in chats)",
+                    "(SHOUTING WITH CAPS)",
+                    "(Harassing messages outside working hours)"
+                ],
+                "goal": "Create a sense of 24/7 surveillance and persecution, invade privacy.",
+                "strategy": [
+                    "Take screenshots of everything.",
+                    "Do not reply to harassing messages, or reply very formally.",
+                    "Report misuse of communication tools to IT or HR."
+                ],
+                "logExample": "Received 15 aggressive notifications in Teams on Sunday evening."
+            }
+        },
         "progress": "Question {{current}} / {{total}}",
         "card": {
             "yes": "Yes",
@@ -3445,5 +3648,12 @@
         "correct_answer": "Correct answer: {{answer}}",
         "explanation": "Explanation",
         "next": "Next"
+    },
+    "lukutaito_page": {
+        "self_assessment": {
+            "results": {
+                "next_section": "Next Section"
+            }
+        }
     }
 }

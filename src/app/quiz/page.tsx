@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { quizQuestions, getRiskLevel } from "@/data/questions";
-import { ArrowRight, RotateCcw, AlertTriangle, CheckCircle2, Info } from "lucide-react";
+import { quizQuestions, getRiskLevel, calculateScore } from "@/data/questions";
+import { ArrowRight, RotateCcw, AlertTriangle, Info } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
@@ -13,10 +12,19 @@ export default function QuizPage() {
     const { t } = useLanguage();
     const { completeModule } = useProgress();
     const [hasStarted, setHasStarted] = useState(false);
-    const [answers, setAnswers] = useState<Record<number, boolean>>({});
+    const [answers, setAnswers] = useState<Record<number, 1 | 2 | 3 | 4 | 5>>({});
     const [isFinished, setIsFinished] = useState(false);
 
-    const handleAnswer = (questionId: number, answer: boolean) => {
+    // Load translations safely
+    const localizedQuestions = t('quiz.questions', { returnObjects: true }) as any[];
+
+    const getQuestionText = (id: number) => {
+        if (!Array.isArray(localizedQuestions)) return "";
+        const q = localizedQuestions.find((item: any) => item.id === id);
+        return q ? q.question : "";
+    };
+
+    const handleAnswer = (questionId: number, answer: 1 | 2 | 3 | 4 | 5) => {
         setAnswers(prev => ({ ...prev, [questionId]: answer }));
     };
 
@@ -31,10 +39,6 @@ export default function QuizPage() {
         setAnswers({});
         setIsFinished(false);
         window.scrollTo(0, 0);
-    };
-
-    const calculateScore = () => {
-        return Object.values(answers).filter(Boolean).length;
     };
 
     if (!hasStarted) {
@@ -72,6 +76,17 @@ export default function QuizPage() {
                     </div>
                 </div>
 
+                <div className="bg-blue-50 p-6 rounded-sm border border-blue-200 text-sm space-y-4">
+                    <h3 className="font-bold text-[#2B2B2B] flex items-center gap-2">
+                        <Info className="w-4 h-4 text-blue-600" />
+                        Ennen kuin aloitat
+                    </h3>
+                    <p className="text-[#4A4A4A]">
+                        Hengitä rauhallisesti. Tämä on vain yksi näkökulma tilanteeseesi.
+                        Vastaukseri ovat täysin anonyymejä ja tallentuvat vain tälle laitteelle.
+                    </p>
+                </div>
+
                 <button
                     onClick={() => setHasStarted(true)}
                     className="bg-[#2B2B2B] text-white px-8 py-4 rounded-sm font-medium hover:bg-[#5B4B8A] transition-colors flex items-center gap-2"
@@ -83,42 +98,86 @@ export default function QuizPage() {
     }
 
     if (isFinished) {
-        const score = calculateScore();
+        const score = calculateScore(answers);
         const risk = getRiskLevel(score);
+        const riskContent = t(`quiz.results.${risk.key}`, { returnObjects: true }) as any;
 
         return (
             <div className="container mx-auto px-6 sm:px-8 max-w-screen-md py-32 space-y-12">
                 <div className="space-y-4">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">{t('quiz.page.analysis_label')}</span>
                     <h1 className="text-4xl font-bold text-[#2B2B2B]">
-                        {t('quiz.page.analysis_title', { score, total: quizQuestions.length })}
+                        {t('quiz.page.analysis_title', { score, total: quizQuestions.length * 5 })}
                     </h1>
                 </div>
 
                 <div className={cn(
                     "p-8 border-l-4 rounded-sm space-y-4",
-                    risk.key === 'critical' || risk.key === 'severe' ? "bg-red-50 border-red-500" : "bg-[#FDFBF7] border-[#5B4B8A]"
+                    risk.key === 'red' ? "bg-red-50 border-red-500" :
+                        risk.key === 'orange' ? "bg-orange-50 border-orange-500" :
+                            risk.key === 'yellow' ? "bg-yellow-50 border-yellow-500" :
+                                "bg-green-50 border-green-500"
                 )}>
-                    <h2 className="text-xl font-bold text-[#2B2B2B] uppercase tracking-wide flex items-center gap-2">
-                        {risk.key === 'critical' || risk.key === 'severe' ? <AlertTriangle className="w-5 h-5 text-red-600" /> : <Info className="w-5 h-5 text-[#5B4B8A]" />}
-                        {t(`quiz.risk_levels.${risk.key || 'stable'}.label`)}
+                    <h2 className={cn("text-xl font-bold uppercase tracking-wide flex items-center gap-2", risk.color)}>
+                        {risk.key === 'red' ? <AlertTriangle className="w-5 h-5" /> : <Info className="w-5 h-5" />}
+                        {riskContent.level}
                     </h2>
                     <p className="text-[#4A4A4A] leading-relaxed">
-                        {t(`quiz.risk_levels.${risk.key || 'stable'}.description`)}
+                        {riskContent.description}
                     </p>
                 </div>
 
-                <div className="space-y-6 pt-8 border-t border-[#E8DDD0]">
-                    <h3 className="text-lg font-bold text-[#2B2B2B]">{t('quiz.page.recommendations_title')}</h3>
-                    <div className="grid gap-4">
-                        {((t(`quiz.tiered_recommendations.${risk.key || 'stable'}`, { returnObjects: true }) as any[]) || []).map((item: any, i: number) => (
-                            <div key={i} className="bg-white p-6 border border-[#E8DDD0] rounded-sm hover:border-[#5B4B8A] transition-colors group cursor-pointer">
-                                <h4 className="font-bold text-[#2B2B2B] group-hover:text-[#5B4B8A] transition-colors mb-2">{item.title}</h4>
-                                <p className="text-sm text-[#4A4A4A]">{item.text}</p>
-                            </div>
-                        ))}
+                {/* Alternative Explanations */}
+                {riskContent.alternativeExplanations && riskContent.alternativeExplanations.length > 0 && (
+                    <div className="bg-blue-50 p-6 rounded-sm border border-blue-200">
+                        <h3 className="font-bold text-[#2B2B2B] mb-3 text-sm uppercase tracking-wide">
+                            💡 Tämä voi myös johtua seuraavista syistä:
+                        </h3>
+                        <ul className="space-y-2 text-sm text-[#4A4A4A]">
+                            {riskContent.alternativeExplanations.map((exp: string, i: number) => (
+                                <li key={i} className="flex items-start gap-2">
+                                    <span className="text-blue-600 mt-1">•</span>
+                                    <span>{exp}</span>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
+                )}
+
+                {/* Next Steps */}
+                {riskContent.nextSteps && riskContent.nextSteps.length > 0 && (
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-bold text-[#2B2B2B]">
+                            Seuraavat askeleet
+                        </h3>
+                        <div className="grid gap-4">
+                            {riskContent.nextSteps.map((step: any, i: number) => (
+                                <div key={i} className="p-6 border rounded-sm bg-white border-[#E8DDD0]">
+                                    <h4 className="font-bold text-[#2B2B2B] mb-2">{step.title}</h4>
+                                    <p className="text-sm text-[#4A4A4A]">{step.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Resources */}
+                {riskContent.resources && riskContent.resources.length > 0 && (
+                    <div className="bg-purple-50 p-6 rounded-sm border border-purple-200">
+                        <h3 className="font-bold text-[#2B2B2B] mb-3">
+                            📞 Tärkeät yhteystiedot
+                        </h3>
+                        <div className="grid gap-4 sm:grid-cols-2">
+                            {riskContent.resources.map((resource: any, i: number) => (
+                                <div key={i} className="mb-3">
+                                    <p className="font-bold text-sm">{resource.name}</p>
+                                    <p className="text-sm text-[#4A4A4A] font-mono">{resource.contact}</p>
+                                    <p className="text-xs text-[#6A6A6A] italic">{resource.when}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 <div className="pt-8 flex flex-col sm:flex-row gap-6">
                     <Link href="/" className="text-[#5B4B8A] font-bold hover:underline flex items-center gap-2">
@@ -127,6 +186,10 @@ export default function QuizPage() {
                     <button onClick={reset} className="text-[#4A4A4A] hover:text-[#2B2B2B] flex items-center gap-2 text-sm">
                         <RotateCcw className="w-4 h-4" /> {t('quiz.page.retry')}
                     </button>
+                </div>
+
+                <div className="bg-gray-50 p-4 rounded-sm border border-gray-200 text-xs text-[#6A6A6A] italic">
+                    ⚠️ {riskContent.disclaimer}
                 </div>
             </div>
         );
@@ -144,33 +207,44 @@ export default function QuizPage() {
             <div className="space-y-16">
                 {quizQuestions.map((q) => (
                     <div key={q.id} className="space-y-6">
-                        <p className="text-xl md:text-2xl font-serif text-[#2B2B2B] leading-relaxed">
-                            {t(`quiz.questions.${q.id}`)}
-                        </p>
+                        <div className="space-y-2">
+                            {q.positive && (
+                                <span className="inline-block px-2 py-1 bg-green-100 text-green-800 text-[10px] font-bold uppercase rounded-sm">
+                                    Vahvuus
+                                </span>
+                            )}
+                            <p className="text-xl md:text-2xl font-serif text-[#2B2B2B] leading-relaxed">
+                                {getQuestionText(q.id)}
+                            </p>
+                        </div>
 
-                        <div className="flex gap-4">
-                            <button
-                                onClick={() => handleAnswer(q.id, true)}
-                                className={cn(
-                                    "px-6 py-3 rounded-sm border transition-all text-sm font-bold uppercase tracking-wide",
-                                    answers[q.id] === true
-                                        ? "bg-[#2B2B2B] text-white border-[#2B2B2B]"
-                                        : "bg-white text-[#4A4A4A] border-[#E8DDD0] hover:border-[#5B4B8A]"
-                                )}
-                            >
-                                {t('quiz.page.yes')}
-                            </button>
-                            <button
-                                onClick={() => handleAnswer(q.id, false)}
-                                className={cn(
-                                    "px-6 py-3 rounded-sm border transition-all text-sm font-bold uppercase tracking-wide",
-                                    answers[q.id] === false
-                                        ? "bg-[#2B2B2B] text-white border-[#2B2B2B]"
-                                        : "bg-white text-[#4A4A4A] border-[#E8DDD0] hover:border-[#5B4B8A]"
-                                )}
-                            >
-                                {t('quiz.page.no')}
-                            </button>
+                        <div className="grid grid-cols-5 gap-2">
+                            {[1, 2, 3, 4, 5].map((val) => {
+                                const isSelected = answers[q.id] === val;
+                                // Labels for tooltips or mobile could be added
+                                const labels = ["Ei koskaan", "Harvoin", "Joskus", "Usein", "Päivittäin"];
+                                return (
+                                    <button
+                                        key={val}
+                                        onClick={() => handleAnswer(q.id, val as 1 | 2 | 3 | 4 | 5)}
+                                        className={cn(
+                                            "flex flex-col items-center justify-center p-2 rounded-sm border transition-all h-20",
+                                            isSelected
+                                                ? "bg-[#5B4B8A] text-white border-[#5B4B8A]"
+                                                : "bg-white text-[#4A4A4A] border-[#E8DDD0] hover:border-[#5B4B8A] hover:bg-slate-50"
+                                        )}
+                                    >
+                                        <span className="text-lg font-bold mb-1">{val}</span>
+                                        <span className="text-[10px] uppercase font-bold opacity-70 hidden sm:block">
+                                            {labels[val - 1]}
+                                        </span>
+                                    </button>
+                                )
+                            })}
+                        </div>
+                        <div className="flex justify-between text-xs text-[#6A6A6A] px-1 sm:hidden">
+                            <span>Ei koskaan</span>
+                            <span>Päivittäin</span>
                         </div>
                     </div>
                 ))}
