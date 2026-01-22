@@ -3588,5 +3588,109 @@
         "correct_answer": "Oikea vastaus: {{answer}}",
         "explanation": "Selitys",
         "next": "Seuraava"
+    },
+    "empathy_test": {
+        "hero": {
+            "label": "Empatia-Spektri",
+            "title": "Tunne itsesi,\nsuojaa muita",
+            "description_1": "Empatia ei ole vain \"tuntemista\" – se on myös ymmärtämistä ja toimintaa.",
+            "description_2": "Tämä testi kartoittaa empatiasi vahvuudet kolmella eri tasolla: kognitiivisella, affektiivisella ja moraalisella."
+        },
+        "features": {
+            "cognitive": {
+                "title": "Järki",
+                "desc": "Kognitiivinen empatia"
+            },
+            "affective": {
+                "title": "Tunne",
+                "desc": "Affektiivinen empatia"
+            },
+            "moral": {
+                "title": "Teot",
+                "desc": "Moraalinen empatia"
+            }
+        },
+        "actions": {
+            "start": "Aloita testi",
+            "view_rewards": "Katso palkinnot",
+            "retry": "Uusi testi",
+            "quit": "Lopeta"
+        },
+        "progress": "Kysymys {{current}} / {{total}}",
+        "category_labels": {
+            "cognitive": "Kognitiivinen",
+            "affective": "Affektiivinen",
+            "moral": "Moraalinen"
+        },
+        "options": {
+            "4": "Täysin samaa mieltä",
+            "3": "Jokseenkin samaa mieltä",
+            "2": "Jokseenkin eri mieltä",
+            "1": "Täysin eri mieltä"
+        },
+        "results": {
+            "your_profile": "Sinun profiilisi",
+            "breakdown": "Tulosten erittely",
+            "cognitive_label": "Kognitiivinen (Järki)",
+            "cognitive_desc": "Kyky ymmärtää toisen näkökulma.",
+            "affective_label": "Affektiivinen (Tunne)",
+            "affective_desc": "Kyky tuntea toisen tunteet.",
+            "moral_label": "Moraalinen (Teot)",
+            "moral_desc": "Halukkuus toimia oikein.",
+            "context_title": "Tulkinta ja taustatekijät",
+            "context_intro": "Tämä tulos on heijastus tämänhetkisestä tilanteestasi, ei pysyvä ominaisuus. Empatiaan vaikuttavat monet tekijät:",
+            "context_factors": {
+                "stress": "Stressi ja uupumus: Kognitiivinen kuormitus kapeuttaa luonnostaan empatiakykyä suojareaktiona.",
+                "trauma": "Trauma: Aiemmat kokemukset voivat aktivoida suojautumismekanismeja, jotka näyttäytyvät etäisyytenä.",
+                "neurodiversity": "Neuromoninaisuus: Esimerkiksi autismikirjolla empatia voi ilmetä eri tavoin (esim. vahva oikeudentaju, mutta matalampi tunnetartunta)."
+            },
+            "disclaimer": "Tämä on itsearviointityökalu (reflektio), ei psykologinen testi tai diagnoosi."
+        },
+        "questions": {
+            "1": "Ymmärrän yleensä helposti, miksi joku on jostain asiasta tuohtunut.",
+            "2": "Pystyn usein ennakoimaan, miten työkaverini reagoi ehdotukseeni.",
+            "3": "Minun on helppo asettua toisen asemaan, vaikka olisin eri mieltä.",
+            "4": "Huomaan nopeasti, jos joku teeskentelee olevansa iloinen, vaikka ei ole.",
+            "5": "Kun näen jonkun kärsivän, tunnen pahan olon itsekin.",
+            "6": "Muiden ihmisten innostus tarttuu minuun helposti.",
+            "7": "Eläydyn voimakkaasti elokuvien ja kirjojen hahmojen kohtaloihin.",
+            "8": "Minun on vaikea pysyä rauhallisena, jos läheiselläni on vaikeaa.",
+            "9": "Koen velvollisuudekseni puuttua peliin, jos näen jonkun joutuvan epäoikeudenmukaisesti kohdelluksi.",
+            "10": "Olen valmis siirtämään omat tehtäväni sivuun auttaakseni ahdingossa olevaa työkaveria.",
+            "11": "Oikeudenmukaisuus on minulle tärkeämpi arvo kuin säännöistä kiinni pitäminen.",
+            "12": "En voi katsoa sivusta, jos heikompaa syrjitään."
+        },
+        "profiles": {
+            "helper": {
+                "title": "Syväymmärtävä Auttaja",
+                "description": "Sinulla on luontainen kyky ja halu ymmärtää muita. Tämä on valtava voimavara työyhteisölle. Muista kuitenkin suojella rajojasi, jotta et uuvu toisten taakkojen alle.",
+                "icon": "🌟"
+            },
+            "outsider": {
+                "title": "Etsivä Havainnoija",
+                "description": "Juuri nyt pisteesi viittaavat etäisyyden ottamiseen. Tämä ei ole vika, vaan usein mielen tapa suojautua kuormitukselta tai stressiltä. Saatat myös käsitellä asioita enemmän logiikan kuin tunteen kautta, mikä on arvokas taito kriisitilanteissa.",
+                "icon": "🌑"
+            },
+            "defender": {
+                "title": "Oikeudenmukaisuuden Puolustaja",
+                "description": "Moraalinen kompassisi on vahva. Reagoit herkästi vääryyteen, mikä on turvallisen kulttuurin perusta. Vaikka et aina 'tuntisi' toisen tunnetta, tiedät mikä on oikein ja toimit sen puolesta.",
+                "icon": "🛡️"
+            },
+            "observer": {
+                "title": "Analyyttinen Tarkkailija",
+                "description": "Hahmotat ihmissuhteiden dynamiikkaa järjen avulla. Tämä on tärkeä taito konfliktien ratkaisussa, sillä pystyt pysymään objektiivisena silloinkin, kun tunteet kuumenevat.",
+                "icon": "🔍"
+            },
+            "sensor": {
+                "title": "Tunteiden Tulkki",
+                "description": "Aistit herkästi ilmapiirin ja muiden tunnetilat. Tämä tekee sinusta empaattisen kuuntelijan, mutta altistaa myös myötätuntouupumukselle. Oma palautuminen on sinulle erityisen tärkeää.",
+                "icon": "💚"
+            },
+            "growing": {
+                "title": "Matkalla Empatiaan",
+                "description": "Empatiasi on kehittyvä voimavara. Ehkä keskityt tällä hetkellä selviytymiseen tai suoritukseen, jolloin empatialle jää vähemmän tilaa. Se on inhimillistä. Pienetkin pysähtymiset toisen asemaan vahvistavat tätä taitoa.",
+                "icon": "🌱"
+            }
+        }
     }
 }

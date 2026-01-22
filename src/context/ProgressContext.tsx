@@ -72,6 +72,7 @@ const CORE_MODULES: Module[] = [
     { id: 'youth_info', categoryId: 'AWARENESS', title: 'Nuoret-info', points: 75, path: '/nuoret' },
     { id: 'impact_profile', categoryId: 'AWARENESS', title: 'Vaikutusprofiili', points: 150, path: '/vaikutusprofiili' },
     { id: 'literacy_test', categoryId: 'AWARENESS', title: 'Kiusaamisen Lukutaito', points: 150, path: '/lukutaito-testi' },
+    { id: 'empathy_test', categoryId: 'AWARENESS', title: 'Empatia-Spektri', points: 150, path: '/empatia-testi' },
 
     // TOOLS
     { id: 'timeline', categoryId: 'TOOLS', title: 'Aikajana', points: 100, path: '/timeline' },
@@ -180,7 +181,7 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         if (moduleId === 'sim_neuro') awardBadge('neuro_complete');
         if (moduleId === 'quiz_risks') awardBadge('risk_finder');
         if (moduleId === 'feeling_quiz') awardBadge('valid_feelings');
-        if (moduleId === 'impact_profile') awardBadge('empathy_profile_known');
+        if (moduleId === 'empathy_test') awardBadge('empathy_profile_known');
 
         // Check for mastery badges
         checkMasteryBadges();

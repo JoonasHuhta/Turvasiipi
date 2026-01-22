@@ -43,6 +43,9 @@ import {
 } from "lucide-react";
 import { useProgress, BADGES, MODULES, CategoryId } from "@/context/ProgressContext";
 import { EXPERT_LEVELS } from "@/lib/gamification-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
+import { EmpathyProfile } from "@/data/empathy-test"; // Ensure this is exported or I redefined it? It is exported.
 
 const CATEGORY_MAP: Record<CategoryId, { label: string, icon: any }> = {
     'CORE': { label: "PERUSTEET", icon: Home },
@@ -64,6 +67,9 @@ export default function ProfilePage() {
         getProgressPercentage,
         isModuleCompleted
     } = useProgress();
+
+    const { t } = useLanguage();
+    const { data: empathyResult } = useSecureLocalStorage<EmpathyProfile | null>("suojasiipi_empathy_result", null);
 
     const currentLevelNumber = getLevel();
     const { totalScore, level: expertise, subLevel } = getExpertiseLevel();
@@ -118,6 +124,9 @@ export default function ProfilePage() {
                     </TabsTrigger>
                     <TabsTrigger value="tilastot" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
                         <BarChart3 className="w-3.5 h-3.5" /> Tilastot
+                    </TabsTrigger>
+                    <TabsTrigger value="tulokset" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                        <Heart className="w-3.5 h-3.5" /> Tulokset
                     </TabsTrigger>
                 </TabsList>
 
@@ -256,6 +265,47 @@ export default function ProfilePage() {
                                             </div>
                                         ))}
                                     </div>
+                                </CardContent>
+                            </Card>
+                        </TabsContent>
+
+                        {/* Tulokset Tab */}
+                        <TabsContent value="tulokset" className="mt-0 space-y-8">
+                            <h3 className="text-xl font-serif font-bold text-[#2B2B2B]">Omat testitulokset</h3>
+
+                            {/* Empathy Result Card */}
+                            <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden">
+                                <CardHeader className="bg-[#FDFBF7] border-b border-[#E8DDD0] flex flex-row items-center justify-between">
+                                    <div className="space-y-1">
+                                        <CardTitle className="text-sm font-mono uppercase tracking-widest text-[#5B4B8A]">
+                                            {t('empathy_test.hero.label')}
+                                        </CardTitle>
+                                    </div>
+                                    {empathyResult && <div className="text-2xl">{empathyResult.icon}</div>}
+                                </CardHeader>
+                                <CardContent className="p-6">
+                                    {empathyResult ? (
+                                        <div className="space-y-4">
+                                            <h4 className="text-2xl font-serif font-bold text-[#2B2B2B]">
+                                                {t(`empathy_test.profiles.${empathyResult.key}.title`)}
+                                            </h4>
+                                            <p className="text-sm text-[#4A4A4A] leading-relaxed border-l-2 border-[#E8DDD0] pl-4">
+                                                {t(`empathy_test.profiles.${empathyResult.key}.description`)}
+                                            </p>
+                                            <div className="pt-4">
+                                                <Button variant="outline" className="text-xs uppercase font-bold tracking-widest" asChild>
+                                                    <a href="/empatia-testi">Tee uudelleen</a>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="text-center py-8 space-y-4">
+                                            <p className="text-[#4A4A4A]">Et ole vielä suorittanut empatiatestiä.</p>
+                                            <Button className="bg-[#2B2B2B] text-white uppercase font-bold tracking-widest text-xs" asChild>
+                                                <a href="/empatia-testi">Aloita testi</a>
+                                            </Button>
+                                        </div>
+                                    )}
                                 </CardContent>
                             </Card>
                         </TabsContent>

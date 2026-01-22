@@ -3655,5 +3655,109 @@
                 "next_section": "Next Section"
             }
         }
+    },
+    "empathy_test": {
+        "hero": {
+            "label": "Empathy Spectrum",
+            "title": "Know Yourself,\nProtect Others",
+            "description_1": "Empathy is not just \"feeling\" – it is also understanding and action.",
+            "description_2": "This test maps your empathy strengths on three levels: cognitive, affective, and moral."
+        },
+        "features": {
+            "cognitive": {
+                "title": "Mind",
+                "desc": "Cognitive Empathy"
+            },
+            "affective": {
+                "title": "Heart",
+                "desc": "Affective Empathy"
+            },
+            "moral": {
+                "title": "Action",
+                "desc": "Moral Empathy"
+            }
+        },
+        "actions": {
+            "start": "Start Test",
+            "view_rewards": "View Rewards",
+            "retry": "Retake Test",
+            "quit": "Quit"
+        },
+        "progress": "Question {{current}} / {{total}}",
+        "category_labels": {
+            "cognitive": "Cognitive",
+            "affective": "Affective",
+            "moral": "Moral"
+        },
+        "options": {
+            "4": "Strongly agree",
+            "3": "Somewhat agree",
+            "2": "Somewhat disagree",
+            "1": "Strongly disagree"
+        },
+        "results": {
+            "your_profile": "Your Profile",
+            "breakdown": "Results Breakdown",
+            "cognitive_label": "Cognitive (Mind)",
+            "cognitive_desc": "Ability to understand another's perspective.",
+            "affective_label": "Affective (Heart)",
+            "affective_desc": "Ability to feel another's emotions.",
+            "moral_label": "Moral (Action)",
+            "moral_desc": "Willingness to act correctly.",
+            "context_title": "Interpretation & Context",
+            "context_intro": "This result reflects your current state, not a permanent trait. Empathy is influenced by many factors:",
+            "context_factors": {
+                "stress": "Stress & Burnout: Cognitive load naturally narrows empathy as a protective mechanism.",
+                "trauma": "Trauma: Past experiences may activate defense mechanisms that appear as detachment.",
+                "neurodiversity": "Neurodiversity: For example, on the autism spectrum, empathy may manifest differently (e.g., strong sense of justice but lower emotional contagion)."
+            },
+            "disclaimer": "This is a self-reflection tool, not a psychological test or diagnosis."
+        },
+        "questions": {
+            "1": "I generally easily understand why someone is upset about something.",
+            "2": "I can often anticipate how a colleague will react to my suggestion.",
+            "3": "It is easy for me to put myself in another's shoes, even if I disagree.",
+            "4": "I quickly notice if someone is feigning happiness when they are not.",
+            "5": "When I see someone suffering, I feel bad myself.",
+            "6": "Other people's enthusiasm spreads to me easily.",
+            "7": "I emphasize strongly with the fates of characters in movies and books.",
+            "8": "It is hard for me to stay calm if someone close to me is having a hard time.",
+            "9": "I feel an obligation to intervene if I see someone being treated unfairly.",
+            "10": "I am ready to put my own tasks aside to help a colleague in distress.",
+            "11": "Fairness is a more important value to me than sticking to rules.",
+            "12": "I cannot watch from the sidelines if a weaker person is discriminated against."
+        },
+        "profiles": {
+            "helper": {
+                "title": "Deeply Understanding Helper",
+                "description": "You have a natural ability and desire to understand others. This is a huge asset to the work community. Remember, however, to protect your boundaries so you don't burn out under others' burdens.",
+                "icon": "🌟"
+            },
+            "outsider": {
+                "title": "Searching Observer",
+                "description": "Right now, your scores suggest taking some distance. This is not a flaw, but often the mind's way of protecting itself from overload or stress. You may also process things more through logic than emotion, which is a valuable skill in crises.",
+                "icon": "🌑"
+            },
+            "defender": {
+                "title": "Defender of Justice",
+                "description": "Your moral compass is strong. You react sensitively to injustice, which is the foundation of a safe culture. Even if you don't always 'feel' another's emotion, you know what is right and act for it.",
+                "icon": "🛡️"
+            },
+            "observer": {
+                "title": "Analytical Observer",
+                "description": "You perceive interpersonal dynamics through reason. This is an important skill in conflict resolution, as you can remain objective even when emotions run high.",
+                "icon": "🔍"
+            },
+            "sensor": {
+                "title": "Interpreter of Emotions",
+                "description": "You sense the atmosphere and others' emotional states sensitively. This makes you an empathetic listener, but also exposes you to compassion fatigue. Your own recovery is especially important.",
+                "icon": "💚"
+            },
+            "growing": {
+                "title": "Journey to Empathy",
+                "description": "Your empathy is a developing resource. You might currently be focused on survival or performance, leaving less room for empathy. That is human. Even small moments of stopping to consider another's position strengthen this skill.",
+                "icon": "🌱"
+            }
+        }
     }
 }
