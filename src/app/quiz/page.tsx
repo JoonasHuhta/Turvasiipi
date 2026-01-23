@@ -222,7 +222,13 @@ export default function QuizPage() {
                             {[1, 2, 3, 4, 5].map((val) => {
                                 const isSelected = answers[q.id] === val;
                                 // Labels for tooltips or mobile could be added
-                                const labels = ["Ei koskaan", "Harvoin", "Joskus", "Usein", "Päivittäin"];
+                                const labels = [
+                                    t('quiz.options.never'),
+                                    t('quiz.options.rarely'),
+                                    t('quiz.options.sometimes'),
+                                    t('quiz.options.often'),
+                                    t('quiz.options.daily')
+                                ];
                                 return (
                                     <button
                                         key={val}

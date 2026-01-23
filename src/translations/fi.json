@@ -1016,6 +1016,13 @@
             "view_analysis": "Katso analyysi",
             "answer_all_hint": "Vastaathan kaikkiin kysymyksiin nähdäksesi analyysin"
         },
+        "options": {
+            "never": "Ei koskaan",
+            "rarely": "Harvoin",
+            "sometimes": "Joskus",
+            "often": "Usein",
+            "daily": "Päivittäin"
+        },
         "questions": [
             {
                 "id": 1,

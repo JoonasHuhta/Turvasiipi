@@ -9,11 +9,11 @@ export type Question = {
 export type LikertAnswer = 1 | 2 | 3 | 4 | 5;
 
 export const likertOptions = [
-    { value: 1, label: "Ei koskaan" },
-    { value: 2, label: "Harvoin" },
-    { value: 3, label: "Joskus" },
-    { value: 4, label: "Usein" },
-    { value: 5, label: "Päivittäin" }
+    { value: 1 },
+    { value: 2 },
+    { value: 3 },
+    { value: 4 },
+    { value: 5 }
 ] as const;
 
 export const quizQuestions: Question[] = [
