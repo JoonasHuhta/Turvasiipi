@@ -106,7 +106,28 @@
             "intro": "Väärinkäsitykset syntyvät, kun kaksi eri käyttöjärjestelmää kohtaa.",
             "nt_label": "Neurotyypillinen tulkinta",
             "nd_label": "Neurokirjoinen todellisuus",
-            "solution_label": "Silta"
+            "solution_label": "Silta",
+            "situation_label": "Tilanne",
+            "items": [
+                {
+                    "situation": "Kysymys palaverissa",
+                    "nt": "Hän on hiljaa. Onko hän valmistautunut huonosti?",
+                    "nd": "Prosessoin tietoa. Tarvitsen hetken jäsentää vastausta tarkasti.",
+                    "bridge": "Anna vastausaikaa tai mahdollisuus vastata kirjallisesti."
+                },
+                {
+                    "situation": "Kuulokkeet päässä",
+                    "nt": "Hän on epäsosiaalinen ja eristäytyy tiimistä.",
+                    "nd": "Suojelen aistejani, jotta voin keskittyä työhön tehokkaasti.",
+                    "bridge": "Kunnioita työrauhan tarvetta. Kommunikoi Slackissa."
+                },
+                {
+                    "situation": "Suora palaute",
+                    "nt": "Hän on töykeä ja hyökkäävä.",
+                    "nd": "Olen rehellinen ja tehokas. Faktoissa pysyminen on kunnioitusta.",
+                    "bridge": "Älä ota kritiikkiä henkilökohtaisesti. Keskity sisältöön."
+                }
+            ]
         },
         "logs": {
             "title": "Dokumentointimallit",

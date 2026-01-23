@@ -106,7 +106,28 @@
             "intro": "Misunderstandings happen when two different operating systems interact.",
             "nt_label": "Neurotypical Interpretation",
             "nd_label": "Neurodivergent Reality",
-            "solution_label": "Bridge"
+            "solution_label": "Bridge",
+            "situation_label": "Situation",
+            "items": [
+                {
+                    "situation": "Question in a meeting",
+                    "nt": "They are quiet. Are they poorly prepared?",
+                    "nd": "I am processing information. I need a moment to structure my answer precisely.",
+                    "bridge": "Give time to answer or an opportunity to answer in writing."
+                },
+                {
+                    "situation": "Wearing headphones",
+                    "nt": "They are antisocial and isolating from the team.",
+                    "nd": "I am protecting my senses to focus on work efficiently.",
+                    "bridge": "Respect the need for peace to work. Communicate via Slack."
+                },
+                {
+                    "situation": "Direct feedback",
+                    "nt": "They are rude and attacking.",
+                    "nd": "I am honest and efficient. Sticking to facts is a sign of respect.",
+                    "bridge": "Don't take criticism personally. Focus on the content."
+                }
+            ]
         },
         "logs": {
             "title": "Documentation Templates",

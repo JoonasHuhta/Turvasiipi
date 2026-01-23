@@ -192,35 +192,10 @@ export default function NeurodiversityPage() {
                         <p className="text-slate-600 text-sm">{t('neuro_page.decoder.intro')}</p>
 
                         <div className="grid gap-4">
-                            {[
-                                {
-                                    situation: "Kysymys palaverissa",
-                                    nt: "Hän on hiljaa. Onko hän valmistautunut huonosti?",
-                                    nd: "Prosessoin tietoa. Tarvitsen hetken jäsentää vastausta tarkasti.",
-                                    bridge: "Anna vastausaikaa tai mahdollisuus vastata kirjallisesti."
-                                },
-                                {
-                                    situation: "Kuulokkeet päässä",
-                                    nt: "Hän on epäsosiaalinen ja eristäytyy tiimistä.",
-                                    nd: "Suojelen aistejani, jotta voin keskittyä työhön tehokkaasti.",
-                                    bridge: "Kunnioita työrauhan tarvetta. Kommunikoi Slackissa."
-                                },
-                                {
-                                    situation: "Suora palaute",
-                                    nt: "Hän on töykeä ja hyökkäävä.",
-                                    nd: "Olen rehellinen ja tehokas. Faktoissa pysyminen on kunnioitusta.",
-                                    bridge: "Älä ota kritiikkiä henkilökohtaisesti. Keskity sisältöön."
-                                }
-                            ].map((item, i) => (
+                            {((t('neuro_page.decoder.items', { returnObjects: true }) as Array<{ situation: string, nt: string, nd: string, bridge: string }>) || []).map((item, i) => (
                                 <Card key={i} className="overflow-hidden border-slate-200">
                                     <div className="bg-slate-50 border-b border-slate-100 px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-500">
-                                        {/* NOTE: Decoder cards content is still hardcoded in this map - should ideally be dynamic but keeping simple for now or using keys if provided in JSON.
-                                            For this task, I'll update the labels around it at least. 
-                                            Actually, I should probably translate the content too, but list of objects is tricky. 
-                                            I'll leave the content hardcoded for now as it wasn't explicitly broken out in my previous step (wait, I didn't add keys for them).
-                                            I'll use the labels.
-                                        */}
-                                        Tilanne: {item.situation}
+                                        {t('neuro_page.decoder.situation_label')}: {item.situation}
                                     </div>
                                     <div className="grid md:grid-cols-2">
                                         <div className="p-4 border-b md:border-b-0 md:border-r border-slate-100 space-y-2">
