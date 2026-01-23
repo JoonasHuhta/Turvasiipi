@@ -27,6 +27,251 @@
         "start_here": "Aloita tästä 🛡️",
         "impact_profile": "Vaikutusprofiili"
     },
+    "neuro_page": {
+        "header": {
+            "mini_title": "Erilaisuuden ymmärtäminen",
+            "title": "Neuromoninaisuus on supervoima",
+            "quote": "ADHD, autismi ja erityisherkkyys eivät ole virheitä. Ne ovat erilaisia käyttöjärjestelmiä.",
+            "intro": "Kun lopetamme neliöiden pakottamisen pyöreisiin reikiin, huomaamme, että erilaiset mielet ratkaisevat ongelmia ainutlaatuisilla tavoilla."
+        },
+        "cards": {
+            "what": {
+                "title": "Mistä on kyse?",
+                "subtitle": "Yleisimmät muodot",
+                "adhd": "<strong>ADHD:</strong> Kilpa-auton moottori polkupyörän jarruilla. Nopeutta ja luovuutta, mutta haasteita säätelyssä.",
+                "autism": "<strong>Autismikirjo:</strong> Asiantuntijan mieli. Syvä keskittyminen, rehellisyys ja systemaattisuus.",
+                "dyslexia": "<strong>Lukivaikeus:</strong> Visuaalinen ajattelu. Kokonaisuuksien hahmottaminen yksityiskohtien sijaan."
+            },
+            "superpowers": {
+                "title": "Vahvuudet",
+                "subtitle": "Oikeassa ympäristössä",
+                "productivity": "<strong>Tuottavuus:</strong> Kyky hyperfokukseen, joka ylittää neurotyypillisen tason.",
+                "innovation": "<strong>Innovaatio:</strong> Kyky ajatella laatikon ulkopuolelta, koska ei näe laatikkoa.",
+                "hyperfocus": "<strong>Intohimo:</strong> Voimakas omistautuminen kiinnostuksen kohteille."
+            }
+        },
+        "spoon_theory": {
+            "mini_title": "Jaksaminen",
+            "title": "Lusikkateoria",
+            "text": "Kuvittele, että sinulla on päivälle 12 lusikallista energiaa. Neurotyypillinen käyttää 1 lusikan aamutoimiin. Neurokirjoinen voi käyttää 5 pelkästään työmatkan aistiärsykkeiden käsittelyyn.",
+            "what": {
+                "title": "Mikä?",
+                "text": "Metafora rajallisille energiavaroille."
+            },
+            "consume": {
+                "title": "Kuluttaa",
+                "text": "Melu, keskeytykset, epäselvät ohjeet, maskaaminen."
+            },
+            "save": {
+                "title": "Säästää",
+                "text": "Rauha, selkeät tavoitteet, autonomia, palautumisaika."
+            }
+        },
+        "challenges": {
+            "title": "Haasteet",
+            "environment": {
+                "title": "Ympäristö",
+                "text": "Avokonttorit ja jatkuvat ilmoitukset ovat kryptoniittia."
+            },
+            "misunderstandings": {
+                "title": "Väärinkäsitykset",
+                "text": "Suora kommunikaatio tulkitaan usein töykeydeksi."
+            },
+            "masking": {
+                "title": "Maskaaminen",
+                "text": "<strong>Maskaaminen:</strong> Omien piirteiden piilottaminen joukkoon kuulumiseksi. Se on uuvuttavaa ja johtaa loppuunpalamiseen. \"Minulla menee hyvin\" tarkoittaa usein \"Näyttelen, että menee hyvin\"."
+            }
+        },
+        "actions": {
+            "title": "Konkreettiset teot",
+            "employee": {
+                "title": "Työntekijälle",
+                "list": [
+                    "<strong>Tunne käyttöohjeesi:</strong> Mitä tarvitset? Hiljaisuutta? Kuulokkeet?",
+                    "<strong>Sanoita tarpeet:</strong> \"Teen parasta jälkeä, kun saan ohjeet kirjallisena.\"",
+                    "<strong>Salli palautuminen:</strong> Kunnioita lepoa."
+                ]
+            },
+            "manager": {
+                "title": "Esihenkilölle",
+                "list": [
+                    "<strong>Lopeta olettaminen:</strong> Katsekontaktin puute ≠ kuuntelun puute.",
+                    "<strong>Mahdollista muokkaus:</strong> Salli erilaiset työtavat.",
+                    "<strong>Ole suora:</strong> Sano mitä tarkoitat. Vältä vihjailua."
+                ]
+            }
+        },
+        "decoder": {
+            "title": "Kaksoisempatia-tulkki",
+            "intro": "Väärinkäsitykset syntyvät, kun kaksi eri käyttöjärjestelmää kohtaa.",
+            "nt_label": "Neurotyypillinen tulkinta",
+            "nd_label": "Neurokirjoinen todellisuus",
+            "solution_label": "Silta"
+        },
+        "logs": {
+            "title": "Dokumentointimallit",
+            "subtitle": "Työkaluja vaikeisiin keskusteluihin",
+            "accommodation": {
+                "title": "Mukautuspyyntö",
+                "desc": "Malli muutosten pyytämiseen",
+                "content": "Aihe: Pyyntö työn mukauttamisesta<br/><br/>Haluaisin keskustella pienestä muutoksesta, joka parantaisi työtehoani merkittävästi..."
+            },
+            "breakdown": {
+                "title": "Tilanteen purku",
+                "desc": "Kun asiat menevät pieleen",
+                "content": "Mitä tapahtui: Väärinkäsitys deadlinesta...<br/>Oma näkökulma: Ohjeet olivat suullisia...<br/>Ehdotus: Tehtävät kirjallisesti Jiraan..."
+            },
+            "rights": {
+                "title": "Oikeutesi",
+                "text": "Sinulla on oikeus kohtuullisiin mukautuksiin yhdenvertaisuuslain nojalla. Sinun ei tarvitse diagnosoida itseäsi pyytääksesi parempaa työympäristöä."
+            }
+        },
+        "simulation": {
+            "mini_title": "Harjoittelu",
+            "title": "Testaa taitosi",
+            "text": "Astu toisen saappaisiin tai testaa omia reaktioitasi realistisissa tilanteissa.",
+            "card1": {
+                "title": "Neuro-simulaatio",
+                "desc": "Koe aistikuormitus."
+            },
+            "card2": {
+                "title": "Suoritusansa",
+                "desc": "Kun 'tarpeeksi hyvä' ei riitä."
+            },
+            "card3": {
+                "title": "Informaatiovarjo",
+                "desc": "Kun jäät ulkopuolelle."
+            },
+            "btn_all": "Kaikki simulaatiot"
+        },
+        "completion": {
+            "title_done": "Moduuli suoritettu!",
+            "title_new": "Merkitse suoritetuksi",
+            "text_done": "Olet oppinut neuromoninaisuuden perusteet.",
+            "text_new": "Kuittaa tämä osio luetuksi saadaksesi sertifikaattipisteitä.",
+            "btn_mark": "Merkitse valmiiksi (+75 pts)",
+            "btn_back": "Palaa profiiliin"
+        }
+    },
+    "youth_page": {
+        "hero": {
+            "label": "Nuoret työelämässä",
+            "title": "Työelämä ei ole <span class=\"text-[#5B4B8A] italic\">selviytymiskoe</span>.",
+            "text": "Oletko ensimmäisessä työpaikassa? Tuntuuko, että sinua testataan tai vaaditaan mahdottomia? Tämä on oppaasi oikeuksiin, rajoihin ja siihen, miten tunnistat hyväksikäytön."
+        },
+        "tabs": {
+            "intro": "Tilannekuva 2026",
+            "career": "Ammatinvalinta",
+            "interview": "Haastattelu & Riskit",
+            "sim": "Simulaatio",
+            "recovery": "Toipuminen"
+        },
+        "intro": {
+            "title": "Miksi tämä opas on olemassa?",
+            "text1": "<strong>Nuorten asema työelämässä on muuttunut.</strong> Viime vuosien tutkimukset (kuten Nuorisobarometrit) ja keskustelut osoittavat huolestuttavan trendin: nuoret kokevat aiempaa enemmän uupumusta ja epävarmuutta.",
+            "text2": "Työmarkkinatilanne vuonna 2026 on haastava ja pirstaloitunut. Erityisen huolestuttavaa on ilmiö, jossa nuoria käytetään \"halpana ja joustavana työvoimana\", olettaen ettei heillä ole tietoa omista oikeuksistaan.",
+            "exploitation": {
+                "title": "Hyväksikäyttö",
+                "text": "Palkattomat \"koe-esiintymiset\", nollatuntisopimukset ja ylitöiden maksamattomuus \"hyvän tyypin lisää\" vastaan."
+            },
+            "structural": {
+                "title": "Rakenteellinen kiusaaminen",
+                "text": "Nuoret eivät tunne TESiä tai pelkäävät määräaikaisuuden puolesta. Kiusaaminen on tiedon panttaamista tai ulkopuolelle jättämistä."
+            },
+            "quote": "\"Ongelma ei ole nuoren herkkyys – vaan valtasuhde.\""
+        },
+        "career": {
+            "title": "Valitse polkusi",
+            "subtitle": "Analysoimme kolme yleistä urapolkua hyvinvoinnin ja riskien näkökulmasta. Valitse yksi nähdäksesi asiantuntijan analyysin.",
+            "roles": {
+                "it": {
+                    "title": "Asiantuntija / IT",
+                    "desc": "Etätyö, autonomia, uudet alat."
+                },
+                "tech": {
+                    "title": "Käsityö / Tekniikka",
+                    "desc": "Selkeät rajat, näkyvä tuli."
+                },
+                "care": {
+                    "title": "Sote / Kasvatus",
+                    "desc": "Merkityksellisyys, ihmiset."
+                }
+            },
+            "it_content": {
+                "title": "Analyysi: Asiantuntijatyö",
+                "good": "Autonomia suojaa uupumukselta. Työmarkkinat usein työntekijän puolella.",
+                "risk": "\"Aina tavoitettavissa\" -kulttuuri ja sosiaalinen eristäytyminen.",
+                "expl": "Palkattomat ylityöt \"prosessin nimissä\" tai \"näytön paikkana\".",
+                "strat": "Suojastrategia: Dokumentoi kaikki työ chatissa. Rajaa työaika heti alussa (\"Teen tämän huomenna työajalla\")."
+            },
+            "tech_content": {
+                "title": "Analyysi: Käsityö ja Tekniikka",
+                "good": "Työn tulos on näkyvä. Työajat selkeät: kun työmaa sulaa, työt loppuvat. Vahvat liitot.",
+                "risk": "Kova \"äijäkulttuuri\", jossa uuden tulokkaan simputus voi olla perinnettä.",
+                "expl": "Työturvallisuudesta tinkiminen kiireen varjolla.",
+                "strat": "Suojastrategia: Liity liittoon heti. Kysy työturvallisuudesta ääneen. (\"Teen tämän ohjeiden mukaan.\")"
+            },
+            "care_content": {
+                "title": "Analyysi: Sote ja Kasvatus",
+                "good": "Työllisyys 100% varma. Työ on erittäin merkityksellistä.",
+                "risk": "Systeeminen uupumus, resurssipula ja moraalinen stressi.",
+                "expl": "\"Venyminen\" kollegoiden ja potilaiden takia (syyllistäminen).",
+                "strat": "Suojastrategia: Älä perusta identiteettiä \"kutsumukseen\". Pidä tauot pyhinä. (\"Tämä ei ole turvallista tehdä yksin.\")"
+            },
+            "analysis": {
+                "why_good": "Miksi hyvä:",
+                "risk": "Riski:",
+                "exploitation": "Hyväksikäyttö:",
+                "strategy": "Suojastrategia:"
+            }
+        },
+        "interview": {
+            "title": "Tunnista myrkyllinen työpaikka jo haastattelussa",
+            "ask_title": "Kysy nämä haastattelussa",
+            "q1": "\"Miten perehdytys on järjestetty ja kuka on mentorini?\"",
+            "w1": "⚠️ Jos vastaus on epämääräinen \"siinä se menee ohessa\", se on varoitusmerkki.",
+            "q2": "\"Miten täällä reagoidaan, jos uusi työntekijä tekee virheen?\"",
+            "w2_good": "✅ Hyvä: \"Virheet käydään läpi yhdessä.\"",
+            "w2_bad": "❌ Vaara: \"Täällä odotetaan, että asiat otetaan nopeasti haltuun.\"",
+            "flags_title": "Varoitusmerkit (Red Flags)",
+            "f1": "\"Me olemme täällä kuin yhtä perhettä.\" (Koodi: rajoja ei ole)",
+            "f2": "\"Kaikki ovat joskus aloittaneet nollasta.\" (Koodi: oikeutus huonolle kohtelulle)",
+            "f3": "\"Täällä ei katsota kelloa.\" (Koodi: ilmaiset ylityöt)"
+        },
+        "sim": {
+            "title": "Ensimmäinen kesätyö?",
+            "desc": "Astu realistiseen simulaatioon, jossa opit tunnistamaan hiljaisen kiusaamisen ja asettamaan ammatilliset rajat.",
+            "tags": {
+                "duration": "⏱️ 5 min",
+                "skill": "🛡️ Rajojen veto",
+                "result": "🧠 Toimijuus"
+            },
+            "btn": "Aloita Simulaatio"
+        },
+        "recovery": {
+            "title": "Kun jäljet jäävät (vaikka työ loppuu)",
+            "desc": "Työpaikkakiusaaminen ei jää työpaikalle – se jää kehoon ja mieleen. Tämä on normaali reaktio epänormaaliin tilanteeseen.",
+            "p1_title": "1. Itseluottamuksen rapautuminen",
+            "p1_text": "Ei siksi että olisit heikko, vaan koska sinua arvioitiin epäreiluilla säännöillä. Aivosi oppivat: \"Minä olen ongelma.\"",
+            "p2_title": "2. Ylivalppaus",
+            "p2_text": "Tarkkailet jatkuvasti muita. Pelkäät virheitä kohtuuttomasti. Keho oppii: \"Työ = uhka.\"",
+            "ex_title": "Harjoitus: Faktat vs. Tulkinnat",
+            "fact_label": "Fakta",
+            "fact_val": "\"Minua ei perehdytetty kunnolla.\"",
+            "interp_label": "Opittu tulkinta (VÄÄRIN)",
+            "interp_val": "\"Olen huono oppimaan.\"",
+            "note": "Tee tämä 3–5 tilanteelle. Tämä harjoitus katkaisee kiusaamisen sisäistämisen.",
+            "final_quote": "\"Et tarvitse 'rohkeutta'. Tarvitset turvallisia toistoja.\""
+        },
+        "completion": {
+            "title_done": "Oppaat luettu!",
+            "title_new": "Tiedätkö nyt enemmän?",
+            "text_done": "Olet suorittanut Nuoret-infon. Pisteet on lisätty profiiliisi.",
+            "text_new": "Kun olet tutustunut oppaisiin, voit kuitata ne suoritetuksi tästä. Tämä kerryttää sertifiointipisteitäsi.",
+            "btn_mark": "Merkitse suoritetuksi (+75 pts)",
+            "btn_back": "Palaa saavutuksiin"
+        }
+    },
     "impact_profile": {
         "nav_title": "Vaikutusprofiili",
         "hero": {
@@ -150,6 +395,698 @@
         "card": {
             "new": "Uusi",
             "start": "Aloita"
+        }
+    },
+    "scenarios": {
+        "e1": {
+            "scenario": "Esimies välttää katsekontaktia ja ohittaa sinut tervehtiessäsi, vaikka hän tervehtii muita iloisesti.",
+            "question": "Mitä kiusaamistaktiikkaa tässä käytetään?",
+            "hint": "Tämä taktiikka pyrkii tekemään kohteesta \"näkymättömän\".",
+            "options": {
+                "a": {
+                    "text": "Eristäminen ja ulossulkeminen",
+                    "feedback": "Oikein. Systemaattinen huomioimatta jättäminen on passiivinen mutta tehokas tapa eristää ihminen työyhteisöstä."
+                },
+                "b": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Sabotaasi liittyy yleensä työnteon vaikeuttamiseen, ei pelkkään sosiaaliseen kohteluun."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Gaslightingissa yritetään vääristää todellisuudentajua, ei vain sivuuttaa henkilöä."
+                },
+                "d": {
+                    "text": "Asiallinen palaute",
+                    "feedback": "Väärin. Tervehtimättä jättäminen ei ole koskaan asiallista palautetta."
+                }
+            }
+        },
+        "e2": {
+            "scenario": "Työkaveri \"unohtaa\" jatkuvasti lisätä sinut kalenterikutsuihin palavereissa, jotka liittyvät suoraan vastuualueeseesi.",
+            "question": "Mistä taktiikasta on kyse?",
+            "hint": "Kyse on tehokkaasta tavasta estää toista tekemästä työtään.",
+            "options": {
+                "a": {
+                    "text": "Sabotaasi",
+                    "feedback": "Oikein. Työnteon estäminen pimentämällä tietoa on sabotaasia, joka vaikeuttaa uhrin onnistumista."
+                },
+                "b": {
+                    "text": "Mitätöinti",
+                    "feedback": "Väärin. Mitätöinti kohdistuu yleensä henkilön osaamiseen tai tunteisiin, ei suoraan työnkulkuun."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Uhkailussa luvataan seurauksia, tässä vain estetään työnteko."
+                },
+                "d": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Vaikka tämä voi vaikuttaa maineeseen, ensisijainen teko on työn estäminen."
+                }
+            }
+        },
+        "e3": {
+            "scenario": "Esimies väittää palaverissa, ettei ole koskaan lupannut sinulle lisäresursseja, vaikka asiasta sovittiin kirjallisesti viikko sitten. Alat epäillä omaa muistiasi.",
+            "question": "Mikä taktiikka on kyseessä?",
+            "hint": "Nimi tulee elokuvasta, jossa lamppujen välkkyminen kielletään.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting",
+                    "feedback": "Oikein. Gaslighting on pyrkimys saada uhri epäilemään omaa havaintokykyään tai muistiaan."
+                },
+                "b": {
+                    "text": "Epäoikeudenmukaisuus",
+                    "feedback": "Väärin. Vaikka teko on epäoikeudenmukainen, spesifimpi termi on todellisuuden vääristäminen."
+                },
+                "c": {
+                    "text": "Emotionaalinen manipulaatio",
+                    "feedback": "Väärin. Emotionaalinen manipulaatio on laajempi käsite, gaslighting on täsmällisempi tässä."
+                },
+                "d": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tilanteessa ei esitetä suoraa uhkaa, vaan vääristetään faktoja."
+                }
+            }
+        },
+        "e4": {
+            "scenario": "Kollegasi naurahtaa ivallisesti ja pyörittää silmiään aina, kun avaat suusi tiimipalaverissa.",
+            "question": "Mitä tässä tapahtuu?",
+            "hint": "Tämä taktiikka hyökkää henkilön itsetuntoa ja asiantuntijuutta vastaan.",
+            "options": {
+                "a": {
+                    "text": "Mitätöinti ja vähättely",
+                    "feedback": "Oikein. Sanaton viestintä (eleet, ilmeet) on tehokas keino kertoa, ettei toisen mielipiteellä ole arvoa."
+                },
+                "b": {
+                    "text": "Asiallinen kritiikki",
+                    "feedback": "Väärin. Asiallinen kritiikki kohdistuu sisältöön, ei henkilön nolaamiseen eleillä."
+                },
+                "c": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Sabotaasi kohdistuu työn tuotokseen, ei suoraan vuorovaikutustilanteeseen."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Tässä ei yritetä vääristää muistoja, vaan nolata henkilö."
+                }
+            }
+        },
+        "e5": {
+            "scenario": "Saat työtehtäväksesi arkistoida 5000 sivua manuaalisesti viikonlopun aikana, vaikka tiedetään, että tehtävä on turha ja se voitaisiin hoitaa koneellisesti.",
+            "question": "Mikä taktiikka on käytössä?",
+            "hint": "Kyse on vallankäytöstä, jossa tehtävä itsessään toimii rangaistuksena.",
+            "options": {
+                "a": {
+                    "text": "Kohtuuttomat vaatimukset",
+                    "feedback": "Oikein. Mahdottomien tai tarkoituksellisen raskaiden ja turhien tehtävien antaminen on uuvuttamiseen tähtäävää kiusaamista."
+                },
+                "b": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Tämä kohdistuu työaikaan ja jaksamiseen, ei suoraan julkiseen kuvaan."
+                },
+                "c": {
+                    "text": "Emotionaalinen manipulaatio",
+                    "feedback": "Väärin. Vaikka tämä on kurjaa, kyse on nimenomaan työmäärän käytöstä aseena."
+                },
+                "d": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tilanteessa ei esitetä ehtoa (jos et tee -> niin...), vaan annetaan mahdoton tehtävä."
+                }
+            }
+        },
+        "e6": {
+            "scenario": "Esimies sanoo: \"Jos tästä asiasta menee tieto eteenpäin, en voi taata, että työsuhteesi jatkuu koeajan jälkeen.\"",
+            "question": "Mitä taktiikkaa tässä käytetään?",
+            "hint": "Tämä taktiikka pyrkii vaientamaan uhrin pelon avulla.",
+            "options": {
+                "a": {
+                    "text": "Uhkailu ja pelottelu",
+                    "feedback": "Oikein. Suora tai epäsuora uhkaus työpaikan menettämisestä on vakavaa kiusaamista ja vallan väärinkäyttöä."
+                },
+                "b": {
+                    "text": "Asiallinen ohjeistus",
+                    "feedback": "Väärin. Työsuhteen jatkolla pelottelu vaikenemisen ehdoksi ei ole koskaan asiallista."
+                },
+                "c": {
+                    "text": "Passiivi-aggressiivisuus",
+                    "feedback": "Väärin. Uhkaus on tässä hyvinkin suora, ei passiivinen."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Tässä ei vääristellä totuutta, vaan luodaan pelkoa."
+                }
+            }
+        },
+        "e7": {
+            "scenario": "Lounaspöydässä keskustelu lakkaa heti, kun istut alas, ja muut vaihtavat merkitseviä katseita keskenään.",
+            "question": "Mistä on kyse?",
+            "hint": "Tämä on tyypillinen \"näkymätön\" tapa kertoa uhrille hänen asemansa.",
+            "options": {
+                "a": {
+                    "text": "Eristäminen ja ulossulkeminen",
+                    "feedback": "Oikein. Hiljaisuus ja elekieli, jotka viestivät \"et kuulu joukkoon\", ovat voimakkaita eristämisen keinoja."
+                },
+                "b": {
+                    "text": "Sattuma",
+                    "feedback": "Väärin. Jos tämä on toistuvaa, se on suunnitelmallista ulossulkemista."
+                },
+                "c": {
+                    "text": "Mitätöinti",
+                    "feedback": "Väärin. Mitätöinti kohdistuu sanomisiisi, tässä sinua ei edes oteta puheeseen mukaan."
+                },
+                "d": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Vaikka tämä voi liittyä juoruiluun, ensisijainen teko on sosiaalinen eristäminen."
+                }
+            }
+        },
+        "e8": {
+            "scenario": "Huomaat, että sinusta levitetään perättömiä juoruja koskien alkoholinkäyttöäsi vapaa-ajalla.",
+            "question": "Mikä taktiikka on käytössä?",
+            "hint": "Tavoitteena on uhrin uskottavuuden syöminen muiden silmissä.",
+            "options": {
+                "a": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Oikein. Perättömien huhujen levittäminen tähtää uhrin uskottavuuden ja sosiaalisen aseman tuhoamiseen."
+                },
+                "b": {
+                    "text": "Emotionaalinen manipulaatio",
+                    "feedback": "Väärin. Vaikka se tuntuu pahalta, kyse on nimenomaan julkisen kuvan mustamaalaamisesta."
+                },
+                "c": {
+                    "text": "Sananvapaus",
+                    "feedback": "Väärin. Valheiden levittäminen toisesta ei ole sananvapautta, vaan loukkaavaa käytöstä."
+                },
+                "d": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tässä ei uhata tulevalla, vaan vahingoitetaan nykyistä mainetta."
+                }
+            }
+        },
+        "e9": {
+            "scenario": "Esimies antaa sinulle erittäin tuskallisen tarkan ja tiukan palautteen raportistasi, jossa on useita asiavirheitä. Hän vaatii korjauksia huomiseksi.",
+            "question": "Onko tämä kiusaamista?",
+            "hint": "Mieti, kohdistuuko teko työn sisältöön vai henkilöön.",
+            "options": {
+                "a": {
+                    "text": "Ei, tämä on asiallista kritiikkiä",
+                    "feedback": "Oikein. Työn laatuun kohdistuva, perusteltu palaute ja virheiden korjausvaatimus on esimiehen oikeus ja velvollisuus."
+                },
+                "b": {
+                    "text": "Kyllä, se on kohtuuton vaatimus",
+                    "feedback": "Väärin. Jos raportissa on isoja virheitä, korjaus on tarpeen nopeasti. Se ei ole kiusaamista, ellei aikataulu ole mahdoton."
+                },
+                "c": {
+                    "text": "Kyllä, se on mitätöintiä",
+                    "feedback": "Väärin. Virheiden osoittaminen on eri asia kuin osaamisen yleinen vähättely."
+                },
+                "d": {
+                    "text": "Kyllä, se on uhkailua",
+                    "feedback": "Väärin. Kritiikki ja vaatimustaso eivät ole uhkailua."
+                }
+            }
+        },
+        "e10": {
+            "scenario": "Laitat esimiehellesi sähköpostia tärkeästä asiasta. Hän vastaa kaikille muiden tiimiläisten viesteihin, mutta jättää sinun viestisi toistuvasti vastaamatta viikkojen ajan.",
+            "question": "Mikä taktiikka?",
+            "hint": "Tämä on tyypillinen \"hiljainen\" tapa osoittaa vihamielisyyttä.",
+            "options": {
+                "a": {
+                    "text": "Passiivi-aggressiivisuus",
+                    "feedback": "Oikein. Vaikeneminen ja huomiotta jättäminen (silent treatment) sähköpostitse on passiivista aggressiivisuutta."
+                },
+                "b": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Hiljaisuus ei ole suora uhkaus, vaan passiivinen teko."
+                },
+                "c": {
+                    "text": "Työkiire",
+                    "feedback": "Väärin. Jos hän vastaa muille mutta ei sinulle toistuvasti, kyse ei ole pelkästä kiireestä."
+                },
+                "d": {
+                    "text": "Mitätöinti",
+                    "feedback": "Väärin. Tämä on lähempänä eristämistä tai passiivista vastustusta kuin suoraa vähättelyä."
+                }
+            }
+        },
+        "m1": {
+            "scenario": "Esimies kehuu kaikkia muita tiimin jäseniä vuolaasti erinomaisesta suorituksesta, mutta sinun kohdallasi hän toteaa vain lyhyesti: \"Sinäkin teit osuutesi.\"",
+            "question": "Mitä taktiikkaa tässä käytetään?",
+            "hint": "Tämä on hienovarainen tapa kertoa, että panoksesi ei ole yhtä arvokas kuin muiden.",
+            "options": {
+                "a": {
+                    "text": "Mitätöinti ja vähättely",
+                    "feedback": "Oikein. Kontrastilla luotu vähättely on hienovaraista: kehumalla muita sivuutetaan sinun merkityksesi."
+                },
+                "b": {
+                    "text": "Epäoikeudenmukaisuus",
+                    "feedback": "Väärin. Vaikka se on epäreilua, keskeinen mekanismi on suorituksen vähättely suhteessa muihin."
+                },
+                "c": {
+                    "text": "Asiallinen palaute",
+                    "feedback": "Väärin. Jatkuva kontrastin luominen muihin on kiusaamista, ei tasapuolista palautetta."
+                },
+                "d": {
+                    "text": "Emotionaalinen manipulaatio",
+                    "feedback": "Väärin. Tämä on suoraan osaamisen vähättelyä."
+                }
+            }
+        },
+        "m2": {
+            "scenario": "Sait suuren projektin valmiiksi etuajassa. Esimiehesi sanoo: \"Hienoa että ehdit kerrankin ajoissa, yleensähän sinulla on tapana viivytellä.\"",
+            "question": "Mikä on kyseessä?",
+            "hint": "Tämä on kehu, joka jättää pahan maun suuhun.",
+            "options": {
+                "a": {
+                    "text": "Passiivi-aggressiivisuus",
+                    "feedback": "Oikein. \"Vale-kehu\" (backhanded compliment) on tapa piilottaa kritiikki tai loukkaus positiivisen lauseen sisään."
+                },
+                "b": {
+                    "text": "Asiallinen muistutus",
+                    "feedback": "Väärin. Historialla piikittely onnistumisen hetkellä ei ole rakentavaa ohjausta."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tässä ei uhata millään, vaan loukataan."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Tässä ei yritetä vääristää muistoja, vaan luoda syyllisyyttä."
+                }
+            }
+        },
+        "m3": {
+            "scenario": "Tiimipalaverissa esimies kysyy mielipidettäsi asiaan, mutta alkaa katsoa puhelintaan ja keskeyttää sinut heti kun aloitat vastaamisen.",
+            "question": "Mitä tässä tapahtuu?",
+            "hint": "Tämä taktiikka viestii, että puheellasi ei ole arvoa.",
+            "options": {
+                "a": {
+                    "text": "Mitätöinti (näkymättömäksi tekeminen)",
+                    "feedback": "Oikein. Demonstroimalla, ettei vastauksesi oikeasti kiinnosta, esimies mitätöi asiantuntijuutesi muiden edessä."
+                },
+                "b": {
+                    "text": "Työkiire",
+                    "feedback": "Väärin. Puhelimen katsominen ja keskeyttäminen on epäkunnioittavaa käytöstä, ei kiirettä."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tilanteessa ei ole pelote-elementtiä."
+                },
+                "d": {
+                    "text": "Eristäminen",
+                    "feedback": "Väärin. Vaikka se voi johtaa eristämiseen, ensisijainen teko on puheenvuoron vähättely."
+                }
+            }
+        },
+        "m4": {
+            "scenario": "Kollegasi ottaa kunnian ideasta, jonka esitit hänelle kahden kesken aamukahvilla, ja esittelee sen omana ideanaan viikkopalaverissa.",
+            "question": "Mikä taktiikka?",
+            "hint": "Tämä kohdistuu suoraan uhrin työn arvoon ja näkyvyyteen.",
+            "options": {
+                "a": {
+                    "text": "Sabotaasi ja hyväksikäyttö",
+                    "feedback": "Oikein. Toisen ideoilla ratsastaminen ja uhrin näkyvyyden vieminen on urakehityksen sabotoimista."
+                },
+                "b": {
+                    "text": "Yhteistyö",
+                    "feedback": "Väärin. Yhteistyössä kunnia jaetaan, ei varasteta."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Hän ei yritä saada sinua epäilemään sanoitko sen, hän vain varastaa sen."
+                },
+                "d": {
+                    "text": "Emotionaalinen manipulaatio",
+                    "feedback": "Väärin. Kyse on työpanoksen varastamisesta."
+                }
+            }
+        },
+        "m5": {
+            "scenario": "Esimies muuttaa projektin tavoitteita ja deadlineja jatkuvasti ilmoittamatta niistä sinulle, mutta kritisoi sinua siitä, ettet pysy aikataulussa.",
+            "question": "Mitä taktiikkaa tässä käytetään?",
+            "hint": "Tämä tekee onnistumisen mahdottomaksi tarkoituksella.",
+            "options": {
+                "a": {
+                    "text": "Epäoikeudenmukaisuus ja sabotaasi",
+                    "feedback": "Oikein. \"Liikkuvat maalit\" tekevät onnistumisesta mahdotonta, mikä on tyypillistä sabotaasia."
+                },
+                "b": {
+                    "text": "Huono johtaminen",
+                    "feedback": "Väärin. Jos tämä on toistuvaa ja kohdistuu vain sinuun, kyse ei ole vain huonosta johtamisesta vaan kiusaamisesta."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Uhkaus puuttuu, mutta kritiikki perusteettomasti on läsnä."
+                },
+                "d": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Vaikka maine kärsii epäonnistumisesta, teko itsessään on työnteon vaikeuttamista."
+                }
+            }
+        },
+        "m6": {
+            "scenario": "Työyhteisössä on sovittu yhteinen \"sisäpiirin vitsi\", joka liittyy sinun tapaasi puhua tai pukeutua. Vaikka sanot, ettei se ole kivaa, he jatkavat \"hyvällä huumorilla\".",
+            "question": "Mistä on kyse?",
+            "hint": "Tämä on tyypillinen tapa naamioida aggressio huumoriksi.",
+            "options": {
+                "a": {
+                    "text": "Identiteetin hyökkäys ja vähättely",
+                    "feedback": "Oikein. Huumorin varjolla tehty henkilöön kohdistuva pilkka on vallankäyttöä ja kiusaamista."
+                },
+                "b": {
+                    "text": "Työpaikkahuumori",
+                    "feedback": "Väärin. Huumori lakkaa olemasta huumoria, kun kohde kokee sen loukkaavaksi."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Vaikka he voivat väittää sinun olevan liian herkkä, keskeinen teko on pilkkaaminen."
+                },
+                "d": {
+                    "text": "Eristäminen",
+                    "feedback": "Väärin. Tämä on aktiivista nolaamista, ei pelkkää sivuuttamista."
+                }
+            }
+        },
+        "m7": {
+            "scenario": "Esimies sanoo: \"Sinulla tuntuu olevan vaikeuksia sopeutua meidän tiimin dynaamiseen kulttuuriin. Ehkä tämä ympäristö on sinulle liian vaativa?\"",
+            "question": "Mikä taktiikka?",
+            "hint": "Tämä saa uhrin itsensä tuntemaan olevansa ongelma.",
+            "options": {
+                "a": {
+                    "text": "Emotionaalinen manipulaatio / Gaslighting",
+                    "feedback": "Oikein. Syyn siirtäminen uhrin \"persoonaan\" tai \"kykyihin\" sen sijaan että puhuttaisiin ongelmista, on hienovaraista manipulointia."
+                },
+                "b": {
+                    "text": "Asiallinen ohjaus",
+                    "feedback": "Väärin. Ohjauksessa annettaisiin tukea tai konkreettisia parannusehdotuksia, ei kyseenalaistettaisi koko ihmistä."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tässä ei suoraan uhata, mutta vihjataan poistumiseen."
+                },
+                "d": {
+                    "text": "Mitätöinti",
+                    "feedback": "Väärin. Tämä on enemmänkin uhrin todellisuudentajun horjuttamista."
+                }
+            }
+        },
+        "m8": {
+            "scenario": "Huomaat, että sinua koskevia tärkeitä sähköposteja \"katoaa\" tai niitä ei lähetetä sinulle, mutta esimies syyttää sinua tiedonpuutteesta muiden edessä.",
+            "question": "Mikä taktiikka?",
+            "hint": "Kyse on tiedon käyttämisestä vallan välineenä.",
+            "options": {
+                "a": {
+                    "text": "Sabotaasi ja nolaaminen",
+                    "feedback": "Oikein. Tiedon panttaaminen (gatekeeping) yhdistettynä julkiseen syyttämiseen on tehokas yhdistelmä sabotaasia ja nolaamista."
+                },
+                "b": {
+                    "text": "Inhimillinen virhe",
+                    "feedback": "Väärin. Jos tiedon puutteesta rangaistaan nolaamalla, se ei ole enää pelkkä virhe."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Tässä sabotoidaan työn resursseja."
+                },
+                "d": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Teko on sabotaasia, julkinen syyttäminen on nolaamista."
+                }
+            }
+        },
+        "m9": {
+            "scenario": "Olet tehnyt hienon tuloksen. Esimies sanoo: \"Upeaa, mutta muista että tämä on vain yksi onnistuminen. Älä anna sen nousta hattuun, olet kuitenkin vielä aika kokematon.\"",
+            "question": "Onko tämä kiusaamista?",
+            "hint": "Tämä vie ilon onnistumisesta silmänräpäyksessä.",
+            "options": {
+                "a": {
+                    "text": "Kyllä, se on mitätöintiä ja vähättelyä",
+                    "feedback": "Oikein. Onnistumisen välitön alasampuminen (vähättely) estää uhrin itsetunnon kasvun ja nautinnon työstä."
+                },
+                "b": {
+                    "text": "Ei, se on realismia",
+                    "feedback": "Väärin. Realismi ei tarkoita toisen onnistumisen tarkoituksellista himmentämistä välittömästi."
+                },
+                "c": {
+                    "text": "Kyllä, se on uhkailua",
+                    "feedback": "Väärin. Uhkaus puuttuu, kyse on statuksen laskemisesta."
+                },
+                "d": {
+                    "text": "Ei, se on palautetta",
+                    "feedback": "Väärin. Palaute ilman kannustusta ja pelkkä vähättely on kiusaamista."
+                }
+            }
+        },
+        "m10": {
+            "scenario": "Kaikki muut saavat osallistua koulutuspäivään, mutta sinun on jäätävä \"päivystämään toimistolle\", koska joku on aina paikalla oltava. Tämä on jo kolmas kerta putkeen.",
+            "question": "Mikä taktiikka?",
+            "hint": "Tämä taktiikka jättää uhrin jälkeen muusta tiimistä.",
+            "options": {
+                "a": {
+                    "text": "Epäoikeudenmukaisuus ja eristäminen",
+                    "feedback": "Oikein. Resurssien ja kehitysmahdollisuuksien epätasa-arvoinen jakaminen on tapa sivuuttaa uhri."
+                },
+                "b": {
+                    "text": "Työnjako",
+                    "feedback": "Väärin. Jos työnjako osuu aina samaan henkilöön toisten hyödyksi, se ei ole asiallista työnjakoa."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Kyse on passiivisesta syrjimisestä."
+                },
+                "d": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Kyse on urakehityksen ja sosiaalisen osallistumisen estämisestä."
+                }
+            }
+        },
+        "h1": {
+            "scenario": "Esimies on kanssasi erittäin mukava ja kannustava kahden kesken, mutta muiden läsnä ollessa hän on kylmä ja etäinen. Alat kyseenalaistaa, oletko kuvitellut hänen ystävällisyytensä.",
+            "question": "Mitä taktiikkaa tässä käytetään?",
+            "hint": "Tämä taktiikka perustuu epäjohdonmukaisuuteen, joka horjuttaa uhrin tasapainoa.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting ja emotionaalinen manipulaatio",
+                    "feedback": "Oikein. Kahdet kasvot (Jekyll & Hyde) tuottavat uhrille valtavaa hämmennystä ja saavat epäilemään omaa tulkintakykyä."
+                },
+                "b": {
+                    "text": "Tilanneherkkyys",
+                    "feedback": "Väärin. Suoraan vastakkainen käytös eri tilanteissa on epätervettä manipulointia, ei asiallista sopeutumista."
+                },
+                "c": {
+                    "text": "Asiallinen kritiikki",
+                    "feedback": "Väärin. Tässä ei ole kyse kritiikistä vaan epäloogisesta sosiaalisesta kohtelusta."
+                },
+                "d": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Tämä kohdistuu uhrin mielenterveyteen ja luottamukseen."
+                }
+            }
+        },
+        "h2": {
+            "scenario": "Sinua pyydetään kommentoimaan projektia. Kun teet sen, esimies sanoo: \"Kiitos, mutta tuntuu että olet nyt vähän liian emotionaalisesti kiinnittynyt tähän. Pysytäänpä faktoissa.\"",
+            "question": "Kyseessä on taktiikka, joka tunnetaan nimellä...",
+            "hint": "Hyökkäys kohdistuu siihen, *miten* sanot asian, ei siihen *mitä* sanot.",
+            "options": {
+                "a": {
+                    "text": "Tone policing (äänensävyn kyttäys / mitätöinti)",
+                    "feedback": "Oikein. Sisällön ohittaminen ja keskittyminen uhrin \"tunteeseen\" on tapa viedä sanoman uskottavuus."
+                },
+                "b": {
+                    "text": "Asiallinen ohjaus",
+                    "feedback": "Väärin. Asiallisessa ohjauksessa vastattaisiin argumentteihin, ei leimattaisi puhujaa \"tunteelliseksi\"."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Vaikka se voi olla osa sitä, spesifimpi muoto on asiasisällön kieltäminen tunteeseen vedoten."
+                },
+                "d": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Tämä on suoraan suullista vähättelyä."
+                }
+            }
+        },
+        "h3": {
+            "scenario": "Huomaat, että aina kun teet pienenkin inhimillisen virheen (kuten kirjoitusvirhe meilissä), siitä nousee valtava haloo. Muilta samoja virheitä ei edes huomioida.",
+            "question": "Mitä taktiikkaa tässä käytetään?",
+            "hint": "Pienistä puroista kasvaa valtava uupumuksen joki.",
+            "options": {
+                "a": {
+                    "text": "Death by a Thousand Cuts / Mikrotarkkailu",
+                    "feedback": "Oikein. Epätasa-arvoinen puuttuminen pikkuseikkoihin kuluttaa uhrin hermoja ja luo jatkuvan pelon tilan."
+                },
+                "b": {
+                    "text": "Laadunvalvonta",
+                    "feedback": "Väärin. Laadunvalvonnan tulee olla tasapuolista eikä se saa olla kohtuutonta."
+                },
+                "c": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Uhkaus on epäsuora, mutta kyse on jatkuvasta nalkuttamisesta."
+                },
+                "d": {
+                    "text": "Mitätöinti",
+                    "feedback": "Väärin. Kyse on virheiden suurentamisesta, ei osaamisen kieltämisestä."
+                }
+            }
+        },
+        "h4": {
+            "scenario": "Esimies kysyy: \"Oletko nyt aivan varma, että olet palautunut sairauslomalta? Näytät hieman väsyneeltä tänään. Ehkä emme anna tätä uutta vastuuta sinulle vielä?\"",
+            "question": "Tämä on hienovarainen taktiikka, jonka nimi on...",
+            "hint": "Nenän alla on huoli, mutta takana on vallan rajoittaminen.",
+            "options": {
+                "a": {
+                    "text": "Huolenpitoon naamioitu syrjintä / mitätöinti",
+                    "feedback": "Oikein. \"Huoli\" uhrin jaksamisesta on usein tapa rajoittaa hänen etenemistään tai viedä mielenkiintoiset tehtävät."
+                },
+                "b": {
+                    "text": "Vastuullinen johtaminen",
+                    "feedback": "Väärin. Vastuullinen johtaja kysyisi: \"Miten sinulla menee, tarvitsetko tukea?\", eikä tekisi oletuksia ja eväisi vastuuta."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Väärin. Tässä ei vääristellä menneisyyttä, vaan nykyhetkeä huolen varjolla."
+                },
+                "d": {
+                    "text": "Empathia",
+                    "feedback": "Väärin. Aito empatia antaa valtaa kohteelle, ei ota sitä pois."
+                }
+            }
+        },
+        "h5": {
+            "scenario": "Tiimipalaverissa esimies esittää kysymyksen, johon tiedät vastauksen. Kun vastaat, hän sanoo: \"Kiitos, mutta haluaisin kuulla jonkun sellaisen mielipiteen, joka on ollut täällä kauemmin.\"",
+            "question": "Mikä taktiikka?",
+            "hint": "Tässä rakennetaan muuria uhrin ja päätöksenteon välille.",
+            "options": {
+                "a": {
+                    "text": "Eksklusiivisuus ja statuksen vähättely",
+                    "feedback": "Oikein. Osaamisen kytkeminen statukseen (kuten seniority) on tapa evätä uhrilta oikeus osallistua keskusteluun."
+                },
+                "b": {
+                    "text": "Fakta",
+                    "feedback": "Väärin. Kokemus on fakta, mutta sen käyttäminen asiantuntemuksen sivuuttamiseen on kiusaamista."
+                },
+                "c": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Tämä on sosiaalista nolaamista palaverissa."
+                },
+                "d": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Pelote puuttuu, mutta loukkaus on selkeä."
+                }
+            }
+        },
+        "h6": {
+            "scenario": "Sait tehtäväksesi valmistella esityksen. Deadlineksi sovittiin perjantai. Torstaina esimies kysyy: \"Missä esitys on? Sovimme että se on valmis keskiviikkona.\"",
+            "question": "Mitä tässä tapahtuu?",
+            "hint": "Tämä saa sinut etsimään meilejä, joita ei ole olemassa.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting (aikataulun vääristäminen)",
+                    "feedback": "Oikein. Aikatauluista valehtelu jälkikäteen tähtää uhrin syyllistämiseen ja oman muistin epäilyyn."
+                },
+                "b": {
+                    "text": "Väärinkäsitys",
+                    "feedback": "Väärin. Jos deadlinet \"siirtyvät\" vain sinun kohdallasi, se on tietoista manipulointia."
+                },
+                "c": {
+                    "text": "Sabotaasi",
+                    "feedback": "Väärin. Sabotaasi olisi tiedostojen poistaminen, aikataulusta valehtelu on gaslightingia."
+                },
+                "d": {
+                    "text": "Kohtuuttomat vaatimukset",
+                    "feedback": "Väärin. Vaatimus on sama, mutta ajankohtaa vääristellään."
+                }
+            }
+        },
+        "h7": {
+            "scenario": "Esimies pyytää sinua pysymään töiden jälkeen \"keskustelemaan\". Hän ei kerro aihetta, mutta on vakava. Odottat tapaamista koko päivän ahdistuneena. Tapaamisessa hän puhuukin vain säästä.",
+            "question": "Tämä on tyypillinen esimerkki...",
+            "hint": "Tämä hyökkää uhrin turvallisuudentunnetta vastaan.",
+            "options": {
+                "a": {
+                    "text": "Psykologisesta pelottelusta / horjuttamisesta",
+                    "feedback": "Oikein. Epävarmuuden ja pelon luominen tarkoituksella (vagaat varoitukset) on vakavaa henkistä väkivaltaa."
+                },
+                "b": {
+                    "text": "Pienestä pilasta",
+                    "feedback": "Väärin. Pila on hauska molemmille, tämä aiheuttaa toiselle kärsimystä."
+                },
+                "c": {
+                    "text": "Passiivi-aggressiivisuudesta",
+                    "feedback": "Väärin. Tämä on aktiivista manipulointia."
+                },
+                "d": {
+                    "text": "Heikosta viestinnästä",
+                    "feedback": "Väärin. Ammattilainen tunnistaa, että epävarmuuden luominen on vallankäyttöä."
+                }
+            }
+        },
+        "h8": {
+            "scenario": "Esimies vihjailee muiden työntekijöiden olevan tyytymättömiä panokseesi, mutta ei suostu nimeämään kuka on valittanut tai mitä on sanottu.",
+            "question": "Mikä taktiikka?",
+            "hint": "Tämä tehtiin, jotta tuntisit olevasi yksin kaikkia muita vastaan.",
+            "options": {
+                "a": {
+                    "text": "Mielikuvien luominen ja eristäminen (Triangulaatio)",
+                    "feedback": "Oikein. Kuvitteellisen \"vastustajajoukon\" luominen syö uhrin turvallisuuden ja saa hänet epäilemään kaikkia kollegoitaan."
+                },
+                "b": {
+                    "text": "Anonyymi palaute",
+                    "feedback": "Väärin. Anonyymin palautteen tulee silti olla konkreettista eikä sitä tule käyttää pelotteluun."
+                },
+                "c": {
+                    "text": "Maineen vahingoittaminen",
+                    "feedback": "Väärin. Maine on jo ehkä vahingoitettu, mutta teko on psyykkinen horjuttaminen."
+                },
+                "d": {
+                    "text": "Uhkailu",
+                    "feedback": "Väärin. Tässä ei uhata, vaan kerrotaan (ehkä valheellisesti) toisten mielipiteitä."
+                }
+            }
+        },
+        "h9": {
+            "scenario": "Tiimipalaverissa puhutaan uudesta strategiasta. Esimies sanoo: \"Tämä voi olla joillekin vähän liian monimutkaista, joten ehkä [Sinun Nimesi] voisi keskittyä noihin kopiokoneen huoltoihin tänään?\"",
+            "question": "Onko tämä kiusaamista?",
+            "hint": "Mieti miltä sinusta tuntuisi muiden silmissä.",
+            "options": {
+                "a": {
+                    "text": "Kyllä, se on loukkaavaa vähättelyä ja osaamisen sivuuttamista",
+                    "feedback": "Oikein. Julkinen älykkyyden tai osaamisen kyseenalaistaminen ja alentavat tehtävät ovat selkeää kiusaamista."
+                },
+                "b": {
+                    "text": "Ei, se on työnjakoa osaamisen mukaan",
+                    "feedback": "Väärin. Työnjaon tulee kunnioittaa kunkin ammattitaitoa."
+                },
+                "c": {
+                    "text": "Ei, se on huolenpitoa työmäärästä",
+                    "feedback": "Väärin. Kopiokoneen huolto ei ole asiantuntijan tehtävä."
+                },
+                "d": {
+                    "text": "Kyllä, se on uhkailua",
+                    "feedback": "Väärin. Uhkaus puuttuu, nolaaminen on keskiössä."
+                }
+            }
+        },
+        "h10": {
+            "scenario": "Olet tehnyt ison virheen. Esimies ottaa asian puheeksi rauhallisesti, esittää faktat ja pyytää sinua tekemään suunnitelman, miten vastaava vältetään jatkossa.",
+            "question": "Onko tämä kiusaamista?",
+            "hint": "Mieti, pyrkiväkö teko tuhoamaan henkilöä vai parantamaan työtä.",
+            "options": {
+                "a": {
+                    "text": "Ei, tämä on asiallista ja rakentavaa palautetta",
+                    "feedback": "Oikein. Virheisiin puuttuminen, faktoilla perusteleminen ja ratkaisukeskeisyys ovat hyvää johtamista, eivät kiusaamista."
+                },
+                "b": {
+                    "text": "Kyllä, se on mitätöintiä",
+                    "feedback": "Väärin. Virheen osoittaminen ei ole mitätöintiä, jos se tapahtuu asiallisesti."
+                },
+                "c": {
+                    "text": "Kyllä, se on emotionaalista väkivaltaa",
+                    "feedback": "Väärin. Palaute on harvoin mukavaa, mutta asiallisena se ei ole väkivaltaa."
+                },
+                "d": {
+                    "text": "Ei, mutta se on epäreilua",
+                    "feedback": "Väärin. Virheen käsittely on reilua työn laatua ajatellen."
+                }
+            }
         }
     },
     "simulation_youth": {
@@ -3723,6 +4660,264 @@
                 "description": "Empatiasi on kehittyvä voimavara. Ehkä keskityt tällä hetkellä selviytymiseen tai suoritukseen, jolloin empatialle jää vähemmän tilaa. Se on inhimillistä. Pienetkin pysähtymiset toisen asemaan vahvistavat tätä taitoa.",
                 "icon": "🌱"
             }
+        }
+    },
+    "fact_bank_page": {
+        "title_mini": "Faktapankki",
+        "title_main": "Tunnista ilmiöt,",
+        "title_main_suffix": "ymmärrä vaikutukset",
+        "description": "Tervetuloa Turvasiiven faktapankkiin. Täältä löydät tietoa työelämän pelisäännöistä, tunnistat riskit ja ymmärrät ilmiön laajemmat vaikutukset.",
+        "tabs": {
+            "quiz": "Tietovisa",
+            "costs": "Teoria: Hiljaisuuden hinta",
+            "simulation": "Kokeilu: Vaikutukset"
+        }
+    },
+    "neuro_page": {
+        "header": {
+            "mini_title": "Oppimiskeskus",
+            "title": "Neuromoninaisuus työelämässä",
+            "quote": "\"Aivosi toimivat eri tavalla? Se on voimavarasi.\"",
+            "intro": "Neuromoninaisuus kattaa tilat kuten autismikirjon, ADHD, dysleksia ja dyspraksia. Se ei ole sairaus, vaan osa ihmisen luonnollista vaihtelua."
+        },
+        "cards": {
+            "what": {
+                "title": "Mistä kyse?",
+                "subtitle": "15-20% väestöstä",
+                "adhd": "<strong>ADHD (5%):</strong> Luovuus, energisyys, \"out-of-the-box\" ajattelu. Haasteina keskittyminen ja impulssikontrolli.",
+                "autism": "<strong>Autismikirjo (2%):</strong> Systeemiajattelu, yksityiskohtien havaitseminen, johdonmukaisuus. Haasteina sosiaalinen kommunikaatio.",
+                "dyslexia": "<strong>Dysleksia (10%):</strong> Visuaalinen ajattelu, kokonaisuuksien hahmottaminen."
+            },
+            "superpowers": {
+                "title": "Supervoimat",
+                "subtitle": "Tutkittuja vahvuuksia",
+                "productivity": "🏆 <strong>Tuottavuus:</strong> Autism at Work -ohjelmissa jopa 140% tuottavampia ja vähemmän virheitä.",
+                "innovation": "💡 <strong>Innovaatio:</strong> Kuvioiden tunnistaminen ja monimutkainen ongelmanratkaisu.",
+                "hyperfocus": "🔍 <strong>Hyperfokus:</strong> Kyky uppoutua täysin tehtävään ja tuottaa poikkeuksellista laatua."
+            }
+        },
+        "spoon_theory": {
+            "mini_title": "Energiapääoma",
+            "title": "Lusikkateoria ja jaksaminen",
+            "text": "Lusikkateoria on Christine Miserandinon kehittämä vertauskuva energian rajallisuudesta. Se auttaa ymmärtämään, miksi arkipäiväiset asiat voivat uuvuttaa neuromoninaisen ihmisen nopeammin.",
+            "what": {
+                "title": "Mikä se on?",
+                "text": "Jokainen \"lusikka\" on yksikkö energiaa. Toisin kuin neurotyypillisillä, neuromoninaisilla lusikoita on usein vähemmän ja ne kuluvat nopeammin aistiärsykkeisiin tai sosiaaliseen maskaamiseen."
+            },
+            "consume": {
+                "title": "Mikä kuluttaa?",
+                "text": "Meluisa tila, epäselvät ohjeet, muuttuvat aikataulut tai pakotettu small talk voivat viedä useita lusikoita kerralla ennen kuin varsinainen työ on edes alkanut."
+            },
+            "save": {
+                "title": "Miten säästää?",
+                "text": "Oikeus vastamelukuulokkeisiin, kirjallinen kommunikaatio ja lupaus olla osallistumatta videopalavereihin voivat säästää kriittisiä lusikoita loppupäivään."
+            }
+        },
+        "challenges": {
+            "title": "Miksi työelämä kuormittaa?",
+            "environment": {
+                "title": "Työympäristö",
+                "text": "Avokonttorit (melu, valot), spontaanit palaverit ilman agendaa, ja jatkuva \"small talk\" -kulttuuri kuormittavat aisteja ja sosiaalista akkua."
+            },
+            "misunderstandings": {
+                "title": "Väärinkäsitykset",
+                "text": "Suora puhe tulkitaan töykeydeksi. Katsekontaktin puute tulkitaan epärehellisyydeksi. 96% vammoista on näkymättömiä."
+            },
+            "masking": {
+                "title": "⚠️ Masking (Naamioituminen)",
+                "text": "Masking tarkoittaa oireiden piilottamista sopeutuakseen. Se kuluttaa valtavasti energiaa ja johtaa uupumukseen, ahdistukseen ja identiteetin katoamiseen. <strong> Burnout-riski on merkittävästi korkeampi.</strong>"
+            }
+        },
+        "actions": {
+            "title": "Mitä voit tehdä?",
+            "employee": {
+                "title": "Työntekijälle",
+                "list": [
+                    "<span class=\"text-emerald-500 font-bold\">1.</span> Tunnista tarpeesi: Mikä ympäristö tukee sinua?",
+                    "<span class=\"text-emerald-500 font-bold\">2.</span> Dokumentoi: Milloin keskittymisesi on parhaimmillaan?",
+                    "<span class=\"text-emerald-500 font-bold\">3.</span> Viesti selkeästi: \"Kirjalliset ohjeet auttavat minua hahmottamaan kokonaisuuden paremmin.\"",
+                    "<span class=\"text-emerald-500 font-bold\">4.</span> Suojaa energiaasi: Älä maskeeraa jos ei ole pakko. Ota taukoja."
+                ]
+            },
+            "manager": {
+                "title": "Esimiehelle & Kollegalle",
+                "list": [
+                    "<span class=\"text-indigo-500 font-bold\">1.</span> Älä oleta - kysy: \"Miten voisin tukea työskentelyäsi?\"",
+                    "<span class=\"text-indigo-500 font-bold\">2.</span> Tarjoa mukautuksia: Etätyö, hiljainen tila, vastamelukuulokkeet.",
+                    "<span class=\"text-indigo-500 font-bold\">3.</span> Kommunikoi ennakoiden: Agendat etukäteen, selkeät aikataulut.",
+                    "<span class=\"text-indigo-500 font-bold\">4.</span> Normalisoi erilaisuus: Jokaisella on oikeus olla oma itsensä."
+                ]
+            }
+        },
+        "decoder": {
+            "title": "Kaksoisempatia-tulkki",
+            "intro": "Sama tilanne, kaksi eri kokemusta. Ymmärrys syntyy kuilun ylittämisestä.",
+            "nt_label": "Neurotyypillinen tulkinta",
+            "nd_label": "Neuromoninainen kokemus",
+            "solution_label": "Ratkaisu"
+        },
+        "logs": {
+            "title": "Nepsy-Log",
+            "subtitle": "Dokumentoinnin tueksi Performance Trapia eli suoritusloukkua vastaan.",
+            "accommodation": {
+                "title": "Sovitut mukautukset",
+                "desc": "Käytä kun sovit pelisäännöistä esimiehen kanssa.",
+                "content": "\"PVM: [TÄNÄÄN]<br />OSALLISTUJAT: [NIMET]<br />SOVITTU: Meluvaimennuskuulokkeet sallittu työpisteellä.<br />PERUSTELU: Keskittymiskyvyn varmistaminen (Yhdenvertaisuuslaki).<br />SEURANTA: [PVM]\""
+            },
+            "breakdown": {
+                "title": "Viestinnän katkokset",
+                "desc": "Kirjaa ylös tilanteet, joissa jäit informaatiovarjoon.",
+                "content": "\"AIKA: [AIKA]<br />TAPAHTUMA: Tiimissä tehtiin päätös X keittiössä.<br />VAIKUTUS: Jäin tiedon ulkopuolelle, työni viivästyi 2h.<br />REAKTIO: Pyysin päivitystä sähköpostitse.\""
+            },
+            "rights": {
+                "title": "Muista oikeutesi:",
+                "text": "Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuulliset mukautukset. Dokumentoitu logi on näyttösi, jos näitä mukautuksia käytetään myöhemmin sinua vastaan."
+            }
+        },
+        "simulation": {
+            "mini_title": "Harjoittelu",
+            "title": "Harjoittele itsepuolustusta turvallisesti",
+            "text": "Työelämä voi olla miinakenttä. Simulaattorimme avulla voit harjoitella vaikeita tilanteita ennen niiden kohtaamista arjessa.",
+            "card1": {
+                "title": "Päivä neurokirjolla 🧩",
+                "desc": "Aistiyliherkkyydet ja energianhallinta."
+            },
+            "card2": {
+                "title": "Suoritusloukku 📉",
+                "desc": "Kohtuullisten mukautusten puolustaminen."
+            },
+            "card3": {
+                "title": "Informaatiovarjo 👤",
+                "desc": "Sosiaalisesta ulossulkemisesta selviytyminen."
+            },
+            "btn_all": "Katso kaikki skenaariot"
+        },
+        "completion": {
+            "title_done": "Tieto tallennettu!",
+            "title_new": "Saitko uutta tietoa?",
+            "text_done": "Olet suorittanut Neuromoninaisuus-infon. Pisteet on lisätty profiiliisi.",
+            "text_new": "Kun olet lukenut materiaalin, voit kuitata sen suoritetuksi alta. Tämä kerryttää sertifiointipisteitäsi.",
+            "btn_mark": "Merkitse suoritetuksi (+75 pts)",
+            "btn_back": "Palaa saavutuksiin"
+        }
+    },
+    "youth_page": {
+        "hero": {
+            "label": "Nuoret työelämässä",
+            "title": "Työelämä ei ole <span class=\"text-[#5B4B8A] italic\">selviytymiskoe</span>.",
+            "text": "Oletko ensimmäisessä työpaikassa? Tuntuuko, että sinua testataan tai vaaditaan mahdottomia? Tämä on oppaasi oikeuksiin, rajoihin ja siihen, miten tunnistat hyväksikäytön."
+        },
+        "tabs": {
+            "intro": "Tilannekuva 2026",
+            "career": "Ammatinvalinta",
+            "interview": "Haastattelu & Riskit",
+            "sim": "Simulaatio",
+            "recovery": "Toipuminen"
+        },
+        "intro": {
+            "title": "Miksi tämä opas on olemassa?",
+            "text1": "<strong>Nuorten asema työelämässä on muuttunut.</strong> Viime vuosien tutkimukset (kuten Nuorisobarometrit) ja keskustelut osoittavat huolestuttavan trendin: nuoret kokevat aiempaa enemmän uupumusta ja epävarmuutta.",
+            "text2": "Työmarkkinatilanne vuonna 2026 on haastava ja pirstaloitunut. Erityisen huolestuttavaa on ilmiö, jossa nuoria käytetään \"halpana ja joustavana työvoimana\", olettaen ettei heillä ole tietoa omista oikeuksistaan.",
+            "exploitation": {
+                "title": "Hyväksikäyttö",
+                "text": "Palkattomat \"koe-esiintymiset\", nollatuntisopimukset ja ylitöiden maksamattomuus \"hyvän tyypin lisää\" vastaan."
+            },
+            "structural": {
+                "title": "Rakenteellinen kiusaaminen",
+                "text": "Nuoret eivät tunne TESiä tai pelkäävät määräaikaisuuden puolesta. Kiusaaminen on tiedon panttaamista tai ulkopuolelle jättämistä."
+            },
+            "quote": "\"Ongelma ei ole nuoren herkkyys – vaan valtasuhde.\""
+        },
+        "career": {
+            "title": "Valitse polkusi",
+            "subtitle": "Analysoimme kolme yleistä urapolkua hyvinvoinnin ja riskien näkökulmasta. Valitse yksi nähdäksesi asiantuntijan analyysin.",
+            "roles": {
+                "it": {
+                    "title": "Asiantuntija / IT",
+                    "desc": "Etätyö, autonomia, uudet alat."
+                },
+                "tech": {
+                    "title": "Käsityö / Tekniikka",
+                    "desc": "Selkeät rajat, näkyvä tuli."
+                },
+                "care": {
+                    "title": "Sote / Kasvatus",
+                    "desc": "Merkityksellisyys, ihmiset."
+                }
+            },
+            "analysis": {
+                "why_good": "Miksi hyvä:",
+                "risk": "Riski:",
+                "exploitation": "Hyväksikäyttö:",
+                "strategy": "Suojastrategia:"
+            },
+            "it_content": {
+                "title": "Analyysi: Asiantuntijatyö",
+                "good": "Autonomia suojaa uupumukselta. Työmarkkinat usein työntekijän puolella.",
+                "risk": "\"Aina tavoitettavissa\" -kulttuuri ja sosiaalinen eristäytyminen.",
+                "expl": "Palkattomat ylityöt \"prosessin nimissä\" tai \"näytön paikkana\".",
+                "strat": "Dokumentoi kaikki työ chatissa. Rajaa työaika heti alussa (\"Teen tämän huomenna työajalla\")."
+            },
+            "tech_content": {
+                "title": "Analyysi: Käsityö ja Tekniikka",
+                "good": "Työn tulos on näkyvä. Työajat selkeät: kun työmaa sulaa, työt loppuvat. Vahvat liitot.",
+                "risk": "Kova \"äijäkulttuuri\", jossa uuden tulokkaan simputus voi olla perinnettä.",
+                "expl": "Työturvallisuudesta tinkiminen kiireen varjolla.",
+                "strat": "Liity liittoon heti. Kysy työturvallisuudesta ääneen. (\"Teen tämän ohjeiden mukaan.\")"
+            },
+            "care_content": {
+                "title": "Analyysi: Sote ja Kasvatus",
+                "good": "Työllisyys 100% varma. Työ on erittäin merkityksellistä.",
+                "risk": "Systeeminen uupumus, resurssipula ja moraalinen stressi.",
+                "expl": "\"Venyminen\" kollegoiden ja potilaiden takia (syyllistäminen).",
+                "strat": "Älä perusta identiteettiä \"kutsumukseen\". Pidä tauot pyhinä. (\"Tämä ei ole turvallista tehdä yksin.\")"
+            }
+        },
+        "interview": {
+            "title": "Tunnista myrkyllinen työpaikka jo haastattelussa",
+            "ask_title": "Kysy nämä haastattelussa",
+            "q1": "\"Miten perehdytys on järjestetty ja kuka on mentorini?\"",
+            "w1": "⚠️ Jos vastaus on epämääräinen \"siinä se menee ohessa\", se on varoitusmerkki.",
+            "q2": "\"Miten täällä reagoidaan, jos uusi työntekijä tekee virheen?\"",
+            "w2_good": "✅ Hyvä: \"Virheet käydään läpi yhdessä.\"",
+            "w2_bad": "❌ Vaara: \"Täällä odotetaan, että asiat otetaan nopeasti haltuun.\"",
+            "flags_title": "Varoitusmerkit (Red Flags)",
+            "f1": "\"Me olemme täällä kuin yhtä perhettä.\" (Koodi: rajoja ei ole)",
+            "f2": "\"Kaikki ovat joskus aloittaneet nollasta.\" (Koodi: oikeutus huonolle kohtelulle)",
+            "f3": "\"Täällä ei katsota kelloa.\" (Koodi: ilmaiset ylityöt)"
+        },
+        "sim": {
+            "title": "Ensimmäinen kesätyö?",
+            "desc": "Astu realistiseen simulaatioon, jossa opit tunnistamaan hiljaisen kiusaamisen ja asettamaan ammatilliset rajat.",
+            "tags": {
+                "duration": "⏱️ Kesto: 5 min",
+                "skill": "🛡️ Taito: Rajojen veto",
+                "result": "🧠 Tulos: Toimijuus"
+            },
+            "btn": "Aloita Simulaatio"
+        },
+        "recovery": {
+            "title": "Kun jäljet jäävät (vaikka työ loppuu)",
+            "desc": "Työpaikkakiusaaminen ei jää työpaikalle – se jää kehoon ja mieleen. Tämä on normaali reaktio epänormaaliin tilanteeseen.",
+            "p1_title": "1. Itseluottamuksen rapautuminen",
+            "p1_text": "Ei siksi että olisit heikko, vaan koska sinua arvioitiin epäreiluilla säännöillä. Aivosi oppivat: \"Minä olen ongelma.\"",
+            "p2_title": "2. Ylivalppaus",
+            "p2_text": "Tarkkailet jatkuvasti muita. Pelkäät virheitä kohtuuttomasti. Keho oppii: \"Työ = uhka.\"",
+            "ex_title": "Harjoitus: Faktat vs. Tulkinnat",
+            "fact_label": "Fakta",
+            "fact_val": "\"Minua ei perehdytetty kunnolla.\"",
+            "interp_label": "Opittu tulkinta (VÄÄRIN)",
+            "interp_val": "\"Olen huono oppimaan.\"",
+            "note": "Tee tämä 3–5 tilanteelle. Tämä harjoitus katkaisee kiusaamisen sisäistämisen.",
+            "final_quote": "\"Et tarvitse 'rohkeutta'. Tarvitset turvallisia toistoja.\""
+        },
+        "completion": {
+            "title_done": "Oppaat luettu!",
+            "title_new": "Tiedätkö nyt enemmän?",
+            "text_done": "Olet suorittanut Nuoret-infon. Pisteet on lisätty profiiliisi.",
+            "text_new": "Kun olet tutustunut oppaisiin, voit kuitata ne suoritetuksi tästä. Tämä kerryttää sertifiointipisteitäsi.",
+            "btn_mark": "Merkitse suoritetuksi (+75 pts)",
+            "btn_back": "Palaa saavutuksiin"
         }
     }
 }

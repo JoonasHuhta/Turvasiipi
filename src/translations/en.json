@@ -27,6 +27,251 @@
         "guide": "How to Document?",
         "start_here": "Start Here 🛡️"
     },
+    "neuro_page": {
+        "header": {
+            "mini_title": "Understanding Differences",
+            "title": "Neurodiversity is a Superpower",
+            "quote": "ADHD, autism, and high sensitivity are not bugs. They are different operating systems.",
+            "intro": "When we stop trying to force square pegs into round holes, we discover that different minds solve problems in unique and brilliant ways."
+        },
+        "cards": {
+            "what": {
+                "title": "What is it?",
+                "subtitle": "Common forms of neurodiversity",
+                "adhd": "<strong>ADHD:</strong> A race car brain with bicycle brakes. Speed, creativity, but challenges in regulation.",
+                "autism": "<strong>Autism:</strong> A specialist's mind. Deep focus, honesty, and systematic thinking.",
+                "dyslexia": "<strong>Dyslexia:</strong> Visual thinking. Seeing the big picture instead of details."
+            },
+            "superpowers": {
+                "title": "Superpowers",
+                "subtitle": "In the right environment",
+                "productivity": "<strong>Productivity:</strong> Capability for hyperfocus that surpasses neurotypicals.",
+                "innovation": "<strong>Innovation:</strong> Ability to think outside the box because you don't see the box.",
+                "hyperfocus": "<strong>Passion:</strong> Intense dedication to topics of interest."
+            }
+        },
+        "spoon_theory": {
+            "mini_title": "Energy Management",
+            "title": "The Spoon Theory",
+            "text": "Imagine you have 12 spoons of energy for the day. A neurotypical uses 1 spoon to get ready for work. A neurodivergent might use 5 just to handle the sensory overload of the commute.",
+            "what": {
+                "title": "What is it?",
+                "text": "A metaphor for limited energy resources."
+            },
+            "consume": {
+                "title": "Consumes Spoons",
+                "text": "Noise, interruptions, unclear instructions, masking."
+            },
+            "save": {
+                "title": "Saves Spoons",
+                "text": "Quiet, clear goals, autonomy, recovery time."
+            }
+        },
+        "challenges": {
+            "title": "Challenges",
+            "environment": {
+                "title": "Environment",
+                "text": "Open offices and constant notifications are kryptonite."
+            },
+            "misunderstandings": {
+                "title": "Misunderstandings",
+                "text": "Direct communication is often interpreted as rudeness."
+            },
+            "masking": {
+                "title": "Masking",
+                "text": "<strong>Masking:</strong> Hiding your true traits to fit in. It is exhausting and leads to burnout. \"I'm fine\" often means \"I'm acting fine\"."
+            }
+        },
+        "actions": {
+            "title": "Concrete Actions",
+            "employee": {
+                "title": "For Employee",
+                "list": [
+                    "<strong>Know your manual:</strong> What do you need? Silence? Headphones?",
+                    "<strong>Communicate needs:</strong> \"I work best with written instructions.\"",
+                    "<strong>Allow recovery:</strong> Respect your need for rest."
+                ]
+            },
+            "manager": {
+                "title": "For Manager",
+                "list": [
+                    "<strong>Stop assuming:</strong> lack of eye contact ≠ lack of listening.",
+                    "<strong>Enable molding:</strong> Allow different ways of working.",
+                    "<strong>Be direct:</strong> Say what you mean. Avoid hints."
+                ]
+            }
+        },
+        "decoder": {
+            "title": "Double Empathy Decoder",
+            "intro": "Misunderstandings happen when two different operating systems interact.",
+            "nt_label": "Neurotypical Interpretation",
+            "nd_label": "Neurodivergent Reality",
+            "solution_label": "Bridge"
+        },
+        "logs": {
+            "title": "Documentation Templates",
+            "subtitle": "Tools for difficult conversations",
+            "accommodation": {
+                "title": "Accommodation Request",
+                "desc": "Template for requesting adjustments",
+                "content": "Subject: Request for work accommodation<br/><br/>I would like to discuss a small change that would significantly improve my work efficiency..."
+            },
+            "breakdown": {
+                "title": "Situation Breakdown",
+                "desc": "When things go wrong",
+                "content": "What happened: Misunderstanding about deadline...<br/>My perspective: Instructions were verbal...<br/>Proposal: Jira tickets for all tasks..."
+            },
+            "rights": {
+                "title": "Your Rights",
+                "text": "You have the right to reasonable accommodations under the Equality Act. You do not need to diagnose yourself to ask for a better work environment."
+            }
+        },
+        "simulation": {
+            "mini_title": "Training",
+            "title": "Test Your Skills",
+            "text": "Step into the shoes of others or test your own reactions in realistic scenarios.",
+            "card1": {
+                "title": "Neuro-Simulation",
+                "desc": "Experience sensory overload."
+            },
+            "card2": {
+                "title": "Performance Trap",
+                "desc": "When 'good enough' is not enough."
+            },
+            "card3": {
+                "title": "Information Shadow",
+                "desc": "When you are left out."
+            },
+            "btn_all": "All Simulations"
+        },
+        "completion": {
+            "title_done": "Module Completed!",
+            "title_new": "Mark as Completed",
+            "text_done": "You have learned the basics of neurodiversity.",
+            "text_new": "Mark this section as read to earn certification points.",
+            "btn_mark": "Mark as Completed (+75 pts)",
+            "btn_back": "Back to Profile"
+        }
+    },
+    "youth_page": {
+        "hero": {
+            "label": "Youth at Work",
+            "title": "Work life is not a <span class=\"text-[#5B4B8A] italic\">survival test</span>.",
+            "text": "First job? Feel like you're being tested or asked the impossible? This is your guide to rights, boundaries, and recognizing exploitation."
+        },
+        "tabs": {
+            "intro": "Situation 2026",
+            "career": "Career Choice",
+            "interview": "Interview & Risks",
+            "sim": "Simulation",
+            "recovery": "Recovery"
+        },
+        "intro": {
+            "title": "Why does this guide exist?",
+            "text1": "<strong>The position of youth in work life has changed.</strong> Recent studies show a worrying trend: youth experience more burnout and uncertainty than before.",
+            "text2": "The labor market in 2026 is challenging. Especially worrying is the phenomenon where youth are used as \"cheap and flexible labor\".",
+            "exploitation": {
+                "title": "Exploitation",
+                "text": "Unpaid \"auditions\", zero-hour contracts, and unpaid overtime for \"being a good guy\"."
+            },
+            "structural": {
+                "title": "Structural Bullying",
+                "text": "Youth don't know the collective agreement. Bullying is withholding information."
+            },
+            "quote": "\"The problem is not the youth's sensitivity – but the power dynamic.\""
+        },
+        "career": {
+            "title": "Choose Your Path",
+            "subtitle": "We analyzed three common career paths. Choose one to see the analysis.",
+            "roles": {
+                "it": {
+                    "title": "Expert / IT",
+                    "desc": "Remote work, autonomy."
+                },
+                "tech": {
+                    "title": "Manual / Tech",
+                    "desc": "Clear boundaries, visible results."
+                },
+                "care": {
+                    "title": "Care / Education",
+                    "desc": "Meaningfulness, people."
+                }
+            },
+            "it_content": {
+                "title": "Analysis: Expert Work",
+                "good": "Autonomy protects from burnout.",
+                "risk": "\"Always available\" culture.",
+                "expl": "Unpaid overtime in the name of \"opportunity\".",
+                "strat": "Protective strategy: Document everything."
+            },
+            "tech_content": {
+                "title": "Analysis: Manual & Tech",
+                "good": "Visible results. Clear hours.",
+                "risk": "Hard \"tough guy\" culture.",
+                "expl": "Compromising safety for speed.",
+                "strat": "Protective strategy: Join a union immediately."
+            },
+            "care_content": {
+                "title": "Analysis: Care & Education",
+                "good": "100% employment. Meaningful.",
+                "risk": "Systemic burnout.",
+                "expl": "Stretching for patients (guilt-tripping).",
+                "strat": "Protective strategy: Keep breaks sacred."
+            },
+            "analysis": {
+                "why_good": "Why good:",
+                "risk": "Risk:",
+                "exploitation": "Exploitation:",
+                "strategy": "Strategy:"
+            }
+        },
+        "interview": {
+            "title": "Spot a Toxic Workplace in Interview",
+            "ask_title": "Ask these in interview",
+            "q1": "\"How is onboarding organized?\"",
+            "w1": "⚠️ Vague answer is a red flag.",
+            "q2": "\"How do you react to mistakes?\"",
+            "w2_good": "✅ Good: \"We handle them together.\"",
+            "w2_bad": "❌ Danger: \"We expect quick learning.\"",
+            "flags_title": "Red Flags",
+            "f1": "\"We are like a family here.\"",
+            "f2": "\"Everyone starts from zero.\"",
+            "f3": "\"We don't watch the clock here.\""
+        },
+        "sim": {
+            "title": "First Summer Job?",
+            "desc": "Step into a realistic simulation where you learn to set boundaries.",
+            "tags": {
+                "duration": "⏱️ 5 min",
+                "skill": "🛡️ Boundaries",
+                "result": "🧠 Agency"
+            },
+            "btn": "Start Simulation"
+        },
+        "recovery": {
+            "title": "When Scars Remain",
+            "desc": "Bullying leaves marks. This is normal.",
+            "p1_title": "1. Erosion of Confidence",
+            "p1_text": "You were judged by unfair rules.",
+            "p2_title": "2. Hypervigilance",
+            "p2_text": "You constantly monitor others.",
+            "ex_title": "Exercise: Facts vs Interpretations",
+            "fact_label": "Fact",
+            "fact_val": "\"I wasn't onboarded.\"",
+            "interp_label": "Interpretation (WRONG)",
+            "interp_val": "\"I am bad at learning.\"",
+            "note": "Do this for 3-5 situations.",
+            "final_quote": "\"You need safe repetitions.\""
+        },
+        "completion": {
+            "title_done": "Guides Read!",
+            "title_new": "Do you know more now?",
+            "text_done": "You have completed Youth Info.",
+            "text_new": "Mark as completed to get points.",
+            "btn_mark": "Mark as Completed (+75 pts)",
+            "btn_back": "Back to Achievements"
+        }
+    },
     "impact_profile": {
         "nav_title": "Impact Profile",
         "hero": {
@@ -150,6 +395,698 @@
         "card": {
             "new": "New",
             "start": "Start"
+        }
+    },
+    "scenarios": {
+        "e1": {
+            "scenario": "Your manager avoids eye contact and ignores you when you greet, even though they greet others cheerfully.",
+            "question": "Which bullying tactic is used here?",
+            "hint": "This tactic aims to make the target \"invisible\".",
+            "options": {
+                "a": {
+                    "text": "Isolation and exclusion",
+                    "feedback": "Correct. Systematic ignoring is a passive but effective way to isolate a person from the work community."
+                },
+                "b": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Sabotage usually relates to hindering work performance, not just social treatment."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Gaslighting attempts to distort reality, not just ignore the person."
+                },
+                "d": {
+                    "text": "Appropriate feedback",
+                    "feedback": "Incorrect. Ignoring a greeting is never appropriate feedback."
+                }
+            }
+        },
+        "e2": {
+            "scenario": "A colleague constantly \"forgets\" to add you to calendar invites for meetings directly related to your responsibilities.",
+            "question": "What tactic is this?",
+            "hint": "It is an effective way to prevent someone from doing their job.",
+            "options": {
+                "a": {
+                    "text": "Sabotage",
+                    "feedback": "Correct. Preventing work by withholding information is sabotage, hindering the victim's success."
+                },
+                "b": {
+                    "text": "Invalidation",
+                    "feedback": "Incorrect. Invalidation targets skills or feelings, not directly the workflow."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Threats promise consequences, this prevents work."
+                },
+                "d": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. Although reputation may suffer, the primary act is obstruction of work."
+                }
+            }
+        },
+        "e3": {
+            "scenario": "Your manager claims in a meeting that they never promised you extra resources, even though it was agreed in writing a week ago. You start doubting your memory.",
+            "question": "Which tactic is this?",
+            "hint": "The name comes from a movie where flickering lights are denied.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting",
+                    "feedback": "Correct. Gaslighting is an attempt to make the victim doubt their own perception or memory."
+                },
+                "b": {
+                    "text": "Injustice",
+                    "feedback": "Incorrect. While unjust, the specific term implies distortion of reality."
+                },
+                "c": {
+                    "text": "Emotional manipulation",
+                    "feedback": "Incorrect. A broader term; gaslighting is more specific here."
+                },
+                "d": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No direct threat is made, facts are distorted."
+                }
+            }
+        },
+        "e4": {
+            "scenario": "Your colleague laughs mockingly and rolls their eyes whenever you speak in a team meeting.",
+            "question": "What is happening here?",
+            "hint": "This tactic attacks the person's self-esteem and expertise.",
+            "options": {
+                "a": {
+                    "text": "Invalidation and belittling",
+                    "feedback": "Correct. Non-verbal communication (gestures, expressions) is an effective way to signal that another's opinion has no value."
+                },
+                "b": {
+                    "text": "Constructive criticism",
+                    "feedback": "Incorrect. Constructive criticism focuses on content, not humiliating the person."
+                },
+                "c": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Sabotage targets work output, not the interaction situation."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. This is humiliation, not distortion of memory."
+                }
+            }
+        },
+        "e5": {
+            "scenario": "You are assigned to manually archive 5000 pages over the weekend, even though it's known to be useless and could be done by machine.",
+            "question": "Which tactic is used?",
+            "hint": "It is about using power where the task itself acts as punishment.",
+            "options": {
+                "a": {
+                    "text": "Unreasonable demands",
+                    "feedback": "Correct. Assigning impossible or intentionally heavy and useless tasks is bullying aimed at exhaustion."
+                },
+                "b": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. This targets time and coping, not public image directly."
+                },
+                "c": {
+                    "text": "Emotional manipulation",
+                    "feedback": "Incorrect. Specifically, workload is used as a weapon."
+                },
+                "d": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No condition is stated, just an impossible task given."
+                }
+            }
+        },
+        "e6": {
+            "scenario": "Your manager says: \"If word of this gets out, I can't guarantee your employment continues after probation.\"",
+            "question": "What tactic is this?",
+            "hint": "This tactic aims to silence the victim through fear.",
+            "options": {
+                "a": {
+                    "text": "Threats and intimidation",
+                    "feedback": "Correct. Direct or indirect threats about job loss are serious bullying and abuse of power."
+                },
+                "b": {
+                    "text": "Appropriate guidance",
+                    "feedback": "Incorrect. Threatening job security to ensure silence is never appropriate."
+                },
+                "c": {
+                    "text": "Passive-aggression",
+                    "feedback": "Incorrect. The threat is very direct."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Truth is not distorted, fear is created."
+                }
+            }
+        },
+        "e7": {
+            "scenario": "Conversation stops immediately at the lunch table when you sit down, and others exchange meaningful glances.",
+            "question": "What is this?",
+            "hint": "This is a typical \"invisible\" way to tell the victim their place.",
+            "options": {
+                "a": {
+                    "text": "Isolation and exclusion",
+                    "feedback": "Correct. Silence and body language signaling \"you don't belong\" are powerful isolation methods."
+                },
+                "b": {
+                    "text": "Coincidence",
+                    "feedback": "Incorrect. If repeated, it is planned exclusion."
+                },
+                "c": {
+                    "text": "Invalidation",
+                    "feedback": "Incorrect. Invalidation targets what you say; here you are not even included."
+                },
+                "d": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. Primary act is social isolation."
+                }
+            }
+        },
+        "e8": {
+            "scenario": "You notice false rumors being spread about your alcohol use in your free time.",
+            "question": "What tactic is used?",
+            "hint": "The goal is to erode the victim's credibility in the eyes of others.",
+            "options": {
+                "a": {
+                    "text": "Defamation of reputation",
+                    "feedback": "Correct. Spreading false rumors aims to destroy the victim's credibility and social status."
+                },
+                "b": {
+                    "text": "Emotional manipulation",
+                    "feedback": "Incorrect. It targets public image."
+                },
+                "c": {
+                    "text": "Freedom of speech",
+                    "feedback": "Incorrect. Spreading lies is not freedom of speech, it's defamation."
+                },
+                "d": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No future threat, but damage to current reputation."
+                }
+            }
+        },
+        "e9": {
+            "scenario": "Your manager gives you very strict feedback on your report, which has several factual errors. They demand corrections by tomorrow.",
+            "question": "Is this bullying?",
+            "hint": "Consider if the act targets work content or the person.",
+            "options": {
+                "a": {
+                    "text": "No, this is appropriate criticism",
+                    "feedback": "Correct. Justified feedback on work quality and requiring corrections is a manager's right and duty."
+                },
+                "b": {
+                    "text": "Yes, it is an unreasonable demand",
+                    "feedback": "Incorrect. If the report has major errors, quick correction is needed. Not bullying unless the deadline is impossible."
+                },
+                "c": {
+                    "text": "Yes, it is invalidation",
+                    "feedback": "Incorrect. Pointing out errors is not belittling competence in general."
+                },
+                "d": {
+                    "text": "Yes, it is intimidation",
+                    "feedback": "Incorrect. Criticism and high standards are not intimidation."
+                }
+            }
+        },
+        "e10": {
+            "scenario": "You email your manager about an important matter. They reply to everyone else's messages but repeatedly ignore yours for weeks.",
+            "question": "What tactic?",
+            "hint": "This is a typical \"silent\" way to show hostility.",
+            "options": {
+                "a": {
+                    "text": "Passive-aggression",
+                    "feedback": "Correct. Silence and ignoring emails (silent treatment) is passive-aggression."
+                },
+                "b": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Silence is not a direct threat."
+                },
+                "c": {
+                    "text": "Busyness",
+                    "feedback": "Incorrect. If they reply to others but not you consistently, it's not just busyness."
+                },
+                "d": {
+                    "text": "Invalidation",
+                    "feedback": "Incorrect. Closer to isolation or passive resistance."
+                }
+            }
+        },
+        "m1": {
+            "scenario": "Manager praises all other team members profusely, but tells you briefly: \"You did your share too.\"",
+            "question": "What tactic is used here?",
+            "hint": "This is a subtle way to say your contribution is not as valuable as others'.",
+            "options": {
+                "a": {
+                    "text": "Invalidation and belittling",
+                    "feedback": "Correct. Belittling via contrast is subtle: by praising others, your significance is sidelined."
+                },
+                "b": {
+                    "text": "Injustice",
+                    "feedback": "Incorrect. The core mechanism is belittling performance relative to others."
+                },
+                "c": {
+                    "text": "Appropriate feedback",
+                    "feedback": "Incorrect. Constant contrast is not fair feedback."
+                },
+                "d": {
+                    "text": "Emotional manipulation",
+                    "feedback": "Incorrect. It is directly belittling competence."
+                }
+            }
+        },
+        "m2": {
+            "scenario": "You finished a big project early. Your manager says: \"Great you made it on time for once, usually you tend to procrastinate.\"",
+            "question": "What is this?",
+            "hint": "This is a compliment that leaves a bad taste.",
+            "options": {
+                "a": {
+                    "text": "Passive-aggression",
+                    "feedback": "Correct. A backhanded compliment hides criticism or insult inside a positive sentence."
+                },
+                "b": {
+                    "text": "Appropriate reminder",
+                    "feedback": "Incorrect. Digging up history at a moment of success is not constructive."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No threat here."
+                },
+                "d": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Not distorting memory, but creating guilt."
+                }
+            }
+        },
+        "m3": {
+            "scenario": "In a team meeting, the manager asks your opinion but starts looking at their phone and interrupts you as soon as you start speaking.",
+            "question": "What is happening here?",
+            "hint": "This tactic signals that your speech has no value.",
+            "options": {
+                "a": {
+                    "text": "Invalidation (making invisible)",
+                    "feedback": "Correct. Demonstrating lack of interest invalidates your expertise in front of others."
+                },
+                "b": {
+                    "text": "Busyness",
+                    "feedback": "Incorrect. Checking phone and interrupting is disrespectful, not busy."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No threat element."
+                },
+                "d": {
+                    "text": "Isolation",
+                    "feedback": "Incorrect. Primary act is belittling the speech."
+                }
+            }
+        },
+        "m4": {
+            "scenario": "Your colleague takes credit for an idea you shared privately, presenting it as their own in a meeting.",
+            "question": "What tactic?",
+            "hint": "This targets the value and visibility of the victim's work directly.",
+            "options": {
+                "a": {
+                    "text": "Sabotage and exploitation",
+                    "feedback": "Correct. Riding on others' ideas and stealing visibility sabotages career development."
+                },
+                "b": {
+                    "text": "Cooperation",
+                    "feedback": "Incorrect. Cooperation shares credit, not steals it."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. They don't deny you said it, they just steal it."
+                },
+                "d": {
+                    "text": "Emotional manipulation",
+                    "feedback": "Incorrect. It's about stealing work contribution."
+                }
+            }
+        },
+        "m5": {
+            "scenario": "Manager changes project goals and deadlines constantly without telling you, but criticizes you for not staying on schedule.",
+            "question": "What tactic is used?",
+            "hint": "This makes success impossible on purpose.",
+            "options": {
+                "a": {
+                    "text": "Injustice and sabotage",
+                    "feedback": "Correct. \"Moving goalposts\" makes success impossible, which is typical sabotage."
+                },
+                "b": {
+                    "text": "Poor management",
+                    "feedback": "Incorrect. If repeated and targeted only at you, it is bullying."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. No threat, but unfounded criticism."
+                },
+                "d": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. Act is obstruction of work."
+                }
+            }
+        },
+        "m6": {
+            "scenario": "The team has an \"inside joke\" about your way of speaking or dressing. Even though you say it's not nice, they continue \"in good humor\".",
+            "question": "What is this?",
+            "hint": "A typical way to disguise aggression as humor.",
+            "options": {
+                "a": {
+                    "text": "Identity attack and belittling",
+                    "feedback": "Correct. Mockery disguised as humor is abuse of power and bullying."
+                },
+                "b": {
+                    "text": "Workplace humor",
+                    "feedback": "Incorrect. Humor stops being humor when the target finds it offensive."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Primary act is mockery."
+                },
+                "d": {
+                    "text": "Isolation",
+                    "feedback": "Incorrect. This is active shaming."
+                }
+            }
+        },
+        "m7": {
+            "scenario": "Manager says: \"You seem to have trouble adapting to our dynamic culture. Maybe this environment is too demanding for you?\"",
+            "question": "What tactic?",
+            "hint": "This makes the victim feel like they are the problem.",
+            "options": {
+                "a": {
+                    "text": "Emotional manipulation / Gaslighting",
+                    "feedback": "Correct. Shifting blame to victim's \"personality\" or \"ability\" instead of problems is manipulation."
+                },
+                "b": {
+                    "text": "Appropriate guidance",
+                    "feedback": "Incorrect. Guidance would offer support, not question the whole person."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Indirect suggestion to leave."
+                },
+                "d": {
+                    "text": "Invalidation",
+                    "feedback": "Incorrect. More about destabilizing reality."
+                }
+            }
+        },
+        "m8": {
+            "scenario": "You notice important emails concerning you \"disappear\" or aren't sent to you, but the manager blames you for lack of information publicly.",
+            "question": "What tactic?",
+            "hint": "It is about using information as a tool of power.",
+            "options": {
+                "a": {
+                    "text": "Sabotage and humiliation",
+                    "feedback": "Correct. Withholding info (gatekeeping) combined with public blaming is sabotage and humiliation."
+                },
+                "b": {
+                    "text": "Human error",
+                    "feedback": "Incorrect. If punished by humiliation, it's not just error."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Resources are sabotaged here."
+                },
+                "d": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. Act is sabotage."
+                }
+            }
+        },
+        "m9": {
+            "scenario": "You achieved a great result. Manager says: \"Great, but remember this is just one success. Don't let it go to your head, you're still quite inexperienced.\"",
+            "question": "Is this bullying?",
+            "hint": "This takes the joy out of success in an instant.",
+            "options": {
+                "a": {
+                    "text": "Yes, it is invalidation and belittling",
+                    "feedback": "Correct. Shooting down success immediately prevents self-esteem growth."
+                },
+                "b": {
+                    "text": "No, it is realism",
+                    "feedback": "Incorrect. Realism doesn't mean dimming success intentionally."
+                },
+                "c": {
+                    "text": "Yes, it is intimidation",
+                    "feedback": "Incorrect. No threat involved."
+                },
+                "d": {
+                    "text": "No, it is feedback",
+                    "feedback": "Incorrect. Feedback without encouragement and mere belittling is bullying."
+                }
+            }
+        },
+        "m10": {
+            "scenario": "Everyone else gets to attend training, but you must stay to \"guard the office\" because someone must be there. This is the 3rd time in a row.",
+            "question": "What tactic?",
+            "hint": "This leaves the victim behind the rest of the team.",
+            "options": {
+                "a": {
+                    "text": "Injustice and isolation",
+                    "feedback": "Correct. Unequal distribution of resources and development opportunities is a way to exclude."
+                },
+                "b": {
+                    "text": "Division of labor",
+                    "feedback": "Incorrect. If it always hits the same person, it's not appropriate division."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Passive discrimination."
+                },
+                "d": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Preventing career development and participation."
+                }
+            }
+        },
+        "h1": {
+            "scenario": "Manager is very nice and supportive in private, but cold and distant in front of others. You start questioning if you imagined their kindness.",
+            "question": "What tactic is used here?",
+            "hint": "This tactic relies on inconsistency that destabilizes the victim.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting and emotional manipulation",
+                    "feedback": "Correct. Two faces (Jekyll & Hyde) create huge confusion and make the victim doubt their interpretation."
+                },
+                "b": {
+                    "text": "Situational awareness",
+                    "feedback": "Incorrect. Directly opposite behavior is unhealthy manipulation."
+                },
+                "c": {
+                    "text": "Appropriate criticism",
+                    "feedback": "Incorrect. Not about criticism but illogical social treatment."
+                },
+                "d": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Targets mental health and trust."
+                }
+            }
+        },
+        "h2": {
+            "scenario": "You are asked to comment on a project. When you do, manager says: \"Thanks, but I feel you are a bit too emotionally attached to this. Let's stick to facts.\"",
+            "question": "This tactic is known as...",
+            "hint": "Attack targets *how* you say it, not *what* you say.",
+            "options": {
+                "a": {
+                    "text": "Tone policing",
+                    "feedback": "Correct. Ignoring content and focusing on victim's \"emotion\" is a way to discredit the message."
+                },
+                "b": {
+                    "text": "Appropriate guidance",
+                    "feedback": "Incorrect. Appropriate guidance would address arguments, not label the speaker \"emotional\"."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Often part of it, but tone policing is specific."
+                },
+                "d": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Verbal belittling."
+                }
+            }
+        },
+        "h3": {
+            "scenario": "You notice that whenever you make a tiny human error (like a typo), a huge fuss is made. Same errors by others are ignored.",
+            "question": "What tactic is used?",
+            "hint": "Small streams grow into a huge river of exhaustion.",
+            "options": {
+                "a": {
+                    "text": "Death by a Thousand Cuts / Micromanagement",
+                    "feedback": "Correct. Unequal intervention in trifles wears down nerves and creates constant fear."
+                },
+                "b": {
+                    "text": "Quality control",
+                    "feedback": "Incorrect. Quality control must be equal and not unreasonable."
+                },
+                "c": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Constant nagging."
+                },
+                "d": {
+                    "text": "Invalidation",
+                    "feedback": "Incorrect. Magnifying errors, not denying competence."
+                }
+            }
+        },
+        "h4": {
+            "scenario": "Manager asks: \"Are you quite sure you have recovered from sick leave? You look tired. maybe we shouldn't give you this new responsibility yet?\"",
+            "question": "This is a subtle tactic named...",
+            "hint": "Concern is on the surface, restricting power is underneath.",
+            "options": {
+                "a": {
+                    "text": "Concern trolling / discrimination disguised as care",
+                    "feedback": "Correct. \"Concern\" for coping is often a way to limit advancement or take away tasks."
+                },
+                "b": {
+                    "text": "Responsible management",
+                    "feedback": "Incorrect. A responsible manager asks \"How are you, do you need support?\", not make assumptions to deny responsibility."
+                },
+                "c": {
+                    "text": "Gaslighting",
+                    "feedback": "Incorrect. Distorting the present under guise of care."
+                },
+                "d": {
+                    "text": "Empathy",
+                    "feedback": "Incorrect. True empathy empowers, doesn't disempower."
+                }
+            }
+        },
+        "h5": {
+            "scenario": "In a meeting, manager asks a question you know the answer to. When you answer, they say: \"Thanks, but I'd like to hear from someone who has been here longer.\"",
+            "question": "What tactic?",
+            "hint": "Building a wall between the victim and decision making.",
+            "options": {
+                "a": {
+                    "text": "Exclusivity and status belittling",
+                    "feedback": "Correct. Linking competence to status (like seniority) is a way to deny participation."
+                },
+                "b": {
+                    "text": "Fact",
+                    "feedback": "Incorrect. Experience is fact, but using it to ignore expertise is bullying."
+                },
+                "c": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Social shaming."
+                },
+                "d": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Insult is clear."
+                }
+            }
+        },
+        "h6": {
+            "scenario": "You were assigned to prepare a presentation. Deadline Friday. On Thursday manager asks: \"Where is the presentation? We agreed it would be ready Wednesday.\"",
+            "question": "What is happening?",
+            "hint": "This makes you search for emails that don't exist.",
+            "options": {
+                "a": {
+                    "text": "Gaslighting (distorting deadlines)",
+                    "feedback": "Correct. Lying about schedules afterwards aims to guilt the victim and make them doubt their memory."
+                },
+                "b": {
+                    "text": "Misunderstanding",
+                    "feedback": "Incorrect. If deadlines \"shift\" only for you, it is manipulation."
+                },
+                "c": {
+                    "text": "Sabotage",
+                    "feedback": "Incorrect. Sabotage would be deleting files, lying about time is gaslighting."
+                },
+                "d": {
+                    "text": "Unreasonable demands",
+                    "feedback": "Incorrect. Demand is same, timing is distorted."
+                }
+            }
+        },
+        "h7": {
+            "scenario": "Manager asks you to stay after work to \"chat\". Doesn't say the topic, but is serious. You wait all day anxious. In the meeting, they just talk about weather.",
+            "question": "This is a typical example of...",
+            "hint": "This attacks the victim's sense of security.",
+            "options": {
+                "a": {
+                    "text": "Psychological destabilization",
+                    "feedback": "Correct. Creating uncertainty and fear on purpose (vague warnings) is serious mental abuse."
+                },
+                "b": {
+                    "text": "A little prank",
+                    "feedback": "Incorrect. Prank is fun for both, this causes suffering."
+                },
+                "c": {
+                    "text": "Passive-aggression",
+                    "feedback": "Incorrect. Active manipulation."
+                },
+                "d": {
+                    "text": "Poor communication",
+                    "feedback": "Incorrect. Professional knows creating uncertainty is power play."
+                }
+            }
+        },
+        "h8": {
+            "scenario": "Manager hints that other employees are unhappy with your contribution, but refuses to name who complained or what was said.",
+            "question": "What tactic?",
+            "hint": "This is done so you feel alone against everyone else.",
+            "options": {
+                "a": {
+                    "text": "Triangulation / Creating images",
+                    "feedback": "Correct. Creating an imaginary \"opposition\" eats at security and makes victim doubt colleagues."
+                },
+                "b": {
+                    "text": "Anonymous feedback",
+                    "feedback": "Incorrect. Anonymous feedback should be concrete, not used for intimidation."
+                },
+                "c": {
+                    "text": "Damage to reputation",
+                    "feedback": "Incorrect. Reputation might be damaged, but act is psychological destabilization."
+                },
+                "d": {
+                    "text": "Threats",
+                    "feedback": "Incorrect. Telling (maybe falsely) others' opinions."
+                }
+            }
+        },
+        "h9": {
+            "scenario": "In a team meeting about strategy, manager says: \"This might be too complex for some, so maybe [Your Name] could focus on servicing the copiers today?\"",
+            "question": "Is this bullying?",
+            "hint": "Think how you would feel in front of others.",
+            "options": {
+                "a": {
+                    "text": "Yes, it is insulting belittling and bypassing competence",
+                    "feedback": "Correct. Public questioning of intelligence and assigning menial tasks is clear bullying."
+                },
+                "b": {
+                    "text": "No, it is division of labor",
+                    "feedback": "Incorrect. Division must respect skills."
+                },
+                "c": {
+                    "text": "No, it is care for workload",
+                    "feedback": "Incorrect. Copier service is not an expert's task."
+                },
+                "d": {
+                    "text": "Yes, it is intimidation",
+                    "feedback": "Incorrect. Humiliation is central."
+                }
+            }
+        },
+        "h10": {
+            "scenario": "You made a big mistake. Manager brings it up calmly, presents facts, and asks you to make a plan to avoid it in future.",
+            "question": "Is this bullying?",
+            "hint": "Think if the act aims to destroy the person or improve work.",
+            "options": {
+                "a": {
+                    "text": "No, this is appropriate and constructive feedback",
+                    "feedback": "Correct. Addressing errors with facts and solution-focus is good management, not bullying."
+                },
+                "b": {
+                    "text": "Yes, it is invalidation",
+                    "feedback": "Incorrect. Pointing out error is not invalidation if done appropriately."
+                },
+                "c": {
+                    "text": "Yes, it is emotional violence",
+                    "feedback": "Incorrect. Feedback is rarely nice, but as appropriate it is not violence."
+                },
+                "d": {
+                    "text": "No, but it is unfair",
+                    "feedback": "Incorrect. Handling error is fair for work quality."
+                }
+            }
         }
     },
     "simulation_youth": {
@@ -1021,12 +1958,34 @@
             }
         }
     },
-    "footer": {
-        "copyright": "© 2025 Turvasiipi. Safe and confidential.",
-        "support": "Support and contact info",
-        "privacy": "Privacy Policy"
-    },
     "quiz": {
+        "page": {
+            "label": "Identify Risks",
+            "title": "Risk Assessment",
+            "subtitle": "Signs of bullying and inappropriate treatment",
+            "description": "This test helps you understand if the treatment you experience is workplace bullying. Answer honestly based on your feelings.",
+            "what_measures_title": "What does this measure?",
+            "what_measures_list": [
+                "Changes in self-esteem",
+                "Workplace interaction",
+                "Physical symptoms",
+                "Social relationships"
+            ],
+            "what_not_measures_title": "What does this not measure?",
+            "what_not_measures_list": [
+                "Official diagnosis",
+                "Legal evidence",
+                "Your work performance"
+            ],
+            "start_btn": "Start Assessment",
+            "analysis_label": "Analysis",
+            "analysis_title": "Your Score: {{score}} / {{total}}",
+            "back_home": "Back to Home",
+            "retry": "Start Over",
+            "progress": "{{answered}} / {{total}} answered",
+            "view_analysis": "View Analysis",
+            "answer_all_hint": "Please answer all questions to see the analysis"
+        },
         "hero": {
             "badge": "Deep Analysis",
             "title_start": "Identify",
@@ -1248,6 +2207,91 @@
             "no": "No"
         },
         "results": {
+            "green": {
+                "level": "Strengths support safe environment",
+                "description": "Your answers suggest that your work environment has strong support structures and psychological safety. You have resources.",
+                "disclaimer": "This is a snapshot. Situations can change.",
+                "nextSteps": [
+                    {
+                        "title": "Keep up the good work",
+                        "description": "Maintain open communication and support your colleagues."
+                    }
+                ]
+            },
+            "yellow": {
+                "level": "Signals to watch",
+                "description": "You notice some challenges in communication or atmosphere. This can be a sign of temporary load or starting conflicts.",
+                "disclaimer": "This tool cannot see your whole situation. Talk to a trusted colleague.",
+                "alternativeExplanations": [
+                    "Unclear expectations or roles",
+                    "Temporary workload and stress",
+                    "Normal but unresolved disagreements"
+                ],
+                "nextSteps": [
+                    {
+                        "title": "Document situations",
+                        "description": "Log 1-2 concrete situations in the observation log."
+                    },
+                    {
+                        "title": "Reflect on repetition",
+                        "description": "Is this new or recurring?"
+                    }
+                ]
+            },
+            "orange": {
+                "level": "Elevated Risk",
+                "description": "Your answers suggest elevated risk and load. You might be experiencing inappropriate treatment that affects your well-being.",
+                "disclaimer": "More context is needed. We recommend documenting the situation.",
+                "alternativeExplanations": [
+                    "Long-term unresolved load",
+                    "Structural problems in the organization",
+                    "Repeated communication challenges"
+                ],
+                "nextSteps": [
+                    {
+                        "title": "Start documenting",
+                        "description": "Log events with dates in the Turvasiipi app log."
+                    },
+                    {
+                        "title": "Contact a professional",
+                        "description": "Book an appointment with occupational health or talk to a shop steward."
+                    }
+                ],
+                "resources": [
+                    {
+                        "name": "Occupational Health",
+                        "contact": "Contact your own occupational health service",
+                        "when": "If you have symptoms"
+                    }
+                ]
+            },
+            "red": {
+                "level": "Severe Risk - Seek Support",
+                "description": "Your answers suggest severe and systematic risk. The situation is likely very burdensome for your health.",
+                "disclaimer": "This is a risk assessment, not a diagnosis. A professional can help assess your situation.",
+                "alternativeExplanations": [
+                    "Long-term load and burnout",
+                    "Systematic inappropriate treatment",
+                    "Severe decline in work well-being"
+                ],
+                "nextSteps": [
+                    {
+                        "title": "Contact occupational health",
+                        "description": "The situation requires professional assessment."
+                    },
+                    {
+                        "title": "Document carefully",
+                        "description": "Log all events and witnesses in the log."
+                    }
+                ],
+                "resources": [
+                    {
+                        "name": "Crisis Hotline",
+                        "contact": "09 2525 0111 (24/7)",
+                        "when": "If you experience anxiety or panic"
+                    }
+                ]
+            },
             "analyzing": "Analysis complete",
             "score": "Your Score:",
             "interpretation_title": "What does this mean?",
@@ -1340,104 +2384,17 @@
             "22": "Do you cry often without a clear reason?",
             "23": "Do you think about resigning daily?",
             "24": "Do you dread Monday mornings?",
-            "25": "Do you feel 'I am not myself anymore'?"
-        },
-        "tactics_page": {
-            "title_start": "Tactic",
-            "title_highlight": "Bank",
-            "description": "Bullies often have repeating strategies. When you identify a tactic, it loses some of its power over you.",
-            "modal": {
-                "badge": "Tactical Analysis",
-                "definition": "Definition",
-                "goal": "Goal",
-                "phrases": "Classic Phrases",
-                "strategy": "Counter-strategy",
-                "impact": {
-                    "title": "Impact Assessment",
-                    "stress": "Stress Level",
-                    "burnout": "Burnout Risk",
-                    "selfEsteem": "Self-Esteem"
-                },
-                "roles": {
-                    "victim": "For Victim",
-                    "witness": "For Witness",
-                    "manager": "For Manager"
-                },
-                "log_instruction": "Log like this:",
-                "close": "Close Analysis"
-            },
-            "carousel": [
-                {
-                    "src": "/images/tactics/social-isolation.png",
-                    "alt": "Social Isolation - cut off from community",
-                    "caption": "One of the most common forms of bullying is social isolation – the victim is cut off from the community."
-                },
-                {
-                    "src": "/images/tactics/manipulation.png",
-                    "alt": "Manipulation - hands tied",
-                    "caption": "Manipulation and gaslighting are subtle but highly damaging tactics."
-                },
-                {
-                    "src": "/images/tactics/mockery.png",
-                    "alt": "Mockery and Humiliation",
-                    "caption": "Verbal bullying and mockery can be as damaging as physical violence."
-                },
-                {
-                    "src": "/images/tactics/ostracism.png",
-                    "alt": "Ostracism - invisible wall",
-                    "caption": "Ostracism is complete ignoring – as if the person does not exist."
-                },
-                {
-                    "src": "/images/tactics/exclusion.png",
-                    "alt": "Exclusion and false image",
-                    "caption": "Where are you around the table? Is someone creating a false image of you?"
-                },
-                {
-                    "src": "/images/tactics/magnified-errors.png",
-                    "alt": "Magnifying errors - small things blown up",
-                    "caption": "Even the smallest errors can be put under a magnifying glass and blown up until they overshadow everything else."
-                },
-                {
-                    "src": "/images/tactics/unreasonable-requirements.png",
-                    "alt": "Unreasonable requirements - impossible goals",
-                    "caption": "Setting goals that are impossible to achieve, or demanding performance without sufficient resources."
-                },
-                {
-                    "src": "/images/tactics/unreasonable-workload.png",
-                    "alt": "Unreasonable workload - unfair distribution",
-                    "caption": "Unfair distribution of tasks and unreasonable demands exhaust the worker."
-                }
-            ]
-        },
-        "page": {
-            "label": "Situation Mapping",
-            "title": "Is it Bullying?",
-            "subtitle": "Go through the checklist.",
-            "description": "This is not a diagnosis. It is a tool to help you see if the structural signs of bullying are met in your situation.",
-            "what_measures_title": "What does this measure?",
-            "what_measures_list": [
-                "Repetition",
-                "Imbalance of power",
-                "Health impact",
-                "Isolation"
-            ],
-            "what_not_measures_title": "What does this not measure?",
-            "what_not_measures_list": [
-                "Anyone's 'evilness'",
-                "Legal guilt",
-                "Single arguments"
-            ],
-            "start_btn": "Start Mapping",
-            "analysis_label": "Analysis",
-            "analysis_title": "Signs: {{score}} / {{total}}",
-            "recommendations_title": "Recommended Actions:",
-            "back_home": "Return Home",
-            "retry": "Try Again",
-            "progress": "{{answered}} / {{total}} answered",
-            "yes": "Yes",
-            "no": "No",
-            "view_analysis": "View Analysis",
-            "answer_all_hint": "Answer all items to see the result."
+            "25": "Do you feel 'I am not myself anymore'?",
+            "31": "Do you get recognition and thanks for your work?",
+            "32": "Do you trust your professional skills?",
+            "33": "Is your supervisor's behavior consistent?",
+            "34": "Do you trust your own memories?",
+            "35": "Do you feel you belong to the community?",
+            "36": "Do you get support from colleagues when needed?",
+            "37": "Do you generally sleep well?",
+            "38": "Do you have enough energy for free time?",
+            "39": "Do you look at the future with hope?",
+            "40": "Can you be yourself at work?"
         },
         "compare_page": {
             "badge": "Distinguish two different things",
@@ -3649,13 +4606,6 @@
         "explanation": "Explanation",
         "next": "Next"
     },
-    "lukutaito_page": {
-        "self_assessment": {
-            "results": {
-                "next_section": "Next Section"
-            }
-        }
-    },
     "empathy_test": {
         "hero": {
             "label": "Empathy Spectrum",
@@ -3757,6 +4707,264 @@
                 "title": "Journey to Empathy",
                 "description": "Your empathy is a developing resource. You might currently be focused on survival or performance, leaving less room for empathy. That is human. Even small moments of stopping to consider another's position strengthen this skill.",
                 "icon": "🌱"
+            }
+        }
+    },
+    "fact_bank_page": {
+        "title_mini": "Fact Bank",
+        "title_main": "Identify phenomena,",
+        "title_main_suffix": "understand impacts",
+        "description": "Welcome to the Turvasiipi Fact Bank. Here you will find information on the rules of work life, identify risks, and understand the wider effects of the phenomenon.",
+        "tabs": {
+            "quiz": "Quiz",
+            "costs": "Theory: Cost of Silence",
+            "simulation": "Experiment: Impacts"
+        },
+        "neuro_page": {
+            "header": {
+                "mini_title": "Learning Center",
+                "title": "Neurodiversity at Work",
+                "quote": "\"Your brain works differently? That is your superpower.\"",
+                "intro": "Neurodiversity covers conditions such as autism spectrum, ADHD, dyslexia, and dyspraxia. It is not an illness, but part of natural human variation."
+            },
+            "cards": {
+                "what": {
+                    "title": "What is it?",
+                    "subtitle": "15-20% of population",
+                    "adhd": "<strong>ADHD (5%):</strong> Creativity, energy, \"out-of-the-box\" thinking. Challenges: focus and impulse control.",
+                    "autism": "<strong>Autism Spectrum (2%):</strong> Systems thinking, detail perception, consistency. Challenges: social communication.",
+                    "dyslexia": "<strong>Dyslexia (10%):</strong> Visual thinking, perceiving wholes."
+                },
+                "superpowers": {
+                    "title": "Superpowers",
+                    "subtitle": "Researched strengths",
+                    "productivity": "🏆 <strong>Productivity:</strong> Up to 140% more productive in Autism at Work programs with fewer errors.",
+                    "innovation": "💡 <strong>Innovation:</strong> Pattern recognition and complex problem solving.",
+                    "hyperfocus": "🔍 <strong>Hyperfocus:</strong> Ability to completely immerse in a task and produce exceptional quality."
+                }
+            },
+            "spoon_theory": {
+                "mini_title": "Energy Capital",
+                "title": "Spoon Theory and Coping",
+                "text": "Spoon theory is a metaphor for limited energy developed by Christine Miserandino. It helps understand why everyday things can exhaust a neurodivergent person faster.",
+                "what": {
+                    "title": "What is it?",
+                    "text": "Each \"spoon\" is a unit of energy. Unlike neurotypicals, neurodivergent people often have fewer spoons, and they are consumed faster by sensory stimuli or social masking."
+                },
+                "consume": {
+                    "title": "What consumes them?",
+                    "text": "A noisy space, unclear instructions, changing schedules, or forced small talk can take several spoons at once before actual work has even begun."
+                },
+                "save": {
+                    "title": "How to save?",
+                    "text": "The right to noise-canceling headphones, written communication, and permission to skip video meetings can save critical spoons for the rest of the day."
+                }
+            },
+            "challenges": {
+                "title": "Why does work life burden?",
+                "environment": {
+                    "title": "Work Environment",
+                    "text": "Open offices (noise, lights), spontaneous meetings without agenda, and constant \"small talk\" culture burden senses and social battery."
+                },
+                "misunderstandings": {
+                    "title": "Misunderstandings",
+                    "text": "Direct speech is interpreted as rudeness. Lack of eye contact as dishonesty. 96% of disabilities are invisible."
+                },
+                "masking": {
+                    "title": "⚠️ Masking",
+                    "text": "Masking means hiding symptoms to fit in. It consumes immense energy and leads to burnout, anxiety, and loss of identity. <strong>Burnout risk is significantly higher.</strong>"
+                }
+            },
+            "actions": {
+                "title": "What can you do?",
+                "employee": {
+                    "title": "For Employee",
+                    "list": [
+                        "<span class=\"text-emerald-500 font-bold\">1.</span> Identify your needs: What environment supports you?",
+                        "<span class=\"text-emerald-500 font-bold\">2.</span> Document: When is your focus best?",
+                        "<span class=\"text-emerald-500 font-bold\">3.</span> Communicate clearly: \"Written instructions help me verify the whole picture better.\"",
+                        "<span class=\"text-emerald-500 font-bold\">4.</span> Protect your energy: Do not mask if not necessary. Take breaks."
+                    ]
+                },
+                "manager": {
+                    "title": "For Manager & Colleague",
+                    "list": [
+                        "<span class=\"text-indigo-500 font-bold\">1.</span> Don't assume - ask: \"How could I support your work?\"",
+                        "<span class=\"text-indigo-500 font-bold\">2.</span> Offer accommodations: Remote work, quiet space, noise-canceling headphones.",
+                        "<span class=\"text-indigo-500 font-bold\">3.</span> Communicate proactively: Agendas in advance, clear schedules.",
+                        "<span class=\"text-indigo-500 font-bold\">4.</span> Normalize difference: Everyone has the right to be themselves."
+                    ]
+                }
+            },
+            "decoder": {
+                "title": "Double Empathy Decoder",
+                "intro": "Same situation, two different experiences. Understanding comes from bridging the gap.",
+                "nt_label": "Neurotypical Interpretation",
+                "nd_label": "Neurodivergent Experience",
+                "solution_label": "Solution"
+            },
+            "logs": {
+                "title": "ND-Log",
+                "subtitle": "Support for documentation against the Performance Trap.",
+                "accommodation": {
+                    "title": "Agreed Accommodations",
+                    "desc": "Use when agreeing on ground rules with a manager.",
+                    "content": "\"DATE: [TODAY]<br />PARTICIPANTS: [NAMES]<br />AGREED: Noise-canceling headphones allowed at workstation.<br />REASON: Ensuring focus capability (Non-discrimination Act).<br />FOLLOW-UP: [DATE]\""
+                },
+                "breakdown": {
+                    "title": "Communication Breakdowns",
+                    "desc": "Log situations where you were left in an information shadow.",
+                    "content": "\"TIME: [TIME]<br />EVENT: Decision X was made in the kitchen by the team.<br />IMPACT: I was left out of info, my work delayed 2h.<br />REACTION: Asked for update via email.\""
+                },
+                "rights": {
+                    "title": "Remember your rights:",
+                    "text": "The Non-discrimination Act obligates the employer to make reasonable accommodations. A documented log is your evidence if these accommodations are used against you later."
+                }
+            },
+            "simulation": {
+                "mini_title": "Training",
+                "title": "Practice Self-Defense Safely",
+                "text": "Work life can be a minefield. With our simulator, you can practice difficult situations before facing them in daily life.",
+                "card1": {
+                    "title": "Day on the Spectrum 🧩",
+                    "desc": "Sensory sensitivities and energy management."
+                },
+                "card2": {
+                    "title": "Performance Trap 📉",
+                    "desc": "Defending reasonable accommodations."
+                },
+                "card3": {
+                    "title": "Information Shadow 👤",
+                    "desc": "Surviving social exclusion."
+                },
+                "btn_all": "View All Scenarios"
+            },
+            "completion": {
+                "title_done": "Info Saved!",
+                "title_new": "Did you learn something new?",
+                "text_done": "You have completed the Neurodiversity Info. Points added to your profile.",
+                "text_new": "Once you have read the material, you can mark it as completed below. This accumulates your certification points.",
+                "btn_mark": "Mark as Completed (+75 pts)",
+                "btn_back": "Back to Achievements"
+            }
+        },
+        "youth_page": {
+            "hero": {
+                "label": "Youth at Work",
+                "title": "Work life is not a <span class=\"text-[#5B4B8A] italic\">survival test</span>.",
+                "text": "Is this your first job? Feel like you're being tested or asked the impossible? This is your guide to rights, boundaries, and how to identify exploitation."
+            },
+            "tabs": {
+                "intro": "Overview 2026",
+                "career": "Career Choice",
+                "interview": "Interview & Risks",
+                "sim": "Simulation",
+                "recovery": "Recovery"
+            },
+            "intro": {
+                "title": "Why does this guide exist?",
+                "text1": "<strong>The position of youth in work life has changed.</strong> Recent studies show a worrying trend: young people experience more burnout and uncertainty than before.",
+                "text2": "The labor market situation in 2026 is challenging and fragmented. Especially worrying is the phenomenon where youth are used as \"cheap and flexible labor\", assuming they don't know their rights.",
+                "exploitation": {
+                    "title": "Exploitation",
+                    "text": "Unpaid \"auditions\", zero-hour contracts, and unpaid overtime in exchange for \"being a good guy\"."
+                },
+                "structural": {
+                    "title": "Structural Bullying",
+                    "text": "Youth don't know the collective agreement or fear for their fixed-term contracts. Bullying is withholding info or exclusion."
+                },
+                "quote": "\"The problem is not the youth's sensitivity – but the power dynamic.\""
+            },
+            "career": {
+                "title": "Choose Your Path",
+                "subtitle": "We analyze three common career paths from a well-being and risk perspective. Choose one to see expert analysis.",
+                "roles": {
+                    "it": {
+                        "title": "Specialist / IT",
+                        "desc": "Remote work, autonomy, new fields."
+                    },
+                    "tech": {
+                        "title": "Craft / Tech",
+                        "desc": "Clear boundaries, visible results."
+                    },
+                    "care": {
+                        "title": "Social / Education",
+                        "desc": "Meaningfulness, people."
+                    }
+                },
+                "analysis": {
+                    "why_good": "Why good:",
+                    "risk": "Risk:",
+                    "exploitation": "Exploitation:",
+                    "strategy": "Protection Strategy:"
+                },
+                "it_content": {
+                    "title": "Analysis: Specialist Work",
+                    "good": "Autonomy protects from burnout. Job market often favors the employee.",
+                    "risk": "\"Always available\" culture and social isolation.",
+                    "expl": "Unpaid overtime in the name of \"process\" or \"proving yourself\".",
+                    "strat": "Document all work in chat. Bound work time right at the start (\"I'll do this tomorrow during work hours\")."
+                },
+                "tech_content": {
+                    "title": "Analysis: Craft and Tech",
+                    "good": "Work result is visible. Clear hours: when the site melts, work ends. Strong unions.",
+                    "risk": "Tough \"macho culture\" where hazing newcomes might be tradition.",
+                    "expl": "Compromising safety for speed.",
+                    "strat": "Join a union immediately. Ask about safety out loud. (\"I'll do this according to instructions.\")"
+                },
+                "care_content": {
+                    "title": "Analysis: Social & Education",
+                    "good": "Employment 100% certain. Work is extremely meaningful.",
+                    "risk": "Systemic burnout, resource shortage, and moral stress.",
+                    "expl": "\"Stretching\" for colleagues and patients (guilt-tripping).",
+                    "strat": "Don't base identity on \"calling\". Keep breaks sacred. (\"It's not safe to do this alone.\")"
+                }
+            },
+            "interview": {
+                "title": "Identify a Toxic Workplace in the Interview",
+                "ask_title": "Ask these in the interview",
+                "q1": "\"How is onboarding organized and who is my mentor?\"",
+                "w1": "⚠️ If the answer is vague \"it happens along the way\", it's a warning sign.",
+                "q2": "\"How is it handled here if a new employee makes a mistake?\"",
+                "w2_good": "✅ Good: \"Mistakes are reviewed together.\"",
+                "w2_bad": "❌ Danger: \"We expect things to be mastered quickly here.\"",
+                "flags_title": "Red Flags",
+                "f1": "\"We are like one family here.\" (Code: no boundaries)",
+                "f2": "\"Everyone started from zero sometime.\" (Code: justification for bad treatment)",
+                "f3": "\"We don't watch the clock here.\" (Code: free overtime)"
+            },
+            "sim": {
+                "title": "First Summer Job?",
+                "desc": "Step into a realistic simulation where you learn to identify silent bullying and set professional boundaries.",
+                "tags": {
+                    "duration": "⏱️ Duration: 5 min",
+                    "skill": "🛡️ Skill: Setting Boundaries",
+                    "result": "🧠 Result: Agency"
+                },
+                "btn": "Start Simulation"
+            },
+            "recovery": {
+                "title": "When Scars Remain (Even After Work Ends)",
+                "desc": "Workplace bullying doesn't stay at work – it stays in the body and mind. This is a normal reaction to an abnormal situation.",
+                "p1_title": "1. Erosion of Self-Confidence",
+                "p1_text": "Not because you are weak, but because you were judged by unfair rules. Your brain learns: \"I am the problem.\"",
+                "p2_title": "2. Hypervigilance",
+                "p2_text": "You constantly monitor others. You fear mistakes unreasonably. Body learns: \"Work = Threat.\"",
+                "ex_title": "Exercise: Facts vs. Interpretations",
+                "fact_label": "Fact",
+                "fact_val": "\"I wasn't onboarded properly.\"",
+                "interp_label": "Learned Interpretation (WRONG)",
+                "interp_val": "\"I am bad at learning.\"",
+                "note": "Do this for 3–5 situations. This exercise separates internalizing bullying.",
+                "final_quote": "\"You don't need 'courage'. You need safe repetitions.\""
+            },
+            "completion": {
+                "title_done": "Guides Read!",
+                "title_new": "Do you know more now?",
+                "text_done": "You have completed the Youth Info. Points added to your profile.",
+                "text_new": "Once you have explored the guides, you can mark them as completed here. This accumulates your certification points.",
+                "btn_mark": "Mark as Completed (+75 pts)",
+                "btn_back": "Back to Achievements"
             }
         }
     }

@@ -6,10 +6,12 @@ import { CostOfSilence } from "@/components/faktapankki/CostOfSilence";
 import { CostSimulation } from "@/components/faktapankki/CostSimulation";
 import { Brain, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 type Tab = 'quiz' | 'costs' | 'simulation';
 
 export default function FaktapankkiPage() {
+    const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState<Tab>('quiz');
 
     return (
@@ -18,17 +20,17 @@ export default function FaktapankkiPage() {
             {/* Header - Left Aligned "Human" Style */}
             <header className="space-y-12 max-w-2xl">
                 <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
-                    Faktapankki
+                    {t('fact_bank_page.title_mini')}
                 </span>
 
                 <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] leading-[1.1] tracking-tight">
-                    Tunnista ilmiöt, <br />
-                    <span className="text-[#4A4A4A] font-normal italic">ymmärrä vaikutukset</span>
+                    {t('fact_bank_page.title_main')} <br />
+                    <span className="text-[#4A4A4A] font-normal italic">{t('fact_bank_page.title_main_suffix')}</span>
                 </h1>
 
                 <div className="space-y-6 max-w-xl">
                     <p className="text-lg text-[#4A4A4A] leading-relaxed">
-                        Tervetuloa Turvasiiven faktapankkiin. Täältä löydät tietoa työelämän pelisäännöistä, tunnistat riskit ja ymmärrät ilmiön laajemmat vaikutukset.
+                        {t('fact_bank_page.description')}
                     </p>
                 </div>
 
@@ -42,7 +44,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        Tietovisa
+                        {t('fact_bank_page.tabs.quiz')}
                     </button>
                     <button
                         onClick={() => setActiveTab('costs')}
@@ -53,7 +55,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        Teoria: Hiljaisuuden hinta
+                        {t('fact_bank_page.tabs.costs')}
                     </button>
                     <button
                         onClick={() => setActiveTab('simulation')}
@@ -64,7 +66,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        Kokeilu: Vaikutukset
+                        {t('fact_bank_page.tabs.simulation')}
                     </button>
                 </div>
             </header>
