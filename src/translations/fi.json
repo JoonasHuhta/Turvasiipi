@@ -1303,6 +1303,16 @@
             "description": "Kiusaamisella on monet kasvot. Opi tunnistamaan piilevät muodot, jotta pystyt suojaamaan itsesi.",
             "carousel": [
                 {
+                    "src": "/images/tactics/exclusion.png",
+                    "alt": "Ulossulkeminen",
+                    "caption": "Ryhmästä sulkeminen on väkivaltaa, joka ei jätä mustelmia."
+                },
+                {
+                    "src": "/images/tactics/ostracism.png",
+                    "alt": "Huomiotta jättäminen",
+                    "caption": "Kun sinua kohdellaan ilmana, viesti on: sinulla ei ole väliä."
+                },
+                {
                     "src": "/images/tactics/social-isolation.png",
                     "alt": "Eristäminen",
                     "caption": "Hiljainen ulossulkeminen on yksi yleisimmistä kiusaamisen muodoista."
@@ -1311,6 +1321,21 @@
                     "src": "/images/tactics/mockery.png",
                     "alt": "Nolaaminen",
                     "caption": "Julkinen nolaaminen ei ole palautetta, se on vallankäyttöä."
+                },
+                {
+                    "src": "/images/tactics/magnified-errors.png",
+                    "alt": "Virheiden suurentelu",
+                    "caption": "Inhimillisten virheiden paisuttelu on keino nujertaa ammatillinen itsetunto."
+                },
+                {
+                    "src": "/images/tactics/unreasonable-workload.png",
+                    "alt": "Kouuton työtaakka",
+                    "caption": "Mahdoton työmäärä ei ole tehokkuutta, se on uuvuttamista."
+                },
+                {
+                    "src": "/images/tactics/unreasonable-requirements.png",
+                    "alt": "Mahdottomat vaatimukset",
+                    "caption": "Maalin siirtäminen kesken pelin varmistaa, ettet voi koskaan onnistua."
                 },
                 {
                     "src": "/images/tactics/manipulation.png",
