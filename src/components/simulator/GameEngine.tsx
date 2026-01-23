@@ -36,12 +36,14 @@ export interface StatConfigItem {
 }
 
 export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statLabels }: GameEngineProps) {
+    const { t } = useLanguage();
+
     const getStatConfig = () => {
         const baseConfig = [
-            { id: 'selfEsteem', label: 'Itseluottamus', icon: Brain, color: 'bg-indigo-500', description: 'Uskosi omiin kykyihisi ja oikeuksiisi.' },
-            { id: 'teamAcceptance', label: 'Hyväksyntä', icon: Users, color: 'bg-cyan-500', description: 'Miten työyhteisö suhtautuu sinuun.' },
-            { id: 'physicalHealth', label: 'Jaksaminen', icon: Heart, color: 'bg-rose-500', description: 'Henkinen ja fyysinen kestävyytesi.' },
-            { id: 'hope', label: 'Toivo', icon: ArrowRight, color: 'bg-emerald-500', description: 'Uskosi parempaan tulevaisuuteen.' }
+            { id: 'selfEsteem', label: t('game.stats.self_esteem'), icon: Brain, color: 'bg-indigo-500', description: t('game.stat_descriptions.self_esteem') },
+            { id: 'teamAcceptance', label: t('game.stats.team_acceptance'), icon: Users, color: 'bg-cyan-500', description: t('game.stat_descriptions.team_acceptance') },
+            { id: 'physicalHealth', label: t('game.stats.physical_health'), icon: Heart, color: 'bg-rose-500', description: t('game.stat_descriptions.physical_health') },
+            { id: 'hope', label: t('game.stats.hope'), icon: ArrowRight, color: 'bg-emerald-500', description: t('game.stat_descriptions.hope') }
         ];
 
         if (!statLabels) return baseConfig;
@@ -56,7 +58,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     };
 
     const { completeModule, saveSimulationScore } = useProgress();
-    const { t } = useLanguage();
     const mainContentRef = useRef<HTMLDivElement>(null);
 
     const [state, setState] = useState<GameState>({
@@ -132,13 +133,13 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
     }
 
     if (!currentPhase) {
-        return <div>Virhe: Vaihetta {state.currentPhaseId} ei löytynyt.</div>;
+        return <div>{t('game.errors.phase_not_found', { phaseId: state.currentPhaseId })}</div>;
     }
 
     const handleChoice = (choice: Choice) => {
         // 0. Check for Crossed Out (Blocked) Choices
         if (choice.variant === 'crossed-out') {
-            showNotification(choice.blockedReason || "Tämä valinta ei ole mahdollinen nykyisessä tilanteessa.");
+            showNotification(choice.blockedReason || t('game.notifications.choice_blocked'));
             return;
         }
 
@@ -167,7 +168,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         const newAllies = [...state.allies];
         if (choice.effect?.addAlly && !newAllies.includes(choice.effect.addAlly)) {
             newAllies.push(choice.effect.addAlly);
-            showNotification(`Liittolainen löydetty: ${choice.effect.addAlly}`);
+            showNotification(`${t('game.notifications.ally_found')}: ${choice.effect.addAlly}`);
         }
 
         // 3. Log Entry
@@ -178,7 +179,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 timestamp: currentPhase.time || '12:00',
                 note: choice.effect.logNote
             });
-            showNotification("📝 Tapahtuma dokumentoitu automaattisesti");
+            showNotification(t('game.notifications.log_documented'));
         }
 
         // 4. Update State
@@ -219,7 +220,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         return "bg-slate-200";
     };
 
-    const isComplexPhase = currentPhase.content.includes("**Sinun näkökulmasi:**");
+    const isComplexPhase = currentPhase.content.includes("**Sinun näkökulmasi:**") || currentPhase.content.includes("**Your perspective:**");
     const textSizeClass = getContentTextSize(currentPhase.content.length, true);
 
     // Stress level calculation (0-1)
@@ -252,7 +253,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 <div className="flex items-center gap-2">
                     <span className="font-black text-slate-900 tracking-tighter text-lg uppercase">{t('nav.simulation')}</span>
                     <div className="bg-indigo-600 text-white px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest">
-                        Päivä {currentPhase.day}
+                        {t('game.day')} {currentPhase.day}
                     </div>
                 </div>
 
@@ -268,7 +269,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                     </div>
 
                     <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 transition-colors">
-                        <span className="sr-only">Lopeta</span>
+                        <span className="sr-only">{t('game.quit')}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                     </Button>
                 </div>
@@ -279,7 +280,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 <div className="absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={() => setIsHelpOpen(false)}>
                     <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300" onClick={e => e.stopPropagation()}>
                         <div className="bg-slate-50 border-b p-6">
-                            <h3 className="font-black text-slate-900 uppercase tracking-tight">Voimavarat</h3>
+                            <h3 className="font-black text-slate-900 uppercase tracking-tight">{t('game.resources')}</h3>
                         </div>
                         <div className="p-6 space-y-5">
                             {getStatConfig().map(stat => (
@@ -295,7 +296,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                             ))}
                         </div>
                         <div className="p-4 bg-slate-50 border-t">
-                            <Button onClick={() => setIsHelpOpen(false)} className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-widest text-xs">Jatka simulaatiota</Button>
+                            <Button onClick={() => setIsHelpOpen(false)} className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-widest text-xs">{t('game.continue')}</Button>
                         </div>
                     </div>
                 </div>
@@ -336,33 +337,33 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         {isComplexPhase ? (
                             <div className="space-y-4 text-left">
                                 {currentPhase.content.split('\n\n').map((section, idx) => {
-                                    if (section.includes("**Sinun näkökulmasi:**")) {
+                                    if (section.includes("**Sinun näkökulmasi:**") || section.includes("**Your perspective:**")) {
                                         return (
                                             <div key={idx} className="bg-white/60 backdrop-blur-sm p-5 rounded-3xl border border-white shadow-sm">
                                                 <div className="flex items-center gap-2 mb-2 font-black text-slate-900 uppercase tracking-widest text-[10px]">
-                                                    <Briefcase className="w-3.5 h-3.5 text-indigo-500" /> Sinun näkökulmasi
+                                                    <Briefcase className="w-3.5 h-3.5 text-indigo-500" /> {t('game.your_perspective')}
                                                 </div>
-                                                <p className="m-0 text-slate-900 font-medium leading-relaxed">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").trim()}</p>
+                                                <p className="m-0 text-slate-900 font-medium leading-relaxed">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").replace(/\*\*Your perspective:\*\*/, "").trim()}</p>
                                             </div>
                                         );
                                     }
-                                    if (section.includes("**Antin näkökulma")) {
+                                    if (section.includes("**Antin näkökulma") || section.includes("Victim's perspective") || section.includes("perspective (Victim's voice):")) {
                                         return (
                                             <div key={idx} className="bg-white/40 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-indigo-500 shadow-sm">
                                                 <div className="flex items-center gap-2 mb-2 font-black text-indigo-900 uppercase tracking-widest text-[10px]">
-                                                    <User className="w-3.5 h-3.5 text-indigo-500" /> Antin näkökulma
+                                                    <User className="w-3.5 h-3.5 text-indigo-500" /> {t('game.victim_perspective')}
                                                 </div>
-                                                <p className="italic text-indigo-900 m-0 font-medium leading-relaxed">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
+                                                <p className="italic text-indigo-900 m-0 font-medium leading-relaxed">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/\*\*Antin's.+?\*\*:/, "").replace(/\*\*Victim's.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
                                             </div>
                                         );
                                     }
-                                    if (section.includes("**Psykologinen analyysi:**")) {
+                                    if (section.includes("**Psykologinen analyysi:**") || section.includes("**Psychological analysis:**")) {
                                         return (
                                             <div key={idx} className="bg-emerald-50/50 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-emerald-500 shadow-sm">
                                                 <div className="flex items-center gap-2 mb-2 font-black text-emerald-900 uppercase tracking-widest text-[10px]">
-                                                    <Brain className="w-3.5 h-3.5 text-emerald-500" /> Psykologinen analyysi
+                                                    <Brain className="w-3.5 h-3.5 text-emerald-500" /> {t('game.psych_analysis')}
                                                 </div>
-                                                <p className="text-emerald-900 m-0 font-medium leading-relaxed">{section.replace("**Psykologinen analyysi:**", "").trim()}</p>
+                                                <p className="text-emerald-900 m-0 font-medium leading-relaxed">{section.replace("**Psykologinen analyysi:**", "").replace("**Psychological analysis:**", "").trim()}</p>
                                             </div>
                                         );
                                     }
@@ -377,7 +378,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                         {currentPhase.isCrisis && (
                             <div className="mt-8 p-4 bg-red-600 text-white rounded-2xl flex items-center justify-center gap-3 text-xs font-black uppercase tracking-widest animate-pulse shadow-lg shadow-red-500/20">
                                 <AlertTriangle className="w-5 h-5 shrink-0" />
-                                <span>KRIISI MERKITTY RAporttiin</span>
+                                <span>{t('game.crisis_report')}</span>
                             </div>
                         )}
                     </div>

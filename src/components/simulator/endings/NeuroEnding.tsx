@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Brain, ArrowRight, Users, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GameStats } from "@/lib/simulator/types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface NeuroEndingProps {
     currentPhaseId: string;
@@ -13,14 +14,15 @@ interface NeuroEndingProps {
 }
 
 export function NeuroEnding({ currentPhaseId, stats, onExit }: NeuroEndingProps) {
+    const { t } = useLanguage();
     const isBurnout = currentPhaseId === 'END_BURNOUT';
     const isNewStart = currentPhaseId === 'END_NEW_START';
 
     const statConfig = [
-        { id: 'selfEsteem', label: 'Itseluottamus', icon: Brain, color: 'bg-indigo-500' },
-        { id: 'teamAcceptance', label: 'Hyväksyntä', icon: Users, color: 'bg-cyan-500' },
-        { id: 'physicalHealth', label: 'Jaksaminen', icon: Heart, color: 'bg-rose-500' },
-        { id: 'hope', label: 'Toivo', icon: ArrowRight, color: 'bg-emerald-500' }
+        { id: 'selfEsteem', label: t('game.stats.self_esteem'), icon: Brain, color: 'bg-indigo-500' },
+        { id: 'teamAcceptance', label: t('game.stats.team_acceptance'), icon: Users, color: 'bg-cyan-500' },
+        { id: 'physicalHealth', label: t('game.stats.physical_health'), icon: Heart, color: 'bg-rose-500' },
+        { id: 'hope', label: t('game.stats.hope'), icon: ArrowRight, color: 'bg-emerald-500' }
     ];
 
     return (
@@ -31,14 +33,16 @@ export function NeuroEnding({ currentPhaseId, stats, onExit }: NeuroEndingProps)
                 </div>
 
                 <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                    {isBurnout ? "Päivä päättyi uupumiseen" : (isNewStart ? "Uusi alku" : "Päivä pulkassa")}
+                    {isBurnout && t('game.endings.neuro.burnout_title')}
+                    {isNewStart && t('game.endings.neuro.new_start_title')}
+                    {!isBurnout && !isNewStart && t('game.end_day')}
                 </h1>
 
                 <div className="prose prose-invert prose-lg mx-auto text-slate-300 leading-relaxed">
                     <p>
                         {isBurnout
-                            ? "Lopulta maski putosi. Jatkuva yrittäminen sopeutua muuttiin joka ei jousta, vei voimasi. Tämä ei ole epäonnistuminen, vaan merkki siitä, että ympäristön on muututtava."
-                            : "Selvisit päivästä. Olet tehnyt lukemattomia näkymättömiä valintoja säästääksesi energiaasi ja tullaksesi ymmärretyksi."}
+                            ? t('game.endings.neuro.burnout_desc')
+                            : t('game.survived')}
                     </p>
                 </div>
 
@@ -46,7 +50,7 @@ export function NeuroEnding({ currentPhaseId, stats, onExit }: NeuroEndingProps)
                 <div className="bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-6 flex items-center justify-center gap-2">
                         <Brain className="w-4 h-4" />
-                        Päivän saldot
+                        {t('game.balances')}
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {statConfig.map(stat => (
@@ -63,10 +67,10 @@ export function NeuroEnding({ currentPhaseId, stats, onExit }: NeuroEndingProps)
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
                     <Button size="lg" variant="default" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold h-12 rounded-full px-8" onClick={onExit}>
-                        Palaa Neuromoninaisuus-sivulle
+                        {t('game.return_hub')}
                     </Button>
                     <Button size="lg" variant="outline" className="border-slate-700 text-slate-400 hover:bg-slate-800 h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                        Yritä uudelleen
+                        {t('game.try_again')}
                     </Button>
                 </div>
             </Card>

@@ -4967,5 +4967,89 @@
                 "btn_back": "Back to Achievements"
             }
         }
+    },
+    "game": {
+        "day": "Day",
+        "end_day": "Day Finished",
+        "survived": "You survived the day. You have made countless invisible choices to save your energy and be understood.",
+        "balances": "DAY BALANCES",
+        "return_hub": "Return to Simulation Hub",
+        "try_again": "Try Again",
+        "resources": "Resources",
+        "continue": "Continue Simulation",
+        "quit": "Quit",
+        "crisis_report": "CRISIS MARKED IN REPORT",
+        "your_perspective": "Your Perspective",
+        "victim_perspective": "Victim's Perspective",
+        "psych_analysis": "Psychological Analysis",
+        "notifications": {
+            "ally_found": "Ally found",
+            "log_documented": "📝 Event documented automatically",
+            "choice_blocked": "This choice is not possible in the current situation."
+        },
+        "stats": {
+            "self_esteem": "Self-Esteem",
+            "team_acceptance": "Acceptance",
+            "physical_health": "Energy",
+            "hope": "Hope"
+        },
+        "stat_descriptions": {
+            "self_esteem": "Your belief in your own abilities and rights.",
+            "team_acceptance": "How the work community relates to you.",
+            "physical_health": "Your mental and physical endurance.",
+            "hope": "Your belief in a better future."
+        },
+        "errors": {
+            "phase_not_found": "Error: Phase {{phaseId}} not found."
+        },
+        "endings": {
+            "generic": {
+                "exhaustion": "Result: Burnout",
+                "resignation": "Result: Resignation",
+                "survival": "Result: Survival",
+                "exhaustion_desc": "You kept struggling without support. Your health failed before you could react. This is unfortunately a common story in healthcare.",
+                "resignation_desc": "You decided to protect yourself by leaving the situation. It is a brave act, but also a loss for the field.",
+                "survival_desc": "You used the Safe Wing. Documentation gave you factual data, and community support gave you strength. The fight is not over, but you are no longer alone.",
+                "stats_title": "Statistics of your story",
+                "log_count": "Log entries",
+                "ally_count": "Allies",
+                "performance": "Performance"
+            },
+            "manager": {
+                "title": "Simulation Ended",
+                "desc": "You have seen how \"efficient\" management can destroy a work community. Small, rationalized choices accumulated into a systemic failure.",
+                "anatomy_title": "Anatomy of Destruction",
+                "human_crash": "Human Collapse",
+                "burnout_severe": "Severe Burnout",
+                "human_desc": "Antti took 6 months of sick leave. Two other team members resigned due to the atmosphere of fear.",
+                "financial_hit": "Financial Hit",
+                "sick_leave": "Sick Leave",
+                "recruitment": "Recruitment (2 ppl)",
+                "productivity_loss": "Productivity Loss",
+                "reputation_hit": "Reputation Damage",
+                "reputation_damage": "Irreparable Damage",
+                "reputation_desc": "Insider information about poor management has spread. Recruitment has become difficult and brand image has collapsed."
+            },
+            "neuro": {
+                "burnout_title": "Day ended in burnout",
+                "new_start_title": "New Start",
+                "burnout_desc": "Finally the mask fell. Constant trying to adapt to a mold that doesn't yield took your strength. This is not a failure, but a sign that the environment must change."
+            },
+            "youth": {
+                "agency_restored": "Agency Restored",
+                "result_burnout": "Result: Burnout",
+                "result_label": "Result: Labeling",
+                "growth_desc": "<strong>Congratulations.</strong> This was the hardest possible choice. You refused to take the blame for something that belonged to management responsibility. Although the situation was uncomfortable, you kept your self-respect. This skill will protect you throughout your career.",
+                "burnout_desc": "You waited for the situation to improve by itself. Unfortunately, in a toxic environment, silence is interpreted as permission to continue. Many young people burn out exactly like this. Remember: you have permission to leave.",
+                "emotional_desc": "You let emotions take over. It is human, but unfortunately in this environment it gave them a weapon against you. Next time: record facts, and talk about structures.",
+                "learning_exp": "Learning Experience",
+                "key_learning": "Key Learning",
+                "key_learning_text": "If a workplace requires you to endure bad treatment, the fault is not in you.",
+                "protection": "Protection Method",
+                "protection_text": "Always document lack of onboarding in email (\"Just confirming that I understood correctly...\").",
+                "return_youth": "Return to Youth Page",
+                "try_another": "Try another choice"
+            }
+        }
     }
 }

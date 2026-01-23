@@ -4919,5 +4919,89 @@
             "btn_mark": "Merkitse suoritetuksi (+75 pts)",
             "btn_back": "Palaa saavutuksiin"
         }
+    },
+    "game": {
+        "day": "Päivä",
+        "end_day": "Päivä pulkassa",
+        "survived": "Selvisit päivästä. Olet tehnyt lukemattomia näkymättömiä valintoja säästääksesi energiaasi ja tullaksesi ymmärretyksi.",
+        "balances": "PÄIVÄN SALDOT",
+        "return_hub": "Palaa simulaatiosivulle",
+        "try_again": "Yritä uudelleen",
+        "resources": "Voimavarat",
+        "continue": "Jatka simulaatiota",
+        "quit": "Lopeta",
+        "crisis_report": "KRIISI MERKITTY RAPORTTIIN",
+        "your_perspective": "Sinun näkökulmasi",
+        "victim_perspective": "Antin näkökulma",
+        "psych_analysis": "Psykologinen analyysi",
+        "notifications": {
+            "ally_found": "Liittolainen löydetty",
+            "log_documented": "📝 Tapahtuma dokumentoitu automaattisesti",
+            "choice_blocked": "Tämä valinta ei ole mahdollinen nykyisessä tilanteessa."
+        },
+        "stats": {
+            "self_esteem": "Itseluottamus",
+            "team_acceptance": "Hyväksyntä",
+            "physical_health": "Jaksaminen",
+            "hope": "Toivo"
+        },
+        "stat_descriptions": {
+            "self_esteem": "Uskosi omiin kykyihisi ja oikeuksiisi.",
+            "team_acceptance": "Miten työyhteisö suhtautuu sinuun.",
+            "physical_health": "Henkinen ja fyysinen kestävyytesi.",
+            "hope": "Uskosi parempaan tulevaisuuteen."
+        },
+        "errors": {
+            "phase_not_found": "Virhe: Vaihetta {{phaseId}} ei löytynyt."
+        },
+        "endings": {
+            "generic": {
+                "exhaustion": "Lopputulos: Uupumus",
+                "resignation": "Lopputulos: Irtisanoutuminen",
+                "survival": "Lopputulos: Selviytyminen",
+                "exhaustion_desc": "Jatkoit sinnittelyä ilman tukea. Terveytesi petti ennen kuin ehdit reagoida. Tämä on valitettavan yleinen tarina hoitoalalla.",
+                "resignation_desc": "Päätit suojella itseäsi poistumalla tilanteesta. Se on rohkea teko, mutta samalla menetys alalle.",
+                "survival_desc": "Otit Turvasiiven käyttöösi. Dokumentointi antoi sinulle faktatietoa, ja yhteisön tuki voimaa. Taistelu ei ole ohi, mutta et ole enää yksin.",
+                "stats_title": "Sinun tarinasi tilastot",
+                "log_count": "Logimerkintöjä",
+                "ally_count": "Liittolaisia",
+                "performance": "Suoritus"
+            },
+            "manager": {
+                "title": "Simulaatio päättynyt",
+                "desc": "Olet nähnyt, miten \"tehokas\" johtaminen voi tuhota työyhteisön. Pienet, rationalisoidut valinnat kasautuivat järjestelmäviaksi.",
+                "anatomy_title": "Tuhon Anatomia",
+                "human_crash": "Inhimillinen romahdus",
+                "burnout_severe": "Vakava työuupumus",
+                "human_desc": "Antti jäi 6 kk sairauslomalle. Kaksi muuta tiimiläistä on irtisanoutunut pelon ilmapiirin takia.",
+                "financial_hit": "Taloudellinen isku",
+                "sick_leave": "Sairauspoissaolot",
+                "recruitment": "Rekrytointi (2 hlö)",
+                "productivity_loss": "Tuottavuusvaje",
+                "reputation_hit": "Mainehaitta",
+                "reputation_damage": "Korjaamaton vahinko",
+                "reputation_desc": "Sisäpiirin tiedot huonosta johtamisesta ovat levinneet. Rekrytointi on vaikeutunut ja brändimielikuva on romahtanut."
+            },
+            "neuro": {
+                "burnout_title": "Päivä päättyi uupumiseen",
+                "new_start_title": "Uusi alku",
+                "burnout_desc": "Lopulta maski putosi. Jatkuva yrittäminen sopeutua muuttiin joka ei jousta, vei voimasi. Tämä ei ole epäonnistuminen, vaan merkki siitä, että ympäristön on muututtava."
+            },
+            "youth": {
+                "agency_restored": "Toimijuus palautettu",
+                "result_burnout": "Lopputulos: Uupumus",
+                "result_label": "Lopputulos: Leimautuminen",
+                "growth_desc": "<strong>Onneksi olkoon.</strong> Tämä oli vaikein mahdollinen valinta. Kieltäydyit ottamasta syytä niskoillesi asiasta, joka kuului johdon vastuulle. Vaikka tilanne oli epämukava, säilytit itsekunnioituksesi. Tämä taito suojaa sinua koko loppu-urasi ajan.",
+                "burnout_desc": "Jäit odottamaan, että tilanne paranisi itsestään. Valitettavasti myrkyllisessä ympäristössä hiljaisuus tulkitaan luvaksi jatkaa. Moni nuori uupuu juuri näin. Muista: sinulla on lupa lähteä.",
+                "emotional_desc": "Annoit tunteiden viedä. Se on inhimillistä, mutta valitettavasti tässä ympäristössä se antoi heille aseen sinua vastaan. Seuraavalla kerralla: kirjaa faktat, ja puhu rakenteista.",
+                "learning_exp": "Oppimiskokemus",
+                "key_learning": "Tärkein oppi",
+                "key_learning_text": "Jos työpaikka vaatii sinua kestämään huonoa kohtelua, vika ei ole sinussa.",
+                "protection": "Suojakeino",
+                "protection_text": "Dokumentoi aina perehdytyksen puutteet sähköpostiin (\"Varmistan vain, että ymmärsin oikein...\").",
+                "return_youth": "Palaa Nuoret-sivulle",
+                "try_another": "Kokeile toisella valinnalla"
+            }
+        }
     }
 }

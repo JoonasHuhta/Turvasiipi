@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface YouthEndingProps {
     currentPhaseId: string;
@@ -11,6 +12,7 @@ interface YouthEndingProps {
 }
 
 export function YouthEnding({ currentPhaseId, onExit }: YouthEndingProps) {
+    const { t } = useLanguage();
     const isGrowth = currentPhaseId === 'END_GROWTH';
     const isBurnout = currentPhaseId === 'END_BURNOUT';
 
@@ -25,48 +27,38 @@ export function YouthEnding({ currentPhaseId, onExit }: YouthEndingProps) {
                     </div>
 
                     <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 leading-tight">
-                        {isGrowth ? "Toimijuus palautettu" : (isBurnout ? "Lopputulos: Uupumus" : "Lopputulos: Leimautuminen")}
+                        {isGrowth ? t('game.endings.youth.agency_restored') : (isBurnout ? t('game.endings.youth.result_burnout') : t('game.endings.youth.result_label'))}
                     </h1>
 
                     <div className="prose prose-slate prose-lg mx-auto text-slate-600 leading-relaxed">
                         {isGrowth && (
-                            <p>
-                                <strong>Onneksi olkoon.</strong> Tämä oli vaikein mahdollinen valinta. Kieltäydyit ottamasta syytä niskoillesi asiasta,
-                                joka kuului johdon vastuulle. Vaikka tilanne oli epämukava, säilytit itsekunnioituksesi.
-                                Tämä taito suojaa sinua koko loppu-urasi ajan.
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: t('game.endings.youth.growth_desc') }} />
                         )}
                         {isBurnout && (
-                            <p>
-                                Jäit odottamaan, että tilanne paranisi itsestään. Valitettavasti myrkyllisessä ympäristössä hiljaisuus tulkitaan luvaksi jatkaa.
-                                Moni nuori uupuu juuri näin. Muista: sinulla on lupa lähteä.
-                            </p>
+                            <p>{t('game.endings.youth.burnout_desc')}</p>
                         )}
                         {!isGrowth && !isBurnout && (
-                            <p>
-                                Annoit tunteiden viedä. Se on inhimillistä, mutta valitettavasti tässä ympäristössä se antoi heille aseen sinua vastaan.
-                                Seuraavalla kerralla: kirjaa faktat, ja puhu rakenteista.
-                            </p>
+                            <p>{t('game.endings.youth.emotional_desc')}</p>
                         )}
                     </div>
 
                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 text-left">
                         <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
                             <Brain className="w-4 h-4" />
-                            Oppimiskokemus
+                            {t('game.endings.youth.learning_exp')}
                         </h3>
                         <div className="space-y-3 text-sm text-slate-700">
-                            <p>✅ <strong>Tärkein oppi:</strong> Jos työpaikka vaatii sinua kestämään huonoa kohtelua, vika ei ole sinussa.</p>
-                            <p>🛡️ <strong>Suojakeino:</strong> Dokumentoi aina perehdytyksen puutteet sähköpostiin ("Varmistan vain, että ymmärsin oikein...").</p>
+                            <p>✅ <strong>{t('game.endings.youth.key_learning')}:</strong> {t('game.endings.youth.key_learning_text')}</p>
+                            <p>🛡️ <strong>{t('game.endings.youth.protection')}:</strong> {t('game.endings.youth.protection_text')}</p>
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                         <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white h-12 rounded-full px-8" onClick={onExit}>
-                            Palaa Nuoret-sivulle
+                            {t('game.endings.youth.return_youth')}
                         </Button>
                         <Button size="lg" variant="outline" className="h-12 rounded-full px-8" onClick={() => window.location.reload()}>
-                            Kokeile toisella valinnalla
+                            {t('game.endings.youth.try_another')}
                         </Button>
                     </div>
                 </div>
