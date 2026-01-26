@@ -1,0 +1,73 @@
+{
+    "header": {
+        "label": "Koe",
+        "title": "Testaa rajojasi.",
+        "title_span": "Turvallisesti.",
+        "p1": "Kokeet ovat interaktiivisia tarinoita, joissa pääset kokeilemaan haastavia työelämän tilanteita ilman todellista riskiä.",
+        "p2": "Voit harjoitella puuttumista, omien rajojen vetämistä tai vain havainnoida, miltä erilaiset vuorovaikutustilanteet tuntuvat.",
+        "cta_how": "Miten tämä toimii?",
+        "dialog": {
+            "title": "Kokeen periaatteet",
+            "p1_bold": "Turvallisuus.",
+            "p1_text": "Mikään valinta ei johda todelliseen vaaraan. Voit aina keskeyttää.",
+            "p2_bold": "Valinta.",
+            "p2_text": "Sinä päätät, miten etenet. Ei ole yhtä oikeaa tapaa.",
+            "p3_bold": "Reflektio.",
+            "p3_text": "Tärkeintä ei ole suoritus, vaan se mitä opit itsestäsi."
+        }
+    },
+    "neuro": {
+        "title": "Neuromoninaisuus",
+        "subtitle": "Koe maailma erilaisin aistien kautta.",
+        "cards": {
+            "neuro": {
+                "title": "Aistiyliherkkyys",
+                "desc": "Miltä tuntuu, kun toimiston äänet ja valot eivät suodatu pois?"
+            },
+            "performance": {
+                "title": "Suoritusansa",
+                "desc": "Perfektionismi ja vaativuus uupumuksen ajureina."
+            },
+            "shadow": {
+                "title": "Informaatiovarjo",
+                "desc": "Kun sanattomat viestit ja rivien välit jäävät pimentoon."
+            }
+        }
+    },
+    "sector": {
+        "title": "Ammattialat",
+        "subtitle": "Toimialakohtaiset haasteet ja tilanteet.",
+        "cards": {
+            "nurse": {
+                "title": "Hoitotyö",
+                "desc": "Kiire, eettinen kuormitus ja hierarkia sairaalamaailmassa."
+            },
+            "teacher": {
+                "title": "Opetusala",
+                "desc": "Riittämättömyyden tunne ja vaativat vanhemmat."
+            },
+            "it": {
+                "title": "IT-ala",
+                "desc": "Crunch-kulttuuri ja jatkuva tavoitettavuus."
+            },
+            "manager": {
+                "title": "Esihenkilötyö",
+                "desc": "Puun ja kuoren välissä. Miten puuttua alisuoriutumiseen?"
+            }
+        }
+    },
+    "youth": {
+        "title": "Nuoret & Kesätyöt",
+        "subtitle": "Tunnista riskit työuran alussa.",
+        "cards": {
+            "new": {
+                "title": "Kesätyöntekijä",
+                "desc": "Kun pomo pyytää 'pientä palvelusta' ja et uskalla kieltäytyä."
+            }
+        }
+    },
+    "card": {
+        "new": "UUSI",
+        "start": "ALOITA SIMULAATIO"
+    }
+}

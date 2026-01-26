@@ -1,0 +1,821 @@
+{
+    "categories": {
+        "verbal": "Verbal",
+        "social": "Social",
+        "passive": "Passive",
+        "power": "Abuse of Power",
+        "manipulative": "Manipulative",
+        "structural": "Structural"
+    },
+    "page": {
+        "title_start": "Identify",
+        "title_highlight": "Bullying Tactics",
+        "description": "Bullying is not always shouting. It is often silent, systematic, and subtle. Recognize the methods so you can protect yourself.",
+        "carousel": [
+            {
+                "src": "/img/tactics/gaslighting.jpg",
+                "alt": "Gaslighting",
+                "caption": "Denying reality creates uncertainty."
+            },
+            {
+                "src": "/img/tactics/exclusion.jpg",
+                "alt": "Exclusion",
+                "caption": "Silent exclusion is violence."
+            },
+            {
+                "src": "/img/tactics/overwork.jpg",
+                "alt": "Overwork",
+                "caption": "Impossible demands exhaust."
+            }
+        ],
+        "promo_banner": {
+            "title": "Is knowledge not enough?",
+            "description": "Try interactive coaching where you learn to defend yourself in practice.",
+            "cta": "Go to Coaching"
+        },
+        "modal": {
+            "definition": "What is this?",
+            "goal": "Goal",
+            "impact": {
+                "title": "Impact on you",
+                "stress": "Stress",
+                "burnout": "Burnout",
+                "selfEsteem": "Self-Esteem"
+            },
+            "phrases": "Recognize phrases",
+            "strategy": "Defense Strategy",
+            "roles": {
+                "victim": "Are you the target?",
+                "witness": "Do you see this?",
+                "manager": "Are you a manager?"
+            },
+            "log_instruction": "How to log this?",
+            "close": "Close Card"
+        }
+    },
+    "mitatointi": {
+        "name": "Invalidation & Belittling",
+        "desc": "Constant belittling and questioning of your skills, suggestions, and achievements. The goal is to make you feel incompetent in the eyes of others and in your own mind.",
+        "goal": "Erode self-confidence and professional credibility.",
+        "phrases": [
+            "That is a useless suggestion",
+            "Do you really not know this?"
+        ],
+        "strategy": [
+            "Document feedback.",
+            "Validate your skills with others."
+        ],
+        "logExample": "Supervisor dismissed my suggestion calling it 'useless'.",
+        "impact": {
+            "stress": 65,
+            "burnout": 50,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Protect your professional worth",
+                "description": "Remember your own competence.",
+                "actions": [
+                    "Collect positive feedback",
+                    "Ask for written justifications"
+                ]
+            },
+            "witness": {
+                "title": "Validate competence",
+                "description": "Support the victim publicly.",
+                "actions": [
+                    "Say: 'I thought that was good'",
+                    "Do not laugh along"
+                ]
+            },
+            "manager": {
+                "title": "Intervene immediately",
+                "description": "Belittling destroys the team.",
+                "actions": [
+                    "Create clear rules",
+                    "Ensure equitable feedback"
+                ]
+            }
+        }
+    },
+    "gaslighting": {
+        "name": "Gaslighting",
+        "desc": "Systematic manipulation where your perceptions, memory, and experiences are denied. You might hear phrases like 'you are just imagining' or 'you are too sensitive', until you start doubting your own sanity.",
+        "goal": "Make the victim doubt their own sense of reality.",
+        "phrases": [
+            "I never said that",
+            "You are just imagining"
+        ],
+        "strategy": [
+            "Write things down immediately.",
+            "Use email confirmations."
+        ],
+        "logExample": "Agreed matter was denied completely later.",
+        "impact": {
+            "stress": 90,
+            "burnout": 70,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Trust your perceptions",
+                "description": "Use documentation as an anchor.",
+                "actions": [
+                    "Confirm things by email",
+                    "Keep a neutral witness"
+                ]
+            },
+            "witness": {
+                "title": "Confirm the truth",
+                "description": "Help the victim ground themselves.",
+                "actions": [
+                    "Say: 'I remember it that way too'",
+                    "Do not let facts be changed"
+                ]
+            },
+            "manager": {
+                "title": "Demand transparency",
+                "description": "Clarity is the cure.",
+                "actions": [
+                    "Require written memos",
+                    "Track repeated 'memory errors'"
+                ]
+            }
+        }
+    },
+    "uhkailu": {
+        "name": "Threats & Intimidation",
+        "desc": "Direct or veiled threats that create an atmosphere of insecurity. It can be hinting at job loss, destroying reputation, or vague 'consequences'.",
+        "goal": "Silence the victim and quell criticism with fear.",
+        "phrases": [
+            "You know what follows from this",
+            "Maybe you don't fit here"
+        ],
+        "strategy": [
+            "Document threats.",
+            "Contact the shop steward."
+        ],
+        "logExample": "Supervisor hinted at termination without cause.",
+        "impact": {
+            "stress": 95,
+            "burnout": 80,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Protect your legal rights",
+                "description": "Do not remain alone with the threatener.",
+                "actions": [
+                    "Ask for threats in writing",
+                    "Contact the union IMMEDIATELY"
+                ]
+            },
+            "witness": {
+                "title": "Witness events",
+                "description": "Help with documentation.",
+                "actions": [
+                    "Write down your own observations",
+                    "Offer support to the victim"
+                ]
+            },
+            "manager": {
+                "title": "Zero tolerance",
+                "description": "Threatening is illegal harassment.",
+                "actions": [
+                    "Intervene immediately",
+                    "Investigate the extent of the threat"
+                ]
+            }
+        }
+    },
+    "identiteetti": {
+        "name": "Identity Attack",
+        "desc": "Criticism directed at personal characteristics such as age, gender, appearance, or background. The attack is not about your work, but about who you are.",
+        "goal": "Humiliate as a person and create a deep sense of exclusion.",
+        "phrases": [
+            "Are you too old for this?",
+            "Women don't understand this"
+        ],
+        "strategy": [
+            "Recognize discrimination.",
+            "Document words exactly."
+        ],
+        "logExample": "My age was referred to derogatorily in training.",
+        "impact": {
+            "stress": 80,
+            "burnout": 60,
+            "selfEsteem": 95
+        },
+        "advice": {
+            "victim": {
+                "title": "Recognize discrimination",
+                "description": "This is against the law.",
+                "actions": [
+                    "Document word for word",
+                    "Contact the shop steward"
+                ]
+            },
+            "witness": {
+                "title": "Intervene in speech",
+                "description": "Show that this is not ok.",
+                "actions": [
+                    "Say: 'That doesn't belong here'",
+                    "Report forward"
+                ]
+            },
+            "manager": {
+                "title": "Ensure equality",
+                "description": "Leadership requires inclusion.",
+                "actions": [
+                    "Train the team",
+                    "Intervene immediately in 'jokes'"
+                ]
+            }
+        }
+    },
+    "sexual_harassment": {
+        "name": "Sexual Harassment",
+        "desc": "Unwanted, sexually toned behavior, speech, or messaging. The goal is to subjugate and objectify the target based on gender.",
+        "goal": "Objectify the target and create a hostile environment.",
+        "phrases": [
+            "You look good today",
+            "Don't be so stiff (suggestion)"
+        ],
+        "strategy": [
+            "Say a clear stop.",
+            "Report to HR."
+        ],
+        "logExample": "I received inappropriate comments about my appearance during the break.",
+        "impact": {
+            "stress": 90,
+            "burnout": 65,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Set a strict boundary",
+                "description": "Do not tolerate harassment.",
+                "actions": [
+                    "Say: 'Stop, this is harassing'",
+                    "Report officially IMMEDIATELY"
+                ]
+            },
+            "witness": {
+                "title": "Break the silence",
+                "description": "Silence is acceptance.",
+                "actions": [
+                    "Say: 'That is not appropriate'",
+                    "Support the victim in reporting"
+                ]
+            },
+            "manager": {
+                "title": "Legal obligation",
+                "description": "Intervene immediately and seriously.",
+                "actions": [
+                    "Follow the Equality Act",
+                    "Ensure victim's safety"
+                ]
+            }
+        }
+    },
+    "eristaminen": {
+        "name": "Isolation & Exclusion",
+        "desc": "Active measure to prevent participation in work community activities. 'Forgetting' invitations, leaving out of information sharing.",
+        "goal": "Cut off support networks and make the victim invisible.",
+        "phrases": [
+            "I forgot to invite you",
+            "This doesn't concern you"
+        ],
+        "strategy": [
+            "Build other networks.",
+            "Ask for reasons in writing."
+        ],
+        "logExample": "Team held a planning meeting without me.",
+        "impact": {
+            "stress": 75,
+            "burnout": 60,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Break the blockade",
+                "description": "Make contact yourself.",
+                "actions": [
+                    "Ask directly: 'Why didn't the information flow?'",
+                    "Build networks elsewhere"
+                ]
+            },
+            "witness": {
+                "title": "Be inclusive",
+                "description": "Take the victim along.",
+                "actions": [
+                    "Invite colleague along",
+                    "Add them to emails"
+                ]
+            },
+            "manager": {
+                "title": "Monitor dynamics",
+                "description": "Exclusion is a group phenomenon.",
+                "actions": [
+                    "Use random pairs",
+                    "Intervene in cliques"
+                ]
+            }
+        }
+    },
+    "ostrakismi": {
+        "name": "Ostracism",
+        "desc": "Total ignoring ('cold shoulder'). No one answers greetings, makes eye contact, or reacts to presence.",
+        "goal": "Erode human dignity and sense of belonging.",
+        "phrases": [
+            "(No answer to greeting)",
+            "(Room goes silent when arriving)"
+        ],
+        "strategy": [
+            "Put observations into words.",
+            "Seek outside validation."
+        ],
+        "logExample": "No one answers my questions on the common channel.",
+        "impact": {
+            "stress": 85,
+            "burnout": 70,
+            "selfEsteem": 95
+        },
+        "advice": {
+            "victim": {
+                "title": "Validate your existence",
+                "description": "This is social violence.",
+                "actions": [
+                    "Make observations visible to HR",
+                    "Seek peer support"
+                ]
+            },
+            "witness": {
+                "title": "Break the ice",
+                "description": "Be the one who greets.",
+                "actions": [
+                    "Greet clearly by name",
+                    "Bring up by looking in the eyes"
+                ]
+            },
+            "manager": {
+                "title": "Zero tolerance",
+                "description": "Hardest form of harassment to detect.",
+                "actions": [
+                    "Ask in 1-to-1 discussions",
+                    "Intervene immediately in freezing"
+                ]
+            }
+        }
+    },
+    "mobbing": {
+        "name": "Mobbing",
+        "desc": "Situation where one bully incites others to join, or a group collectively turns against one person.",
+        "goal": "Smoke the victim out with massive pressure directed at the community.",
+        "phrases": [
+            "Everyone thinks you are difficult",
+            "No one wants you"
+        ],
+        "strategy": [
+            "Find allies outside.",
+            "Contact HR immediately."
+        ],
+        "logExample": "Whole team turned against me on the initiative of one.",
+        "impact": {
+            "stress": 100,
+            "burnout": 85,
+            "selfEsteem": 100
+        },
+        "advice": {
+            "victim": {
+                "title": "Seek outside help",
+                "description": "You cannot win alone against a group.",
+                "actions": [
+                    "Contact occupational safety",
+                    "Seek trauma help early"
+                ]
+            },
+            "witness": {
+                "title": "Be an icebreaker",
+                "description": "Even a single dissenting voice can dismantle pressure.",
+                "actions": [
+                    "Ask: 'Why are we doing this?'",
+                    "Report to management anonymously"
+                ]
+            },
+            "manager": {
+                "title": "Disband toxic group",
+                "description": "Most serious leadership problem.",
+                "actions": [
+                    "Individual discussions immediately",
+                    "Reorganize the team"
+                ]
+            }
+        }
+    },
+    "maine": {
+        "name": "Defamation",
+        "desc": "Badmouthing behind back, questioning professional credibility, and spreading false rumors.",
+        "goal": "Destroy credibility and social capital.",
+        "phrases": [
+            "I heard s/he makes mistakes",
+            "S/he is not a team player"
+        ],
+        "strategy": [
+            "Correct facts immediately.",
+            "Let work results speak."
+        ],
+        "logExample": "False information was spread about me to management.",
+        "impact": {
+            "stress": 80,
+            "burnout": 60,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Defend reality",
+                "description": "Reputation is your capital.",
+                "actions": [
+                    "Correct facts immediately",
+                    "Be transparent in everything"
+                ]
+            },
+            "witness": {
+                "title": "Stop rumors",
+                "description": "A rumor requires an audience.",
+                "actions": [
+                    "Ask: 'What is this based on?'",
+                    "Bring up successes"
+                ]
+            },
+            "manager": {
+                "title": "Protect reputation",
+                "description": "Harassment must be cut.",
+                "actions": [
+                    "Intervene in talking behind back",
+                    "Find out source of rumor"
+                ]
+            }
+        }
+    },
+    "cyberbullying": {
+        "name": "Cyberbullying",
+        "desc": "Harassment in digital channels. Mean messages, leaving out of chat groups, or sharing humiliating materials.",
+        "goal": "Make insecurity constant – it follows home.",
+        "phrases": [
+            "(Invalidation in chat)",
+            "(Harassment messages in free time)"
+        ],
+        "strategy": [
+            "Screenshot everything.",
+            "Turn off notifications."
+        ],
+        "logExample": "Derogatory memes about me were spread in group chat.",
+        "impact": {
+            "stress": 85,
+            "burnout": 70,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Save and detach",
+                "description": "Digital footprint is evidence.",
+                "actions": [
+                    "Take screenshots IMMEDIATELY",
+                    "Set technical boundaries"
+                ]
+            },
+            "witness": {
+                "title": "Report harassment",
+                "description": "Silence is acceptance.",
+                "actions": [
+                    "Say: 'This is not appropriate'",
+                    "Screenshot if victim doesn't see"
+                ]
+            },
+            "manager": {
+                "title": "Manage digital environment",
+                "description": "Employer is also responsible for chats.",
+                "actions": [
+                    "Create remote communication rules",
+                    "Intervene in chat joking"
+                ]
+            }
+        }
+    },
+    "kohtuuttomuus": {
+        "name": "Unreasonable Demands",
+        "desc": "Setting workload or schedules such that success is impossible. Constant pressure and feeling of hurry.",
+        "goal": "Exhaust the employee and make them feel inadequate.",
+        "phrases": [
+            "This must be ready tomorrow",
+            "Others can do it too"
+        ],
+        "strategy": [
+            "Ask for prioritization in writing.",
+            "Keep working time records."
+        ],
+        "logExample": "I was given a week's work to do in one afternoon.",
+        "impact": {
+            "stress": 95,
+            "burnout": 90,
+            "selfEsteem": 50
+        },
+        "advice": {
+            "victim": {
+                "title": "Prioritize facts",
+                "description": "No one is superhuman.",
+                "actions": [
+                    "Make task list with timings",
+                    "Report overload in writing"
+                ]
+            },
+            "witness": {
+                "title": "Share concern",
+                "description": "Burnout is a risk to occupational safety.",
+                "actions": [
+                    "Point out workload generally",
+                    "Offer help if you can"
+                ]
+            },
+            "manager": {
+                "title": "Monitor load",
+                "description": "Occupational safety is your responsibility.",
+                "actions": [
+                    "Check task distribution",
+                    "Ask 'How are you coping?'"
+                ]
+            }
+        }
+    },
+    "epaoikeudenmukaisuus": {
+        "name": "Injustice",
+        "desc": "Arbitrary and unequal application of rules, benefits, and duties. 'Yes for others, no for you'.",
+        "goal": "Signal at every moment that you are less valuable.",
+        "phrases": [
+            "S/he gets remote work, you don't",
+            "S/he can be forgiven"
+        ],
+        "strategy": [
+            "Compare to guidelines.",
+            "Ask for written justifications."
+        ],
+        "logExample": "Salary increase was denied to me without reason, given to others.",
+        "impact": {
+            "stress": 70,
+            "burnout": 55,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Demand fairness",
+                "description": "You are an equal colleague.",
+                "actions": [
+                    "Compare to instructions",
+                    "Bring up in 1-to-1"
+                ]
+            },
+            "witness": {
+                "title": "Give recognition",
+                "description": "Restore justice.",
+                "actions": [
+                    "Praise real doer",
+                    "Ask about fairness publicly"
+                ]
+            },
+            "manager": {
+                "title": "Be transparent",
+                "description": "Rules are same for everyone.",
+                "actions": [
+                    "Justify decisions openly",
+                    "Recognize real doers"
+                ]
+            }
+        }
+    },
+    "micromanagement": {
+        "name": "Micromanagement",
+        "desc": "Depriving employee of autonomy, constant watching and interfering in details without reason.",
+        "goal": "Take away professional self-esteem and create a sense of incompetence.",
+        "phrases": [
+            "CC in every message",
+            "Open your screen here"
+        ],
+        "strategy": [
+            "Report proactively.",
+            "Ask for necessary support."
+        ],
+        "logExample": "Supervisor interfered with grammar and font of every email.",
+        "impact": {
+            "stress": 70,
+            "burnout": 60,
+            "selfEsteem": 40
+        },
+        "advice": {
+            "victim": {
+                "title": "Build trust",
+                "description": "Micromanagement tells of manager's fear.",
+                "actions": [
+                    "Agree on checkpoints",
+                    "Keep record of performance"
+                ]
+            },
+            "witness": {
+                "title": "Support autonomy",
+                "description": "Abnormal monitoring is harmful.",
+                "actions": [
+                    "Validate colleague's competence",
+                    "Do not report on others' doings unnecessarily"
+                ]
+            },
+            "manager": {
+                "title": "Trust and delegate",
+                "description": "Micromanagement kills motivation.",
+                "actions": [
+                    "Focus on outcome",
+                    "Learn delegation"
+                ]
+            }
+        }
+    },
+    "credit_stealing": {
+        "name": "Credit Stealing",
+        "desc": "Presenting your ideas and work results as their own. When credit is taken, mistakes are left to you.",
+        "goal": "Advance own career at your expense.",
+        "phrases": [
+            "As I said (your idea)",
+            "I finished this"
+        ],
+        "strategy": [
+            "Mark your name everywhere.",
+            "Share ideas more widely."
+        ],
+        "logExample": "Idea I presented in meeting was recorded in supervisor's name in report.",
+        "impact": {
+            "stress": 55,
+            "burnout": 40,
+            "selfEsteem": 70
+        },
+        "advice": {
+            "victim": {
+                "title": "Be visible",
+                "description": "Your work is your capital.",
+                "actions": [
+                    "Add name to documents",
+                    "Talk about work in progress"
+                ]
+            },
+            "witness": {
+                "title": "Restore credit",
+                "description": "Support truth publicly.",
+                "actions": [
+                    "Say: 'Great that you continued X's idea'",
+                    "Do not let false information stay"
+                ]
+            },
+            "manager": {
+                "title": "Recognize doers",
+                "description": "Appreciate real contribution.",
+                "actions": [
+                    "Ask for breakdown of work distribution",
+                    "Praise individuals for their work"
+                ]
+            }
+        }
+    },
+    "unjustified_warnings": {
+        "name": "Unjustified Warnings",
+        "desc": "Misuse of formal disciplinary actions. Warnings about trivial things or completely made-up reasons.",
+        "goal": "Build a paper trail for termination and create fear.",
+        "phrases": [
+            "This is a formal remark",
+            "You are on a blacklist"
+        ],
+        "strategy": [
+            "Always reply in writing.",
+            "Call union IMMEDIATELY."
+        ],
+        "logExample": "I received a warning for 'attitude problem' when I asked for statutory break.",
+        "impact": {
+            "stress": 100,
+            "burnout": 80,
+            "selfEsteem": 60
+        },
+        "advice": {
+            "victim": {
+                "title": "Protect your legal rights",
+                "description": "This is a direct attack.",
+                "actions": [
+                    "Document every claim",
+                    "Contact lawyer IMMEDIATELY"
+                ]
+            },
+            "witness": {
+                "title": "Witness facts",
+                "description": "You can be key.",
+                "actions": [
+                    "Record your own observations",
+                    "Offer moral support"
+                ]
+            },
+            "manager": {
+                "title": "Use responsibly",
+                "description": "Misuse is illegal.",
+                "actions": [
+                    "Ensure objective reasons",
+                    "Follow law precisely"
+                ]
+            }
+        }
+    },
+    "passiivi-aggressio": {
+        "name": "Passive Aggression",
+        "desc": "Hidden hostility: sighing, eye rolling, 'forgetting', and sarcastic praise.",
+        "goal": "Hurt and invalidate without getting caught for direct attack.",
+        "phrases": [
+            "What a great performance (sarcasm)",
+            "I'm just being honest"
+        ],
+        "strategy": [
+            "Ask directly for intent.",
+            "Stay coolly professional."
+        ],
+        "logExample": "Supervisor rolled eyes during my turn to speak.",
+        "impact": {
+            "stress": 70,
+            "burnout": 55,
+            "selfEsteem": 65
+        },
+        "advice": {
+            "victim": {
+                "title": "Make hidden visible",
+                "description": "Do not join the game.",
+                "actions": [
+                    "Respond only to content",
+                    "Ask: 'What did you mean by that?'"
+                ]
+            },
+            "witness": {
+                "title": "Note gestures",
+                "description": "Passive attack requires an audience.",
+                "actions": [
+                    "Do not laugh at sarcasm",
+                    "Ask: 'Was that necessary?'"
+                ]
+            },
+            "manager": {
+                "title": "Intervene in behavior",
+                "description": "Sarcasm poisons trust.",
+                "actions": [
+                    "Discuss attitude 1-to-1",
+                    "Demand constructive way of speaking"
+                ]
+            }
+        }
+    },
+    "thousand-cuts": {
+        "name": "Death by a Thousand Cuts",
+        "desc": "A continuous series of tiny, almost unnoticeable insults and inconveniences. Individually trivial, together crushing.",
+        "goal": "Wear the victim out in a slow and hard-to-prove way.",
+        "phrases": [
+            "(Constant small correcting)",
+            "(Sighing after your requests)"
+        ],
+        "strategy": [
+            "Document EVERY small thing.",
+            "Seek outside support."
+        ],
+        "logExample": "Today there were 10 small unpleasant encounters.",
+        "impact": {
+            "stress": 85,
+            "burnout": 80,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Quantity is quality",
+                "description": "Single thing is small, whole is large.",
+                "actions": [
+                    "Keep precise diary",
+                    "Do not belittle your own experience"
+                ]
+            },
+            "witness": {
+                "title": "Back up validations",
+                "description": "Victim feels they are imagining.",
+                "actions": [
+                    "Ask: 'Is everything ok?'",
+                    "Validate that you saw too"
+                ]
+            },
+            "manager": {
+                "title": "Identify pattern",
+                "description": "Look at the big picture.",
+                "actions": [
+                    "Ask for logs",
+                    "Address the overall atmosphere"
+                ]
+            }
+        }
+    }
+}

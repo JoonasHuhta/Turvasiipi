@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,12 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function YouthPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('nuoret');
+    }, [loadNamespace]);
+
     const [selectedRole, setSelectedRole] = useState<string | null>(null);
     const [simulationStep, setSimulationStep] = useState<number>(0);
     const { completeModule, isModuleCompleted } = useProgress();
@@ -31,11 +36,11 @@ export default function YouthPage() {
                 <div className="max-w-4xl mx-auto space-y-6">
                     <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[#E8DDD0] text-sm font-medium">
                         <GraduationCap className="w-4 h-4" />
-                        {t('youth_page.hero.label')}
+                        {t('nuoret.hero.label')}
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black leading-tight" dangerouslySetInnerHTML={{ __html: t('youth_page.hero.title') }} />
+                    <h1 className="text-4xl md:text-5xl font-black leading-tight" dangerouslySetInnerHTML={{ __html: t('nuoret.hero.title') }} />
                     <p className="text-xl text-[#E8DDD0] max-w-2xl leading-relaxed">
-                        {t('youth_page.hero.text')}
+                        {t('nuoret.hero.text')}
                     </p>
                 </div>
             </section>
@@ -46,11 +51,11 @@ export default function YouthPage() {
 
                     {/* NAV TABS */}
                     <TabsList className="bg-white p-1 shadow-lg rounded-xl flex flex-wrap h-auto gap-1 border border-[#E8DDD0]">
-                        <TabsTrigger value="intro" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-indigo-50 data-[state=active]:text-indigo-700">{t('youth_page.tabs.intro')}</TabsTrigger>
-                        <TabsTrigger value="career" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">{t('youth_page.tabs.career')}</TabsTrigger>
-                        <TabsTrigger value="interview" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700">{t('youth_page.tabs.interview')}</TabsTrigger>
-                        <TabsTrigger value="sim" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-rose-50 data-[state=active]:text-rose-700">{t('youth_page.tabs.sim')}</TabsTrigger>
-                        <TabsTrigger value="recovery" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700">{t('youth_page.tabs.recovery')}</TabsTrigger>
+                        <TabsTrigger value="intro" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-indigo-50 data-[state=active]:text-indigo-700">{t('nuoret.tabs.intro')}</TabsTrigger>
+                        <TabsTrigger value="career" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">{t('nuoret.tabs.career')}</TabsTrigger>
+                        <TabsTrigger value="interview" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700">{t('nuoret.tabs.interview')}</TabsTrigger>
+                        <TabsTrigger value="sim" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-rose-50 data-[state=active]:text-rose-700">{t('nuoret.tabs.sim')}</TabsTrigger>
+                        <TabsTrigger value="recovery" className="flex-1 min-w-[120px] py-3 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700">{t('nuoret.tabs.recovery')}</TabsTrigger>
                     </TabsList>
 
                     {/* 1. INTRO (Tilannekuva) */}
@@ -59,28 +64,28 @@ export default function YouthPage() {
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2 text-2xl">
                                     <Info className="w-6 h-6 text-[#5B4B8A]" />
-                                    {t('youth_page.intro.title')}
+                                    {t('nuoret.intro.title')}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6 text-[#4A4A4A] leading-relaxed">
-                                <p dangerouslySetInnerHTML={{ __html: t('youth_page.intro.text1') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('nuoret.intro.text1') }} />
                                 <p>
-                                    {t('youth_page.intro.text2')}
+                                    {t('nuoret.intro.text2')}
                                 </p>
 
                                 <div className="grid md:grid-cols-2 gap-4 my-6">
                                     <div className="bg-rose-50 p-5 rounded-xl border border-rose-100">
-                                        <h3 className="font-bold text-rose-800 mb-2 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> {t('youth_page.intro.exploitation.title')}</h3>
-                                        <p className="text-sm text-rose-700">{t('youth_page.intro.exploitation.text')}</p>
+                                        <h3 className="font-bold text-rose-800 mb-2 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> {t('nuoret.intro.exploitation.title')}</h3>
+                                        <p className="text-sm text-rose-700">{t('nuoret.intro.exploitation.text')}</p>
                                     </div>
                                     <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                                        <h3 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><User className="w-4 h-4" /> {t('youth_page.intro.structural.title')}</h3>
-                                        <p className="text-sm text-slate-600">{t('youth_page.intro.structural.text')}</p>
+                                        <h3 className="font-bold text-slate-800 mb-2 flex items-center gap-2"><User className="w-4 h-4" /> {t('nuoret.intro.structural.title')}</h3>
+                                        <p className="text-sm text-slate-600">{t('nuoret.intro.structural.text')}</p>
                                     </div>
                                 </div>
 
                                 <p className="font-medium text-[#2B2B2B] bg-[#FDFBF7] p-4 rounded-lg border border-[#E8DDD0]">
-                                    {t('youth_page.intro.quote')}
+                                    {t('nuoret.intro.quote')}
                                 </p>
                             </CardContent>
                         </Card>
@@ -90,9 +95,9 @@ export default function YouthPage() {
                     <TabsContent value="career" className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <Card>
                             <CardHeader>
-                                <CardTitle>{t('youth_page.career.title')}</CardTitle>
+                                <CardTitle>{t('nuoret.career.title')}</CardTitle>
                                 <CardDescription>
-                                    {t('youth_page.career.subtitle')}
+                                    {t('nuoret.career.subtitle')}
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
@@ -104,8 +109,8 @@ export default function YouthPage() {
                                     >
                                         <div className="bg-blue-100 p-3 rounded-full text-blue-700 text-2xl">💻</div>
                                         <div className="text-left">
-                                            <div className="font-bold text-lg mb-1">{t('youth_page.career.roles.it.title')}</div>
-                                            <div className="text-sm text-slate-500">{t('youth_page.career.roles.it.desc')}</div>
+                                            <div className="font-bold text-lg mb-1">{t('nuoret.career.roles.it.title')}</div>
+                                            <div className="text-sm text-slate-500">{t('nuoret.career.roles.it.desc')}</div>
                                         </div>
                                     </Button>
 
@@ -116,8 +121,8 @@ export default function YouthPage() {
                                     >
                                         <div className="bg-emerald-100 p-3 rounded-full text-emerald-700 text-2xl">🔧</div>
                                         <div className="text-left">
-                                            <div className="font-bold text-lg mb-1">{t('youth_page.career.roles.tech.title')}</div>
-                                            <div className="text-sm text-slate-500">{t('youth_page.career.roles.tech.desc')}</div>
+                                            <div className="font-bold text-lg mb-1">{t('nuoret.career.roles.tech.title')}</div>
+                                            <div className="text-sm text-slate-500">{t('nuoret.career.roles.tech.desc')}</div>
                                         </div>
                                     </Button>
 
@@ -128,50 +133,50 @@ export default function YouthPage() {
                                     >
                                         <div className="bg-rose-100 p-3 rounded-full text-rose-700 text-2xl">❤️</div>
                                         <div className="text-left">
-                                            <div className="font-bold text-lg mb-1">{t('youth_page.career.roles.care.title')}</div>
-                                            <div className="text-sm text-slate-500">{t('youth_page.career.roles.care.desc')}</div>
+                                            <div className="font-bold text-lg mb-1">{t('nuoret.career.roles.care.title')}</div>
+                                            <div className="text-sm text-slate-500">{t('nuoret.career.roles.care.desc')}</div>
                                         </div>
                                     </Button>
                                 </div>
 
                                 {selectedRole === 'IT' && (
                                     <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100 animate-in fade-in duration-300">
-                                        <h3 className="text-xl font-bold text-blue-900 mb-4">{t('youth_page.career.it_content.title')}</h3>
+                                        <h3 className="text-xl font-bold text-blue-900 mb-4">{t('nuoret.career.it_content.title')}</h3>
                                         <ul className="space-y-3">
-                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.why_good')}</strong> {t('youth_page.career.it_content.good')}</span></li>
-                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.risk')}</strong> {t('youth_page.career.it_content.risk')}</span></li>
-                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.exploitation')}</strong> {t('youth_page.career.it_content.expl')}</span></li>
+                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.why_good')}</strong> {t('nuoret.career.it_content.good')}</span></li>
+                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.risk')}</strong> {t('nuoret.career.it_content.risk')}</span></li>
+                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.exploitation')}</strong> {t('nuoret.career.it_content.expl')}</span></li>
                                         </ul>
                                         <div className="mt-4 pt-4 border-t border-blue-200 text-sm font-semibold text-blue-800">
-                                            {t('youth_page.career.analysis.strategy')} {t('youth_page.career.it_content.strat')}
+                                            {t('nuoret.career.analysis.strategy')} {t('nuoret.career.it_content.strat')}
                                         </div>
                                     </div>
                                 )}
 
                                 {selectedRole === 'TECH' && (
                                     <div className="mt-8 bg-emerald-50 p-6 rounded-xl border border-emerald-100 animate-in fade-in duration-300">
-                                        <h3 className="text-xl font-bold text-emerald-900 mb-4">{t('youth_page.career.tech_content.title')}</h3>
+                                        <h3 className="text-xl font-bold text-emerald-900 mb-4">{t('nuoret.career.tech_content.title')}</h3>
                                         <ul className="space-y-3">
-                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.why_good')}</strong> {t('youth_page.career.tech_content.good')}</span></li>
-                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.risk')}</strong> {t('youth_page.career.tech_content.risk')}</span></li>
-                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.exploitation')}</strong> {t('youth_page.career.tech_content.expl')}</span></li>
+                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.why_good')}</strong> {t('nuoret.career.tech_content.good')}</span></li>
+                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.risk')}</strong> {t('nuoret.career.tech_content.risk')}</span></li>
+                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.exploitation')}</strong> {t('nuoret.career.tech_content.expl')}</span></li>
                                         </ul>
                                         <div className="mt-4 pt-4 border-t border-emerald-200 text-sm font-semibold text-emerald-800">
-                                            {t('youth_page.career.analysis.strategy')} {t('youth_page.career.tech_content.strat')}
+                                            {t('nuoret.career.analysis.strategy')} {t('nuoret.career.tech_content.strat')}
                                         </div>
                                     </div>
                                 )}
 
                                 {selectedRole === 'CARE' && (
                                     <div className="mt-8 bg-rose-50 p-6 rounded-xl border border-rose-100 animate-in fade-in duration-300">
-                                        <h3 className="text-xl font-bold text-rose-900 mb-4">{t('youth_page.career.care_content.title')}</h3>
+                                        <h3 className="text-xl font-bold text-rose-900 mb-4">{t('nuoret.career.care_content.title')}</h3>
                                         <ul className="space-y-3">
-                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.why_good')}</strong> {t('youth_page.career.care_content.good')}</span></li>
-                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.risk')}</strong> {t('youth_page.career.care_content.risk')}</span></li>
-                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('youth_page.career.analysis.exploitation')}</strong> {t('youth_page.career.care_content.expl')}</span></li>
+                                            <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.why_good')}</strong> {t('nuoret.career.care_content.good')}</span></li>
+                                            <li className="flex gap-3"><AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.risk')}</strong> {t('nuoret.career.care_content.risk')}</span></li>
+                                            <li className="flex gap-3"><XCircle className="w-5 h-5 text-rose-600 shrink-0" /> <span><strong>{t('nuoret.career.analysis.exploitation')}</strong> {t('nuoret.career.care_content.expl')}</span></li>
                                         </ul>
                                         <div className="mt-4 pt-4 border-t border-rose-200 text-sm font-semibold text-rose-800">
-                                            {t('youth_page.career.analysis.strategy')} {t('youth_page.career.care_content.strat')}
+                                            {t('nuoret.career.analysis.strategy')} {t('nuoret.career.care_content.strat')}
                                         </div>
                                     </div>
                                 )}
@@ -183,39 +188,39 @@ export default function YouthPage() {
                     <TabsContent value="interview" className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <Card>
                             <CardHeader>
-                                <CardTitle>{t('youth_page.interview.title')}</CardTitle>
+                                <CardTitle>{t('nuoret.interview.title')}</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div className="space-y-4">
-                                        <h3 className="font-bold flex items-center gap-2"><Shield className="w-5 h-5 text-indigo-500" /> {t('youth_page.interview.ask_title')}</h3>
+                                        <h3 className="font-bold flex items-center gap-2"><Shield className="w-5 h-5 text-indigo-500" /> {t('nuoret.interview.ask_title')}</h3>
                                         <div className="bg-slate-50 p-4 rounded-lg text-sm space-y-3">
                                             <div>
-                                                <p className="font-semibold text-slate-800">{t('youth_page.interview.q1')}</p>
-                                                <p className="text-slate-500 text-xs mt-1">{t('youth_page.interview.w1')}</p>
+                                                <p className="font-semibold text-slate-800">{t('nuoret.interview.q1')}</p>
+                                                <p className="text-slate-500 text-xs mt-1">{t('nuoret.interview.w1')}</p>
                                             </div>
                                             <div>
-                                                <p className="font-semibold text-slate-800">{t('youth_page.interview.q2')}</p>
-                                                <p className="text-slate-500 text-xs mt-1">{t('youth_page.interview.w2_good')}</p>
-                                                <p className="text-slate-500 text-xs">{t('youth_page.interview.w2_bad')}</p>
+                                                <p className="font-semibold text-slate-800">{t('nuoret.interview.q2')}</p>
+                                                <p className="text-slate-500 text-xs mt-1">{t('nuoret.interview.w2_good')}</p>
+                                                <p className="text-slate-500 text-xs">{t('nuoret.interview.w2_bad')}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="space-y-4">
-                                        <h3 className="font-bold flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-rose-500" /> {t('youth_page.interview.flags_title')}</h3>
+                                        <h3 className="font-bold flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-rose-500" /> {t('nuoret.interview.flags_title')}</h3>
                                         <ul className="space-y-2 text-sm">
                                             <li className="flex gap-2 items-start bg-rose-50 p-2 rounded text-rose-900 border border-rose-100">
                                                 <XCircle className="w-4 h-4 mt-0.5 shrink-0" />
-                                                <span>{t('youth_page.interview.f1')}</span>
+                                                <span>{t('nuoret.interview.f1')}</span>
                                             </li>
                                             <li className="flex gap-2 items-start bg-rose-50 p-2 rounded text-rose-900 border border-rose-100">
                                                 <XCircle className="w-4 h-4 mt-0.5 shrink-0" />
-                                                <span>{t('youth_page.interview.f2')}</span>
+                                                <span>{t('nuoret.interview.f2')}</span>
                                             </li>
                                             <li className="flex gap-2 items-start bg-rose-50 p-2 rounded text-rose-900 border border-rose-100">
                                                 <XCircle className="w-4 h-4 mt-0.5 shrink-0" />
-                                                <span>{t('youth_page.interview.f3')}</span>
+                                                <span>{t('nuoret.interview.f3')}</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -234,17 +239,17 @@ export default function YouthPage() {
                                 <div className="w-20 h-20 mx-auto bg-white/10 rounded-3xl flex items-center justify-center text-4xl mb-6 backdrop-blur-sm shadow-xl ring-1 ring-white/20">
                                     🎓
                                 </div>
-                                <CardTitle className="text-3xl md:text-5xl font-black">{t('youth_page.sim.title')}</CardTitle>
+                                <CardTitle className="text-3xl md:text-5xl font-black">{t('nuoret.sim.title')}</CardTitle>
                                 <CardDescription className="text-indigo-200 text-lg max-w-xl mx-auto mt-4">
-                                    {t('youth_page.sim.desc')}
+                                    {t('nuoret.sim.desc')}
                                 </CardDescription>
                             </CardHeader>
 
                             <CardContent className="text-center pb-16 relative z-10">
                                 <div className="flex flex-wrap gap-4 justify-center text-sm font-medium text-indigo-200 mb-8 opacity-80">
-                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('youth_page.sim.tags.duration')}</span>
-                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('youth_page.sim.tags.skill')}</span>
-                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('youth_page.sim.tags.result')}</span>
+                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('nuoret.sim.tags.duration')}</span>
+                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('nuoret.sim.tags.skill')}</span>
+                                    <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10">{t('nuoret.sim.tags.result')}</span>
                                 </div>
 
                                 <Button
@@ -252,7 +257,7 @@ export default function YouthPage() {
                                     className="bg-white text-indigo-900 hover:bg-slate-100 font-bold px-8 py-6 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
                                     onClick={() => window.location.href = '/simulaatio/nuoret'}
                                 >
-                                    {t('youth_page.sim.btn')} <ArrowRight className="ml-2 w-5 h-5" />
+                                    {t('nuoret.sim.btn')} <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
                             </CardContent>
                         </Card>
@@ -262,40 +267,40 @@ export default function YouthPage() {
                     <TabsContent value="recovery" className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <Card>
                             <CardHeader>
-                                <CardTitle className="text-2xl">{t('youth_page.recovery.title')}</CardTitle>
+                                <CardTitle className="text-2xl">{t('nuoret.recovery.title')}</CardTitle>
                                 <CardDescription>
-                                    {t('youth_page.recovery.desc')}
+                                    {t('nuoret.recovery.desc')}
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-8">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <h4 className="font-bold text-indigo-900">{t('youth_page.recovery.p1_title')}</h4>
-                                        <p className="text-slate-600 text-sm">{t('youth_page.recovery.p1_text')}</p>
+                                        <h4 className="font-bold text-indigo-900">{t('nuoret.recovery.p1_title')}</h4>
+                                        <p className="text-slate-600 text-sm">{t('nuoret.recovery.p1_text')}</p>
                                     </div>
                                     <div className="space-y-2">
-                                        <h4 className="font-bold text-indigo-900">{t('youth_page.recovery.p2_title')}</h4>
-                                        <p className="text-slate-600 text-sm">{t('youth_page.recovery.p2_text')}</p>
+                                        <h4 className="font-bold text-indigo-900">{t('nuoret.recovery.p2_title')}</h4>
+                                        <p className="text-slate-600 text-sm">{t('nuoret.recovery.p2_text')}</p>
                                     </div>
                                 </div>
 
                                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Brain className="w-5 h-5 text-indigo-500" /> {t('youth_page.recovery.ex_title')}</h3>
+                                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Brain className="w-5 h-5 text-indigo-500" /> {t('nuoret.recovery.ex_title')}</h3>
                                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                                         <div className="p-4 bg-white rounded border border-slate-200">
-                                            <div className="text-xs uppercase font-bold text-slate-400 mb-1">{t('youth_page.recovery.fact_label')}</div>
-                                            <div>{t('youth_page.recovery.fact_val')}</div>
+                                            <div className="text-xs uppercase font-bold text-slate-400 mb-1">{t('nuoret.recovery.fact_label')}</div>
+                                            <div>{t('nuoret.recovery.fact_val')}</div>
                                         </div>
                                         <div className="p-4 bg-white rounded border border-rose-100 ring-2 ring-rose-50">
-                                            <div className="text-xs uppercase font-bold text-rose-400 mb-1">{t('youth_page.recovery.interp_label')}</div>
-                                            <div>{t('youth_page.recovery.interp_val')}</div>
+                                            <div className="text-xs uppercase font-bold text-rose-400 mb-1">{t('nuoret.recovery.interp_label')}</div>
+                                            <div>{t('nuoret.recovery.interp_val')}</div>
                                         </div>
                                     </div>
-                                    <p className="text-slate-500 text-sm mt-4 italic">{t('youth_page.recovery.note')}</p>
+                                    <p className="text-slate-500 text-sm mt-4 italic">{t('nuoret.recovery.note')}</p>
                                 </div>
 
                                 <div className="p-4 bg-indigo-50 text-indigo-900 rounded-xl border border-indigo-100 font-medium text-center">
-                                    {t('youth_page.recovery.final_quote')}
+                                    {t('nuoret.recovery.final_quote')}
                                 </div>
                             </CardContent>
                         </Card>
@@ -320,12 +325,12 @@ export default function YouthPage() {
 
                             <div className="space-y-2">
                                 <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900">
-                                    {isCompleted ? t('youth_page.completion.title_done') : t('youth_page.completion.title_new')}
+                                    {isCompleted ? t('nuoret.completion.title_done') : t('nuoret.completion.title_new')}
                                 </h3>
                                 <p className="text-slate-600 max-w-sm mx-auto font-medium">
                                     {isCompleted
-                                        ? t('youth_page.completion.text_done')
-                                        : t('youth_page.completion.text_new')}
+                                        ? t('nuoret.completion.text_done')
+                                        : t('nuoret.completion.text_new')}
                                 </p>
                             </div>
 
@@ -334,12 +339,12 @@ export default function YouthPage() {
                                     onClick={handleComplete}
                                     className="bg-indigo-600 hover:bg-indigo-700 text-white font-black uppercase tracking-widest px-10 py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all"
                                 >
-                                    {t('youth_page.completion.btn_mark')}
+                                    {t('nuoret.completion.btn_mark')}
                                 </Button>
                             ) : (
                                 <Link href="/profiili">
                                     <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
-                                        {t('youth_page.completion.btn_back')}
+                                        {t('nuoret.completion.btn_back')}
                                     </Button>
                                 </Link>
                             )}

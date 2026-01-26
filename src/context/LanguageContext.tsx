@@ -1,24 +1,78 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import fi from '../translations/fi.json';
-import en from '../translations/en.json';
+import { Language } from '@/types/domain';
+import fiCommon from '../translations/fi/common.json';
+import enCommon from '../translations/en/common.json';
 
-type Language = 'fi' | 'en';
-type Translations = typeof fi;
+// Translation JSON structures are complex and deeply nested.
+// Using 'any' here to avoid fighting TypeScript with massive type definitions.
+// Runtime validation happens in the t() function instead.
+const loaders: Record<Language, Record<string, () => Promise<{ default: any }>>> = {
+    fi: {
+        quiz: () => import('../translations/fi/quiz.json'),
+        tactics: () => import('../translations/fi/tactics.json'),
+        training: () => import('../translations/fi/training.json'),
+        support: () => import('../translations/fi/support.json'),
+        community_page: () => import('../translations/fi/community_page.json'),
+        stories: () => import('../translations/fi/stories.json'),
+        timeline: () => import('../translations/fi/timeline.json'),
+        lukutaito: () => import('../translations/fi/lukutaito.json'),
+        feeling_quiz: () => import('../translations/fi/feeling_quiz.json'),
+        impact_profile: () => import('../translations/fi/impact_profile.json'),
+        empathy_test: () => import('../translations/fi/empathy_test.json'),
+        neuromoninaisuus: () => import('../translations/fi/neuromoninaisuus.json'),
+        nuoret: () => import('../translations/fi/nuoret.json'),
+        faktapankki: () => import('../translations/fi/faktapankki.json'),
+        start_here: () => import('../translations/fi/start_here.json'),
+        simulation: () => import('../translations/fi/simulation.json'),
+        landing: () => import('../translations/fi/landing.json'),
+    },
+    en: {
+
+        quiz: () => import('../translations/en/quiz.json'),
+        tactics: () => import('../translations/en/tactics.json'),
+        training: () => import('../translations/en/training.json'),
+        support: () => import('../translations/en/support.json'),
+        community_page: () => import('../translations/en/community_page.json'),
+        stories: () => import('../translations/en/stories.json'),
+        timeline: () => import('../translations/en/timeline.json'),
+        lukutaito: () => import('../translations/en/lukutaito.json'),
+        feeling_quiz: () => import('../translations/en/feeling_quiz.json'),
+        impact_profile: () => import('../translations/en/impact_profile.json'),
+        empathy_test: () => import('../translations/en/empathy_test.json'),
+        neuromoninaisuus: () => import('../translations/en/neuromoninaisuus.json'),
+        nuoret: () => import('../translations/en/nuoret.json'),
+        faktapankki: () => import('../translations/en/faktapankki.json'),
+        start_here: () => import('../translations/en/start_here.json'),
+        simulation: () => import('../translations/en/simulation.json'),
+        landing: () => import('../translations/en/landing.json'),
+    }
+};
 
 interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
+    // Intentionally returns 'any' to handle complex translation structures
+    // Consumers will cast to their expected type
     t: (key: string, params?: Record<string, string | number> | { returnObjects: boolean }) => any;
+    loadNamespace: (ns: string) => Promise<void>;
+    isLoading: boolean;
 }
-
-const translations: Record<Language, any> = { fi, en };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [language, setLanguage] = useState<Language>('fi');
+    const [translations, setTranslations] = useState<Record<string, any>>({
+        fi: { ...fiCommon },
+        en: { ...enCommon }
+    });
+    const [loadedNamespaces, setLoadedNamespaces] = useState<Record<Language, Set<string>>>({
+        fi: new Set(['common']),
+        en: new Set(['common'])
+    });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const savedLang = localStorage.getItem('turvasiipi_lang') as Language;
@@ -32,13 +86,46 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         localStorage.setItem('turvasiipi_lang', lang);
     };
 
+    const loadNamespace = async (ns: string) => {
+        if (loadedNamespaces[language].has(ns)) return;
+        if (!loaders[language][ns]) {
+            console.warn(`Loader not found for namespace: ${ns}`);
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const module = await loaders[language][ns]();
+            setTranslations(prev => ({
+                ...prev,
+                [language]: {
+                    ...prev[language],
+                    [ns]: module.default
+                }
+            }));
+            setLoadedNamespaces(prev => {
+                const newSet = new Set(prev[language]);
+                newSet.add(ns);
+                return { ...prev, [language]: newSet };
+            });
+        } catch (error) {
+            console.error(`Failed to load namespace ${ns}:`, error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const t = (path: string, params?: Record<string, string | number> | { returnObjects: boolean }): any => {
         const keys = path.split('.');
         let current: any = translations[language];
 
         for (const key of keys) {
             if (current[key] === undefined) {
-                console.warn(`Translation key not found: ${path}`);
+                // If fetching a root key that matches a known namespace, warn that it might not be loaded
+                if (keys.length > 0 && loaders[language][keys[0]] && !loadedNamespaces[language].has(keys[0])) {
+                    console.warn(`Translation key '${path}' not found, but namespace '${keys[0]}' exists. access it via useTranslation('${keys[0]}') or loadNamespace('${keys[0]}').`);
+                }
+
                 if (params && 'returnObjects' in params && params.returnObjects) {
                     return null;
                 }
@@ -63,7 +150,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     };
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+        <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, loadNamespace, isLoading }}>
             {children}
         </LanguageContext.Provider>
     );

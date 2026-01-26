@@ -1,0 +1,51 @@
+﻿{
+    "coaching": {
+        "title": "Valmennuspolut",
+        "category_title": "Valmennus",
+        "back": "Takaisin",
+        "stats": "Sertifikaatit",
+        "hub": {
+            "title": "Missä tilanteessa olet?",
+            "subtitle": "Valitse tilanteeseesi sopiva polku. Turvasiipi auttaa sinua etenemään kohti ratkaisua omaan tahtiin."
+        },
+        "ui": {
+            "new": "UUSI",
+            "cert": "SERTIFIKAATTI",
+            "locked": "LUKITTU"
+        },
+        "categories": {
+            "acute": {
+                "title": "AKUUTTI APU ",
+                "desc": "Tarvitsen apua NYT. Ensiapua kriisitilanteeseen."
+            },
+            "understand": {
+                "title": "YMMÄRRÄ ILMIÖ ",
+                "desc": "Mitä minulle tapahtuu? Tietoa ja tunnistamista."
+            },
+            "recovery": {
+                "title": "KEHON & MIELEN TOIPUMINEN ",
+                "desc": "Kuinka selvitä päivästä toiseen? Trauma ja hyvinvointi."
+            },
+            "return": {
+                "title": "PALUU & UUDELLEENORIENTOITUMINEN ",
+                "desc": "Mitä teen seuraavaksi? Paluu työhön tai uusi alku."
+            },
+            "interactive": {
+                "title": "INTERAKTIIVISET TAIDOT ",
+                "desc": "Harjoittele turvallisesti. Simulaatiot ja pelit."
+            },
+            "organization": {
+                "title": "ORGANISAATIOILLE ",
+                "desc": "Kuinka muuttaa kulttuuria? Ratkaisuja työyhteisölle."
+            },
+            "special": {
+                "title": "ERITYISYMPÄRISTÖT ",
+                "desc": "Tunnistan tämän omasta elämästäni. Vapaa-aika ja yhteisöt."
+            },
+            "progress": {
+                "title": "OMA EDISTYMINEN ",
+                "desc": "Mitä olen saavuttanut? Todistukset ja seuranta."
+            }
+        }
+    }
+}

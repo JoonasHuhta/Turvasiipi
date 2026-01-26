@@ -1,0 +1,140 @@
+{
+    "page": {
+        "badge": "Oirekartoitus",
+        "title_prefix": "Kuuntele",
+        "title_highlight": "Tuntemuksiasi",
+        "intro": "Kehosi ja mielesi kertovat tarinaa, jota on joskus vaikea kuulla melun keskellä. Tämä kartoitus auttaa sinua validoimaan kokemuksesi.",
+        "features": {
+            "threshold": {
+                "title": "MATALA KYNNYS",
+                "text": "Ei vaadi kirjautumista."
+            },
+            "feedback": {
+                "title": "VÄLITÖN PALAUTE",
+                "text": "Saat validointia jokaiseen vastaukseen."
+            },
+            "analysis": {
+                "title": "RISKIANALYYSI",
+                "text": "Ymmärrä tilanteesi vakavuus."
+            },
+            "crisis": {
+                "title": "KRIISIAPU",
+                "text": "Ohjaus avun piiriin tarvittaessa."
+            }
+        },
+        "start_btn": "Aloita Kartoitus",
+        "progress": "Eteneminen",
+        "quit_btn": "Lopeta",
+        "continue_btn": "Jatka"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "category": "itseepaily",
+            "question": "Epäiletkö mielenterveyttäsi tai muistiasi?",
+            "validationTitle": "Gaslighting-ilmiö",
+            "validationText": "Jatkuva kyseenalaistaminen saa uhrin epäilemään omaa todellisuuttaan. Tämä on normaali reaktio epänormaaliin tilanteeseen."
+        },
+        {
+            "id": 2,
+            "category": "eristyksisyys",
+            "question": "Vältteletkö sosiaalisia tilanteita töissä?",
+            "validationTitle": "Sosiaalinen vetäytyminen",
+            "validationText": "Vetäytyminen on suojamekanismi. Kun ympäristö on turvaton, mieli pyrkii minimoimaan riskit eristäytymällä."
+        },
+        {
+            "id": 3,
+            "category": "fyysiset",
+            "question": "Onko sinulla vatsakipuja tai päänsärkyä työpäivinä?",
+            "validationTitle": "Psykosomaattiset oireet",
+            "validationText": "Keho reagoi uhkaan usein ennen mieltä. Krooninen stressi ilmenee fyysisinä kipuina."
+        },
+        {
+            "id": 4,
+            "category": "pelko",
+            "question": "Tunnetko pelkoa kun puhelin soi tai saat viestin?",
+            "validationTitle": "Hälytystila",
+            "validationText": "Hermosto on jatkuvassa 'taistele tai pakene' -tilassa. Tämä on merkki vakavasta kuormituksesta."
+        },
+        {
+            "id": 5,
+            "category": "itseepaily",
+            "question": "Syytätkö itseäsi muiden huonosta käytöksestä?",
+            "validationTitle": "Sisäistetty syyllisyys",
+            "validationText": "Kiusaamisen dynamiikkaan kuuluu syyn vierittäminen uhrille. Sinä et ole syyllinen toisten valintoihin."
+        },
+        {
+            "id": 6,
+            "category": "halvaantuminen",
+            "question": "Onko sinun vaikea tehdä päätöksiä?",
+            "validationTitle": "Toimintakyvyn lasku",
+            "validationText": "Kun itsetuntoa murennetaan, luottamus omiin kykyihin katoaa. Päätöksenteko vaikeutuu."
+        },
+        {
+            "id": 7,
+            "category": "identiteetti",
+            "question": "Koetko, että olet 'huonompi' kuin muut?",
+            "validationTitle": "Itsetunnon mureneminen",
+            "validationText": "Jatkuva mitätöinti vaikuttaa minäkuvaan. Muista, että työpaikkakiusaaminen ei kerro sinun arvostasi."
+        },
+        {
+            "id": 8,
+            "category": "fyysiset",
+            "question": "Onko unesi laatu heikentynyt?",
+            "validationTitle": "Unihäiriöt",
+            "validationText": "Ylivireys estää palautumista. Uni on ensimmäisiä asioita, jotka häiriintyvät kriisissä."
+        },
+        {
+            "id": 9,
+            "category": "eristyksisyys",
+            "question": "Tunnetko, ettei kukaan ole puolellasi?",
+            "validationTitle": "Yksinäisyys",
+            "validationText": "Kiusaaminen eristää. Tuntemus on todellinen, mutta se ei tarkoita, etteikö apua olisi olemassa."
+        },
+        {
+            "id": 10,
+            "category": "halvaantuminen",
+            "question": "Tunnetko olevasi jumissa tilanteessa?",
+            "validationTitle": "Opittu avuttomuus",
+            "validationText": "Pitkittynyt stressi luo tunteen, ettei ulospääsyä ole. Tämä on mielen illuusio - vaihtoehtoja on aina."
+        }
+    ],
+    "options": {
+        "daily": "Päivittäin",
+        "often": "Usein",
+        "sometimes": "Joskus",
+        "rarely": "Harvoin",
+        "never": "Ei koskaan"
+    },
+    "results": {
+        "badge": "Analyysi Valmis",
+        "title": "Tilannekuvasi",
+        "title_highlight": "Analyysi",
+        "risk_level": "Riski",
+        "score": "Pisteet",
+        "immediate_support": "Tarvitset välitöntä tukea.",
+        "severe_load": "Kuormitus on vakavaa.",
+        "active_action": "Tilanne vaatii toimia.",
+        "manageable": "Tilanne on hallinnassa.",
+        "call_crisis": "Soita Kriisipuhelimeen",
+        "start_docs": "Aloita Dokumentointi",
+        "weighted_strain": "Kuormitus",
+        "remember_title": "Muista tämä:",
+        "remember_text": "Tämä tulos on vain hetkellinen kuva. Se ei määritä tulevaisuuttasi, eikä se ole diagnoosi. Se on työkalu, jonka avulla voit suunnistaa kohti turvallisempia vesiä.",
+        "retry_btn": "Tee uudelleen"
+    },
+    "risk_levels": {
+        "critical": "KRIITTINEN",
+        "high": "KORKEA",
+        "moderate": "KOHTALAINEN",
+        "mild": "MATALA"
+    },
+    "categories": {
+        "itseepaily": "Itse-epäily",
+        "eristyksisyys": "Eristyneisyys",
+        "halvaantuminen": "Toimintakyky",
+        "pelko": "Pelkotilat",
+        "identiteetti": "Identiteetti",
+        "fyysiset": "Fyysiset oireet"
+    }
+}

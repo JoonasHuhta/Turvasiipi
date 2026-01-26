@@ -2,6 +2,7 @@
 
 import { notFound, useRouter, useParams } from "next/navigation";
 import { GameEngine } from "@/components/simulator/GameEngine";
+// LOCKED: DO NOT EDIT WITHOUT EXPLICIT PERMISSION
 import { getSimulationConfig } from "@/lib/simulator/registry";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -20,7 +21,7 @@ export default function SimulationPage() {
     return (
         <GameEngine
             scenario={config.scenario}
-            initialPhaseId="START"
+            initialPhaseId="start"
             onExit={() => router.push(config.exitPath)}
             profession={config.profession}
             statLabels={config.statLabels}

@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
 
@@ -43,68 +44,9 @@ interface ExerciseStep {
 
 // --- DATA ---
 
-const EXERCISES: Exercise[] = [
-    {
-        id: 'shake',
-        title: 'The Shake',
-        description: 'Pura adrenaliini ravistelemalla kehoa.',
-        icon: Waves,
-        color: 'bg-rose-100 text-rose-600',
-        durationSeconds: 60,
-        steps: [
-            { text: "Nouse seisomaan, jos voit.", duration: 5000 },
-            { text: "Aloita ravistamalla käsiä.", duration: 10000, instruction: "Anna ranteiden olla rentoina." },
-            { text: "Ota mukaan hartiat.", duration: 10000, instruction: "Päästä äänihuulista huokaus." },
-            { text: "Ravistele koko kehoa.", duration: 15000, instruction: "Kuin koira vedestä noustessaan." },
-            { text: "Pysähdy ja tunne virtaus.", duration: 10000 }
-        ]
-    },
-    {
-        id: 'breath',
-        title: 'Laatikkohengitys',
-        description: 'Laske syketasoa rytmisellä hengityksellä.',
-        icon: Wind,
-        color: 'bg-sky-100 text-sky-600',
-        durationSeconds: 120,
-        steps: [
-            { text: "Hengitä sisään...", duration: 4000 },
-            { text: "Pidätä...", duration: 4000 },
-            { text: "Hengitä ulos...", duration: 4000 },
-            { text: "Pidätä...", duration: 4000 }
-        ]
-    },
-    {
-        id: 'ground',
-        title: '5-4-3-2-1 Maadoitus',
-        description: 'Palauta mieli nykyhetkeen aistien avulla.',
-        icon: TreeDeciduous,
-        color: 'bg-emerald-100 text-emerald-600',
-        durationSeconds: 90,
-        steps: [
-            { text: "Etsi 5 asiaa, jotka näet.", duration: 15000, instruction: "Nimeä ne mielessäsi." },
-            { text: "Etsi 4 asiaa, joita voit koskettaa.", duration: 15000, instruction: "Tunne tekstuuri sormillasi." },
-            { text: "Etsi 3 ääntä, jotka kuulet.", duration: 15000, instruction: "Liikenne? Tuuletin? Oma hengitys?" },
-            { text: "Etsi 2 asiaa, jotka haistat.", duration: 10000 },
-            { text: "Etsi 1 asia, jota voit maistaa.", duration: 10000, instruction: "Tai tunne suusi maku." }
-        ]
-    },
-    {
-        id: 'relax',
-        title: 'Progressiivinen Relaksaatio',
-        description: 'Jännitä ja rentouta lihakset vuorotellen.',
-        icon: Flame,
-        color: 'bg-amber-100 text-amber-600',
-        durationSeconds: 180,
-        steps: [
-            { text: "Purista kädet nyrkkiin...", duration: 5000 },
-            { text: "Ja päästä aivan rennoksi.", duration: 10000 },
-            { text: "Vedä hartiat korviin...", duration: 5000 },
-            { text: "Pudota hartiat alas.", duration: 10000 },
-            { text: "Purista silmät tiukasti kiinni...", duration: 5000 },
-            { text: "Anna kasvojen sulaa rennoksi.", duration: 10000 }
-        ]
-    }
-];
+
+
+// --- COMPONENT ---
 
 // --- COMPONENT ---
 
@@ -117,11 +59,67 @@ export default function SomaticRelease({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<ViewState>('intro');
-    const [activeExercise, setActiveExercise] = useState<Exercise | null>(null);
+    const [activeExerciseId, setActiveExerciseId] = useState<string | null>(null);
     const [stepIndex, setStepIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [progress, setProgress] = useState(0);
+
+    // Reconstruct exercises with translations
+    const EXERCISES: Exercise[] = [
+        {
+            id: 'shake',
+            title: t('training.somatic_release.exercises.shake.title'),
+            description: t('training.somatic_release.exercises.shake.desc'),
+            icon: Waves,
+            color: 'bg-rose-100 text-rose-600',
+            durationSeconds: 60,
+            steps: (t('training.somatic_release.exercises.shake.steps', { returnObjects: true }) as { text: string; instruction?: string }[]).map((s, i) => ({
+                text: s.text,
+                duration: [5000, 10000, 10000, 15000, 10000][i] || 5000,
+                instruction: s.instruction
+            }))
+        },
+        {
+            id: 'breath',
+            title: t('training.somatic_release.exercises.breath.title'),
+            description: t('training.somatic_release.exercises.breath.desc'),
+            icon: Wind,
+            color: 'bg-sky-100 text-sky-600',
+            durationSeconds: 120,
+            steps: (t('training.somatic_release.exercises.breath.steps', { returnObjects: true }) as { text: string }[]).map(s => ({
+                text: s.text,
+                duration: 4000
+            }))
+        },
+        {
+            id: 'ground',
+            title: t('training.somatic_release.exercises.ground.title'),
+            description: t('training.somatic_release.exercises.ground.desc'),
+            icon: TreeDeciduous,
+            color: 'bg-emerald-100 text-emerald-600',
+            durationSeconds: 90,
+            steps: (t('training.somatic_release.exercises.ground.steps', { returnObjects: true }) as { text: string; instruction?: string }[]).map((s, i) => ({
+                text: s.text,
+                duration: [15000, 15000, 15000, 10000, 10000][i] || 10000,
+                instruction: s.instruction
+            }))
+        },
+        {
+            id: 'relax',
+            title: t('training.somatic_release.exercises.relax.title'),
+            description: t('training.somatic_release.exercises.relax.desc'),
+            icon: Flame,
+            color: 'bg-amber-100 text-amber-600',
+            durationSeconds: 180,
+            steps: (t('training.somatic_release.exercises.relax.steps', { returnObjects: true }) as { text: string }[]).map((s, i) => ({
+                text: s.text,
+                duration: [5000, 10000, 5000, 10000, 5000, 10000][i] || 5000
+            }))
+        }
+    ];
+
+    const activeExercise = activeExerciseId ? EXERCISES.find(e => e.id === activeExerciseId) || null : null;
 
     // Timer logic for Breathing/Steps
     useEffect(() => {
@@ -129,18 +127,13 @@ export default function SomaticRelease({
 
         if (view === 'exercise' && activeExercise && isPlaying) {
             const currentStep = activeExercise.steps[stepIndex % activeExercise.steps.length];
-            // If it's the "breath" exercise, we loop the steps indefinitely until user stops or 2 mins pass? 
-            // Simplified: Just loop defined steps for now or sequential.
-
-            // For Box Breathing, we want it to loop properly
-            const isLooping = activeExercise.id === 'breath' || activeExercise.id === 'relax';
 
             interval = setInterval(() => {
                 setStepIndex(prev => {
                     const next = prev + 1;
                     if (next >= activeExercise.steps.length) {
-                        if (activeExercise.id === 'breath') return 0; // Loop breathing forever until manual stop? Or fixed cycles.
-                        // For others, finish
+                        if (activeExercise.id === 'breath') return 0;
+
                         setIsPlaying(false);
                         setTimeout(() => setView('debrief'), 1000);
                         return prev;
@@ -153,11 +146,8 @@ export default function SomaticRelease({
         return () => clearInterval(interval);
     }, [view, activeExercise, isPlaying, stepIndex]);
 
-    // Box Breathing Visualizer Logic (separate ticker for smooth animation if needed)
-    // Using CSS/Framer transitions driven by key 'stepIndex' is easier.
-
     const startExercise = (ex: Exercise) => {
-        setActiveExercise(ex);
+        setActiveExerciseId(ex.id);
         setStepIndex(0);
         setIsPlaying(true);
         setView('exercise');
@@ -177,8 +167,8 @@ export default function SomaticRelease({
                         <HeartPulse className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Somaattinen Vapautus</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Kehon & Mielen Toipuminen</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.somatic_release.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.somatic_release.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -198,27 +188,26 @@ export default function SomaticRelease({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="max-w-2xl text-center space-y-8"
                         >
-                            <h1 className="text-3xl font-serif font-medium text-[#292524]">Miksi keho muistaa?</h1>
+                            <h1 className="text-3xl font-serif font-medium text-[#292524]">{t('training.somatic_release.intro.title')}</h1>
                             <p className="text-lg text-[#57534E] leading-relaxed">
-                                Trauma ja krooninen stressi eivät ole vain "päässäsi". Ne varastoituvat kehoon jännityksenä, valppautena tai turtumuksena.
-                                Jotta mieli voi rauhoittua, kehon täytyy ensin tuntea olevansa turvassa.
+                                {t('training.somatic_release.intro.text')}
                             </p>
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-[#78716C]">
                                 <div className="bg-white p-4 rounded-2xl border border-[#E7E5E4]">
-                                    <div className="font-bold mb-1 block">1. Aktivoi</div>
-                                    Vagus-hermo
+                                    <div className="font-bold mb-1 block">{t('training.somatic_release.intro.step1.title')}</div>
+                                    {t('training.somatic_release.intro.step1.text')}
                                 </div>
                                 <div className="bg-white p-4 rounded-2xl border border-[#E7E5E4]">
-                                    <div className="font-bold mb-1 block">2. Pura</div>
-                                    Stressihormonit
+                                    <div className="font-bold mb-1 block">{t('training.somatic_release.intro.step2.title')}</div>
+                                    {t('training.somatic_release.intro.step2.text')}
                                 </div>
                                 <div className="bg-white p-4 rounded-2xl border border-[#E7E5E4]">
-                                    <div className="font-bold mb-1 block">3. Palauta</div>
-                                    Turvallisuus
+                                    <div className="font-bold mb-1 block">{t('training.somatic_release.intro.step3.title')}</div>
+                                    {t('training.somatic_release.intro.step3.text')}
                                 </div>
                             </div>
                             <Button onClick={() => setView('menu')} size="lg" className="bg-[#166534] hover:bg-[#14532D] text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-emerald-900/10">
-                                Valitse harjoitus <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.somatic_release.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -286,9 +275,9 @@ export default function SomaticRelease({
 
                             <div className="space-y-4">
                                 <h2 className="text-3xl font-serif text-[#292524]">
-                                    {activeExercise.steps[stepIndex % activeExercise.steps.length].text}
+                                    {activeExercise.steps[stepIndex % activeExercise.steps.length]?.text}
                                 </h2>
-                                {activeExercise.steps[stepIndex % activeExercise.steps.length].instruction && (
+                                {activeExercise.steps[stepIndex % activeExercise.steps.length]?.instruction && (
                                     <p className="text-xl text-[#78716C]">
                                         {activeExercise.steps[stepIndex % activeExercise.steps.length].instruction}
                                     </p>
@@ -300,7 +289,7 @@ export default function SomaticRelease({
                                 onClick={() => setView('debrief')}
                                 className="rounded-full px-8 py-6 text-slate-500 hover:text-slate-800"
                             >
-                                Lopeta harjoitus
+                                {t('training.somatic_release.debrief.stop_exercise')}
                             </Button>
                         </motion.div>
                     )}
@@ -314,18 +303,17 @@ export default function SomaticRelease({
                             className="max-w-xl text-center space-y-8"
                         >
                             <CheckCircle2 className="w-20 h-20 text-[#166534] mx-auto opacity-20" />
-                            <h2 className="text-2xl font-bold text-[#292524]">Miltä kehossasi tuntuu nyt?</h2>
+                            <h2 className="text-2xl font-bold text-[#292524]">{t('training.somatic_release.debrief.title')}</h2>
                             <p className="text-[#57534E]">
-                                Pienikin hetki hermoston rauhoittumista auttaa palautumisessa.
-                                Voit palata tähän aina kun tunnet olosi ylivireäksi tai jähmeäksi.
+                                {t('training.somatic_release.debrief.text')}
                             </p>
 
                             <div className="flex gap-4 justify-center pt-8">
                                 <Button onClick={() => setView('menu')} variant="outline" className="px-8 py-6 rounded-xl">
-                                    <RotateCcw className="mr-2 w-4 h-4" /> Tee toinen harjoitus
+                                    <RotateCcw className="mr-2 w-4 h-4" /> {t('training.somatic_release.debrief.action_new')}
                                 </Button>
                                 <Button onClick={finishSession} className="bg-[#292524] hover:bg-[#44403C] text-white px-8 py-6 rounded-xl">
-                                    Palaa etusivulle <ArrowRight className="ml-2 w-4 h-4" />
+                                    {t('training.somatic_release.debrief.action_home')} <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
                             </div>
                         </motion.div>

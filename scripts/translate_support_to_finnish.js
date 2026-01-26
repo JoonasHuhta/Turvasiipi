@@ -1,0 +1,179 @@
+const fs = require('fs');
+
+const fiFile = 'src/translations/fi.json';
+
+const finnishSupport = {
+    "hero": {
+        "badge": "Ensiapua & Tukea",
+        "title": "Selviytymisopas",
+        "subtitle": "Kun olet myrskyn silmässä, me löydämme sinulle suojan. Täältä löydät toimintasuunnitelmat, rauhoittavat tekniikat ja oikeat auttajat."
+    },
+    "tabs": {
+        "plan": "Toimintasuunnitelma",
+        "exercises": "Harjoitukset",
+        "contacts": "Yhteystiedot"
+    },
+    "plan_tab": {
+        "phase1": {
+            "label": "Vaihe 1: Akuutti tilanne",
+            "title": "Turvaa itsesi",
+            "description": "Jos olet juuri kokenut jotain pahaa, tärkein asia on palauttaa turvallisuuden tunne. Älä tee isoja päätöksiä (kuten irtisanoutumista) paniikissa.",
+            "steps": {
+                "step1": {
+                    "trigger": "1. Poistu tilanteesta",
+                    "content": "Mene vessaan, käy kävelyllä tai mene kotiin (ilmoittaudu sairaaksi). Sinulla ei ole velvollisuutta kuunnella huutamista tai loukkausta."
+                },
+                "step2": {
+                    "trigger": "2. Kirjaa lyhyesti",
+                    "content": "Kirjaa vain: kuka, mitä, missä, milloin. Älä analysoi vielä. Vain tallenna faktat."
+                },
+                "step3": {
+                    "trigger": "3. Ota yhteyttä läheiseen",
+                    "content": "Soita kumppanille, ystävälle tai työterveyshuoltoon. Älä jää yksin kokemuksen kanssa."
+                }
+            }
+        },
+        "phase2": {
+            "label": "Vaihe 2: Vakiinnuttaminen",
+            "title": "Rakenna puolustus",
+            "description": "Kun akuutti shokki laantuu, on aika alkaa kerätä todisteita ja suojata asemaasi.",
+            "steps": {
+                "step1": {
+                    "trigger": "1. Aloita systemaattinen kirjaaminen",
+                    "content": "Käytä tämän sovelluksen lokityökalua. Kirjaa taannehtivasti kaikki tapahtumat, jotka muistat."
+                },
+                "step2": {
+                    "trigger": "2. Tarkista faktat",
+                    "content": "Lue työsopimuksesi, työterveyshuollon ohjeet ja tasa-arvosuunnitelma. Tieto on valtaa."
+                },
+                "step3": {
+                    "trigger": "3. Käy lääkärissä",
+                    "content": "Hanki dokumentti oireistasi (unettomuus, ahdistus). Se on tärkeä todiste siitä, että työ vaikuttaa terveyteen."
+                }
+            }
+        },
+        "phase3": {
+            "label": "Vaihe 3: Ratkaisu",
+            "title": "Toimi tai poistu",
+            "description": "Kun olet vahvempi ja sinulla on todisteet, voit valita taistelun tai strategisen poistumisen.",
+            "steps": {
+                "step1": {
+                    "trigger": "1. Tee virallinen ilmoitus",
+                    "content": "Käytä raportointityökalun valmiita malleja (esim. työsuojeluilmoitus)."
+                },
+                "step2": {
+                    "trigger": "2. Neuvottele poistumisesta",
+                    "content": "Jos haluat lähteä, neuvottele irtisanomispaketti ammattiliiton lakimiehen tuella. Älä vain lähde tyhjin käsin."
+                },
+                "step3": {
+                    "trigger": "...",
+                    "content": "..."
+                }
+            }
+        }
+    },
+    "exercises_tab": {
+        "breathing": {
+            "title": "5-5-5 hengitys",
+            "description": "Fysiologinen tapa laskea sykettä ja pysäyttää paniikkireaktio.",
+            "start": "Odottaa...",
+            "start_exercise": "Aloita harjoitus",
+            "stop": "Lopeta",
+            "phases": {
+                "inhale": "Hengitä sisään...",
+                "hold": "Pidätä...",
+                "exhale": "Hengitä ulos..."
+            }
+        },
+        "grounding": {
+            "title": "Ankkuroituminen",
+            "description": "Käytä aistejasi palataksesi tähän hetkeen, pois kauhuskenaarioista.",
+            "items": {
+                "see": "asiaa, jotka näet",
+                "touch": "asiaa, joihin voit koskea",
+                "hear": "asiaa, jotka kuulet",
+                "smell": "asiaa, jotka haistat",
+                "taste": "asia, jonka maistat"
+            }
+        },
+        "boundaries": {
+            "title": "Sisäinen kilpi",
+            "description": "Harjoittele näitä lauseita peilin edessä.",
+            "quotes": {
+                "not_accept": "\"En hyväksy, että minulle puhutaan noin.\"",
+                "speak_properly": "\"Voimme jatkaa keskustelua, kun puhut asianmukaisesti.\"",
+                "not_continue": "\"Tämä keskustelu loppuu nyt.\""
+            }
+        },
+        "darvo": {
+            "title": "Tunnista DARVO",
+            "description": "Kiusaajat usein kääntävät roolit (Deny, Attack, Reverse Victim & Offender). Tunnista kaava.",
+            "attack": "Kiusaajan hyökkäys:",
+            "attack_text": "\"Sinä olet ongelma! Minä vain yritän auttaa ja sinä alat itkemään kaikesta. Oletko epävakaa?\"",
+            "response": "Oikea reaktio (mielessäsi):",
+            "response_text": "He yrittävät siirtää huomion minun reaktiooni, jotta heidän tekonsa unohtuvat. En lankea tähän."
+        }
+    },
+    "contacts_tab": {
+        "acute": {
+            "title": "Akuutti apu",
+            "mieli": {
+                "title": "Mieli kriisipuhelin",
+                "hours": "Auki 24/7 (suomeksi)"
+            },
+            "riku": {
+                "title": "Rikosuhripäivystys",
+                "text": "Jos epäilet rikosta (kunnianloukkaus, syrjintä)."
+            }
+        },
+        "authorities": {
+            "title": "Viranomaiset",
+            "avi": {
+                "label": "Aluehallintovirasto (AVI)",
+                "sub": "Viranomainen, joka valvoo työturvallisuutta."
+            },
+            "unions": {
+                "label": "Ammattiliitot",
+                "sub": "Ota yhteyttä liittosi lakimieheen tai luottamusmieheen."
+            }
+        },
+        "peer_support": {
+            "title": "Vertaistuki",
+            "items": {
+                "fb": "Facebook: Työpaikkakiusaamisen uhrien ryhmät",
+                "mieli": "Mielen vertaisryhmät",
+                "discord": "Discord-yhteisöt"
+            }
+        },
+        "knowledge": {
+            "title": "Tieto",
+            "ttl": {
+                "label": "Työterveyslaitos",
+                "sub": "Tutkittua tietoa työn hyvinvoinnista."
+            },
+            "ttk": {
+                "label": "Työturvallisuuskeskus",
+                "sub": "Ohjeistus nollatoleranssista häirintää kohtaan."
+            }
+        }
+    },
+    "footer": {
+        "remember": "Muista: Olet arvokas.",
+        "disclaimer": "Tämä sivusto tarjoaa vertaistukea ja työkaluja, mutta ei korvaa lääketieteellistä tai juridista ammattiapua."
+    }
+};
+
+try {
+    console.log('Reading fi.json...');
+    const fiData = JSON.parse(fs.readFileSync(fiFile, 'utf8'));
+
+    // Replace support with Finnish translation
+    fiData.support = finnishSupport;
+
+    fs.writeFileSync(fiFile, JSON.stringify(fiData, null, 4), 'utf8');
+    console.log('✅ Translated support section to Finnish');
+
+} catch (e) {
+    console.error('❌ Failed:', e.message);
+    process.exit(1);
+}

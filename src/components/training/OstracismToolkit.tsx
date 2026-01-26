@@ -5,259 +5,218 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Ghost, AlertTriangle, Shield, CheckCircle2,
     MessageCircle, Users, EyeOff, Info, ArrowRight,
-    Search, ClipboardList, BookOpen, Lightbulb
+    Search, ClipboardList, BookOpen, Lightbulb,
+    Ban, Heart, ShieldCheck, ArrowLeft
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface OstracismToolkitProps {
     onComplete: () => void;
     onExit: () => void;
 }
 
-export default function OstracismToolkit({ onComplete, onExit }: OstracismToolkitProps) {
-    const [activeTab, setActiveTab] = useState<'basics' | 'signs' | 'manager' | 'strategies'>('basics');
+// --- COMPONENT ---
+
+export const OstracismToolkit: React.FC<OstracismToolkitProps> = ({ onComplete, onExit }) => {
+    const { t } = useLanguage();
+    const [step, setStep] = useState<'intro' | 'survival' | 'validation' | 'summary'>('intro');
+    const [validationItems, setValidationItems] = useState<string[]>([]);
+    const [newItem, setNewItem] = useState('');
+
+    const addItem = () => {
+        if (newItem.trim()) {
+            setValidationItems(prev => [...prev, newItem]);
+            setNewItem('');
+        }
+    };
 
     return (
-        <div className="max-w-4xl mx-auto space-y-8 pb-12">
+        <div className="min-h-full p-6 md:p-12 max-w-4xl mx-auto flex flex-col gap-8 animate-in fade-in duration-500 bg-slate-50 border-x border-slate-200">
             {/* Header */}
-            <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-3xl rounded-full -mr-32 -mt-32" />
-                <div className="relative z-10 space-y-4">
-                    <div className="flex items-center gap-3 text-indigo-400">
-                        <Ghost className="w-8 h-8" />
-                        <span className="text-xs font-black uppercase tracking-[0.2em]">Koulutusmoduuli</span>
-                        <div className="flex-1" />
-                        <Button variant="ghost" className="text-indigo-200 hover:text-white hover:bg-white/10" onClick={onExit}>Sulje</Button>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-black tracking-tight uppercase">Ostrakismi-työkalupakki</h1>
-                    <p className="text-slate-400 text-lg max-w-2xl font-medium">
-                        Opi tunnistamaan ja purkamaan työyhteisön vaarallisin mutta näkymättömin kiusaamisen muoto: sosiaalinen ulossulkeminen.
-                    </p>
+            <div className="flex justify-between items-center">
+                <Button variant="ghost" onClick={onExit} className="text-slate-400 hover:text-slate-900 gap-2">
+                    <ArrowLeft className="w-4 h-4" /> Keskeytä
+                </Button>
+                <div className="flex gap-2">
+                    {['intro', 'survival', 'validation', 'summary'].map((s, i) => (
+                        <div key={s} className={cn("w-2 h-2 rounded-full transition-all",
+                            s === step ? "bg-rose-600 w-4" :
+                                ['intro', 'survival', 'validation', 'summary'].indexOf(step) > i ? "bg-rose-200" : "bg-slate-200"
+                        )} />
+                    ))}
                 </div>
             </div>
 
-            {/* Navigation Tabs */}
-            <div className="flex flex-wrap gap-2 p-1.5 bg-white border border-slate-200 rounded-3xl shadow-sm">
-                {[
-                    { id: 'basics', label: 'Perusteet', icon: BookOpen },
-                    { id: 'signs', label: 'Tunnistus', icon: Search },
-                    { id: 'manager', label: 'Esimiehelle', icon: Shield },
-                    { id: 'strategies', label: 'Strategiat', icon: Lightbulb }
-                ].map(tab => (
-                    <button
-                        key={tab.id}
-                        onClick={() => setActiveTab(tab.id as any)}
-                        className={cn(
-                            "flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-black uppercase text-xs tracking-widest transition-all",
-                            activeTab === tab.id
-                                ? "bg-slate-900 text-white shadow-lg shadow-slate-200 scale-[1.02]"
-                                : "text-slate-500 hover:bg-slate-50"
-                        )}
-                    >
-                        <tab.icon className="w-4 h-4" />
-                        <span className="hidden sm:inline">{tab.label}</span>
-                    </button>
-                ))}
-            </div>
-
-            {/* Content Area */}
-            <div className="min-h-[500px]">
-                <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait">
+                {/* INTRO */}
+                {step === 'intro' && (
                     <motion.div
-                        key={activeTab}
+                        key="intro"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className="text-center space-y-8 py-12"
+                    >
+                        <div className="w-24 h-24 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 text-rose-600">
+                            <Ban className="w-12 h-12" />
+                        </div>
+                        <h1
+                            className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tight"
+                            dangerouslySetInnerHTML={{ __html: t('training.ostracism_toolkit.intro.title') }}
+                        />
+                        <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                            {t('training.ostracism_toolkit.intro.text')}
+                        </p>
+                        <Button size="lg" onClick={() => setStep('survival')} className="bg-rose-600 hover:bg-rose-700 text-white rounded-full px-12 py-8 text-xl font-black uppercase tracking-widest shadow-xl shadow-rose-200">
+                            {t('training.ostracism_toolkit.intro.action')} <ArrowRight className="ml-2" />
+                        </Button>
+                    </motion.div>
+                )}
+
+                {/* STEP 1: SURVIVAL KIT */}
+                {step === 'survival' && (
+                    <motion.div
+                        key="survival"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
                         className="space-y-8"
                     >
-                        {activeTab === 'basics' && <BasicsView />}
-                        {activeTab === 'signs' && <SignsView />}
-                        {activeTab === 'manager' && <ManagerView />}
-                        {activeTab === 'strategies' && <StrategiesView />}
+                        <div className="text-center space-y-4">
+                            <h2 className="text-3xl font-black uppercase text-slate-900">{t('training.ostracism_toolkit.survival.title')}</h2>
+                            <p className="text-slate-500 max-w-lg mx-auto">
+                                {t('training.ostracism_toolkit.survival.text')}
+                            </p>
+                        </div>
+
+                        <div className="grid gap-6 max-w-2xl mx-auto">
+                            {[
+                                { title: t('training.ostracism_toolkit.survival.step1.title'), text: t('training.ostracism_toolkit.survival.step1.text'), icon: AlertTriangle },
+                                { title: t('training.ostracism_toolkit.survival.step2.title'), text: t('training.ostracism_toolkit.survival.step2.text'), icon: Users },
+                                { title: t('training.ostracism_toolkit.survival.step3.title'), text: t('training.ostracism_toolkit.survival.step3.text'), icon: ShieldCheck }
+                            ].map((item, i) => (
+                                <Card key={i} className="p-6 border-slate-200 hover:border-rose-200 transition-colors">
+                                    <div className="flex gap-4">
+                                        <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-rose-600 shrink-0">
+                                            <item.icon className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-lg text-slate-900">{item.title}</h3>
+                                            <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                                        </div>
+                                    </div>
+                                </Card>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-center pt-8">
+                            <Button onClick={() => setStep('validation')} className="rounded-full px-8 bg-slate-900 text-white font-bold h-12">
+                                {t('training.ostracism_toolkit.survival.action')} <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                        </div>
                     </motion.div>
-                </AnimatePresence>
-            </div>
+                )}
 
-            {/* Footer Action */}
-            <div className="flex justify-center pt-8 border-t border-slate-200">
-                <Button
-                    onClick={onComplete}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-12 py-8 rounded-full font-black uppercase tracking-widest shadow-xl shadow-indigo-100 group"
-                >
-                    Suoritettu <CheckCircle2 className="ml-3 w-6 h-6 group-hover:scale-110 transition-transform" />
-                </Button>
-            </div>
-        </div>
-    );
-}
-
-function BasicsView() {
-    return (
-        <div className="grid md:grid-cols-2 gap-8">
-            <Card className="rounded-[2rem] border-slate-200/60 overflow-hidden">
-                <div className="bg-indigo-600 p-6 text-white flex items-center gap-3">
-                    <Info className="w-6 h-6" />
-                    <h3 className="font-black uppercase tracking-widest text-sm">Mikä on ostrakismi?</h3>
-                </div>
-                <CardContent className="p-8 space-y-4">
-                    <p className="text-slate-600 font-medium leading-relaxed">
-                        Ostrakismi on yksi tuskallisimmista kiusaamisen muodoista. Se ei ole huutamista tai suoraa hyökkäystä, vaan <span className="text-indigo-600 font-bold">hiljaista ulossulkemista</span>.
-                    </p>
-                    <p className="text-slate-600 font-medium leading-relaxed">
-                        Se aktivoi aivoissa samat alueet kuin fyysinen kipu. Uhria kohdellaan ikään kuin hän olisi näkymätön – 'ghost in the room'.
-                    </p>
-                </CardContent>
-            </Card>
-
-            <Card className="rounded-[2rem] border-slate-200/60 overflow-hidden">
-                <div className="bg-slate-900 p-6 text-white flex items-center gap-3">
-                    <AlertTriangle className="w-6 h-6 text-amber-400" />
-                    <h3 className="font-black uppercase tracking-widest text-sm">Miksi se on vaarallista?</h3>
-                </div>
-                <CardContent className="p-8 space-y-4">
-                    <ul className="space-y-4">
-                        {[
-                            { title: "Murentaa itsetunnon", desc: "Aikaansaa tunteen, ettei ole olemassa tai ettei ole tärkeä." },
-                            { title: "Vaikea todistaa", desc: "Kiusaaja voi aina väittää 'unohdin' tai 'olin kiireinen'." },
-                            { title: "Luo silent consensus -ilmiön", desc: "Muut tiimiläiset alkavat seurata kiusaajan esimerkkiä peläten itse joutuvansa ulkopuoleksi." }
-                        ].map((item, i) => (
-                            <li key={i} className="flex gap-4">
-                                <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold shrink-0">{i + 1}</div>
-                                <div>
-                                    <div className="font-bold text-slate-900">{item.title}</div>
-                                    <div className="text-sm text-slate-500">{item.desc}</div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </CardContent>
-            </Card>
-        </div>
-    );
-}
-
-function SignsView() {
-    return (
-        <div className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                    <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
-                        <EyeOff className="w-6 h-6 text-indigo-600" /> Yksilön tuntomerkkejä
-                    </h3>
-                    <div className="grid gap-4">
-                        {[
-                            "Sinua ei tervehditä tai tervehdykseesi ei vastata.",
-                            "Keskustelu lakkaa, kun tilaat huoneeseen.",
-                            "Tietoa ei jaeta sinulle 'vahingossa'.",
-                            "Mielipiteitäsi ei kysytä tai ne ohitetaan nopeasti.",
-                            "Kehonkieli viestii torjuntaa (selän kääntäminen)."
-                        ].map((sign, i) => (
-                            <div key={i} className="flex items-center gap-4 p-5 bg-white border border-slate-100 rounded-3xl shadow-sm">
-                                <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" />
-                                <span className="text-sm font-bold text-slate-700">{sign}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="space-y-6">
-                    <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
-                        <Users className="w-6 h-6 text-emerald-600" /> Tiimin tuntomerkkejä
-                    </h3>
-                    <div className="grid gap-4">
-                        {[
-                            "Lounaalle tai kahville lähtöä ei huudella ääneen.",
-                            "Sisäpiirivitsit, joita ei selitetä muille.",
-                            "Yksi työntekijä saa vain rutiinitehtäviä.",
-                            "Epäsymmetrinen viestintä (vain viralliset kanavat yhdelle).",
-                            "Passiivinen vastarinta uuden idean edessä."
-                        ].map((sign, i) => (
-                            <div key={i} className="flex items-center gap-4 p-5 bg-white border border-slate-100 rounded-3xl shadow-sm">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                                <span className="text-sm font-bold text-slate-700">{sign}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ManagerView() {
-    return (
-        <Card className="rounded-[2.5rem] border-slate-200/60 overflow-hidden shadow-xl">
-            <div className="grid md:grid-cols-3">
-                <div className="bg-slate-900 p-8 text-white space-y-6">
-                    <h3 className="text-2xl font-black uppercase tracking-tight leading-none">Esimiehen muistilista</h3>
-                    <p className="text-slate-400 text-sm font-medium">
-                        Ostrakismi on usein esimiehelle näkymätöntä. Sinun on oltava proaktiivinen.
-                    </p>
-                    <div className="space-y-4">
-                        <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-start gap-3">
-                            <Search className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
-                            <p className="text-xs text-slate-300">Tarkkaile epämuodollisia rakenteita.</p>
+                {/* STEP 2: VALIDATION */}
+                {step === 'validation' && (
+                    <motion.div
+                        key="validation"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className="space-y-8"
+                    >
+                        <div className="text-center space-y-4">
+                            <h2 className="text-3xl font-black uppercase text-slate-900">{t('training.ostracism_toolkit.validation.title')}</h2>
+                            <p className="text-slate-500 max-w-lg mx-auto">
+                                {t('training.ostracism_toolkit.validation.text')}
+                            </p>
                         </div>
-                        <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-start gap-3">
-                            <MessageCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                            <p className="text-xs text-slate-300">Puhu 1-to-1 keskusteluissa fiiliksestä.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="md:col-span-2 p-8 md:p-12 space-y-8">
-                    <div className="grid gap-6">
-                        {[
-                            { title: "Havaitse", text: "Huomaatko, ettei teemua kutsuta palavereihin? Tai että taukohuone hiljenee, kun Tiina astuu sisään?" },
-                            { title: "Dokumentoi", text: "Kirjaa ylös toistuvat poikkeamat tiedonkulussa tai sosiaalisessa inkluusiossa." },
-                            { title: "Intervenoi", text: "Keskustele tiimin kanssa 'yhteisistä pelisäännöistä' ilman, että syyllistät ketään yksitellen heti." },
-                            { title: "Inkludoi", text: "Luo rakenteita, jotka pakottavat inkluusioon (esim. arvotut parit projekteihin)." }
-                        ].map((step, i) => (
-                            <div key={i} className="flex gap-6 items-start group">
-                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-black shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">{i + 1}</div>
-                                <div className="space-y-1">
-                                    <h4 className="font-black uppercase text-xs tracking-widest text-slate-900">{step.title}</h4>
-                                    <p className="text-sm text-slate-500 font-medium">{step.text}</p>
+
+                        <div className="max-w-xl mx-auto w-full space-y-6">
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    placeholder={t('training.ostracism_toolkit.validation.placeholder')}
+                                    value={newItem}
+                                    onChange={(e) => setNewItem(e.target.value)}
+                                    onKeyDown={(e) => e.key === 'Enter' && addItem()}
+                                    className="flex-1 bg-white border border-slate-200 rounded-xl px-6 h-14 text-lg focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-sm"
+                                    autoFocus
+                                />
+                                <Button size="lg" onClick={addItem} className="h-14 px-8 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold">{t('training.ostracism_toolkit.validation.btn_add')}</Button>
+                            </div>
+
+                            <div className="bg-slate-50 rounded-2xl p-6 min-h-[200px]">
+                                <h4 className="font-bold text-slate-400 mb-4 uppercase text-xs tracking-widest">{t('training.ostracism_toolkit.validation.list_title')}</h4>
+                                <div className="space-y-3">
+                                    {validationItems.length > 0 ? (
+                                        validationItems.map((item, i) => (
+                                            <motion.div
+                                                key={i}
+                                                initial={{ opacity: 0, x: -10 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                className="bg-white p-4 rounded-xl border border-rose-100 text-slate-800 font-medium shadow-sm flex items-center gap-3"
+                                            >
+                                                <div className="w-2 h-2 rounded-full bg-rose-400" />
+                                                {item}
+                                            </motion.div>
+                                        ))
+                                    ) : (
+                                        <p className="text-slate-400 italic text-center py-12">{t('training.ostracism_toolkit.validation.empty')}</p>
+                                    )}
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </Card>
-    );
-}
+                        </div>
 
-function StrategiesView() {
-    return (
-        <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100 space-y-4">
-                <h4 className="font-black text-indigo-600 uppercase text-xs tracking-[0.2em]">Uhreille</h4>
-                <div className="space-y-3">
-                    <p className="text-sm font-bold text-slate-700">1. Pue sanoiksi havainto asiallisesti.</p>
-                    <p className="text-sm font-bold text-slate-700">2. Älä syytä, vaan kysy kiinnostuneena.</p>
-                    <p className="text-xs text-slate-500">Esim: 'Huomasin, että viestiini ei vastattu. Puuttuuko siitä jokin tieto vai jäikö se huomaamatta?'</p>
-                </div>
-            </div>
+                        <div className="flex justify-center pt-8">
+                            <Button
+                                onClick={() => setStep('summary')}
+                                disabled={validationItems.length === 0}
+                                className="rounded-full px-8 bg-slate-900 text-white font-bold h-12"
+                            >
+                                {t('training.ostracism_toolkit.validation.action')} <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                        </div>
+                    </motion.div>
+                )}
 
-            <div className="bg-emerald-50 p-8 rounded-[2rem] border border-emerald-100 space-y-4">
-                <h4 className="font-black text-emerald-600 uppercase text-xs tracking-[0.2em]">Sivustaseuraajille</h4>
-                <div className="space-y-3">
-                    <p className="text-sm font-bold text-slate-700">1. Ole 'jäänmurtaja'.</p>
-                    <p className="text-sm font-bold text-slate-700">2. Osoita huomiota uhrille muiden nähden.</p>
-                    <p className="text-xs text-slate-500">Esim: 'Mitä sinä olet mieltä tästä, Liisa?' tai pelkkä 'Huomenta!' eristetylle.</p>
-                </div>
-            </div>
+                {/* STEP 3: SUMMARY */}
+                {step === 'summary' && (
+                    <motion.div
+                        key="summary"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className="text-center space-y-8 py-12"
+                    >
+                        <div className="w-24 h-24 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 text-rose-600">
+                            <Heart className="w-12 h-12" />
+                        </div>
+                        <h2 className="text-3xl font-black uppercase text-slate-900">{t('training.ostracism_toolkit.summary.title')}</h2>
+                        <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                            {t('training.ostracism_toolkit.summary.text')}
+                        </p>
 
-            <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-200 space-y-4">
-                <h4 className="font-black text-slate-600 uppercase text-xs tracking-[0.2em]">Organisaatiolle</h4>
-                <div className="space-y-3">
-                    <p className="text-sm font-bold text-slate-700">1. Nollatoleranssi myös hiljaisuudelle.</p>
-                    <p className="text-sm font-bold text-slate-700">2. Suosi rotation-käytäntöjä.</p>
-                    <p className="text-xs text-slate-500">Varmistetaan, että klikit eivät pääse muodostumaan pysyviksi rakenteiksi.</p>
-                </div>
-            </div>
+                        <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-xl border border-rose-100 rotate-1">
+                            <p className="font-handwriting text-2xl text-rose-600 leading-relaxed font-bold">
+                                "&quot;Minä riitän.<br />Minä olen tärkeä.<br />Minulla on väliä.&quot;"
+                            </p>
+                        </div>
+
+                        <div className="flex justify-center pt-8">
+                            <Button onClick={onComplete} className="rounded-full px-12 py-6 bg-rose-600 hover:bg-rose-700 text-white font-bold text-lg shadow-xl shadow-rose-200">
+                                {t('training.ostracism_toolkit.summary.action')}
+                            </Button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
-}
+};
+
+export default OstracismToolkit;

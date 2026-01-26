@@ -1,0 +1,73 @@
+{
+    "nav_title": "Impact Profile",
+    "hero": {
+        "title": "What is your impact?",
+        "subtitle": "We all affect each other. But how?",
+        "start_btn": "Find Out Your Profile"
+    },
+    "intro_why": {
+        "title": "What is it about?",
+        "text": "Many of us fear being 'that difficult person'. But few bad feelings are born of malice. They are born of behavioral patterns that have gone too far.",
+        "bullets": [
+            "Recognize when demands turn into exhaustion.",
+            "Understand why good intentions can turn into fear.",
+            "Find ways to make an impact without steamrolling others."
+        ]
+    },
+    "options": {
+        "strongly_agree": "Strongly Agree",
+        "agree": "Agree",
+        "neutral": "Can't Say",
+        "disagree": "Disagree",
+        "strongly_disagree": "Strongly Disagree"
+    },
+    "questions": {
+        "1": "I demand perfection from myself and others.",
+        "2": "I feel responsible for others' mistakes.",
+        "3": "I interrupt people if I know what they are going to say.",
+        "4": "I feel things only move forward if I do them myself.",
+        "5": "I secure my back before telling bad news.",
+        "6": "I feel emotions do not belong in the workplace.",
+        "7": "I keep information to myself so it is not misused."
+    },
+    "results": {
+        "anonymous_note": "Answers are anonymous.",
+        "title": "Your Impact Profile",
+        "constructive": "Constructive",
+        "destructive": "Limiting",
+        "meter_label": "Direction of your impact",
+        "meter_left": "Builder",
+        "meter_right": "Brake"
+    },
+    "profiles": {
+        "A": {
+            "title": "Builder",
+            "subtitle": "Sustainable Foundation",
+            "description": "You create safety and clarity around you. People dare to come to you with unfinished business.",
+            "impact": "You increase the team's psychological safety.",
+            "why": "You are the one who holds it together.",
+            "next_step": "Keep it up, but remember your own boundaries.",
+            "action_btn": "Strengthen skills"
+        },
+        "B": {
+            "title": "Pressure Cooker",
+            "subtitle": "Hard and High",
+            "description": "You demand a lot because you care. But sometimes your pace exhausts others.",
+            "impact": "You may be creating an atmosphere of fear unintentionally.",
+            "why": "Efficiency must not cost well-being.",
+            "motivation": "You just want the best, but means can be too hard.",
+            "next_step": "Learn to pause before reacting.",
+            "action_btn": "Learn regulation"
+        },
+        "C": {
+            "title": "Gatekeeper",
+            "subtitle": "Control is Safety",
+            "description": "You protect your team or yourself by restricting information flow.",
+            "impact": "This creates mistrust and cliques.",
+            "why": "Openness is a risk, but closedness is destructive.",
+            "motivation": "You fear chaos, so you manage information.",
+            "next_step": "Practice trust.",
+            "action_btn": "Open doors"
+        }
+    }
+}

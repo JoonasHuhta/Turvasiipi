@@ -19,54 +19,15 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
 type ViewState = 'intro' | 'categories' | 'script' | 'summary';
 
 interface BoundaryCategory {
     id: string;
-    title: string;
-    description: string;
     icon: any;
-    examples: string[];
 }
-
-// --- DATA ---
-const BOUNDARY_CATEGORIES: BoundaryCategory[] = [
-    {
-        id: 'professional',
-        title: 'Työlliset rajat',
-        description: 'Mitä teet ja milloin teet. Vastuun rajat.',
-        icon: Briefcase,
-        examples: [
-            "En vastaa sähköposteihin klo 17 jälkeen.",
-            "Tämä tehtävä ei kuulu työnkuvaani juuri nyt.",
-            "Tarvitsen 3h keskeytyksettömiä aikoja päivittäin."
-        ]
-    },
-    {
-        id: 'emotional',
-        title: 'Emotionaaliset rajat',
-        description: 'Kenen taakkaa kannat ja mihin käytät energiasi.',
-        icon: UserCircle2,
-        examples: [
-            "En voi kuunnella tätä juuri nyt, minulla ei ole tilaa.",
-            "Minun ei tarvitse selitellä päätöksiäni sinulle.",
-            "Voin keskustella tästä ammattimaisesti, mutta en ota vastaan huutamista."
-        ]
-    },
-    {
-        id: 'physical',
-        title: 'Fyysiset & Viestintärajat',
-        description: 'Oma tila, kosketus ja tapa tulla lähestytyksi.',
-        icon: Hand,
-        examples: [
-            "Haluaisin että emme käytä vapaa-ajan kanavia työasioihin.",
-            "Arvostaisin jos pitäisit pienen etäisyyden puhuessasi.",
-            "Älä kosketa minua ilman lupaa."
-        ]
-    }
-];
 
 // --- COMPONENT ---
 export default function BoundariesModule({
@@ -78,16 +39,38 @@ export default function BoundariesModule({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<ViewState>('intro');
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [scriptSteps, setScriptSteps] = useState({
         action: "",
-        reason: "",
-        alternative: ""
+        reason: ""
     });
+
+    // Category icons mapping
+    const CATEGORY_ICONS: Record<string, any> = {
+        professional: Briefcase,
+        emotional: UserCircle2,
+        physical: Hand
+    };
+
+    const BOUNDARY_CATEGORIES: BoundaryCategory[] = [
+        { id: 'professional', icon: Briefcase },
+        { id: 'emotional', icon: UserCircle2 },
+        { id: 'physical', icon: Hand }
+    ];
 
     const finishModule = () => {
         onComplete(100);
+    };
+
+    // Helper to replace template variables
+    const formatTemplate = (template: string, vars: Record<string, string>) => {
+        let result = template;
+        Object.entries(vars).forEach(([key, value]) => {
+            result = result.replace(`{{${key}}}`, value || `[${key}]`);
+        });
+        return result;
     };
 
     return (
@@ -96,12 +79,12 @@ export default function BoundariesModule({
             {/* HEADER */}
             <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4]">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700">
+                    <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700">
                         <Shield className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Rajojen Asettaminen</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Oman Tilan Palauttaminen</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.boundaries_module.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.boundaries_module.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -121,14 +104,16 @@ export default function BoundariesModule({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl mt-12"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Rajat eivät ole seiniä.<br />Ne ovat portteja.</h1>
-                            <p className="text-lg text-[#57534E] leading-relaxed">
-                                Kiusaamistilanteessa rajasi on usein jyrätty matalaksi. Toipumisen kannalta on tärkeää oppia taas sanomaan <strong>"ei"</strong>, jotta voit sanoa <strong>"kyllä"</strong> omalle hyvinvoinnillesi.
-                                <br /><br />
-                                Raja ei ole hyökkäys toista kohtaan, vaan rakkauden osoitus itseäsi kohtaan.
-                            </p>
-                            <Button onClick={() => setView('categories')} size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Tutki eri rajatyyppejä <ArrowRight className="ml-2 w-5 h-5" />
+                            <h1
+                                className="text-4xl font-serif font-black text-[#292524]"
+                                dangerouslySetInnerHTML={{ __html: t('training.boundaries_module.intro.title') }}
+                            />
+                            <p
+                                className="text-lg text-[#57534E] leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('training.boundaries_module.intro.text') }}
+                            />
+                            <Button onClick={() => setView('categories')} size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-full px-8 py-6 text-lg shadow-xl shadow-amber-200/50">
+                                {t('training.boundaries_module.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -143,8 +128,8 @@ export default function BoundariesModule({
                             className="w-full space-y-8"
                         >
                             <div className="text-center">
-                                <Badge variant="outline" className="text-blue-600 border-blue-200">Vaihe 1/2: Tunnistaminen</Badge>
-                                <h2 className="text-3xl font-bold mt-2 text-[#292524]">Minkä rajan tarvitset eniten?</h2>
+                                <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50">{t('training.boundaries_module.categories_step.badge')}</Badge>
+                                <h2 className="text-3xl font-bold mt-2 text-[#292524]">{t('training.boundaries_module.categories_step.title')}</h2>
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
@@ -153,23 +138,23 @@ export default function BoundariesModule({
                                         key={cat.id}
                                         className={cn(
                                             "p-6 cursor-pointer transition-all border-[#E7E5E4] flex flex-col h-full",
-                                            selectedCategory === cat.id ? "ring-2 ring-blue-500 bg-blue-50/20" : "hover:border-blue-200 hover:bg-white"
+                                            selectedCategory === cat.id ? "ring-2 ring-amber-500 bg-amber-50/20" : "hover:border-amber-200 hover:bg-white"
                                         )}
                                         onClick={() => setSelectedCategory(cat.id)}
                                     >
-                                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-4">
+                                        <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-4">
                                             <cat.icon className="w-6 h-6" />
                                         </div>
-                                        <h3 className="text-lg font-bold text-[#292524] mb-2">{cat.title}</h3>
-                                        <p className="text-sm text-[#78716C] mb-4 flex-1">{cat.description}</p>
+                                        <h3 className="text-lg font-bold text-[#292524] mb-2">{t(`training.boundaries_module.categories.${cat.id}.title`)}</h3>
+                                        <p className="text-sm text-[#78716C] mb-4 flex-1">{t(`training.boundaries_module.categories.${cat.id}.description`)}</p>
 
                                         {selectedCategory === cat.id && (
                                             <motion.ul
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
-                                                className="text-xs space-y-2 text-blue-800 italic border-t border-blue-100 pt-4"
+                                                className="text-xs space-y-2 text-amber-800 italic border-t border-amber-100 pt-4"
                                             >
-                                                {cat.examples.map((ex, i) => (
+                                                {(t(`training.boundaries_module.categories.${cat.id}.examples`, { returnObjects: true }) as string[]).map((ex, i) => (
                                                     <li key={i}>• "{ex}"</li>
                                                 ))}
                                             </motion.ul>
@@ -181,9 +166,9 @@ export default function BoundariesModule({
                             <Button
                                 disabled={!selectedCategory}
                                 onClick={() => setView('script')}
-                                className="w-full py-6 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
+                                className="w-full py-6 bg-amber-600 hover:bg-amber-700 text-white disabled:opacity-50 rounded-full shadow-xl shadow-amber-200/50"
                             >
-                                Seuraava: Harjoittele auki sanomista <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.boundaries_module.categories_action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -198,48 +183,54 @@ export default function BoundariesModule({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-4">
-                                <Badge variant="outline" className="text-blue-600 border-blue-200">Vaihe 2/2: Harjoittelu</Badge>
-                                <h2 className="text-3xl font-bold">Boundary Lab: Rakenna viesti</h2>
-                                <p className="text-[#57534E]">Tämä on "Peilitekniikka". Se ei ole aggressiivinen, mutta se on selkeä.</p>
+                                <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50">{t('training.boundaries_module.script_step.badge')}</Badge>
+                                <h2 className="text-3xl font-bold">{t('training.boundaries_module.script_step.title')}</h2>
+                                <p className="text-[#57534E]">{t('training.boundaries_module.script_step.subtitle')}</p>
                             </div>
 
                             <Card className="p-8 border-[#E7E5E4] bg-white shadow-inner">
                                 <div className="space-y-6">
                                     <div className="space-y-4">
-                                        <label className="text-xs font-black uppercase text-[#A8A29E] tracking-widest">1. Mikä on teko/pyyntö, jonka estät?</label>
+                                        <label className="text-xs font-black uppercase text-[#A8A29E] tracking-widest">{t('training.boundaries_module.script_form.label_action')}</label>
                                         <input
-                                            placeholder="Esim: Ylitöiden tekeminen ilman ennakkovaroitusta..."
-                                            className="w-full p-4 bg-[#FAFAF9] border border-[#E7E5E4] rounded-xl focus:ring-2 ring-blue-500 outline-none"
+                                            placeholder={t('training.boundaries_module.script_form.placeholder_action')}
+                                            className="w-full p-4 bg-[#FAFAF9] border border-[#E7E5E4] rounded-xl focus:ring-2 ring-amber-500 outline-none"
                                             value={scriptSteps.action}
                                             onChange={(e) => setScriptSteps({ ...scriptSteps, action: e.target.value })}
                                         />
                                     </div>
                                     <div className="space-y-4">
-                                        <label className="text-xs font-black uppercase text-[#A8A29E] tracking-widest">2. Mikä on selkeä syy (lyhyesti)?</label>
+                                        <label className="text-xs font-black uppercase text-[#A8A29E] tracking-widest">{t('training.boundaries_module.script_form.label_reason')}</label>
                                         <input
-                                            placeholder="Esim: Minulla on harrastus / tarvitsen lepoa..."
-                                            className="w-full p-4 bg-[#FAFAF9] border border-[#E7E5E4] rounded-xl focus:ring-2 ring-blue-500 outline-none"
+                                            placeholder={t('training.boundaries_module.script_form.placeholder_reason')}
+                                            className="w-full p-4 bg-[#FAFAF9] border border-[#E7E5E4] rounded-xl focus:ring-2 ring-amber-500 outline-none"
                                             value={scriptSteps.reason}
                                             onChange={(e) => setScriptSteps({ ...scriptSteps, reason: e.target.value })}
                                         />
                                     </div>
                                 </div>
 
-                                <div className="mt-12 p-8 bg-blue-50/50 rounded-2xl border border-blue-100 text-center relative overflow-hidden">
-                                    <MessageSquare className="absolute -bottom-4 -right-4 w-24 h-24 text-blue-100/50" />
-                                    <h4 className="text-xs font-black uppercase text-blue-600 tracking-widest mb-4">Lopputulos:</h4>
-                                    <p className="text-xl font-serif text-[#292524] leading-relaxed">
-                                        "En valitettavasti pysty <strong>{scriptSteps.action || '[toiminta]'}</strong>, koska <strong>{scriptSteps.reason || '[syy]'}</strong>. Sovitaan tästä ensi kerralla aiemmin."
-                                    </p>
+                                <div className="mt-12 p-8 bg-amber-50/50 rounded-2xl border border-amber-100 text-center relative overflow-hidden">
+                                    <MessageSquare className="absolute -bottom-4 -right-4 w-24 h-24 text-amber-100/50" />
+                                    <h4 className="text-xs font-black uppercase text-amber-600 tracking-widest mb-4">{t('training.boundaries_module.script_form.result_title')}</h4>
+                                    <p
+                                        className="text-xl font-serif text-[#292524] leading-relaxed"
+                                        dangerouslySetInnerHTML={{
+                                            __html: formatTemplate(
+                                                t('training.boundaries_module.script_form.result_template'),
+                                                { action: scriptSteps.action, reason: scriptSteps.reason }
+                                            )
+                                        }}
+                                    />
                                 </div>
                             </Card>
 
                             <Button
                                 disabled={!scriptSteps.action || !scriptSteps.reason}
                                 onClick={() => setView('summary')}
-                                className="w-full py-6 bg-blue-600 hover:bg-blue-700 text-white shadow-xl disabled:opacity-50"
+                                className="w-full py-6 bg-amber-600 hover:bg-amber-700 text-white shadow-xl shadow-amber-200/50 disabled:opacity-50 rounded-full"
                             >
-                                Valmis <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.boundaries_module.script_action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -252,20 +243,19 @@ export default function BoundariesModule({
                             animate={{ opacity: 1 }}
                             className="text-center space-y-12 max-w-xl mt-12"
                         >
-                            <div className="w-24 h-24 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto ring-8 ring-blue-50/50">
+                            <div className="w-24 h-24 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto ring-8 ring-amber-50/50">
                                 <CheckCircle2 className="w-12 h-12" />
                             </div>
                             <div className="space-y-4">
-                                <h1 className="text-4xl font-serif font-black text-[#292524]">Seisominen omilla jaloilla.</h1>
-                                <p className="text-lg text-[#57534E]">
-                                    Rajojen asettaminen voi tuntua aluksi syyllistävältä, mutta se on ainoa tapa säilyttää työkyky ja mielenterveys pitkällä aikavälillä.
-                                    <br /><br />
-                                    Olet ottanut ison askeleen takaisin kohti omaa voimaasi.
-                                </p>
+                                <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.boundaries_module.summary.title')}</h1>
+                                <p
+                                    className="text-lg text-[#57534E]"
+                                    dangerouslySetInnerHTML={{ __html: t('training.boundaries_module.summary.text') }}
+                                />
                             </div>
 
-                            <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-2xl px-12 py-8 text-xl shadow-xl">
-                                Palaa valmennukseen
+                            <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-full px-12 py-8 text-xl shadow-xl">
+                                {t('training.boundaries_module.summary.action')}
                             </Button>
                         </motion.div>
                     )}
@@ -275,4 +265,3 @@ export default function BoundariesModule({
         </div>
     );
 }
-

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { quizQuestions, getRiskLevel, calculateScore } from "@/data/questions";
 import { ArrowRight, RotateCcw, AlertTriangle, Info } from "lucide-react";
@@ -9,7 +9,12 @@ import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 
 export default function QuizPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('quiz');
+    }, [loadNamespace]);
+
     const { completeModule } = useProgress();
     const [hasStarted, setHasStarted] = useState(false);
     const [answers, setAnswers] = useState<Record<number, 1 | 2 | 3 | 4 | 5>>({});
@@ -61,7 +66,7 @@ export default function QuizPage() {
                     <div className="space-y-4 p-6 bg-white border border-[#E8DDD0] rounded-sm">
                         <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">{t('quiz.page.what_measures_title')}</strong>
                         <ul className="space-y-2 list-disc list-inside">
-                            {(t('quiz.page.what_measures_list', { returnObjects: true }) as string[]).map((item, i) => (
+                            {(t('quiz.page.what_measures_list', { returnObjects: true }) as string[] || []).map((item, i) => (
                                 <li key={i}>{item}</li>
                             ))}
                         </ul>
@@ -69,7 +74,7 @@ export default function QuizPage() {
                     <div className="space-y-4 p-6 bg-white border border-[#E8DDD0] rounded-sm">
                         <strong className="block text-[#2B2B2B] uppercase tracking-widest text-xs">{t('quiz.page.what_not_measures_title')}</strong>
                         <ul className="space-y-2 list-disc list-inside">
-                            {(t('quiz.page.what_not_measures_list', { returnObjects: true }) as string[]).map((item, i) => (
+                            {(t('quiz.page.what_not_measures_list', { returnObjects: true }) as string[] || []).map((item, i) => (
                                 <li key={i}>{item}</li>
                             ))}
                         </ul>
@@ -79,11 +84,10 @@ export default function QuizPage() {
                 <div className="bg-blue-50 p-6 rounded-sm border border-blue-200 text-sm space-y-4">
                     <h3 className="font-bold text-[#2B2B2B] flex items-center gap-2">
                         <Info className="w-4 h-4 text-blue-600" />
-                        Ennen kuin aloitat
+                        {t('quiz.page.before_start_title')}
                     </h3>
                     <p className="text-[#4A4A4A]">
-                        Hengitä rauhallisesti. Tämä on vain yksi näkökulma tilanteeseesi.
-                        Vastaukseri ovat täysin anonyymejä ja tallentuvat vain tälle laitteelle.
+                        {t('quiz.page.before_start_text')}
                     </p>
                 </div>
 
@@ -131,7 +135,7 @@ export default function QuizPage() {
                 {riskContent.alternativeExplanations && riskContent.alternativeExplanations.length > 0 && (
                     <div className="bg-blue-50 p-6 rounded-sm border border-blue-200">
                         <h3 className="font-bold text-[#2B2B2B] mb-3 text-sm uppercase tracking-wide">
-                            💡 Tämä voi myös johtua seuraavista syistä:
+                            💡 {t('quiz.results.alt_explanations')}
                         </h3>
                         <ul className="space-y-2 text-sm text-[#4A4A4A]">
                             {riskContent.alternativeExplanations.map((exp: string, i: number) => (
@@ -148,7 +152,7 @@ export default function QuizPage() {
                 {riskContent.nextSteps && riskContent.nextSteps.length > 0 && (
                     <div className="space-y-4">
                         <h3 className="text-lg font-bold text-[#2B2B2B]">
-                            Seuraavat askeleet
+                            {t('quiz.results.next_steps')}
                         </h3>
                         <div className="grid gap-4">
                             {riskContent.nextSteps.map((step: any, i: number) => (
@@ -165,7 +169,7 @@ export default function QuizPage() {
                 {riskContent.resources && riskContent.resources.length > 0 && (
                     <div className="bg-purple-50 p-6 rounded-sm border border-purple-200">
                         <h3 className="font-bold text-[#2B2B2B] mb-3">
-                            📞 Tärkeät yhteystiedot
+                            📞 {t('quiz.results.resources_title')}
                         </h3>
                         <div className="grid gap-4 sm:grid-cols-2">
                             {riskContent.resources.map((resource: any, i: number) => (
@@ -210,7 +214,7 @@ export default function QuizPage() {
                         <div className="space-y-2">
                             {q.positive && (
                                 <span className="inline-block px-2 py-1 bg-green-100 text-green-800 text-[10px] font-bold uppercase rounded-sm">
-                                    Vahvuus
+                                    {t('quiz.labels.strength')}
                                 </span>
                             )}
                             <p className="text-xl md:text-2xl font-serif text-[#2B2B2B] leading-relaxed">
@@ -249,8 +253,8 @@ export default function QuizPage() {
                             })}
                         </div>
                         <div className="flex justify-between text-xs text-[#6A6A6A] px-1 sm:hidden">
-                            <span>Ei koskaan</span>
-                            <span>Päivittäin</span>
+                            <span>{t('quiz.options.never')}</span>
+                            <span>{t('quiz.options.daily')}</span>
                         </div>
                     </div>
                 ))}

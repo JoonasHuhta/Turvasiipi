@@ -1,0 +1,45 @@
+{
+    "header": {
+        "mini_title": "Fact Bank",
+        "title_main": "Knowledge is protection.",
+        "title_main_suffix": "Everything you need to know about legislation, phenomenon, and impacts.",
+        "description": "Fact Bank offers researched information on dynamics of workplace bullying, legislation, and economic impacts. When you know the name for the phenomenon, it loses some of its power."
+    },
+    "tabs": {
+        "quiz": "Quiz",
+        "costs": "Cost",
+        "simulation": "Simulation"
+    },
+    "quiz_ui": {
+        "title": "Test Your Knowledge",
+        "description": "Are you aware of your rights? Do you know what gaslighting means? Test your knowledge in comprehensive quiz.",
+        "all_data_title": "Entire Fact Bank",
+        "all_data_desc": "Challenge yourself with all {{count}} questions at once.",
+        "start_btn": "START CHALLENGE",
+        "part_label": "PART {{id}}",
+        "questions_count": "{{count}} questions",
+        "game_over": "Quiz Ended",
+        "back_menu": "Back to Menu",
+        "interrupt": "Interrupt",
+        "question_label": "Question",
+        "correct": "Correct!",
+        "wrong": "Wrong",
+        "correct_answer": "Correct answer: {{answer}}",
+        "explanation": "Explanation",
+        "next": "Next"
+    },
+    "quiz_feedback": {
+        "observer": {
+            "title": "Observer",
+            "text": "Good start! You are interested in the topic, but many terms are still unfamiliar. We recommend exploring theory materials."
+        },
+        "alert": {
+            "title": "Conscious Actor",
+            "text": "Great! You recognize basic mechanics and know your rights. With little deepening you are at expert level."
+        },
+        "expert": {
+            "title": "Safewing Expert",
+            "text": "Impressive! You know the phenomenon, legislation, and psychology. You are a resource for your work community."
+        }
+    }
+}

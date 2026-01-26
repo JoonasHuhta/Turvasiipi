@@ -1,0 +1,73 @@
+{
+    "nav_title": "Vaikutusprofiili",
+    "hero": {
+        "title": "Mikä on sinun jälkesi?",
+        "subtitle": "Kaikki me vaikutamme toisiimme. Mutta miten?",
+        "start_btn": "Selvitä Profiilisi"
+    },
+    "intro_why": {
+        "title": "Mistä on kyse?",
+        "text": "Moni meistä pelkää olevansa 'se hankala ihminen'. Mutta harva paha olo syntyy ilkeydestä. Se syntyy toimintamalleista, jotka ovat menneet liian pitkälle.",
+        "bullets": [
+            "Tunnista, milloin vaativuus muuttuu uuvuttamiseksi.",
+            "Ymmärrä, miksi hyvä tarkoitus voi kääntyä peloksi.",
+            "Löydä tapa vaikuttaa ilman, että jyräät muita."
+        ]
+    },
+    "options": {
+        "strongly_agree": "Täysin samaa mieltä",
+        "agree": "Samaa mieltä",
+        "neutral": "Ei osaa sanoa",
+        "disagree": "Eri mieltä",
+        "strongly_disagree": "Täysin eri mieltä"
+    },
+    "questions": {
+        "1": "Vaadin itseltäni ja muilta täydellisyyttä.",
+        "2": "Tunnen vastuuta muiden virheistä.",
+        "3": "Keskeytän ihmiset, jos tiedän mitä he aikovat sanoa.",
+        "4": "Minusta tuntuu, että asiat etenevät vain jos teen ne itse.",
+        "5": "Varmistan selustan ennen kuin kerron huonoja uutisia.",
+        "6": "Koen, että tunteet eivät kuulu työpaikalle.",
+        "7": "Pidän tiedot itselläni, jotta niitä ei käytetä väärin."
+    },
+    "results": {
+        "anonymous_note": "Vastaukset ovat anonyymejä.",
+        "title": "Vaikutusprofiilisi",
+        "constructive": "Rakentava",
+        "destructive": "Rajoittava",
+        "meter_label": "Vaikutuksesi suunta",
+        "meter_left": "Rakentaja",
+        "meter_right": "Jarruttaja"
+    },
+    "profiles": {
+        "A": {
+            "title": "Rakentaja",
+            "subtitle": "Kestävä perusta",
+            "description": "Luot ympärillesi turvaa ja selkeyttä. Ihmiset uskaltavat tulla luoksesi keskeneräisten asioiden kanssa.",
+            "impact": "Lisäät tiimin psykologista turvallisuutta.",
+            "why": "Olet se, joka pitää homman kasassa.",
+            "next_step": "Jatka samaan malliin, mutta muista omat rajasi.",
+            "action_btn": "Vahvista taitojasi"
+        },
+        "B": {
+            "title": "Painekattila",
+            "subtitle": "Kovaa ja korkealta",
+            "description": "Vaadit paljon, koska välität. Mutta joskus vauhtisi uuvuttaa muut.",
+            "impact": "Saatat luoda pelon ilmapiiriä tahattomasti.",
+            "why": "Tehokkuus ei saa maksaa hyvinvointia.",
+            "motivation": "Haluat vain parasta, mutta keinot voivat olla liian kovia.",
+            "next_step": "Opettele pysähtymään ennen reagointia.",
+            "action_btn": "Opettele säätelyä"
+        },
+        "C": {
+            "title": "Portinvartija",
+            "subtitle": "Kontrolli on turvaa",
+            "description": "Suojelet tiimiäsi tai itseäsi rajoittamalla tiedonkulkua.",
+            "impact": "Tämä synnyttää epäluottamusta ja klikkejä.",
+            "why": "Avoimuus on riski, mutta sulkeutuneisuus on tuhoisaa.",
+            "motivation": "Pelkäät kaaosta, joten hallitset tietoa.",
+            "next_step": "Harjoittele luottamusta.",
+            "action_btn": "Avaa ovet"
+        }
+    }
+}

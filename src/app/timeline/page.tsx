@@ -14,10 +14,14 @@ import { useProgress } from "@/context/ProgressContext";
 import { QuickLogButton } from "@/components/QuickLogButton";
 
 export default function TimelinePage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { completeModule, awardBadge } = useProgress();
     const { data: events, setData: setEvents, isLocked, hasData, unlock } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
+
+    useEffect(() => {
+        loadNamespace('timeline');
+    }, [loadNamespace]);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {

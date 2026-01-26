@@ -1,8 +1,8 @@
 import { Phase } from "../types";
 
 export const INFORMATION_SHADOW_SCENARIO: Record<string, Phase> = {
-    START: {
-        id: 'START',
+    'start': {
+        id: 'start',
         day: 1,
         time: '10:00',
         title: "Pudonnut langanpää",

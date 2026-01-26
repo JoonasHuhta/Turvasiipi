@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { comprehensiveQuizData, QuizPart, QuizQuestion } from "@/data/tietovisa-questions";
+import { QuizPart, QuizQuestion } from "@/types/domain";
+import { comprehensiveQuizData } from "@/data/tietovisa-questions";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, XCircle, RotateCcw, BookOpen, Library, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,6 +12,12 @@ import { useLanguage } from "@/context/LanguageContext";
 export function QuizView() {
     const { completeModule, awardBadge } = useProgress();
     const { t } = useLanguage();
+
+    const quizDataRaw = t('quiz_content', { returnObjects: true });
+    // Use imported data as fallback if translations is not available
+    const quizData = Array.isArray(quizDataRaw) ? (quizDataRaw as QuizPart[]) : comprehensiveQuizData;
+
+
     const [selectedPart, setSelectedPart] = useState<QuizPart | 'ALL' | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userAnswers, setUserAnswers] = useState<boolean[]>([]);
@@ -23,7 +30,7 @@ export function QuizView() {
 
     // Prepare questions based on selection
     const activeQuestions: QuizQuestion[] = selectedPart === 'ALL'
-        ? comprehensiveQuizData.flatMap(part => part.questions)
+        ? quizData.flatMap(part => part.questions)
         : selectedPart
             ? selectedPart.questions
             : [];
@@ -65,9 +72,9 @@ export function QuizView() {
 
     const getExpertFeedback = (score: number, total: number) => {
         const percentage = total === 0 ? 0 : (score / total) * 100;
-        if (percentage < 40) return t('tietovisa_page.expert_feedback.observer', { returnObjects: true }) as { title: string, text: string };
-        if (percentage < 80) return t('tietovisa_page.expert_feedback.alert', { returnObjects: true }) as { title: string, text: string };
-        return t('tietovisa_page.expert_feedback.expert', { returnObjects: true }) as { title: string, text: string };
+        if (percentage < 40) return t('faktapankki.quiz_feedback.observer', { returnObjects: true }) as { title: string, text: string };
+        if (percentage < 80) return t('faktapankki.quiz_feedback.alert', { returnObjects: true }) as { title: string, text: string };
+        return t('faktapankki.quiz_feedback.expert', { returnObjects: true }) as { title: string, text: string };
     };
 
     // --- VIEW: MENU ---
@@ -75,9 +82,9 @@ export function QuizView() {
         return (
             <div className="space-y-12 animate-in fade-in duration-500">
                 <div className="space-y-6 border-b border-[#E8DDD0] pb-8">
-                    <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('tietovisa_page.title')}</h2>
+                    <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('faktapankki.quiz_ui.title')}</h2>
                     <p className="text-lg text-[#4A4A4A] max-w-2xl leading-relaxed">
-                        {t('tietovisa_page.description')}
+                        {t('faktapankki.quiz_ui.description')}
                     </p>
                 </div>
 
@@ -88,17 +95,17 @@ export function QuizView() {
                     >
                         <Library className="w-12 h-12 text-white/10 absolute top-4 right-4" />
                         <h3 className="text-2xl font-serif font-bold mb-2 group-hover:underline decoration-1 underline-offset-4">
-                            {t('tietovisa_page.all_data_title')}
+                            {t('faktapankki.quiz_ui.all_data_title')}
                         </h3>
                         <p className="text-white/70 mb-6 font-mono text-sm max-w-xl">
-                            {t('tietovisa_page.all_data_desc', { count: comprehensiveQuizData.flatMap(p => p.questions).length })}
+                            {t('faktapankki.quiz_ui.all_data_desc', { count: comprehensiveQuizData.flatMap(p => p.questions).length })}
                         </p>
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-                            {t('tietovisa_page.start_btn')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            {t('faktapankki.quiz_ui.start_btn')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </button>
 
-                    {comprehensiveQuizData.map(part => (
+                    {quizData.map(part => (
                         <button
                             key={part.id}
                             className="bg-white border border-[#E8DDD0] p-8 rounded-sm text-left hover:border-[#5B4B8A] transition-all group hover:shadow-sm"
@@ -106,7 +113,7 @@ export function QuizView() {
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#5B4B8A] border border-[#E8DDD0] bg-[#FDFBF7] px-2 py-1 rounded-sm">
-                                    {t('tietovisa_page.part_label', { id: part.id })}
+                                    {t('faktapankki.quiz_ui.part_label', { id: part.id })}
                                 </span>
                                 <FileText className="w-5 h-5 text-[#E8DDD0] group-hover:text-[#5B4B8A] transition-colors" />
                             </div>
@@ -114,7 +121,7 @@ export function QuizView() {
                                 {part.title}
                             </h3>
                             <p className="text-sm text-[#4A4A4A] font-mono">
-                                {t('tietovisa_page.questions_count', { count: part.questions.length })}
+                                {t('faktapankki.quiz_ui.questions_count', { count: part.questions.length })}
                             </p>
                         </button>
                     ))}
@@ -145,7 +152,7 @@ export function QuizView() {
 
                     <div className="pt-8 border-t border-[#FAFAFA]">
                         <Button onClick={resetGame} variant="outline" className="border-[#2B2B2B] text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white uppercase font-bold tracking-widest text-xs px-8 py-6 rounded-sm transition-all">
-                            <RotateCcw className="w-4 h-4 mr-2" /> {t('tietovisa_page.back_menu')}
+                            <RotateCcw className="w-4 h-4 mr-2" /> {t('faktapankki.quiz_ui.back_menu')}
                         </Button>
                     </div>
                 </div>
@@ -162,7 +169,7 @@ export function QuizView() {
             <div className="w-full flex items-center justify-between mb-8 border-b border-[#E8DDD0] pb-4">
                 <Button variant="ghost" onClick={resetGame} className="text-[#4A4A4A] hover:text-[#2B2B2B] pl-0 hover:bg-transparent">
                     <span className="text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                        <XCircle className="w-4 h-4" /> {t('tietovisa_page.interrupt')}
+                        <XCircle className="w-4 h-4" /> {t('faktapankki.quiz_ui.interrupt')}
                     </span>
                 </Button>
                 <div className="text-xs font-mono text-[#5B4B8A]">
@@ -189,7 +196,7 @@ export function QuizView() {
                     <div className="bg-white border border-[#E8DDD0] p-8 md:p-12 rounded-sm shadow-sm">
                         <div className="flex items-center gap-2 mb-6">
                             <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A] border border-[#5B4B8A] px-2 py-0.5 rounded-sm">
-                                {t('quiz.modal.definition').replace('Määritelmä', 'Kysymys')} {question.id}
+                                {t('faktapankki.quiz_ui.question_label')} {question.id}
                             </span>
                         </div>
 
@@ -219,19 +226,19 @@ export function QuizView() {
                                 <div className={`p-6 border-l-4 ${lastCorrect ? 'border-[#5B4B8A] bg-[#FDFBF7]' : 'border-[#4A4A4A] bg-[#FAFAFA]'}`}>
                                     <h3 className="font-bold font-serif text-xl text-[#2B2B2B] mb-2 flex items-center gap-2">
                                         {lastCorrect ? (
-                                            <><CheckCircle2 className="w-5 h-5 text-[#5B4B8A]" /> {t('tietovisa_page.correct')}</>
+                                            <><CheckCircle2 className="w-5 h-5 text-[#5B4B8A]" /> {t('faktapankki.quiz_ui.correct')}</>
                                         ) : (
-                                            <><XCircle className="w-5 h-5 text-[#4A4A4A]" /> {t('tietovisa_page.wrong')}</>
+                                            <><XCircle className="w-5 h-5 text-[#4A4A4A]" /> {t('faktapankki.quiz_ui.wrong')}</>
                                         )}
                                     </h3>
                                     <p className="text-sm font-mono text-[#4A4A4A]">
-                                        {t('tietovisa_page.correct_answer', { answer: question.correctAnswer })}
+                                        {t('faktapankki.quiz_ui.correct_answer', { answer: question.correctAnswer })}
                                     </p>
                                 </div>
 
                                 <div className="space-y-2">
                                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#5B4B8A] flex items-center gap-2">
-                                        <BookOpen className="w-3 h-3" /> {t('tietovisa_page.explanation')}
+                                        <BookOpen className="w-3 h-3" /> {t('faktapankki.quiz_ui.explanation')}
                                     </h4>
                                     <p className="text-[#2B2B2B] leading-relaxed text-lg font-serif">
                                         {question.explanation}
@@ -243,7 +250,7 @@ export function QuizView() {
                                         onClick={nextQuestion}
                                         className="bg-[#2B2B2B] text-white hover:bg-[#4A4A4A] uppercase font-bold tracking-widest text-xs px-8 h-12 rounded-sm"
                                     >
-                                        {t('tietovisa_page.next')} <ArrowRight className="w-4 h-4 ml-2" />
+                                        {t('faktapankki.quiz_ui.next')} <ArrowRight className="w-4 h-4 ml-2" />
                                     </Button>
                                 </div>
                             </div>

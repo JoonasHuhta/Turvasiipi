@@ -39,6 +39,8 @@ export interface Phase {
     isCrisis?: boolean; // Triggers visual warning style
 }
 
+export type Scenario = Record<string, Phase>;
+
 export interface LogEntry {
     day: number;
     note: string;

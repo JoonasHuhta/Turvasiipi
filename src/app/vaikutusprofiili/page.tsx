@@ -14,7 +14,12 @@ import { CheckItem } from "./CheckItem";
 import { useProgress } from "@/context/ProgressContext";
 
 export default function ImpactProfilePage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('impact_profile');
+    }, [loadNamespace]);
+
     const { completeModule } = useProgress();
     const [gameState, setGameState] = useState<'intro' | 'playing' | 'results'>('intro');
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,16 +127,16 @@ export default function ImpactProfilePage() {
                                     <div className="p-8 md:p-12 bg-white flex flex-col justify-between space-y-8">
                                         <div className="space-y-6">
                                             <div className="space-y-2">
-                                                <h3 className="font-bold uppercase tracking-widest text-[#5B4B8A] text-xs">Mistä on kyse?</h3>
+                                                <h3 className="font-bold uppercase tracking-widest text-[#5B4B8A] text-xs">{t('impact_profile.intro_why.title')}</h3>
                                                 <p className="text-[#4A4A4A] leading-relaxed">
-                                                    Moni meistä pelkää olevansa "se hankala ihminen". Mutta harva paha olo syntyy ilkeydestä. Se syntyy toimintamalleista, jotka ovat menneet liian pitkälle.
+                                                    {t('impact_profile.intro_why.text')}
                                                 </p>
                                             </div>
 
                                             <div className="grid gap-3">
-                                                <CheckItem text="Tunnista, milloin vaativuus muuttuu uuvuttamiseksi." />
-                                                <CheckItem text="Ymmärrä, miksi hyvä tarkoitus voi kääntyä peloksi." />
-                                                <CheckItem text="Löydä tapa vaikuttaa ilman, että jyräät muita." />
+                                                {((t('impact_profile.intro_why.bullets', { returnObjects: true }) as string[]) || []).map((bullet, i) => (
+                                                    <CheckItem key={i} text={bullet} />
+                                                ))}
                                             </div>
                                         </div>
 
@@ -174,16 +179,16 @@ export default function ImpactProfilePage() {
                             <Card className="border border-[#E8DDD0] shadow-lg rounded-2xl overflow-hidden bg-white min-h-[400px] flex flex-col">
                                 <CardHeader className="p-8 md:p-12 bg-[#FDFBF7] border-b border-[#E8DDD0] flex-1 flex items-center justify-center">
                                     <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#2B2B2B] text-center leading-tight">
-                                        &ldquo;{impactQuestions[currentIndex].text}&rdquo;
+                                        &ldquo;{t(`impact_profile.questions.${impactQuestions[currentIndex].id}`)}&rdquo;
                                     </h3>
                                 </CardHeader>
                                 <CardContent className="p-6 md:p-8 bg-white grid gap-3">
                                     {[
-                                        { l: 'Täysin samaa mieltä', v: 5 },
-                                        { l: 'Jokseenkin samaa mieltä', v: 4 },
-                                        { l: 'Ei samaa eikä eri mieltä', v: 3 },
-                                        { l: 'Jokseenkin eri mieltä', v: 2 },
-                                        { l: 'Täysin eri mieltä', v: 1 }
+                                        { l: t('impact_profile.options.strongly_agree'), v: 5 },
+                                        { l: t('impact_profile.options.agree'), v: 4 },
+                                        { l: t('impact_profile.options.neutral'), v: 3 },
+                                        { l: t('impact_profile.options.disagree'), v: 2 },
+                                        { l: t('impact_profile.options.strongly_disagree'), v: 1 }
                                     ].map((opt) => (
                                         <Button
                                             key={opt.v}

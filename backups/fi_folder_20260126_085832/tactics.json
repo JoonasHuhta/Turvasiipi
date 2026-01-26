@@ -1,0 +1,2450 @@
+{
+    "categories": {
+        "verbal": "Verbaalinen",
+        "social": "Sosiaalinen",
+        "passive": "Passiivinen",
+        "power": "Vallankäyttö",
+        "manipulative": "Manipulatiivinen",
+        "structural": "Rakenteellinen"
+    },
+    "page": {
+        "title_start": "Tunnista",
+        "title_highlight": "Kiusaamisen Taktiikat",
+        "description": "Kiusaaminen ei ole aina huutamista. Se on usein hiljaista, systemaattista ja hienovaraista. Tunnista menetelmät, jotta voit suojautua niiltä.",
+        "carousel": [
+            {
+                "src": "/img/tactics/gaslighting.jpg",
+                "alt": "Gaslighting",
+                "caption": "Todellisuuden kieltäminen luo epävarmuutta."
+            },
+            {
+                "src": "/img/tactics/exclusion.jpg",
+                "alt": "Eristäminen",
+                "caption": "Hiljainen ulossulkeminen on väkivaltaa."
+            },
+            {
+                "src": "/img/tactics/overwork.jpg",
+                "alt": "Liika työ",
+                "caption": "Mahdottomat vaatimukset uuvuttavat."
+            }
+        ],
+        "promo_banner": {
+            "title": "Eikö pelkkä tieto riitä?",
+            "description": "Kokeile interaktiivista valmennusta, jossa opit puolustautumaan käytännössä.",
+            "cta": "Siirry Valmennukseen"
+        },
+        "modal": {
+            "definition": "Mitä tämä on?",
+            "goal": "Tavoite",
+            "impact": {
+                "title": "Vaikutus sinuun",
+                "stress": "Stressi",
+                "burnout": "Uupumus",
+                "selfEsteem": "Itsetunto"
+            },
+            "phrases": "Tunnista lauseet",
+            "strategy": "Puolustusstrategia",
+            "roles": {
+                "victim": "Oletko kohde?",
+                "witness": "Näetkö tämän?",
+                "manager": "Oletko esihenkilö?"
+            },
+            "log_instruction": "Miten kirjata tämä ylös?",
+            "close": "Sulje kortti"
+        }
+    },
+    "mitatointi": {
+        "name": "Mitätöinti & Vähättely",
+        "desc": "Osaamisesi, ehdotustesi ja saavutustesi jatkuva vähättely ja kyseenalaistaminen. Tavoitteena on saada sinut tuntemaan itsesi epäpäteväksi muiden silmissä ja omassa mielessäsi.",
+        "goal": "Murentaa itseluottamus ja ammatillinen uskottavuus.",
+        "phrases": [
+            "Tuo on turha ehdotus",
+            "Etkö todella tiedä tätä?"
+        ],
+        "strategy": [
+            "Dokumentoi palaute.",
+            "Vahvista osaamisesi muiden kanssa."
+        ],
+        "logExample": "Esimies sivuutti ehdotukseni sanoen sitä 'turhaksi'.",
+        "impact": {
+            "stress": 65,
+            "burnout": 50,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Suojaa ammattiarvosi",
+                "description": "Muista oma osaamisesi.",
+                "actions": [
+                    "Kerää positiivinen palaute",
+                    "Pyydä kirjalliset perustelut"
+                ]
+            },
+            "witness": {
+                "title": "Validoi osaaminen",
+                "description": "Tue uhria julkisesti.",
+                "actions": [
+                    "Sano: 'Mielestäni tuo oli hyvä'",
+                    "Älä naura mukana"
+                ]
+            },
+            "manager": {
+                "title": "Puutu heti",
+                "description": "Vähättely tuhoaa tiimin.",
+                "actions": [
+                    "Luo selkeät pelisäännöt",
+                    "Varmista tasapuolinen palaute"
+                ]
+            }
+        }
+    },
+    "gaslighting": {
+        "name": "Gaslighting (Harhauttaminen)",
+        "desc": "Järjestelmällinen manipulointi, jossa havaintosi, muistisi ja kokemuksesi kiistetään. Saatat kuulla lauseita kuten 'kuvittelet vain' tai 'olet liian herkkä', kunnes alat epäillä omaa mielenterveyttäsi.",
+        "goal": "Saada uhri epäilemään omaa todellisuudentajuaan.",
+        "phrases": [
+            "En ole koskaan sanonut tuota",
+            "Kuvittelet vain"
+        ],
+        "strategy": [
+            "Kirjaa asiat ylös heti.",
+            "Käytä sähköpostivahvistuksia."
+        ],
+        "logExample": "Sovittu asia kiellettiin myöhemmin kokonaan.",
+        "impact": {
+            "stress": 90,
+            "burnout": 70,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Luota havaintoihisi",
+                "description": "Käytä dokumentaatiota ankkurina.",
+                "actions": [
+                    "Vahvista asiat sähköpostilla",
+                    "Pidä neutraali todistaja"
+                ]
+            },
+            "witness": {
+                "title": "Vahvista totuus",
+                "description": "Auta uhria maadoittumaan.",
+                "actions": [
+                    "Sano: 'Minäkin muistan sen noin'",
+                    "Älä anna muuttaa faktoja"
+                ]
+            },
+            "manager": {
+                "title": "Vaadi läpinäkyvyyttä",
+                "description": "Selkeys on lääke.",
+                "actions": [
+                    "Vaadi kirjalliset muistiot",
+                    "Seuraa toistuvia 'muistivirheitä'"
+                ]
+            }
+        }
+    },
+    "uhkailu": {
+        "name": "Uhkailu & Pelottelu",
+        "desc": "Suora tai verhottu uhkailu, joka luo turvattomuuden ilmapiirin. Se voi olla vihjailua työpaikan menetyksellä, maineen tuhoamisella tai epämääräisillä 'seurauksilla'.",
+        "goal": "Hiljentää uhri ja vaientaa kritiikki pelolla.",
+        "phrases": [
+            "Tiedät mitä tästä seuraa",
+            "Ehkä et sovi tänne"
+        ],
+        "strategy": [
+            "Dokumentoi uhat.",
+            "Ota yhteys luottamusmieheen."
+        ],
+        "logExample": "Esimies vihjasi työsuhteen päättymisellä ilman syytä.",
+        "impact": {
+            "stress": 95,
+            "burnout": 80,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Suojaa oikeusturvasi",
+                "description": "Älä jää yksin uhkailijan kanssa.",
+                "actions": [
+                    "Pyydä uhat kirjallisena",
+                    "Ota yhteys liittoon HETI"
+                ]
+            },
+            "witness": {
+                "title": "Todista tapahtumat",
+                "description": "Auta dokumentoinnissa.",
+                "actions": [
+                    "Kirjaa havaintosi ylös",
+                    "Tarjoa tukea uhrille"
+                ]
+            },
+            "manager": {
+                "title": "Nollatoleranssi",
+                "description": "Uhkailu on laitonta häirintää.",
+                "actions": [
+                    "Intervenoi välittömästi",
+                    "Selvitä uhkauksen laajuus"
+                ]
+            }
+        }
+    },
+    "identiteetti": {
+        "name": "Identiteetin hyökkäys",
+        "desc": "Henkilökohtaisiin ominaisuuksiin, kuten ikään, sukupuoleen, ulkonäköön tai taustaan kohdistuva arvostelu. Hyökkäys ei koske työtäsi, vaan sitä kuka olet.",
+        "goal": "Nöyryyttää ihmisenä ja tehdä ulkopuolisuuden tunne syväksi.",
+        "phrases": [
+            "Oletko liian vanha tähän?",
+            "Naiset eivät ymmärrä tätä"
+        ],
+        "strategy": [
+            "Tunnista syrjintä.",
+            "Dokumentoi sanat tarkasti."
+        ],
+        "logExample": "Koulutuksessa viitattiin ikääni alentavasti.",
+        "impact": {
+            "stress": 80,
+            "burnout": 60,
+            "selfEsteem": 95
+        },
+        "advice": {
+            "victim": {
+                "title": "Tunnista syrjintä",
+                "description": "Tämä on vastoin lakia.",
+                "actions": [
+                    "Dokumentoi sanatarkasti",
+                    "Ota yhteys luottamusmieheen"
+                ]
+            },
+            "witness": {
+                "title": "Puutu puheeseen",
+                "description": "Osoita ettei tämä ole ok.",
+                "actions": [
+                    "Sano: 'Tuollainen ei kuulu tänne'",
+                    "Raportoi eteenpäin"
+                ]
+            },
+            "manager": {
+                "title": "Varmista yhdenvertaisuus",
+                "description": "Johtajuva vaatii inkluusiota.",
+                "actions": [
+                    "Kouluta tiimiä",
+                    "Puutu heti 'vitseihin'"
+                ]
+            }
+        }
+    },
+    "sexual_harassment": {
+        "name": "Seksuaalinen häirintä",
+        "desc": "Ei-toivottu, seksuaalissävytteinen käytös, puhe tai viestittely. Tavoitteena on alistaa ja esineellistää kohde sukupuolen perusteella.",
+        "goal": "Esineellistää kohde ja luoda vihamielinen ympäristö.",
+        "phrases": [
+            "Hyvältä näytät tänään",
+            "Älä ole niin jäykkä (ehdottelu)"
+        ],
+        "strategy": [
+            "Sano selkeä lopetus.",
+            "Ilmoita HR:lle."
+        ],
+        "logExample": "Sain epäasiallisia kommentteja ulkonäöstäni tauolla.",
+        "impact": {
+            "stress": 90,
+            "burnout": 65,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Aseta tiukka raja",
+                "description": "Älä siedä häirintää.",
+                "actions": [
+                    "Sano: 'Lopeta, tämä on häiritsevää'",
+                    "Raportoi virallisesti HETI"
+                ]
+            },
+            "witness": {
+                "title": "Riko hiljaisuus",
+                "description": "Hiljaisuus on hyväksyntää.",
+                "actions": [
+                    "Sano: 'Tuollainen ei ole asiallista'",
+                    "Tue uhria raportoinnissa"
+                ]
+            },
+            "manager": {
+                "title": "Lakisääteinen velvollisuus",
+                "description": "Puutu heti ja vakavasti.",
+                "actions": [
+                    "Noudata tasa-arvolakia",
+                    "Varmista uhrin turvallisuus"
+                ]
+            }
+        }
+    },
+    "eristaminen": {
+        "name": "Eristäminen & Ulossulkeminen",
+        "desc": "Aktiivinen toimenpide, jolla estetään osallistuminen työyhteisön toimintaan. Kutsujen 'unohtaminen', tiedonjaon ulkopuolelle jättäminen.",
+        "goal": "Katkaista tukiverkostot ja tehdä uhrista näkymätön.",
+        "phrases": [
+            "Unohdin kutsua sinut",
+            "Tämä ei kuulu sinulle"
+        ],
+        "strategy": [
+            "Rakenna muita verkostoja.",
+            "Kysy kirjallisesti syitä."
+        ],
+        "logExample": "Tiimi piti suunnittelupalaverin ilman minua.",
+        "impact": {
+            "stress": 75,
+            "burnout": 60,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Riko saarto",
+                "description": "Ota itse kontaktia.",
+                "actions": [
+                    "Kysy suoraan: 'Miksi tieto ei kulkenut?'",
+                    "Rakenna verkostoja muualle"
+                ]
+            },
+            "witness": {
+                "title": "Ole inklusiivinen",
+                "description": "Ota uhri mukaan.",
+                "actions": [
+                    "Kutsu kollega mukaan",
+                    "Lisää hänet sähköposteihin"
+                ]
+            },
+            "manager": {
+                "title": "Seuraa dynamiikkaa",
+                "description": "Ulossulkeminen on ryhmäilmiö.",
+                "actions": [
+                    "Käytä arvottuja pareja",
+                    "Puutu klikkeihin"
+                ]
+            }
+        }
+    },
+    "ostrakismi": {
+        "name": "Ostrakismi",
+        "desc": "Totaalinen huomiotta jättäminen ('kylmä olka'). Kukaan ei vastaa tervehdykseen, ei katso silmiin, eikä reagoi läsnäoloon.",
+        "goal": "Murentaa ihmisarvo ja kuulumisen tunne.",
+        "phrases": [
+            "(Ei vastausta tervehdykseen)",
+            "(Huone hiljenee saapuessasi)"
+        ],
+        "strategy": [
+            "Pue havainnot sanoiksi.",
+            "Hae ulkopuolista validaatiota."
+        ],
+        "logExample": "Kukaan ei vastaa kysymyksiini yhteisellä kanavalla.",
+        "impact": {
+            "stress": 85,
+            "burnout": 70,
+            "selfEsteem": 95
+        },
+        "advice": {
+            "victim": {
+                "title": "Validoi olemassaolosi",
+                "description": "Tämä on sosiaalista väkivaltaa.",
+                "actions": [
+                    "Tee havainnot näkyviksi HR:lle",
+                    "Hae vertaistukea"
+                ]
+            },
+            "witness": {
+                "title": "Riko jää",
+                "description": "Ole se joka tervehtii.",
+                "actions": [
+                    "Tervehdi nimellä selkeästi",
+                    "Ota puheeksi katsomalla silmiin"
+                ]
+            },
+            "manager": {
+                "title": "Nollatoleranssi",
+                "description": "Vaikein häirinnän muoto havaita.",
+                "actions": [
+                    "Kysy 1-to-1 keskusteluissa",
+                    "Intervenoi heti jäädytykseen"
+                ]
+            }
+        }
+    },
+    "mobbing": {
+        "name": "Mobbing (Ryhmäkiusaaminen)",
+        "desc": "Tilanne, jossa yksi kiusaaja yllyttää muut mukaan, tai ryhmä kääntyy kollektiivisesti yhtä vastaan.",
+        "goal": "Savustaa uhri ulos yhteisöön kohdistuvalla massiivisella paineella.",
+        "phrases": [
+            "Kaikkien mielestä olet vaikea",
+            "Kukaan ei halua sinua"
+        ],
+        "strategy": [
+            "Etsi liittolaisia ulkopuolelta.",
+            "Ota yhteys HR:ään välittömästi."
+        ],
+        "logExample": "Koko tiimi kääntyi minua vastaan yhden aloitteesta.",
+        "impact": {
+            "stress": 100,
+            "burnout": 85,
+            "selfEsteem": 100
+        },
+        "advice": {
+            "victim": {
+                "title": "Hae ulkopuolista apua",
+                "description": "Ryhmää vastaan ei pärjää yksin.",
+                "actions": [
+                    "Ota yhteys työsuojeluun",
+                    "Hae trauma-apua aikaisin"
+                ]
+            },
+            "witness": {
+                "title": "Ole jäänmurtaja",
+                "description": "Yksikin soraääni voi purkaa paineen.",
+                "actions": [
+                    "Kysy: 'Miksi teemme näin?'",
+                    "Raportoi johdolle nimettömästi"
+                ]
+            },
+            "manager": {
+                "title": "Hajota myrkyllinen ryhmä",
+                "description": "Vakavin johtamisongelma.",
+                "actions": [
+                    "Yksilökeskustelut heti",
+                    "Uudelleenjärjestele tiimi"
+                ]
+            }
+        }
+    },
+    "maine": {
+        "name": "Maineen vahingoittaminen",
+        "desc": "Selän takana tapahtuva mustamaalaus, ammatillisen uskottavuuden kyseenalaistaminen ja perättömien huhujen levittäminen.",
+        "goal": "Tuhota uskottavuus ja sosiaalinen pääoma.",
+        "phrases": [
+            "Kuulin että hän tekee virheitä",
+            "Hän ei ole tiimipelaaja"
+        ],
+        "strategy": [
+            "Oikaise faktat heti.",
+            "Anna työn tulosten puhua."
+        ],
+        "logExample": "Minusta levitettiin valheellista tietoa johdolle.",
+        "impact": {
+            "stress": 80,
+            "burnout": 60,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Puolusta todellisuutta",
+                "description": "Maine on pääomasi.",
+                "actions": [
+                    "Oikaise faktat heti",
+                    "Ole läpinäkyvä kaikessa"
+                ]
+            },
+            "witness": {
+                "title": "Pysäytä huhut",
+                "description": "Huhu vaatii yleisön.",
+                "actions": [
+                    "Kysy: 'Mihin tämä perustuu?'",
+                    "Tuo esiin onnistumisia"
+                ]
+            },
+            "manager": {
+                "title": "Suojele mainetta",
+                "description": "Häirintä pitää katkaista.",
+                "actions": [
+                    "Puutu selän takana puhumiseen",
+                    "Selvitä huhun lähde"
+                ]
+            }
+        }
+    },
+    "cyberbullying": {
+        "name": "Nettikiusaaminen",
+        "desc": "Häirintä digitaalisissa kanavissa. Ilkeät viestit, ulkopuolelle jättäminen chat-ryhmistä tai nöyryyttävien materiaalien jakaminen.",
+        "goal": "Tehdä turvattomuudesta jatkuvaa – se seuraa kotiin asti.",
+        "phrases": [
+            "(Mitätöinti chatissa)",
+            "(Vapaa-ajan häirintäviestit)"
+        ],
+        "strategy": [
+            "Screenshotaa kaikki.",
+            "Laita ilmoitukset pois."
+        ],
+        "logExample": "Ryhmä-chatissa levitettiin halventavia meemejä minusta.",
+        "impact": {
+            "stress": 85,
+            "burnout": 70,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Tallenna ja irtaudu",
+                "description": "Digitaalinen jälki on todiste.",
+                "actions": [
+                    "Ota kuvakaappaukset HETI",
+                    "Laita tekniset rajat"
+                ]
+            },
+            "witness": {
+                "title": "Raportoi häirintä",
+                "description": "Vaikeneminen on hyväksyntää.",
+                "actions": [
+                    "Sano: 'Tämä ei ole asiallista'",
+                    "Kuvakaappaa jos uhri ei näe"
+                ]
+            },
+            "manager": {
+                "title": "Hallitse digiympäristöä",
+                "description": "Työnantaja vastaa myös chateista.",
+                "actions": [
+                    "Luo etäväestinnän säännöt",
+                    "Puutu chatti-vitsailuun"
+                ]
+            }
+        }
+    },
+    "kohtuuttomuus": {
+        "name": "Kohtuuttomat vaatimukset",
+        "desc": "Työmäärän tai aikataulujen asettaminen sellaisiksi, että onnistuminen on mahdotonta. Jatkuva paine ja kiireen tuntu.",
+        "goal": "Uuvuttaa työntekijä ja saada hänet tuntemaan riittämättömyyttä.",
+        "phrases": [
+            "Tämä pitää olla valmis huomenna",
+            "Muutkin pystyvät"
+        ],
+        "strategy": [
+            "Pyydä priorisointi kirjallisesti.",
+            "Pidä työaikakirjanpitoa."
+        ],
+        "logExample": "Sain viikon työn tehtäväksi yhdessä iltapäivässä.",
+        "impact": {
+            "stress": 95,
+            "burnout": 90,
+            "selfEsteem": 50
+        },
+        "advice": {
+            "victim": {
+                "title": "Priorisoi faktat",
+                "description": "Kukaan ei ole yli-ihminen.",
+                "actions": [
+                    "Tee tehtävälista ajoituksineen",
+                    "Ilmoita ylikuormasta kirjallisesti"
+                ]
+            },
+            "witness": {
+                "title": "Jaa huoli",
+                "description": "Uupumus on riski työturvallisuudelle.",
+                "actions": [
+                    "Huomauta työmäärästä yleisesti",
+                    "Tarjoa apua jos voit"
+                ]
+            },
+            "manager": {
+                "title": "Seuraa kuormitusta",
+                "description": "Työturvallisuus on vastuullasi.",
+                "actions": [
+                    "Tarkista tehtäväjako",
+                    "Kysy 'Miten jaksat?'"
+                ]
+            }
+        }
+    },
+    "epaoikeudenmukaisuus": {
+        "name": "Epäoikeudenmukaisuus",
+        "desc": "Sääntöjen, etujen ja velvollisuuksien mielivaltainen ja epätasa-arvoinen soveltaminen. 'Muille kyllä, sinulle ei'.",
+        "goal": "Viestittää joka hetki, että olet vähempiarvoinen.",
+        "phrases": [
+            "Hän saa etätyötä, sinä et",
+            "Hänelle saa antaa anteeksi"
+        ],
+        "strategy": [
+            "Vertaa ohjeistuksiin.",
+            "Pyydä kirjalliset perustelut."
+        ],
+        "logExample": "Palkankorotus evättiin minulta ilman syytä, muille se annettiin.",
+        "impact": {
+            "stress": 70,
+            "burnout": 55,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Vaadi tasapuolisuutta",
+                "description": "Olet tasavertainen kollega.",
+                "actions": [
+                    "Vertaile ohjeisiin",
+                    "Ota puheeksi 1-to-1"
+                ]
+            },
+            "witness": {
+                "title": "Anna tunnustus",
+                "description": "Palauta oikeudenmukaisuus.",
+                "actions": [
+                    "Kehu oikeaa tekijää",
+                    "Kysy tasapuolisuudesta julkisesti"
+                ]
+            },
+            "manager": {
+                "title": "Ole läpinäkyvä",
+                "description": "Säännöt ovat samat kaikille.",
+                "actions": [
+                    "Perustele päätökset openly",
+                    "Tunnista todelliset tekijät"
+                ]
+            }
+        }
+    },
+    "micromanagement": {
+        "name": "Mikrosäätö & Kyttäys",
+        "desc": "Työntekijän autonomian riistäminen, jatkuva vahtiminen ja yksityiskohtiin puuttuminen ilman syytä.",
+        "goal": "Viedä ammatillinen itsetunto ja luoda tunne kyvyttömyydestä.",
+        "phrases": [
+            "CC:ksi jokaiseen viestiin",
+            "Avaa näyttösi tässä"
+        ],
+        "strategy": [
+            "Raportoi proaktiivisesti.",
+            "Kysy tarvittavasta tuesta."
+        ],
+        "logExample": "Esimies puuttui jokaisen sähköpostini kielioppiin ja fonttiin.",
+        "impact": {
+            "stress": 70,
+            "burnout": 60,
+            "selfEsteem": 40
+        },
+        "advice": {
+            "victim": {
+                "title": "Rakenna luottamusta",
+                "description": "Kyttäys kertoo esimiehen pelosta.",
+                "actions": [
+                    "Sovi tarkistuspisteet",
+                    "Pidä kirjaa suorituksista"
+                ]
+            },
+            "witness": {
+                "title": "Tue autonomiaa",
+                "description": "Poikkeava valvonta on haitallista.",
+                "actions": [
+                    "Vahvista kollegan osaaminen",
+                    "Älä raportoi muiden tekemisistä turhaan"
+                ]
+            },
+            "manager": {
+                "title": "Luota ja delegoi",
+                "description": "Kyttäys tappaa motivaation.",
+                "actions": [
+                    "Keskity lopputulokseen",
+                    "Opettele delegointia"
+                ]
+            }
+        }
+    },
+    "credit_stealing": {
+        "name": "Kunnian varastaminen",
+        "desc": "Sinun ideoidesi ja työsi tulosten esittäminen omina. Kunnia viedään, virheet jätetään sinulle.",
+        "goal": "Edistää omaa uraa sinun kustannuksellasi.",
+        "phrases": [
+            "Kuten sanoin (sinun ideasi)",
+            "Minä sain tämän valmiiksi"
+        ],
+        "strategy": [
+            "Merkitse nimesi joka paikkaan.",
+            "Jaa ideoita laajemmin."
+        ],
+        "logExample": "Palaverissa esittelemäni idea kirjattiin esimiehen nimiin raportissa.",
+        "impact": {
+            "stress": 55,
+            "burnout": 40,
+            "selfEsteem": 70
+        },
+        "advice": {
+            "victim": {
+                "title": "Ole näkyvä",
+                "description": "Työsi on sinun pääomasi.",
+                "actions": [
+                    "Lisää nimi dokumentteihin",
+                    "Puhu työn alla olevista asioista"
+                ]
+            },
+            "witness": {
+                "title": "Palauta kunnia",
+                "description": "Tue totuutta julkisesti.",
+                "actions": [
+                    "Sano: 'Hienoa että jatkoit X:n ideaa'",
+                    "Älä anna väärän tiedon jäädä"
+                ]
+            },
+            "manager": {
+                "title": "Tunnista tekijät",
+                "description": "Arvosta todellista panosta.",
+                "actions": [
+                    "Pyydä erittely työnjaosta",
+                    "Kehu yksilöitä heidän työstään"
+                ]
+            }
+        }
+    },
+    "unjustified_warnings": {
+        "name": "Perusteettomat varoitukset",
+        "desc": "Muodollisten kurinpitotoimien väärinkäyttö. Varoitukset mitättömistä asioista tai täysin keksityistä syistä.",
+        "goal": "Rakentaa paperijälki irtisanomista varten ja luoda pelkoa.",
+        "phrases": [
+            "Tämä on virallinen huomautus",
+            "Olet mustalla listalla"
+        ],
+        "strategy": [
+            "Vastaa aina kirjallisesti.",
+            "Soita liittoon HETI."
+        ],
+        "logExample": "Sain varoituksen 'asenneongelmasta', kun pyysin lakisääteistä taukoa.",
+        "impact": {
+            "stress": 100,
+            "burnout": 80,
+            "selfEsteem": 60
+        },
+        "advice": {
+            "victim": {
+                "title": "Suojaa oikeusturvasi",
+                "description": "Tämä on suora hyökkäys.",
+                "actions": [
+                    "Dokumentoi jokainen väite",
+                    "Ota juristiin yhteys HETI"
+                ]
+            },
+            "witness": {
+                "title": "Todista faktat",
+                "description": "Voit olla avainasemassa.",
+                "actions": [
+                    "Kirjaa omat havaintosi",
+                    "Tarjoa moraalista tukea"
+                ]
+            },
+            "manager": {
+                "title": "Käytä vastuullisesti",
+                "description": "Väärinkäyttö on laitonta.",
+                "actions": [
+                    "Varmista objektiiviset syyt",
+                    "Noudata lakia tarkasti"
+                ]
+            }
+        }
+    },
+    "passiivi-aggressio": {
+        "name": "Passiivi-aggressio",
+        "desc": "Piilotettu vihamielisyys: huokailu, silmien pyörittely, 'unohtaminen' ja sarkastiset kehut.",
+        "goal": "Satuttaa ja mitätöidä ilman, että jää kiinni suorasta hyökkäyksestä.",
+        "phrases": [
+            "Olipa upea suoritus (sarkasmi)",
+            "Olen vain rehellinen"
+        ],
+        "strategy": [
+            "Kysy suoraan tarkoitusta.",
+            "Pysy viileän asiallisena."
+        ],
+        "logExample": "Esimies pyöritteli silmiään puheenvuorollani.",
+        "impact": {
+            "stress": 70,
+            "burnout": 55,
+            "selfEsteem": 65
+        },
+        "advice": {
+            "victim": {
+                "title": "Tee piilotettu näkyväksi",
+                "description": "Älä mene mukaan peliin.",
+                "actions": [
+                    "Vastaa vain asiasisältöön",
+                    "Kysy: 'Mitä tarkoitit tuolla?'"
+                ]
+            },
+            "witness": {
+                "title": "Huomioi eleet",
+                "description": "Passiivinen hyökkäys vaatii yleisön.",
+                "actions": [
+                    "Älä naura sarkasmille",
+                    "Kysy: 'Oliko tuo tarpeellista?'"
+                ]
+            },
+            "manager": {
+                "title": "Puutu käytökseen",
+                "description": "Sarkasmi myrkyttää luottamuksen.",
+                "actions": [
+                    "Keskustele asenteesta 1-to-1",
+                    "Vaadi rakentavaa puhetapaa"
+                ]
+            }
+        }
+    },
+    "thousand-cuts": {
+        "name": "Death by a Thousand Cuts",
+        "desc": "Jatkuva sarja pienenpieniä, lähes huomaamattomia loukkauksia ja hankaluuksia. Yksittäin mitättömiä, yhdessä murskaavia.",
+        "goal": "Kuluttaa uhri loppuun hitaalla ja vaikeasti todistettavalla tavalla.",
+        "phrases": [
+            "(Jatkuva pieni korjailu)",
+            "(Huokailu pyyntöjesi jälkeen)"
+        ],
+        "strategy": [
+            "Dokumentoi KAIKKI pienetkin asiat.",
+            "Hae ulkopuolista tukea."
+        ],
+        "logExample": "Tänään oli 10 pientä epämiellyttävää kohtaamista.",
+        "impact": {
+            "stress": 85,
+            "burnout": 80,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Määrä on laatua",
+                "description": "Yksittäinen asia on pieni, kokonaisuus suuri.",
+                "actions": [
+                    "Pidä tarkkaa päiväkirjaa",
+                    "Älä vähättele omaa kokemustasi"
+                ]
+            },
+            "witness": {
+                "title": "Tunnista jatkumo",
+                "description": "Huomaatko toistuvan kuvion?",
+                "actions": [
+                    "Validioi uhrin kokemus",
+                    "Huomauta toistuvuudesta"
+                ]
+            },
+            "manager": {
+                "title": "Katso kokonaisuutta",
+                "description": "Mikroaggressiot ovat vaikeita todistaa.",
+                "actions": [
+                    "Seuraa tiimin ilmapiiriä",
+                    "Puutu toistuvaan negaatioon"
+                ]
+            }
+        }
+    },
+    "sarcasm_mockery": {
+        "name": "Sarkasmi & Pilkka",
+        "desc": "Aggressiivinen vitsailu hyökkäyksen peitteenä. Jos loukkaannut, sinulla 'ei ole huumorintajua'.",
+        "goal": "Nöyryyttää uhria julkisesti 'huumorin' varjolla.",
+        "phrases": [
+            "Meidän nero keksi taas jotain",
+            "Olipa hieno suoritus (ivallinen)"
+        ],
+        "strategy": [
+            "Kysy suoraan: 'Mikä tässä naurattaa?'.",
+            "Älä naura mukana."
+        ],
+        "logExample": "Lounaalla kaksi tiimiläistä matki puhetapaani ivallisesti.",
+        "impact": {
+            "stress": 75,
+            "burnout": 50,
+            "selfEsteem": 80
+        },
+        "advice": {
+            "victim": {
+                "title": "Pysy vakavana",
+                "description": "Pilkka loppuu kun se ei saa yleisöä.",
+                "actions": [
+                    "Kysy: 'Mitä tarkoitit tuolla?'",
+                    "Älä naura mukana edes kohteliaisuudesta"
+                ]
+            },
+            "witness": {
+                "title": "Lopeta yleisönä olo",
+                "description": "Pilkkaaja tarvitsee naurajia.",
+                "actions": [
+                    "Pysy vakavana",
+                    "Sano: 'Tuo ei ollut kovin hauskaa'"
+                ]
+            },
+            "manager": {
+                "title": "Luo kunnioitusta",
+                "description": "Huumori ei saa olla lyömistä.",
+                "actions": [
+                    "Puutu 'vitsailuun' heti",
+                    "Määrittele asiallinen palaute"
+                ]
+            }
+        }
+    },
+    "neglect_indifference": {
+        "name": "Välinpitämättömyys",
+        "desc": "Esihenkilön tai kollegoiden tuen täydellinen puute. Avunpyyntöihin ei vastata, sähköpostit ignorataan.",
+        "goal": "Viestittää, että olet merkityksetön ja yksin ongelmiesi kanssa.",
+        "phrases": [
+            "En ehdi nyt (eikä koskaan)",
+            "(Sähköpostit ohitetaan)"
+        ],
+        "strategy": [
+            "Pyydä vastauksia kirjalloisesti asettaen määräaika.",
+            "Ilmoita viestintäkatkoksista."
+        ],
+        "logExample": "Esimies ei ole vastannut ohje-pyyntöihini kahteen viikkoon.",
+        "impact": {
+            "stress": 70,
+            "burnout": 75,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Vaadi vastauksia",
+                "description": "Sinulla on oikeus työhön tarvittavaan tietoon.",
+                "actions": [
+                    "Aseta määräajat kysymyksille",
+                    "Nosta asia esille virallisesti"
+                ]
+            },
+            "witness": {
+                "title": "Tue tiedonkulkua",
+                "description": "Varmista ettei kollega jää pimentoon.",
+                "actions": [
+                    "Laita hänet jakeluun",
+                    "Kysy palaverissa hänen mielipidettään"
+                ]
+            },
+            "manager": {
+                "title": "Varmista kontakti",
+                "description": "Laiminlyönti on hiljaista kiusaamista.",
+                "actions": [
+                    "Pidä säännölliset 1-to-1",
+                    "Vastaa viesteihin ajoissa"
+                ]
+            }
+        }
+    },
+    "withholding_info": {
+        "name": "Tiedon panttaaminen",
+        "desc": "Työsi tekemisen kannalta kriittisen tiedon pimittäminen. Kokouksista ei kerrota, ohjeita ei anneta.",
+        "goal": "Sabotoida työsuoritus ja saada sinut näyttämään tumpelolta.",
+        "phrases": [
+            "Ai, eikö kukaan kertonut?",
+            "Palaveri oli jo"
+        ],
+        "strategy": [
+            "Sovi virallisista kanavista.",
+            "Kysy aktiivisesti puuttuvaa tietoa."
+        ],
+        "logExample": "Projekti viivästyi, koska en saanut tietoa muuttuneista toiveista.",
+        "impact": {
+            "stress": 80,
+            "burnout": 70,
+            "selfEsteem": 60
+        },
+        "advice": {
+            "victim": {
+                "title": "Suojaa tuloksesi",
+                "description": "Tieto on työkalu.",
+                "actions": [
+                    "Tee viralliset tietopyynnöt",
+                    "Dokumentoi tiedon puutteesta johtuvat viiveet"
+                ]
+            },
+            "witness": {
+                "title": "Jaa tietoa openly",
+                "description": "Avoimuus estää panttaamisen.",
+                "actions": [
+                    "Varmista että kaikki ovat jakelussa",
+                    "Kysy: 'Onko kaikilla tämä tieto?'"
+                ]
+            },
+            "manager": {
+                "title": "Luo avoin kulttuuri",
+                "description": "Tiedon panttaaminen on sabotaasia.",
+                "actions": [
+                    "Käytä yhteisiä alustoja",
+                    "Seuraa kuka hallitsee tietoa"
+                ]
+            }
+        }
+    },
+    "triangulation": {
+        "name": "Triangulaatio",
+        "desc": "Ihmisten pelaaminen toisiaan vastaan selän takana. Kiusaaja kertoo A:lle yhtä ja B:lle toista.",
+        "goal": "Hajottaa työyhteisö ja luoda epäluottamusta.",
+        "phrases": [
+            "Matti sanoi että sinä...",
+            "Esimies on huolissaan (vaikka ei ole)"
+        ],
+        "strategy": [
+            "Varmista asiat suoraan asianosaiselta.",
+            "Älä levitä huhuja."
+        ],
+        "logExample": "Kollega väitti esimiehen olevan tyytymätön, vaikka hän oli tyytyväinen.",
+        "impact": {
+            "stress": 85,
+            "burnout": 60,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Puhu suoraan",
+                "description": "Manipulaatio murtuu suoralla puheella.",
+                "actions": [
+                    "Varmista huhu suoraan kohteelta",
+                    "Sano: 'Keskustelen mieluiten hänen kanssaan'"
+                ]
+            },
+            "witness": {
+                "title": "Älä mene väliin",
+                "description": "Varo 'kirjekyyhkyn' roolia.",
+                "actions": [
+                    "Kehota osapuolia puhumaan keskenään",
+                    "Älä välitä juoruja eteenpäin"
+                ]
+            },
+            "manager": {
+                "title": "Vaadi suoruutta",
+                "description": "Kolmikulmapeli tuhoaa tiimin.",
+                "actions": [
+                    "Älä kuuntele 'jonkun puolesta' puhumista",
+                    "Vaadi suoraa palautetta"
+                ]
+            }
+        }
+    },
+    "scapegoating": {
+        "name": "Syntipukitus",
+        "desc": "Yhden ihmisen syyttäminen kollektiivisista virheistä tai ongelmista. 'Kaikki olisi hyvin ilman sinua'.",
+        "goal": "Siirtää vastuu pois johtamisvirheistä.",
+        "phrases": [
+            "Tämä epäonnistui sinun takiasi",
+            "Olet heikoin lenkki"
+        ],
+        "strategy": [
+            "Faktapohjainen vastine syytöksiin.",
+            "Osoita työnjako selvästi."
+        ],
+        "logExample": "Minua syytettiin budjettivajeesta, jota en edes hallinnoinut.",
+        "impact": {
+            "stress": 90,
+            "burnout": 75,
+            "selfEsteem": 85
+        },
+        "advice": {
+            "victim": {
+                "title": "Faktat pöytään",
+                "description": "Syyllisyys on manipulaatiota, vastuu on faktaa.",
+                "actions": [
+                    "Esitä todisteet työnjaosta",
+                    "Älä ota toisten virheitä kontollesi"
+                ]
+            },
+            "witness": {
+                "title": "Oikaise syyttely",
+                "description": "Seiso totuuden puolella.",
+                "actions": [
+                    "Sano: 'Tämä oli yhteinen päätös'",
+                    "Muistuta todellisesta työnjaosta"
+                ]
+            },
+            "manager": {
+                "title": "Analysoi rakenteet",
+                "description": "Yksittäinen syyllinen on harvoin totuus.",
+                "actions": [
+                    "Tee juurisyyanalyysi",
+                    "Varmista ettei ketään uhrata"
+                ]
+            }
+        }
+    },
+    "concern_trolling": {
+        "name": "Valesympatia",
+        "desc": "Kritiikin ja vähättelyn verhoaminen 'ystävälliseen' huoleen. 'Oletko varma että jaksat, näytät väsyneeltä'.",
+        "goal": "Heikentää uhrin itseluottamusta ilman, että kiusaaja näyttää pahalta.",
+        "phrases": [
+            "Olen vain huolissani jaksamisestasi (ivalla)",
+            "Ehkä tämä on liian raskasta?"
+        ],
+        "strategy": [
+            "Vastaa vain faktaan.",
+            "Kysy konkreettisia perusteita 'huolelle'."
+        ],
+        "logExample": "Kollega huokaili 'huolestuneena' työpisteelläni muiden nähden.",
+        "impact": {
+            "stress": 75,
+            "burnout": 60,
+            "selfEsteem": 80
+        },
+        "advice": {
+            "victim": {
+                "title": "Tunnista myrkyllinen huoli",
+                "description": "Aito huoli tarjoaa apua, manipulointi heikentää.",
+                "actions": [
+                    "Sano: 'Kiitos, pärjään hyvin'",
+                    "Kysy: 'Mihin konkreettiseen tämä perustuu?'"
+                ]
+            },
+            "witness": {
+                "title": "Havaitse ivallisuus",
+                "description": "Pue manipulointi sanoiksi.",
+                "actions": [
+                    "Sano: 'Hän näyttää suoriutuvan hienosti'",
+                    "Varmista uhrilta hänen todellinen vointinsa"
+                ]
+            },
+            "manager": {
+                "title": "Seuraa motiiveja",
+                "description": "Huoli on usein naamioitu hyökkäys.",
+                "actions": [
+                    "Tarkista suoritustaso objektiivisesti",
+                    "Puutu patronisoivaan puheeseen"
+                ]
+            }
+        }
+    },
+    "victim_playing": {
+        "name": "Uhriutuminen",
+        "desc": "Kun puutut kiusaajan toimintaan, hän kääntää tilanteen niin että sinä olet 'hyökkääjä' ja hän 'uhri'.",
+        "goal": "Harhauttaa huomio alkuperäisestä väärinkäytöksestä (DARVO-taktiikka).",
+        "phrases": [
+            "Aina minua syytetään!",
+            "Minua kiusataan kun pyydän sinua tekemään työtäsi"
+        ],
+        "strategy": [
+            "Pysy tiukasti faktoissa.",
+            "Älä pyydä anteeksi asioita joita et ole tehnyt."
+        ],
+        "logExample": "Kun huomautin huutamisesta, kollega alkoi itkeä ja väitti minua hyökkääjäksi.",
+        "impact": {
+            "stress": 80,
+            "burnout": 55,
+            "selfEsteem": 70
+        },
+        "advice": {
+            "victim": {
+                "title": "Pysy faktoissa",
+                "description": "Tunteet ovat sumuverho käytökselle.",
+                "actions": [
+                    "Toista alkuperäinen asiasi neutraalisti",
+                    "Älä provosoidu draamasta"
+                ]
+            },
+            "witness": {
+                "title": "Todista alkuperä",
+                "description": "Muistuta mistä tilanne alkoi.",
+                "actions": [
+                    "Kyse oli tästä teosta, ei tunteesta",
+                    "Tue uhrin alkuperäistä havaintoa"
+                ]
+            },
+            "manager": {
+                "title": "Erota teko ja tunne",
+                "description": "Itku ei pyyhi pois väärää tekoa.",
+                "actions": [
+                    "Pysy asialinjalla",
+                    "Vaadi vastuuta konkreettisesta teosta"
+                ]
+            }
+        }
+    },
+    "manipulaatio": {
+        "name": "Emotionaalinen manipulaatio",
+        "desc": "Tunteiden, kuten syyllisyyden tai säälin käyttö hallintakeinona. 'Jos välittäisit tiimistä, tekisit tämän'.",
+        "goal": "Saada uhri toimimaan omien etujen vastaisesti.",
+        "phrases": [
+            "Luulin että olemme ystäviä",
+            "Kun olet sairas, muut kärsivät"
+        ],
+        "strategy": [
+            "Tunnista syyllistämisen kehä.",
+            "Pidä ammatilliset rajat."
+        ],
+        "logExample": "Esimies syyllisti sairauslomasta sanoen sen tuhoavan tiimihengen.",
+        "impact": {
+            "stress": 85,
+            "burnout": 70,
+            "selfEsteem": 80
+        },
+        "advice": {
+            "victim": {
+                "title": "Aseta terveet rajat",
+                "description": "Et ole vastuussa toisen tunteista.",
+                "actions": [
+                    "Tunnista 'hyvä päivä / huono päivä' -kuvio",
+                    "Älä selittele omia oikeuksiasi"
+                ]
+            },
+            "witness": {
+                "title": "Tarjoa perspektiiviä",
+                "description": "Auta uhria näkemään syyllistäminen.",
+                "actions": [
+                    "Muistuta ettei sairastuminen ole valinta",
+                    "Tue uhrin oikeutta rajoihin"
+                ]
+            },
+            "manager": {
+                "title": "Lopeta peli",
+                "description": "Tunneälyä ei saa käyttää väärin.",
+                "actions": [
+                    "Kouluta ammatillisista rajoista",
+                    "Puutu syyllistämiseen heti"
+                ]
+            }
+        }
+    },
+    "resources_denial": {
+        "name": "Resurssien kieltäminen",
+        "desc": "Työkalujen, budjetin tai avun epääminen. Sinulta odotetaan samoja tuloksia ilman resursseja.",
+        "goal": "Tehdä onnistumisesta mahdotonta.",
+        "phrases": [
+            "Meillä ei ole budjettia tähän (mutta muille on)",
+            "Tee se käsin"
+        ],
+        "strategy": [
+            "Tee viralliset pyynnöt kirjallisesti.",
+            "Dokumentoi hukattu aika."
+        ],
+        "logExample": "Kaikki muut saivat uudet lisenssit paitsi minä.",
+        "impact": {
+            "stress": 75,
+            "burnout": 80,
+            "selfEsteem": 65
+        },
+        "advice": {
+            "victim": {
+                "title": "Vaadi työkalut",
+                "description": "Työnantajalla on velvollisuus tarjota välineet.",
+                "actions": [
+                    "Raportoi esteet kirjallisesti",
+                    "Osoita resurssipulan kustannus"
+                ]
+            },
+            "witness": {
+                "title": "Jaa omiasi",
+                "description": "Ole solidaarinen tiimikaveri.",
+                "actions": [
+                    "Lainaa välineitä jos voit",
+                    "Kysy ääneen miksi kollegalla ei ole X:ää"
+                ]
+            },
+            "manager": {
+                "title": "Varmista työedellytykset",
+                "description": "Resurssien panttaaminen on kiusaamista.",
+                "actions": [
+                    "Tarkista resurssijaon tasapuolisuus",
+                    "Poista työn esteet"
+                ]
+            }
+        }
+    },
+    "underemployment": {
+        "name": "Alityöllistäminen",
+        "desc": "Osaamisesi sivuuttaminen ja liian helpot tai turhat työtehtävät (esim. pelkkä kopiointi asiantuntijalle).",
+        "goal": "Nöyryyttää ammatillisesti ja pakottaa lähtemään.",
+        "phrases": [
+            "Tämä on tärkeintä nyt (hanttihommat)",
+            "Hae tiimille kahvia"
+        ],
+        "strategy": [
+            "Pidä listaa tehtävistä vrt. työsopimus.",
+            "Ota puheeksi työnkuva."
+        ],
+        "logExample": "Asiantuntijatehtävistäni siirrettiin tekemään pelkkää skannausta.",
+        "impact": {
+            "stress": 80,
+            "burnout": 70,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Pidä kiinni työnkuvasta",
+                "description": "Osaamisesi on arvokasta.",
+                "actions": [
+                    "Varmista työsopimuksen rajat liitosta",
+                    "Pyydä perusteet tehtävien muutokselle"
+                ]
+            },
+            "witness": {
+                "title": "Arvosta osaamista",
+                "description": "Muistuta kollegan todellisesta kyvystä.",
+                "actions": [
+                    "Pyydä häneltä asiantuntija-apua",
+                    "Huomioi tehtävien epäsuhta julkisesti"
+                ]
+            },
+            "manager": {
+                "title": "Hyödynnä potentiaali",
+                "description": "Osaamisen haaskaaminen on tappiota.",
+                "actions": [
+                    "Tee uusi kehityssuunnitelma",
+                    "Varmista haastavat tehtävät kaikille"
+                ]
+            }
+        }
+    },
+    "moving_goalposts": {
+        "name": "Maalitolppien siirto",
+        "desc": "Tavoitteiden ja kriteerien muuttaminen kesken prosessin. Työ ei koskaan 'kelpaa'.",
+        "goal": "Varmistaa jatkuva epäonnistumisen tunne.",
+        "phrases": [
+            "Tarkoitimmekin oikeastaan tätä",
+            "Tämä ei enää riitä"
+        ],
+        "strategy": [
+            "Vaadi tavoitteet kirjallisesti ennen aloitusta.",
+            "Dokumentoi muutokset."
+        ],
+        "logExample": "Raportin valmistuttua esimies sanoi haluavansakin aivan eri asioita.",
+        "impact": {
+            "stress": 90,
+            "burnout": 85,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Naulaa tavoitteet",
+                "description": "Selkeys on suojasi.",
+                "actions": [
+                    "Pyydä kirjallinen hyväksyntä suunnitelmaan",
+                    "Huomauta muutoksen vaikutuksesta aikatauluun"
+                ]
+            },
+            "witness": {
+                "title": "Todista muutos",
+                "description": "Auta muistamaan alkuperäinen sopimus.",
+                "actions": [
+                    "Sano: 'Kyllä kertaalleen sovimme näin'",
+                    "Tue selkeitä raameja"
+                ]
+            },
+            "manager": {
+                "title": "Varmista ennakoitavuus",
+                "description": "Johtamisen on oltava johdonmukaista.",
+                "actions": [
+                    "Aseta mitattavat kriteerit",
+                    "Pidä kiinni sovituista tavoitteista"
+                ]
+            }
+        }
+    },
+    "spatial_harassment": {
+        "name": "Tilahäirintä",
+        "desc": "Henkilökohtaisen tilan loukkaaminen (liian lähellä seisominen) tai työpisteen eristäminen (siivouskomero).",
+        "goal": "Tehdä työympäristöstä fyysisesti ahdistava.",
+        "phrases": [
+            "(Pöydän siirto pimeään nurkkaan)",
+            "(Seisominen liian lähellä)"
+        ],
+        "strategy": [
+            "Pyydä selkeästi lisää tilaa.",
+            "Pyydä työsuojelutarkastus."
+        ],
+        "logExample": "Työpisteeni siirrettiin käytävälle, vaikka toimistossa oli vapaata.",
+        "impact": {
+            "stress": 80,
+            "burnout": 65,
+            "selfEsteem": 75
+        },
+        "advice": {
+            "victim": {
+                "title": "Ota tilasi takaisin",
+                "description": "Työpiste on turvapaikkasi.",
+                "actions": [
+                    "Sano: 'Tarvitsen enemmän fyysistä tilaa'",
+                    "Pyydä ergonominen ja rauhallinen paikka"
+                ]
+            },
+            "witness": {
+                "title": "Huomioi reviiri",
+                "description": "Tilan vieminen on vallankäyttöä.",
+                "actions": [
+                    "Kysy miksi kollega on siirretty",
+                    "Anna hänelle tilaa palavereissa"
+                ]
+            },
+            "manager": {
+                "title": "Suunnittele asiallisesti",
+                "description": "Tila ei saa olla rangaistus.",
+                "actions": [
+                    "Varmista tasavertaiset työpisteet",
+                    "Puutu fyysiseen tunkeiluun"
+                ]
+            }
+        }
+    },
+    "symbolic_demotion": {
+        "name": "Symbolinen alentaminen",
+        "desc": "Statuksen merkkien poistaminen. Tittelin alentaminen, nimen poistaminen organisaatiokaaviosta tai kutsuista.",
+        "goal": "Viestiä organisaatiolle, että henkilö on 'persona non grata'.",
+        "phrases": [
+            "Hän on vain tällainen avustaja",
+            "(Nimen poisto listoilta)"
+        ],
+        "strategy": [
+            "Huomauta puuttuvista tiedoista heti.",
+            "Varmista asemasi HR:stä."
+        ],
+        "logExample": "Nimikkeeni muutettiin sähköpostissa 'interniksi' koko osaston nähden.",
+        "impact": {
+            "stress": 85,
+            "burnout": 60,
+            "selfEsteem": 90
+        },
+        "advice": {
+            "victim": {
+                "title": "Vahvista asemasi",
+                "description": "Ole ylpeä tittelistäsi ja työstäsi.",
+                "actions": [
+                    "Käytä oikeaa titteliäsi rohkeasti",
+                    "Kysy perusteet muutoksille kirjallisesti"
+                ]
+            },
+            "witness": {
+                "title": "Käytä oikeaa termiä",
+                "description": "Älä mene mukaan vähättelyyn.",
+                "actions": [
+                    "Sano: 'Kuten asiantuntijamme X sanoi'",
+                    "Muistuta muiden onnistumisista"
+                ]
+            },
+            "manager": {
+                "title": "Arvosta hierarkiaa",
+                "description": "Tittelit ja vastuut pitää kunnioittaa.",
+                "actions": [
+                    "Vahvista kaikkien roolit julkisesti",
+                    "Puutu tahalliseen vähättelyyn"
+                ]
+            }
+        }
+    },
+    "support": {
+        "hero": {
+            "badge": "Ensiapu & Tuki",
+            "title": "Selviytymisopas",
+            "subtitle": "Kun olet keskellä myrskyä, etsimme sinulle suojan. Täältä löydät toimintaohjeet, rauhoittumiskeinot ja oikeat auttajat."
+        },
+        "tabs": {
+            "plan": "Toimintasuunnitelma",
+            "exercises": "Harjoitukset",
+            "contacts": "Yhteystiedot"
+        },
+        "plan_tab": {
+            "phase1": {
+                "label": "Vaihe 1: Akuutti tilanne",
+                "title": "Turvaa itsesi",
+                "description": "Jos olet juuri kokenut jotain pahaa, tärkeintä on palauttaa turvallisuudentunne. Älä tee suuria päätöksiä (kuten irtisanoutuminen) hätääntyneenä.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Poistu tilanteesta",
+                        "content": "Mene vessaan, käy kävelyllä tai lähde kotiin (ilmoita sairaudesta). Sinulla ei ole velvollisuutta kuunnella huutamista tai loukkaamista."
+                    },
+                    "step2": {
+                        "trigger": "2. Kirjaa lyhyesti",
+                        "content": "Kirjaa vain: kuka, mitä, missä, milloin. Älä analysoi vielä. Vain faktat talteen."
+                    },
+                    "step3": {
+                        "trigger": "3. Ota yhteys läheiseen",
+                        "content": "Soita kumppanille, ystävälle tai työterveyteen. Älä jää yksin kokemuksen kanssa."
+                    }
+                }
+            },
+            "phase2": {
+                "label": "Vaihe 2: Stabilointi",
+                "title": "Rakenna puolustus",
+                "description": "Kun akuutti shokki helpottaa, on aika alkaa kerätä näyttöä ja suojata asemaasi.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Aloita systemaattinen loki",
+                        "content": "Käytä tämän sovelluksen lokityökalua. Kirjaa takautuvasti kaikki muistamasi tapahtumat."
+                    },
+                    "step2": {
+                        "trigger": "2. Tarkista faktat",
+                        "content": "Lue työsopimuksesi, työterveyshuollon ohjeet ja tasa-arvosuunnitelma. Tieto on valtaa."
+                    },
+                    "step3": {
+                        "trigger": "3. Käy lääkärissä",
+                        "content": "Hae dokumentti oireistasi (unettomuus, ahdistus). Se on tärkeä todiste, että työ vaikuttaa terveyteen."
+                    }
+                }
+            },
+            "phase3": {
+                "label": "Vaihe 3: Ratkaisu",
+                "title": "Toimi tai irtaudu",
+                "description": "Kun olet vahvempi ja sinulla on todisteet, voit valita taistelun tai strategisen poistumisen.",
+                "steps": {
+                    "step1": {
+                        "trigger": "1. Tee virallinen ilmoitus",
+                        "content": "Käytä raportointityökalun valmiita pohjia (esim. työturvallisuusilmoitus)."
+                    },
+                    "step2": {
+                        "trigger": "2. Neuvottele sopimus",
+                        "content": "Jos haluat lähteä, neuvottele eropaketti liiton juristin tuella. Älä vain lähde tyhjin käsin."
+                    },
+                    "step3": {
+                        "trigger": "...",
+                        "content": "..."
+                    }
+                }
+            }
+        },
+        "exercises_tab": {
+            "breathing": {
+                "title": "5-5-5 Hengitys",
+                "description": "Fysiologinen tapa laskea sykettä ja pysäyttää paniikkireaktio.",
+                "start": "Odottaa...",
+                "start_exercise": "Aloita Harjoitus",
+                "stop": "Lopeta",
+                "phases": {
+                    "inhale": "Hengitä sisään...",
+                    "hold": "Pidätä hengitystä...",
+                    "exhale": "Hengitä ulos..."
+                }
+            },
+            "grounding": {
+                "title": "Maadoittuminen",
+                "description": "Käytä aisteja palauttaaksesi itsesi tähän hetkeen, pois kauhuskenaarioista.",
+                "items": {
+                    "see": "asiaa, jotka näet",
+                    "touch": "asiaa, joita voit koskettaa",
+                    "hear": "asiaa, jotka kuulet",
+                    "smell": "asiaa, jotka haistat",
+                    "taste": "asia, jonka maistat"
+                }
+            },
+            "boundaries": {
+                "title": "Sisäinen Suojamuuri",
+                "description": "Harjoittele näitä lauseita peilin edessä.",
+                "quotes": {
+                    "not_accept": "\"En hyväksy, että minulle puhutaan noin.\"",
+                    "speak_properly": "\"Voimme jatkaa keskustelua, kun puhut asiallisesti.\"",
+                    "not_continue": "\"Tämä keskustelu päättyy nyt.\""
+                }
+            },
+            "darvo": {
+                "title": "DARVO-tekniikan tunnistus",
+                "description": "Kiusaaja usein kääntää roolit (Deny, Attack, Reverse Victim & Offender). Tunnista kuvio.",
+                "attack": "Kiusaajan hyökkäys:",
+                "attack_text": "\"Sinä olet se ongelma! Minä vain yritän auttaa ja sinä alat itkeä joka asiasta. Oletko epävakaa?\"",
+                "response": "Oikea reaktio (päässäsi):",
+                "response_text": "Hän yrittää kääntää huomion minun reaktiooni, jotta hänen tekonsa unohtuisi. En mene lankaan."
+            }
+        },
+        "contacts_tab": {
+            "acute": {
+                "title": "Akuutti keskusteluapu",
+                "mieli": {
+                    "title": "Mieli Ry Kriisipuhelin",
+                    "hours": "Suomeksi auki 24/7"
+                },
+                "riku": {
+                    "title": "Rikosuhripäivystys",
+                    "text": "Jos epäilet rikosta (kunnianloukkaus, syrjintä)."
+                }
+            },
+            "authorities": {
+                "title": "Viranomaiset",
+                "avi": {
+                    "label": "Aluehallintovirasto (AVI)",
+                    "sub": "Työsuojelun valvova viranomainen."
+                },
+                "unions": {
+                    "label": "Ammattiliitot",
+                    "sub": "Ota yhteys oman liittosi lakimieheen tai luottamusmieheen."
+                }
+            },
+            "peer_support": {
+                "title": "Vertaistuki",
+                "items": {
+                    "fb": "Facebook: Työpaikkakiusaamista kokeneet",
+                    "mieli": "Mieli Ry vertaisryhmät",
+                    "discord": "Discord-yhteisöt"
+                }
+            },
+            "knowledge": {
+                "title": "Tietoa",
+                "ttl": {
+                    "label": "Työterveyslaitos",
+                    "sub": "Tutkittua tietoa työhyvinvoinnista."
+                },
+                "ttk": {
+                    "label": "Työturvallisuuskeskus",
+                    "sub": "Ohjeita häirinnän nollatoleranssiin."
+                }
+            }
+        },
+        "footer": {
+            "remember": "Muista: Sinä olet arvokas.",
+            "disclaimer": "Tämä sivusto tarjoaa vertaistukea ja työkaluja, mutta ei korvaa lääketieteellistä tai juridista ammattiapua."
+        }
+    },
+    "quiz_content": [
+        {
+            "id": 1,
+            "title": "OSA 1: Kiusaamisen määrittely ja yleisyys",
+            "questions": [
+                {
+                    "id": 1,
+                    "text": "Mikä on kansainvälisten tutkimusten mukaan työpaikkakiusaamisen yleisyys työelämässä?",
+                    "options": [
+                        {
+                            "label": "1-3% työntekijöistä",
+                            "value": "A"
+                        },
+                        {
+                            "label": "10-15% työntekijöistä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "30-40% työntekijöistä",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Yli 50% työntekijöistä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Kansainväliset tutkimukset osoittavat johdonmukaisesti, että 10-15% työntekijöistä kokee systemaattista kiusaamista."
+                },
+                {
+                    "id": 2,
+                    "text": "Kuinka monta työntekijää on maailmanlaajuisesti kokenut jonkinlaista väkivaltaa tai häirintää työpaikalla uransa aikana (ILO 2023)?",
+                    "options": [
+                        {
+                            "label": "Noin 150 miljoonaa",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Noin 400 miljoonaa",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Noin 750 miljoonaa",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Yli 1 miljardi",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "ILO:n (International Labour Organization) ensimmäinen globaali tutkimus vuodelta 2023 osoitti, että 23% työssäkäyvistä aikuisista eli noin 750 miljoonaa työntekijää maailmanlaajuisesti on kokenut jonkinlaista väkivaltaa tai häirintää uransa aikana."
+                },
+                {
+                    "id": 3,
+                    "text": "Kuka on todennäköisin työpaikkakiusaaja?",
+                    "options": [
+                        {
+                            "label": "Työkaveri samalla hierarkiatasolla",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Esimies tai johtaja",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Alainen",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Asiakas tai ulkopuolinen taho",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Tutkimukset osoittavat, että esimies tai johtaja on tyypillisin kiusaaja. Valtahierarkia ja asemavallan väärinkäyttö ovat keskeisiä tekijöitä kiusaamisessa."
+                },
+                {
+                    "id": 4,
+                    "text": "Mikä on kiusaamisen keston kriteeri, jotta sitä voidaan kutsua systemaattiseksi kiusaamiseksi (Einarsen ym.)?",
+                    "options": [
+                        {
+                            "label": "Sen on tapahduttava kerran viikossa vähintään kuukauden ajan",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Sen on tapahduttava toistuvasti (esim. viikoittain) ja säännöllisesti vähintään 6 kuukauden ajan",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Riittää, että se tapahtuu kerran, jos se on riittävän vakavaa",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Sen on tapahduttava päivittäin vähintään 2 viikkoa",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Einarsen ja kollegat määrittelevät, että kiusaamiseksi luokiteltavien tekojen on tapahduttava toistuvasti ja säännöllisesti (esim. viikoittain) ja kestettävä pidempään (yleensä vähintään 6 kuukautta). Yksittäinen konflikti ei ole kiusaamista."
+                },
+                {
+                    "id": 5,
+                    "text": "Kuinka suuri osuus työntekijöistä on todennäköisesti ollut todistamassa työpaikkakiusaamista?",
+                    "options": [
+                        {
+                            "label": "Noin 20%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Noin 40%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Noin 60%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Yli 80%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "D",
+                    "explanation": "Yli 80% työntekijöistä on todennäköisesti ollut todistamassa kiusaamista jossain vaiheessa työuraansa. Tämä tekee sivullisista paljon suuremman ryhmän kuin varsinaisista uhreista."
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "OSA 2: Kiusaamisen muodot ja taktiikat",
+            "questions": [
+                {
+                    "id": 6,
+                    "text": "Mitä termiä käytetään kiusaamisesta, jossa esimies kyseenalaistaa työntekijän muistin, havaintokyvyn ja mielenterveyden?",
+                    "options": [
+                        {
+                            "label": "Micro-management",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Gaslighting (Sumuttaminen)",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Silent treatment",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Tokenismi",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Gaslighting on psyykkisen väkivallan muoto, jossa uhri saadaan epäilemään omaa todellisuudentajuaan. Se on esimiehen tehokkain ase, koska se hiljentää uhrin ja saa hänet uskomaan, että vika on hänessä itsessään."
+                },
+                {
+                    "id": 7,
+                    "text": "Mikä on 'savustamisen' (constructive discharge) tarkoitus?",
+                    "options": [
+                        {
+                            "label": "Parantaa työntekijän suorituskykyä paineen avulla",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Saada työntekijä irtisanoutumaan itse",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Motivoida työntekijää hakemaan ylennystä",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Testata työntekijän stressinsietokykyä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Savustamisen tavoite on saada työntekijä irtisanoutumaan itse, jolloin työnantaja välttää irtisanomisprosessin ja mahdolliset korvaukset. Tehtävien muuttaminen merkityksettömiksi on yleinen keino murentaa ammatillinen itsetunto."
+                },
+                {
+                    "id": 8,
+                    "text": "Mitä tarkoittaa DARVO-taktiikka työpaikkakiusaamisessa?",
+                    "options": [
+                        {
+                            "label": "Deny, Attack, Reverse Victim and Offender",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Document, Assess, Report, Verify, Observe",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Deflect, Avoid, Rationalize, Validate, Overlook",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Describe, Apologize, Reassure, Validate, Overcome",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "A",
+                    "explanation": "DARVO (Deny, Attack, Reverse Victim and Offender) on manipulaatiotaktiikka, jossa tekijä kieltää väärinkäytöksen, hyökkää uhrin uskottavuutta vastaan ja kääntää roolit niin, että hänestä tulee uhri."
+                },
+                {
+                    "id": 9,
+                    "text": "Mikä seuraavista on tyypillinen 'tiedon pimittämisen' muoto?",
+                    "options": [
+                        {
+                            "label": "Esimies unohtaa salasanansa",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Alaiselta evätään pääsy kriittisiin tietoihin",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Esimies lukee liikaa uutisia työajalla",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Työntekijä ei osaa käyttää sähköpostia",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Tieto on valtaa. Pimittämällä tietoa esimies asettaa alaisen tilaan, jossa tämä epäonnistuu väistämättä tehtävässään, koska hänellä ei ole tarvittavia työkaluja tai tietoja päätöksentekoon."
+                },
+                {
+                    "id": 10,
+                    "text": "Mitä tarkoitetaan termillä 'Lentävät apulaiset' (Flying monkeys) työpaikkakiusaamisessa?",
+                    "options": [
+                        {
+                            "label": "Yrityksen virkistystoimikunta",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Kiusaajan ympärilleen keräämä ryhmä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Yrityksen ylintä johtoa",
+                            "value": "C"
+                        },
+                        {
+                            "label": "HR-osasto",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Kiusaaminen on harvoin vain kahden kauppa. Kiusaaja kerää ympärilleen tukijoita, jotka osallistuvat kiusaamiseen tai hiljaisesti hyväksyvät sen."
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "OSA 3: Kiusaajan persoonallisuus ja käyttäytyminen",
+            "questions": [
+                {
+                    "id": 11,
+                    "text": "Mikä persoonallisuuspiirrekolmikko (Dark Triad) ennustaa parhaiten kiusaamiskäyttäytymistä?",
+                    "options": [
+                        {
+                            "label": "Neuroottisuus, introvertti, pessimismi",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Machiavellismi, Narsismi, Psykopatia",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Ahdistuneisuus, Empatia, Tunnollisuus",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Avoimuus, Sovinnollisuus, Ekstraversio",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Dark Triad koostuu Machiavellismista, Narsismista ja Psykopatiasta. Nämä kolme persoonallisuuspiirrettä ennustavat manipulatiivista ja empatiatonta käyttäytymistä."
+                },
+                {
+                    "id": 12,
+                    "text": "Tutkimusten mukaan, mikä Dark Triad -piirre on vahvin ennustaja työpaikkakiusaamiselle?",
+                    "options": [
+                        {
+                            "label": "Narsismi",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Machiavellismi",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Psykopatia",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Kaikki yhtä vahvoja",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Tutkimukset osoittavat, että Machiavellismi on vahvin yksittäinen ennustaja kiusaamiskäyttäytymiselle, selittäen merkittävän osan variaatiosta."
+                },
+                {
+                    "id": 13,
+                    "text": "Mitä Dark Tetrad sisältää Dark Triadin lisäksi?",
+                    "options": [
+                        {
+                            "label": "Sosiopatian",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Sadismin",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Skitsofrenian",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Bipolaarisen häiriön",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Dark Tetrad sisältää Dark Triadin lisäksi Sadismin (arkipäivän sadismin), joka tarkoittaa mielihyvän saamista toisten kärsimyksestä."
+                },
+                {
+                    "id": 14,
+                    "text": "Miksi kiusaamiseen ei usein puututa organisaatioissa?",
+                    "options": [
+                        {
+                            "label": "Kukaan ei huomaa sitä",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Kiusaaja on usein organisaatiolle 'tuloksellinen'",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Kiusatut eivät kerro kenellekään",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Kiusaaminen on laillista",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Organisaatiot usein suojelevat 'tähtisuorittajia' tai esimiehiä, jotka tuovat tulosta, vaikka heidän johtamistapansa tuhoaisi ihmisiä."
+                },
+                {
+                    "id": 15,
+                    "text": "Kuinka monta prosenttia kiusatuista menettää työpaikkansa kiusaamisen seurauksena (WBI)?",
+                    "options": [
+                        {
+                            "label": "10-20%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "23-30%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "45-55%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "67-77%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "D",
+                    "explanation": "Workplace Bullying Institute (WBI) -tutkimus osoittaa, että suurin osa (67-77%) kiusaamisen uhreista menettää työpaikkansa, joko irtisanomisen tai pakotetun eroamisen kautta."
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "OSA 4: Sivullisten (Bystanders) rooli",
+            "questions": [
+                {
+                    "id": 16,
+                    "text": "Mikä on 'sivustakatsojan efekti' (Bystander Effect) työpaikkakiusaamisessa?",
+                    "options": [
+                        {
+                            "label": "Ihmiset puuttuvat herkemmin kun muita on läsnä",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Ihmiset eivät puutu, koska odottavat muiden tekevän sen",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Sivulliset eivät koskaan huomaa kiusaamista",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Sivulliset tukevat aina uhria",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Bystander Effect tarkoittaa, että ihmiset ovat vähemmän todennäköisesti puuttuva tilanteeseen, kun muita ihmisiä on läsnä. Vastuu 'hajaantuu'."
+                },
+                {
+                    "id": 17,
+                    "text": "Mikä sivullisen rooli liittyy parhaaseen työhön sitoutumiseen (work engagement)?",
+                    "options": [
+                        {
+                            "label": "Puolustaja",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Ulkopuolinen",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Avustaja",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Ei merkitystä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "A",
+                    "explanation": "Tutkimukset osoittavat, että puolustajan rooli (aktiivinen puuttuminen ja tuki) ennustaa parasta työhön sitoutumista myös sivulliselle itselleen."
+                },
+                {
+                    "id": 18,
+                    "text": "Kuinka suuri osuus työpaikkakiusaamisen todistajista ei raportoi näkemästään?",
+                    "options": [
+                        {
+                            "label": "Noin 15%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Noin 35%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Noin 55%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Noin 75%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Noin 55% todistajista ei raportoi kokemuksestaan, vaikka he olisivat todistaneet kiusaamista. Tämä on hälyttävän korkea luku."
+                },
+                {
+                    "id": 19,
+                    "text": "Mikä on yleisin syy siihen, miksi todistajat eivät raportoi kiusaamisesta?",
+                    "options": [
+                        {
+                            "label": "Pelko fyysisestä väkivallasta",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Usko siihen, että raportoinnista ei ole hyötyä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Tietämättömyys raportointitavoista",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Kiusaajan tukeminen",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Yleisin syy (55% vastaajista) on kyynisyys ja usko siihen, että organisaatio ei kuitenkaan tee asialle mitään."
+                },
+                {
+                    "id": 20,
+                    "text": "Miten passiivisten sivullisten määrä vaikuttaa uhrin työhön sitoutumiseen?",
+                    "options": [
+                        {
+                            "label": "Ei vaikuta mitenkään",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Parantaa sitä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Heikentää sitä merkittävästi",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Vaikutus on epäselvä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Mitä enemmän passiivisia sivullisia, sitä enemmän kiusaamisen negatiivinen vaikutus korostuu ja uhrin sitoutuminen heikkenee."
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "OSA 5: Terveysvaikutukset ja seuraukset",
+            "questions": [
+                {
+                    "id": 21,
+                    "text": "Mitä fyysisiä oireita pitkäkestoinen työpaikkakiusaaminen aiheuttaa?",
+                    "options": [
+                        {
+                            "label": "Ei mitään, vain henkisiä",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Lievää ärtymystä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Unettomuutta, paniikkikohtauksia, sydänriskejä",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Vain tilapäistä väsymystä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Työpaikkakiusaaminen aiheuttaa vakavia fysiologisia stressireaktioita. Se ei ole 'vain pään sisällä'."
+                },
+                {
+                    "id": 22,
+                    "text": "Mikä on kiusaamisen uhrien sydän- ja verisuonisairauksien riskisuhde verrattuna ei-kiusattuihin?",
+                    "options": [
+                        {
+                            "label": "1.2",
+                            "value": "A"
+                        },
+                        {
+                            "label": "1.8",
+                            "value": "B"
+                        },
+                        {
+                            "label": "2.3",
+                            "value": "C"
+                        },
+                        {
+                            "label": "3.5",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Tutkimukset osoittavat, että riski on peräti 2.3-kertainen. Pitkäkestoinen stressi on myrkkyä keholle."
+                },
+                {
+                    "id": 23,
+                    "text": "Miten todistajien (bystanders) henkinen hyvinvointi vertautuu uhrien hyvinvointiin?",
+                    "options": [
+                        {
+                            "label": "Todistajat eivät kärsi lainkaan",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Oireet ovat samankaltaisia, joskin lievempiä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Todistajat kärsivät enemmän",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Vain uhrit kärsivät",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Myös todistajat traumatisoituvat. Epäreiluuden ja julmuuden seuraaminen sivusta on psyykkisesti raskasta."
+                },
+                {
+                    "id": 24,
+                    "text": "Mikä on työpaikkakiusaamisen asema työssä koettavan stressin aiheuttajana?",
+                    "options": [
+                        {
+                            "label": "15. merkittävin",
+                            "value": "A"
+                        },
+                        {
+                            "label": "10. merkittävin",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Toiseksi yleisin",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Ei merkittävä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Kiusaamista pidetään toiseksi yleisimpänä stressin aiheuttajana työpaikoilla heti liiallisen työmäärän jälkeen."
+                },
+                {
+                    "id": 25,
+                    "text": "Kuinka moni kiusaamisen uhreista on kertonut kokemuksestaan jollekulle?",
+                    "options": [
+                        {
+                            "label": "24%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "54%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "74%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "94%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Vain noin puolet kertoo kokemuksistaan. Häpeä ja pelko estävät monia puhumasta."
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "OSA 6: Lakisääteiset vastuut ja puuttuminen",
+            "questions": [
+                {
+                    "id": 26,
+                    "text": "Kenen vastuulla on työturvallisuuslain mukaan puuttua kiusaamiseen?",
+                    "options": [
+                        {
+                            "label": "Työsuojeluvaltuutetun",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Työnantajan (ylin johto ja esimiehet)",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Kiusatun itsensä",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Poliisin",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Suomen työturvallisuuslaki on yksiselitteinen: Työnantajalla on velvollisuus puuttua epäasialliseen kohteluun heti kun se tulee tietoon."
+                },
+                {
+                    "id": 27,
+                    "text": "Mikä on DARVO-taktiikoista kertomisen ja kouluttamisen vaikutus?",
+                    "options": [
+                        {
+                            "label": "Ei vaikutusta",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Tekee ihmisistä kyynisempiä",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Auttaa tunnistamaan manipulaation",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Heikentää arvostelukykyä",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Tieto on suojaa. Kun ihmiset tunnistavat kaavan (kiellä, hyökkää, uhriudu), sen teho heikkenee."
+                },
+                {
+                    "id": 28,
+                    "text": "Mikä toimiala tai ammatti kärsii eniten työpaikkakiusaamisesta?",
+                    "options": [
+                        {
+                            "label": "IT-ala",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Terveydenhuolto ja sosiaaliala",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Kauppa ja ravintola-ala",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Teollisuus",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Terveydenhuolto ja sosiaaliala ovat valitettavia tilastokärkiä. Hierarkkiset rakenteet ja kova paine luovat otolliset olosuhteet."
+                },
+                {
+                    "id": 29,
+                    "text": "Mikä sukupuoli on todennäköisemmin kiusaamisen uhri?",
+                    "options": [
+                        {
+                            "label": "Miehet",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Naiset",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Ei eroa",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Riippuu täysin toimialasta",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Tilastollisesti naiset joutuvat useammin uhreiksi (57%), mutta miehet ovat yliedustettuina kiusaajissa."
+                },
+                {
+                    "id": 30,
+                    "text": "Kuinka moni naispuolinen kiusaaja valitsee uhrikseen naisen?",
+                    "options": [
+                        {
+                            "label": "25%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "45%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "71%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "90%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Tämä on merkittävä sukupuolidynamiikkaan liittyvä havainto: Naiskiusaajat kohdistavat toimintansa useimmiten toisiin naisiin."
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "OSA 7: Organisaatiokulttuuri ja ennaltaehkäisy",
+            "questions": [
+                {
+                    "id": 31,
+                    "text": "Mikä organisaatiotekijä on vahvin suojaava tekijä kiusaamista vastaan?",
+                    "options": [
+                        {
+                            "label": "Hyvä palkka",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Tukeva organisaatiokulttuuri ja johdon tuki",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Uudet tilat",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Etätyömahdollisuus",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Kulttuuri syö prosessit aamupalaksi. Jos johto ei tue nollatoleranssia teoillaan, paperit ovat hyödyttömiä."
+                },
+                {
+                    "id": 32,
+                    "text": "Mikä seuraavista on tehoton tapa ehkäistä työpaikkakiusaamista?",
+                    "options": [
+                        {
+                            "label": "Nollatoleranssi-politiikka ilman laajempaa lähestymistapaa",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Selkeät raportointimenettelyt",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Johdon sitoutuminen",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Säännöllinen koulutus",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "A",
+                    "explanation": "Pelkkä 'meillä on nollatoleranssi' -julistus ei riitä, jos rakenteet ja toimintamallit eivät tue sitä."
+                },
+                {
+                    "id": 33,
+                    "text": "Mitä 'hiljaisuuden kulttuuri' (culture of silence) tarkoittaa?",
+                    "options": [
+                        {
+                            "label": "Hiljainen työtila",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Pelko puhua ongelmista seurausten pelossa",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Hiljaiset hetket",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Sähköpostikommunikaatio",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Hiljaisuuden kulttuuri on myrkkyä. Se mahdollistaa väärinkäytösten jatkumisen vuosia, koska kukaan ei uskalla avata suutaan."
+                },
+                {
+                    "id": 34,
+                    "text": "Mikä on 'institutionaalinen petos' (institutional betrayal)?",
+                    "options": [
+                        {
+                            "label": "Työntekijän petos",
+                            "value": "A"
+                        },
+                        {
+                            "label": "Organisaation epäonnistuminen puuttua väärinkäytöksiin",
+                            "value": "B"
+                        },
+                        {
+                            "label": "Kilpailijan vakoilu",
+                            "value": "C"
+                        },
+                        {
+                            "label": "Työpaikan vaihto",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Kun organisaatio, jonka tulisi suojella työntekijää, kääntääkin selkänsä tai hyökkää uhria vastaan, kyseessä on syvästi traumatisoiva institutionaalinen petos."
+                },
+                {
+                    "id": 35,
+                    "text": "Kuinka moni hoitoalan työntekijä Britanniassa on kokenut kiusaamista?",
+                    "options": [
+                        {
+                            "label": "5%",
+                            "value": "A"
+                        },
+                        {
+                            "label": "20%",
+                            "value": "B"
+                        },
+                        {
+                            "label": "43%",
+                            "value": "C"
+                        },
+                        {
+                            "label": "65%",
+                            "value": "D"
+                        }
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Luvut ovat korkeita. Julkisen sektorin paineet ja hierarkiat ovat globaali haaste."
+                }
+            ]
+        }
+    ]
+}

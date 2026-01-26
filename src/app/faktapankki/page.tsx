@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuizView } from "@/components/faktapankki/QuizView";
 import { CostOfSilence } from "@/components/faktapankki/CostOfSilence";
 import { CostSimulation } from "@/components/faktapankki/CostSimulation";
@@ -11,8 +11,13 @@ import { useLanguage } from "@/context/LanguageContext";
 type Tab = 'quiz' | 'costs' | 'simulation';
 
 export default function FaktapankkiPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
     const [activeTab, setActiveTab] = useState<Tab>('quiz');
+
+    useEffect(() => {
+        loadNamespace('faktapankki');
+    }, [loadNamespace]);
+
 
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-24">
@@ -20,17 +25,17 @@ export default function FaktapankkiPage() {
             {/* Header - Left Aligned "Human" Style */}
             <header className="space-y-12 max-w-2xl">
                 <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
-                    {t('fact_bank_page.title_mini')}
+                    {t('faktapankki.header.title_mini')}
                 </span>
 
                 <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] leading-[1.1] tracking-tight">
-                    {t('fact_bank_page.title_main')} <br />
-                    <span className="text-[#4A4A4A] font-normal italic">{t('fact_bank_page.title_main_suffix')}</span>
+                    {t('faktapankki.header.title_main')} <br />
+                    <span className="text-[#4A4A4A] font-normal italic">{t('faktapankki.header.title_main_suffix')}</span>
                 </h1>
 
                 <div className="space-y-6 max-w-xl">
                     <p className="text-lg text-[#4A4A4A] leading-relaxed">
-                        {t('fact_bank_page.description')}
+                        {t('faktapankki.header.description')}
                     </p>
                 </div>
 
@@ -44,7 +49,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        {t('fact_bank_page.tabs.quiz')}
+                        {t('faktapankki.tabs.quiz')}
                     </button>
                     <button
                         onClick={() => setActiveTab('costs')}
@@ -55,7 +60,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        {t('fact_bank_page.tabs.costs')}
+                        {t('faktapankki.tabs.costs')}
                     </button>
                     <button
                         onClick={() => setActiveTab('simulation')}
@@ -66,7 +71,7 @@ export default function FaktapankkiPage() {
                                 : "border-transparent text-[#4A4A4A] hover:text-[#2B2B2B]"
                         )}
                     >
-                        {t('fact_bank_page.tabs.simulation')}
+                        {t('faktapankki.tabs.simulation')}
                     </button>
                 </div>
             </header>

@@ -1,8 +1,8 @@
 import { Phase } from "../types";
 
 export const PERFORMANCE_TRAP_SCENARIO_EN: Record<string, Phase> = {
-    START: {
-        id: 'START',
+    start: {
+        id: 'start',
         day: 1,
         time: '09:00',
         title: "Discussion with Manager",

@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- COMPONENT ---
 export default function OrgCostCalculator({
@@ -29,6 +30,7 @@ export default function OrgCostCalculator({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<'intro' | 'calc' | 'result'>('intro');
 
     // Inputs
@@ -77,8 +79,8 @@ export default function OrgCostCalculator({
                         <Calculator className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Kustannuslaskuri</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Hiljaisuuden hinta organisaatiolle</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.org_cost_calculator.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.org_cost_calculator.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -98,14 +100,10 @@ export default function OrgCostCalculator({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Kiusaaminen on<br />kallis valinta.</h1>
-                            <p className="text-lg text-[#57534E] leading-relaxed">
-                                Nollatoleranssi on usein vain sana. Kun muutamme kiusaamiseen liittyvän pahoinvoinnin numeroiksi, se muuttuu <strong>strategiseksi riskiksi</strong>, johon johdon on pakko puuttua.
-                                <br /><br />
-                                Lasketaan, mitä ”vastaansanomaton kulttuuri” maksaa organisaatiollesi vuosittain.
-                            </p>
+                            <h1 className="text-4xl font-serif font-black text-[#292524]" dangerouslySetInnerHTML={{ __html: t('training.org_cost_calculator.intro.title') }} />
+                            <p className="text-lg text-[#57534E] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('training.org_cost_calculator.intro.text') }} />
                             <Button onClick={() => setView('calc')} size="lg" className="bg-orange-600 hover:bg-orange-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Avaa laskuri <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.org_cost_calculator.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -122,7 +120,7 @@ export default function OrgCostCalculator({
                             <div className="space-y-10">
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-end">
-                                        <label className="text-sm font-bold text-[#292524]">Henkilöstömäärä</label>
+                                        <label className="text-sm font-bold text-[#292524]">{t('training.org_cost_calculator.calc.employees')}</label>
                                         <span className="text-2xl font-black text-orange-600">{employeeCount}</span>
                                     </div>
                                     <Slider
@@ -136,7 +134,7 @@ export default function OrgCostCalculator({
 
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-end">
-                                        <label className="text-sm font-bold text-[#292524]">Keski-vuosipalkka (€)</label>
+                                        <label className="text-sm font-bold text-[#292524]">{t('training.org_cost_calculator.calc.salary')}</label>
                                         <span className="text-2xl font-black text-orange-600">{avgSalary.toLocaleString('fi-FI')}€</span>
                                     </div>
                                     <Slider
@@ -152,8 +150,8 @@ export default function OrgCostCalculator({
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-end">
                                         <div className="flex items-center gap-2">
-                                            <label className="text-sm font-bold text-[#292524]">Kiusaamisen esiintyvyys</label>
-                                            <Badge variant="outline" className="text-[10px] uppercase font-black">Teollisuus ka. ~10%</Badge>
+                                            <label className="text-sm font-bold text-[#292524]">{t('training.org_cost_calculator.calc.prevalence')}</label>
+                                            <Badge variant="outline" className="text-[10px] uppercase font-black">{t('training.org_cost_calculator.calc.industry_avg')}</Badge>
                                         </div>
                                         <span className="text-2xl font-black text-orange-600">{prevalence}%</span>
                                     </div>
@@ -169,30 +167,30 @@ export default function OrgCostCalculator({
 
                             <Card className="p-8 bg-white border-[#E7E5E4] shadow-inner space-y-8">
                                 <div className="text-center">
-                                    <h3 className="text-xs font-black uppercase tracking-widest text-[#A8A29E] mb-2">Arvioitu hinta hiljaisuudesta</h3>
+                                    <h3 className="text-xs font-black uppercase tracking-widest text-[#A8A29E] mb-2">{t('training.org_cost_calculator.calc.estimated_cost')}</h3>
                                     <div className="text-5xl font-black text-[#292524] tabular-nums">
                                         {results.total.toLocaleString('fi-FI', { maximumFractionDigits: 0 })}€
                                     </div>
-                                    <p className="text-xs text-[#78716C] mt-2">vuoressa / organisaatio</p>
+                                    <p className="text-xs text-[#78716C] mt-2">{t('training.org_cost_calculator.calc.per_year')}</p>
                                 </div>
 
                                 <div className="space-y-4 border-t border-[#F5F5F4] pt-6">
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-[#57534E]">Sairauspoissaolot (SA):</span>
+                                        <span className="text-[#57534E]">{t('training.org_cost_calculator.calc.cost_sick_leave')}:</span>
                                         <span className="font-bold">{results.saCost.toLocaleString('fi-FI')}€</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-[#57534E]">Presenteeismi:</span>
+                                        <span className="text-[#57534E]">{t('training.org_cost_calculator.calc.cost_presenteeism')}:</span>
                                         <span className="font-bold">{results.presenteeismCost.toLocaleString('fi-FI')}€</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
-                                        <span className="text-[#57534E]">Henkilöstön vaihtuvuus:</span>
+                                        <span className="text-[#57534E]">{t('training.org_cost_calculator.calc.cost_turnover')}:</span>
                                         <span className="font-bold">{results.turnoverCost.toLocaleString('fi-FI')}€</span>
                                     </div>
                                 </div>
 
                                 <Button onClick={() => setView('result')} className="w-full bg-[#292524] hover:bg-[#44403C] text-white py-6">
-                                    Näytä analyysi <BarChart3 className="ml-2 w-4 h-4" />
+                                    {t('training.org_cost_calculator.calc.show_analysis')} <BarChart3 className="ml-2 w-4 h-4" />
                                 </Button>
                             </Card>
                         </motion.div>
@@ -208,36 +206,30 @@ export default function OrgCostCalculator({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-2">
-                                <Badge className="bg-orange-100 text-orange-700 border-0">Strateginen Laskelma</Badge>
-                                <h2 className="text-3xl font-bold">Kiusaaminen maksaa {results.total.toLocaleString('fi-FI')}€ vuodessa.</h2>
-                                <p className="text-[#57534E]">Arvio on perustuu {results.affectedCount} vaikuttuneeseen työntekijään.</p>
+                                <Badge className="bg-orange-100 text-orange-700 border-0">{t('training.org_cost_calculator.result.badge')}</Badge>
+                                <h2 className="text-3xl font-bold">{t('training.org_cost_calculator.result.title', { amount: results.total.toLocaleString('fi-FI') })}</h2>
+                                <p className="text-[#57534E]">{t('training.org_cost_calculator.result.subtitle', { count: results.affectedCount })}</p>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
                                     <h4 className="font-bold text-orange-700 flex items-center gap-2">
-                                        <TrendingDown className="w-5 h-5" /> Suurimmat erät
+                                        <TrendingDown className="w-5 h-5" /> {t('training.org_cost_calculator.result.box1_title')}
                                     </h4>
-                                    <p className="text-sm text-[#78716C]">
-                                        Tämä laskelma ei sisällä mainehaittaa tai mahdollisia oikeudenkäyntikuluja, jotka voivat helposti kaksinkertaistaa summan.
-                                        <strong> Presenteeismi</strong> (työntekijä on paikalla, mutta tehokkuus on laskenut) on usein näkymätön ”valuva reikä”, joka kuluttaa tuhansia euroja kuukaudessa.
-                                    </p>
+                                    <p className="text-sm text-[#78716C]" dangerouslySetInnerHTML={{ __html: t('training.org_cost_calculator.result.box1_text') }} />
                                 </div>
                                 <div className="space-y-4">
                                     <h4 className="font-bold text-orange-700 flex items-center gap-2">
-                                        <Info className="w-5 h-5" /> Suositus johdolle
+                                        <Info className="w-5 h-5" /> {t('training.org_cost_calculator.result.box2_title')}
                                     </h4>
-                                    <p className="text-sm text-[#78716C]">
-                                        Interventio, joka vähentää kiusaamista vain 20%, maksaa itsensä takaisin {(results.total * 0.2).toLocaleString('fi-FI')}€ säästönä jo ensimmäisenä vuonna.
-                                        Kulttuurimuutos ei ole vain inhimillisyyttä, se on <strong>tuottavuusloikka</strong>.
-                                    </p>
+                                    <p className="text-sm text-[#78716C]" dangerouslySetInnerHTML={{ __html: t('training.org_cost_calculator.result.box2_text', { savings: (results.total * 0.2).toLocaleString('fi-FI') }) }} />
                                 </div>
                             </div>
 
                             <div className="flex gap-4 justify-center">
-                                <Button onClick={() => setView('calc')} variant="outline" className="px-8">Muokkaa lukuja</Button>
+                                <Button onClick={() => setView('calc')} variant="outline" className="px-8">{t('training.org_cost_calculator.result.edit')}</Button>
                                 <Button onClick={() => { onComplete(100); }} className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-                                    Tallenna ja jatka
+                                    {t('training.org_cost_calculator.result.save')}
                                 </Button>
                             </div>
                         </motion.div>

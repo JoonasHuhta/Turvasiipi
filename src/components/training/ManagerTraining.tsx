@@ -2,28 +2,24 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import {
-    Briefcase,
-    ArrowRight,
-    CheckCircle2,
-    AlertTriangle,
-    Scale,
-    Users,
-    Shield,
-    Activity,
-    Brain,
-    HeartHandshake,
     Gavel,
+    Activity,
+    HeartHandshake,
+    Shield,
+    ArrowRight,
     TrendingUp,
-    Lock
+    Scale,
+    CheckCircle2,
+    AlertTriangle
 } from "lucide-react";
 import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ManagerTrainingProps {
     onExit: () => void;
@@ -31,6 +27,7 @@ interface ManagerTrainingProps {
 }
 
 export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComplete }) => {
+    const { t } = useLanguage();
     const [currentStage, setCurrentStage] = useState(0);
     const { completeModule } = useProgress();
     const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -38,16 +35,18 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
     // Stage 1 State: Toxic Star Matrix
     const [starResults, setStarResults] = useState(3);
     const [starValues, setStarValues] = useState(3);
-    const [matrixFeedback, setMatrixFeedback] = useState<string | null>(null);
 
-    // Stage 3 State: Conflict Avoidance
-    const [heartRate, setHeartRate] = useState(80);
-    const [anxietyLevel, setAnxietyLevel] = useState(0);
+    // Translations data
+    const stepsTranslations = t('training.manager_training.stages', { returnObjects: true }) as any;
+    // Helper to safely access nested key or return key
+    const getStageT = (stageKey: string, field: string) => {
+        return stepsTranslations?.[stageKey]?.[field] || `${stageKey}.${field}`;
+    };
 
     const stages = [
         {
             id: "toxic-star",
-            title: "1. 'Toxic Star' -dilemma",
+            title: getStageT('toxic_star', 'title'),
             icon: AlertTriangle,
             color: "text-amber-600",
             bg: "bg-amber-50",
@@ -55,7 +54,7 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
         },
         {
             id: "legal",
-            title: "2. Juridinen selkänoja",
+            title: getStageT('legal', 'title'),
             icon: Scale,
             color: "text-slate-800",
             bg: "bg-slate-50",
@@ -63,7 +62,7 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
         },
         {
             id: "conflict",
-            title: "3. Konfliktien välttely",
+            title: getStageT('conflict', 'title'),
             icon: Activity,
             color: "text-rose-600",
             bg: "bg-rose-50",
@@ -71,7 +70,7 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
         },
         {
             id: "restorative",
-            title: "4. Korjaava oikeudenmukaisuus",
+            title: getStageT('restorative', 'title'),
             icon: HeartHandshake,
             color: "text-emerald-600",
             bg: "bg-emerald-50",
@@ -79,7 +78,7 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
         },
         {
             id: "accountability",
-            title: "5. Vastuullisuus & Tuki",
+            title: getStageT('accountability', 'title'),
             icon: Shield,
             color: "text-indigo-600",
             bg: "bg-indigo-50",
@@ -100,12 +99,16 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
     };
 
     const renderStage1_ToxicStar = () => {
+        const content = stepsTranslations?.toxic_star || {};
+        const labels = content?.labels || {};
+        const analysis = content?.analysis || {};
+
         const getMatrixAnalysis = () => {
-            if (starValues < 3 && starResults > 3) return "TOXIC STAR: Tuhoaa tiimin moraalin. Vaihtuvuus maksaa enemmän kuin hänen tuloksensa.";
-            if (starValues > 3 && starResults > 3) return "STAR: Todellinen huippuosaaja. Pidä kiinni!";
-            if (starValues > 3 && starResults < 3) return "POTENTIAL: Tarvitsee tukea tulokseen, mutta asenne on kunnossa.";
-            if (starValues < 3 && starResults < 3) return "UNDERPERFORMER: Väärä rekrytointi tai väärä rooli.";
-            return "KESKITASO: Normaali suoritus.";
+            if (starValues < 3 && starResults > 3) return analysis.toxic;
+            if (starValues > 3 && starResults > 3) return analysis.star;
+            if (starValues > 3 && starResults < 3) return analysis.potential;
+            if (starValues < 3 && starResults < 3) return analysis.underperformer;
+            return analysis.average;
         };
 
         return (
@@ -113,16 +116,15 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                 <div className="bg-amber-50 p-6 rounded-xl border border-amber-100">
                     <h3 className="font-bold text-lg mb-2 text-amber-900 flex items-center gap-2">
                         <TrendingUp className="w-5 h-5" />
-                        Arvot vs. Tulokset -matriisi
+                        {content.matrix_title}
                     </h3>
                     <p className="text-amber-800 mb-6 text-sm">
-                        Harvardin tutkimus (Housman & Minor, 2015) osoittaa: Yksi "myrkyllinen tähti" maksaa talolle 2x enemmän kuin tuottaa.
-                        Arvioi tiimisi jäseniä tällä työkalulla.
+                        {content.matrix_desc}
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                         <div className="space-y-4">
-                            <label className="text-sm font-bold text-slate-700">Tulosvastuu & Osaaminen (1-5)</label>
+                            <label className="text-sm font-bold text-slate-700">{content.axis_results}</label>
                             <Slider
                                 value={[starResults]}
                                 onValueChange={(v) => setStarResults(v[0])}
@@ -132,12 +134,12 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                                 className="py-2"
                             />
                             <div className="flex justify-between text-xs text-slate-500">
-                                <span>Aloittelija</span>
-                                <span>Huippuosaaja</span>
+                                <span>{labels.beginner}</span>
+                                <span>{labels.top_performer}</span>
                             </div>
                         </div>
                         <div className="space-y-4">
-                            <label className="text-sm font-bold text-slate-700">Arvot & Käytös (1-5)</label>
+                            <label className="text-sm font-bold text-slate-700">{content.axis_values}</label>
                             <Slider
                                 value={[starValues]}
                                 onValueChange={(v) => setStarValues(v[0])}
@@ -147,8 +149,8 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                                 className="py-2"
                             />
                             <div className="flex justify-between text-xs text-slate-500">
-                                <span>Myrkyllinen</span>
-                                <span>Esimerkillinen</span>
+                                <span>{labels.toxic}</span>
+                                <span>{labels.exemplary}</span>
                             </div>
                         </div>
                     </div>
@@ -164,23 +166,26 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                 </div>
 
                 <div className="prose prose-slate max-w-none text-slate-600">
-                    <p><strong>Johtopäätös:</strong> Esimiehellä on velvollisuus puuttua myös "tähtien" käytökseen. Jos annat myrkyllisen käytöksen jatkua tulosten nimissä, ajat viisi muuta asiantuntijaa pois talosta.</p>
+                    <p dangerouslySetInnerHTML={{ __html: content.conclusion }} />
                 </div>
 
                 <Button onClick={() => handleComplete(0)} className="w-full">
-                    Kyllä, ymmärrän riskin <ArrowRight className="w-4 h-4 ml-2" />
+                    {content.action} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         );
     };
 
     const renderStage2_Legal = () => {
+        const content = stepsTranslations?.legal || {};
+        const cards = content?.cards || {};
+
         return (
             <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="font-bold text-lg mb-4 text-slate-900 flex items-center gap-2">
                         <Gavel className="w-5 h-5" />
-                        Laki on puolellasi
+                        {content.content_title}
                     </h3>
 
                     <div className="space-y-4">
@@ -188,8 +193,8 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                             <div className="flex items-start gap-3">
                                 <Scale className="w-5 h-5 text-indigo-600 mt-1" />
                                 <div>
-                                    <h4 className="font-bold text-slate-900">Työturvallisuuslaki 28 §</h4>
-                                    <p className="text-sm text-slate-600 mt-1">"Työnantajan on saatuaan tiedon häirinnästä ryhdyttävä käytettävissään olevin keinoin toimiin epäkohdan poistamiseksi."</p>
+                                    <h4 className="font-bold text-slate-900">{cards.law?.title}</h4>
+                                    <p className="text-sm text-slate-600 mt-1">{cards.law?.text}</p>
                                 </div>
                             </div>
                         </div>
@@ -198,43 +203,46 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                             <div className="flex items-start gap-3">
                                 <Shield className="w-5 h-5 text-indigo-600 mt-1" />
                                 <div>
-                                    <h4 className="font-bold text-slate-900">Direktio-oikeus</h4>
-                                    <p className="text-sm text-slate-600 mt-1">Esimiehellä on oikeus ja velvollisuus määritellä, mikä on hyväksyttävää käytöstä. Et tarvitse konsensusta puuttumiseen.</p>
+                                    <h4 className="font-bold text-slate-900">{cards.right?.title}</h4>
+                                    <p className="text-sm text-slate-600 mt-1">{cards.right?.text}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="mt-6 p-4 bg-indigo-50 text-indigo-900 rounded-lg text-center font-medium">
-                        "Et ole ilkeä, kun puutut – olet ammattimainen ja noudatat lakia."
+                        {content.quote}
                     </div>
                 </div>
 
                 <Button onClick={() => handleComplete(1)} className="w-full">
-                    Hyväksyn velvollisuuteni <ArrowRight className="w-4 h-4 ml-2" />
+                    {content.action} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         );
     };
 
     const renderStage3_Conflict = () => {
+        const content = stepsTranslations?.conflict || {};
+        const sentences = content?.sentences || [];
+
         return (
             <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                 <div className="bg-rose-50 p-6 rounded-xl border border-rose-100">
                     <h3 className="font-bold text-lg mb-2 text-rose-900 flex items-center gap-2">
                         <Activity className="w-5 h-5" />
-                        Konfliktien välttelyn hinta
+                        {content.content_title}
                     </h3>
                     <p className="text-rose-800 mb-6 text-sm">
-                        Tutkimusten mukaan "Laissez-faire" (antaa mennä) -johtaminen on työntekijöille kaikkein stressaavinta. Puuttumattomuus on aktiivinen teko.
+                        {content.desc}
                     </p>
 
                     <div className="space-y-4">
-                        <h4 className="font-bold text-slate-700">Altistusharjoitus: Sano se ääneen</h4>
-                        <p className="text-sm text-slate-600">Lue lauseet ääneen. Jos syke nousee, toista kunnes se tasaantuu.</p>
+                        <h4 className="font-bold text-slate-700">{content.exercise_title}</h4>
+                        <p className="text-sm text-slate-600">{content.exercise_desc}</p>
 
                         <div className="space-y-2">
-                            {["Huomasin eilen kokouksessa, että keskeytit Liisan kolme kertaa.", "Tämä käytös ei vastaa meidän arvojamme, ja sen on loputtava.", "Haluan keskustella tavastasi antaa palautetta."].map((sentence, i) => (
+                            {sentences.map((sentence: string, i: number) => (
                                 <div key={i} className="bg-white p-3 rounded border border-rose-200 text-slate-800 font-medium hover:bg-rose-100 transition-colors cursor-pointer group flex items-center justify-between">
                                     "{sentence}"
                                     <CheckCircle2 className="w-4 h-4 text-rose-300 group-hover:text-rose-600 opacity-0 group-hover:opacity-100 transition-all" />
@@ -245,49 +253,51 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                 </div>
 
                 <Button onClick={() => handleComplete(2)} className="w-full bg-rose-600 hover:bg-rose-700">
-                    Olen valmis puhumaan suoraan <ArrowRight className="w-4 h-4 ml-2" />
+                    {content.action} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         );
     };
 
     const renderStage4_Restorative = () => {
+        const content = stepsTranslations?.restorative || {};
+        const steps = content?.steps || [];
+
         return (
             <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                 <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
                     <h3 className="font-bold text-lg mb-4 text-emerald-900 flex items-center gap-2">
                         <HeartHandshake className="w-5 h-5" />
-                        Jälkihoito & Korjaava oikeudenmukaisuus
+                        {content.content_title}
                     </h3>
 
                     <div className="prose prose-sm text-emerald-900 mb-6">
-                        <p>Kiusaamistapaus ei pääty varoitukseen. Tiimi on usein traumatisoitunut ja "syntipukin" paikka on auki.</p>
+                        <p>{content.intro}</p>
                     </div>
 
                     <div className="space-y-4">
-                        <Card className="border-emerald-200">
-                            <CardContent className="pt-6">
-                                <h4 className="font-bold text-slate-900 mb-2">1. Palauta luottamus</h4>
-                                <p className="text-sm text-slate-600">Puhu tiimille yleisellä tasolla tapahtuneesta (ilman nimiä), mutta vahvista että prosessi on käyty ja normeja on tarkennettu.</p>
-                            </CardContent>
-                        </Card>
-                        <Card className="border-emerald-200">
-                            <CardContent className="pt-6">
-                                <h4 className="font-bold text-slate-900 mb-2">2. Suojaa uhria leimautumiselta</h4>
-                                <p className="text-sm text-slate-600">Varmista, ettei ilmoittaja jää yksin tai tule kohdelluksi "kantelijana". Seuraa tilannetta aktiivisesti 3kk ajan.</p>
-                            </CardContent>
-                        </Card>
+                        {steps.map((step: any, i: number) => (
+                            <Card key={i} className="border-emerald-200">
+                                <CardContent className="pt-6">
+                                    <h4 className="font-bold text-slate-900 mb-2">{step.title}</h4>
+                                    <p className="text-sm text-slate-600">{step.text}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </div>
 
                 <Button onClick={() => handleComplete(3)} className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    Sitoudun jälkihoitoon <ArrowRight className="w-4 h-4 ml-2" />
+                    {content.action} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         );
     };
 
     const renderStage5_Accountability = () => {
+        const content = stepsTranslations?.accountability || {};
+        const cards = content?.cards || {};
+
         return (
             <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                 <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 text-center">
@@ -295,30 +305,30 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
                         <Shield className="w-8 h-8 text-indigo-600" />
                     </div>
                     <h3 className="font-bold text-xl text-indigo-900 mb-2">
-                        Johtajuus on tekoja
+                        {content.content_title}
                     </h3>
                     <p className="text-indigo-700 max-w-md mx-auto mb-8">
-                        Organisaation immuunijärjestelmä vahvistuu vain, jos johto uskaltaa toimia. Sinulla on tuki, laki ja oikeutus puolellasi.
+                        {content.desc}
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
                         <div className="bg-white p-4 rounded-lg border border-indigo-100">
-                            <h4 className="font-bold text-slate-900 text-sm mb-1">Palkitseminen</h4>
-                            <p className="text-xs text-slate-600">Psykologinen turvallisuus on tulosmittari. Hyvästä ilmapiiristä palkitaan.</p>
+                            <h4 className="font-bold text-slate-900 text-sm mb-1">{cards.reward?.title}</h4>
+                            <p className="text-xs text-slate-600">{cards.reward?.text}</p>
                         </div>
                         <div className="bg-white p-4 rounded-lg border border-indigo-100">
-                            <h4 className="font-bold text-slate-900 text-sm mb-1">Tukiverkko</h4>
-                            <p className="text-xs text-slate-600">Suora linja HR:ään. Älä jää yksin vaikeiden tapausten kanssa.</p>
+                            <h4 className="font-bold text-slate-900 text-sm mb-1">{cards.support?.title}</h4>
+                            <p className="text-xs text-slate-600">{cards.support?.text}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex gap-4">
                     <Button variant="outline" onClick={() => setCurrentStage(0)} className="flx-1">
-                        Kertaa alusta
+                        {content.restart}
                     </Button>
                     <Button onClick={() => handleComplete(4)} className="flex-1 bg-indigo-600 hover:bg-indigo-700">
-                        Valmis & Kuittaa
+                        {content.finish}
                     </Button>
                 </div>
             </div>
@@ -334,8 +344,8 @@ export const ManagerTraining: React.FC<ManagerTrainingProps> = ({ onExit, onComp
         <div className="max-w-2xl mx-auto pb-20">
             <div className="mb-8 space-y-4">
                 <div className="flex items-center justify-between text-sm text-slate-500 uppercase tracking-widest font-mono">
-                    <span>Esimieskoulutus</span>
-                    <span>Vaihe {currentStage + 1} / {stages.length}</span>
+                    <span>{t('training.manager_training.title')}</span>
+                    <span>{t('training.manager_training.step')} {currentStage + 1} / {stages.length}</span>
                 </div>
                 <Progress value={((currentStage) / stages.length) * 100} className="h-2" />
             </div>

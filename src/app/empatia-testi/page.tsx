@@ -14,7 +14,12 @@ import Link from "next/link";
 
 export default function EmpathyTestPage() {
     const { completeModule } = useProgress();
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('empathy_test');
+    }, [loadNamespace]);
+
 
     // Persistence
     const { data: savedResult, setData, isLocked, hasData, unlock } = useSecureLocalStorage<EmpathyProfile | null>("suojasiipi_empathy_result", null);

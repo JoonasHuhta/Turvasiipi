@@ -1,0 +1,119 @@
+{
+    "hero": {
+        "label": "Youth in Work Life",
+        "title": "Welcome to<br/>the Jungle.",
+        "text": "The first job is an adventure, but dangers lurk there too. Learn to identify traps before you step into them."
+    },
+    "tabs": {
+        "intro": "Situation",
+        "career": "Career Choice",
+        "interview": "Interview",
+        "sim": "Simulation",
+        "recovery": "Recovery"
+    },
+    "intro": {
+        "title": "Why is this important?",
+        "text1": "Young people are the most vulnerable group in work life. Inexperience is not a weakness, but it is a risk.",
+        "text2": "When you don't know your rights, they are easy to trample. Uncertainty is easy to exploit.",
+        "exploitation": {
+            "title": "Exploitation",
+            "text": "Unpaid 'internship', overtime without pay, vague promises."
+        },
+        "structural": {
+            "title": "Structures",
+            "text": "Chained fixed-term contracts, zero-hour contracts, lack of orientation."
+        },
+        "quote": "\"No, it is not part of 'company customs' for the intern to pick up the boss's kids from daycare.\""
+    },
+    "career": {
+        "title": "Choose Your Path",
+        "subtitle": "Different fields have different risk profiles. Explore scenarios.",
+        "roles": {
+            "it": {
+                "title": "IT Sector",
+                "desc": "Coder / Specialist"
+            },
+            "tech": {
+                "title": "Technology",
+                "desc": "Mechanic / Production"
+            },
+            "care": {
+                "title": "Care Sector",
+                "desc": "Nurse / Service"
+            }
+        },
+        "analysis": {
+            "why_good": "Why good?",
+            "risk": "Risks:",
+            "exploitation": "Exploitation:",
+            "strategy": "Strategy:"
+        },
+        "it_content": {
+            "title": "IT & Creative",
+            "good": "Flexibility, remote work, modern culture.",
+            "risk": "Burnout, boundless working hours, 'paying with passion'.",
+            "expl": "Crunch culture, constant availability.",
+            "strat": "Set boundaries immediately. Document hours."
+        },
+        "tech_content": {
+            "title": "Technology & Industry",
+            "good": "Clear hours, collective agreement security, concrete work.",
+            "risk": "Physical safety, macho culture, 'boys will be boys' attitude.",
+            "expl": "Neglecting safety instructions in a rush.",
+            "strat": "Demand orientation. Do not compromise on safety."
+        },
+        "care_content": {
+            "title": "Care & Service",
+            "good": "Meaningfulness, closeness to people, employment.",
+            "risk": "Mental load, threat of violence, ethical stress.",
+            "expl": "Understaffing, pressure to swap shifts.",
+            "strat": "Know your rights. Join a union."
+        }
+    },
+    "interview": {
+        "title": "Interview Situation",
+        "ask_title": "Ask these:",
+        "q1": "How do you handle orientation?",
+        "w1": "If the answer is vague mumbling, it is a warning sign.",
+        "q2": "How does the team recover from load?",
+        "w2_good": "Good answer: We have regular check-in meetings.",
+        "w2_bad": "Bad answer: 'We work hard here, you have to withstand pressure'.",
+        "flags_title": "Red Flags - Run away if you hear:",
+        "f1": "\"We are one big family here.\"",
+        "f2": "\"We are looking for a rockstar who doesn't watch the clock.\"",
+        "f3": "\"The salary is small at first, but the experience is valuable.\""
+    },
+    "sim": {
+        "title": "Summer Job Simulation",
+        "desc": "Test your skills in a virtual summer job. Can you hold your ground when the boss asks for a 'small favor'?",
+        "tags": {
+            "duration": "10 min",
+            "skill": "Negotiation",
+            "result": "Analysis"
+        },
+        "btn": "Start Simulation"
+    },
+    "recovery": {
+        "title": "When Damage is Done",
+        "desc": "How to recover from a bad first experience?",
+        "p1_title": "Don't become cynical",
+        "p1_text": "One toxic place doesn't mean the whole work life is ruined. It was a lesson in what you don't want.",
+        "p2_title": "Debrief the experience",
+        "p2_text": "Talk to a professional or a trusted adult. Do not remain alone with shame.",
+        "ex_title": "Exercise: Rewriting",
+        "fact_label": "Fact (Event)",
+        "fact_val": "I was fired during probation because 'I didn't fit the team'.",
+        "interp_label": "Interpretation (New Story)",
+        "interp_val": "The workplace values were in conflict with mine. I got out of a toxic environment.",
+        "note": "Your story is yours. You decide its meaning.",
+        "final_quote": "\"No permanent mark was left on you. You are just one experience wiser.\""
+    },
+    "completion": {
+        "title_new": "Done",
+        "title_done": "Section Completed",
+        "text_new": "You are now a step ahead of others. Mark the section as completed.",
+        "text_done": "You have completed the youth section. Do you want to return to your profile?",
+        "btn_mark": "Mark as Done",
+        "btn_back": "Return to Profile"
+    }
+}

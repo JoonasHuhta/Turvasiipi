@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
+
+
 import { useState } from "react";
 import { StartHereHero } from "@/components/safety/intro/StartHereHero";
 import { IntensitySelector } from "@/components/safety/intro/IntensitySelector";
@@ -10,6 +13,12 @@ import { useLanguage } from "@/context/LanguageContext";
 type Level = "facts" | "exercises" | "reflection" | "simulation";
 
 export default function StartHerePage() {
+    const { loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('start_here');
+    }, [loadNamespace]);
+
     const [selectedLevel, setSelectedLevel] = useState<Level | null>(null);
     const [isContractLocked, setIsContractLocked] = useState(false);
 

@@ -1,0 +1,904 @@
+{
+    "header": {
+        "badge": "WORK COMMUNITY STATUS",
+        "title": "Identify Organization State",
+        "description": "This tool helps you perceive whether your experience is isolated or part of a wider culture."
+    },
+    "tabs": {
+        "team_check": "Team State",
+        "thermometer": "Thermometer",
+        "quicktest": "Quick Test",
+        "warnings": "Warning Signs",
+        "self": "Self-Assessment"
+    },
+    "thermometer": {
+        "title": "Atmosphere Thermometer",
+        "levels": {
+            "excellent": {
+                "title": "Thriving",
+                "desc": "Safe space where mistakes are not feared and diversity is valued."
+            },
+            "healthy": {
+                "title": "Healthy",
+                "desc": "Basics in order. Occasional conflicts that are solved appropriately."
+            },
+            "concern": {
+                "title": "Worrying",
+                "desc": "Tensions under surface. Cliques, lack of communication, or unclear responsibilities."
+            },
+            "warning": {
+                "title": "Toxic",
+                "desc": "Management by fear, blaming, and constant being on guard."
+            }
+        }
+    },
+    "warning_signs": {
+        "yellow": {
+            "title": "Yellow Signs",
+            "subtitle": "Subtle hints that are easily ignored.",
+            "description": "These are 'silent signals'. Often intuition warns about these first.",
+            "power_signs_title": "Signs of power use",
+            "power_signs_list": [
+                "Withholding information by 'forgetting'",
+                "Avoiding eye contact in greetings",
+                "Small, repeated 'jokes' at your expense"
+            ],
+            "atmosphere_signs_title": "Signs of atmosphere",
+            "atmosphere_signs_list": [
+                "Silence when you enter room",
+                "Rolling eyes behind back",
+                "Conversation drying up on difficult topics"
+            ],
+            "check_yourself": {
+                "label": "Check:",
+                "text": "Do you find yourself explaining others' behavior to yourself? 'He just had a bad day'?"
+            },
+            "what_to_do": {
+                "title": "What to do?",
+                "steps": [
+                    "Start keeping diary immediately.",
+                    "Ask directly: 'What did you mean by that?'",
+                    "Do not remain alone with your observation."
+                ]
+            }
+        },
+        "orange": {
+            "title": "Orange Signs",
+            "subtitle": "Clear crossing of boundaries.",
+            "description": "Situation is no longer normal 'chemistry problem'. Your functioning begins to suffer.",
+            "power_abuse_title": "Abuse of power",
+            "power_abuse_list": [
+                "Taking tasks away without justification",
+                "Public humiliation or shouting",
+                "Constant baseless criticism"
+            ],
+            "doc_criteria_title": "Documentation criteria met",
+            "doc_criteria_list": [
+                "Repetitiveness (weekly)",
+                "Imbalance (you vs. power position/group)",
+                "Offensiveness"
+            ],
+            "check_yourself": {
+                "label": "Recognize symptoms:",
+                "text": "Are you starting to doubt your own mental health or professional skills?"
+            },
+            "what_to_do": {
+                "title": "Act like this:",
+                "steps": [
+                    "Contact shop steward or occupational health.",
+                    "Avoid one-on-one situations with bully.",
+                    "Record everything down precisely."
+                ]
+            }
+        },
+        "red": {
+            "title": "Red Signs",
+            "subtitle": "Immediate danger to health.",
+            "description": "This is violence. It is no longer about workplace problem, but your safety.",
+            "fear_title": "Atmosphere of fear",
+            "fear_list": [
+                "Physical threat or its gestures",
+                "Total isolation (no one talks)",
+                "Threatening with destroying career"
+            ],
+            "physical_signs_title": "Body's distress signal",
+            "physical_signs_list": [
+                "Insomnia, trembling, nausea",
+                "Panic attacks when going to work",
+                "Self-destructive thoughts"
+            ],
+            "check_yourself": {
+                "label": "Alarm:",
+                "text": "If you think 'do I deserve this', you are already deep in trauma. YOU DO NOT DESERVE."
+            },
+            "what_to_do": {
+                "title": "Save yourself:",
+                "steps": [
+                    "Go to doctor and take sick leave.",
+                    "File criminal report if threshold is crossed.",
+                    "Prepare resignation to secure your health."
+                ]
+            }
+        },
+        "conflict_vs_bullying": {
+            "title": "Conflict or Bullying?",
+            "headers": {
+                "situation": "Situation",
+                "healthy": "Healthy Conflict",
+                "warning": "Bullying"
+            },
+            "rows": [
+                {
+                    "situation": "Disagreement",
+                    "healthy": "Targets issue or task.",
+                    "warning": "Targets person or characteristics."
+                },
+                {
+                    "situation": "Resolution",
+                    "healthy": "Both perspectives are heard.",
+                    "warning": "Other is bulldozed or silenced."
+                },
+                {
+                    "situation": "Feeling",
+                    "healthy": "Annoyance, but safety remains.",
+                    "warning": "Fear, anxiety, and worthlessness."
+                },
+                {
+                    "situation": "Duration",
+                    "healthy": "Temporary and solvable.",
+                    "warning": "Repeated and continuous."
+                }
+            ]
+        }
+    },
+    "quicktest": {
+        "title_prefix": "Scenario",
+        "result_title": "Result: {{score}} / {{total}}",
+        "result_desc": "You have now identified features of your organization's culture. Remember these are only indicative observations.",
+        "retry_btn": "Do again",
+        "yes_btn": "Yes, I have experienced this",
+        "yes_desc": "This is a recurring phenomenon.",
+        "no_btn": "No, I don't recognize this",
+        "no_desc": "This doesn't happen with us.",
+        "correct_title": "Attention!",
+        "wrong_title": "Attention!",
+        "next_btn": "Next",
+        "scenarios": [
+            {
+                "id": 1,
+                "text": "When you suggest a change, it is ignored in meeting, but later someone else presents same idea as their own invention and gets thanks.",
+                "isBullying": true,
+                "explanation": "This is idea theft and rendering invisible, which is a common form of power use."
+            },
+            {
+                "id": 2,
+                "text": "Your supervisor gives you constant tasks that are well below your skill level, without justification.",
+                "isBullying": true,
+                "explanation": "This can be belittling of work tasks, attempting to erode professional self-esteem."
+            },
+            {
+                "id": 3,
+                "text": "Coworker disagrees with decision you made and presents counter-arguments in meeting.",
+                "isBullying": false,
+                "explanation": "This is normal professional disagreement and conflict that belongs to work."
+            },
+            {
+                "id": 4,
+                "text": "In meetings, others constantly interrupt you, but listen carefully when others speak.",
+                "isBullying": true,
+                "explanation": "Systematic silencing and lack of respect is a form of power abuse."
+            },
+            {
+                "id": 5,
+                "text": "Your supervisor gives you direct feedback about your work in private, including negative feedback.",
+                "isBullying": false,
+                "explanation": "Constructive, private feedback is normal management practice."
+            },
+            {
+                "id": 6,
+                "text": "You learn about important meetings only afterwards, even though the topic concerns your work.",
+                "isBullying": true,
+                "explanation": "Withholding information and excluding you is a classic form of bullying."
+            },
+            {
+                "id": 7,
+                "text": "A colleague is often late to meetings, which annoys you.",
+                "isBullying": false,
+                "explanation": "One person's bad behavior isn't bullying you - it's their problem."
+            },
+            {
+                "id": 8,
+                "text": "During lunch break, others go silent when you sit down, and conversations start only after you leave.",
+                "isBullying": true,
+                "explanation": "Social isolation and making someone invisible is clear bullying."
+            },
+            {
+                "id": 9,
+                "text": "Your supervisor asks you to work overtime due to an urgent project.",
+                "isBullying": false,
+                "explanation": "Occasional overtime requests to handle work tasks are normal, unless it targets only you."
+            },
+            {
+                "id": 10,
+                "text": "Coworkers spread rumors about your private life throughout the organization.",
+                "isBullying": true,
+                "explanation": "Violating privacy and gossiping is manipulation and bullying."
+            },
+            {
+                "id": 11,
+                "text": "You receive an email requesting clarification on a work-related matter.",
+                "isBullying": false,
+                "explanation": "Normal work communication and clarifying questions are not bullying."
+            },
+            {
+                "id": 12,
+                "text": "Your supervisor yells at you in front of everyone about a mistake you made.",
+                "isBullying": true,
+                "explanation": "Public humiliation is always wrong and violates human dignity."
+            },
+            {
+                "id": 13,
+                "text": "A team member asks if you could help them with a task where you have more experience.",
+                "isBullying": false,
+                "explanation": "Asking for help and peer support are signs of a healthy workplace."
+            },
+            {
+                "id": 14,
+                "text": "Everyone else on the team gets invited to a social event, but you're not invited.",
+                "isBullying": true,
+                "explanation": "Deliberate exclusion from social situations is isolation."
+            },
+            {
+                "id": 15,
+                "text": "Your supervisor forbids you from talking about the problem to anyone else in the organization.",
+                "isBullying": true,
+                "explanation": "Culture of silence and silencing enables bullying to continue."
+            },
+            {
+                "id": 16,
+                "text": "You have to wait longer for your supervisor's feedback than others on the team.",
+                "isBullying": false,
+                "explanation": "Supervisor's busyness may explain the delay - you can't conclude bullying from one instance."
+            },
+            {
+                "id": 17,
+                "text": "You're given impossible deadlines for tasks on purpose, so that you fail.",
+                "isBullying": true,
+                "explanation": "Deliberately causing failure is power abuse and sabotage."
+            },
+            {
+                "id": 18,
+                "text": "A coworker laughs out loud when you make a mistake in a presentation.",
+                "isBullying": true,
+                "explanation": "Humiliating and mocking someone for a momentary lapse in professional competence is offensive."
+            },
+            {
+                "id": 19,
+                "text": "In a project group, different members have different views on how to proceed.",
+                "isBullying": false,
+                "explanation": "Different opinions and perspectives are normal teamwork and conflict."
+            },
+            {
+                "id": 20,
+                "text": "Your supervisor continuously gives you tasks that are clearly below your professional level.",
+                "isBullying": true,
+                "explanation": "Deliberately forcing underperformance and limiting competence is bullying."
+            }
+        ]
+    },
+    "team_checklist": {
+        "title": "Team Checklist",
+        "subtitle": "Go through your team's basic functions.",
+        "badges": {
+            "checks": "CHECKS",
+            "crisis": "CRISIS",
+            "healthy": "OK",
+            "warning": "WARNING"
+        },
+        "status": {
+            "crisis_text": "Team is in critical state. Immediate intervention needed.",
+            "healthy_text": "Team's basic functions seem to be in order."
+        },
+        "criteria": {
+            "interaction": {
+                "title": "Interaction and Communication",
+                "description": "How do you encounter one another?",
+                "items": [
+                    "Feedback is given constructively and privately",
+                    "Criticism is balanced - everyone receives it",
+                    "Praise is given publicly, reprimands privately",
+                    "Mistakes are treated as learning opportunities",
+                    "Jokes do not target one person",
+                    "Inappropriate behavior is addressed when pointed out"
+                ]
+            },
+            "information": {
+                "title": "Information Flow and Decision Making",
+                "description": "Is operation transparent?",
+                "items": [
+                    "Everyone receives the same information at the same time",
+                    "Meeting invitations are sent to everyone relevant",
+                    "Decisions are justified transparently",
+                    "Changes are announced in advance",
+                    "Resources are distributed equitably",
+                    "Expectations are clear and consistent"
+                ]
+            },
+            "power_dynamics": {
+                "title": "Power Dynamics and Hierarchy",
+                "description": "Is power healthy?",
+                "items": [
+                    "The supervisor listens and accepts feedback",
+                    "Hierarchy does not prevent open discussion",
+                    "Mistakes can be discussed without fear",
+                    "Disagreements are resolved professionally",
+                    "Everyone has an equal right to be heard",
+                    "Authority is not misused"
+                ]
+            },
+            "atmosphere": {
+                "title": "Atmosphere and Community",
+                "description": "How does work feel?",
+                "items": [
+                    "People chat casually with each other",
+                    "No one is systematically left out",
+                    "Lunches and breaks are spent together",
+                    "Successes are celebrated as a team",
+                    "Help is asked for and given freely",
+                    "The atmosphere doesn't change when someone enters"
+                ]
+            },
+            "emotional": {
+                "title": "My Emotional Reactions",
+                "description": "How are you doing?",
+                "items": [
+                    "You enjoy your work most of the time",
+                    "You sleep well, don't wake up thinking about work",
+                    "Going to work does not cause anxiety",
+                    "You can be yourself at work",
+                    "You trust your colleagues and supervisor",
+                    "You feel you belong to the community"
+                ]
+            }
+        }
+    },
+    "self_assessment": {
+        "title": "Self-Assessment",
+        "description": "Assess your own coping and experience in current situation.",
+        "menu": {
+            "situation": {
+                "title": "Own Symptoms",
+                "desc": "How does situation affect you?",
+                "btn": "Start symptom mapping"
+            },
+            "culture": {
+                "title": "Organizational Culture",
+                "desc": "What is your workplace atmosphere like?",
+                "btn": "Assess culture"
+            }
+        },
+        "results": {
+            "title": "Results",
+            "retry_btn": "Start over",
+            "back_btn": "Back to menu",
+            "show_actions": "Show actions",
+            "show_recommendations": "Show recommendations",
+            "next_section": "Next section",
+            "show_results": "Show results",
+            "analysis_title": "Analysis",
+            "click_hint": "Click section to see details",
+            "expand_hint": "CLICK TO OPEN",
+            "next_section": "Next section",
+            "badges": {
+                "excellent": "Excellent",
+                "ok": "Moderate",
+                "bad": "Poor",
+                "excellent_label": "EXCELLENT",
+                "needs_improvement": "NEEDS IMPROVEMENT",
+                "critical": "CRITICAL",
+                "risk_high": "High Risk",
+                "risk_low": "Low Risk",
+                "serious_risk": "SERIOUS RISK",
+                "attention": "ATTENTION",
+                "low_risk": "LOW RISK"
+            },
+            "situations": {
+                "high_risk_title": "High Load",
+                "high_risk_desc": "Your symptoms suggest severe stress state.",
+                "low_risk_title": "Normal Load",
+                "low_risk_desc": "Your symptoms are under control, but monitor situation."
+            },
+            "cultures": {
+                "excellent_title": "Healthy Culture",
+                "excellent_desc": "Things seem to be well in organization.",
+                "ok_title": "Symptomatic Culture",
+                "ok_desc": "Some worrying features are observable.",
+                "bad_title": "Toxic Culture",
+                "bad_desc": "There are serious problems in work community."
+            }
+        },
+        "answers": {
+            "slider": {
+                "never": "Never",
+                "sometimes": "Sometimes",
+                "always": "Constantly",
+                "disagree": "Disagree",
+                "neutral": "Neutral",
+                "agree": "Agree"
+            }
+        },
+        "sections": {
+            "itsetunto": "Self-esteem",
+            "todellisuus": "Sense of Reality",
+            "eristyksissä": "Isolation",
+            "fyysiset": "Physical Symptoms",
+            "käyttäytyminen": "Behavior",
+            "leadership": "Leadership",
+            "community": "Work Community",
+            "interaction": "Interaction and Atmosphere",
+            "support": "Support Structures and Processes",
+            "psych_safety": "Psychological Safety",
+            "courage": "Courage to Intervene",
+            "monitoring": "Monitoring and Development"
+        },
+        "situation_data": {
+            "itsetunto": [
+                {
+                    "id": 1,
+                    "text": "Do you doubt your abilities to perform tasks that felt easy before?",
+                    "type": "slider"
+                },
+                {
+                    "id": 2,
+                    "text": "Do you feel like an outsider in your work community?",
+                    "type": "slider"
+                },
+                {
+                    "id": 3,
+                    "text": "Is your work criticized constantly without clear reason?",
+                    "type": "slider"
+                },
+                {
+                    "id": 4,
+                    "text": "Have you been yelled or cursed at?",
+                    "type": "slider"
+                },
+                {
+                    "id": 5,
+                    "text": "Has your self-esteem dropped in your current job?",
+                    "type": "slider"
+                }
+            ],
+            "todellisuus": [
+                {
+                    "id": 6,
+                    "text": "Do you feel your words are twisted or intentionally misunderstood?",
+                    "type": "slider"
+                },
+                {
+                    "id": 7,
+                    "text": "Do you blame yourself for what happened?",
+                    "type": "slider"
+                },
+                {
+                    "id": 8,
+                    "text": "Does it feel like you are being watched or monitored?",
+                    "type": "slider"
+                },
+                {
+                    "id": 9,
+                    "text": "Do you feel guilty about situation you can't control?",
+                    "type": "slider"
+                },
+                {
+                    "id": 10,
+                    "text": "Are you ashamed to tell loved ones about situation?",
+                    "type": "slider"
+                }
+            ],
+            "eristyksissä": [
+                {
+                    "id": 11,
+                    "text": "Are you left uninvited to meetings or lunches?",
+                    "type": "slider"
+                },
+                {
+                    "id": 12,
+                    "text": "Does your supervisor or colleague avoid eye contact with you?",
+                    "type": "slider"
+                },
+                {
+                    "id": 13,
+                    "text": "Is there gossip about you behind your back?",
+                    "type": "slider"
+                },
+                {
+                    "id": 14,
+                    "text": "Have you been forbidden from talking to others?",
+                    "type": "slider"
+                },
+                {
+                    "id": 15,
+                    "text": "Do you feel you cannot trust anyone at work?",
+                    "type": "slider"
+                }
+            ],
+            "fyysiset": [
+                {
+                    "id": 16,
+                    "text": "Do you have trouble sleeping because of work matters?",
+                    "type": "slider"
+                },
+                {
+                    "id": 17,
+                    "text": "Do you feel anxiety on Sunday evenings or during commute?",
+                    "type": "slider"
+                },
+                {
+                    "id": 18,
+                    "text": "Do you have physical symptoms (headache, stomach pain) on workdays?",
+                    "type": "slider"
+                },
+                {
+                    "id": 19,
+                    "text": "Do you feel 'on guard' all the time at work?",
+                    "type": "slider"
+                },
+                {
+                    "id": 20,
+                    "text": "Does your heart pound when you think about work?",
+                    "type": "slider"
+                }
+            ],
+            "käyttäytyminen": [
+                {
+                    "id": 21,
+                    "text": "Is your workload unreasonable compared to others?",
+                    "type": "slider"
+                },
+                {
+                    "id": 22,
+                    "text": "Have work tasks been taken away from you without justification?",
+                    "type": "slider"
+                },
+                {
+                    "id": 23,
+                    "text": "Are false rumors being spread about you?",
+                    "type": "slider"
+                },
+                {
+                    "id": 24,
+                    "text": "Has your opinion been ignored repeatedly?",
+                    "type": "slider"
+                },
+                {
+                    "id": 25,
+                    "text": "Have you considered resigning because of the situation?",
+                    "type": "slider"
+                }
+            ]
+        },
+        "culture_data": {
+            "leadership": [
+                {
+                    "id": "l1",
+                    "text": "My supervisor belittles subordinates' worries or ideas.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l2",
+                    "text": "Withholding information is common as tool of power.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l3",
+                    "text": "It is safe to disagree with leader in meetings.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l4",
+                    "text": "I dare to tell about my mistakes without fear of punishment or embarrassment.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l5",
+                    "text": "If I notice a grievance, I can raise it safely.",
+                    "type": "slider"
+                }
+            ],
+            "community": [
+                {
+                    "id": "c1",
+                    "text": "People gossip behind others' backs in my team.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c2",
+                    "text": "We have inner circles that are hard to get into.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c3",
+                    "text": "Colleagues defend each other if someone behaves inappropriately.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c4",
+                    "text": "We value diversity and it is not a subject of jokes.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c5",
+                    "text": "I feel I have to watch my words constantly.",
+                    "type": "slider"
+                }
+            ],
+            "interaction": [
+                {
+                    "id": "o_i1",
+                    "text": "Everyone receives the same information at the same time",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i2",
+                    "text": "Meeting invitations are sent to everyone relevant",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i3",
+                    "text": "Jokes are not repeatedly targeted at one person",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i4",
+                    "text": "Lunch and breaks are spent together",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i5",
+                    "text": "No one is systematically left out",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i6",
+                    "text": "Inappropriate behavior is addressed immediately",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i7",
+                    "text": "Atmosphere problems can be discussed openly",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i8",
+                    "text": "If I point out offensive behavior, it is reacted to",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i9",
+                    "text": "Silent approval (bystanding) is not acceptable",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i10",
+                    "text": "Teasing is not excused as \"just a joke\"",
+                    "type": "slider"
+                }
+            ],
+            "support": [
+                {
+                    "id": "o_s1",
+                    "text": "I know where to report bullying concerns",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s2",
+                    "text": "Contact info for occupational safety rep is easily available",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s3",
+                    "text": "Processes for bullying cases are clear",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s4",
+                    "text": "Reports are handled quickly (under 7 days)",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s5",
+                    "text": "I can raise concerns without fear of consequences",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s6",
+                    "text": "Reporting is confidential",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s7",
+                    "text": "Those who intervene are supported, not punished",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s8",
+                    "text": "Recurring cases are addressed effectively",
+                    "type": "slider"
+                }
+            ],
+            "psych_safety": [
+                {
+                    "id": "o_ps1",
+                    "text": "I can be myself at work",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps2",
+                    "text": "Disagreements are resolved professionally",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps3",
+                    "text": "Mistakes can be discussed without fear",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps4",
+                    "text": "Help is asked for and given freely",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps5",
+                    "text": "I feel I belong to the community",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps6",
+                    "text": "The atmosphere does not change when someone enters",
+                    "type": "slider"
+                }
+            ],
+            "courage": [
+                {
+                    "id": "o_c1",
+                    "text": "I would intervene if I observed inappropriate behavior",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c2",
+                    "text": "I would intervene even if the target was an influential person",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c3",
+                    "text": "My colleagues would support me if I intervened",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c4",
+                    "text": "I know a safe way to intervene",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c5",
+                    "text": "I have intervened in the last 3 months after observing misconduct",
+                    "type": "slider"
+                }
+            ],
+            "monitoring": [
+                {
+                    "id": "o_m1",
+                    "text": "Atmosphere surveys are conducted regularly",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_m2",
+                    "text": "Survey results lead to concrete actions",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_m3",
+                    "text": "Training on identifying bullying is organized",
+                    "type": "slider"
+                }
+            ]
+        },
+        "feedback": {
+            "risk": {
+                "low": "Your situation seems stable.",
+                "medium": "Your symptoms are worrying. Pay attention to recovery.",
+                "high": "You likely need professional help for coping."
+            },
+            "culture": {
+                "low": "Work culture requires quick correction.",
+                "medium": "Culture has challenges that should be addressed.",
+                "high": "Culture supports well-being."
+            },
+            "leadership": {
+                "culture": {
+                    "low": "Leadership is inconsistent or authoritarian. Trust in supervisors is weak.",
+                    "medium": "Leadership works partially, but transparency and fairness need improvement.",
+                    "high": "Leadership is exemplary, fair, and inclusive. Trust is solid."
+                }
+            },
+            "community": {
+                "culture": {
+                    "low": "There are cliques and exclusion in the community. The atmosphere is unsafe.",
+                    "medium": "The community functions routinely, but deeper belonging or support may be missing.",
+                    "high": "The community is tight-knit, supportive, and values diversity."
+                }
+            },
+            "interaction": {
+                "culture": {
+                    "low": "The atmosphere is alarming. Bullying or discrimination occurs and is not addressed.",
+                    "medium": "There are tensions in the atmosphere. Information flow is broken or groups are cliquey.",
+                    "high": "Interaction is open and inclusive. People feel comfortable and that they belong."
+                }
+            },
+            "support": {
+                "culture": {
+                    "low": "Processes are missing or non-functional. Seeking help is felt to be difficult.",
+                    "medium": "Structures exist, but there is ambiguity or slowness in practice.",
+                    "high": "The support network is strong. Processes are clear, fast, and fair."
+                }
+            },
+            "psych_safety": {
+                "culture": {
+                    "low": "The sense of safety is shattered. Mistakes are hidden and fear prevails.",
+                    "medium": "Safety varies. In some situations openness is possible, in others people are guarded.",
+                    "high": "High psychological safety. People create a safe space for vulnerability and learning."
+                }
+            },
+            "courage": {
+                "culture": {
+                    "low": "The threshold to intervene is too high. The bystander role is common.",
+                    "medium": "There is a desire to intervene, but means or courage are not always enough.",
+                    "high": "Misconduct is actively addressed. 'We do not look away' is reality."
+                }
+            },
+            "monitoring": {
+                "culture": {
+                    "low": "Problems are not monitored or are swept under the rug. Surveys do not lead to action.",
+                    "medium": "Monitoring is occasional or mechanical. Actions often remain incomplete.",
+                    "high": "Development is continuous and data-driven. Problems are reacted to systematically."
+                }
+            },
+            "itsetunto": {
+                "risk": {
+                    "low": "Your self-esteem is stable.",
+                    "medium": "Work is affecting your self-worth.",
+                    "high": "Your self-esteem is under strain."
+                }
+            },
+            "todellisuus": {
+                "risk": {
+                    "low": "You trust your perceptions.",
+                    "medium": "You are starting to doubt your perceptions.",
+                    "high": "Your confidence in your own reality is tested."
+                }
+            },
+            "eristyksissä": {
+                "risk": {
+                    "low": "You feel included.",
+                    "medium": "You feel some exclusion.",
+                    "high": "You feel strongly isolated from the community."
+                }
+            },
+            "fyysiset": {
+                "risk": {
+                    "low": "Physical health is good.",
+                    "medium": "Stress is showing physical symptoms.",
+                    "high": "Your body is in high alert. Pause and listen."
+                }
+            },
+            "käyttäytyminen": {
+                "risk": {
+                    "low": "You act as yourself.",
+                    "medium": "You are guarded in social situations.",
+                    "high": "You are altering your behavior to cope."
+                }
+            }
+        }
+    }
+}

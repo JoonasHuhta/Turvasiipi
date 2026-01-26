@@ -11,7 +11,12 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SupportPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    // Load support namespace translations
+    useEffect(() => {
+        loadNamespace('support');
+    }, [loadNamespace]);
 
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-16">
@@ -348,8 +353,8 @@ function BreathingExercise555() {
                 variant={isRunning ? "outline" : "default"}
                 size="lg"
                 className={`rounded-full px-8 uppercase font-bold tracking-widest text-xs transition-all ${isRunning
-                        ? "border-[#E8DDD0] text-[#4A4A4A] hover:bg-[#FAFAFA]"
-                        : "bg-[#2B2B2B] text-white hover:bg-[#4A4A4A]"
+                    ? "border-[#E8DDD0] text-[#4A4A4A] hover:bg-[#FAFAFA]"
+                    : "bg-[#2B2B2B] text-white hover:bg-[#4A4A4A]"
                     }`}
             >
                 {isRunning ? t('support.exercises_tab.breathing.stop') : t('support.exercises_tab.breathing.start_exercise')}

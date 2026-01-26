@@ -14,7 +14,7 @@ import { INFORMATION_SHADOW_SCENARIO } from "./scenarios/information_shadow";
 import { INFORMATION_SHADOW_SCENARIO_EN } from "./scenarios/information_shadow_en";
 import { YOUTH_SCENARIO } from "./scenarios/youth";
 import { YOUTH_SCENARIO_EN } from "./scenarios/youth_en";
-import { Profession } from "./types";
+import { Profession, Scenario } from "./types";
 
 // Explicit import for IT scenario which might be named differently in export
 

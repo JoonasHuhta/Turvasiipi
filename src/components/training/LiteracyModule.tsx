@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { LiteracyTest } from "@/components/lukutaito/LiteracyTest";
 import { TeamChecklist } from "@/components/lukutaito/TeamChecklist";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
 type ViewState = 'intro' | 'content' | 'test' | 'summary';
@@ -31,6 +32,8 @@ export default function LiteracyModule({
     onExit: () => void;
 }) {
     const [view, setView] = useState<ViewState>('intro');
+
+    const { t } = useLanguage();
 
     const handleTestComplete = () => {
         setView('summary');
@@ -50,8 +53,8 @@ export default function LiteracyModule({
                         <GraduationCap className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Kiusaamisen Lukutaito</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Sertifikaatti-moduuli</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.literacy_module.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.literacy_module.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -71,15 +74,10 @@ export default function LiteracyModule({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl mt-12"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Tunnista peruskuviot.</h1>
-                            <p className="text-lg text-[#57534E] leading-relaxed">
-                                Kiusaaminen ei ole sattumaa, vaan usein toistuva kaava.
-                                Tässä moduulissa opit erottamaan normaalin työyhteisön särön järjestelmällisestä kiusaamisesta.
-                                <br /><br />
-                                🏆 <strong>Suorita testi lopuksi saadaksesi merkinnän sertifikaattiin.</strong>
-                            </p>
+                            <h1 className="text-4xl font-serif font-black text-[#292524]" dangerouslySetInnerHTML={{ __html: t('training.literacy_module.intro.title') }} />
+                            <p className="text-lg text-[#57534E] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('training.literacy_module.intro.text') }} />
                             <Button onClick={() => setView('content')} size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Aloita oppiminen <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.literacy_module.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -95,32 +93,32 @@ export default function LiteracyModule({
                         >
                             <Tabs defaultValue="theory" className="w-full">
                                 <TabsList className="grid w-full grid-cols-2 bg-[#F5F5F4]">
-                                    <TabsTrigger value="theory">Tunnusmerkit</TabsTrigger>
-                                    <TabsTrigger value="checklist">Tarkistuslista</TabsTrigger>
+                                    <TabsTrigger value="theory">{t('training.literacy_module.tabs.theory')}</TabsTrigger>
+                                    <TabsTrigger value="checklist">{t('training.literacy_module.tabs.checklist')}</TabsTrigger>
                                 </TabsList>
                                 <TabsContent value="theory" className="p-6 bg-white border border-[#E7E5E4] rounded-b-xl space-y-6">
                                     <div className="grid gap-4">
                                         <div className="flex gap-4">
                                             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 shrink-0 mt-1">1</div>
-                                            <p className="text-sm"><strong>Järjestelmällisyys:</strong> Kiusaaminen ei ole kertaluonteinen riita, vaan viikkoja tai kuukausia kestävä prosessi.</p>
+                                            <p className="text-sm" dangerouslySetInnerHTML={{ __html: t('training.literacy_module.tabs.theory_content.item1') }} />
                                         </div>
                                         <div className="flex gap-4">
                                             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 shrink-0 mt-1">2</div>
-                                            <p className="text-sm"><strong>Voimasuhteet:</strong> Kohteella on vaikeuksia puolustautua (esim. esimies-alaissuhde tai ryhmä vastassa).</p>
+                                            <p className="text-sm" dangerouslySetInnerHTML={{ __html: t('training.literacy_module.tabs.theory_content.item2') }} />
                                         </div>
                                         <div className="flex gap-4">
                                             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 shrink-0 mt-1">3</div>
-                                            <p className="text-sm"><strong>Tarkoituksellisuus:</strong> Teot tähtäävät kohteen eristämiseen, nöyryyttämiseen tai työssä epäonnistumiseen.</p>
+                                            <p className="text-sm" dangerouslySetInnerHTML={{ __html: t('training.literacy_module.tabs.theory_content.item3') }} />
                                         </div>
                                     </div>
                                     <Button onClick={() => setView('test')} className="w-full bg-[#292524] hover:bg-[#44403C] text-white">
-                                        Siirry testiin <ArrowRight className="ml-2 w-4 h-4" />
+                                        {t('training.literacy_module.tabs.theory_content.action')} <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
                                 </TabsContent>
                                 <TabsContent value="checklist" className="mt-4">
                                     <TeamChecklist />
                                     <Button onClick={() => setView('test')} className="w-full mt-4 bg-amber-600 hover:bg-amber-700 text-white">
-                                        Olen tutustunut, siirry testiin <ArrowRight className="ml-2 w-4 h-4" />
+                                        {t('training.literacy_module.tabs.checklist_content.action')} <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
                                 </TabsContent>
                             </Tabs>
@@ -136,8 +134,8 @@ export default function LiteracyModule({
                             className="w-full"
                         >
                             <div className="mb-6 text-center">
-                                <Badge className="bg-amber-100 text-amber-700 border-amber-200 mb-2">Sertifikaatti-testi</Badge>
-                                <h3 className="text-2xl font-bold">Lue skenaariot huolella</h3>
+                                <Badge className="bg-amber-100 text-amber-700 border-amber-200 mb-2">{t('training.literacy_module.test.badge')}</Badge>
+                                <h3 className="text-2xl font-bold">{t('training.literacy_module.test.title')}</h3>
                             </div>
                             {/* We wrap the existing LiteracyTest. 
                                 Note: LiteracyTest calls completeModule('literacy_test'). 
@@ -147,7 +145,7 @@ export default function LiteracyModule({
                                 <LiteracyTest />
                                 <div className="mt-8 flex justify-center">
                                     <Button variant="ghost" onClick={() => setView('summary')} className="text-[#A8A29E]">
-                                        Ohita ja jatka yhteenvetoon (vain jos testi ei lataudu)
+                                        {t('training.literacy_module.test.skip')}
                                     </Button>
                                 </div>
                             </div>
@@ -166,15 +164,14 @@ export default function LiteracyModule({
                                 <Trophy className="w-12 h-12" />
                             </div>
                             <div className="space-y-4">
-                                <h1 className="text-4xl font-serif font-black text-[#292524]">Hienoa työtä!</h1>
+                                <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.literacy_module.summary.title')}</h1>
                                 <p className="text-lg text-[#57534E]">
-                                    Olet suorittanut perusmoduulin. Tämä antaa pohjan kaikelle muulle oppimiselle.
-                                    Tunnistaminen on ensimmäinen askel kohti muutosta.
+                                    {t('training.literacy_module.summary.text')}
                                 </p>
                             </div>
 
                             <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-2xl px-12 py-8 text-xl shadow-xl">
-                                Valmis
+                                {t('training.literacy_module.summary.action')}
                             </Button>
                         </motion.div>
                     )}

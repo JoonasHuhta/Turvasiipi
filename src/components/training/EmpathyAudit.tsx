@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Fingerprint,
@@ -18,53 +19,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-// --- TYPES ---
 type ViewState = 'intro' | 'scenario' | 'checklist' | 'summary';
-
-interface Scenario {
-    id: string;
-    title: string;
-    description: string;
-    icon: any;
-    choiceA: string; // Pysäyttää
-    choiceB: string; // Mahdollistaa
-    feedbackA: string;
-    feedbackB: string;
-}
-
-// --- DATA ---
-const SCENARIOS: Scenario[] = [
-    {
-        id: 'signal',
-        title: "Ratkaiseva hetki 1: Ensimmäinen signaali",
-        icon: Eye,
-        description: "Huomaat tiimipalaverissa 'vitsin', josta yksi jäsen selvästi hämmentyy ja vaimistuu. Muut nauravat.",
-        choiceA: "Pysäytä: Ota asia selkeästi puheeksi heti tai heti perään: 'Huomasin tämän, haluan varmistaa ettei se toistu.'",
-        choiceB: "Ohita: 'Se on vain heidän huumoriaan', ajattelet. Jos puutun, pilaan hyvän tunnelman.",
-        feedbackA: "Oikein. Pysäyttämällä pienetkin asiat viestit, että kulttuuriin ei kuulu kenenkään kustannuksella nauraminen.",
-        feedbackB: "Riskialtista. Reagoimattomuus normalisoi käytöksen ja viestii, että tällainen peli kuuluu asiaan."
-    },
-    {
-        id: 'report',
-        title: "Ratkaiseva hetki 2: Virallinen ilmoitus",
-        icon: MessageSquare,
-        description: "Työntekijä tulee luoksesi ja sanoo: 'Minusta tuntuu, että minua kohdellaan epäasiallisesti.'",
-        choiceA: "Ota vakavasti: Kiitä luottamuksesta, dokumentoi, selitä prosessi ja sovi aikataulu selvitykselle.",
-        choiceB: "Vähättele: 'Olet ehkä vähän herkkä, tiedäthän että Liisalla on vain sellainen tyyli.'",
-        feedbackA: "Hienoa. Psykologinen sopimus säilyy, kun organisaatio reagoi luvatusti ja asiallisesti.",
-        feedbackB: "Vaarallista. Ilmoittaja kokee jäävänsä yksin ja kynnys kertoa jatkossa kasvaa. Psykologinen sopimus murtuu."
-    },
-    {
-        id: 'followup',
-        title: "Ratkaiseva hetki 3: Seuranta",
-        icon: ClipboardCheck,
-        description: "Asia on selvitetty ja rajat sovittu. Viikkoja on kulunut ja tilanne näyttää rauhoittuneen pinnalta.",
-        choiceA: "Aktiivinen seuranta: Varmista sovitut toimet, pidä säännölliset tsekinit molempien osapuolten kanssa.",
-        choiceB: "Oletus: Oletat asian olevan ohi, koska kukaan ei enää tule valittamaan.",
-        feedbackA: "Välttämätöntä. Kiusaajat usein vain vaihtavat kohdetta tai taktiikkaa. Jatkuva seuranta takaa muutoksen.",
-        feedbackB: "Virhe. Hiljaisuus ei tarkoita ratkaisua. Usein se tarkoittaa vain luovuttamista tai pelkoa ilmoittaa uudestaan."
-    }
-];
 
 // --- COMPONENT ---
 export default function EmpathyAudit({
@@ -76,11 +31,28 @@ export default function EmpathyAudit({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<ViewState>('intro');
     const [scenarioIdx, setScenarioIdx] = useState(0);
     const [score, setScore] = useState(0);
     const [showFeedback, setShowFeedback] = useState(false);
     const [lastChoice, setLastChoice] = useState<'A' | 'B' | null>(null);
+
+    // Get scenarios from translations
+    const scenarios = t('training.empathy_audit.scenarios', { returnObjects: true }) as any[];
+    // Fallback if not loaded
+    const currentScenario = scenarios?.[scenarioIdx] || {
+        id: 'missing',
+        title: 'Loading...',
+        description: '',
+        choiceA: '',
+        choiceB: '',
+        feedbackA: '',
+        feedbackB: ''
+    };
+
+    // Map icons manually since JSON can't hold components
+    const ICONS = [Eye, MessageSquare, ClipboardCheck];
 
     const handleChoice = (choice: 'A' | 'B') => {
         setLastChoice(choice);
@@ -89,7 +61,7 @@ export default function EmpathyAudit({
     };
 
     const nextScenario = () => {
-        if (scenarioIdx < SCENARIOS.length - 1) {
+        if (scenarios && scenarioIdx < scenarios.length - 1) {
             setScenarioIdx(prev => prev + 1);
             setShowFeedback(false);
             setLastChoice(null);
@@ -97,6 +69,9 @@ export default function EmpathyAudit({
             setView('checklist');
         }
     };
+
+    // Checklist items
+    const checklistItems = t('training.empathy_audit.checklist.items', { returnObjects: true }) as any[];
 
     return (
         <div className="relative min-h-[600px] w-full bg-[#FAFAF9] rounded-[2rem] p-4 md:p-8 flex flex-col gap-6 border border-[#E7E5E4] shadow-xl overflow-hidden font-sans text-[#44403C]">
@@ -108,8 +83,8 @@ export default function EmpathyAudit({
                         <Fingerprint className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Empatia-audit</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Esihenkilön Interventiokyky</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.empathy_audit.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.empathy_audit.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -129,14 +104,10 @@ export default function EmpathyAudit({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Johdon sokeat pisteet.</h1>
-                            <p className="text-lg text-[#57534E] leading-relaxed">
-                                Esihenkilö on portinvartija: sinun valintasi ratkaisevissa käännekohdissa joko katkaisevat kiusaamisen tai tekevät siitä osan arkea.
-                                <br /><br />
-                                Testaa kykysi tunnistaa ja puuttua <strong>kolmessa ratkaisevassa hetkessä</strong>.
-                            </p>
+                            <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.empathy_audit.intro.title')}</h1>
+                            <p className="text-lg text-[#57534E] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('training.empathy_audit.intro.text') }} />
                             <Button onClick={() => setView('scenario')} size="lg" className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Aloita auditointi <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.empathy_audit.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -151,17 +122,17 @@ export default function EmpathyAudit({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-2">
-                                <Badge variant="outline" className="text-purple-600 border-purple-200 uppercase text-[10px] font-black tracking-widest">Hetki {scenarioIdx + 1}/3</Badge>
-                                <h3 className="text-2xl font-bold">{SCENARIOS[scenarioIdx].title}</h3>
+                                <Badge variant="outline" className="text-purple-600 border-purple-200 uppercase text-[10px] font-black tracking-widest">{t('training.empathy_audit.scenario_count', { current: scenarioIdx + 1, total: 3 })}</Badge>
+                                <h3 className="text-2xl font-bold">{currentScenario.title}</h3>
                             </div>
 
                             <Card className="p-8 bg-white border-[#E7E5E4] shadow-sm space-y-8">
                                 <div className="flex gap-4 items-start">
                                     <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
-                                        {React.createElement(SCENARIOS[scenarioIdx].icon, { className: 'w-6 h-6' })}
+                                        {React.createElement(ICONS[scenarioIdx] || Eye, { className: 'w-6 h-6' })}
                                     </div>
                                     <p className="text-lg text-[#44403C] leading-relaxed pt-1">
-                                        {SCENARIOS[scenarioIdx].description}
+                                        {currentScenario.description}
                                     </p>
                                 </div>
 
@@ -171,15 +142,15 @@ export default function EmpathyAudit({
                                             onClick={() => handleChoice('A')}
                                             className="p-6 text-left border-2 border-[#E7E5E4] rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all group"
                                         >
-                                            <h4 className="font-bold text-sm mb-2 group-hover:text-purple-700">Vaihtoehto A</h4>
-                                            <p className="text-xs text-[#78716C]">{SCENARIOS[scenarioIdx].choiceA}</p>
+                                            <h4 className="font-bold text-sm mb-2 group-hover:text-purple-700">{t('training.empathy_audit.option_a')}</h4>
+                                            <p className="text-xs text-[#78716C]">{currentScenario.choiceA}</p>
                                         </button>
                                         <button
                                             onClick={() => handleChoice('B')}
                                             className="p-6 text-left border-2 border-[#E7E5E4] rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all group"
                                         >
-                                            <h4 className="font-bold text-sm mb-2 group-hover:text-purple-700">Vaihtoehto B</h4>
-                                            <p className="text-xs text-[#78716C]">{SCENARIOS[scenarioIdx].choiceB}</p>
+                                            <h4 className="font-bold text-sm mb-2 group-hover:text-purple-700">{t('training.empathy_audit.option_b')}</h4>
+                                            <p className="text-xs text-[#78716C]">{currentScenario.choiceB}</p>
                                         </button>
                                     </div>
                                 ) : (
@@ -193,13 +164,13 @@ export default function EmpathyAudit({
                                     >
                                         <div className="flex items-center gap-2">
                                             {lastChoice === 'A' ? <CheckCircle2 className="w-5 h-5 text-emerald-600" /> : <AlertCircle className="w-5 h-5 text-orange-600" />}
-                                            <h4 className="font-bold text-sm">{lastChoice === 'A' ? "Vaikuttava valinta" : "Riski kulttuurille"}</h4>
+                                            <h4 className="font-bold text-sm">{lastChoice === 'A' ? t('training.empathy_audit.feedback_good_title') : t('training.empathy_audit.feedback_bad_title')}</h4>
                                         </div>
                                         <p className="text-sm text-[#57534E]">
-                                            {lastChoice === 'A' ? SCENARIOS[scenarioIdx].feedbackA : SCENARIOS[scenarioIdx].feedbackB}
+                                            {lastChoice === 'A' ? currentScenario.feedbackA : currentScenario.feedbackB}
                                         </p>
                                         <Button onClick={nextScenario} variant="ghost" className="mt-4 text-purple-700 font-bold p-0 hover:bg-transparent">
-                                            Jatka <ArrowRight className="ml-2 w-4 h-4" />
+                                            {t('training.empathy_audit.continue')} <ArrowRight className="ml-2 w-4 h-4" />
                                         </Button>
                                     </motion.div>
                                 )}
@@ -216,42 +187,30 @@ export default function EmpathyAudit({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-4">
-                                <Badge className="bg-purple-100 text-purple-700 border-0">Loppuarvio</Badge>
+                                <Badge className="bg-purple-100 text-purple-700 border-0">{t('training.empathy_audit.result_badge')}</Badge>
                                 <h1 className="text-4xl font-serif font-black text-[#292524]">
-                                    {score === 3 ? "Portinvartija mitalilla" : "Kehitettävää tunnistamisessa"}
+                                    {score === 3 ? t('training.empathy_audit.result_perfect') : t('training.empathy_audit.result_improve')}
                                 </h1>
-                                <p className="text-lg text-[#57534E]">Interventiokykysi pisteet: {score}/3</p>
+                                <p className="text-lg text-[#57534E]">{t('training.empathy_audit.result_score', { score: score, total: 3 })}</p>
                             </div>
 
                             <Card className="p-8 bg-white border-[#E7E5E4] shadow-sm">
-                                <h4 className="text-xs font-black uppercase tracking-widest text-[#A8A29E] mb-6 border-b pb-4">Johdon 3 r:n muistisääntö</h4>
+                                <h4 className="text-xs font-black uppercase tracking-widest text-[#A8A29E] mb-6 border-b pb-4">{t('training.empathy_audit.checklist.title')}</h4>
                                 <div className="grid gap-6">
-                                    <div className="flex gap-4">
-                                        <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold">1</div>
-                                        <div>
-                                            <h5 className="font-bold">Reagoi (Signaali)</h5>
-                                            <p className="text-xs text-[#78716C]">Älä vähättele pientäkään epäasiallisuutta. Se on siemen, joka juurtuu jos se saa vettä hiljaisuudesta.</p>
+                                    {checklistItems?.map((item, i) => (
+                                        <div className="flex gap-4" key={i}>
+                                            <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold">{i + 1}</div>
+                                            <div>
+                                                <h5 className="font-bold">{item.title}</h5>
+                                                <p className="text-xs text-[#78716C]">{item.desc}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold">2</div>
-                                        <div>
-                                            <h5 className="font-bold">Rekisteröi (Ilmoitus)</h5>
-                                            <p className="text-xs text-[#78716C]">Dokumentoi kaikki. Objektiivinen tieto on esihenkilön paras ystävä kun asioita aletaan perata.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold">3</div>
-                                        <div>
-                                            <h5 className="font-bold">Ratkaise & Seuraa</h5>
-                                            <p className="text-xs text-[#78716C]">Varmista, että toimet purevat. Seuraa 1kk, 3kk ja 6kk välein. Kiusaaminen poistuu vain sitkeydellä.</p>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </Card>
 
                             <Button onClick={() => onComplete(100)} size="lg" className="w-full bg-[#292524] hover:bg-[#44403C] text-white rounded-2xl py-8 text-xl shadow-xl">
-                                Valmis
+                                {t('training.empathy_audit.finish')}
                             </Button>
                         </motion.div>
                     )}

@@ -26,7 +26,11 @@ export default function LogPage() {
 
 function LogPageContent() {
     const router = useRouter();
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('tactics');
+    }, [loadNamespace]);
 
     const {
         step,
@@ -161,8 +165,8 @@ function LogPageContent() {
                                                 {!['verbal', 'social', 'power'].includes(tactic.category) && <User className="w-5 h-5 text-suojasiipi-text-body" />}
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-suojasiipi-text-main">{tactic.name}</h3>
-                                                <p className="text-sm text-suojasiipi-text-body line-clamp-2">{tactic.definition}</p>
+                                                <h3 className="font-bold text-suojasiipi-text-main">{t(`tactics.${tactic.id}.name`)}</h3>
+                                                <p className="text-sm text-suojasiipi-text-body line-clamp-2">{t(`tactics.${tactic.id}.desc`)}</p>
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -426,7 +430,7 @@ function LogPageContent() {
                                         <div className="grid grid-cols-2 gap-4 text-sm">
                                             <div>
                                                 <span className="text-slate-400 block text-xs uppercase">{t('log_tool.step4.labels.event')}</span>
-                                                <span className="font-bold text-slate-900">{selectedTactic?.name}</span>
+                                                <span className="font-bold text-slate-900">{selectedTactic ? t(`tactics.${selectedTactic.id}.name`) : "-"}</span>
                                             </div>
                                             <div>
                                                 <span className="text-slate-400 block text-xs uppercase">{t('log_tool.step4.labels.time')}</span>
@@ -470,7 +474,7 @@ function LogPageContent() {
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-2 text-[#5B4B8A]">
                                         <Lightbulb className="w-5 h-5" />
-                                        <h3 className="font-bold uppercase tracking-widest text-xs">{t('log_tool.step5.actions_title')} ({selectedTactic?.name})</h3>
+                                        <h3 className="font-bold uppercase tracking-widest text-xs">{t('log_tool.step5.actions_title')} ({selectedTactic ? t(`tactics.${selectedTactic.id}.name`) : ""})</h3>
                                     </div>
                                     <div className="space-y-3">
                                         {/* Mock advice if not in tactic data, or fetch real advice */}

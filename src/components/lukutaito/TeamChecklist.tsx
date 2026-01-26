@@ -14,8 +14,12 @@ interface CriteriaCategory {
 
 export function TeamChecklist() {
     const { t } = useLanguage();
-    const criteria = t('lukutaito_page.team_checklist.criteria', { returnObjects: true }) as Record<string, CriteriaCategory>;
+    const criteria = t('lukutaito.team_checklist.criteria', { returnObjects: true }) as Record<string, CriteriaCategory>;
     const [checked, setChecked] = useState<Record<string, boolean>>({});
+
+    if (!criteria || typeof criteria !== 'object') {
+        return null;
+    }
 
     const toggle = (section: string, index: number) => {
         const key = `${section}-${index}`;
@@ -23,14 +27,14 @@ export function TeamChecklist() {
     };
 
     const totalChecked = Object.values(checked).filter(Boolean).length;
-    const isCrisis = totalChecked < 15;
+    const isCrisis = totalChecked < 20;
 
     return (
         <div className="space-y-8">
             <div className="bg-white border border-[#E8DDD0] p-8 rounded-sm shadow-sm flex flex-col md:flex-row justify-between items-center gap-8 sticky top-4 z-20">
                 <div className="space-y-2 text-center md:text-left">
-                    <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('lukutaito_page.team_checklist.title')}</h2>
-                    <p className="text-[#4A4A4A]">{t('lukutaito_page.team_checklist.subtitle')}</p>
+                    <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('lukutaito.team_checklist.title')}</h2>
+                    <p className="text-[#4A4A4A]">{t('lukutaito.team_checklist.subtitle')}</p>
                 </div>
 
                 <div className={cn(
@@ -39,16 +43,16 @@ export function TeamChecklist() {
                 )}>
                     <div className="text-center">
                         <div className="text-3xl font-black">{totalChecked}</div>
-                        <div className="text-[9px] uppercase font-bold tracking-widest opacity-70">{t('lukutaito_page.team_checklist.badges.checks')}</div>
+                        <div className="text-[9px] uppercase font-bold tracking-widest opacity-70">{t('lukutaito.team_checklist.badges.checks')}</div>
                     </div>
                     <div className="h-10 w-px bg-current opacity-20" />
                     <div>
                         <div className="font-bold flex items-center gap-2 uppercase tracking-wide">
                             {isCrisis ? <AlertTriangle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
-                            {isCrisis ? t('lukutaito_page.team_checklist.badges.crisis') : t('lukutaito_page.team_checklist.badges.healthy')}
+                            {isCrisis ? t('lukutaito.team_checklist.badges.crisis') : t('lukutaito.team_checklist.badges.healthy')}
                         </div>
                         <div className="text-xs opacity-90 max-w-[180px] leading-tight mt-1">
-                            {isCrisis ? t('lukutaito_page.team_checklist.status.crisis_text') : t('lukutaito_page.team_checklist.status.healthy_text')}
+                            {isCrisis ? t('lukutaito.team_checklist.status.crisis_text') : t('lukutaito.team_checklist.status.healthy_text')}
                         </div>
                     </div>
                 </div>

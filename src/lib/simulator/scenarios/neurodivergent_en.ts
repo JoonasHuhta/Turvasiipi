@@ -4,8 +4,8 @@ import { Phase } from "../types";
 // NEUROSCENARIO: Day as Neurodivergent
 // Focus: Energy Management, Sensory Overload, Misunderstandings
 export const NEURO_SCENARIO_EN: Record<string, Phase> = {
-    START: {
-        id: 'START',
+    start: {
+        id: 'start',
         day: 1,
         time: '08:00',
         title: "Breakfast: Sensory Assault",

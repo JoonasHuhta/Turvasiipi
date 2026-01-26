@@ -1,0 +1,141 @@
+{
+    "header": {
+        "mini_title": "Guide & Toolkit",
+        "title": "Neurodiversity in Work Life",
+        "quote": "Difference is not a bug. It is a feature.",
+        "intro": "This page is made for everyone whose brain works differently – and for their supervisors."
+    },
+    "cards": {
+        "what": {
+            "title": "What is it about?",
+            "subtitle": "Neurospectrum briefly",
+            "adhd": "<strong>ADHD:</strong> Creativity, speed, impulsiveness.",
+            "autism": "<strong>Autism spectrum:</strong> Detail-oriented, deep focus, directness.",
+            "dyslexia": "<strong>Dyslexia:</strong> Visual thinking, perceiving wholes."
+        },
+        "superpowers": {
+            "title": "Resources",
+            "subtitle": "Why do we need this?",
+            "productivity": "<strong>Efficiency:</strong> Hyperfocus can produce a week's work in a day.",
+            "innovation": "<strong>Innovation:</strong> 'Out-of-the-box' thinking is the default setting.",
+            "hyperfocus": "<strong>Passion:</strong> Deep interest creates deep expertise."
+        }
+    },
+    "spoon_theory": {
+        "mini_title": "Coping Model",
+        "title": "Spoon Theory",
+        "text": "Imagine you only have 12 spoons of energy for a day. For a neurotypical, a shower costs nothing. For a neurodivergent, it might cost one spoon. Open office noise might cost five.",
+        "what": {
+            "title": "What are spoons?",
+            "text": "Units of mental and physical energy."
+        },
+        "consume": {
+            "title": "What consumes?",
+            "text": "Sensory stimuli, social masking, changes."
+        },
+        "save": {
+            "title": "How to save?",
+            "text": "Flexibility, noise-canceling headphones, clear instructions."
+        }
+    },
+    "challenges": {
+        "title": "Common Challenges",
+        "environment": {
+            "title": "Environment",
+            "text": "Open offices, bright lights, and constant interruptions are poison."
+        },
+        "misunderstandings": {
+            "title": "Misunderstandings",
+            "text": "Direct speech can be interpreted as rudeness. Silence as indifference."
+        },
+        "masking": {
+            "title": "Masking",
+            "text": "<strong>Masking</strong> is hiding neuroatypical traits to fit in. It is heavy and leads to burnout. Looking 'normal' is a full-time job."
+        }
+    },
+    "actions": {
+        "title": "What can you do?",
+        "employee": {
+            "title": "For Employee",
+            "list": [
+                "<strong>Identify your needs:</strong> What things take spoons?",
+                "<strong>Communicate:</strong> Use the 'User Manual for Me' template.",
+                "<strong>Protect focus:</strong> Reserve uninterrupted time in the calendar."
+            ]
+        },
+        "manager": {
+            "title": "For Supervisor",
+            "list": [
+                "<strong>Allow flexibility:</strong> Remote work, working hours, communication methods.",
+                "<strong>Be clear:</strong> Written instructions are gold.",
+                "<strong>Ask:</strong> 'What do you need to succeed?'"
+            ]
+        }
+    },
+    "decoder": {
+        "title": "Double Empathy",
+        "intro": "Often the problem is not 'autistic interaction', but the incompatibility of two different systems. This interpreter helps.",
+        "situation_label": "Situation",
+        "nt_label": "Neurotypical Assumption",
+        "nd_label": "ND Experience",
+        "solution_label": "Bridge",
+        "items": [
+            {
+                "situation": "Meeting",
+                "nt": "Eye contact means you are listening.",
+                "nd": "If I look in the eyes, I don't hear what you say because I process your face.",
+                "bridge": "Allow doodling or looking away."
+            },
+            {
+                "situation": "Small Talk",
+                "nt": "Talking about weather creates connection.",
+                "nd": "Why do we talk about obvious things? I would like to talk about strategy.",
+                "bridge": "Accept business talk as bonding."
+            }
+        ]
+    },
+    "logs": {
+        "title": "Documentation Templates",
+        "subtitle": "When you need something concrete for occupational health or discussions.",
+        "accommodation": {
+            "title": "Accommodation Request",
+            "desc": "Use this when asking for flexibility.",
+            "content": "Hi, to work most effectively, I would need the following accommodation: [ACCOMMODATION]. This would help me [BENEFIT]. For example, last week..."
+        },
+        "breakdown": {
+            "title": "Load Log",
+            "desc": "Track your alertness and meltdown risk.",
+            "content": "Date: [DATE] | Spoons in morning: [1-5] | Most loading moment: [EVENT] | Symptoms: [SENSORY OVERSENSITIVITY/SHUTDOWN] | Recovery: [METHOD]"
+        },
+        "rights": {
+            "title": "Did you know?",
+            "text": "The Non-Discrimination Act obliges the employer to make reasonable accommodations for neurodiversity. You are not asking for 'extra', but equality."
+        }
+    },
+    "simulation": {
+        "mini_title": "Try Yourself",
+        "title": "Simulations",
+        "text": "Theory is one thing. Experience is another. Step into ND shoes.",
+        "btn_all": "All Simulations",
+        "card1": {
+            "title": "Sensory Overload",
+            "desc": "When the world is too much."
+        },
+        "card2": {
+            "title": "Performance Trap",
+            "desc": "The price of perfectionism."
+        },
+        "card3": {
+            "title": "Information Shadow",
+            "desc": "The jungle of unspoken messages."
+        }
+    },
+    "completion": {
+        "title_new": "Mark as Learned",
+        "title_done": "Section Completed",
+        "text_new": "You have gone through the info package. Mark it as completed in your profile.",
+        "text_done": "You have completed this section. Do you want to return to profile?",
+        "btn_mark": "Mark as Done",
+        "btn_back": "Return to Profile"
+    }
+}

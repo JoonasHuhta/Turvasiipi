@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "Community",
+    "title_start": "Community",
+    "title_highlight": "Stories",
+    "subtitle": "You are not alone. Read others' experiences and share your own."
+  },
+  "benefits": {
+    "validate": {
+      "title": "Validate Your Experience",
+      "desc": "Realize the problem isn't you."
+    },
+    "shame": {
+      "title": "Reduce Shame",
+      "desc": "Silence is broken by speaking."
+    },
+    "strength": {
+      "title": "Find Strength",
+      "desc": "Stories of survival create hope."
+    }
+  },
+  "filters": {
+    "all": "All"
+  },
+  "empty": {
+    "title": "Community is Growing!",
+    "text": "The first stories are coming soon. Be the first and share your story using the form below."
+  },
+  "card": {
+    "new": "NEW"
+  },
+  "form": {
+    "title": "Share Your Story",
+    "desc": "We publish stories completely anonymously. We do not store IP addresses.",
+    "title_label": "Title / Subject",
+    "title_placeholder": "E.g. Exploitation during internship...",
+    "author_label": "Pseudonym",
+    "author_optional": "(Optional)",
+    "author_placeholder": "Leave empty to remain anonymous",
+    "category_label": "Category",
+    "category_placeholder": "Select industry",
+    "text_label": "Your Story",
+    "text_placeholder": "Write freely. We moderate the text and remove names before publishing.",
+    "submit_btn": "Open Email & Send",
+    "direct_email": "Or send directly:"
+  },
+  "categories": {
+    "sote": "Social & Health Care",
+    "it": "IT & Technology",
+    "education": "Education & Training",
+    "office": "Office & Administration",
+    "service": "Restaurant & Retail",
+    "industry": "Industry & Construction",
+    "creative": "Creative Sector",
+    "neuro": "Neurodiversity",
+    "other": "Other"
+  },
+  "stories_page": {
+    "header": {
+      "badge": "Community",
+      "title_start": "Community",
+      "title_highlight": "Stories",
+      "subtitle": "You are not alone. Read others' experiences and share your own."
+    },
+    "benefits": {
+      "validate": {
+        "title": "Validate Your Experience",
+        "desc": "Realize the problem isn't you."
+      },
+      "shame": {
+        "title": "Reduce Shame",
+        "desc": "Silence is broken by speaking."
+      },
+      "strength": {
+        "title": "Find Strength",
+        "desc": "Stories of survival create hope."
+      }
+    },
+    "filters": {
+      "all": "All"
+    },
+    "empty": {
+      "title": "Community is Growing!",
+      "text": "The first stories are coming soon. Be the first and share your story using the form below."
+    },
+    "card": {
+      "new": "NEW"
+    },
+    "form": {
+      "title": "Share Your Story",
+      "desc": "We publish stories completely anonymously. We do not store IP addresses.",
+      "title_label": "Title / Subject",
+      "title_placeholder": "E.g. Exploitation during internship...",
+      "author_label": "Pseudonym",
+      "author_optional": "(Optional)",
+      "author_placeholder": "Leave empty to remain anonymous",
+      "category_label": "Category",
+      "category_placeholder": "Select industry",
+      "text_label": "Your Story",
+      "text_placeholder": "Write freely. We moderate the text and remove names before publishing.",
+      "submit_btn": "Open Email & Send",
+      "direct_email": "Or send directly:"
+    },
+    "categories": {
+      "sote": "Social & Health Care",
+      "it": "IT & Technology",
+      "education": "Education & Training",
+      "office": "Office & Administration",
+      "service": "Restaurant & Retail",
+      "industry": "Industry & Construction",
+      "creative": "Creative Sector",
+      "neuro": "Neurodiversity",
+      "other": "Other"
+    }
+  }
+}

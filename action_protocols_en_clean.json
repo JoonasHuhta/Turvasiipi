@@ -1,0 +1,133 @@
+{
+    "title": "Response Toolkit",
+    "subtitle": "Concrete Action Models",
+    "description": "Don't freeze. Here are ready-made words and plans, so you know exactly what to do.",
+    "tabs": {
+        "acute": "Acute Scripts",
+        "conversation": "Difficult Conversation",
+        "manager": "Manager Chain",
+        "safety_plan": "Safety Plan"
+    },
+    "acute_scripts": {
+        "intro_title": "Stop - Speak - Document",
+        "intro_text": "Three steps to manage chaos. <br />1. <strong>Stop:</strong> Pause your reaction (breathe). <br />2. <strong>Speak:</strong> Set the boundary. <br />3. <strong>Document:</strong> Write it down immediately.",
+        "scripts": {
+            "public_mockery": {
+                "title": "Public Mockery",
+                "script": "I do not like this comment. Stop it immediately.",
+                "nuance": "Calm, low voice. No smiling. Eye contact.",
+                "next": "Log it: Who, what, when."
+            },
+            "withholding_info": {
+                "title": "Withholding Info",
+                "script": "I need this information for my work. Send it now.",
+                "nuance": "Don't ask 'could you'. State the need. CC a representative if repeated.",
+                "next": "Screenshot your request. if no answer, send reminder."
+            },
+            "isolation": {
+                "title": "Isolation",
+                "script": "Why wasn't I invited? Add me in the future.",
+                "nuance": "Ask directly in a meeting or chat. Make the invisible visible.",
+                "next": "Ask the team: 'Did you notice I was missing?'"
+            }
+        },
+        "labels": {
+            "say_this": "Say this",
+            "style": "Style:",
+            "next_step": "Next step:"
+        }
+    },
+    "difficult_conversation": {
+        "title": "Difficult Conversation Formula",
+        "intro": "Use this 5-step framework in a private discussion.",
+        "steps": [
+            {
+                "title": "1. Opening",
+                "script": "Thank you for coming. I want to discuss our interaction. This is important for my work.",
+                "tip": "Frame neutrally. Don't blame, invite to discuss.",
+                "action": "Next step"
+            },
+            {
+                "title": "2. Concrete Example",
+                "script": "In last Tuesday's meeting you said publicly 'You don't get this'. I experience this as dismissive. How does that sound to you?",
+                "tip": "State fact (what happened) and impact (how it felt). End with open question.",
+                "action": "Next step"
+            },
+            {
+                "title": "3. Boundary",
+                "script": "In the future, I expect the snide remarks to stop. My work flows best without it. Do you agree?",
+                "tip": "State clear requirement. Don't ask for permission, but commitment.",
+                "action": "Next step"
+            },
+            {
+                "title": "4. Follow-up & Support",
+                "script": "How do we ensure this doesn't repeat? Do I need anything from you?",
+                "tip": "Share responsibility for the solution. 'How do we succeed in this?'",
+                "action": "Next step"
+            },
+            {
+                "title": "5. Closing & Documentation",
+                "script": "Thanks for the talk. I'll note this down. Anything to add?",
+                "tip": "Make it official. Send a memo by email (CC representative).",
+                "action": "Start over"
+            }
+        ]
+    },
+    "manager_chain": {
+        "title": "Manager is the Bully?",
+        "intro": "When power is misused, you must protect yourself with bureaucracy. Don't wait. Document everything.",
+        "steps": [
+            {
+                "step": "1. Confrontation",
+                "target": "Manager (one-on-one)",
+                "script": "I find [action] inappropriate. I ask you to stop.",
+                "time": "Immediately"
+            },
+            {
+                "step": "2. Written Notice",
+                "target": "Upper Management",
+                "script": "I am reporting [Undisputable facts]. I need a clarification.",
+                "time": "1-2 days"
+            },
+            {
+                "step": "3. Request for Help",
+                "target": "Safety Rep / Union",
+                "script": "I need help resolving this. Attached: documentation.",
+                "time": "As soon as step 2 fails"
+            },
+            {
+                "step": "4. Health Statement",
+                "target": "Occupational Health",
+                "script": "Bullying causes symptoms. I request a statement on work capacity.",
+                "time": "1 week"
+            },
+            {
+                "step": "5. Enforcement Request",
+                "target": "AVI (Regional Agency)",
+                "script": "Employer has not taken action despite notification.",
+                "time": "2 weeks of silence"
+            }
+        ],
+        "labels": {
+            "target": "Target:"
+        }
+    },
+    "safety_plan": {
+        "title": "My Safety Plan",
+        "intro": "Fill this out and save a screenshot on your phone.",
+        "form": {
+            "reaction_label": "1. First Reaction",
+            "reaction_placeholder": "E.g. I leave the room for 5 mins.",
+            "support_label": "2. Trusted Support",
+            "support_placeholder": "Name and phone number.",
+            "phrase_label": "3. Emergency Phrase",
+            "phrase_value": "I am using my safety plan now – I need help.",
+            "exit_label": "4. Exit Signal",
+            "exit_placeholder": "E.g. If no change in 3 weeks -> Sick leave.",
+            "place_label": "5. Safe Place",
+            "place_placeholder": "E.g. Library 3rd floor, friend's place.",
+            "save_btn": "Save Safety Plan",
+            "disclaimer": "This is saved only on your device. A screenshot is most recommended."
+        }
+    }
+}

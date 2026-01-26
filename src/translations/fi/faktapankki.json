@@ -1,0 +1,45 @@
+{
+    "header": {
+        "mini_title": "Tietopankki",
+        "title_main": "Tieto on suojaa.",
+        "title_main_suffix": "Kaikki mitä sinun tulee tietää lainsäädännöstä, ilmiöstä ja vaikutuksista.",
+        "description": "Faktapankki tarjoaa tutkittua tietoa työpaikkakiusaamisen dynamiikasta, lainsäädännöstä ja taloudellisista vaikutuksista. Kun tiedät nimen ilmiölle, se menettää osan vallastaan."
+    },
+    "tabs": {
+        "quiz": "Tietovisa",
+        "costs": "Hinta",
+        "simulation": "Simulaatio"
+    },
+    "quiz_ui": {
+        "title": "Testaa Tietosi",
+        "description": "Oletko perillä oikeuksistasi? Tiedätkö mitä gaslighting tarkoittaa? Testaa tietosi kattavassa visassa.",
+        "all_data_title": "Koko Tietopanki",
+        "all_data_desc": "Haasta itsesi kaikilla {{count}} kysymyksellä kerralla.",
+        "start_btn": "ALOITA HAASTE",
+        "part_label": "OSA {{id}}",
+        "questions_count": "{{count}} kysymystä",
+        "game_over": "Visa Päättyi",
+        "back_menu": "Palaa Valikkoon",
+        "interrupt": "Keskeytä",
+        "question_label": "Kysymys",
+        "correct": "Oikein!",
+        "wrong": "Väärin",
+        "correct_answer": "Oikea vastaus: {{answer}}",
+        "explanation": "Selitys",
+        "next": "Seuraava"
+    },
+    "quiz_feedback": {
+        "observer": {
+            "title": "Tarkkailija",
+            "text": "Hyvä alku! Olet kiinnostunut aiheesta, mutta moni termi on vielä vieras. Suosittelemme tutustumaan teoriamateriaaleihin."
+        },
+        "alert": {
+            "title": "Tietoinen Toimija",
+            "text": "Hienoa! Tunnistat perusmekaniikat ja tiedät oikeutesi. Pienellä syventämisellä olet eksperttitasolla."
+        },
+        "expert": {
+            "title": "Suojasiipi Ekspertti",
+            "text": "Vaikuttavaa! Tunnet ilmiön, lainsäädännön ja psykologian. Olet voimavara työyhteisöllesi."
+        }
+    }
+}

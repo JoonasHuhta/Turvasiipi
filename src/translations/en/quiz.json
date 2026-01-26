@@ -1,0 +1,303 @@
+{
+    "page": {
+        "label": "RISK ASSESSMENT",
+        "title": "Recognize the signs of",
+        "subtitle": "workplace bullying early.",
+        "description": "This is not a diagnosis. This is a tool to visualize your situation. Answer honestly – no one else sees your answers.",
+        "what_measures_title": "WHAT DOES THIS MEASURE?",
+        "what_measures_list": [
+            "Body and mind stress reactions",
+            "Work environment atmosphere",
+            "Your experience of safety"
+        ],
+        "what_not_measures_title": "WHAT DOES THIS NOT MEASURE?",
+        "what_not_measures_list": [
+            "Your professional competence",
+            "Your human worth",
+            "Guilt"
+        ],
+        "start_btn": "Start Assessment",
+        "analysis_label": "RESULT ANALYSIS",
+        "analysis_title": "Your Score: {{score}} / {{total}}",
+        "back_home": "Return to Home",
+        "retry": "Retake Test",
+        "view_analysis": "View Analysis",
+        "answer_all_hint": "Please answer all questions to see the result.",
+        "progress": "Answered: {{answered}} / {{total}}",
+        "before_start_title": "Before you start",
+        "before_start_text": "Breathe calmly. This is just one perspective on your situation. Answers are completely anonymous and stored only on this device."
+    },
+    "labels": {
+        "strength": "Strength"
+    },
+    "modal": {
+        "definition": "Definition"
+    },
+    "options": {
+        "never": "Never",
+        "rarely": "Rarely",
+        "sometimes": "Sometimes",
+        "often": "Often",
+        "daily": "Daily"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "question": "Do you doubt your ability to perform tasks that previously felt easy?"
+        },
+        {
+            "id": 2,
+            "question": "Do you feel like an outsider in your work community?"
+        },
+        {
+            "id": 3,
+            "question": "Do you have trouble sleeping because of work matters?"
+        },
+        {
+            "id": 4,
+            "question": "Do you feel your words are twisted or intentionally misunderstood?"
+        },
+        {
+            "id": 5,
+            "question": "Are you left uninvited to meetings or lunches?"
+        },
+        {
+            "id": 6,
+            "question": "Is your work constantly criticized without a clear reason?"
+        },
+        {
+            "id": 7,
+            "question": "Do you feel anxious on Sunday evenings or during your commute?"
+        },
+        {
+            "id": 8,
+            "question": "Do you have physical symptoms (headache, stomach pain) on workdays?"
+        },
+        {
+            "id": 9,
+            "question": "Does your supervisor or colleague avoid eye contact with you?"
+        },
+        {
+            "id": 10,
+            "question": "Does it feel like you are being watched or monitored?"
+        },
+        {
+            "id": 11,
+            "question": "Is your workload unreasonable compared to others?"
+        },
+        {
+            "id": 12,
+            "question": "Have work tasks been taken away from you without justification?"
+        },
+        {
+            "id": 13,
+            "question": "Is there gossip about you behind your back?"
+        },
+        {
+            "id": 14,
+            "question": "Do you feel 'on guard' all the time at work?"
+        },
+        {
+            "id": 15,
+            "question": "Have you been yelled or cursed at?"
+        },
+        {
+            "id": 16,
+            "question": "Are false rumors being spread about you?"
+        },
+        {
+            "id": 17,
+            "question": "Have you been forbidden from talking to others?"
+        },
+        {
+            "id": 18,
+            "question": "Have your opinions been repeatedly ignored?"
+        },
+        {
+            "id": 19,
+            "question": "Have you been called names or mocked?"
+        },
+        {
+            "id": 20,
+            "question": "Have you been threatened with dismissal?"
+        },
+        {
+            "id": 21,
+            "question": "Do you feel guilty about the situation?"
+        },
+        {
+            "id": 22,
+            "question": "Are you ashamed to tell your loved ones about the situation?"
+        },
+        {
+            "id": 23,
+            "question": "Do you feel you cannot trust anyone at work?"
+        },
+        {
+            "id": 24,
+            "question": "Have you considered resigning because of the situation?"
+        },
+        {
+            "id": 25,
+            "question": "Has your self-esteem dropped in your current job?"
+        },
+        {
+            "id": 31,
+            "question": "I experience success in my work.",
+            "positive": true
+        },
+        {
+            "id": 32,
+            "question": "My work community appreciates my contribution.",
+            "positive": true
+        },
+        {
+            "id": 33,
+            "question": "I feel safe at the workplace.",
+            "positive": true
+        },
+        {
+            "id": 34,
+            "question": "I can be myself at work.",
+            "positive": true
+        },
+        {
+            "id": 35,
+            "question": "I receive support from my supervisor when needed.",
+            "positive": true
+        },
+        {
+            "id": 36,
+            "question": "My tasks are clear and meaningful.",
+            "positive": true
+        },
+        {
+            "id": 37,
+            "question": "I have energy in my free time after the workday.",
+            "positive": true
+        },
+        {
+            "id": 38,
+            "question": "I trust my colleagues.",
+            "positive": true
+        },
+        {
+            "id": 39,
+            "question": "I dare to bring up grievances.",
+            "positive": true
+        },
+        {
+            "id": 40,
+            "question": "I feel heard.",
+            "positive": true
+        }
+    ],
+    "results": {
+        "alt_explanations": "This could also be due to:",
+        "next_steps": "Next Steps",
+        "resources_title": "Important Contacts",
+        "green": {
+            "level": "Low Risk",
+            "description": "Your situation seems stable. The basic pillars of well-being at work are in order, even if there is normal stress in daily life. Continue setting boundaries and taking care of recovery.",
+            "alternativeExplanations": [
+                "Occasional rush or stress",
+                "Temporary changes"
+            ],
+            "nextSteps": [],
+            "resources": [],
+            "disclaimer": "This result is based on your answers. If you feel otherwise, trust your intuition."
+        },
+        "yellow": {
+            "level": "Elevated Risk",
+            "description": "There are noticeable stress factors which, if prolonged, can lead to burnout or deeper bullying cycles. Now is the right time to stop and examine the situation.",
+            "alternativeExplanations": [
+                "Ambiguities in work role",
+                "Poor leadership (not intentional)",
+                "Cultural compatibility issues"
+            ],
+            "nextSteps": [
+                {
+                    "title": "Start keeping a log",
+                    "description": "Write down concrete situations (what, where, when). This clarifies: is it a recurring pattern?"
+                },
+                {
+                    "title": "Talk to a trusted colleague",
+                    "description": "Ask 'have you noticed the same?' Reality checking is important."
+                }
+            ],
+            "resources": [],
+            "disclaimer": "Symptoms may indicate beginning workplace bullying or general burnout."
+        },
+        "orange": {
+            "level": "Significant Risk",
+            "description": "There are serious warning signs in your situation. Your experiences suggest systematic inappropriate treatment or strong psychological load. Your ability to function is at risk.",
+            "alternativeExplanations": [
+                "Systematic workplace bullying",
+                "Severe Burnout",
+                "Abuse of managerial power"
+            ],
+            "nextSteps": [
+                {
+                    "title": "Contact occupational health",
+                    "description": "Book an appointment with a work psychologist. Your symptoms are real and you need support."
+                },
+                {
+                    "title": "Don't remain alone",
+                    "description": "Tell family or friends about the situation. Isolation is the goal of bullying – break it."
+                },
+                {
+                    "title": "Clarify your legal protection",
+                    "description": "Check union membership and legal protection insurance."
+                }
+            ],
+            "resources": [
+                {
+                    "name": "Mieli Ry Crisis Helpline",
+                    "contact": "09 2525 0111",
+                    "when": "24/7"
+                },
+                {
+                    "name": "Occupational Safety Authority",
+                    "contact": "tyosuojelu.fi",
+                    "when": "When you need official help"
+                }
+            ],
+            "disclaimer": "We recommend seeking professional help to clarify the situation."
+        },
+        "red": {
+            "level": "Critical Risk",
+            "description": "You are in acute danger of burning out completely. Your work environment is toxic and your health is seriously threatened. The situation requires immediate actions to protect yourself.",
+            "alternativeExplanations": [
+                "Severe mental violence",
+                "Traumatizing work community"
+            ],
+            "nextSteps": [
+                {
+                    "title": "See a doctor IMMEDIATELY",
+                    "description": "You likely need sick leave to detach from the situation and restore resources."
+                },
+                {
+                    "title": "Prepare to leave",
+                    "description": "Your health is more important than this job. Find out the terms of resignation."
+                },
+                {
+                    "title": "Make a report",
+                    "description": "Make an official report to occupational safety and the employer (in writing), if resources allow."
+                }
+            ],
+            "resources": [
+                {
+                    "name": "Emergency Number",
+                    "contact": "112",
+                    "when": "If you are in immediate danger"
+                },
+                {
+                    "name": "Mieli Ry",
+                    "contact": "mieli.fi",
+                    "when": "Discussion help"
+                }
+            ],
+            "disclaimer": "This is not a medical assessment, but we strongly recommend a doctor's assessment."
+        }
+    }
+}

@@ -2,8 +2,8 @@
 import { Phase } from "../types";
 
 export const YOUTH_SCENARIO: Record<string, Phase> = {
-    START: {
-        id: "START",
+    start: {
+        id: "start",
         day: 0,
         title: "Työhaastattelu",
         time: "14:00",

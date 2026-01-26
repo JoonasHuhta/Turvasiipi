@@ -1,0 +1,82 @@
+{
+  "header": {
+    "badge": "Safe Space",
+    "title": "Community",
+    "subtitle": "You are not alone. Here you can feel the presence of others without pressure."
+  },
+  "poll": {
+    "title": "Daily Pulse"
+  },
+  "stories_card": {
+    "title": "Read and Share Stories",
+    "desc": "Peer support from others' experiences.",
+    "quote": "\"In the stories section, I finally found words for what I had experienced. I realized I wasn't crazy.\"",
+    "btn": "Read Stories"
+  },
+  "resources": {
+    "safe_havens": "Safe Havens",
+    "desc": "Links to moderated, safe groups.",
+    "mieli": {
+      "name": "Mieli ry Groups",
+      "desc": "Professionally guided peer support."
+    },
+    "discord": {
+      "name": "Turvasiipi Discord",
+      "desc": "Real-time discussion with others."
+    },
+    "facebook": {
+      "name": "Facebook: Victims of Workplace Bullying",
+      "desc": "Finland's largest peer support group."
+    }
+  },
+  "no_chat": {
+    "title": "Why is there no chat?",
+    "text": "Turvasiipi is designed with a 'Privacy-First' principle. We do not store your data on a server, so we cannot offer real-time chat. This is a choice for your safety."
+  },
+  "wellbeing": {
+    "title": "Your Wellbeing",
+    "text": "Remember that peer support is important, but it does not replace professional help in severe burnout.",
+    "link": "Do you need professional help? See Contacts →"
+  },
+  "community_page": {
+    "header": {
+      "badge": "Safe Space",
+      "title": "Community",
+      "subtitle": "You are not alone. Here you can feel the presence of others without pressure."
+    },
+    "poll": {
+      "title": "Daily Pulse"
+    },
+    "stories_card": {
+      "title": "Read and Share Stories",
+      "desc": "Peer support from others' experiences.",
+      "quote": "\"In the stories section, I finally found words for what I had experienced. I realized I wasn't crazy.\"",
+      "btn": "Read Stories"
+    },
+    "resources": {
+      "safe_havens": "Safe Havens",
+      "desc": "Links to moderated, safe groups.",
+      "mieli": {
+        "name": "Mieli ry Groups",
+        "desc": "Professionally guided peer support."
+      },
+      "discord": {
+        "name": "Turvasiipi Discord",
+        "desc": "Real-time discussion with others."
+      },
+      "facebook": {
+        "name": "Facebook: Victims of Workplace Bullying",
+        "desc": "Finland's largest peer support group."
+      }
+    },
+    "no_chat": {
+      "title": "Why is there no chat?",
+      "text": "Turvasiipi is designed with a 'Privacy-First' principle. We do not store your data on a server, so we cannot offer real-time chat. This is a choice for your safety."
+    },
+    "wellbeing": {
+      "title": "Your Wellbeing",
+      "text": "Remember that peer support is important, but it does not replace professional help in severe burnout.",
+      "link": "Do you need professional help? See Contacts →"
+    }
+  }
+}

@@ -2,8 +2,8 @@
 import { Phase } from "../types";
 
 export const MANAGER_SCENARIO: Record<string, Phase> = {
-    'START': {
-        id: 'START',
+    'start': {
+        id: 'start',
         day: 1,
         title: "Tervetuloa johtoryhmään",
         content: `Olet juuri aloittanut uutena osastopäällikkönä. Tulostavoitteet ovat kovat, ja ylin johto odottaa "tehostamista".

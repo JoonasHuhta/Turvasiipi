@@ -1,0 +1,92 @@
+{
+  "page": {
+    "label": "Logbook",
+    "title": "Timeline",
+    "subtitle": "All your entries in chronological order. This is your most important evidence.",
+    "status_open": "Active Tracking",
+    "loading": "Loading secure vault...",
+    "confirm_delete": "Are you sure you want to delete this entry?",
+    "history_title": "Event History",
+    "entry_count_one": "{{count}} entry",
+    "entry_count_other": "{{count}} entries",
+    "empty": {
+      "title": "No Entries",
+      "text": "Start logging by pressing the \"New Entry\" button."
+    },
+    "tools": {
+      "guide_title": "How to log correctly?",
+      "guide_desc": "Learn the 5-point formula to make your entries legally valid.",
+      "guide_btn": "Read Documentation Guide",
+      "new_title": "Log a new event",
+      "new_desc": "Did something happen today? Log it immediately while details are fresh.",
+      "new_btn": "Open Log Tool"
+    },
+    "entry_count": "{{count}} entries"
+  },
+  "emotions": {
+    "neutral": "Neutral",
+    "anxious": "Anxious",
+    "angry": "Angry",
+    "sad": "Sad",
+    "fearful": "Fearful",
+    "hopeless": "Hopeless",
+    "determined": "Determined"
+  },
+  "types": {
+    "log": "Diary",
+    "incident": "Incident",
+    "meeting": "Meeting",
+    "email": "Email",
+    "note": "Note"
+  },
+  "timeline": {
+    "page": {
+      "label": "Logbook",
+      "title": "Timeline",
+      "subtitle": "All your entries in chronological order. This is your most important evidence.",
+      "status_open": "Active Tracking",
+      "loading": "Loading secure vault...",
+      "confirm_delete": "Are you sure you want to delete this entry?",
+      "history_title": "Event History",
+      "entry_count_one": "{{count}} entry",
+      "entry_count_other": "{{count}} entries",
+      "empty": {
+        "title": "No Entries",
+        "text": "Start logging by pressing the \"New Entry\" button."
+      },
+      "tools": {
+        "guide_title": "How to log correctly?",
+        "guide_desc": "Learn the 5-point formula to make your entries legally valid.",
+        "guide_btn": "Read Documentation Guide",
+        "new_title": "Log a new event",
+        "new_desc": "Did something happen today? Log it immediately while details are fresh.",
+        "new_btn": "Open Log Tool"
+      },
+      "entry_count": "{{count}} entries"
+    },
+    "emotions": {
+      "neutral": "Neutral",
+      "anxious": "Anxious",
+      "angry": "Angry",
+      "sad": "Sad",
+      "fearful": "Fearful",
+      "hopeless": "Hopeless",
+      "determined": "Determined"
+    },
+    "types": {
+      "log": "Diary",
+      "incident": "Incident",
+      "meeting": "Meeting",
+      "email": "Email",
+      "note": "Note"
+    },
+    "list": {
+      "witnesses_prefix": "Witnesses:",
+      "no_witnesses": "No witnesses"
+    }
+  },
+  "list": {
+    "witnesses_prefix": "Witnesses:",
+    "no_witnesses": "No witnesses"
+  }
+}

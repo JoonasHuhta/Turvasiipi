@@ -1,0 +1,317 @@
+"difficult_conversations": {
+        "title": "Valitse <span class='text-indigo-600'>Vastustajasi</span>",
+        "subtitle": "Kenet kohtaat tÃ¤nÃ¤Ã¤n? Harjoittele erilaisia persoonallisuuksia vastaan.",
+        "ui": {
+            "cancel": "KeskeytÃ¤",
+            "start_challenge": "Aloita haaste",
+            "typing": "kirjoittaa...",
+            "won_title": "Keskustelu hallinnassa!",
+            "won_desc": "SÃ¤ilytit malttisi ja auktoriteettisi hienosti.",
+            "lost_title": "Tilanne eskaloitui",
+            "lost_desc": "Menetit joko malttisi tai auktoriteettisi. YritÃ¤ uudelleen.",
+            "back_menu": "Palaa valikkoon",
+            "retry": "YritÃ¤ uudelleen"
+        },
+        "opponents": {
+            "aggro": {
+                "title": "HÃ¶yryjyrÃ¤",
+                "description": "Aggressiivinen, keskeyttÃ¤Ã¤, korottaa Ã¤Ã¤ntÃ¤.",
+                "intro": "HÃ¶yryjyrÃ¤ tulee huoneeseen ovet paukkuen.",
+                "dialogs": [
+                    {
+                        "opponent": "MITÃ„ NYT TAAS?! Minulla on oikeita tÃ¶itÃ¤ tehtÃ¤vÃ¤nÃ¤, eikÃ¤ aikaa kuunnella sun kitinÃ¤Ã¤!",
+                        "options": [
+                            {
+                                "text": "Ã„lÃ¤ huuda minulle! En kuuntele tuollaista!",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": -10
+                                },
+                                "reply": "Ã„LÃ„ SINÃ„ KOMENTELE MINUA!!",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Huomaan ettÃ¤ olet kiihtynyt. Odotan hetken.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 5
+                                },
+                                "reply": "... (Huokaa raskaasti) No?! Sano asiasi nopeasti.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "(Hiljaisuus) ...",
+                                "effect": {
+                                    "auth": -5,
+                                    "emp": 0
+                                },
+                                "reply": "Onko sulla mitÃ¤Ã¤n asiaa vai voinko lÃ¤hteÃ¤?",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "TÃ¤mÃ¤ projekti on myÃ¶hÃ¤ssÃ¤ SINUN takiasi! Ã„lÃ¤ yritÃ¤ vierittÃ¤Ã¤ syytÃ¤ minun niskoilleni!",
+                        "options": [
+                            {
+                                "text": "En vieritÃ¤ syytÃ¤, vaan yritÃ¤n ratkaista ongelman. Puhutaan faktoista.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "Faktoista?! Hah! No katsotaan sun 'faktoja'.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Ei se ole minun syyni!! SinÃ¤ et toimittanut niitÃ¤ lukuja!",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": -5
+                                },
+                                "reply": "Nyt riitti! En kuuntele tuota valehtelua!",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Anteeksi, yritÃ¤n parhaani...",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": 10
+                                },
+                                "reply": "Sun parhaasi ei selvÃ¤stikÃ¤Ã¤n riitÃ¤!",
+                                "outcome": "bad"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "MinÃ¤ olen tehnyt tÃ¤tÃ¤ tyÃ¶tÃ¤ 20 vuotta! Ã„lÃ¤ tule neuvomaan minua!",
+                        "options": [
+                            {
+                                "text": "Arvostan kokemustasi. Siksi haluankin yhteistyÃ¶n toimivan.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 15
+                                },
+                                "reply": "Hmmh. No... kokemus on kyllÃ¤ valttia.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Maailma muuttuu, papka.",
+                                "effect": {
+                                    "auth": -30,
+                                    "emp": -20
+                                },
+                                "reply": "ULOS MUN TOIMISTOSTA!",
+                                "outcome": "fail"
+                            },
+                            {
+                                "text": "En neuvo, vaan kerran pelisÃ¤Ã¤nnÃ¶t.",
+                                "effect": {
+                                    "auth": 5,
+                                    "emp": -5
+                                },
+                                "reply": "PelisÃ¤Ã¤nnÃ¶t... sinÃ¤ ja sun sÃ¤Ã¤nnÃ¶t.",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "victim": {
+                "title": "Uhriutuja",
+                "description": "Itkee, syyttÃ¤Ã¤ sinua julmuudesta.",
+                "intro": "Uhriutuja istuu alas nenÃ¤liina kÃ¤dessÃ¤, kyyneleet silmissÃ¤.",
+                "dialogs": [
+                    {
+                        "opponent": "Miksi sÃ¤ kutsuit mut tÃ¤nne? (Niisk) Olenko mÃ¤ tehnyt jotain vÃ¤Ã¤rin? MÃ¤ teen aina kaikkeni...",
+                        "options": [
+                            {
+                                "text": "Ei hÃ¤tÃ¤Ã¤, ota nenÃ¤liina. Ei tÃ¤mÃ¤ ole vakavaa.",
+                                "effect": {
+                                    "auth": -15,
+                                    "emp": 20
+                                },
+                                "reply": "MÃ¤ pelkÃ¤Ã¤n niin kauheasti ettÃ¤ mÃ¤ saan potkut! (Itku yltyy)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Haluaisin keskustella tiimin ilmapiiristÃ¤ ja sinun roolistasi siinÃ¤.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 5
+                                },
+                                "reply": "Mun roolista? Eli mÃ¤ olen syyllinen? Kaikki vihaa mua...",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Lopeta tuo pillitys.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": -30
+                                },
+                                "reply": "SÃ¤ olet julma! HirviÃ¶!",
+                                "outcome": "fail"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "MÃ¤ en vaan jaksa enÃ¤Ã¤... kukaan ei ymmÃ¤rrÃ¤ mua. SÃ¤kin olet aina mua vastaan.",
+                        "options": [
+                            {
+                                "text": "En ole sinua vastaan. Haluan tukea sinua, mutta meidÃ¤n pitÃ¤Ã¤ muuttaa tapaa kommunikoida.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 10
+                                },
+                                "reply": "Tukea? Tarkoitatko sitÃ¤ oikeasti?",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "No voi raukkaa. EhkÃ¤ sun pitÃ¤isi levÃ¤tÃ¤.",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": 15
+                                },
+                                "reply": "Niin pitÃ¤isi... mÃ¤ lÃ¤hden kotiin. (LÃ¤htee kesken)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Tuo uhriutuminen ei toimi minuun.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": -10
+                                },
+                                "reply": "Uhriutuminen?! MÃ¤ olen uhri tÃ¤ssÃ¤!",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Jos sÃ¤ kirjaat tÃ¤stÃ¤ merkinnÃ¤n, mun elÃ¤mÃ¤ on pilalla! Miten sÃ¤ voit tehdÃ¤ tÃ¤n mulle?",
+                        "options": [
+                            {
+                                "text": "TÃ¤mÃ¤ on normaali kehityskeskustelu. Kirjaan sovitut asiat.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "...okei. Jos sÃ¤ lupaat kirjata rehellisesti.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "En kirjaa jos lupaat parantaa tapasi.",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": 10
+                                },
+                                "reply": "Lupaan! Lupaan mitÃ¤ vaan! (Ei muuta kÃ¤ytÃ¶stÃ¤Ã¤n)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Se on sinun valintojesi seuraus.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": -10
+                                },
+                                "reply": "(Tuijottaa hiljaa, mutta lopettaa itkun)",
+                                "outcome": "good"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gaslight": {
+                "title": "Gaslighter",
+                "description": "KieltÃ¤Ã¤ kaiken, kyseenalaistaa muistisi.",
+                "intro": "Gaslighter katsoo sinua hymyillen, tÃ¤ysin rauhallisena.",
+                "dialogs": [
+                    {
+                        "opponent": "Hei. MikÃ¤s nyt on hÃ¤tÃ¤nÃ¤? NÃ¤ytÃ¤t stressaantuneelta. Onko kotona kaikki hyvin?",
+                        "options": [
+                            {
+                                "text": "Ã„lÃ¤ vaihda aihetta. Puhutaan eilisestÃ¤ palaverista.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 0
+                                },
+                                "reply": "EilisestÃ¤? Ai siitÃ¤ missÃ¤ sÃ¤ korotit Ã¤Ã¤ntÃ¤si?",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Ihan hyvin... vÃ¤hÃ¤n vÃ¤synyt vain.",
+                                "effect": {
+                                    "auth": -15,
+                                    "emp": -5
+                                },
+                                "reply": "Niin minÃ¤ ajattelinkin. SÃ¤ olet ylirasittunut, kuvittelet asioita.",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Se ei kuulu tÃ¤hÃ¤n.",
+                                "effect": {
+                                    "auth": 5,
+                                    "emp": 0
+                                },
+                                "reply": "Tietenkin kuuluu. Me ollaan ihmisiÃ¤. MÃ¤ olen huolissani susta.",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "MÃ¤ en koskaan sanonut noin. SÃ¤ olet ymmÃ¤rtÃ¤nyt vÃ¤Ã¤rin. Taas.",
+                        "options": [
+                            {
+                                "text": "Minulla on sÃ¤hkÃ¶posti tÃ¤ssÃ¤, jossa lukee juuri niin.",
+                                "effect": {
+                                    "auth": 20,
+                                    "emp": 0
+                                },
+                                "reply": "SÃ¤hkÃ¶posti? NÃ¤ytÃ¤. ... Hah, sÃ¤ tulkitset tuon aivan vÃ¤Ã¤rin.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "EhkÃ¤ mÃ¤ sitten muistan vÃ¤Ã¤rin...?",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": -10
+                                },
+                                "reply": "Niin muistat. SÃ¤ olet viime aikoina ollut tosi hajamielinen.",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Kuulin sen omin korvin, ja Pekka kuuli myÃ¶s.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "Pekka? Pekka sanoo mitÃ¤ vaan miellyttÃ¤Ã¤kseen sua.",
+                                "outcome": "good"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Oletko sÃ¤ varma ettÃ¤ olet sopiva tÃ¤hÃ¤n rooliin? Vaikutat... epÃ¤vakaalta.",
+                        "options": [
+                            {
+                                "text": "Minun pÃ¤tevyyteni ei ole keskustelun aihe. Aihe on sinun kÃ¤ytÃ¶ksesi.",
+                                "effect": {
+                                    "auth": 20,
+                                    "emp": 0
+                                },
+                                "reply": "... (Hymy hyytyy). SelvÃ¤. Puhutaan sitten.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "MitÃ¤?! MinÃ¤ olen tÃ¤ysin vakaa!",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": -10
+                                },
+                                "reply": "No ei tuo reaktio kovin vakaalta vaikuta. Rauhoitu nyt.",
+                                "outcome": "bad"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }

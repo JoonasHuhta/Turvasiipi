@@ -9,9 +9,15 @@ import Link from "next/link";
 import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import { useEffect } from "react";
 
 export default function NeurodiversityPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('neuromoninaisuus');
+    }, [loadNamespace]);
+
     const { completeModule, isModuleCompleted } = useProgress();
     const isCompleted = isModuleCompleted('neuro_info');
 
@@ -25,16 +31,16 @@ export default function NeurodiversityPage() {
                 {/* HEADER */}
                 <div className="text-center space-y-6">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
-                        {t('neuro_page.header.mini_title')}
+                        {t('neuromoninaisuus.header.mini_title')}
                     </span>
                     <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#2B2B2B] tracking-tight leading-tight">
-                        {t('neuro_page.header.title')}
+                        {t('neuromoninaisuus.header.title')}
                     </h1>
                     <p className="text-xl text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed font-serif italic">
-                        {t('neuro_page.header.quote')}
+                        {t('neuromoninaisuus.header.quote')}
                     </p>
                     <p className="text-sm text-[#666] max-w-xl mx-auto leading-relaxed">
-                        {t('neuro_page.header.intro')}
+                        {t('neuromoninaisuus.header.intro')}
                     </p>
                 </div>
 
@@ -46,14 +52,14 @@ export default function NeurodiversityPage() {
                                 <Brain className="w-8 h-8" />
                             </div>
                             <div>
-                                <CardTitle className="text-xl">{t('neuro_page.cards.what.title')}</CardTitle>
-                                <CardDescription>{t('neuro_page.cards.what.subtitle')}</CardDescription>
+                                <CardTitle className="text-xl">{t('neuromoninaisuus.cards.what.title')}</CardTitle>
+                                <CardDescription>{t('neuromoninaisuus.cards.what.subtitle')}</CardDescription>
                             </div>
                         </CardHeader>
                         <CardContent className="text-[#4A4A4A] space-y-2 text-sm">
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.what.adhd') }} />
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.what.autism') }} />
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.what.dyslexia') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.what.adhd') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.what.autism') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.what.dyslexia') }} />
                         </CardContent>
                     </Card>
 
@@ -63,14 +69,14 @@ export default function NeurodiversityPage() {
                                 <Zap className="w-8 h-8" />
                             </div>
                             <div>
-                                <CardTitle className="text-xl font-serif">{t('neuro_page.cards.superpowers.title')}</CardTitle>
-                                <CardDescription className="text-[#5B4B8A] font-mono text-[10px] uppercase tracking-wider">{t('neuro_page.cards.superpowers.subtitle')}</CardDescription>
+                                <CardTitle className="text-xl font-serif">{t('neuromoninaisuus.cards.superpowers.title')}</CardTitle>
+                                <CardDescription className="text-[#5B4B8A] font-mono text-[10px] uppercase tracking-wider">{t('neuromoninaisuus.cards.superpowers.subtitle')}</CardDescription>
                             </div>
                         </CardHeader>
                         <CardContent className="text-[#4A4A4A] space-y-2 text-sm leading-relaxed">
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.superpowers.productivity') }} />
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.superpowers.innovation') }} />
-                            <p dangerouslySetInnerHTML={{ __html: t('neuro_page.cards.superpowers.hyperfocus') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.superpowers.productivity') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.superpowers.innovation') }} />
+                            <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.cards.superpowers.hyperfocus') }} />
                         </CardContent>
                     </Card>
                 </div>
@@ -81,13 +87,13 @@ export default function NeurodiversityPage() {
                         <div className="flex flex-col md:flex-row gap-8 items-center text-center md:text-left">
                             <div className="flex-1 space-y-4">
                                 <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
-                                    {t('neuro_page.spoon_theory.mini_title')}
+                                    {t('neuromoninaisuus.spoon_theory.mini_title')}
                                 </span>
                                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">
-                                    {t('neuro_page.spoon_theory.title')}
+                                    {t('neuromoninaisuus.spoon_theory.title')}
                                 </h2>
                                 <p className="text-[#4A4A4A] leading-relaxed font-medium">
-                                    {t('neuro_page.spoon_theory.text')}
+                                    {t('neuromoninaisuus.spoon_theory.text')}
                                 </p>
                             </div>
                             <div className="flex-1 grid grid-cols-4 gap-4 max-w-sm">
@@ -101,16 +107,16 @@ export default function NeurodiversityPage() {
 
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
-                                <h4 className="font-bold mb-3 text-[#5B4B8A] uppercase text-[10px] tracking-widest">{t('neuro_page.spoon_theory.what.title')}</h4>
-                                <p className="text-sm text-[#4A4A4A]">{t('neuro_page.spoon_theory.what.text')}</p>
+                                <h4 className="font-bold mb-3 text-[#5B4B8A] uppercase text-[10px] tracking-widest">{t('neuromoninaisuus.spoon_theory.what.title')}</h4>
+                                <p className="text-sm text-[#4A4A4A]">{t('neuromoninaisuus.spoon_theory.what.text')}</p>
                             </div>
                             <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
-                                <h4 className="font-bold mb-3 text-rose-700 uppercase tracking-widest text-[10px]">{t('neuro_page.spoon_theory.consume.title')}</h4>
-                                <p className="text-sm text-[#4A4A4A]">{t('neuro_page.spoon_theory.consume.text')}</p>
+                                <h4 className="font-bold mb-3 text-rose-700 uppercase tracking-widest text-[10px]">{t('neuromoninaisuus.spoon_theory.consume.title')}</h4>
+                                <p className="text-sm text-[#4A4A4A]">{t('neuromoninaisuus.spoon_theory.consume.text')}</p>
                             </div>
                             <div className="bg-[#FDFBF7] p-6 rounded-2xl border border-[#E8DDD0]">
-                                <h4 className="font-bold mb-3 text-emerald-700 uppercase tracking-widest text-[10px]">{t('neuro_page.spoon_theory.save.title')}</h4>
-                                <p className="text-sm text-[#4A4A4A]">{t('neuro_page.spoon_theory.save.text')}</p>
+                                <h4 className="font-bold mb-3 text-emerald-700 uppercase tracking-widest text-[10px]">{t('neuromoninaisuus.spoon_theory.save.title')}</h4>
+                                <p className="text-sm text-[#4A4A4A]">{t('neuromoninaisuus.spoon_theory.save.text')}</p>
                             </div>
                         </div>
                     </div>
@@ -124,31 +130,31 @@ export default function NeurodiversityPage() {
                     <section id="haasteet">
                         <h2 className="text-2xl font-serif font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
                             <AlertTriangle className="w-6 h-6 text-amber-600" />
-                            {t('neuro_page.challenges.title')}
+                            {t('neuromoninaisuus.challenges.title')}
                         </h2>
                         <div className="grid md:grid-cols-2 gap-4">
                             <Card>
                                 <CardHeader className="pb-3">
-                                    <CardTitle className="text-base flex items-center gap-2"><Briefcase className="w-4 h-4 text-slate-400" /> {t('neuro_page.challenges.environment.title')}</CardTitle>
+                                    <CardTitle className="text-base flex items-center gap-2"><Briefcase className="w-4 h-4 text-slate-400" /> {t('neuromoninaisuus.challenges.environment.title')}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="text-sm text-slate-600 space-y-2">
-                                    <p>{t('neuro_page.challenges.environment.text')}</p>
+                                    <p>{t('neuromoninaisuus.challenges.environment.text')}</p>
                                 </CardContent>
                             </Card>
                             <Card>
                                 <CardHeader className="pb-3">
-                                    <CardTitle className="text-base flex items-center gap-2"><Ear className="w-4 h-4 text-slate-400" /> {t('neuro_page.challenges.misunderstandings.title')}</CardTitle>
+                                    <CardTitle className="text-base flex items-center gap-2"><Ear className="w-4 h-4 text-slate-400" /> {t('neuromoninaisuus.challenges.misunderstandings.title')}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="text-sm text-slate-600 space-y-2">
-                                    <p>{t('neuro_page.challenges.misunderstandings.text')}</p>
+                                    <p>{t('neuromoninaisuus.challenges.misunderstandings.text')}</p>
                                 </CardContent>
                             </Card>
                             <Card className="md:col-span-2 border-red-100 bg-red-50/50">
                                 <CardHeader className="pb-3">
-                                    <CardTitle className="text-base flex items-center gap-2 text-red-700">{t('neuro_page.challenges.masking.title')}</CardTitle>
+                                    <CardTitle className="text-base flex items-center gap-2 text-red-700">{t('neuromoninaisuus.challenges.masking.title')}</CardTitle>
                                 </CardHeader>
                                 <CardContent className="text-sm text-slate-700 space-y-2">
-                                    <p dangerouslySetInnerHTML={{ __html: t('neuro_page.challenges.masking.text') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.challenges.masking.text') }} />
                                 </CardContent>
                             </Card>
                         </div>
@@ -158,22 +164,22 @@ export default function NeurodiversityPage() {
                     <section id="toiminta" className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-[#E8DDD0]">
                         <h2 className="text-2xl font-serif font-bold flex items-center gap-3 mb-6 text-[#2B2B2B]">
                             <UserCheck className="w-6 h-6 text-emerald-600" />
-                            {t('neuro_page.actions.title')}
+                            {t('neuromoninaisuus.actions.title')}
                         </h2>
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="space-y-4">
-                                <h3 className="font-bold text-lg text-emerald-800">{t('neuro_page.actions.employee.title')}</h3>
+                                <h3 className="font-bold text-lg text-emerald-800">{t('neuromoninaisuus.actions.employee.title')}</h3>
                                 <ul className="space-y-3 text-slate-600 text-sm">
-                                    {((t('neuro_page.actions.employee.list', { returnObjects: true }) as string[]) || []).map((item, i) => (
+                                    {((t('neuromoninaisuus.actions.employee.list', { returnObjects: true }) as string[]) || []).map((item, i) => (
                                         <li key={i} className="flex gap-2" dangerouslySetInnerHTML={{ __html: item }} />
                                     ))}
                                 </ul>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="font-bold text-lg text-indigo-800">{t('neuro_page.actions.manager.title')}</h3>
+                                <h3 className="font-bold text-lg text-indigo-800">{t('neuromoninaisuus.actions.manager.title')}</h3>
                                 <ul className="space-y-3 text-slate-600 text-sm">
-                                    {((t('neuro_page.actions.manager.list', { returnObjects: true }) as string[]) || []).map((item, i) => (
+                                    {((t('neuromoninaisuus.actions.manager.list', { returnObjects: true }) as string[]) || []).map((item, i) => (
                                         <li key={i} className="flex gap-2" dangerouslySetInnerHTML={{ __html: item }} />
                                     ))}
                                 </ul>
@@ -187,29 +193,29 @@ export default function NeurodiversityPage() {
                             <div className="p-2 bg-[#FDFBF7] text-[#5B4B8A] rounded-lg border border-[#E8DDD0]">
                                 <MessageCircle className="w-5 h-5" />
                             </div>
-                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('neuro_page.decoder.title')}</h2>
+                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('neuromoninaisuus.decoder.title')}</h2>
                         </div>
-                        <p className="text-slate-600 text-sm">{t('neuro_page.decoder.intro')}</p>
+                        <p className="text-slate-600 text-sm">{t('neuromoninaisuus.decoder.intro')}</p>
 
                         <div className="grid gap-4">
-                            {((t('neuro_page.decoder.items', { returnObjects: true }) as Array<{ situation: string, nt: string, nd: string, bridge: string }>) || []).map((item, i) => (
+                            {((t('neuromoninaisuus.decoder.items', { returnObjects: true }) as Array<{ situation: string, nt: string, nd: string, bridge: string }>) || []).map((item, i) => (
                                 <Card key={i} className="overflow-hidden border-slate-200">
                                     <div className="bg-slate-50 border-b border-slate-100 px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-500">
-                                        {t('neuro_page.decoder.situation_label')}: {item.situation}
+                                        {t('neuromoninaisuus.decoder.situation_label')}: {item.situation}
                                     </div>
                                     <div className="grid md:grid-cols-2">
                                         <div className="p-4 border-b md:border-b-0 md:border-r border-slate-100 space-y-2">
-                                            <span className="text-[10px] font-bold text-indigo-600 uppercase">{t('neuro_page.decoder.nt_label')}</span>
+                                            <span className="text-[10px] font-bold text-indigo-600 uppercase">{t('neuromoninaisuus.decoder.nt_label')}</span>
                                             <p className="text-sm text-slate-600 italic">"{item.nt}"</p>
                                         </div>
                                         <div className="p-4 space-y-2 bg-amber-50/30">
-                                            <span className="text-[10px] font-bold text-amber-600 uppercase">{t('neuro_page.decoder.nd_label')}</span>
+                                            <span className="text-[10px] font-bold text-amber-600 uppercase">{t('neuromoninaisuus.decoder.nd_label')}</span>
                                             <p className="text-sm text-slate-700 font-medium">"{item.nd}"</p>
                                         </div>
                                     </div>
                                     <div className="p-4 bg-emerald-50 flex items-start gap-3">
                                         <UserCheck className="w-4 h-4 text-emerald-600 mt-0.5" />
-                                        <p className="text-xs text-emerald-800 font-bold">{t('neuro_page.decoder.solution_label')}: {item.bridge}</p>
+                                        <p className="text-xs text-emerald-800 font-bold">{t('neuromoninaisuus.decoder.solution_label')}: {item.bridge}</p>
                                     </div>
                                 </Card>
                             ))}
@@ -222,34 +228,34 @@ export default function NeurodiversityPage() {
                             <div className="p-2 bg-[#FDFBF7] text-[#5B4B8A] rounded-lg border border-[#E8DDD0]">
                                 <BookOpen className="w-5 h-5" />
                             </div>
-                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('neuro_page.logs.title')}</h2>
+                            <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t('neuromoninaisuus.logs.title')}</h2>
                         </div>
-                        <p className="text-slate-600 text-sm font-medium">{t('neuro_page.logs.subtitle')}</p>
+                        <p className="text-slate-600 text-sm font-medium">{t('neuromoninaisuus.logs.subtitle')}</p>
 
                         <div className="grid md:grid-cols-2 gap-6">
                             <Card className="border-2 border-dashed border-slate-200 bg-transparent hover:border-indigo-300 transition-colors cursor-pointer group">
                                 <CardHeader>
                                     <CardTitle className="text-base flex items-center justify-between">
-                                        {t('neuro_page.logs.accommodation.title')}
+                                        {t('neuromoninaisuus.logs.accommodation.title')}
                                         <ShieldCheck className="w-4 h-4 text-slate-300 group-hover:text-indigo-500" />
                                     </CardTitle>
-                                    <CardDescription>{t('neuro_page.logs.accommodation.desc')}</CardDescription>
+                                    <CardDescription>{t('neuromoninaisuus.logs.accommodation.desc')}</CardDescription>
                                 </CardHeader>
                                 <CardContent className="bg-white m-4 rounded-xl p-4 text-[11px] font-mono text-slate-500 leading-relaxed border border-slate-100 italic">
-                                    <div dangerouslySetInnerHTML={{ __html: t('neuro_page.logs.accommodation.content') }} />
+                                    <div dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.logs.accommodation.content') }} />
                                 </CardContent>
                             </Card>
 
                             <Card className="border-2 border-dashed border-slate-200 bg-transparent hover:border-rose-300 transition-colors cursor-pointer group">
                                 <CardHeader>
                                     <CardTitle className="text-base flex items-center justify-between">
-                                        {t('neuro_page.logs.breakdown.title')}
+                                        {t('neuromoninaisuus.logs.breakdown.title')}
                                         <AlertTriangle className="w-4 h-4 text-slate-300 group-hover:text-rose-500" />
                                     </CardTitle>
-                                    <CardDescription>{t('neuro_page.logs.breakdown.desc')}</CardDescription>
+                                    <CardDescription>{t('neuromoninaisuus.logs.breakdown.desc')}</CardDescription>
                                 </CardHeader>
                                 <CardContent className="bg-white m-4 rounded-xl p-4 text-[11px] font-mono text-slate-500 leading-relaxed border border-slate-100 italic">
-                                    <div dangerouslySetInnerHTML={{ __html: t('neuro_page.logs.breakdown.content') }} />
+                                    <div dangerouslySetInnerHTML={{ __html: t('neuromoninaisuus.logs.breakdown.content') }} />
                                 </CardContent>
                             </Card>
                         </div>
@@ -257,8 +263,8 @@ export default function NeurodiversityPage() {
                             <div className="flex gap-4 items-center">
                                 <Scale className="w-10 h-10 text-[#5B4B8A] shrink-0 opacity-50" />
                                 <div>
-                                    <h4 className="font-bold mb-1 font-serif">{t('neuro_page.logs.rights.title')}</h4>
-                                    <p className="text-[#4A4A4A] leading-relaxed">{t('neuro_page.logs.rights.text')}</p>
+                                    <h4 className="font-bold mb-1 font-serif">{t('neuromoninaisuus.logs.rights.title')}</h4>
+                                    <p className="text-[#4A4A4A] leading-relaxed">{t('neuromoninaisuus.logs.rights.text')}</p>
                                 </div>
                             </div>
                         </div>
@@ -273,13 +279,13 @@ export default function NeurodiversityPage() {
                     <div className="relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 text-left items-center">
                         <div className="space-y-6">
                             <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1 inline-block">
-                                {t('neuro_page.simulation.mini_title')}
+                                {t('neuromoninaisuus.simulation.mini_title')}
                             </span>
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#2B2B2B] leading-tight">
-                                {t('neuro_page.simulation.title')}
+                                {t('neuromoninaisuus.simulation.title')}
                             </h2>
                             <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-md">
-                                {t('neuro_page.simulation.text')}
+                                {t('neuromoninaisuus.simulation.text')}
                             </p>
                         </div>
 
@@ -287,28 +293,28 @@ export default function NeurodiversityPage() {
                             <Link href="/simulaatio/neuro">
                                 <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
                                     <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
-                                        {t('neuro_page.simulation.card1.title')}
+                                        {t('neuromoninaisuus.simulation.card1.title')}
                                         <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-[#666] mt-1">{t('neuro_page.simulation.card1.desc')}</p>
+                                    <p className="text-xs text-[#666] mt-1">{t('neuromoninaisuus.simulation.card1.desc')}</p>
                                 </div>
                             </Link>
                             <Link href="/simulaatio/performance-trap">
                                 <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
                                     <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
-                                        {t('neuro_page.simulation.card2.title')}
+                                        {t('neuromoninaisuus.simulation.card2.title')}
                                         <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-[#666] mt-1">{t('neuro_page.simulation.card2.desc')}</p>
+                                    <p className="text-xs text-[#666] mt-1">{t('neuromoninaisuus.simulation.card2.desc')}</p>
                                 </div>
                             </Link>
                             <Link href="/simulaatio/information-shadow">
                                 <div className="p-5 bg-[#FDFBF7] border border-[#E8DDD0] rounded-2xl hover:bg-white hover:border-[#5B4B8A] transition-all group shadow-sm">
                                     <h4 className="font-bold text-[#2B2B2B] flex items-center justify-between">
-                                        {t('neuro_page.simulation.card3.title')}
+                                        {t('neuromoninaisuus.simulation.card3.title')}
                                         <ArrowRight className="w-4 h-4 text-[#5B4B8A] group-hover:translate-x-1 transition-transform" />
                                     </h4>
-                                    <p className="text-xs text-[#666] mt-1">{t('neuro_page.simulation.card3.desc')}</p>
+                                    <p className="text-xs text-[#666] mt-1">{t('neuromoninaisuus.simulation.card3.desc')}</p>
                                 </div>
                             </Link>
                         </div>
@@ -317,7 +323,7 @@ export default function NeurodiversityPage() {
                     <div className="pt-8 mt-8 border-t border-[#E8DDD0] relative z-10 text-center lg:text-left">
                         <Link href="/simulaatio">
                             <Button variant="outline" className="border-[#E8DDD0] text-[#5B4B8A] hover:bg-[#FDFBF7] rounded-full px-8 font-serif">
-                                {t('neuro_page.simulation.btn_all')}
+                                {t('neuromoninaisuus.simulation.btn_all')}
                             </Button>
                         </Link>
                     </div>
@@ -341,12 +347,12 @@ export default function NeurodiversityPage() {
 
                             <div className="space-y-2">
                                 <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900">
-                                    {isCompleted ? t('neuro_page.completion.title_done') : t('neuro_page.completion.title_new')}
+                                    {isCompleted ? t('neuromoninaisuus.completion.title_done') : t('neuromoninaisuus.completion.title_new')}
                                 </h3>
                                 <p className="text-slate-600 max-w-sm mx-auto font-medium">
                                     {isCompleted
-                                        ? t('neuro_page.completion.text_done')
-                                        : t('neuro_page.completion.text_new')}
+                                        ? t('neuromoninaisuus.completion.text_done')
+                                        : t('neuromoninaisuus.completion.text_new')}
                                 </p>
                             </div>
 
@@ -355,12 +361,12 @@ export default function NeurodiversityPage() {
                                     onClick={handleComplete}
                                     className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-indigo-500/25 transition-all h-auto whitespace-normal"
                                 >
-                                    {t('neuro_page.completion.btn_mark')}
+                                    {t('neuromoninaisuus.completion.btn_mark')}
                                 </Button>
                             ) : (
                                 <Link href="/profiili" className="block w-full sm:inline-block sm:w-auto">
                                     <Button variant="outline" className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-100 font-bold px-10 py-6 rounded-2xl">
-                                        {t('neuro_page.completion.btn_back')}
+                                        {t('neuromoninaisuus.completion.btn_back')}
                                     </Button>
                                 </Link>
                             )}

@@ -1,0 +1,189 @@
+{
+    "title": "Valmennuspolut",
+    "category_title": "Valmennus",
+    "back": "Takaisin",
+    "stats": "Sertifikaatit",
+    "hub": {
+        "title": "Missä tilanteessa olet?",
+        "subtitle": "Valitse tilanteeseesi sopiva polku. Turvasiipi auttaa sinua etenemään kohti ratkaisua omaan tahtiin."
+    },
+    "ui": {
+        "new": "UUSI",
+        "cert": "SERTIFIKAATTI",
+        "locked": "LUKITTU"
+    },
+    "categories": {
+        "acute": {
+            "title": "AKUUTTI APU 🆘",
+            "desc": "Tarvitsen apua NYT. Ensiapua kriisitilanteeseen.",
+            "modules": {
+                "action_protocols": {
+                    "title": "Konkreettiset Toimintamallit",
+                    "desc": "Akuutit skriptit ja turvasuunnitelmat."
+                },
+                "conversations": {
+                    "title": "Vaikeat Keskustelut",
+                    "desc": "Rajanveto ja itsensä suojaaminen."
+                },
+                "safety": {
+                    "title": "Turvallisuuden Palauttaminen",
+                    "desc": "Miten tuntea olonsa turvalliseksi taas."
+                },
+                "exit_strategy": {
+                    "title": "Exit-Strategia",
+                    "desc": "Milloin on aika lähteä? Tunnista merkit."
+                }
+            }
+        },
+        "understand": {
+            "title": "YMMÄRRÄ ILMIÖ 🧠",
+            "desc": "Mitä minulle tapahtuu? Tietoa ja tunnistamista.",
+            "modules": {
+                "basic": {
+                    "title": "Kiusaamisen Lukutaito (Sertifikaatti)",
+                    "desc": "Peruskurssi: Tunnista peruskuviot ja dynamiikka."
+                },
+                "ostrakismi_toolkit": {
+                    "title": "Ostrakismi-työkalupakki",
+                    "desc": "Tunnista ja puutu hiljaiseen ulossulkemiseen."
+                },
+                "bystander_effect": {
+                    "title": "Bystander-efekti",
+                    "desc": "Miksi muut eivät puutu? Vastuun hajautuminen."
+                },
+                "pluralistic_ignorance": {
+                    "title": "Pluralistinen Ignoranssi",
+                    "desc": "Miksi vaikenemme, vaikka tiedämme tilanteen olevan väärä."
+                },
+                "gaslighting_mechanisms": {
+                    "title": "Gaslightingin Mekanismit",
+                    "desc": "Miten todellisuutta manipuloidaan."
+                }
+            }
+        },
+        "recovery": {
+            "title": "KEHON & MIELEN TOIPUMINEN 💚",
+            "desc": "Kuinka selvitä päivästä toiseen? Trauma ja hyvinvointi.",
+            "modules": {
+                "recovery_main": {
+                    "title": "Toipuminen & Hyvinvointi",
+                    "desc": "Hermoston rauhoittaminen ja traumatiedon soveltaminen."
+                },
+                "somatic": {
+                    "title": "Somaattinen Vapautus",
+                    "desc": "5 harjoitusta kehon jännitykseen."
+                },
+                "trauma_brain": {
+                    "title": "Trauma-Aivot: Parantaminen",
+                    "desc": "Miten mieli toipuu vauriosta."
+                },
+                "dmn": {
+                    "title": "Default Mode Network",
+                    "desc": "Katkaise märehtimisen kierre."
+                },
+                "mindfulness": {
+                    "title": "Mindfulness & Grounding",
+                    "desc": "Ankkuroitumisharjoitukset arkeen."
+                }
+            }
+        },
+        "return": {
+            "title": "PALUU & UUDELLEENORIENTOITUMINEN 🔄",
+            "desc": "Mitä teen seuraavaksi? Paluu työhön tai uusi alku.",
+            "modules": {
+                "path_12_week": {
+                    "title": "12 Viikon Paluupolku",
+                    "desc": "Vaiheittainen suunnitelma paluuseen."
+                },
+                "boundaries": {
+                    "title": "Rajojen Asettaminen",
+                    "desc": "Uudet pelisäännöt omalle työlle."
+                },
+                "identity": {
+                    "title": "Identiteetin Rakentaminen",
+                    "desc": "Kuka olen kiusaamisen jälkeen."
+                }
+            }
+        },
+        "interactive": {
+            "title": "INTERAKTIIVISET TAIDOT 🎯",
+            "desc": "Harjoittele turvallisesti. Simulaatiot ja pelit.",
+            "modules": {
+                "empathy": {
+                    "title": "Peilisolu-Pelastus (Sertifikaatti)",
+                    "desc": "Empatia-peli toisen asemaan astumiseen."
+                },
+                "bystander": {
+                    "title": "Bystander-Herättäjä (Sertifikaatti)",
+                    "desc": "Psykologisesti turvallinen puuttuminen."
+                },
+                "labyrinth": {
+                    "title": "Moraalinen Labyrintti",
+                    "desc": "Eettiset valinnat paineen alla."
+                }
+            }
+        },
+        "organization": {
+            "title": "ORGANISAATIOILLE 🏢",
+            "desc": "Kuinka muuttaa kulttuuria? Ratkaisuja työyhteisölle.",
+            "modules": {
+                "org_knowledge": {
+                    "title": "Tietopankki: Työhyvinvointi",
+                    "desc": "Organisaatiotason riskitekijät."
+                },
+                "culture_thermometer": {
+                    "title": "Kulttuuri-lämpömittari",
+                    "desc": "Mittaa psykologinen turvallisuus."
+                },
+                "empathy_audit": {
+                    "title": "Empatia-audit",
+                    "desc": "Johdon testaus ja auditointi."
+                },
+                "org_cost_calculator": {
+                    "title": "Kustannuslaskuri",
+                    "desc": "Laske hiljaisuuden hinta."
+                },
+                "manager": {
+                    "title": "Esimiesten Koulutus",
+                    "desc": "Johtamisvastuu ja puuttumisen kynnys."
+                },
+                "hr": {
+                    "title": "HR & Johdon Masterclass",
+                    "desc": "Strateginen vastaaminen ja kulttuurimuutos."
+                },
+                "b2b": {
+                    "title": "Yhteistyö & Räätälöinti",
+                    "desc": "Pilotointi ja keskustelunavaus."
+                }
+            }
+        },
+        "special": {
+            "title": "ERITYISYMPÄRISTÖT 🎭",
+            "desc": "Tunnistan tämän omasta elämästäni. Vapaa-aika ja yhteisöt.",
+            "modules": {
+                "association_basics": {
+                    "title": "Yhdistystoiminnan Varjopuolet",
+                    "desc": "Vallankäyttö ja klikit hallitustyöskentelyssä."
+                },
+                "hobby_boundaries": {
+                    "title": "Harrastuksen Rajat",
+                    "desc": "Miten pitää hauskaa ja asettaa rajat samaan aikaan."
+                }
+            }
+        },
+        "progress": {
+            "title": "OMA EDISTYMINEN 📊",
+            "desc": "Mitä olen saavuttanut? Todistukset ja seuranta.",
+            "modules": {
+                "cert_view": {
+                    "title": "Omat Sertifikaatit",
+                    "desc": "Tarkastele ja lataa todistuksia."
+                },
+                "download": {
+                    "title": "Lataa Työnantajalle",
+                    "desc": "Kaikki todisteet yhdessä paketissa."
+                }
+            }
+        }
+    }
+}

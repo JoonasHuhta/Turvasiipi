@@ -1,0 +1,119 @@
+{
+    "hero": {
+        "label": "Nuoret työelämässä",
+        "title": "Tervetuloa<br/>viidakkoon.",
+        "text": "Ensimmäinen työpaikka on seikkailu, mutta siellä vaanii myös vaaroja. Opi tunnistamaan ansat ennen kuin astut niihin."
+    },
+    "tabs": {
+        "intro": "Tilannekuva",
+        "career": "Ammatinvalinta",
+        "interview": "Haastattelu",
+        "sim": "Simulaatio",
+        "recovery": "Toipuminen"
+    },
+    "intro": {
+        "title": "Miksi tämä on tärkeää?",
+        "text1": "Nuoret ovat työelämän haavoittuvin ryhmä. Kokemattomuus ei ole heikkous, mutta se on riski.",
+        "text2": "Kun et tiedä oikeuksiasi, niitä on helppo polkea. Epävarmuutta on helppo käyttää hyväksi.",
+        "exploitation": {
+            "title": "Hyväksikäyttö",
+            "text": "Palkaton 'harjoittelu', ylityöt ilman korvausta, epämääräiset lupaukset."
+        },
+        "structural": {
+            "title": "Rakenteet",
+            "text": "Ketjutetut määräaikaisuudet, nollatuntisopimukset, perehdytyksen puute."
+        },
+        "quote": "\"Ei, se ei kuulu 'talon tapoihin', että harjoittelija hakee pomon lapset tarhasta.\""
+    },
+    "career": {
+        "title": "Valitse polkusi",
+        "subtitle": "Eri aloilla on erilaiset riskiprofiilit. Tutki skenaarioita.",
+        "roles": {
+            "it": {
+                "title": "IT-ala",
+                "desc": "Koodari / Asiantuntija"
+            },
+            "tech": {
+                "title": "Tekniikka",
+                "desc": "Asentaja / Tuotanto"
+            },
+            "care": {
+                "title": "Hoiva-ala",
+                "desc": "Hoitaja / Palvelu"
+            }
+        },
+        "analysis": {
+            "why_good": "Miksi hyvä?",
+            "risk": "Riskit:",
+            "exploitation": "Hyväksikäyttö:",
+            "strategy": "Strategia:"
+        },
+        "it_content": {
+            "title": "IT & Luova ala",
+            "good": "Joustavuus, etätyöt, moderni kulttuuri.",
+            "risk": "Burnout, rajaton työaika, 'intohimolla maksaminen'.",
+            "expl": "Crunch-kulttuuri, jatkuva tavoitettavuus.",
+            "strat": "Aseta rajat heti. Dokumentoi tunnit."
+        },
+        "tech_content": {
+            "title": "Tekniikka & Teollisuus",
+            "good": "Selkeät työajat, tes-turva, konkreettinen työ.",
+            "risk": "Fyysinen turvallisuus, machokulttuuri, 'pojat on poikia' -asenne.",
+            "expl": "Turvallisuusohjeiden laiminlyönti kiireessä.",
+            "strat": "Vaadi perehdytys. Älä tingi turvallisuudesta."
+        },
+        "care_content": {
+            "title": "Hoiva & Palvelu",
+            "good": "Merkityksellisyys, ihmisläheisyys, työllisyys.",
+            "risk": "Henkinen kuormitus, väkivallan uhka, eettinen stressi.",
+            "expl": "Alimitoitus, vuoronvaihtojen painostus.",
+            "strat": "Tunne oikeutesi. Liity liittoon."
+        }
+    },
+    "interview": {
+        "title": "Haastattelutilanne",
+        "ask_title": "Kysy nämä:",
+        "q1": "Miten hoidatte perehdytyksen?",
+        "w1": "Jos vastaus on epämääräinen mumina, se on varoitusmerkki.",
+        "q2": "Miten tiimi palautuu kuormituksesta?",
+        "w2_good": "Hyvä vastaus: Meillä on säännölliset check-in palaverit.",
+        "w2_bad": "Huono vastaus: 'Meillä tehdään kovasti töitä, täytyy kestää painetta'.",
+        "flags_title": "Red Flags - Juokse karkuun jos kuulet:",
+        "f1": "\"Me ollaan täällä yhtä suurta perhettä.\"",
+        "f2": "\"Etsimme rocktähteä joka ei kelloa katso.\"",
+        "f3": "\"Palkka on pieni aluksi, mutta kokemus on arvokasta.\""
+    },
+    "sim": {
+        "title": "Kesätyösimulaatio",
+        "desc": "Testaa taitosi virtuaalisessa kesätyössä. Osaatko pitää puolesi kun pomo pyytää 'pientä palvelusta'?",
+        "tags": {
+            "duration": "10 min",
+            "skill": "Neuvottelu",
+            "result": "Analyysi"
+        },
+        "btn": "Aloita Simulaatio"
+    },
+    "recovery": {
+        "title": "Kun vahinko on sattunut",
+        "desc": "Miten toipua huonosta ensimmäisestä kokemuksesta?",
+        "p1_title": "Älä kyynisty",
+        "p1_text": "Yksi myrkyllinen paikka ei tarkoita, että koko työelämä on pilalla. Se oli oppitunti siitä, mitä et halua.",
+        "p2_title": "Pura kokemus",
+        "p2_text": "Puhu ammattilaiselle tai luotettavalle aikuiselle. Älä jää yksin häpeän kanssa.",
+        "ex_title": "Harjoitus: Uudelleenkirjoitus",
+        "fact_label": "Fakta (Tapahtuma)",
+        "fact_val": "Sain potkut koeajalla, koska 'en sopinut tiimiin'.",
+        "interp_label": "Tulkinta (Uusi tarina)",
+        "interp_val": "Työpaikan arvot olivat ristiriidassa omieni kanssa. Pääsin pois myrkyllisestä ympäristöstä.",
+        "note": "Tarinasi on sinun. Sinä päätät sen merkityksen.",
+        "final_quote": "\"Sinuun ei jäänyt pysyvää jälkeä. Olet vain yhtä kokemusta viisaampi.\""
+    },
+    "completion": {
+        "title_new": "Valmista tuli",
+        "title_done": "Osio Suoritettu",
+        "text_new": "Olet nyt askeleen edellä muita. Merkitse osio suoritetuksi.",
+        "text_done": "Olet suorittanut nuorten osion. Haluatko palata profiillisi?",
+        "btn_mark": "Merkitse Valmiiksi",
+        "btn_back": "Palaa Profiiliin"
+    }
+}

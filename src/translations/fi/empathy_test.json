@@ -1,0 +1,80 @@
+{
+    "hero": {
+        "label": "Empatia-spektri",
+        "title": "Ymmärrä toista,\nsuojele itseäsi.",
+        "description_1": "Empatia ei ole vain kilttiä tunnetta. Se on taito, jolla on kolme tasoa: kognitiivinen (ymmärrys), affektiivinen (tunteminen) ja moraalinen (välittäminen).",
+        "description_2": "Mutta varoitus: liika myötäeläminen ilman rajoja johtaa uupumukseen."
+    },
+    "progress": "Kysymys {{current}} / {{total}}",
+    "features": {
+        "cognitive": {
+            "title": "Kognitiivinen",
+            "desc": "Kyky asettua toisen asemaan."
+        },
+        "affective": {
+            "title": "Affektiivinen",
+            "desc": "Kyky tuntea toisen tunne."
+        },
+        "moral": {
+            "title": "Moraalinen",
+            "desc": "Halu lievittää kärsimystä."
+        }
+    },
+    "actions": {
+        "start": "Aloita Testi",
+        "retry": "Tee Uudelleen",
+        "view_rewards": "Katso Palkinnot",
+        "quit": "Lopeta"
+    },
+    "options": {
+        "4": "Kuvaa minua hyvin",
+        "3": "Kuvaa kohtalaisesti",
+        "2": "Kuvaa vähän",
+        "1": "Ei kuvaa minua"
+    },
+    "questions": {
+        "1": "Ymmärrän helposti toisen näkökulman, vaikka olisin eri mieltä.",
+        "2": "Toisten suru tarttuu minuun helposti.",
+        "3": "Tunnen voimakasta halua auttaa, kun näen vääryyttä.",
+        "4": "Osaan ennustaa, miten joku tulee reagoimaan uutisiin.",
+        "5": "Itken helposti elokuvissa tai uutisia katsellessa.",
+        "6": "Puutun tilanteeseen, jos näen jotakuta kohdeltavan huonosti."
+    },
+    "category_labels": {
+        "cognitive": "Kognitiivinen",
+        "affective": "Affektiivinen",
+        "moral": "Moraalinen"
+    },
+    "results": {
+        "your_profile": "Profiilisi",
+        "breakdown": "Tarkempi erittely",
+        "cognitive_label": "Kognitiivinen",
+        "cognitive_desc": "Ymmärrät ihmisiä järjellä.",
+        "affective_label": "Affektiivinen",
+        "affective_desc": "Tunnet ihmisten tunteet.",
+        "moral_label": "Moraalinen",
+        "moral_desc": "Toimit oikein.",
+        "context_title": "Konteksti",
+        "context_intro": "Empatiaan vaikuttavat monet tekijät:",
+        "context_factors": {
+            "stress": "Stressi vähentää empatiakykyä",
+            "trauma": "Trauma voi yliherkistää tai turruttaa",
+            "neurodiversity": "Neuromoninaisuus vaikuttaa empatian ilmenemiseen"
+        },
+        "disclaimer": "Tämä ei ole kliininen diagnoosi."
+    },
+    "profiles": {
+        "balanced": {
+            "title": "Tasapainoinen Auttaja",
+            "description": "Sinulla on terve tasapaino ymmärryksen ja tunteen välillä. Osaat auttaa uupumatta."
+        },
+        "cognitive": {
+            "title": "Analyyttinen Tarkkailija",
+            "description": "Ymmärrät motiivit loistavasti, mutta et huku toisten tunteisiin. Viileä pää kriisissä."
+        },
+        "affective": {
+            "title": "Tunteva Sydän",
+            "description": "Elät vahvasti mukana. Muista suojata itseäsi 'myötätuntouupumukselta'."
+        }
+    }
+}

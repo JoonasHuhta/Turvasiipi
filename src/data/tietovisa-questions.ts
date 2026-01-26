@@ -1,17 +1,4 @@
-
-export type QuizPart = {
-    id: number;
-    title: string;
-    questions: QuizQuestion[];
-};
-
-export type QuizQuestion = {
-    id: number;
-    text: string;
-    options: { label: string; value: string }[];
-    correctAnswer: string; // The value of the correct option (e.g., 'B')
-    explanation: string;
-};
+import { QuizPart, QuizQuestion } from '@/types/domain';
 
 export const comprehensiveQuizData: QuizPart[] = [
     {

@@ -1,0 +1,60 @@
+{
+    "hero": {
+        "line1": "Tämä on turvallinen tila.",
+        "line2": "Täällä sinua kuullaan, uskotaan ja tuetaan.",
+        "permission_title": "Tällä sivulla sinulla on lupa:",
+        "permission_1": "Pitää huolta omista rajoistasi.",
+        "permission_2": "Lopettaa, jos ahdistaa.",
+        "permission_3": "Tuntea juuri sitä mitä tunnet.",
+        "closing": "Hengitä syvään. Olet turvassa.",
+        "scroll_hint": "Scrollaa alaspäin"
+    },
+    "selector": {
+        "title": "Valitse itsellesi sopiva taso tänään",
+        "levels": {
+            "facts": {
+                "label": "Tieto",
+                "preview": "Haluan vain faktaa ja lakipykäliä. Ei tunteilua."
+            },
+            "exercises": {
+                "label": "Harjoitukset",
+                "preview": "Olen valmis kokeilemaan pieniä heijastusharjoituksia."
+            },
+            "reflection": {
+                "label": "Tunteet",
+                "preview": "Haluan tutkia omia tunteitani ja kokemuksiani."
+            },
+            "simulation": {
+                "label": "Simulaatiot",
+                "preview": "Olen valmis testaamaan rajojani turvallisesti."
+            }
+        }
+    },
+    "contract": {
+        "label": "Sopimus itseni kanssa",
+        "placeholder": "Lupaan itselleni, että...",
+        "locked_toast": "Sopimus lukittu.",
+        "privacy_note": "Tämä teksti jää vain selaimeesi.",
+        "lock_button": "Lukitse Sopimus"
+    },
+    "recommendations": {
+        "title": "Suositukset sinulle",
+        "show_button": "Näytä suositukset",
+        "links": {
+            "tietovisa": "Faktapankki",
+            "quiz": "Tietovisa",
+            "loki": "Lokikirja",
+            "simulaatio": "Simulaatiot"
+        },
+        "descs": {
+            "taktiikat": "Tunnista manipulointi.",
+            "tietovisa": "Perustiedot ilmiöstä.",
+            "quiz": "Testaa mitä tiedät.",
+            "lukutaito": "Opettele tunnistamaan vaaran merkit.",
+            "loki": "Dokumentoi kokemuksesi.",
+            "timeline": "Hahmota tapahtumien kulku.",
+            "simulaatio": "Kokeile tilanteita virtuaalisesti.",
+            "neuro": "Ymmärrä erilaisia kokemuksia."
+        }
+    }
+}

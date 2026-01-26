@@ -1,0 +1,59 @@
+const fs = require('fs');
+
+const communityFile = 'src/translations/fi/community.json';
+
+const finnishCommunity = {
+    "header": {
+        "badge": "Yhteisö",
+        "title": "Kohtaamispaikka",
+        "subtitle": "Olet tullut oikeaan paikkaan. Tämä on turvallinen tila jakaa, oppia ja löytää tukea muilta, jotka ymmärtävät."
+    },
+    "resources": {
+        "safe_havens": "Turvalliset paikat",
+        "desc": "Ulkoiset yhteisöt ja vertaistukiverkostot.",
+        "mieli": {
+            "name": "Mielen vertaisryhmät",
+            "desc": "Ammattiohjatussa vertaisryhmässä voi tavata muita samankaltaisissa tilanteissa olevia."
+        },
+        "discord": {
+            "name": "Discord-yhteisö",
+            "desc": "Reaaliaikainen chat ja keskustelut muiden kanssa."
+        },
+        "facebook": {
+            "name": "Facebook-ryhmät",
+            "desc": "Työpaikkakiusaamisen uhrien vertaistukiverkostot."
+        }
+    },
+    "stories_card": {
+        "title": "Tarinat",
+        "desc": "Lue muiden kokemuksia ja jaa omasi.",
+        "quote": "\"Kun luin toisen tarinan, ymmärsin etten ollut yksin. Se antoi voimaa jatkaa.\"",
+        "btn": "Lue tarinoita"
+    },
+    "no_chat": {
+        "title": "Ei reaaliaikaista chattia",
+        "text": "Tämä sivusto ei tarjoa reaaliaikaista chattiä. Jos tarvitset välitöntä apua, ota yhteyttä kriisipuhelimeen tai ammattilaiseen."
+    },
+    "wellbeing": {
+        "title": "Huolehdi hyvinvoinnistasi",
+        "text": "Muista pitää taukoja, jos vertaistukiryhmät tai tarinat kuormittavat. Sinun ei tarvitse kantaa kaikkea kerralla.",
+        "link": "Siirry tukisivulle →"
+    }
+};
+
+try {
+    const current = JSON.parse(fs.readFileSync(communityFile, 'utf8'));
+
+    // Update with Finnish translations, maintaining universal structure
+    const updated = {
+        ...finnishCommunity,
+        community_page: finnishCommunity
+    };
+
+    fs.writeFileSync(communityFile, JSON.stringify(updated, null, 2), 'utf8');
+    console.log('✅ Translated fi/community.json to Finnish');
+
+} catch (e) {
+    console.error('❌ Failed:', e.message);
+    process.exit(1);
+}

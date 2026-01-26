@@ -1,37 +1,6 @@
-export type TacticCategory = 'verbal' | 'social' | 'passive' | 'power' | 'manipulative' | 'structural';
+import { Tactic, TacticCategory, RoleAdvice } from '@/types/domain';
 
-export type RoleAdvice = {
-    title: string;
-    description: string;
-    actions: string[];
-};
-
-export type Tactic = {
-    id: string;
-    category: TacticCategory;
-    name: string;
-    definition: string;
-    phrases: string[];
-    goal: string;
-    strategy: string[];
-    logExample: string;
-    impact: {
-        stress: number;
-        burnout: number;
-        selfEsteem: number;
-    };
-    neuroImpact?: {
-        overload?: number;
-        confusion?: number;
-    };
-    advice: {
-        victim: RoleAdvice;
-        witness: RoleAdvice;
-        manager: RoleAdvice;
-    };
-};
-
-export const bullyingTactics: Tactic[] = [
+export const tactics: Tactic[] = [
     {
         id: "mitatointi",
         category: "verbal",
@@ -513,3 +482,5 @@ export const bullyingTactics: Tactic[] = [
         }
     }
 ];
+
+export const bullyingTactics = tactics;

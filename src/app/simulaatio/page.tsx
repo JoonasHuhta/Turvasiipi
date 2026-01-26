@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import {
     Dialog,
     DialogContent,
@@ -9,10 +10,17 @@ import {
 } from "@/components/ui/dialog";
 import { ArrowRight, Briefcase, Ghost, Infinity, Laptop, Stethoscope, GraduationCap, Users, Zap, TrendingUp } from "lucide-react";
 import Link from "next/link";
+// LOCKED: DO NOT EDIT WITHOUT EXPLICIT PERMISSION
+import { getDictionary } from "@/lib/i18n";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SimulatorPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('simulation');
+    }, [loadNamespace]);
+
 
     return (
         <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-32">
@@ -77,27 +85,25 @@ export default function SimulatorPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <Link href="/simulaatio/neuro">
+                    <Link href="/simulaatio/neuro" className="block h-full">
                         <SimulationCard
                             icon={<Infinity className="w-5 h-5" />}
                             title={t('simulation.neuro.cards.neuro.title')}
                             description={t('simulation.neuro.cards.neuro.desc')}
                         />
                     </Link>
-                    <Link href="/simulaatio/performance-trap">
+                    <Link href="/simulaatio/performance-trap" className="block h-full">
                         <SimulationCard
                             icon={<TrendingUp className="w-5 h-5" />}
                             title={t('simulation.neuro.cards.performance.title')}
                             description={t('simulation.neuro.cards.performance.desc')}
-                            isNew
                         />
                     </Link>
-                    <Link href="/simulaatio/information-shadow">
+                    <Link href="/simulaatio/information-shadow" className="block h-full">
                         <SimulationCard
                             icon={<Ghost className="w-5 h-5" />}
                             title={t('simulation.neuro.cards.shadow.title')}
                             description={t('simulation.neuro.cards.shadow.desc')}
-                            isNew
                         />
                     </Link>
                 </div>
@@ -116,28 +122,28 @@ export default function SimulatorPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <Link href="/simulaatio/hoitaja">
+                    <Link href="/simulaatio/hoitaja" className="block h-full">
                         <SimulationCard
                             icon={<Stethoscope className="w-5 h-5" />}
                             title={t('simulation.sector.cards.nurse.title')}
                             description={t('simulation.sector.cards.nurse.desc')}
                         />
                     </Link>
-                    <Link href="/simulaatio/opettaja">
+                    <Link href="/simulaatio/opettaja" className="block h-full">
                         <SimulationCard
                             icon={<GraduationCap className="w-5 h-5" />}
                             title={t('simulation.sector.cards.teacher.title')}
                             description={t('simulation.sector.cards.teacher.desc')}
                         />
                     </Link>
-                    <Link href="/simulaatio/it">
+                    <Link href="/simulaatio/it" className="block h-full">
                         <SimulationCard
                             icon={<Laptop className="w-5 h-5" />}
                             title={t('simulation.sector.cards.it.title')}
                             description={t('simulation.sector.cards.it.desc')}
                         />
                     </Link>
-                    <Link href="/simulaatio/esimies">
+                    <Link href="/simulaatio/esimies" className="block h-full">
                         <SimulationCard
                             icon={<Users className="w-5 h-5" />}
                             title={t('simulation.sector.cards.manager.title')}
@@ -160,7 +166,7 @@ export default function SimulatorPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <Link href="/simulaatio/nuoret">
+                    <Link href="/simulaatio/nuoret" className="block h-full">
                         <SimulationCard
                             icon={<Zap className="w-5 h-5" />}
                             title={t('simulation.youth.cards.new.title')}
@@ -177,7 +183,7 @@ export default function SimulatorPage() {
 function SimulationCard({ title, description, icon, isNew = false }: { title: string, description: string, icon?: React.ReactNode, isNew?: boolean }) {
     const { t } = useLanguage();
     return (
-        <div className="group block h-full space-y-4">
+        <div className="group block h-full space-y-4 cursor-pointer">
             <div className="flex items-center justify-between border-b border-[#E8DDD0] pb-2 group-hover:border-[#5B4B8A] transition-colors">
                 <div className="flex items-center gap-3">
                     {icon && <span className="text-[#5B4B8A] opacity-70 group-hover:opacity-100 transition-opacity">{icon}</span>}

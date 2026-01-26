@@ -1,0 +1,60 @@
+{
+    "hero": {
+        "line1": "This is a safe space.",
+        "line2": "Here you are heard, believed, and supported.",
+        "permission_title": "On this page you have permission to:",
+        "permission_1": "Take care of your own boundaries.",
+        "permission_2": "Stop if you feel anxious.",
+        "permission_3": "Feel exactly what you feel.",
+        "closing": "Breathe deeply. You are safe.",
+        "scroll_hint": "Scroll down"
+    },
+    "selector": {
+        "title": "Choose a level suitable for you today",
+        "levels": {
+            "facts": {
+                "label": "Knowledge",
+                "preview": "I just want facts and laws. No emotions."
+            },
+            "exercises": {
+                "label": "Exercises",
+                "preview": "I am ready to try small reflection exercises."
+            },
+            "reflection": {
+                "label": "Feelings",
+                "preview": "I want to explore my own feelings and experiences."
+            },
+            "simulation": {
+                "label": "Simulations",
+                "preview": "I am ready to test my boundaries safely."
+            }
+        }
+    },
+    "contract": {
+        "label": "Contract with myself",
+        "placeholder": "I promise myself that...",
+        "locked_toast": "Contract locked.",
+        "privacy_note": "This text stays only in your browser.",
+        "lock_button": "Lock Contract"
+    },
+    "recommendations": {
+        "title": "Recommendations for you",
+        "show_button": "Show recommendations",
+        "links": {
+            "tietovisa": "Fact Bank",
+            "quiz": "Quiz",
+            "loki": "Log",
+            "simulaatio": "Simulations"
+        },
+        "descs": {
+            "taktiikat": "Recognize manipulation.",
+            "tietovisa": "Basic info about phenomenon.",
+            "quiz": "Test what you know.",
+            "lukutaito": "Learn to identify danger signs.",
+            "loki": "Document your experiences.",
+            "timeline": "Visualize sequence of events.",
+            "simulaatio": "Try situations virtually.",
+            "neuro": "Understand different experiences."
+        }
+    }
+}

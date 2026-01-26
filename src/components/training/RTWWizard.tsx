@@ -5,93 +5,54 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
     Calendar,
     Shield,
-    Users,
     ClipboardCheck,
     Heart,
     ArrowRight,
     ArrowLeft,
-    CheckCircle2,
+    Check,
     Clock,
-    Monitor,
-    FileText,
-    Info,
-    Check
+    Info
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
+
+interface Task {
+    id: string;
+    text: string;
+    description?: string;
+}
 
 interface Step {
-    id: string;
     title: string;
     description: string;
     icon: any;
-    tasks: { id: string; text: string; description?: string }[];
+    tasks: Task[];
 }
 
-const STEPS: Step[] = [
-    {
-        id: 'prep',
-        title: '1. Ennen paluuta',
-        description: 'Valmistelut ja turvatoimet ennen ensimmäistä työpäivää.',
-        icon: Calendar,
-        tasks: [
-            { id: 'negotiation', text: 'Paluuneuvottelu pidetty (HR, esihenkilö, työterveys)', description: 'Varmista että kaikki osapuolet ovat samalla sivulla.' },
-            { id: 'investigation', text: 'Kiusaamistapaus selvitetty ja päätökset tehty', description: 'Mitkä ovat konkreettiset muutokset kiusaajan tai tapojen suhteen?' },
-            { id: 'safety_measures', text: 'Konkreettiset turvatoimet sovittu', description: 'Työpisteen vaihto, kontaktin minimointi, ohjeet häirintään.' },
-            { id: 'phased_plan', text: 'Porrastettu paluu sovittu (esim. 40-60%)', description: 'Määritellään tarkastusviikot (2, 4 ja 8 viikkoa).' }
-        ]
-    },
-    {
-        id: 'first_week',
-        title: '2. Paluuviikko',
-        description: 'Ensimmäiset päivät ja välitön tuki.',
-        icon: Clock,
-        tasks: [
-            { id: 'welcome', text: 'Henkilökohtainen vastaanotto esihenkilöltä', description: 'Käydään läpi päivän kulku ja turvatoimet.' },
-            { id: 'safety_person', text: 'Nimetty turvahenkilö käytettävissä', description: 'Henkilö jolle voi kertoa huolista matalalla kynnyksellä.' },
-            { id: 'load_management', text: 'Työtehtävien keventäminen', description: 'Ei kriittisimpiä projekteja tai raskaita tilanteita heti.' }
-        ]
-    },
-    {
-        id: 'monitoring',
-        title: '3. Seuranta (4-6 vk)',
-        description: 'Jatkuva tuki ja jaksamisen tarkkailu.',
-        icon: ClipboardCheck,
-        tasks: [
-            { id: 'checkins', text: 'Säännölliset check-init sovittu', description: 'Viikoittainen lyhyt keskustelu esihenkilön kanssa.' },
-            { id: 'capacity_check', text: 'Kuormituksen ja jaksamisen arviointi', description: 'Uni, oireet ja turvallisuuden kokemus.' },
-            { id: 'psych_support', text: 'Työterveyden tai psykologin tuki jatkuu', description: 'Traumatiedon soveltaminen ja itseluottamuksen vahvistaminen.' }
-        ]
-    },
-    {
-        id: 'structures',
-        title: '4. Rakenteet',
-        description: 'Työn ja ympäristön muokkaus.',
-        icon: Shield,
-        tasks: [
-            { id: 'task_customization', text: 'Tehtävien räätälöinti tarvittaessa', description: 'Väliaikaisesti erilainen rooli tai painotus.' },
-            { id: 'collaboration', text: 'Yhteistyökuvioiden selkiyttäminen', description: 'Miten palaverit ja viestintä hoidetaan jatkossa.' },
-            { id: 'org_actions', text: 'Organisaatiotason toimet', description: 'Koulutus tiimille, päivitetyt ohjeet ja selkeä nollalinja.' }
-        ]
-    },
-    {
-        id: 'longer_term',
-        title: '5. Pitkä seuranta',
-        description: 'Toimivuuden arviointi (3-12 kk).',
-        icon: Heart,
-        tasks: [
-            { id: 'long_term_check', text: 'Tapaaminen 3-6kk kohdalla', description: 'Pysymishalukkuus ja oireiden tilanne.' },
-            { id: 'feedback_loop', text: 'Mahdollisuus vaikuttaa prosessiin', description: 'Mitä organisaatio on oppinut tapauksesta?' },
-            { id: 'org_culture', text: 'Kulttuurin seuranta', description: 'Varmistetaan ettei vastaava toistu.' }
-        ]
-    }
-];
-
 export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onExit: () => void }) {
+    const { t } = useLanguage();
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [completedTasks, setCompletedTasks] = useState<Set<string>>(new Set());
+
+    // Load steps from translation
+    const stepsRaw = t('training.rtw_wizard.steps', { returnObjects: true });
+
+    // Safety check if translation is missing or structure is wrong
+    const stepsData = Array.isArray(stepsRaw) ? stepsRaw : [];
+
+    // Map icons to steps (order matters must match JSON)
+    const icons = [Calendar, Clock, ClipboardCheck, Shield, Heart];
+
+    const STEPS: Step[] = stepsData.map((s: any, i: number) => ({
+        ...s,
+        icon: icons[i] || Calendar // Fallback icon
+    }));
+
+    // If no steps loaded, show nothing or error (prevents crash)
+    if (STEPS.length === 0) return null;
 
     const currentStep = STEPS[currentStepIndex];
     const progress = ((currentStepIndex + 1) / STEPS.length) * 100;
@@ -127,22 +88,21 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
             {/* Header */}
             <div className="text-center mb-12">
                 <Badge className="bg-emerald-500/10 text-emerald-600 border-none px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">
-                    Työhön paluun opas
+                    {t('training.rtw_wizard.subtitle')}
                 </Badge>
-                <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tight break-words">
-                    Paluusuunnitelman <br />
-                    <span className="text-emerald-500">rakentaminen</span>
-                </h1>
+                <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tight break-words"
+                    dangerouslySetInnerHTML={{ __html: t('training.rtw_wizard.title') }}
+                />
                 <p className="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed">
-                    Vaiheittainen tutkimustietoon perustuva malli turvalliseen ja kestävyyteen tähtäävään työhön paluuseen.
+                    {t('training.rtw_wizard.description')}
                 </p>
             </div>
 
             {/* Progress */}
             <div className="mb-12 space-y-4">
                 <div className="flex justify-between text-sm font-black text-slate-400 uppercase tracking-widest px-1">
-                    <span>Vaihe {currentStepIndex + 1} / {STEPS.length}</span>
-                    <span>{Math.round(progress)}% suoritettu</span>
+                    <span>{t('training.rtw_wizard.step_progress', { current: currentStepIndex + 1, total: STEPS.length })}</span>
+                    <span>{t('training.rtw_wizard.step_completed', { percent: Math.round(progress) })}</span>
                 </div>
                 <Progress value={progress} className="h-3 bg-slate-100" indicatorClassName="bg-emerald-500" />
             </div>
@@ -151,7 +111,7 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
             <div className="relative min-h-[500px]">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={currentStep.id}
+                        key={currentStepIndex}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
@@ -206,7 +166,7 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
                         <div className="mt-12 bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4">
                             <Info className="w-6 h-6 text-slate-400 shrink-0" />
                             <p className="text-sm text-slate-500 italic leading-relaxed">
-                                Tutkimukset osoittavat, että pelkkä tunnepuhe koetaan riittämättömäksi, jos rakenteita ja riskejä ei aidosti korjata. Tämä lomake auttaa varmistamaan riittävät toimenpiteet.
+                                {t('training.rtw_wizard.research_note')}
                             </p>
                         </div>
                     </motion.div>
@@ -222,7 +182,7 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
                     className="gap-2 text-slate-400 hover:text-slate-900 font-bold uppercase tracking-widest text-xs"
                 >
                     <ArrowLeft className="w-4 h-4" />
-                    Takaisin
+                    {t('training.rtw_wizard.btn_back')}
                 </Button>
 
                 <Button
@@ -230,7 +190,7 @@ export function RTWWizard({ onComplete, onExit }: { onComplete: () => void; onEx
                     onClick={nextStep}
                     className="bg-slate-900 hover:bg-black text-white px-8 rounded-full font-black uppercase tracking-widest text-xs h-12 gap-2 shadow-xl shadow-slate-900/10 transition-all hover:scale-105"
                 >
-                    {currentStepIndex === STEPS.length - 1 ? 'Valmis' : 'Seuraava vaihe'}
+                    {currentStepIndex === STEPS.length - 1 ? t('training.rtw_wizard.btn_finish') : t('training.rtw_wizard.btn_next')}
                     <ArrowRight className="w-4 h-4" />
                 </Button>
             </div>

@@ -19,6 +19,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 const categories: StoryCategory[] = [
     "Sote-ala",
@@ -88,6 +89,7 @@ const ReactionButton = ({ storyId, type, initialCount, serverCounts }: { storyId
 };
 
 export default function TarinatPage() {
+    const { t, loadNamespace } = useLanguage();
     const [selectedCategory, setSelectedCategory] = useState<StoryCategory | "Kaikki">("Kaikki");
     const [formName, setFormName] = useState("");
     const [formCategory, setFormCategory] = useState("");
@@ -98,6 +100,7 @@ export default function TarinatPage() {
     const [serverReactions, setServerReactions] = useState<Record<string, Record<string, number>>>({});
 
     useEffect(() => {
+        loadNamespace('stories');
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         // Fetch reactions
@@ -138,11 +141,10 @@ export default function TarinatPage() {
 
     return (
         <div className="space-y-12 py-8 animate-in fade-in duration-700 pb-24">
-            {/* --- HEADER --- */}
             <section className="text-center space-y-6 px-4">
                 <div className="flex flex-wrap justify-center gap-2">
                     <Badge variant="secondary" className="px-3 py-1 text-xs uppercase tracking-widest font-bold">
-                        <Users className="w-3 h-3 mr-2" /> Yhteisö
+                        <Users className="w-3 h-3 mr-2" /> {t('stories_page.header.badge')}
                     </Badge>
                 </div>
 
@@ -151,12 +153,12 @@ export default function TarinatPage() {
                     animate={{ y: 0, opacity: 1 }}
                     className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-slate-900 uppercase leading-none drop-shadow-sm"
                 >
-                    Yhteisön <span className="text-indigo-600">tarinat</span>
+                    {t('stories_page.header.title_start')} <span className="text-indigo-600">{t('stories_page.header.title_highlight')}</span>
                 </motion.h1>
 
                 <div className="max-w-2xl mx-auto space-y-6">
                     <p className="text-xl text-slate-600 font-medium leading-relaxed">
-                        Et ole yksin. Lue muiden kokemuksia ja jaa omasi.
+                        {t('stories_page.header.subtitle')}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
@@ -165,8 +167,8 @@ export default function TarinatPage() {
                                 <Shield className="w-5 h-5" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 text-sm">Validoi kokemuksesi</h3>
-                                <p className="text-xs text-slate-500 mt-1">Huomaat, että ongelma ei ole sinussa.</p>
+                                <h3 className="font-bold text-slate-900 text-sm">{t('stories_page.benefits.validate.title')}</h3>
+                                <p className="text-xs text-slate-500 mt-1">{t('stories_page.benefits.validate.desc')}</p>
                             </div>
                         </div>
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
@@ -174,8 +176,8 @@ export default function TarinatPage() {
                                 <Heart className="w-5 h-5" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 text-sm">Vähennä häpeää</h3>
-                                <p className="text-xs text-slate-500 mt-1">Hiljaisuus murretaan puhumalla.</p>
+                                <h3 className="font-bold text-slate-900 text-sm">{t('stories_page.benefits.shame.title')}</h3>
+                                <p className="text-xs text-slate-500 mt-1">{t('stories_page.benefits.shame.desc')}</p>
                             </div>
                         </div>
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
@@ -183,8 +185,8 @@ export default function TarinatPage() {
                                 <Sparkles className="w-5 h-5" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 text-sm">Löydä voimaa</h3>
-                                <p className="text-xs text-slate-500 mt-1">Selviytymistarinat luovat toivoa.</p>
+                                <h3 className="font-bold text-slate-900 text-sm">{t('stories_page.benefits.strength.title')}</h3>
+                                <p className="text-xs text-slate-500 mt-1">{t('stories_page.benefits.strength.desc')}</p>
                             </div>
                         </div>
                     </div>
@@ -199,7 +201,7 @@ export default function TarinatPage() {
                         onClick={() => setSelectedCategory("Kaikki")}
                         className="rounded-full"
                     >
-                        Kaikki
+                        {t('stories_page.filters.all')}
                     </Button>
                     {categories.map(cat => (
                         <Button
@@ -222,10 +224,9 @@ export default function TarinatPage() {
                             <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto shadow-sm">
                                 <MessageSquare className="w-10 h-10 text-slate-300" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-700">Yhteisö kasvaa!</h3>
+                            <h3 className="text-xl font-bold text-slate-700">{t('stories_page.empty.title')}</h3>
                             <p className="text-slate-500 max-w-md mx-auto">
-                                Ensimmäiset tarinat ovat tulossa pian.
-                                Ole ensimmäinen ja jaa tarinasi alla olevalla lomakkeella.
+                                {t('stories_page.empty.text')}
                             </p>
                         </CardContent>
                     </Card>
@@ -245,7 +246,7 @@ export default function TarinatPage() {
                                                 {story.category}
                                             </Badge>
                                             {index === 0 && selectedCategory === 'Kaikki' && (
-                                                <Badge className="bg-indigo-600 hover:bg-indigo-700">UUSIN</Badge>
+                                                <Badge className="bg-indigo-600 hover:bg-indigo-700">{t('stories_page.card.new')}</Badge>
                                             )}
                                         </div>
                                         <CardTitle className="text-xl font-bold text-slate-900 group-hover:text-indigo-700 transition-colors">
@@ -298,9 +299,9 @@ export default function TarinatPage() {
                     </div>
 
                     <CardHeader className="relative z-10 text-center pb-2">
-                        <CardTitle className="text-3xl font-black uppercase tracking-tight">Jaa oma tarinasi</CardTitle>
+                        <CardTitle className="text-3xl font-black uppercase tracking-tight">{t('stories_page.form.title')}</CardTitle>
                         <CardDescription className="text-slate-400 text-lg">
-                            Julkaisemme tarinat täysin anonyymisti. Emme tallenna IP-osoitteita.
+                            {t('stories_page.form.desc')}
                         </CardDescription>
                     </CardHeader>
 
@@ -310,10 +311,10 @@ export default function TarinatPage() {
                             {/* NEW: Author Name */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="title" className="text-slate-200">Otsikko / Aihe</Label>
+                                    <Label htmlFor="title" className="text-slate-200">{t('stories_page.form.title_label')}</Label>
                                     <Input
                                         id="title"
-                                        placeholder="Esim. Hyväksikäyttö harjoittelussa..."
+                                        placeholder={t('stories_page.form.title_placeholder')}
                                         className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600"
                                         value={formName}
                                         onChange={(e) => setFormName(e.target.value)}
@@ -322,11 +323,11 @@ export default function TarinatPage() {
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="author" className="text-slate-200 flex items-center justify-between">
-                                        Nimimerkki <span className="text-xs opacity-50 font-normal uppercase">(Valinnainen)</span>
+                                        {t('stories_page.form.author_label')} <span className="text-xs opacity-50 font-normal uppercase">{t('stories_page.form.author_optional')}</span>
                                     </Label>
                                     <Input
                                         id="author"
-                                        placeholder="Jätä tyhjäksi jos haluat olla anonyymi"
+                                        placeholder={t('stories_page.form.author_placeholder')}
                                         className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600"
                                         value={authorName}
                                         onChange={(e) => setAuthorName(e.target.value)}
@@ -335,10 +336,10 @@ export default function TarinatPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label className="text-slate-200">Kategoria</Label>
+                                <Label className="text-slate-200">{t('stories_page.form.category_label')}</Label>
                                 <Select onValueChange={setFormCategory} required>
                                     <SelectTrigger className="bg-slate-950/50 border-slate-700 text-white">
-                                        <SelectValue placeholder="Valitse toimiala" />
+                                        <SelectValue placeholder={t('stories_page.form.category_placeholder')} />
                                     </SelectTrigger>
                                     <SelectContent>
                                         {categories.map(cat => (
@@ -349,10 +350,10 @@ export default function TarinatPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="story" className="text-slate-200">Tarinasi</Label>
+                                <Label htmlFor="story" className="text-slate-200">{t('stories_page.form.text_label')}</Label>
                                 <Textarea
                                     id="story"
-                                    placeholder="Kirjoita vapaasti. Moderoimme tekstin ja poistamme nimet ennen julkaisua."
+                                    placeholder={t('stories_page.form.text_placeholder')}
                                     className="bg-slate-950/50 border-slate-700 text-white placeholder:text-slate-600 min-h-[150px]"
                                     value={formText}
                                     onChange={(e) => setFormText(e.target.value)}
@@ -361,16 +362,16 @@ export default function TarinatPage() {
                             </div>
 
                             <Button type="submit" size="lg" className="w-full bg-indigo-600 hover:bg-indigo-500 font-bold text-lg h-14 shadow-lg shadow-indigo-900/50">
-                                <Send className="w-5 h-5 mr-2" /> Avaa sähköposti & Lähetä
+                                <Send className="w-5 h-5 mr-2" /> {t('stories_page.form.submit_btn')}
                             </Button>
 
                             <div className="text-center text-xs text-slate-500 mt-4">
-                                Tai lähetä suoraan: <a href="mailto:turvasiipi@gmail.com" className="text-indigo-400 hover:text-indigo-300 underline font-bold">turvasiipi@gmail.com</a>
+                                {t('stories_page.form.direct_email')} <a href="mailto:turvasiipi@gmail.com" className="text-indigo-400 hover:text-indigo-300 underline font-bold">turvasiipi@gmail.com</a>
                             </div>
                         </form>
                     </CardContent>
                 </Card>
             </section>
-        </div>
+        </div >
     );
 }

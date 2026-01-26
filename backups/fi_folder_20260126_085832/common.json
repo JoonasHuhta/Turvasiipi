@@ -1,0 +1,2612 @@
+{
+    "nav": {
+        "simulation": "Simulaatio",
+        "start_here": "Aloita tästä",
+        "explore": "Tutki",
+        "identify_risks": "Tunnista riskit",
+        "literacy_test": "Lukutaito-testi",
+        "tactics": "Kiusaamisen taktiikat",
+        "victim_feelings": "Uhrin tunteet",
+        "impact_profile": "Vaikutusprofiili",
+        "empathy_spectrum": "Empatiatesti",
+        "quiz_facts": "Faktapankki",
+        "neuromoninaisuus": "Neuromoninaisuus",
+        "youth_work": "Nuorisotyö",
+        "training": "Valmennus",
+        "tools": "Välineet",
+        "log": "Loki",
+        "timeline": "Aikajana",
+        "guide": "Opas",
+        "reports": "Raportit",
+        "help": "Apua",
+        "support_services": "Tukipalvelut",
+        "community": "Yhteisö",
+        "stories": "Tarinat"
+    },
+    "landing": {
+        "hero": {
+            "title_main": "Et ole kuvitellut",
+            "title_span": "sitä.",
+            "subtitle": "Työpaikkakiusaaminen ei ole konflikti. Se on väkivaltaa.",
+            "text_1": "Kun järjestelmä pettää, sinun täytyy luottaa itseesi.",
+            "text_2": "Tämä on turvallinen tila dokumentoida, ymmärtää ja toipua.",
+            "cta_start": "Aloita tästä",
+            "cta_main": "Tunnista tilanne",
+            "cta_how": "Miten tämä toimii?",
+            "read_first": "LUE TÄMÄ ENSIN",
+            "quit_anytime": "VOIT LOPETTAA MILLOIN VAIN",
+            "dialog": {
+                "title": "Miten Turvasiipi toimii?",
+                "desc": "Tämä ei ole tavallinen sovellus. Tämä on työkalupakki selviytymiseen.",
+                "step1_title": "Tunnista",
+                "step1_text": "Anna nimettömyys tunteillesi ja kokemuksillesi.",
+                "step1_sub": "TÄRKEINTÄ",
+                "step1_sub_text": "Et ole hullu. Tilanne on oikea.",
+                "step2_title": "Dokumentoi",
+                "step2_text": "Kerää todistusaineistoa turvallisesti.",
+                "step2_sub": "TURVALLISUUS",
+                "step2_sub_text": "Tiedot pysyvät vain sinulla.",
+                "step3_title": "Ymmärrä",
+                "step3_text": "Opiskele dynamiikkaa ja taktiikoita.",
+                "step3_sub": "TIETO",
+                "step3_sub_text": "Tieto on valtaa.",
+                "step4_title": "Toivu",
+                "step4_text": "Löydä keinoja palautua.",
+                "step4_sub": "TOIVO",
+                "step4_sub_text": "Sinä selviät tästä."
+            }
+        },
+        "why": {
+            "title": "Miksi tämä on olemassa?",
+            "p1": "Koska hiljaisuus suojelee vain kiusaajaa.",
+            "list_title": "ME USKOMME",
+            "list_1": "Sinulla on oikeus turvalliseen työhön.",
+            "list_2": "Kokemuksesi on totta.",
+            "list_3": "Et ole yksin.",
+            "list_4": "Sinä selviät.",
+            "conclusion_1": "Tämä ei ole virallinen kanava.",
+            "conclusion_2": "Tämä on sinun kanavasi.",
+            "conclusion_3": "Oman äänesi löytämiseksi."
+        },
+        "comparison": {
+            "title": "Onko se kiusaamista?",
+            "p1": "Kiusaaminen on toistuvaa.",
+            "p2": "Se on epätasa-arvoista.",
+            "p3": "Se loukkaa ihmisarvoa.",
+            "p4": "Konflikti on erimielisyyttä asioista.",
+            "p5": "Kiusaaminen on hyökkäys persoonaa vastaan.",
+            "p6": "Ero on vallassa.",
+            "quote": "\"Se ei ole riita, jos toinen ei saa puolustautua.\"",
+            "cta": "Tutki taktiikoita"
+        },
+        "log": {
+            "title": "Loki",
+            "subtitle": "Kirjaa ylös",
+            "label": "YKSITYINEN",
+            "text": "Kun muisti pätkii stressin alla, loki muistaa.",
+            "points": {
+                "what": "Mitä tapahtui?",
+                "when": "Milloin?",
+                "who": "Kuka oli paikalla?",
+                "feeling": "Miltä tuntui?"
+            },
+            "footer_1": "Tiedot tallentuvat vain selaimeesi.",
+            "footer_2": "Me emme näe niitä.",
+            "footer_3": "Tyhjennä historia milloin vain.",
+            "footer_bold": "Sinun turvasi on meille tärkein.",
+            "cta": "Avaa loki"
+        },
+        "early": {
+            "title": "Varhainen puuttuminen",
+            "p1": "Mitä aikaisemmin toimit, sen parempi.",
+            "p2": "Älä odota luvan saamista.",
+            "research_title": "TUTKIMUSTIETO",
+            "research_1": "Kiusaaminen ei lopu itsestään.",
+            "research_2": "Se eskaloituu ajan myötä.",
+            "research_3": "Dokumentaatio on paras suoja."
+        },
+        "freedom": {
+            "title": "Vapaus valita",
+            "p1": "Sinä päätät miten etenet.",
+            "quote": "\"Sinulla on valta määritellä oma tarinasi.\"",
+            "p2": "Emme pakota sinua mihinkään.",
+            "list_title": "SINUN VALINTASI",
+            "list_1": "Voit vain lukea.",
+            "list_2": "Voit tehdä tehtäviä.",
+            "list_3": "Voit poistua.",
+            "list_4": "Voit tulla takaisin."
+        },
+        "final": {
+            "title": "Oletko valmis?",
+            "subtitle": "Ensimmäinen askel on tunnistaminen.",
+            "cta": "Tee lukutaitotesti",
+            "disclaimer_1": "Tämä ei ole lääketieteellinen palvelu.",
+            "disclaimer_2": "Hae ammattiapua jos olet vaarassa."
+        }
+    },
+    "faq": {
+        "title": "Usein kysyttyä",
+        "subtitle": "Vastauksia yleisimpiin huoliin",
+        "q1": "Kuka näkee tietoni?",
+        "a1": "Vain sinä. Kaikki tallentuu vain tälle laitteelle.",
+        "q2": "Maksaako tämä?",
+        "a2": "Ei. Tämä on ilmainen resurssi.",
+        "q3": "Voinko käyttää tätä puhelimella?",
+        "a3": "Kyllä, sovellus toimii mobiilissa.",
+        "q4": "Miten poistan tietoni?",
+        "a4": "Löydät asetuksista 'Tyhjennä tiedot' -napin.",
+        "q5": "Kuka tämän on tehnyt?",
+        "a5": "Työryhmä, johon kuuluu kokemusasiantuntijoita ja ammattilaisia.",
+        "q6": "Korvaako tämä työterveyden?",
+        "a6": "Ei korvaa. Tämä on tuki, ei hoito.",
+        "q7": "Mitä jos kiusaaja on pomo?",
+        "a7": "Silloin dokumentointi on entistä tärkeämpää. Katso 'Valmennus' -osio.",
+        "q9": "Mistä saan virallista apua?",
+        "a9_title": "Tässä muutama taho:",
+        "a9_text": "Ole rohkeasti yhteydessä.",
+        "a9_list_1": "**Työsuojelu:** Aluehallintovirasto (AVI)",
+        "a9_list_2": "**Liitot:** Oma ammattiliittosi",
+        "a9_list_3": "**Terveys:** Työterveyshuolto"
+    },
+    "empathy_test": {
+        "hero": {
+            "label": "TUTKIMUSMATKA",
+            "title": "Miten sinä koet maailman?",
+            "description_1": "Empatia ei ole yksi asia. Se on monimutkainen palapeli kognitiota, tunteita ja moraalia.",
+            "description_2": "Tämä testi ei arvostele sinua. Se auttaa ymmärtämään vahvuutesi ja sokeat pisteesi muuttuvassa maailmassa."
+        },
+        "features": {
+            "cognitive": {
+                "title": "Kognitiivinen",
+                "desc": "Kyky asettua toisen asemaan loogisesti."
+            },
+            "affective": {
+                "title": "Affektiivinen",
+                "desc": "Kyky tuntea toisen tunteet kehossa."
+            },
+            "moral": {
+                "title": "Moraalinen",
+                "desc": "Halu toimia oikein muiden puolesta."
+            }
+        },
+        "actions": {
+            "start": "Aloita testi",
+            "retry": "Yritä uudelleen",
+            "quit": "Lopeta",
+            "view_rewards": "Katso palkinnot"
+        },
+        "progress": "Kysymys {{current}} / {{total}}",
+        "options": {
+            "1": "Täysin eri mieltä",
+            "2": "Jokseenkin eri mieltä",
+            "3": "Jokseenkin samaa mieltä",
+            "4": "Täysin samaa mieltä"
+        },
+        "questions": {
+            "1": "Ymmärrän yleensä helposti, miksi joku on jostain asiasta tuohtunut.",
+            "2": "Pystyn usein ennakoimaan, miten työkaverini reagoi ehdotukseeni.",
+            "3": "Minun on helppo asettua toisen asemaan, vaikka olisin eri mieltä.",
+            "4": "Huomaan nopeasti, jos joku teeskentelee olevansa iloinen, vaikka ei ole.",
+            "5": "Kun näen jonkun kärsivän, tunnen pahan olon itsekin.",
+            "6": "Muiden ihmisten innostus tarttuu minuun helposti.",
+            "7": "Eläydyn voimakkaasti elokuvien ja kirjojen hahmojen kohtaloihin.",
+            "8": "Minun on vaikea pysyä rauhallisena, jos läheiselläni on vaikeaa.",
+            "9": "Koen velvollisuudekseni puuttua peliin, jos näen jonkun joutuvan epäoikeudenmukaisesti kohdelluksi.",
+            "10": "Olen valmis siirtämään omat tehtäväni sivuun auttaakseni ahdingossa olevaa työkaveria.",
+            "11": "Oikeudenmukaisuus on minulle tärkeämpi arvo kuin säännöistä kiinni pitäminen.",
+            "12": "En voi katsoa sivusta, jos heikompaa syrjitään."
+        },
+        "results": {
+            "your_profile": "Profiilisi",
+            "breakdown": "Tarkempi erittely",
+            "cognitive_label": "Kognitiivinen empatia",
+            "cognitive_desc": "Ymmärrät ihmisiä ajatusten tasolla.",
+            "affective_label": "Affektiivinen empatia",
+            "affective_desc": "Tunnet ihmisten tunteet.",
+            "moral_label": "Moraalinen toiminta",
+            "moral_desc": "Toimit oikeudenmukaisesti.",
+            "context_title": "Huomioitavaa",
+            "context_intro": "Tulokseen vaikuttavat monet asiat:",
+            "context_factors": {
+                "stress": "Stressi laskee empatiakykyä.",
+                "trauma": "Trauma voi sulkea tunneyhteyden.",
+                "neurodiversity": "Neuromoninaisuus muuttaa tapaa kokea empatiaa."
+            },
+            "disclaimer": "Tämä on suuntaa-antava testi, ei diagnoosi."
+        },
+        "category_labels": {
+            "cognitive": "Kognitiivinen",
+            "affective": "Affektiivinen",
+            "moral": "Moraalinen"
+        },
+        "profiles": {
+            "helper": {
+                "title": "Auttaja",
+                "description": "Haluat pelastaa kaikki, joskus oman jaksamisesi kustannuksella. Muista, että happinaamari täytyy laittaa ensin itselle."
+            },
+            "outsider": {
+                "title": "Ulkopuolinen",
+                "description": "Olet ehkä vetäytynyt suojataksesi itseäsi. Se on ymmärrettävä reaktio, mutta yhteys muihin on tärkeää toipumiselle."
+            },
+            "defender": {
+                "title": "Puolustaja",
+                "description": "Oikeudenmukaisuus on sinulle kaikki kaikessa. Olet se, joka uskaltaa puhua kun muut vaikenevat."
+            },
+            "observer": {
+                "title": "Tarkkailija",
+                "description": "Ymmärrät tilanteet tarkasti, mutta et aina uskalla puuttua. Analyyttisyytesi on vahvuus, kunhan se ei johda passiivisuuteen."
+            },
+            "sensor": {
+                "title": "Aistija",
+                "description": "Tunnet ilmapiirin muutokset kehossasi nopeasti. Tämä herkkyys on lahja, mutta vaatii vahvoja rajoja."
+            },
+            "growing": {
+                "title": "Kasvaja",
+                "description": "Opettelet uusia tapoja olla yhteydessä. Jokainen askel kohti ymmärrystä on voitto."
+            }
+        }
+    },
+    "ostracism_toolkit": {
+        "title": "Torjutuksi Tulemisen Ensiapu",
+        "intro": {
+            "title": "Miksi ulkopuolisuus <br /><span>sattuu?</span>",
+            "text": "Aivoille sosiaalinen hylkääminen on sama asia kuin fyysinen kipu. Se aktivoi samat alueet aivoissa. Siksi 'älä välitä' -neuvo ei toimi.",
+            "action": "Miten selvitä kivusta?"
+        },
+        "survival": {
+            "title": "Selviytymispakkaus",
+            "text": "Kun koet tulleesi sivuutetuksi, kokeile näitä kolmea askelta.",
+            "step1": {
+                "title": "1. Tunnista kipu",
+                "text": "Sano itsellesi: 'Tämä sattuu, koska olen ihminen.' Kipu kertoo, että tarvitset yhteyttä."
+            },
+            "step2": {
+                "title": "2. Etsi yhteys muualta",
+                "text": "Lähetä viesti ystävälle. Katso silmiin kassamyyjää. Pienikin hyväksyvä katse lievittää kipua."
+            },
+            "step3": {
+                "title": "3. Vahvista itseäsi",
+                "text": "Muista jokin hetki, jolloin sinua arvostettiin. Se on yhtä totta kuin tämä hetki."
+            },
+            "action": "Olen käynyt nämä läpi"
+        },
+        "validation": {
+            "title": "Oman arvon vahvistus",
+            "text": "Kirjoita tähän kolme ominaisuutta itsessäsi, joita arvostat, riippumatta siitä mitä töissä tapahtuu.",
+            "placeholder": "Arvostan itsessäni...",
+            "list_title": "Sinun vahvuutesi:",
+            "empty": "Ei vielä lisättyjä asioita.",
+            "btn_add": "Lisää",
+            "action": "Valmis"
+        },
+        "summary": {
+            "title": "Muista tämä",
+            "text": "Yksi ihminen tai yksi työpaikka ei määritä ihmisarvoasi. Sinä olet enemmän kuin työsi.",
+            "action": "Palaa valmennukseen"
+        }
+    },
+    "bystander_simulation": {
+        "ui": {
+            "solidarity": "Solidaarisuus",
+            "safety": "Turvallisuus",
+            "analysis_title": "Tutkimuspohjainen analyysi",
+            "analysis_steps": [
+                {
+                    "title": "Tunnista",
+                    "desc": "Havaitse hienovaraiset merkit."
+                },
+                {
+                    "title": "Toimi",
+                    "desc": "Valitse turvallinen puuttumistapa."
+                }
+            ]
+        },
+        "modules": {
+            "empathy": {
+                "title": "Peilisolu-Pelastus",
+                "subtitle": "Interaktiivinen simulaattori",
+                "steps": [
+                    {
+                        "id": "start",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Näet, kuinka kollegaasi Marjaa arvostellaan perusteettomasti ja ivallisesti tiimipalaverissa. Marja näyttää lamaantuneelta ja tuijottaa pöytää.",
+                        "choices": [
+                            {
+                                "text": "Siirry istumaan Marjan viereen ja kysy hiljaa: 'Oletko ok?'",
+                                "nextStep": "direct_support_action",
+                                "impact": {
+                                    "solidarity": 30,
+                                    "safety": 10
+                                },
+                                "feedback": "Tutkimus: Pelkkä fyysinen läsnäolo ja 'Oletko ok?' -kysymys vähentää uhrin ahdistusta jopa 40%.",
+                                "strategyType": "direct_support"
+                            },
+                            {
+                                "text": "Haasta kiusaaja suoraan palaverissa: 'Lopeta tuo heti!'",
+                                "nextStep": "direct_confrontation",
+                                "impact": {
+                                    "solidarity": 20,
+                                    "safety": -10
+                                },
+                                "feedback": "Suora konfrontaatio voi eskaloitua ja lisätä omaa riskiäsi, vaikka se on rohkeaa.",
+                                "strategyType": "passive"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "direct_support_action",
+                        "speaker": "Marja",
+                        "type": "dialogue",
+                        "text": "Marja vilkaisee sinua kiitollisena ja vetää syvään henkeä. Kiusaaja hidastaa puhettaan huomatessaan, ettei Marja ole enää yksin.",
+                        "choices": [
+                            {
+                                "text": "Nimeä tilanne asiallisesti: 'Jatketaanko asialistalla, Marjan panos oli tässä tärkeä.'",
+                                "nextStep": "success_direct",
+                                "impact": {
+                                    "solidarity": 20,
+                                    "safety": 20
+                                },
+                                "feedback": "Solidaarisuuden osoittaminen julkisesti vakauttaa tilanteen ilman riitaa.",
+                                "strategyType": "direct_support"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "direct_confrontation",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Kiusaaja kääntyy sinua kohti: 'No katsos, täällähän ollaan herkkänä tänään! Onko teillä joku kerho meneillään?' Ilmapiiri kiristyy.",
+                        "choices": [
+                            {
+                                "text": "Pysy rauhallisena: 'Kyse on työpaikan pelisäännöistä, ei herkkydestä.'",
+                                "nextStep": "success_direct",
+                                "impact": {
+                                    "solidarity": 10,
+                                    "safety": 15
+                                },
+                                "feedback": "Rauhallisuus on paras ase, kun vastapuoli yrittää henkilökohtaistaa konfliktia.",
+                                "strategyType": "internal"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "success_direct",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Palaveri päättyy. Marja tulee kiittämään sinua myöhemmin. Hän sanoo, että ilman tukeasi hän olisi saattanut purskahtaa itkuun tai poistua paikalta.",
+                        "choices": [
+                            {
+                                "text": "Viimeistele harjoitus",
+                                "nextStep": "finish",
+                                "impact": {
+                                    "solidarity": 10,
+                                    "safety": 10
+                                },
+                                "feedback": "Hienoa! Olet aktiivinen todistaja, joka murtaa eristämisen kierteen.",
+                                "strategyType": "direct_support"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bystander": {
+                "title": "Bystander-Simulaatio",
+                "subtitle": "Interaktiivinen simulaattori",
+                "steps": [
+                    {
+                        "id": "start",
+                        "speaker": "WhatsApp-ryhmä",
+                        "type": "dialogue",
+                        "text": "Ryhmässä alkaa levitä pilkallisia meemejä uusimmasta harrastajasta. Kukaan ei kommentoi mitään, vaikka 20 ihmistä on nähnyt viestit.",
+                        "choices": [
+                            {
+                                "text": "Kirjoita ryhmään: 'Tämä ei kuulu tänne, oletteko muut samaa mieltä?'",
+                                "nextStep": "collective_intervention",
+                                "impact": {
+                                    "solidarity": 20,
+                                    "safety": 25
+                                },
+                                "feedback": "Kysymällä muiden mielipidettä murrat 'pluralistisen ignoranssin' ja jaat vastuuta.",
+                                "strategyType": "collective"
+                            },
+                            {
+                                "text": "Poistu ryhmästä hiljaisuudessa",
+                                "nextStep": "passive_exit",
+                                "impact": {
+                                    "solidarity": -10,
+                                    "safety": 0
+                                },
+                                "feedback": "Poistuminen on merkki, mutta se jättää uhrin yksin. Kokeile puuttua ryhmässä.",
+                                "strategyType": "passive"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "collective_intervention",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Hetken on hiljaista, mutta sitten kaksi muuta jäsentä peukuttaa viestiäsi ja kirjoittaa: 'Totta, pysytään asiassa.' Bystander-efekti murtuu.",
+                        "choices": [
+                            {
+                                "text": "Ehdota ylläpitäjälle sääntöjen kertaamista",
+                                "nextStep": "success_collective",
+                                "impact": {
+                                    "solidarity": 15,
+                                    "safety": 20
+                                },
+                                "feedback": "Rakenteellinen puuttuminen (säännöt) estää tilanteen toistumisen.",
+                                "strategyType": "collective"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "passive_exit",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Olet poissa ryhmästä, mutta tiedät pilkkaamisen jatkuvan. Tunnet olosi syylliseksi ja irralliseksi yhteisöstä.",
+                        "choices": [
+                            {
+                                "text": "Laita uhrille yksityisviesti: 'Näin ryhmän viestit, ne eivät ole ok.'",
+                                "nextStep": "success_collective",
+                                "impact": {
+                                    "solidarity": 25,
+                                    "safety": 10
+                                },
+                                "feedback": "Vaikka et puuttunut julkisesti, yksityinen tuki on uhrille elintärkeää.",
+                                "strategyType": "direct_support"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "success_collective",
+                        "speaker": "Kertoja",
+                        "type": "narrative",
+                        "text": "Toimintasi rohkaisi muitakin puuttumaan. Yhdistyksen WhatsApp-kulttuuri on nyt selkeämpi ja turvallisempi kaikille. Olet murtanut pluralistisen ignoranssin.",
+                        "choices": [
+                            {
+                                "text": "Lopeta harjoitus",
+                                "nextStep": "finish",
+                                "impact": {
+                                    "solidarity": 20,
+                                    "safety": 10
+                                },
+                                "feedback": "Aktiivinen bystander on terveellisen yhteisön selkäranka. Kun yksi puhuu, 'hiljainen paheksunta' muuttuu yhteiseksi toiminnaksi.",
+                                "strategyType": "collective"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "difficult_conversations": {
+        "title": "Valitse <span class='text-indigo-600'>Vastustajasi</span>",
+        "subtitle": "Kenet kohtaat tänään? Harjoittele erilaisia persoonallisuuksia vastaan.",
+        "ui": {
+            "cancel": "Keskeytä",
+            "start_challenge": "Aloita haaste",
+            "typing": "kirjoittaa...",
+            "won_title": "Keskustelu hallinnassa!",
+            "won_desc": "Säilytit malttisi ja auktoriteettisi hienosti.",
+            "lost_title": "Tilanne eskaloitui",
+            "lost_desc": "Menetit joko malttisi tai auktoriteettisi. Yritä uudelleen.",
+            "back_menu": "Palaa valikkoon",
+            "retry": "Yritä uudelleen"
+        },
+        "opponents": {
+            "aggro": {
+                "title": "Höyryjyrä",
+                "description": "Aggressiivinen, keskeyttää, korottaa ääntä.",
+                "intro": "Höyryjyrä tulee huoneeseen ovet paukkuen.",
+                "dialogs": [
+                    {
+                        "opponent": "MITÄ NYT TAAS?! Minulla on oikeita töitä tehtävänä, eikä aikaa kuunnella sun kitinää!",
+                        "options": [
+                            {
+                                "text": "Älä huuda minulle! En kuuntele tuollaista!",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": -10
+                                },
+                                "reply": "ÄLÄ SINÄ KOMENTELE MINUA!!",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Huomaan että olet kiihtynyt. Odotan hetken.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 5
+                                },
+                                "reply": "... (Huokaa raskaasti) No?! Sano asiasi nopeasti.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "(Hiljaisuus) ...",
+                                "effect": {
+                                    "auth": -5,
+                                    "emp": 0
+                                },
+                                "reply": "Onko sulla mitään asiaa vai voinko lähteä?",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Tämä projekti on myöhässä SINUN takiasi! Älä yritä vierittää syytä minun niskoilleni!",
+                        "options": [
+                            {
+                                "text": "En vieritä syytä, vaan yritän ratkaista ongelman. Puhutaan faktoista.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "Faktoista?! Hah! No katsotaan sun 'faktoja'.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Ei se ole minun syyni!! Sinä et toimittanut niitä lukuja!",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": -5
+                                },
+                                "reply": "Nyt riitti! En kuuntele tuota valehtelua!",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Anteeksi, yritän parhaani...",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": 10
+                                },
+                                "reply": "Sun parhaasi ei selvästikään riitä!",
+                                "outcome": "bad"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Minä olen tehnyt tätä työtä 20 vuotta! Älä tule neuvomaan minua!",
+                        "options": [
+                            {
+                                "text": "Arvostan kokemustasi. Siksi haluankin yhteistyön toimivan.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 15
+                                },
+                                "reply": "Hmmh. No... kokemus on kyllä valttia.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Maailma muuttuu, papka.",
+                                "effect": {
+                                    "auth": -30,
+                                    "emp": -20
+                                },
+                                "reply": "ULOS MUN TOIMISTOSTA!",
+                                "outcome": "fail"
+                            },
+                            {
+                                "text": "En neuvo, vaan kerran pelisäännöt.",
+                                "effect": {
+                                    "auth": 5,
+                                    "emp": -5
+                                },
+                                "reply": "Pelisäännöt... sinä ja sun säännöt.",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "victim": {
+                "title": "Uhriutuja",
+                "description": "Itkee, syyttää sinua julmuudesta.",
+                "intro": "Uhriutuja istuu alas nenäliina kädessä, kyyneleet silmissä.",
+                "dialogs": [
+                    {
+                        "opponent": "Miksi sä kutsuit mut tänne? (Niisk) Olenko mä tehnyt jotain väärin? Mä teen aina kaikkeni...",
+                        "options": [
+                            {
+                                "text": "Ei hätää, ota nenäliina. Ei tämä ole vakavaa.",
+                                "effect": {
+                                    "auth": -15,
+                                    "emp": 20
+                                },
+                                "reply": "Mä pelkään niin kauheasti että mä saan potkut! (Itku yltyy)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Haluaisin keskustella tiimin ilmapiiristä ja sinun roolistasi siinä.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 5
+                                },
+                                "reply": "Mun roolista? Eli mä olen syyllinen? Kaikki vihaa mua...",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Lopeta tuo pillitys.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": -30
+                                },
+                                "reply": "Sä olet julma! Hirviö!",
+                                "outcome": "fail"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Mä en vaan jaksa enää... kukaan ei ymmärrä mua. Säkin olet aina mua vastaan.",
+                        "options": [
+                            {
+                                "text": "En ole sinua vastaan. Haluan tukea sinua, mutta meidän pitää muuttaa tapaa kommunikoida.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": 10
+                                },
+                                "reply": "Tukea? Tarkoitatko sitä oikeasti?",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "No voi raukkaa. Ehkä sun pitäisi levätä.",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": 15
+                                },
+                                "reply": "Niin pitäisi... mä lähden kotiin. (Lähtee kesken)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Tuo uhriutuminen ei toimi minuun.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": -10
+                                },
+                                "reply": "Uhriutuminen?! Mä olen uhri tässä!",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Jos sä kirjaat tästä merkinnän, mun elämä on pilalla! Miten sä voit tehdä tän mulle?",
+                        "options": [
+                            {
+                                "text": "Tämä on normaali kehityskeskustelu. Kirjaan sovitut asiat.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "...okei. Jos sä lupaat kirjata rehellisesti.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "En kirjaa jos lupaat parantaa tapasi.",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": 10
+                                },
+                                "reply": "Lupaan! Lupaan mitä vaan! (Ei muuta käytöstään)",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Se on sinun valintojesi seuraus.",
+                                "effect": {
+                                    "auth": 10,
+                                    "emp": -10
+                                },
+                                "reply": "(Tuijottaa hiljaa, mutta lopettaa itkun)",
+                                "outcome": "good"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gaslight": {
+                "title": "Gaslighter",
+                "description": "Kieltää kaiken, kyseenalaistaa muistisi.",
+                "intro": "Gaslighter katsoo sinua hymyillen, täysin rauhallisena.",
+                "dialogs": [
+                    {
+                        "opponent": "Hei. Mikäs nyt on hätänä? Näytät stressaantuneelta. Onko kotona kaikki hyvin?",
+                        "options": [
+                            {
+                                "text": "Älä vaihda aihetta. Puhutaan eilisestä palaverista.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 0
+                                },
+                                "reply": "Eilisestä? Ai siitä missä sä korotit ääntäsi?",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Ihan hyvin... vähän väsynyt vain.",
+                                "effect": {
+                                    "auth": -15,
+                                    "emp": -5
+                                },
+                                "reply": "Niin minä ajattelinkin. Sä olet ylirasittunut, kuvittelet asioita.",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Se ei kuulu tähän.",
+                                "effect": {
+                                    "auth": 5,
+                                    "emp": 0
+                                },
+                                "reply": "Tietenkin kuuluu. Me ollaan ihmisiä. Mä olen huolissani susta.",
+                                "outcome": "neutral"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Mä en koskaan sanonut noin. Sä olet ymmärtänyt väärin. Taas.",
+                        "options": [
+                            {
+                                "text": "Minulla on sähköposti tässä, jossa lukee juuri niin.",
+                                "effect": {
+                                    "auth": 20,
+                                    "emp": 0
+                                },
+                                "reply": "Sähköposti? Näytä. ... Hah, sä tulkitset tuon aivan väärin.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Ehkä mä sitten muistan väärin...?",
+                                "effect": {
+                                    "auth": -20,
+                                    "emp": -10
+                                },
+                                "reply": "Niin muistat. Sä olet viime aikoina ollut tosi hajamielinen.",
+                                "outcome": "bad"
+                            },
+                            {
+                                "text": "Kuulin sen omin korvin, ja Pekka kuuli myös.",
+                                "effect": {
+                                    "auth": 15,
+                                    "emp": 5
+                                },
+                                "reply": "Pekka? Pekka sanoo mitä vaan miellyttääkseen sua.",
+                                "outcome": "good"
+                            }
+                        ]
+                    },
+                    {
+                        "opponent": "Oletko sä varma että olet sopiva tähän rooliin? Vaikutat... epävakaalta.",
+                        "options": [
+                            {
+                                "text": "Minun pätevyyteni ei ole keskustelun aihe. Aihe on sinun käytöksesi.",
+                                "effect": {
+                                    "auth": 20,
+                                    "emp": 0
+                                },
+                                "reply": "... (Hymy hyytyy). Selvä. Puhutaan sitten.",
+                                "outcome": "good"
+                            },
+                            {
+                                "text": "Mitä?! Minä olen täysin vakaa!",
+                                "effect": {
+                                    "auth": -10,
+                                    "emp": -10
+                                },
+                                "reply": "No ei tuo reaktio kovin vakaalta vaikuta. Rauhoitu nyt.",
+                                "outcome": "bad"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "bystander_theory": {
+        "title": "Bystander-efekti",
+        "subtitle": "Ilmiön Anatomia",
+        "intro": {
+            "title": "Miksi hyvät ihmiset eivät tee mitään?",
+            "text": "Oletko koskaan nähnyt kiusaamista ja jähmettynyt? Se ei johdu siitä, että olisit pelkuri.<br /><br />Kyseessä on <strong>Bystander-efekti</strong>, psykologinen ilmiö, joka estää auttamista ryhmätilanteissa. Kun ymmärrät mekanismin, voit murtaa sen.",
+            "action": "Tutki 3 syytä"
+        },
+        "diffusion": {
+            "badge": "Mekanismi 1/3",
+            "title": "Vastuun Hajautuminen",
+            "subtitle": "\"Joku muu hoitaa sen.\"",
+            "witnesses_label": "Todistajien määrä",
+            "responsibility_label": "Oma vastuusi tilanteesta",
+            "explanation": "Kun olet yksin, tiedät että auttaminen on sinusta kiinni. Isossa ryhmässä oletamme alitajuisesti, että joku muu on pätevämpi tai valmiimpi toimimaan.",
+            "action": "Seuraava: Pelko"
+        },
+        "evaluation": {
+            "badge": "Mekanismi 2/3",
+            "title": "Arvioinnin Pelko",
+            "subtitle": "\"Entä jos mokaan?\"",
+            "cards": {
+                "pressure": {
+                    "title": "Yleisön paine",
+                    "text": "Pelkäämme ylireagoivamme tilanteeseen. Entä jos se olikin vain vitsi? Entä jos muut pitävät minua hankalana?"
+                },
+                "risk": {
+                    "title": "Sosiaaliset riskit",
+                    "text": "Työpaikalla pelkäämme statuksen menetystä tai leimautumista \"kielijäksi\". Tämä on luonnollinen, evolutiivinen suojamekanismi."
+                }
+            },
+            "solution": "💡 Ratkaisu: Pienennä kynnystä. Puuttumisen ei tarvitse olla sankaruutta. Pieni häiriötekijä (Distract) tai kysyminen (Delay) riittää.",
+            "action": "Seuraava: Joukkoharha"
+        },
+        "ignorance": {
+            "badge": "Mekanismi 3/3",
+            "title": "Pluralistinen Ignoranssi",
+            "subtitle": "\"Kukaan muu ei reagoi, joten hätää ei ole.\"",
+            "reveal_hidden": {
+                "title": "Mitä muut ajattelevat?",
+                "hint": "Klikkaa paljastaaksesi totuus"
+            },
+            "reveal_shown": {
+                "title": "Kaikki ovat epävarmoja.",
+                "text": "Jokainen katsoo muiden \"rauhallista\" ilmettä ja luulee olevansa ainoa, joka on huolissaan. Todellisuudessa kaikki yrittävät vain peittää pelkonsa."
+            },
+            "action": "Yhteenveto"
+        },
+        "summary": {
+            "title": "Miten murrat efektin?",
+            "steps": [
+                {
+                    "title": "Tunnista ilmiö",
+                    "text": "Kun huomaat epäröiväsi, muista: \"Tämä on vain bystander-efekti.\""
+                },
+                {
+                    "title": "Toimi ensimmäisenä",
+                    "text": "Yksikin ääneen lausuttu huoli rikkoo pluralistisen ignoranssin. Muut seuraavat perässä."
+                }
+            ],
+            "action": "Olen valmis"
+        }
+    },
+    "gaslighting_mechanisms": {
+        "title": "Gaslightingin Mekanismit",
+        "subtitle": "Todellisuuden Suojaaminen",
+        "intro": {
+            "title": "Se ei johdu muististasi.",
+            "text": "<strong>Gaslighting</strong> on manipulointia, jossa tavoitteena on saada kohde epäilemään omaa havaintokykyään, muistiaan tai mielenterveyttään.<br /><br />Se on hienovarainen prosessi, joka nakertaa itsetuntoa pala palalta. Mutta kun opit tunnistamaan koodin, se menettää valtansa.",
+            "action": "Tunnista taktiikat"
+        },
+        "tactics": {
+            "badge": "Vaihe 1/3: Käännöstyökalut",
+            "title": "Mitä he sanovat vs. Mitä tapahtuu",
+            "subtitle": "Klikkaa kortteja katsoaksesi kulissien taakse.",
+            "card_label": "Kuultu lause",
+            "items": [
+                {
+                    "phrase": "Olet aivan liian herkkä, se oli vain vitsi.",
+                    "translation": "Hän yrittää vähätellä kokemustasi ja siirtää huomion pois teostaan.",
+                    "tacticName": "Vähättely (Trivializing)",
+                    "description": "Tekee tunteistasi 'vääränlaisia', jolloin alat epäillä omaa reagointikykyäsi."
+                },
+                {
+                    "phrase": "Ei noin ole koskaan tapahtunut. Muistat väärin.",
+                    "translation": "Hän valehtelee suoraan muuttaakseen historian kulkua.",
+                    "tacticName": "Kieltäminen (Denial)",
+                    "description": "Vaarallisin muoto. Kun tätä toistetaan riittävän usein, alat luottaa hänen muistiinsa omasi sijasta."
+                },
+                {
+                    "phrase": "Miksi aina aloitat riidan? Sinulla on selvästi vaikea kausi.",
+                    "translation": "Hän tekee sinusta ongelman välttyäkseen vastuulta.",
+                    "tacticName": "Kääntäminen (Diversion)",
+                    "description": "Vaihtaa puheenaihetta hyökkäämällä luonnettasi vastaan ('ad hominem')."
+                }
+            ],
+            "action": "Kuinka ilmiö etenee?"
+        },
+        "stages": {
+            "badge": "Vaihe 2/3: Prosessi",
+            "title": "Laskeutuminen sumuun",
+            "subtitle": "Gaslighting ei tapahdu kerralla, vaan se on hidas prosessi.",
+            "items": [
+                {
+                    "name": "Epäusko",
+                    "text": "Ajattelet, että hän on varmaan erehtynyt tai sekaisin. Et ota sitä vielä henkilökohtaisesti."
+                },
+                {
+                    "name": "Puolustautuminen",
+                    "text": "Yrität väitellä ja todistaa olevasi oikeassa. Käytät valtavasti energiaa puolusteluun."
+                },
+                {
+                    "name": "Masennus",
+                    "text": "Alat uskoa, että olet itse viallinen. Epäilet jokaista ajatustasi ja tunnetta."
+                }
+            ],
+            "action": "Kuinka palautat todellisuuden?"
+        },
+        "reclaim": {
+            "badge": "Vaihe 3/3: Toiminta",
+            "title": "Ota todellisuus haltuun",
+            "subtitle": "Manipulointi murtuu, kun sitä tarkastellaan valossa.",
+            "items": [
+                {
+                    "title": "Kirjoita asiat ylös heti",
+                    "text": "Lauseet, kellonajat ja omat tunteesi. Dokumentaatio on ankkuri, joka pitää sinut todellisuudessa."
+                },
+                {
+                    "title": "Luota 'todellisuustarkistajiin'",
+                    "text": "Puhu ystäville tai kollegoille, jotka tuntevat sinut. He auttavat näkemään, että et ole sekoamassa."
+                },
+                {
+                    "title": "Lopeta väittely",
+                    "text": "Gaslighting-tekijä ei pyydä anteeksi. Tärkeintä on, että TIEDÄT totuuden itse. Sitä ei tarvitse todistaa hänelle."
+                }
+            ],
+            "action": "Olen valmis"
+        },
+        "summary": {
+            "title": "Totuus on vahva.",
+            "text": "Nyt kun tiedät nämä taktiikat, olet vaikeampi kohde. Älä anna kenenkään kirjoittaa historiaasi puolestasi. Sinun havaintosi on arvokas ja tosi.",
+            "action": "Valmis"
+        }
+    },
+    "bystander_masterclass": {
+        "title": "Bystander-Herättäjä",
+        "stages": [
+            "1. Tunnista",
+            "2. Vastuu",
+            "3. Toimi",
+            "4. Rajat"
+        ],
+        "intro": {
+            "title": "Oletko hiljainen todistaja?",
+            "text": "Suurin osa työpaikkakiusaamisesta tapahtuu muiden nähden. Sivullisten reaktio – tai reagoimattomuus – ratkaisee, jatkuuko kiusaaminen.<br /><br />Tässä moduulissa opit 5 turvallista tapaa puuttua.",
+            "action": "Aloita harjoitus"
+        },
+        "identify": {
+            "badge": "Vaihe 1/4: Näen ja nimeän",
+            "title": "Onko tämä kiusaamista?",
+            "correct": "Oikein!",
+            "incorrect": "Ei aivan.",
+            "next": "Seuraava",
+            "btn_yes": "Kyllä, on",
+            "btn_no": "Ei, normaalia",
+            "questions": [
+                {
+                    "scenario": "Tiimipalaverissa esihenkilö huokaisee raskaasti ja pyörittelee silmiään aina, kun Matti avaa suunsa. Muut alkavat naureskella.",
+                    "explanation": "Toistuva, sanaton nöyryyttäminen ja ryhmäpaineen luominen on kiusaamista, ei 'huumoria'."
+                },
+                {
+                    "scenario": "Työkaveri on eri mieltä projektin suunnasta ja perustelee kantansa voimakkaasti mutta asiallisesti kokouksessa.",
+                    "explanation": "Asioista eri mieltä oleminen ja debatti kuuluvat työhön, kunhan se ei mene henkilökohtaisuuksiin."
+                },
+                {
+                    "scenario": "Kollega 'unohtaa' jatkuvasti kutsua Liisan lounaalle ja tiimin yhteisiin kahvihetkiin, vaikka muut kutsutaan.",
+                    "explanation": "Sosiaalinen eristäminen (ostrakismi) on yksi yleisimmistä ja vahingoittavimmista kiusaamisen muodoista."
+                }
+            ]
+        },
+        "responsibility": {
+            "badge": "Vaihe 2/4: Vastuu",
+            "title": "Bystander-efekti & Vastuun jakautuminen",
+            "text": "Kokeile mitä tapahtuu todennäköisyydelle puuttua, kun todistajia on enemmän.",
+            "labels": [
+                "Sinä yksin",
+                "Iso ryhmä"
+            ],
+            "prob_label": "Todennäköisyys että joku auttaa:",
+            "explanation_alone": "Kun olet ainoa todistaja, tunnet 100% vastuun ja toimit todennäköisesti.",
+            "explanation_group": "Mitä enemmän ihmisiä, sitä enemmän oletamme, että 'joku muu' hoitaa sen. Tätä kutsutaan vastuun hajautumiseksi.",
+            "action": "Ymmärrän – Siirry harjoitteluun"
+        },
+        "model_5d": {
+            "badge": "Vaihe 3/4: 5D-malli",
+            "why_worked": "Miksi se toimi?",
+            "continue": "Jatka",
+            "cheat_sheet_title": "5 tapaa puuttua (Hollaback!)",
+            "cheat_sheet": [
+                {
+                    "title": "Distract (Häiritse)",
+                    "desc": "Keskeytä huomaamatta (\"Paljon kello on?\")"
+                },
+                {
+                    "title": "Delegate (Siirrä)",
+                    "desc": "Pyydä apua muilta tai esihenkilöltä."
+                },
+                {
+                    "title": "Document (Dokumentoi)",
+                    "desc": "Kirjaa ylös: aika, paikka, sanat."
+                },
+                {
+                    "title": "Delay (Viivytä)",
+                    "desc": "Tue uhria tilanteen jälkeen."
+                },
+                {
+                    "title": "Direct (Suora)",
+                    "desc": "Puhu suoraan (jos turvallista)."
+                }
+            ],
+            "scenario": [
+                {
+                    "id": "start",
+                    "speaker": "Tilanne",
+                    "text": "Olet kahvihuoneessa. Kuulet, kuinka kaksi kollegaa puhuu kovalla äänellä: \"Kuulitteko, mitä se uus tyyppi taas mokasi? Ihan käsittämätöntä tunarointia.\" Uusi työntekijä istuu viereisessä pöydässä ja kuulee kaiken.",
+                    "choices": [
+                        {
+                            "text": "Mene istumaan uuden työntekijän viereen ja kysy: \"Hei, miten sun projekti etenee?\"",
+                            "feedback": "Hienoa! Veit huomion pois kiusaajista (Distract) ja tarjosit tukea ilman konfrontaatiota. Tämä on usein turvallisin tapa puuttua."
+                        },
+                        {
+                            "text": "Sano kovaan ääneen: \"Hei, meillä ei puhuta työkavereista noin.\"",
+                            "feedback": "Rohkeaa! Suora puuttuminen (Direct) tekee rajan selväksi. Muista kuitenkin aina arvioida oma turvallisuutesi ennen konfrontaatiota."
+                        },
+                        {
+                            "text": "Mene myöhemmin uuden työntekijän luo: \"Olen pahoillani heidän käytöksestään, se ei ollut ok.\"",
+                            "feedback": "Tärkeää! Jälkikäteinen tuki (Delay) on elintärkeää. Se poistaa uhrilta epäilyksen siitä, että hän olisi kuvitellut tilanteen."
+                        }
+                    ]
+                },
+                {
+                    "id": "distract_success",
+                    "speaker": "Kertoja",
+                    "text": "Uusi työntekijä hymyilee helpottuneena ja alkaa jutella kanssasi. Kiusaajat hiljenevät hetkeksi ja vaihtavat sitten aihetta, kun \"yleisö\" katosi.",
+                    "choices": [
+                        {
+                            "text": "Jatka seuraavaan"
+                        }
+                    ]
+                },
+                {
+                    "id": "direct_success",
+                    "speaker": "Kertoja",
+                    "text": "Huoneeseen tulee hiljaista. Toinen puhujista mumisee \"vitsihän se vaan oli\", mutta keskustelu loppuu. Uusi työntekijä luo sinuun kiitollisen katseen.",
+                    "choices": [
+                        {
+                            "text": "Jatka seuraavaan"
+                        }
+                    ]
+                },
+                {
+                    "id": "delay_success",
+                    "speaker": "Kertoja",
+                    "text": "Uusi työntekijä huokaisee: \"Kiitos kun sanoit. Luulin jo, että kuvittelin kaiken.\" Olet validioinut hänen kokemuksensa, mikä on toipumisen kannalta kriittistä.",
+                    "choices": [
+                        {
+                            "text": "Jatka seuraavaan"
+                        }
+                    ]
+                }
+            ]
+        },
+        "boundaries": {
+            "title": "Ennen kuin puutut...",
+            "text": "Sankariteot eivät auta, jos palat itse loppuun. Muista turvallisuuden tarkistuslista:",
+            "checklist": [
+                "Onko fyysinen turvallisuuteni uhattuna?",
+                "Onko minulla liittolaisia lähellä?",
+                "Onko minulla valtaa/asemaa tässä tilanteessa?",
+                "Voinko pahentaa tilannetta puuttumalla nyt?"
+            ],
+            "action": "Olen valmis - Lopeta harjoitus"
+        }
+    },
+    "moral_labyrinth": {
+        "title": "Moraalinen Labyrintti",
+        "ui": {
+            "back": "Keskeytä"
+        },
+        "profiles": {
+            "idealist": {
+                "title": "Idealisti",
+                "desc": "Asetat oikeudenmukaisuuden kaiken edelle. Olet rohkea, mutta saatat joutua konflikteihin, jotka vaarantavat oman asemasi.",
+                "advice": "Rohkeutesi on ihailtavaa. Muista kuitenkin valita taistelusi, jotta et pala loppuun."
+            },
+            "pragmatist": {
+                "title": "Pragmaatikko",
+                "desc": "Etsit ratkaisuja, jotka toimivat käytännössä. Yrität tasapainotella tuloksen ja ihmisten välillä.",
+                "advice": "Diplomaattisuutesi on voimavara. Varo kuitenkin, ettet tee liikaa kompromisseja arvojesi kustannuksella."
+            },
+            "protector": {
+                "title": "Suojelija",
+                "desc": "Puolustat heikompia suurella sydämellä. Olet empaattinen ja lojaali.",
+                "advice": "Empatiasi on supervoima. Muista asettaa rajat myös itsesi suojelemiseksi."
+            },
+            "survivor": {
+                "title": "Selviytyjä",
+                "desc": "Keskityt oman turvallisuutesi takaamiseen. Vältät riskejä ja konflikteja.",
+                "advice": "Suojautuminen on inhimillistä. Mieti kuitenkin, mikä on vaikenemisen hinta pitkällä aikavälillä."
+            },
+            "analysis_title": "Suojasiiven analyysi",
+            "action": "Palaa valikkoon"
+        },
+        "steps": [
+            {
+                "title": "Tähtisuorittajan Varjo",
+                "text": "Olet markkinointitiimin asiantuntija. Tiiminne 'Tähtisuorittaja', Alex, tuo taloon valtavasti rahaa, mutta hänellä on tapana nolata uusi harjoittelija, Eeva, kokouksissa hienovaraisilla piikeillä. Tänään Alex sanoi Eevalle: 'Ehkä tämä ala ei vaan ole sinua varten', ja Eeva poistui itkien.",
+                "question": "Mitä teet tilanteessa?",
+                "options": [
+                    {
+                        "text": "Puutun heti ja julkisesti: 'Alex, tuo oli asiatonta.'",
+                        "type": "idealist"
+                    },
+                    {
+                        "text": "Odotan kokouksen loppuun ja puhun Alexille kahden kesken.",
+                        "type": "pragmatist"
+                    },
+                    {
+                        "text": "Lähden Eevan perään lohduttamaan häntä.",
+                        "type": "protector"
+                    },
+                    {
+                        "text": "Pysyn hiljaa. Alex on liian vaikutusvaltainen vastustettavaksi.",
+                        "type": "survivor"
+                    }
+                ]
+            },
+            {
+                "title": "Johdon Paine",
+                "text": "Alex sai kuulla, että Eevan itku herätti huomiota. Esimiehesi kutsuu sinut toimistoon. 'Alex on meille elintärkeä juuri nyt. Eeva on... herkkä. Toivon, että tuet tiimin yhtenäisyyttä etkä levitä juttuja.'",
+                "question": "Miten vastaat?",
+                "options": [
+                    {
+                        "text": "Ymmärrän. Keskityn vain töihini.",
+                        "type": "survivor"
+                    },
+                    {
+                        "text": "En voi hyväksyä kiusaamista, riippumatta tuloksesta.",
+                        "type": "idealist"
+                    },
+                    {
+                        "text": "Ymmärrän paineen, mutta Eevan tukeminen auttaa myös tulosta pitkässä juoksussa.",
+                        "type": "pragmatist"
+                    },
+                    {
+                        "text": "Jos Eeva lähtee tämän takia, kerron kaikille miksi.",
+                        "type": "protector"
+                    }
+                ]
+            },
+            {
+                "title": "Eskalaatio",
+                "text": "Viikko myöhemmin Eeva on sairaslomalla. Alex vitsailee kahvihuoneessa: 'Heikot sortuu elon tiellä'. Muut nauravat vaivautuneesti.",
+                "question": "Tämä on ratkaiseva hetki. Mitä teet?",
+                "options": [
+                    {
+                        "text": "Otan yhteyttä työsuojeluvaltuutettuun Eevan puolesta.",
+                        "type": "protector"
+                    },
+                    {
+                        "text": "Naurahdan mukana välttääkseni konfliktin.",
+                        "type": "survivor"
+                    },
+                    {
+                        "text": "Sanon ääneen: 'Tuo ei ole hauskaa, se on julmaa.'",
+                        "type": "idealist"
+                    },
+                    {
+                        "text": "Ehdotan tiimipalaveria pelisäännöistä ilman nimiä.",
+                        "type": "pragmatist"
+                    }
+                ]
+            }
+        ]
+    },
+    "organization_resources": {
+        "title": "Tietopankki: Työyhteisön Hyvinvointi",
+        "subtitle": "Rakenteelliset riskit, johdon vastuu ja tutkittu tieto turvallisen työyhteisön rakentamiseksi.",
+        "ui": {
+            "back": "Takaisin",
+            "org_label": "Organisaatioille",
+            "footer_title": "Organisaatiot ovat ihmisiä",
+            "footer_text": "\"Kun työyhteisö on turvallinen, ihmiset uskaltavat tehdä työnsä hyvin. Kun turvallisuus puuttuu, seuraukset näkyvät kaikkialla.\""
+        },
+        "resources": [
+            {
+                "title": "1. Organisaatioriskit (5 kriittistä tekijää)",
+                "content": {
+                    "item1": "<strong>1. Epäselvät roolit ja valta-alueet</strong><br/>Syntyy ”harmaa alue”, jossa epäviralliset valtasuhteet normalisoituvat.",
+                    "item2": "<strong>2. Heikko tiedonkulku</strong><br/>Psykologinen sopimus rikkoutuu, kun ihminen kokee tulevansa ohitetuksi.",
+                    "item3": "<strong>3. Epäoikeudenmukainen johtaminen</strong><br/>Sisäpiirit ja suosikit luovat kiusaamisalttiuden.",
+                    "item4": "<strong>4. Näennäiset puuttumisprosessit</strong><br/>Jos prosessit ovat vain paperilla, viesti on: kiusaaminen kannattaa.",
+                    "item5": "<strong>5. Korkea kuormitus + Matala vaikutusvalta</strong><br/>Syntyy ”oppinut avuttomuus”."
+                }
+            },
+            {
+                "title": "2. Taloudellinen vaikutus",
+                "content": {
+                    "summary": "Yksi pitkittynyt kiusaamistapaus voi maksaa <strong>80 000 – 150 000 €</strong>.",
+                    "cards": [
+                        {
+                            "title": "Sairauspoissaolot",
+                            "text": "Palkka + sivukulut (~400€/pv)."
+                        },
+                        {
+                            "title": "Presenteeismi",
+                            "text": "Tehon lasku (20-40%)."
+                        },
+                        {
+                            "title": "Vaihtuvuus",
+                            "text": "0.5 - 1.5 x vuosipalkka."
+                        },
+                        {
+                            "title": "Johto & HR",
+                            "text": "20-80 tuntia selvitystyötä."
+                        }
+                    ],
+                    "formula": "Kaava: Kokonaishinta ≈ SA + Presenteeismi + Vaihtuvuus + HR/Johto + Maine"
+                }
+            },
+            {
+                "title": "3. Johdon ratkaisevat hetket",
+                "content": {
+                    "item1": "<strong>1. Ensimmäinen signaali</strong><br/>Valinta: Pysäytä (reagoi heti) vai Mahdollista (vähättele).",
+                    "item2": "<strong>2. Ensimmäinen ilmoitus</strong><br/>Valinta: Pysäytä (dokumentoi) vai Mahdollista (syyllistä).",
+                    "item3": "<strong>3. Seurannan jatkuvuus</strong><br/>Valinta: Pysäytä (tarkista) vai Mahdollista (unohda)."
+                }
+            }
+        ]
+    },
+    "manager_training": {
+        "title": "Esimieskoulutus",
+        "step": "Vaihe",
+        "stages": {
+            "toxic_star": {
+                "title": "1. 'Toxic Star' -dilemma",
+                "matrix_title": "Arvot vs. Tulokset -matriisi",
+                "matrix_desc": "Harvardin tutkimus (Housman & Minor, 2015) osoittaa: Yksi \"myrkyllinen tähti\" maksaa talolle 2x enemmän kuin tuottaa. Arvioi tiimisi jäseniä tällä työkalulla.",
+                "axis_results": "Tulosvastuu & Osaaminen (1-5)",
+                "axis_values": "Arvot & Käytös (1-5)",
+                "labels": {
+                    "beginner": "Aloittelija",
+                    "top_performer": "Huippuosaaja",
+                    "toxic": "Myrkyllinen",
+                    "exemplary": "Esimerkillinen"
+                },
+                "analysis": {
+                    "toxic": "TOXIC STAR: Tuhoaa tiimin moraalin. Vaihtuvuus maksaa enemmän kuin hänen tuloksensa.",
+                    "star": "STAR: Todellinen huippuosaaja. Pidä kiinni!",
+                    "potential": "POTENTIAL: Tarvitsee tukea tulokseen, mutta asenne on kunnossa.",
+                    "underperformer": "UNDERPERFORMER: Väärä rekrytointi tai väärä rooli.",
+                    "average": "KESKITASO: Normaali suoritus."
+                },
+                "conclusion": "<strong>Johtopäätös:</strong> Esimiehellä on velvollisuus puuttua myös \"tähtien\" käytökseen. Jos annat myrkyllisen käytöksen jatkua tulosten nimissä, ajat viisi muuta asiantuntijaa pois talosta.",
+                "action": "Kyllä, ymmärrän riskin"
+            },
+            "legal": {
+                "title": "2. Juridinen selkänoja",
+                "content_title": "Laki on puolellasi",
+                "cards": {
+                    "law": {
+                        "title": "Työturvallisuuslaki 28 §",
+                        "text": "\"Työnantajan on saatuaan tiedon häirinnästä ryhdyttävä käytettävissään olevin keinoin toimiin epäkohdan poistamiseksi.\""
+                    },
+                    "right": {
+                        "title": "Direktio-oikeus",
+                        "text": "Esimiehellä on oikeus ja velvollisuus määritellä, mikä on hyväksyttävää käytöstä. Et tarvitse konsensusta puuttumiseen."
+                    }
+                },
+                "quote": "\"Et ole ilkeä, kun puutut – olet ammattimainen ja noudatat lakia.\"",
+                "action": "Hyväksyn velvollisuuteni"
+            },
+            "conflict": {
+                "title": "3. Konfliktien välttely",
+                "content_title": "Konfliktien välttelyn hinta",
+                "desc": "Tutkimusten mukaan \"Laissez-faire\" (antaa mennä) -johtaminen on työntekijöille kaikkein stressaavinta. Puuttumattomuus on aktiivinen teko.",
+                "exercise_title": "Altistusharjoitus: Sano se ääneen",
+                "exercise_desc": "Lue lauseet ääneen. Jos syke nousee, toista kunnes se tasaantuu.",
+                "sentences": [
+                    "Huomasin eilen kokouksessa, että keskeytit Liisan kolme kertaa.",
+                    "Tämä käytös ei vastaa meidän arvojamme, ja sen on loputtava.",
+                    "Haluan keskustella tavastasi antaa palautetta."
+                ],
+                "action": "Olen valmis puhumaan suoraan"
+            },
+            "restorative": {
+                "title": "4. Korjaava oikeudenmukaisuus",
+                "content_title": "Jälkihoito & Korjaava oikeudenmukaisuus",
+                "intro": "Kiusaamistapaus ei pääty varoitukseen. Tiimi on usein traumatisoitunut ja \"syntipukin\" paikka on auki.",
+                "steps": [
+                    {
+                        "title": "1. Palauta luottamus",
+                        "text": "Puhu tiimille yleisellä tasolla tapahtuneesta (ilman nimiä), mutta vahvista että prosessi on käyty ja normeja on tarkennettu."
+                    },
+                    {
+                        "title": "2. Suojaa uhria leimautumiselta",
+                        "text": "Varmista, ettei ilmoittaja jää yksin tai tule kohdelluksi \"kantelijana\". Seuraa tilannetta aktiivisesti 3kk ajan."
+                    }
+                ],
+                "action": "Sitoudun jälkihoitoon"
+            },
+            "accountability": {
+                "title": "5. Vastuullisuus & Tuki",
+                "content_title": "Johtajuus on tekoja",
+                "desc": "Organisaation immuunijärjestelmä vahvistuu vain, jos johto uskaltaa toimia. Sinulla on tuki, laki ja oikeutus puolellasi.",
+                "cards": {
+                    "reward": {
+                        "title": "Palkitseminen",
+                        "text": "Psykologinen turvallisuus on tulosmittari. Hyvästä ilmapiiristä palkitaan."
+                    },
+                    "support": {
+                        "title": "Tukiverkko",
+                        "text": "Suora linja HR:ään. Älä jää yksin vaikeiden tapausten kanssa."
+                    }
+                },
+                "restart": "Kertaa alusta",
+                "finish": "Valmis & Kuittaa"
+            }
+        }
+    },
+    "culture_thermometer": {
+        "title": "Kulttuuri-lämpömittari",
+        "subtitle": "Organisaation terveystarkastus",
+        "intro": {
+            "title": "Millaista ilmaa<br />teillä hengitetään?",
+            "text": "Kulttuuri ei muutu julisteilla, vaan päivittäisillä teoilla ja turvallisuuden tunteella. Tämä lämpömittari mittaa <strong>psykologista turvallisuutta</strong> ja <strong>rakenteellista suojaa</strong> anonyymisti.<br /><br />Vastaa rehellisesti nykytilan mukaan.",
+            "start": "Aloita mittaus"
+        },
+        "survey": {
+            "question": "Kysymys",
+            "ready": "valmis",
+            "agree": "Täysin samaa mieltä",
+            "disagree": "Täysin eri mieltä"
+        },
+        "questions": [
+            "Voin tuoda esiin huoleni työkäyttäytymisestä pelkäämättä kielteisiä seurauksia itselleni.",
+            "Esihenkilöni reagoi johdonmukaisesti, kun joku käyttäytyy epäasiallisesti.",
+            "Tiimissämme vaikeista asioista voidaan puhua avoimesti ilman vaikenemisen normia.",
+            "Koen, että minua kohdellaan oikeudenmukaisesti tehtävien jaossa ja palautteessa.",
+            "Tiedän selkeästi, miten voin ilmoittaa kiusaamisepäilystä ja luotan prosessiin.",
+            "Olen nähnyt tilanteen (12kk sisällä), jossa epäasialliseen käytökseen puututtiin nopeasti.",
+            "Tiimissämme ei ole 'koskemattomia' henkilöitä heidän asemansa vuoksi.",
+            "Jos tekisin virheen, en odottaisi tulevani nolatun tai eristetyn.",
+            "Työpaikallani on selkeä ero jämäkän palautteen ja kiusaamisen välillä.",
+            "Johdon teot osoittavat, että kiusaamisella on todellisia seurauksia."
+        ],
+        "result": {
+            "badge": "Mittausraportti",
+            "title": "Kulttuurin tila",
+            "safety_title": "Psykologinen Turva",
+            "safety_desc": "Tämä luku kertoo, miten vapaasti työntekijät uskaltavat olla omia itsejään ja nostaa epäkohtia esiin ilman pelkoa nolaamisesta tai kostosta.",
+            "risk_title": "Rakenteellinen Valmius",
+            "risk_desc": "Tämä luku kuvaa johdon, prosessien ja puuttumisen uskottavuutta. Mitä korkeampi luku, sitä vaikeampaa kiusaamisen on juurtua rakenteisiin.",
+            "insight_title": "Havainto",
+            "critical": "Mittaus osoittaa kriittisiä puutteita joko turvallisuudentunteessa tai rakenteissa. Tämä tila altistaa organisaation pitkittyneille kiusaamistapauksille ja kalliille vaihdolle.",
+            "strong": "Organisaatiollasi on vahva pohja. Jatkakaa avointa dialogia ja varmistakaa, ettei 'koskemattomia' suosikkeja pääse syntymään LMX-ilmiön myötä.",
+            "finish": "VALMIS"
+        }
+    },
+    "association_simulation": {
+        "title": "Vapaa-aika & Yhdistykset",
+        "subtitle": "Interaktiivinen simulaattori",
+        "ui": {
+            "wellbeing": "Hyvinvointi",
+            "safety": "Turvallisuus",
+            "tip_title": "Asiantuntijan vinkki",
+            "tip_text": "Tutkimukset osoittavat, että itsevarma rajojen veto vähentää kiusaamistilanteita jopa 50%. Dokumentointi taas antaa uskottavuutta puuttujille.",
+            "psych_title": "Psykologinen turva",
+            "psych_text": "Käytä \"Minä-viestejä\" (\"Minusta tuntuu...\") poistaaksesi hyökkäävyyden, mutta pitääksesi silti huolta omasta tilastasi.",
+            "logs_title": "Todistepankki (Loki)",
+            "no_logs": "Ei merkintöjä vielä",
+            "logs_obs": "havaintoa",
+            "neuro_title": "Opetusala & Neuroepätyypilliset",
+            "neuro_text": "Neuroepätyypillisille visuaalinen dokumentointi (kuvakaappaukset, kuvat tiloista) voi olla helpompi tapa jäsentää tapahtumia kuin pelkkä teksti. Hallitustyöskentelyssä selkeät, kirjalliset pelisäännöt luovat kaivattua ennakoitavuutta.",
+            "back": "Takaisin"
+        },
+        "scenarios": {
+            "association_basics": [
+                {
+                    "id": "start",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Olet mukana harrastusyhdistyksen hallituksessa. Huomaat WhatsApp-ryhmässä outoa dynamiikkaa: PJ ja pari muuta tekevät päätöksiä muiden ohi ja vitsailevat muiden kustannuksella.",
+                    "choices": [
+                        {
+                            "text": "Aloita tapahtumien dokumentointi todistepankkiin",
+                            "nextStep": "doc_start",
+                            "impact": {
+                                "wellbeing": 0,
+                                "safety": 15
+                            },
+                            "feedback": "Viisasta. Faktat auttavat sinua pysymään todellisuudessa, vaikka muut yrittäisivät vähätellä.",
+                            "strategyType": "document"
+                        },
+                        {
+                            "text": "Kysy ryhmässä: \"Miten tämä päätös tehtiin?\"",
+                            "nextStep": "direct_question",
+                            "impact": {
+                                "wellbeing": 5,
+                                "safety": 10
+                            },
+                            "feedback": "Suora kysymys pakottaa klikin selittämään toimintaansa julkisesti.",
+                            "strategyType": "warning"
+                        }
+                    ]
+                },
+                {
+                    "id": "doc_start",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Avaat todistepankin. PJ kirjoittaa: \"Päätettiin Teron kanssa, että siirretään tapahtumaa. Te muut voitte hoitaa roudauksen.\"",
+                    "choices": [
+                        {
+                            "text": "Kirjaa: \"PJ ja Tero päättivät hallituksen ohi 12.05.\"",
+                            "nextStep": "doc_success",
+                            "impact": {
+                                "wellbeing": 5,
+                                "safety": 25
+                            },
+                            "feedback": "Dokumentointi muuttaa subjektiivisen tunteen objektiiviseksi todisteeksi.",
+                            "strategyType": "document"
+                        }
+                    ]
+                },
+                {
+                    "id": "direct_question",
+                    "speaker": "PJ",
+                    "type": "dialogue",
+                    "text": "PJ: \"No me vaan Teron kanssa nopeasti katsottiin tämä alta pois. Ei tästä nyt kannata numeroa tehdä, ollaanhan me kavereita! 😉\"",
+                    "choices": [
+                        {
+                            "text": "Käytä varoitusfraasia: \"Sääntöjen noudattaminen on kaikkien etu.\"",
+                            "nextStep": "resolution",
+                            "impact": {
+                                "wellbeing": 15,
+                                "safety": 20
+                            },
+                            "feedback": "Varoitusfraasit (Warning Phrases) ovat lyhyitä ja asiallisia. Ne pysäyttävät manipulaation.",
+                            "strategyType": "warning"
+                        }
+                    ]
+                },
+                {
+                    "id": "doc_success",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Sinulla on nyt lista tilanteista, joissa sääntöjä on rikottu. Päätät ottaa asian esille seuraavassa kokouksessa liittolaisten kanssa.",
+                    "choices": [
+                        {
+                            "text": "Viimeistele harjoitus",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": 10,
+                                "safety": 20
+                            },
+                            "feedback": "Hienoa! Tiedon kerääminen on ensimmäinen askel muutokseen.",
+                            "strategyType": "boundary"
+                        }
+                    ]
+                },
+                {
+                    "id": "resolution",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "PJ hämmentyy hetkeksi, mutta alkaa selitellä. Tilanne vakautuu ja muutkin alkavat vaatia avoimempaa päätöksentekoa.",
+                    "choices": [
+                        {
+                            "text": "Viimeistele harjoitus",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": 20,
+                                "safety": 10
+                            },
+                            "feedback": "Rajojen veto vapaa-ajalla on välttämätöntä jaksamisen kannalta.",
+                            "strategyType": "boundary"
+                        }
+                    ]
+                }
+            ],
+            "hobby_boundaries": [
+                {
+                    "id": "start",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Harrastusryhmässäsi yksi jäsen \"vitsailee\" jatkuvasti kustannuksellasi muiden edessä. Se tuntuu pahalta, mutta muut vain naurahtavat mukana.",
+                    "choices": [
+                        {
+                            "text": "Käytä minä-viestiä heti tilanteessa",
+                            "nextStep": "i_message",
+                            "impact": {
+                                "wellbeing": 10,
+                                "safety": 15
+                            },
+                            "feedback": "Minä-viesti (\"Minusta tuntuu...\") on tutkimusten mukaan tehokkain tapa asettaa raja hyökkäämättä takaisin.",
+                            "strategyType": "boundary"
+                        },
+                        {
+                            "text": "Niele kiukkusi ja yritä nauraa mukana",
+                            "nextStep": "passive_path",
+                            "impact": {
+                                "wellbeing": -20,
+                                "safety": -10
+                            },
+                            "feedback": "Vaikeneminen tulkitaan usein hyväksynnäksi. Tämä kuluttaa voimavarojasi.",
+                            "strategyType": "passive"
+                        }
+                    ]
+                },
+                {
+                    "id": "i_message",
+                    "speaker": "Sinä",
+                    "type": "dialogue",
+                    "text": "\"Minusta tuntuu epämiellyttävältä, kun teet vitsejä suorituksestani muiden edessä. Toivoisin, että lopettaisit sen.\"",
+                    "choices": [
+                        {
+                            "text": "Odota vastausta rauhallisesti",
+                            "nextStep": "reaction_positive",
+                            "impact": {
+                                "wellbeing": 15,
+                                "safety": 10
+                            },
+                            "feedback": "Rauhallinen odotus osoittaa, että seisot sanomasi takana.",
+                            "strategyType": "boundary"
+                        }
+                    ]
+                },
+                {
+                    "id": "reaction_positive",
+                    "speaker": "Toinen jäsen",
+                    "type": "dialogue",
+                    "text": "\"Oho, en mä tarkottanut mitään pahaa... sori jos otit sen noin. En tee sitä enää.\"",
+                    "choices": [
+                        {
+                            "text": "Kiitä suoruudesta ja jatka harrastusta",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": 20,
+                                "safety": 10
+                            },
+                            "feedback": "Hienoa! Itsetuntosi kasvoi ja asetit selvän rajan.",
+                            "strategyType": "boundary"
+                        }
+                    ]
+                },
+                {
+                    "id": "passive_path",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "\"Vitsailu\" jatkuu ja muuttuu entistä henkilökohtaisemmaksi. Alat harkita harrastuksen lopettamista, vaikka se on sinulle tärkeä.",
+                    "choices": [
+                        {
+                            "text": "Pysäytä tilanne nyt: \"Tämä ei ole enää hauskaa.\"",
+                            "nextStep": "i_message",
+                            "impact": {
+                                "wellbeing": 10,
+                                "safety": 20
+                            },
+                            "feedback": "Koskaan ei ole liian myöhäistä asettaa rajoja. Käytä suoraa viestintää.",
+                            "strategyType": "warning"
+                        },
+                        {
+                            "text": "Lopeta harrastus hiljaisuudessa",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": -30,
+                                "safety": 0
+                            },
+                            "feedback": "Pako on ratkaisu, mutta se jättää haavoja ja kiusaaja jatkaa seuraavaan kohteeseen.",
+                            "strategyType": "passive"
+                        }
+                    ]
+                }
+            ],
+            "transferable_skills": [
+                {
+                    "id": "start",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Olet uuden harrastuksen parissa ja huomaat, että siellä käytetään samoja gaslighting-taktiikoita kuin vanhalla työpaikallasi. Tiedät jo miten toimia.",
+                    "choices": [
+                        {
+                            "text": "Sovella työpaikan dokumentointiooppeja",
+                            "nextStep": "skills_doc",
+                            "impact": {
+                                "wellbeing": 5,
+                                "safety": 25
+                            },
+                            "feedback": "Taidot ovat todellakin siirrettäviä. Dokumentointi toimii kaikkialla.",
+                            "strategyType": "document"
+                        },
+                        {
+                            "text": "Puhu ohjaajalle suoraan taktiikoista",
+                            "nextStep": "skills_direct",
+                            "impact": {
+                                "wellbeing": 10,
+                                "safety": 15
+                            },
+                            "feedback": "Taktiikoiden nimeäminen poistaa niiltä vallan.",
+                            "strategyType": "warning"
+                        }
+                    ]
+                },
+                {
+                    "id": "skills_doc",
+                    "speaker": "Kertoja",
+                    "type": "narrative",
+                    "text": "Kirjaat ylös epäloogiset ohjeet ja muuttuvat säännöt. Kun sinua syytetään virheestä, sinulla on faktat valmiina.",
+                    "choices": [
+                        {
+                            "text": "Esitä todisteet rauhallisesti",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": 20,
+                                "safety": 30
+                            },
+                            "feedback": "Faktat ovat paras suoja manipulaatiota vastaan.",
+                            "strategyType": "document"
+                        }
+                    ]
+                },
+                {
+                    "id": "skills_direct",
+                    "speaker": "Ohjaaja",
+                    "type": "dialogue",
+                    "text": "\"Eihän täällä mitään sellaista tapahdu, olet vain vähän herkkä...\" (Klassinen gaslighting-yritys)",
+                    "choices": [
+                        {
+                            "text": "Käytä varoitusfraasia: \"Kyse ei ole herkkydestä, vaan säännöistä.\"",
+                            "nextStep": "finish",
+                            "impact": {
+                                "wellbeing": 15,
+                                "safety": 20
+                            },
+                            "feedback": "Hienoa! Tunnistit taktiikan ja torjuit sen heti.",
+                            "strategyType": "warning"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "tactics_page": {
+        "title_start": "KIUSAAMISEN",
+        "title_highlight": "TAKITIIKAT",
+        "description": "Tutustu yleisimpiin kiusaamisen muotoihin ja opi tunnistamaan, mitä sinulle tapahtuu. Tieto on ensimmäinen askel puolustautumiseen.",
+        "promo_banner": {
+            "title": "Valmennusmoduuli",
+            "description": "Testaa taitosi skenaarioiden avulla. Opi tunnistamaan 'näkymätön väkivalta' ja hienovaraiset taktiikat.",
+            "cta": "Aloita valmennus"
+        },
+        "carousel": [
+            {
+                "src": "/images/tactics/exclusion_v3.png",
+                "alt": "Ryhmästä sulkeminen",
+                "caption": "Ryhmästä sulkeminen on väkivaltaa, joka ei jätä mustelmia."
+            },
+            {
+                "src": "/images/tactics/invisible_v2.png",
+                "alt": "Näkymättömäksi tekeminen",
+                "caption": "Kun sinua kohdellaan ilmana, viesti on: sinulla ei ole väliä."
+            },
+            {
+                "src": "/images/tactics/silent_exclusion_v2.png",
+                "alt": "Hiljainen ulossulkeminen",
+                "caption": "Hiljainen ulossulkeminen on yksi yleisimmistä kiusaamisen muodoista."
+            },
+            {
+                "src": "/images/tactics/public_shaming_v3.png",
+                "alt": "Julkinen nolaaminen",
+                "caption": "Julkinen nolaaminen ei ole palautetta, se on vallankäyttöä."
+            },
+            {
+                "src": "/images/tactics/magnifying_glass_v2.png",
+                "alt": "Virheiden paisuttelu",
+                "caption": "Inhimillisten virheiden paisuttelu on keino nujertaa ammatillinen itsetunto."
+            },
+            {
+                "src": "/images/tactics/moving_goalposts_v2.png",
+                "alt": "Mahdoton työmäärä",
+                "caption": "Mahdoton työmäärä ei ole tehokkuutta, se on uuvuttamista."
+            },
+            {
+                "src": "/images/tactics/shifting_goals_v2.png",
+                "alt": "Maalin siirtäminen",
+                "caption": "Maalin siirtäminen kesken pelin varmistaa, ettet voi koskaan onnistua."
+            },
+            {
+                "src": "/images/tactics/gaslighting_v2.png",
+                "alt": "Todellisuuden vääristely",
+                "caption": "Todellisuuden vääristely saa uhrin epäilemään omaa mielenterveyttään."
+            }
+        ],
+        "modal": {
+            "definition": "Määritelmä",
+            "goal": "Tavoite",
+            "impact": {
+                "title": "Vaikutus uhriin",
+                "stress": "Stressi",
+                "burnout": "Uupumus",
+                "selfEsteem": "Itsetunto"
+            },
+            "phrases": "Tyypilliset lausahdukset",
+            "strategy": "Puolustusstrategia",
+            "roles": {
+                "victim": "Uhrille",
+                "witness": "Todistajalle",
+                "manager": "Esihenkilölle"
+            },
+            "log_instruction": "Näin kirjaat lokiin"
+        }
+    },
+    "tactic_categories": {
+        "verbal": "Verbaalinen",
+        "social": "Sosiaalinen",
+        "passive": "Passiivinen",
+        "power": "Vallankäyttö",
+        "manipulative": "Manipulatiivinen",
+        "structural": "Rakenteellinen"
+    },
+    "neuro_page": {
+        "header": {
+            "mini_title": "Erilaisuuden ymmärtäminen",
+            "title": "Neuromoninaisuus on supervoima",
+            "quote": "ADHD, autismi ja erityisherkkyys eivät ole virheitä. Ne ovat erilaisia käyttöjärjestelmiä.",
+            "intro": "Kun lopetamme neliöiden pakottamisen pyöreisiin reikiin, huomaamme, että erilaiset mielet ratkaisevat ongelmia ainutlaatuisilla tavoilla."
+        },
+        "cards": {
+            "what": {
+                "title": "Mistä on kyse?",
+                "subtitle": "Yleisimmät muodot",
+                "adhd": "<strong>ADHD:</strong> Kilpa-auton moottori polkupyörän jarruilla. Nopeutta ja luovuutta, mutta haasteita säätelyssä.",
+                "autism": "<strong>Autismikirjo:</strong> Asiantuntijan mieli. Syvä keskittyminen, rehellisyys ja systemaattisuus.",
+                "dyslexia": "<strong>Lukivaikeus:</strong> Visuaalinen ajattelu. Kokonaisuuksien hahmottaminen yksityiskohtien sijaan."
+            },
+            "superpowers": {
+                "title": "Vahvuudet",
+                "subtitle": "Oikeassa ympäristössä",
+                "productivity": "<strong>Tuottavuus:</strong> Kyky hyperfokukseen, joka ylittää neurotyypillisen tason.",
+                "innovation": "<strong>Innovaatio:</strong> Kyky ajatella laatikon ulkopuolelta, koska ei näe laatikkoa.",
+                "hyperfocus": "<strong>Intohimo:</strong> Voimakas omistautuminen kiinnostuksen kohteille."
+            }
+        },
+        "spoon_theory": {
+            "mini_title": "Jaksaminen",
+            "title": "Lusikkateoria",
+            "text": "Kuvittele, että sinulla on päivälle 12 lusikallista energiaa. Neurotyypillinen käyttää 1 lusikan aamutoimiin. Neurokirjoinen voi käyttää 5 pelkästään työmatkan aistiärsykkeiden käsittelyyn.",
+            "what": {
+                "title": "Mikä?",
+                "text": "Metafora rajallisille energiavaroille."
+            },
+            "consume": {
+                "title": "Kuluttaa",
+                "text": "Melu, keskeytykset, epäselvät ohjeet, maskaaminen."
+            },
+            "save": {
+                "title": "Säästää",
+                "text": "Rauha, selkeät tavoitteet, autonomia, palautumisaika."
+            }
+        },
+        "challenges": {
+            "title": "Haasteet",
+            "environment": {
+                "title": "Ympäristö",
+                "text": "Avokonttorit ja jatkuvat ilmoitukset ovat kryptoniittia."
+            },
+            "misunderstandings": {
+                "title": "Väärinkäsitykset",
+                "text": "Suora kommunikaatio tulkitaan usein töykeydeksi."
+            },
+            "masking": {
+                "title": "Maskaaminen",
+                "text": "<strong>Maskaaminen:</strong> Omien piirteiden piilottaminen joukkoon kuulumiseksi. Se on uuvuttavaa ja johtaa loppuunpalamiseen. \"Minulla menee hyvin\" tarkoittaa usein \"Näyttelen, että menee hyvin\"."
+            }
+        },
+        "actions": {
+            "title": "Konkreettiset teot",
+            "employee": {
+                "title": "Työntekijälle",
+                "list": [
+                    "<strong>Tunne käyttöohjeesi:</strong> Mitä tarvitset? Hiljaisuutta? Kuulokkeet?",
+                    "<strong>Sanoita tarpeet:</strong> \"Teen parasta jälkeä, kun saan ohjeet kirjallisena.\"",
+                    "<strong>Salli palautuminen:</strong> Kunnioita lepoa."
+                ]
+            },
+            "manager": {
+                "title": "Esihenkilölle",
+                "list": [
+                    "<strong>Lopeta olettaminen:</strong> Katsekontaktin puute ≠ kuuntelun puute.",
+                    "<strong>Mahdollista muokkaus:</strong> Salli erilaiset työtavat.",
+                    "<strong>Ole suora:</strong> Sano mitä tarkoitat. Vältä vihjailua."
+                ]
+            }
+        },
+        "decoder": {
+            "title": "Kaksoisempatia-tulkki",
+            "intro": "Väärinkäsitykset syntyvät, kun kaksi eri käyttöjärjestelmää kohtaa.",
+            "nt_label": "Neurotyypillinen tulkinta",
+            "nd_label": "Neurokirjoinen todellisuus",
+            "solution_label": "Silta",
+            "situation_label": "Tilanne",
+            "items": [
+                {
+                    "situation": "Kysymys palaverissa",
+                    "nt": "Hän on hiljaa. Onko hän valmistautunut huonosti?",
+                    "nd": "Prosessoin tietoa. Tarvitsen hetken jäsentää vastausta tarkasti.",
+                    "bridge": "Anna vastausaikaa tai mahdollisuus vastata kirjallisesti."
+                },
+                {
+                    "situation": "Kuulokkeet päässä",
+                    "nt": "Hän on epäsosiaalinen ja eristäytyy tiimistä.",
+                    "nd": "Suojelen aistejani, jotta voin keskittyä työhön tehokkaasti.",
+                    "bridge": "Kunnioita työrauhan tarvetta. Kommunikoi Slackissa."
+                },
+                {
+                    "situation": "Suora palaute",
+                    "nt": "Hän on töykeä ja hyökkäävä.",
+                    "nd": "Olen rehellinen ja tehokas. Faktoissa pysyminen on kunnioitusta.",
+                    "bridge": "Älä ota kritiikkiä henkilökohtaisesti. Keskity sisältöön."
+                }
+            ]
+        },
+        "logs": {
+            "title": "Dokumentointimallit",
+            "subtitle": "Työkaluja vaikeisiin keskusteluihin",
+            "accommodation": {
+                "title": "Mukautuspyyntö",
+                "desc": "Malli muutosten pyytämiseen",
+                "content": "Aihe: Pyyntö työn mukauttamisesta<br/><br/>Haluaisin keskustella pienestä muutoksesta, joka parantaisi työtehoani merkittävästi..."
+            },
+            "breakdown": {
+                "title": "Tilanteen purku",
+                "desc": "Kun asiat menevät pieleen",
+                "content": "Mitä tapahtui: Väärinkäsitys deadlinesta...<br/>Oma näkökulma: Ohjeet olivat suullisia...<br/>Ehdotus: Tehtävät kirjallisesti Jiraan..."
+            },
+            "rights": {
+                "title": "Oikeutesi",
+                "text": "Sinulla on oikeus kohtuullisiin mukautuksiin yhdenvertaisuuslain nojalla. Sinun ei tarvitse diagnosoida itseäsi pyytääksesi parempaa työympäristöä."
+            }
+        },
+        "simulation": {
+            "mini_title": "Harjoittelu",
+            "title": "Testaa taitosi",
+            "text": "Astu toisen saappaisiin tai testaa omia reaktioitasi realistisissa tilanteissa.",
+            "card1": {
+                "title": "Neuro-simulaatio",
+                "desc": "Koe aistikuormitus."
+            },
+            "card2": {
+                "title": "Suoritusansa",
+                "desc": "Kun 'tarpeeksi hyvä' ei riitä."
+            },
+            "card3": {
+                "title": "Informaatiovarjo",
+                "desc": "Kun jäät ulkopuolelle."
+            },
+            "btn_all": "Kaikki simulaatiot"
+        },
+        "completion": {
+            "title_done": "Moduuli suoritettu!",
+            "title_new": "Merkitse suoritetuksi",
+            "text_done": "Olet oppinut neuromoninaisuuden perusteet.",
+            "text_new": "Kuittaa tämä osio luetuksi saadaksesi sertifikaattipisteitä.",
+            "btn_mark": "Merkitse valmiiksi (+75 pts)",
+            "btn_back": "Palaa profiiliin"
+        }
+    },
+    "profile_page": {
+        "header": {
+            "user_profile": "Käyttäjäprofiili",
+            "achievements": "Saavutuksesi",
+            "completions": "{{count}} suoritusta",
+            "active": "Aktiivinen",
+            "export": "Vie tiedot",
+            "settings": "Asetukset"
+        },
+        "tabs": {
+            "honor_board": "Kunniataulu",
+            "modules": "Osiot",
+            "stats": "Tilastot",
+            "results": "Tulokset"
+        },
+        "badges": {
+            "locked": "Lukittu",
+            "locked_desc": "Jatka käyttöä ansaitaksesi tämän."
+        },
+        "categories": {
+            "CORE": "PERUSTEET",
+            "AWARENESS": "TIETOISUUS",
+            "TOOLS": "VÄLINEET",
+            "SUPPORT": "TUKI",
+            "INTERACTIVE": "VUOROVAIKUTUS",
+            "ORGANIZATION": "ORGANISAATIO",
+            "LEARNING": "OPPIMINEN",
+            "SPECIAL": "ERITYISET"
+        },
+        "stats": {
+            "points": "Pisteet",
+            "total_collected": "Yhteensä kerätty",
+            "progress": "Edistyminen",
+            "total_app": "Koko sovelluksesta",
+            "expert_profile": "Asiantuntijuusprofiili",
+            "feedback": "Palaute",
+            "level": "Taso {{level}}",
+            "next_level": "Seuraava: {{name}}"
+        },
+        "certification": {
+            "title": "Sertifiointi",
+            "description": "Suorita kaikki {{total}} sertifiointimoduulia saadaksesi 'Kiusaamisen Lukutaito' -sertifikaatin.",
+            "continue": "Jatka valmennusta",
+            "progress": "{{completed}} / {{total}} moduulia"
+        },
+        "security": {
+            "title": "Suojaus",
+            "description": "Tiedot tallennetaan paikallisesti selaimeesi. Ne eivät poistu istunnon päätyttyä, mutta tyhjentämällä selaustiedot menetät kaiken edistymisen.",
+            "clear_profile": "Tyhjennä profiili"
+        },
+        "results": {
+            "own_results": "Omat testitulokset",
+            "no_empathy": "Et ole vielä suorittanut empatiatestiä.",
+            "start_empathy": "Aloita testi",
+            "retake": "Tee uudelleen"
+        },
+        "module_status": "SUORITETTU"
+    },
+    "tietovisa_page": {
+        "title": "Tietovisa",
+        "description": "Testaa tietosi työpaikkakiusaamisesta ja työlainsäädännöstä.",
+        "all_data_title": "Koko Tietopankki",
+        "all_data_desc": "Kaikki {{count}} kysymystä yhdessä haasteessa.",
+        "start_btn": "ALOITA HAASTE",
+        "part_label": "OSA {{id}}",
+        "question_label": "Kysymys",
+        "questions_count": "{{count}} kysymystä",
+        "back_menu": "Takaisin valikkoon",
+        "expert_feedback": {
+            "observer": {
+                "title": "Tarkkailija",
+                "text": "Olet alussa. Jatka opiskelua, niin tunnistat riskit paremmin."
+            },
+            "alert": {
+                "title": "Tietoinen",
+                "text": "Hyvä pohja! Tunnistat useimmat tilanteet oikein."
+            },
+            "expert": {
+                "title": "Asiantuntija",
+                "text": "Erinomaista! Osaat soveltaa tietoa käytäntöön."
+            }
+        },
+        "interrupt": "Keskeytä",
+        "correct": "Oikein!",
+        "wrong": "Väärin",
+        "correct_answer": "Oikea vastaus: {{answer}}",
+        "explanation": "Selitys",
+        "next": "Seuraava"
+    },
+    "impact_profile": {
+        "nav_title": "Vaikutusprofiili",
+        "hero": {
+            "title": "Millainen olet muiden silmissä?",
+            "subtitle": "Testaa, miten toimintasi vaikuttaa työyhteisön turvallisuuteen.",
+            "start_btn": "Tee testi"
+        },
+        "results": {
+            "title": "Vaikutusprofiilisi",
+            "anonymous_note": "Tulos on vain sinulle.",
+            "constructive": "Rakentava",
+            "destructive": "Kuormittava",
+            "meter_label": "Sijaintisi toimintakulttuurin janalla"
+        },
+        "profiles": {
+            "A": {
+                "title": "Turvallisuuden Rakentaja",
+                "subtitle": "Luot tilaa, jossa muut uskaltavat loistaa.",
+                "description": "Toimit tavoilla, jotka lisäävät psykologista turvallisuutta. Myönnät virheet, kuuntelet ja kohtaat kollegat ihmisinä.",
+                "impact": "Lähelläsi ihmiset uskaltavat kokeilla, epäonnistua ja oppia. Tiimisi on todennäköisesti innovatiivinen ja voi hyvin.",
+                "why": "Tämä on modernin asiantuntijatyön tärkein taito.",
+                "motivation": "Pidä kiinni tästä, vaikka kiire painaisi päälle.",
+                "next_step": "Jatka samaan malliin - toimi mentorina muille."
+            },
+            "B": {
+                "title": "Painekattila",
+                "subtitle": "Kovat tulokset, kova hinta.",
+                "description": "Olet tehokas ja vaativa. Saat asioita aikaan, mutta saatat kiireessä jyrätä muiden tunteiden yli.",
+                "impact": "Ihmiset saattavat varoa sinua. He eivät uskalla kertoa virheistä pelätessään reaktiotasi.",
+                "why": "Pelolla johtaminen tappaa luovuuden.",
+                "motivation": "Tehokkuus ei vaadi kovuutta.",
+                "next_step": "Opettele pysähtymään.",
+                "action_btn": "Treenaa tunnetaitoja"
+            },
+            "C": {
+                "title": "Portinvartija",
+                "subtitle": "Valta on kontrollia.",
+                "description": "Uskot hierarkiaan ja kontrolliin. Saatat ajatella, että vain harvat pärjäävät.",
+                "impact": "Luot ympärillesi pelon ilmapiirin. Ihmiset uupuvat tai lähtevät.",
+                "why": "Tämä on riski organisaatiolle.",
+                "motivation": "Ketä suojelet tällä käytöksellä?",
+                "next_step": "Tarvitset radikaalin muutoksen.",
+                "action_btn": "Aloita muutos nyt"
+            }
+        },
+        "options": {
+            "strongly_agree": "Täysin samaa mieltä",
+            "agree": "Jokseenkin samaa mieltä",
+            "neutral": "Ei samaa eikä eri mieltä",
+            "disagree": "Jokseenkin eri mieltä",
+            "strongly_disagree": "Täysin eri mieltä"
+        },
+        "questions": {
+            "1": "Koen, että minun on valvottava tiimiläisteni tekemisiä tarkasti, jotta virheitä ei tapahdu.",
+            "2": "Jos joku selittää asiaa liian hitaasti, keskeytän hänet säästääkseni aikaa.",
+            "3": "Kysyn usein kollegoiltani 'mitä sinulle kuuluu' ennen kuin menen työasioihin.",
+            "4": "Tieto on valtaa, ja sitä kannattaa jakaa harkiten vain harvoille.",
+            "5": "Uskon, että pieni pelko tai paine saa ihmiset suoriutumaan paremmin.",
+            "6": "Kun huomaan virheen, otan sen puheeksi kahden kesken enkä muiden kuullen.",
+            "7": "Käytän joskus sarkasmia tai teräviä huomautuksia herätelläkseni tiimiä.",
+            "8": "Koen, että on minun tehtäväni karsia tiimistä 'heikot lenkit'.",
+            "9": "Pyydän aktiivisesti palautetta omasta toiminnastani, vaikka se olisi kriittistä.",
+            "10": "Tavoitteet ja tulokset ovat tärkeämpiä kuin se, miltä ihmisistä tuntuu.",
+            "11": "Myönnän avoimesti omat virheeni tiimin edessä."
+        }
+    },
+    "badges": {
+        "welcome": {
+            "title": "Muna",
+            "desc": "Loit ensimmäisen lokimerkinnän tai aloitit matkan."
+        },
+        "nurse_complete": {
+            "title": "Hoitajan Silmin",
+            "desc": "Suoritit hoitajan kokemuksen."
+        },
+        "teacher_complete": {
+            "title": "Opettajan Taakka",
+            "desc": "Suoritit opettajan kokemuksen."
+        },
+        "manager_complete": {
+            "title": "Asiantuntijan Kriisi",
+            "desc": "Suoritit esimiehen kokemuksen."
+        },
+        "youth_complete": {
+            "title": "Nuoren Kokemus",
+            "desc": "Suoritit nuorten kokemuksen."
+        },
+        "neuro_complete": {
+            "title": "Neuromoninaisuuden Ymmärrys",
+            "desc": "Suoritit neuromoninaisuus-kokemuksen."
+        },
+        "empathy_master": {
+            "title": "Rohkeus",
+            "desc": "Suoritit kaikki simulaattorit."
+        },
+        "legal_expert": {
+            "title": "Lakitiedon Tuntija",
+            "desc": "Läpäisit tietovisan vähintään 80% oikein."
+        },
+        "risk_finder": {
+            "title": "Riskin Tunnistaja",
+            "desc": "Suoritit työyhteisön riskikyselyn."
+        },
+        "valid_feelings": {
+            "title": "Tunteeni Ovat Oikeutettuja",
+            "desc": "Suoritit tunnetestin ja sait validoinnin."
+        },
+        "doc_start": {
+            "title": "Dokumentoinnin Aloittaja",
+            "desc": "Teit ensimmäisen aikajanamerkinnän."
+        },
+        "knowledge_hunger": {
+            "title": "Tiedon Janoisuus",
+            "desc": "Luit kaikki 12 taktiikkaa."
+        },
+        "self_awareness": {
+            "title": "Itsetuntemus",
+            "desc": "Teit kaikki itsearvioinnit."
+        },
+        "empathy_profile_known": {
+            "title": "Itsetuntemus",
+            "desc": "Tunnistit oman empatiaprofiilisi."
+        },
+        "voice_found": {
+            "title": "Äänen Löytäminen",
+            "desc": "Jaoit ensimmäisen tarinasi."
+        },
+        "persistence_7": {
+            "title": "Sinnikkyys",
+            "desc": "Käytit sovellusta 7 päivänä peräkkäin."
+        },
+        "analyzer": {
+            "title": "Analysoija",
+            "desc": "Loit ensimmäisen PDF-raportin."
+        },
+        "trainee_path": {
+            "title": "Valmennettava",
+            "desc": "Suoritit koko valmennuspolun."
+        },
+        "turvasiipi_master": {
+            "title": "Turvasiipi",
+            "desc": "Saavutit korkeimman tason."
+        },
+        "night_owl": {
+            "title": "Yökyöpeli",
+            "desc": "Käytit sovellusta yöaikaan."
+        },
+        "mallard": {
+            "title": "Sinisorsa",
+            "desc": "Palasit sovellukseen useita kertoja päivässä."
+        }
+    },
+    "stories_page": {
+        "header": {
+            "badge": "Yhteisö",
+            "title_start": "Yhteisön",
+            "title_highlight": "tarinat",
+            "subtitle": "Et ole yksin. Lue muiden kokemuksia ja jaa omasi."
+        },
+        "benefits": {
+            "validate": {
+                "title": "Validoi kokemuksesi",
+                "desc": "Huomaat, että ongelma ei ole sinussa."
+            },
+            "shame": {
+                "title": "Vähennä häpeää",
+                "desc": "Hiljaisuus murretaan puhumalla."
+            },
+            "strength": {
+                "title": "Löydä voimaa",
+                "desc": "Selviytymistarinat luovat toivoa."
+            }
+        },
+        "filters": {
+            "all": "Kaikki"
+        },
+        "empty": {
+            "title": "Yhteisö kasvaa!",
+            "text": "Ensimmäiset tarinat ovat tulossa pian. Ole ensimmäinen ja jaa tarinasi alla olevalla lomakkeella."
+        },
+        "card": {
+            "new": "UUSIN"
+        },
+        "form": {
+            "title": "Jaa oma tarinasi",
+            "desc": "Julkaisemme tarinat täysin anonyymisti. Emme tallenna IP-osoitteita.",
+            "title_label": "Otsikko / Aihe",
+            "title_placeholder": "Esim. Hyväksikäyttö harjoittelussa...",
+            "author_label": "Nimimerkki",
+            "author_optional": "(Valinnainen)",
+            "author_placeholder": "Jätä tyhjäksi jos haluat olla anonyymi",
+            "category_label": "Kategoria",
+            "category_placeholder": "Valitse toimiala",
+            "text_label": "Tarinasi",
+            "text_placeholder": "Kirjoita vapaasti. Moderoimme tekstin ja poistamme nimet ennen julkaisua.",
+            "submit_btn": "Avaa sähköposti & Lähetä",
+            "direct_email": "Tai lähetä suoraan:"
+        },
+        "categories": {
+            "sote": "Sote-ala",
+            "it": "IT ja teknologia",
+            "education": "Opetus ja koulutus",
+            "office": "Toimistotyö ja hallinto",
+            "service": "Ravintola ja kauppa",
+            "industry": "Teollisuus ja rakentaminen",
+            "creative": "Luova ala",
+            "neuro": "Neuromoninaisuus",
+            "other": "Muut"
+        }
+    },
+    "log_tool": {
+        "header": {
+            "title": "Dokumentointi-työkalu",
+            "subtitle": "Rakenna todistusaineistosi ohjatusti.",
+            "steps": {
+                "step1_title": "Valitse toiminta",
+                "step1_text": "Mitä tapahtui?",
+                "step2_title": "Lisää konteksti",
+                "step2_text": "Missä ja milloin?",
+                "step3_title": "Kirjaa yksityiskohdat",
+                "step3_text": "Kuka ja miten?"
+            },
+            "help_text": "Kaikki tiedot tallentuvat vain tälle laitteelle."
+        },
+        "meter": {
+            "label": "Todistusvoima",
+            "feedback": {
+                "low": "Alhainen todistusvoima. Lisää yksityiskohtia.",
+                "med": "Kohtalainen todistusvoima. Hyvä alku.",
+                "high": "Vahva todistusvoima. Tämä on erinomaista dokumentaatiota."
+            }
+        },
+        "step1": {
+            "title": "Valitse taktiikka",
+            "subtitle": "Mitä sinulle tehtiin? Valitse parhaiten sopiva kuvaus."
+        },
+        "step2": {
+            "title": "Konteksti & Aika",
+            "subtitle": "Faktat tekevät kirjaamisesta uskottavan.",
+            "date": "Päivämäärä",
+            "time": "Kellonaika",
+            "location": "Paikka",
+            "location_placeholder": "Esim. Neuvotteluhuone 3",
+            "person": "Henkilöt",
+            "person_placeholder": "Esim. Matti Meikäläinen"
+        },
+        "step3": {
+            "title": "Kuvaus",
+            "subtitle": "Rakenna tapahtumakuvaus tai kirjoita vapaasti.",
+            "col_subject": "Tekijä (Kuka?)",
+            "col_action": "Toiminta (Mitä?)",
+            "col_context": "Tilanne (Missä?)",
+            "result_label": "Lopullinen kirjaus",
+            "result_placeholder": "Kuvaile tilanne mahdollisimman tarkasti...",
+            "intensity": {
+                "label": "Tilanteen voimakkuus",
+                "low": "Lievä",
+                "med": "Ahdistava",
+                "high": "Järkyttävä"
+            },
+            "witnesses": "Todistajat",
+            "witnesses_placeholder": "Oliko muita paikalla?",
+            "evidence": "Todisteet (jos on)"
+        },
+        "builder": {
+            "subjects": {
+                "esimies": "Esihenkilö",
+                "kollega": "Kollega",
+                "johto": "Ylin johto",
+                "asiakas": "Asiakas",
+                "ryhma": "Työryhmä"
+            },
+            "actions": {
+                "yelled": "huusi minulle",
+                "ignored": "sivuutti minut",
+                "criticized": "arvosteli aiheetta",
+                "excluded": "jätti ulkopuolelle",
+                "mocked": "pilkkasi minua",
+                "threatened": "uhkaili minua",
+                "withheld": "panttasi tietoa"
+            },
+            "contexts": {
+                "meeting": "palaverissa",
+                "email": "sähköpostitse",
+                "public": "julkisesti",
+                "private": "kahden kesken",
+                "chat": "viestillä",
+                "break": "kahvitauolla"
+            }
+        },
+        "step4": {
+            "title": "Yhteenveto",
+            "subtitle": "Tarkista tiedot ennen tallennusta.",
+            "at": "klo",
+            "labels": {
+                "event": "Tapahtuma",
+                "time": "Ajankohta",
+                "location": "Paikka",
+                "person": "Osalliset",
+                "desc": "Kuvaus",
+                "no_desc": "Ei kuvausta"
+            }
+        },
+        "step5": {
+            "title": "Kirjaus tallennettu!",
+            "subtitle": "Hienoa työtä. Olet ottanut askeleen itsesi puolustamiseksi.",
+            "actions_title": "Suositellut toimet",
+            "actions": {
+                "a1": "Hengitä syvään. Tämä tilanne on nyt dokumentoitu ja se on turvassa.",
+                "a2": "Jos tilanne toistuu, jatka kirjaamista. Toistuvuus on avainasemassa kiusaamisen todistamisessa.",
+                "a3": "Tutustu 'Apua'-osioon, jos tarvitset keskustelutukea."
+            }
+        },
+        "buttons": {
+            "cancel": "Peruuta",
+            "back": "Takaisin",
+            "next": "Seuraava",
+            "save": "Tallenna",
+            "done": "Valmis"
+        }
+    },
+    "guide": {
+        "hero": {
+            "back": "Takaisin aikajanalle",
+            "title_start": "Miten",
+            "title_end": "kirjaan oikein?",
+            "subtitle": "Dokumentointi on tärkein puolustusvälineesi. Opi tekemään se niin, että se kestää tarkastelun."
+        },
+        "intro": {
+            "title": "Miksi tämä on tärkeää?",
+            "text": "Muisti on epäluotettava todistaja, erityisesti stressin alla. Kirjallinen dokumentaatio on kuitenkin \"kovaa dataa\", jota on vaikea kiistää. Se muuttaa epämääräisen kokemuksen konkreettiseksi todistusaineistoksi.",
+            "memory_title": "Muisti vs. Todellisuus",
+            "memory_text": "Kirjaaminen heti tapahtuman jälkeen on 10x luotettavampaa kuin viikon päästä.",
+            "patterns_title": "Kaavojen tunnistaminen",
+            "patterns_text": "Yksittäinen tapahtuma voidaan selittää väärinkäsityksenä. 10 tapahtuman sarja on kuvio."
+        },
+        "psych": {
+            "title": "Psykologinen turvallisuus",
+            "card1_title": "Sinä et ole hullu",
+            "card1_text": "Kun kirjaat asiat ylös, näet mustaa valkoisella. Se auttaa säilyttämään todellisuudentajun, kun sinua kaasutetaan (gaslighting).",
+            "card2_title": "Paineen purkaminen",
+            "card2_text": "Kirjoittaminen on keino siirtää tapahtuma pois pääsi sisältä. Se vähentää märehtimistä ja auttaa nukkumaan."
+        },
+        "formula": {
+            "title": "5 Kohdan Kaava",
+            "subtitle": "Hyvä kirjaus sisältää aina nämä viisi elementtiä.",
+            "step1": {
+                "title": "Päiväys & Aika",
+                "desc": "Milloin se tapahtui? Ole tarkka."
+            },
+            "step2": {
+                "title": "Paikka & Henkilöt",
+                "desc": "Missä olitte? Keitä muita oli paikalla (todistajat)?"
+            },
+            "step3": {
+                "title": "Mitä tapahtui?",
+                "desc": "Kuvaa tapahtumat objektiivisesti. Kuka sanoi ja mitä? Kuka teki ja mitä?"
+            },
+            "step4": {
+                "title": "Konteksti",
+                "desc": "Mitä tapahtui juuri ennen? Oliko kyseessä virallinen palaveri vai käytäväkeskustelu?"
+            },
+            "step5": {
+                "title": "Seuraukset",
+                "desc": "Miten tilanne päättyi? Miltä sinusta tuntui? Vaikuttiko se työkykyysi?"
+            }
+        },
+        "template": {
+            "title": "Kopioitava pohja",
+            "button": "Kopioi leikepöydälle",
+            "copied": "Kopioitu leikepöydälle!",
+            "content": "Päivämäärä: pp.kk.vvvv klo XX:XX\nPaikka: [Paikka]\nLäsnäolijat: [Nimet]\n\nTapahtuman kuvaus:\n[Henkilö A] sanoi/teki [Toiminta].\nVastasin tähän [Oma reaktio].\n\nKonteksti:\nTilanne alkoi kun [Tilanne].\n\nHuomioita:\n[Muut huomiot, esim. äänensävy, eleet]"
+        },
+        "followup": {
+            "title": "Jälkipuinti",
+            "text": "Jos mahdollista, lähetä tapahtuman jälkeen sähköposti, jossa vahvistat keskustelun sisällön. Tämä luo aikaleiman ja digitaalisen jäljen.",
+            "example": "\"Kiitos keskustelusta. Haluan varmistaa, että ymmärsin oikein: sanoit, että [X]. Pätikö tämä myös tilanteessa [Y]?\""
+        },
+        "training": {
+            "title": "Treeni: Havainto vs. Tulkinta",
+            "subtitle": "Opettele erottamaan faktat tunteista. Vain faktoilla on oikeudellista painoarvoa.",
+            "observation_label": "Havainto (Hyvä)",
+            "emotion_label": "Tulkinta (Vältä)",
+            "reveal": "Katso vastaus",
+            "cards": [
+                {
+                    "bad": "Pomo oli taas tosi ilkeä minulle.",
+                    "good": "Esihenkilö korotti ääntään ja sanoi, ettei työkoneeni ole minun.",
+                    "expl": "\"Ilkeä\" on mielipide. Äänen korottaminen on havaittava teko."
+                },
+                {
+                    "bad": "Kukaan ei tykkää minusta täällä.",
+                    "good": "Kukaan ei vastannut tervehdykseeni kahvihuoneessa klo 9:00.",
+                    "expl": "Kuvaa konkreettinen tilanne, älä yleistä tunnelmaa."
+                },
+                {
+                    "bad": "Hän yritti nolata minut tahallaan.",
+                    "good": "Hän nauroi ääneen, kun tein virheen esityksessä.",
+                    "expl": "Et voi tietää toisen motiiveja (\"tahallaan\"), mutta voit kirjata nauramisen."
+                }
+            ]
+        },
+        "witness": {
+            "title": "Todistajien suojaus",
+            "text": "Muista, että kollegasi saattavat pelätä puolustaa sinua. Kirjaa heidän läsnäolonsa, mutta älä pakota heitä todistamaan heti.",
+            "anonymize": "Vinkki:",
+            "list": [
+                "Käytä omissa muistiinpanoissasi nimiä.",
+                "Jos jaat dokumentin, harkitse nimien muuttamista (Henkilö A, Henkilö B) ensivaiheessa."
+            ]
+        },
+        "security": {
+            "title": "Tietoturva",
+            "dont_use_work": "ÄLÄ KÄYTÄ TYÖKONETTA TAI TYÖSÄHKÖPOSTIA NÄIHIN MUISTIINPANOIHIN.",
+            "list": [
+                "Työnantajalla voi olla oikeus lukea työsähköpostisi.",
+                "Jos sinut irtisanotaan, menetät pääsyn työvälineisiin heti.",
+                "Käytä tätä sovellusta (tiedot vain laitteellasi) tai henkilökohtaista vihkoa/konetta."
+            ]
+        },
+        "templates_link": {
+            "title": "Tarvitsetko valmiita pohjia?",
+            "text": "Olemme laatineet valmiita viestipohjia eri tilanteisiin (esim. ilmoitus työsuojeluun, vastine varoitukseen).",
+            "button": "Selaa mallipohjia"
+        },
+        "motivation": {
+            "title": "Pysy vahvana",
+            "today": "Tänään",
+            "today_text": "Kirjaa yksi asia. Vain yksi.",
+            "tomorrow": "Huomenna",
+            "tomorrow_text": "Hengitä. Olet turvassa täällä.",
+            "week": "Ensi viikolla",
+            "week_text": "Sinulla on jo tarina kerrottavana.",
+            "quote": "\"Totuus on kuin leijona. Sitä ei tarvitse puolustaa. Päästä se irti, ja se puolustaa itseään.\" - Augustinus"
+        },
+        "cta": {
+            "title": "Oletko valmis aloittamaan?",
+            "text": "Pienikin merkintä on parempi kuin ei mitään.",
+            "button": "Siirry päiväkirjaan"
+        }
+    },
+    "timeline": {
+        "page": {
+            "label": "Lokikirja",
+            "title": "Aikajana",
+            "subtitle": "Kaikki merkintäsi aikajärjestyksessä. Tämä on tärkein todistusaineistosi.",
+            "status_open": "Aktiivinen seuranta",
+            "loading": "Ladataan suojattua säilöä...",
+            "confirm_delete": "Haluatko varmasti poistaa tämän merkinnän?",
+            "history_title": "Tapahtumahistoria",
+            "entry_count_one": "{{count}} merkintä",
+            "entry_count_other": "{{count}} merkintää",
+            "empty": {
+                "title": "Ei merkintöjä",
+                "text": "Aloita kirjaaminen painamalla \"Uusi merkintä\" -painiketta."
+            },
+            "tools": {
+                "guide_title": "Miten kirjaan sitovasti?",
+                "guide_desc": "Opi 5 kohdan kaava, jolla teet merkinnöistä juridisesti päteviä.",
+                "guide_btn": "Lue dokumentointiopas",
+                "new_title": "Kirjaa uusi tapahtuma",
+                "new_desc": "Onko jotain tapahtunut tänään? Kirjaa se heti muistiin, kun yksityiskohdat ovat tuoreita.",
+                "new_btn": "Avaa lokityökalu"
+            }
+        },
+        "emotions": {
+            "neutral": "Neutraali",
+            "anxious": "Ahdistunut",
+            "angry": "Vihainen",
+            "sad": "Surullinen",
+            "fearful": "Pelokas",
+            "hopeless": "Toivoton",
+            "determined": "Päättäväinen"
+        },
+        "types": {
+            "log": "Päiväkirja",
+            "incident": "Välikohtaus",
+            "meeting": "Palaveri",
+            "email": "Sähköposti",
+            "note": "Muistiinpano"
+        }
+    },
+    "report": {
+        "page": {
+            "title": "Raportit & Mallipohjat",
+            "subtitle": "Luo ammattimaisia raportteja ja hyödynnä valmiita viestipohjia.",
+            "loading": "Ladataan...",
+            "back_to_timeline": "Takaisin aikajanalle",
+            "tabs": {
+                "overview": "Yleiskatsaus",
+                "report": "Raportti",
+                "templates": "Viestipohjat"
+            },
+            "templates_tab": {
+                "categories": {
+                    "all": "Kaikki",
+                    "employer": "Työnantajalle",
+                    "health": "Työterveys",
+                    "union": "Liitto",
+                    "legal": "Oikeudellinen",
+                    "communication": "Viestintä"
+                },
+                "card": {
+                    "read_and_use": "Lue ja käytä"
+                },
+                "dialog": {
+                    "subject": "Aihe",
+                    "content": "Sisältö",
+                    "copy_info": "Voit muokata sisältöä vapaasti kopioinnin jälkeen.",
+                    "close": "Sulje",
+                    "copy_all": "Kopioi kaikki",
+                    "copied": "Kopioitu!"
+                }
+            },
+            "main_report": {
+                "title": "Koosteraportti",
+                "subtitle": "Automaattisesti generoitu yhteenveto merkinnöistäsi.",
+                "print_button": "Tulosta / PDF",
+                "stats": {
+                    "events": "Tapahtumia",
+                    "duration": "Kesto (pv)",
+                    "severity": "Vakavuus (ka)",
+                    "main_type": "Yleisin tyyppi",
+                    "not_defined": "-"
+                },
+                "event_list_title": "Tapahtumaloki",
+                "no_events": "Ei tapahtumia valitulla aikavälillä."
+            }
+        },
+        "overview": {
+            "title": "Tilannekuva",
+            "subtitle": "Kiusaamisen tunnusluvut ja trendit graafisesti.",
+            "download_pdf": "Lataa PDF",
+            "ranges": {
+                "7d": "7 pv",
+                "30d": "30 pv",
+                "3m": "3 kk",
+                "all": "Kaikki"
+            },
+            "stats": {
+                "events": "Tapahtumat",
+                "events_desc": "Kirjattua merkintää",
+                "duration": "Kesto",
+                "days": "päivää",
+                "duration_desc": "Ensimmäisestä merkinnästä",
+                "trend": "Trendi",
+                "level_stable": "Taso vakaa",
+                "avg_intensity": "Kuormittavuus",
+                "score_label": "keskiarvo"
+            },
+            "chart": {
+                "title": "Tapahtumien tiheys",
+                "no_data": "Ei tarpeeksi dataa",
+                "no_data_desc": "Kuvaaja päivittyy kun lisäät merkintöjä."
+            }
+        },
+        "templates": {
+            "employer-notice-tsl28": {
+                "title": "Ilmoitus häirinnästä (Työturvallisuuslaki)",
+                "description": "Virallinen ilmoitus työnantajalle. Käynnistää lakisääteisen selvitysvelvollisuuden (TSL 28 §).",
+                "subject": "Ilmoitus työturvallisuuslain vastaisesta häirinnästä",
+                "content": "[Vastaanottaja: Esimies/HR]\n\nIlmoitan teille, että olen kokenut työpaikalla epäasiallista kohtelua ja häirintää, joka vaarantaa terveyteni.\n\nTapahtumat ovat alkaneet [pvm] ja ne ovat ilmenneet seuraavasti:\n- [Tapahtuma 1]\n- [Tapahtuma 2]\n\nTyöturvallisuuslain 28 § mukaan työnantajan on ryhdyttävä toimiin häirinnän poistamiseksi saatuaan siitä tiedon. Pyydän teitä selvittämään asian viipymättä ja ilmoittamaan, mihin toimenpiteisiin aiotte ryhtyä.\n\n[Oma Nimi]"
+            },
+            "employer-follow-up": {
+                "title": "Seurantaviesti työnantajalle",
+                "description": "Kun edelliseen ilmoitukseen ei ole reagoitu määräajassa.",
+                "subject": "KIIRITÄ: Selvitys häirintäilmoituksen toimenpiteistä",
+                "content": "Hei,\n\nTein ilmoituksen epäasiallisesta kohtelusta [pvm], eli [x] viikkoa sitten. En ole saanut tietoa, mihin toimenpiteisiin työnantaja on ryhtynyt.\n\nHäirintä jatkuu edelleen, ja koen tilanteen kuormittavana.\n\nPyydän kirjallista vastausta [pvm] mennessä siitä, miten asia etenee. Mikäli asia ei etene, joudun olemaan yhteydessä työsuojeluviranomaiseen (AVI).\n\n[Oma Nimi]"
+            },
+            "union-notice": {
+                "title": "Yhteydenotto luottamusmieheen",
+                "description": "Ensimmäinen viesti liiton edustajalle tai luottamusmiehelle.",
+                "subject": "Avunpyyntö: Työpaikkakiusaaminen",
+                "content": "Hei,\n\nOlen [Nimi] ja työskentelen [Osasto/Yksikkö]. Haluaisin keskustella kanssasi luottamuksellisesti tilanteestani työpaikalla.\n\nKoen, että minua kohdellaan epäasiallisesti, ja tarvitsisin neuvoja jäsenen oikeuksista ja prosessista eteenpäin. Milloin sinulle sopisi lyhyt tapaaminen tai puhelu?\n\nTerveisin,\n[Nimi]\n[Puhelinnumero]"
+            },
+            "health-notice": {
+                "title": "Viesti työterveyslääkärille",
+                "description": "Ennakkoviesti vastaanotolle, jotta oireet ja syyt tulevat kirjattua potilastietoihin.",
+                "subject": "Työkyky ja työpaikan olosuhteet",
+                "content": "Hei,\n\nTulen vastaanotolle [pvm]. Haluaisin tuoda esille, että oireeni (unettomuus/ahdistus) liittyvät suoraan työpaikan tilanteeseen.\n\nKoen työpaikalla jatkuvaa epäasiallista kohtelua, joka on kuormittanut minua [aika] asti. Toivon, että voimme arvioida työkykyni tässä valossa.\n\n[Oma Nimi]"
+            },
+            "employer-escalation": {
+                "title": "Vastine varoitukseen",
+                "description": "Jos olet saanut perusteettoman varoituksen, siihen on tärkeää vastata kirjallisesti.",
+                "subject": "Vastine kirjalliseen varoitukseen [pvm]",
+                "content": "Vastaanottaja: Työnantaja\n\nOlen saanut kirjallisen varoituksen [pvm] koskien [aihe]. Kiistän varoituksen perusteet seuraavilla syillä:\n\n1. [Perustelu 1: Esim. Väite myöhäastelusta on virheellinen, ks. liitteenä työaikakirjanpito]\n2. [Perustelu 2]\n\nKatson, että varoitus on perusteeton ja pyydän sen poistamista. Liitän tämän vastineen osaksi henkilöstörekisteriäni.\n\n[Oma Nimi]"
+            },
+            "health-stress-assessment": {
+                "title": "Stressioireiden listaus",
+                "description": "Oma muistilista lääkärikäynnille.",
+                "subject": "Oirepäiväkirja",
+                "content": "- Nukahtamisvaikeudet: [X] päivänä viikossa\n- Heräily aamuyöstä: [Kyllä/Ei]\n- Fyysiset oireet (vatsakipu, päänsärky): [Kuvaus]\n- Keskittymiskyky: [Kuvaus]\n- Ahdistus työmatkalla: [Kyllä/Ei]"
+            },
+            "legal-compensation-claim": {
+                "title": "Korvausvaatimus (Luonnos)",
+                "description": "Pohja neuvotteluun työsuhteen päättämisestä sopimuksella.",
+                "subject": "Työsuhteen päättäminen sopimuksella",
+                "content": "Ehdotus työsuhteen päättämisestä:\n\nOlen valmis neuvottelemaan työsuhteen päättämisestä seuraavin ehdoin:\n1. Työsuhde päättyy [pvm] ilman työvelvoitetta.\n2. Työnantaja maksaa [X] kk palkkaa vastaavan erokorvauksen.\n3. Työnantaja antaa hyvän työtodistuksen.\n4. Kumpikaan osapuoli ei esitä muita vaatimuksia.\n\n[Oma Nimi]"
+            },
+            "resignation-notice": {
+                "title": "Irtisanoutumisilmoitus",
+                "description": "Neutraali ja asiallinen ilmoitus, kun päätät lähteä.",
+                "subject": "Irtisanoutumisilmoitus",
+                "content": "Ilmoitan irtisanoutuvani [Työnantaja Oy]:n palveluksesta.\n\nViimeinen työpäiväni on irtisanomisajan mukaisesti [pvm] / sopimuksen mukaisesti [pvm].\n\nKiitän yhteistyöstä.\n\n[Oma Nimi]"
+            },
+            "authority-notice": {
+                "title": "Valvontapyyntö AVI:lle",
+                "description": "Ilmoitus Aluehallintovirastoon, jos työnantaja laiminlyö velvollisuutensa.",
+                "subject": "Valvontapyyntö: Työturvallisuuslain noudattaminen",
+                "content": "Pyydän työsuojeluviranomaista selvittämään, onko [Työnantaja] toiminut työturvallisuuslain mukaisesti.\n\nOlen ilmoittanut häirinnästä [pvm], mutta työnantaja ei ole ryhtynyt riittäviin toimenpiteisiin.\n\n[Tarkempi kuvaus tapahtumista]"
+            },
+            "legal-crime-report": {
+                "title": "Rikosilmoituspohja",
+                "description": "Vakaviin tilanteisiin (kunnianloukkaus, laiton uhkaus).",
+                "subject": "Rikosilmoitus: Kunnianloukkaus / Laiton uhkaus",
+                "content": "Asianomistaja: [Oma Nimi]\nEpäilty: [Nimi]\n\nTapahtuma-aika ja -paikka: [Aika/Paikka]\n\nKuvaus:\nEpäilty on levittänyt minusta valheellista tietoa / uhannut minua seuraavasti: [Kuvaus].\n\nVaadin rangaistusta ja vahingonkorvausta."
+            },
+            "comm-witness-request": {
+                "title": "Pyyntö todistajaksi",
+                "description": "Kysy kollegaa todistamaan näkemäänsä hienotunteisesti.",
+                "subject": "Keskustelu [pvm] tilanteesta",
+                "content": "Hei,\n\nOlit paikalla [pvm], kun [tapahtuma].\n\nOlen selvittämässä asiaa työnantajan kanssa, ja olisi tärkeää saada vahvistus siitä, mitä tilanteessa tapahtui. Sopiiko sinulle, että kirjaan sinut olleen paikalla?\n\nEn pyydä sinua ottamaan kantaa, vain vahvistamaan havainnot.\n\n[Oma Nimi]"
+            },
+            "comm-thanks-supporter": {
+                "title": "Kiitos tuesta",
+                "description": "Viesti kollegalle, joka on tukenut sinua.",
+                "subject": "Kiitos tuestasi",
+                "content": "Hei,\n\nHalusin vain kiittää sinua tuestasi viime aikoina. Se, että puolustit minua / kuuntelit / olit läsnä [tilanteessa], merkitsi minulle todella paljon.\n\nOn helpottavaa tietää, etten ole yksin.\n\n[Oma Nimi]"
+            },
+            "career-interview-prep": {
+                "title": "Haastattelu: 'Miksi lähdet?'",
+                "description": "Miten vastata vaikeaan kysymykseen työhaastattelussa.",
+                "subject": "Vastausmalli työhaastatteluun",
+                "content": "Kysymys: Miksi haluat vaihtaa työpaikkaa?\n\nVastausmalli:\n\"Etsin ympäristöä, jossa arvot kohtaavat omani ja jossa voin keskittyä [oma vahvuus] täysipainoisesti. Nykyinen tehtäväni on opettanut minulle paljon paineensietokyvystä, mutta kaipaan tiimiä, jossa on avoin ja kannustava kultuuri.\"\n\n(Älä hauku entistä työnantajaa, keskity tulevaan.)"
+            }
+        }
+    },
+    "game": {
+        "errors": {
+            "phase_not_found": "Hups! Simulaation vaihetta '{{phaseId}}' ei löydy. (Ehkä se on vasta tekeillä?)"
+        },
+        "notifications": {
+            "choice_blocked": "Tämä valinta ei ole mahdollinen tässä tilanteessa.",
+            "ally_found": "Uusi liittolainen:",
+            "log_documented": "Tilanne kirjattiin muistiin."
+        }
+    }
+}

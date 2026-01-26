@@ -91,25 +91,25 @@ export default function ProfilePage() {
             {/* Header section remains common */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                 <div className="space-y-2">
-                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest">Käyttäjäprofiili</span>
+                    <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest">{t('profile_page.header.user_profile')}</span>
                     <h1 className="text-4xl font-serif font-bold text-[#2B2B2B] flex items-center gap-3">
-                        Saavutuksesi
+                        {t('profile_page.header.achievements')}
                     </h1>
                     <div className="flex flex-wrap items-center gap-2 mt-2">
                         <span className="bg-[#5B4B8A] text-white px-2 py-0.5 rounded-sm text-[10px] uppercase font-bold tracking-wider">
                             {expertise.name}
                         </span>
                         <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase">
-                            // {progress.completedModuleIds.length} suoritusta // Aktiivinen
+                            // {t('profile_page.header.completions', { count: progress.completedModuleIds.length })} // {t('profile_page.header.active')}
                         </p>
                     </div>
                 </div>
                 <div className="flex gap-3">
                     <Button variant="outline" className="border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">
-                        <Download className="w-4 h-4 mr-2" /> Vie tiedot
+                        <Download className="w-4 h-4 mr-2" /> {t('profile_page.header.export')}
                     </Button>
                     <Button variant="outline" className="border-[#E8DDD0] hover:border-[#5B4B8A] text-[#2B2B2B]">
-                        <Settings className="w-4 h-4 mr-2" /> Asetukset
+                        <Settings className="w-4 h-4 mr-2" /> {t('profile_page.header.settings')}
                     </Button>
                 </div>
             </div>
@@ -117,16 +117,16 @@ export default function ProfilePage() {
             <Tabs defaultValue="kunniataulu" className="w-full">
                 <TabsList className="bg-transparent sm:bg-[#FDFBF7] border-0 sm:border border-[#E8DDD0] p-0 sm:p-1 mb-8 w-full flex flex-col sm:flex-row gap-2 sm:gap-0 justify-start sm:w-auto h-auto">
                     <TabsTrigger value="kunniataulu" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                        <Trophy className="w-3.5 h-3.5" /> Kunniataulu
+                        <Trophy className="w-3.5 h-3.5" /> {t('profile_page.tabs.honor_board')}
                     </TabsTrigger>
                     <TabsTrigger value="osiot" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                        <LayoutGrid className="w-3.5 h-3.5" /> Osiot
+                        <LayoutGrid className="w-3.5 h-3.5" /> {t('profile_page.tabs.modules')}
                     </TabsTrigger>
                     <TabsTrigger value="tilastot" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                        <BarChart3 className="w-3.5 h-3.5" /> Tilastot
+                        <BarChart3 className="w-3.5 h-3.5" /> {t('profile_page.tabs.stats')}
                     </TabsTrigger>
                     <TabsTrigger value="tulokset" className="data-[state=active]:bg-[#5B4B8A] data-[state=active]:text-white py-2.5 px-6 rounded-sm text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                        <Heart className="w-3.5 h-3.5" /> Tulokset
+                        <Heart className="w-3.5 h-3.5" /> {t('profile_page.tabs.results')}
                     </TabsTrigger>
                 </TabsList>
 
@@ -137,16 +137,22 @@ export default function ProfilePage() {
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {BADGES.map((badge) => {
                                     const isEarned = progress.earnedBadgeIds.includes(badge.id);
+                                    // Try to translate title/desc, fallback to hardcoded
+                                    const titleStr = t(`badges.${badge.id}.title`);
+                                    const descStr = t(`badges.${badge.id}.desc`);
+                                    const title = titleStr.startsWith('badges.') ? badge.title : titleStr;
+                                    const desc = descStr.startsWith('badges.') ? badge.description : descStr;
+
                                     return (
                                         <Card key={badge.id} className={`border-[#E8DDD0] bg-white transition-all group relative overflow-hidden ${isEarned ? 'hover:border-[#5B4B8A] border-b-2 border-b-emerald-500' : 'opacity-60 saturate-0'}`}>
                                             <CardContent className="p-6 flex flex-col items-center text-center space-y-3">
                                                 <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{isEarned ? badge.icon : '🔒'}</div>
                                                 <div className="space-y-1">
                                                     <div className={`text-[11px] font-black uppercase tracking-tight ${isEarned ? 'text-[#2B2B2B]' : 'text-[#4A4A4A]'}`}>
-                                                        {isEarned ? badge.title : 'Lukittu'}
+                                                        {isEarned ? title : t('profile_page.badges.locked')}
                                                     </div>
                                                     <div className="text-[10px] text-[#4A4A4A] leading-tight min-h-[32px] line-clamp-2">
-                                                        {isEarned ? badge.description : 'Jatka käyttöä ansaitaksesi tämän.'}
+                                                        {isEarned ? desc : t('profile_page.badges.locked_desc')}
                                                     </div>
                                                 </div>
                                                 {isEarned && (
@@ -180,10 +186,10 @@ export default function ProfilePage() {
                                                     </div>
                                                     <div>
                                                         <div className="text-[12px] font-black uppercase tracking-widest text-[#2B2B2B]">
-                                                            {CATEGORY_MAP[catId].label}
+                                                            {t(`profile_page.categories.${catId}`)}
                                                         </div>
                                                         <div className="text-[10px] text-[#5B4B8A] font-bold">
-                                                            {completedInCat} / {catModules.length} SUORITETTU
+                                                            {completedInCat} / {catModules.length} {t('profile_page.module_status')}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -220,21 +226,21 @@ export default function ProfilePage() {
                                 <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden border-b-4 border-b-[#5B4B8A]">
                                     <CardContent className="p-6">
                                         <div className="flex items-center justify-between mb-4">
-                                            <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A]">Pisteet</span>
+                                            <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A]">{t('profile_page.stats.points')}</span>
                                             <Star className="w-4 h-4 text-[#5B4B8A]" />
                                         </div>
                                         <div className="text-4xl font-black text-[#2B2B2B]">{progress.points}</div>
-                                        <div className="text-sm text-[#4A4A4A] mt-1">Yhteensä kerätty</div>
+                                        <div className="text-sm text-[#4A4A4A] mt-1">{t('profile_page.stats.total_collected')}</div>
                                     </CardContent>
                                 </Card>
                                 <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden border-b-4 border-b-emerald-500">
                                     <CardContent className="p-6">
                                         <div className="flex items-center justify-between mb-4">
-                                            <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-600">Edistyminen</span>
+                                            <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-600">{t('profile_page.stats.progress')}</span>
                                             <Target className="w-4 h-4 text-emerald-500" />
                                         </div>
                                         <div className="text-4xl font-black text-[#2B2B2B]">{overallProgress}%</div>
-                                        <div className="text-sm text-[#4A4A4A] mt-1">Koko sovelluksesta</div>
+                                        <div className="text-sm text-[#4A4A4A] mt-1">{t('profile_page.stats.total_app')}</div>
                                     </CardContent>
                                 </Card>
                             </div>
@@ -242,7 +248,7 @@ export default function ProfilePage() {
                             <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden">
                                 <CardHeader className="bg-[#FDFBF7] border-b border-[#E8DDD0]">
                                     <CardTitle className="text-sm font-mono uppercase tracking-widest flex items-center gap-2">
-                                        <Trophy className="w-4 h-4 text-[#5B4B8A]" /> Asiantuntijuusprofiili
+                                        <Trophy className="w-4 h-4 text-[#5B4B8A]" /> {t('profile_page.stats.expert_profile')}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="p-8">
@@ -254,7 +260,7 @@ export default function ProfilePage() {
                                         </div>
                                     </div>
                                     <div className="mt-8 p-4 bg-emerald-50 border border-emerald-100 rounded-sm">
-                                        <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-2">Palaute</h4>
+                                        <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-2">{t('profile_page.stats.feedback')}</h4>
                                         <p className="text-sm text-emerald-900 leading-relaxed">{subLevel.feedback}</p>
                                     </div>
                                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -271,7 +277,7 @@ export default function ProfilePage() {
 
                         {/* Tulokset Tab */}
                         <TabsContent value="tulokset" className="mt-0 space-y-8">
-                            <h3 className="text-xl font-serif font-bold text-[#2B2B2B]">Omat testitulokset</h3>
+                            <h3 className="text-xl font-serif font-bold text-[#2B2B2B]">{t('profile_page.results.own_results')}</h3>
 
                             {/* Empathy Result Card */}
                             <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden">
@@ -294,15 +300,15 @@ export default function ProfilePage() {
                                             </p>
                                             <div className="pt-4">
                                                 <Button variant="outline" className="text-xs uppercase font-bold tracking-widest" asChild>
-                                                    <a href="/empatia-testi">Tee uudelleen</a>
+                                                    <a href="/empatia-testi">{t('profile_page.results.retake')}</a>
                                                 </Button>
                                             </div>
                                         </div>
                                     ) : (
                                         <div className="text-center py-8 space-y-4">
-                                            <p className="text-[#4A4A4A]">Et ole vielä suorittanut empatiatestiä.</p>
+                                            <p className="text-[#4A4A4A]">{t('profile_page.results.no_empathy')}</p>
                                             <Button className="bg-[#2B2B2B] text-white uppercase font-bold tracking-widest text-xs" asChild>
-                                                <a href="/empatia-testi">Aloita testi</a>
+                                                <a href="/empatia-testi">{t('profile_page.results.start_empathy')}</a>
                                             </Button>
                                         </div>
                                     )}
@@ -317,7 +323,7 @@ export default function ProfilePage() {
                         <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden border-t-4 border-t-[#5B4B8A]">
                             <CardContent className="p-6 space-y-4">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A]">Taso {currentLevelNumber}</span>
+                                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#5B4B8A]">{t('profile_page.stats.level', { level: currentLevelNumber })}</span>
                                     <div className="text-2xl">{expertise.icon}</div>
                                 </div>
                                 <div>
@@ -327,7 +333,7 @@ export default function ProfilePage() {
                                 {expertise.id < 7 && (
                                     <div className="space-y-2">
                                         <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider">
-                                            <span className="text-[#4A4A4A]">Seuraava: {EXPERT_LEVELS[expertise.id].name}</span>
+                                            <span className="text-[#4A4A4A]">{t('profile_page.stats.next_level', { name: EXPERT_LEVELS[expertise.id].name })}</span>
                                             <span className="text-[#5B4B8A]">{EXPERT_LEVELS[expertise.id].minPoints - progress.points} pts</span>
                                         </div>
                                         <Progress value={(progress.points / EXPERT_LEVELS[expertise.id].minPoints) * 100} className="h-1.5" />
@@ -339,19 +345,19 @@ export default function ProfilePage() {
                         {/* Certification Progress */}
                         <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden">
                             <CardHeader className="pb-2">
-                                <CardTitle className="text-xs font-mono uppercase tracking-widest text-[#4A4A4A]">Sertifiointi</CardTitle>
+                                <CardTitle className="text-xs font-mono uppercase tracking-widest text-[#4A4A4A]">{t('profile_page.certification.title')}</CardTitle>
                             </CardHeader>
                             <CardContent className="p-4 pt-0 space-y-4">
                                 <div className="flex justify-between items-end">
                                     <span className="text-2xl font-black text-[#5B4B8A]">{certProgress.percentage}%</span>
-                                    <span className="text-[10px] text-[#4A4A4A] mb-1">{certProgress.completed} / {certProgress.total} moduulia</span>
+                                    <span className="text-[10px] text-[#4A4A4A] mb-1">{t('profile_page.certification.progress', { completed: certProgress.completed, total: certProgress.total })}</span>
                                 </div>
                                 <Progress value={certProgress.percentage} className="h-2 bg-[#FDFBF7]" />
                                 <p className="text-[11px] text-[#4A4A4A] leading-relaxed">
-                                    Suorita kaikki {certProgress.total} sertifiointimoduulia saadaksesi &quot;Kiusaamisen Lukutaito&quot; -sertifikaatin.
+                                    {t('profile_page.certification.description', { total: certProgress.total })}
                                 </p>
                                 <Button variant="link" className="p-0 h-auto text-[11px] font-bold text-[#5B4B8A] uppercase tracking-wider">
-                                    Jatka valmennusta <ChevronRight className="w-3 h-3 ml-1" />
+                                    {t('profile_page.certification.continue')} <ChevronRight className="w-3 h-3 ml-1" />
                                 </Button>
                             </CardContent>
                         </Card>
@@ -360,16 +366,15 @@ export default function ProfilePage() {
                         <Card className="border-[#E8DDD0] bg-[#FDFBF7] shadow-sm rounded-sm">
                             <CardHeader className="pb-2">
                                 <CardTitle className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-[#4A4A4A]">
-                                    <Key className="w-3.5 h-3.5" /> Suojaus
+                                    <Key className="w-3.5 h-3.5" /> {t('profile_page.security.title')}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="p-4 pt-0 space-y-4">
                                 <div className="text-[10px] text-[#4A4A4A] leading-relaxed">
-                                    Tiedot tallennetaan paikallisesti selaimeesi.
-                                    Ne eivät poistu istunnon päätyttyä, mutta tyhjentämällä selaustiedot menetät kaiken edistymisen.
+                                    {t('profile_page.security.description')}
                                 </div>
                                 <Button variant="destructive" className="w-full text-[10px] h-8 font-bold uppercase bg-red-50 text-red-700 border border-red-100 hover:bg-red-100">
-                                    <Trash2 className="w-3 h-3 mr-2" /> Tyhjennä profiili
+                                    <Trash2 className="w-3 h-3 mr-2" /> {t('profile_page.security.clear_profile')}
                                 </Button>
                             </CardContent>
                         </Card>

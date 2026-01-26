@@ -18,33 +18,15 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
 type ViewState = 'intro' | 'labels' | 'values' | 'narrative' | 'summary';
 
 interface Value {
     id: string;
-    label: string;
     icon: any;
 }
-
-// --- DATA ---
-const LABELS = [
-    "Vaikea ihminen",
-    "Yliherkkä",
-    "Epäpätevä",
-    "Yksin jäänyt",
-    "Hankala työntekijä",
-    "Riidankylväjä"
-];
-
-const VALUES: Value[] = [
-    { id: 'honesty', label: 'Rehellisyys', icon: ShieldCheck },
-    { id: 'creativity', label: 'Luovuus', icon: Sparkles },
-    { id: 'empathy', label: 'Empatia', icon: Heart },
-    { id: 'justice', label: 'Oikeudenmukaisuus', icon: Gem },
-    { id: 'courage', label: 'Rohkeus', icon: User },
-];
 
 // --- COMPONENT ---
 export default function IdentityModule({
@@ -56,6 +38,7 @@ export default function IdentityModule({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<ViewState>('intro');
     const [peeledLabels, setPeeledLabels] = useState<string[]>([]);
     const [selectedValues, setSelectedValues] = useState<string[]>([]);
@@ -64,6 +47,15 @@ export default function IdentityModule({
         learning: "",
         future: ""
     });
+
+    // Value icons mapping
+    const VALUES: Value[] = [
+        { id: 'honesty', icon: ShieldCheck },
+        { id: 'creativity', icon: Sparkles },
+        { id: 'empathy', icon: Heart },
+        { id: 'justice', icon: Gem },
+        { id: 'courage', icon: User },
+    ];
 
     const finishModule = () => {
         onComplete(100);
@@ -84,18 +76,21 @@ export default function IdentityModule({
         }
     };
 
+    // Get labels from translation
+    const LABELS = t('training.identity_module.labels', { returnObjects: true }) as string[];
+
     return (
         <div className="relative min-h-[600px] w-full bg-[#FAFAF9] rounded-[2rem] p-4 md:p-8 flex flex-col gap-6 border border-[#E7E5E4] shadow-xl overflow-hidden font-sans text-[#44403C]">
 
             {/* HEADER */}
             <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4]">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-700">
+                    <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700">
                         <User className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Identiteetin Rakentaminen</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Kuka olen kiusaamisen jälkeen?</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.identity_module.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.identity_module.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -115,13 +110,12 @@ export default function IdentityModule({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl mt-12"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Sinä et ole se, mitä sinulle tapahtui.</h1>
+                            <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.identity_module.intro.title')}</h1>
                             <p className="text-lg text-[#57534E] leading-relaxed">
-                                Kiusaaminen pyrkii määrittelemään sinut uudelleen: se liimaa sinuun valheellisia leimoja ja nujertaa itsetuntosi.
-                                Mutta kiusaaja ei tunne sinua. Tässä moduulissa alamme kuoria pois muiden antamia määritelmiä ja löytää tiesi takaisin aitoon itseesi.
+                                {t('training.identity_module.intro.text')}
                             </p>
-                            <Button onClick={() => setView('labels')} size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Aloita kuoriminen <ArrowRight className="ml-2 w-5 h-5" />
+                            <Button onClick={() => setView('labels')} size="lg" className="bg-amber-600 hover:bg-amber-700 text-white rounded-full px-8 py-6 text-lg shadow-xl shadow-amber-200/50">
+                                {t('training.identity_module.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -136,9 +130,9 @@ export default function IdentityModule({
                             className="w-full space-y-8"
                         >
                             <div className="text-center">
-                                <Badge variant="outline" className="text-indigo-600 border-indigo-200">Vaihe 1/3: Leimojen poisto</Badge>
-                                <h2 className="text-3xl font-bold mt-2 text-[#292524]">Heitä pois valheelliset leimat.</h2>
-                                <p className="text-[#57534E] mt-2">Klikkaa leimaa heittääksesi sen pois. Ne eivät kuulu sinulle.</p>
+                                <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50">{t('training.identity_module.labels_step.badge')}</Badge>
+                                <h2 className="text-3xl font-bold mt-2 text-[#292524]">{t('training.identity_module.labels_step.title')}</h2>
+                                <p className="text-[#57534E] mt-2">{t('training.identity_module.labels_step.subtitle')}</p>
                             </div>
 
                             <div className="flex flex-wrap justify-center gap-4 py-12 min-h-[200px]">
@@ -167,7 +161,7 @@ export default function IdentityModule({
                                         <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                                             <CheckCircle2 className="w-10 h-10" />
                                         </div>
-                                        <p className="text-xl font-serif text-[#292524]">Puhdas pöytä. Nyt olet vapaa määrittelemään itsesi.</p>
+                                        <p className="text-xl font-serif text-[#292524]">{t('training.identity_module.labels_step.completion')}</p>
                                     </motion.div>
                                 )}
                             </div>
@@ -175,9 +169,9 @@ export default function IdentityModule({
                             <Button
                                 disabled={peeledLabels.length < 3}
                                 onClick={() => setView('values')}
-                                className="w-full py-6 bg-indigo-600 hover:bg-indigo-700 text-white disabled:opacity-50"
+                                className="w-full py-6 bg-amber-600 hover:bg-amber-700 text-white disabled:opacity-50 rounded-full shadow-xl shadow-amber-200/50"
                             >
-                                Seuraava: Mitkä ovat arvosi? <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.identity_module.labels_action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -192,9 +186,9 @@ export default function IdentityModule({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-4">
-                                <Badge variant="outline" className="text-indigo-600 border-indigo-200">Vaihe 2/3: Peruskivet</Badge>
-                                <h2 className="text-3xl font-bold">Löydä ydinarvosi.</h2>
-                                <p className="text-[#57534E]">Valitse 3 tärkeintä arvoa, jotka ohjaavat sinua eteenpäin.</p>
+                                <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50">{t('training.identity_module.values_step.badge')}</Badge>
+                                <h2 className="text-3xl font-bold">{t('training.identity_module.values_step.title')}</h2>
+                                <p className="text-[#57534E]">{t('training.identity_module.values_step.subtitle')}</p>
                             </div>
 
                             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 py-8">
@@ -205,17 +199,17 @@ export default function IdentityModule({
                                         className={cn(
                                             "p-6 cursor-pointer text-center transition-all flex flex-col items-center gap-4",
                                             selectedValues.includes(val.id)
-                                                ? "ring-2 ring-indigo-500 bg-indigo-50/20"
-                                                : "hover:border-indigo-200"
+                                                ? "ring-2 ring-amber-500 bg-amber-50/20"
+                                                : "hover:border-amber-200"
                                         )}
                                     >
                                         <div className={cn(
                                             "w-12 h-12 rounded-xl flex items-center justify-center transition-all",
-                                            selectedValues.includes(val.id) ? "bg-indigo-100 text-indigo-700" : "bg-slate-50 text-slate-400"
+                                            selectedValues.includes(val.id) ? "bg-amber-100 text-amber-700" : "bg-slate-50 text-slate-400"
                                         )}>
                                             <val.icon className="w-6 h-6" />
                                         </div>
-                                        <span className="text-sm font-bold">{val.label}</span>
+                                        <span className="text-sm font-bold">{t(`training.identity_module.values.${val.id}`)}</span>
                                     </Card>
                                 ))}
                             </div>
@@ -223,9 +217,9 @@ export default function IdentityModule({
                             <Button
                                 disabled={selectedValues.length < 3}
                                 onClick={() => setView('narrative')}
-                                className="w-full py-6 bg-indigo-600 hover:bg-indigo-700 text-white disabled:opacity-50"
+                                className="w-full py-6 bg-amber-600 hover:bg-amber-700 text-white disabled:opacity-50 rounded-full shadow-xl shadow-amber-200/50"
                             >
-                                Seuraava: Kirjoita tarinasi uusiksi <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.identity_module.values_action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -240,37 +234,37 @@ export default function IdentityModule({
                             className="w-full space-y-8"
                         >
                             <div className="text-center space-y-4">
-                                <Badge variant="outline" className="text-indigo-600 border-indigo-200">Vaihe 3/3: Uusi tarina</Badge>
-                                <h2 className="text-3xl font-bold">Minun matkani</h2>
-                                <p className="text-[#57534E]">Täytä lauseet. Katso matkaasi selviytyjän silmin.</p>
+                                <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50">{t('training.identity_module.narrative_step.badge')}</Badge>
+                                <h2 className="text-3xl font-bold">{t('training.identity_module.narrative_step.title')}</h2>
+                                <p className="text-[#57534E]">{t('training.identity_module.narrative_step.subtitle')}</p>
                             </div>
 
                             <Card className="p-8 border-[#E7E5E4] bg-white space-y-8 relative">
-                                <Quote className="absolute top-4 left-4 w-12 h-12 text-indigo-50" />
+                                <Quote className="absolute top-4 left-4 w-12 h-12 text-amber-50" />
                                 <div className="space-y-6 relative z-10">
                                     <div className="flex flex-col md:flex-row md:items-center gap-4">
-                                        <span className="text-lg font-serif">Koin vaikeita asioita, mutta</span>
+                                        <span className="text-lg font-serif">{t('training.identity_module.narrative_form.prompt_past')}</span>
                                         <input
-                                            placeholder="esim. säilytin arvokkuuteni..."
-                                            className="flex-1 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none p-2 bg-transparent"
+                                            placeholder={t('training.identity_module.narrative_form.placeholder_past')}
+                                            className="flex-1 border-b-2 border-amber-100 focus:border-amber-500 outline-none p-2 bg-transparent"
                                             value={narrative.past}
                                             onChange={(e) => setNarrative({ ...narrative, past: e.target.value })}
                                         />
                                     </div>
                                     <div className="flex flex-col md:flex-row md:items-center gap-4">
-                                        <span className="text-lg font-serif">Tämä kokemus opetti minulle, että</span>
+                                        <span className="text-lg font-serif">{t('training.identity_module.narrative_form.prompt_learning')}</span>
                                         <input
-                                            placeholder="esim. olen vahvempi kuin luulin..."
-                                            className="flex-1 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none p-2 bg-transparent"
+                                            placeholder={t('training.identity_module.narrative_form.placeholder_learning')}
+                                            className="flex-1 border-b-2 border-amber-100 focus:border-amber-500 outline-none p-2 bg-transparent"
                                             value={narrative.learning}
                                             onChange={(e) => setNarrative({ ...narrative, learning: e.target.value })}
                                         />
                                     </div>
                                     <div className="flex flex-col md:flex-row md:items-center gap-4">
-                                        <span className="text-lg font-serif">Tänään valitsen toimia arvojeni mukaan, eli</span>
+                                        <span className="text-lg font-serif">{t('training.identity_module.narrative_form.prompt_future')}</span>
                                         <input
-                                            placeholder="esim. rehellisesti ja rohkeasti..."
-                                            className="flex-1 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none p-2 bg-transparent"
+                                            placeholder={t('training.identity_module.narrative_form.placeholder_future')}
+                                            className="flex-1 border-b-2 border-amber-100 focus:border-amber-500 outline-none p-2 bg-transparent"
                                             value={narrative.future}
                                             onChange={(e) => setNarrative({ ...narrative, future: e.target.value })}
                                         />
@@ -281,9 +275,9 @@ export default function IdentityModule({
                             <Button
                                 disabled={!narrative.past || !narrative.learning || !narrative.future}
                                 onClick={() => setView('summary')}
-                                className="w-full py-6 bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl disabled:opacity-50"
+                                className="w-full py-6 bg-amber-600 hover:bg-amber-700 text-white shadow-xl shadow-amber-200/50 disabled:opacity-50 rounded-full"
                             >
-                                Valmis <ArrowRight className="ml-2 w-5 h-5" />
+                                {t('training.identity_module.narrative_action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -296,19 +290,18 @@ export default function IdentityModule({
                             animate={{ opacity: 1 }}
                             className="text-center space-y-12 max-w-xl mt-12"
                         >
-                            <div className="w-24 h-24 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto ring-8 ring-indigo-50/50">
+                            <div className="w-24 h-24 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto ring-8 ring-amber-50/50">
                                 <Sparkles className="w-12 h-12" />
                             </div>
                             <div className="space-y-4">
-                                <h1 className="text-4xl font-serif font-black text-[#292524]">Olet enemmän kuin tarinasi.</h1>
+                                <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.identity_module.summary.title')}</h1>
                                 <p className="text-lg text-[#57534E]">
-                                    Identiteetin palauttaminen on prosessi. Olet tänään ottanut haltuun kynän, jolla kirjoitat loppuelämäsi.
-                                    Pidä kiinni valitsemistasi arvoista – ne ovat ankkureitasi, jotka eivät petä.
+                                    {t('training.identity_module.summary.text')}
                                 </p>
                             </div>
 
-                            <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-2xl px-12 py-8 text-xl shadow-xl">
-                                Palaa valmennukseen
+                            <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-full px-12 py-8 text-xl shadow-xl">
+                                {t('training.identity_module.summary.action')}
                             </Button>
                         </motion.div>
                     )}
@@ -318,4 +311,3 @@ export default function IdentityModule({
         </div>
     );
 }
-

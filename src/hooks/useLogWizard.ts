@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
 import { TimelineEvent } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
-import { Tactic } from "@/data/tactics";
+import { Tactic } from "@/types/domain";
 
 export interface LogFormData {
     date: string;

@@ -1,12 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Phase, GameState, INITIAL_STATS, Choice, Profession, GameStats } from "@/lib/simulator/types";
-import { useProgress } from "@/context/ProgressContext";
+import { useRef, useEffect } from "react";
+import { Phase, GameStats } from "@/lib/simulator/types";
 import { Button } from "@/components/ui/button";
-import { Clock, MapPin, AlertTriangle, Briefcase, User, ArrowRight, Brain, Heart, Users } from "lucide-react";
+import { ArrowRight, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+
+// New Refactored Imports
+import { useGameEngine } from "@/hooks/useGameEngine";
+import { GameHeader } from "./GameHeader";
+import { GameRenderer } from "./GameRenderer";
 
 // Ending Components
 import { NeuroEnding } from "@/components/simulator/endings/NeuroEnding";
@@ -27,69 +31,17 @@ interface GameEngineProps {
     statLabels?: Partial<Record<keyof GameStats, StatLabel>>;
 }
 
-export interface StatConfigItem {
-    id: keyof GameState['stats'];
-    label: string;
-    description: string;
-    icon: any;
-    color: string;
-}
-
 export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nurse', statLabels }: GameEngineProps) {
     const { t } = useLanguage();
-
-    const getStatConfig = () => {
-        const baseConfig = [
-            { id: 'selfEsteem', label: t('game.stats.self_esteem'), icon: Brain, color: 'bg-indigo-500', description: t('game.stat_descriptions.self_esteem') },
-            { id: 'teamAcceptance', label: t('game.stats.team_acceptance'), icon: Users, color: 'bg-cyan-500', description: t('game.stat_descriptions.team_acceptance') },
-            { id: 'physicalHealth', label: t('game.stats.physical_health'), icon: Heart, color: 'bg-rose-500', description: t('game.stat_descriptions.physical_health') },
-            { id: 'hope', label: t('game.stats.hope'), icon: ArrowRight, color: 'bg-emerald-500', description: t('game.stat_descriptions.hope') }
-        ];
-
-        if (!statLabels) return baseConfig;
-
-        return baseConfig.map(stat => {
-            const override = statLabels[stat.id as keyof GameStats];
-            if (override) {
-                return { ...stat, label: override.label, description: override.description };
-            }
-            return stat;
-        });
-    };
-
-    const { completeModule, saveSimulationScore } = useProgress();
     const mainContentRef = useRef<HTMLDivElement>(null);
 
-    const [state, setState] = useState<GameState>({
-        currentPhaseId: initialPhaseId,
-        profession: profession as Profession,
-        stats: { ...INITIAL_STATS },
-        logEntries: [],
-        allies: [],
-        history: [],
-        isGameOver: false,
-        scoreSaved: false
-    });
-
-    useEffect(() => {
-        if (state.currentPhaseId.startsWith('END_') && !state.scoreSaved) {
-            const moduleId = `sim_${state.profession}`;
-
-            // Calculate Performance Score (0-100)
-            // Weight stats: Self-Esteem (40%), Hope (40%), Team Acceptance (20%)
-            const finalStats = state.stats;
-            const performanceScore = Math.round(
-                (finalStats.selfEsteem * 0.4) +
-                (finalStats.hope * 0.4) +
-                (finalStats.teamAcceptance * 0.2)
-            );
-
-            completeModule(moduleId);
-            saveSimulationScore(moduleId, performanceScore);
-
-            setState(prev => ({ ...prev, scoreSaved: true }));
-        }
-    }, [state.currentPhaseId, state.profession, completeModule, saveSimulationScore, state.stats, state.scoreSaved]);
+    const {
+        state,
+        notification,
+        handleChoice,
+        currentPhase,
+        isEnding
+    } = useGameEngine(scenario, initialPhaseId, profession as any);
 
     // Reset scroll position when phase changes
     useEffect(() => {
@@ -98,14 +50,8 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         }
     }, [state.currentPhaseId]);
 
-    const [notification, setNotification] = useState<string | null>(null);
-    const [changedStat, setChangedStat] = useState<string | null>(null);
-    const [isHelpOpen, setIsHelpOpen] = useState(false);
-
-    const currentPhase = scenario[state.currentPhaseId];
-
     // Check for Endings
-    if (state.currentPhaseId.startsWith('END_')) {
+    if (isEnding) {
         // --- NEURO ENDING ---
         const isNeuroRelated = ['neuro', 'performance_trap', 'information_shadow'].includes(profession);
         if (isNeuroRelated) {
@@ -136,75 +82,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         return <div>{t('game.errors.phase_not_found', { phaseId: state.currentPhaseId })}</div>;
     }
 
-    const handleChoice = (choice: Choice) => {
-        // 0. Check for Crossed Out (Blocked) Choices
-        if (choice.variant === 'crossed-out') {
-            showNotification(choice.blockedReason || t('game.notifications.choice_blocked'));
-            return;
-        }
-
-        // 1. Update Stats
-        const newStats = { ...state.stats };
-        let statChangedKey: string | null = null;
-
-        if (choice.effect?.stats) {
-            Object.keys(choice.effect.stats).forEach((key) => {
-                const k = key as keyof typeof newStats;
-                const val = choice.effect!.stats![k] || 0;
-                if (val !== 0) {
-                    newStats[k] = Math.max(0, Math.min(100, newStats[k] + val));
-                    statChangedKey = k;
-                }
-            });
-        }
-
-        // Trigger animation if stat changed
-        if (statChangedKey) {
-            setChangedStat(statChangedKey);
-            setTimeout(() => setChangedStat(null), 1000); // Reset after 1s
-        }
-
-        // 2. Add Allies
-        const newAllies = [...state.allies];
-        if (choice.effect?.addAlly && !newAllies.includes(choice.effect.addAlly)) {
-            newAllies.push(choice.effect.addAlly);
-            showNotification(`${t('game.notifications.ally_found')}: ${choice.effect.addAlly}`);
-        }
-
-        // 3. Log Entry
-        const newLogEntries = [...state.logEntries];
-        if (choice.effect?.logNote) {
-            newLogEntries.push({
-                day: currentPhase.day,
-                timestamp: currentPhase.time || '12:00',
-                note: choice.effect.logNote
-            });
-            showNotification(t('game.notifications.log_documented'));
-        }
-
-        // 4. Update State
-        setState(prev => ({
-            ...prev,
-            stats: newStats,
-            allies: newAllies,
-            logEntries: newLogEntries,
-            currentPhaseId: choice.nextPhaseId,
-            history: [...prev.history, currentPhase.id]
-        }));
-    };
-
-    const showNotification = (msg: string) => {
-        setNotification(msg);
-        setTimeout(() => setNotification(null), 3000);
-    };
-
-    // Calculate dynamic text size based on content length
-    const getContentTextSize = (length: number, isMobile: boolean) => {
-        if (length > 600) return isMobile ? "text-[13px] leading-tight" : "text-sm";
-        if (length > 300) return isMobile ? "text-[14px] leading-snug" : "text-base";
-        return isMobile ? "text-[16px] leading-normal" : "text-lg";
-    };
-
     // Dynamic button text size
     const getButtonTextSize = (length: number) => {
         if (length > 100) return "text-xs";
@@ -219,9 +96,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
         if (day <= 30) return "bg-slate-100";
         return "bg-slate-200";
     };
-
-    const isComplexPhase = currentPhase.content.includes("**Sinun näkökulmasi:**") || currentPhase.content.includes("**Your perspective:**");
-    const textSizeClass = getContentTextSize(currentPhase.content.length, true);
 
     // Stress level calculation (0-1)
     const selfEsteem = state.stats.selfEsteem || 50;
@@ -248,59 +122,12 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 />
             </div>
 
-            {/* HEADER: Glassmorphic top bar */}
-            <header className="shrink-0 h-16 bg-white/70 backdrop-blur-xl border-b border-white/20 px-4 flex items-center justify-between z-30 shadow-sm relative select-none">
-                <div className="flex items-center gap-2">
-                    <span className="font-black text-slate-900 tracking-tighter text-lg uppercase">{t('nav.simulation')}</span>
-                    <div className="bg-indigo-600 text-white px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest">
-                        {t('game.day')} {currentPhase.day}
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                    {/* Compact Stat Bars */}
-                    <div
-                        className="flex gap-2.5 cursor-pointer active:scale-95 transition-transform p-1.5 rounded-xl hover:bg-white/50"
-                        onClick={() => setIsHelpOpen(true)}
-                    >
-                        {getStatConfig().map(stat => (
-                            <MiniStatBar key={stat.id} icon={stat.icon} value={state.stats[stat.id as keyof GameStats]} color={stat.color} />
-                        ))}
-                    </div>
-
-                    <Button variant="ghost" size="icon" onClick={onExit} className="text-slate-400 hover:text-red-500 w-8 h-8 transition-colors">
-                        <span className="sr-only">{t('game.quit')}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-                    </Button>
-                </div>
-            </header>
-
-            {/* HELP MODAL (kept same logic but styled better) */}
-            {isHelpOpen && (
-                <div className="absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={() => setIsHelpOpen(false)}>
-                    <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300" onClick={e => e.stopPropagation()}>
-                        <div className="bg-slate-50 border-b p-6">
-                            <h3 className="font-black text-slate-900 uppercase tracking-tight">{t('game.resources')}</h3>
-                        </div>
-                        <div className="p-6 space-y-5">
-                            {getStatConfig().map(stat => (
-                                <div key={stat.id} className="flex items-center gap-4">
-                                    <div className={cn("p-3 rounded-xl", stat.color.replace('bg-', 'text-').replace('500', '600'), stat.color.replace('bg-', 'bg-').replace('500', '100'))}>
-                                        <stat.icon className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <div className="font-black text-sm text-slate-900 uppercase tracking-tight">{stat.label}</div>
-                                        <div className="text-xs text-slate-500 leading-relaxed font-medium">{stat.description}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="p-4 bg-slate-50 border-t">
-                            <Button onClick={() => setIsHelpOpen(false)} className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black uppercase tracking-widest text-xs">{t('game.continue')}</Button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            <GameHeader
+                day={currentPhase.day}
+                stats={state.stats}
+                onExit={onExit}
+                statLabels={statLabels}
+            />
 
             {/* NOTIFICATION TOAST */}
             {notification && (
@@ -317,72 +144,7 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 ref={mainContentRef}
                 className="flex-1 overflow-y-auto w-full max-w-lg mx-auto relative overscroll-contain no-scrollbar z-10"
             >
-                <div className="min-h-full flex flex-col justify-center p-6 pb-12 transition-all">
-
-                    {/* Scene Meta Info */}
-                    {(currentPhase.time || currentPhase.location) && (
-                        <div className="flex items-center justify-center gap-4 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6 opacity-60">
-                            {currentPhase.time && <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {currentPhase.time}</span>}
-                            {currentPhase.location && <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {currentPhase.location}</span>}
-                        </div>
-                    )}
-
-                    {/* Title */}
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 text-center leading-[1.1] mb-8 uppercase tracking-tighter">
-                        {currentPhase.title}
-                    </h2>
-
-                    {/* Content Block */}
-                    <div className={cn("prose prose-slate max-w-none text-slate-800 text-center mx-auto transition-all", textSizeClass)}>
-                        {isComplexPhase ? (
-                            <div className="space-y-4 text-left">
-                                {currentPhase.content.split('\n\n').map((section, idx) => {
-                                    if (section.includes("**Sinun näkökulmasi:**") || section.includes("**Your perspective:**")) {
-                                        return (
-                                            <div key={idx} className="bg-white/60 backdrop-blur-sm p-5 rounded-3xl border border-white shadow-sm">
-                                                <div className="flex items-center gap-2 mb-2 font-black text-slate-900 uppercase tracking-widest text-[10px]">
-                                                    <Briefcase className="w-3.5 h-3.5 text-indigo-500" /> {t('game.your_perspective')}
-                                                </div>
-                                                <p className="m-0 text-slate-900 font-medium leading-relaxed">{section.replace(/\*\*Sinun näkökulmasi:\*\*/, "").replace(/\*\*Your perspective:\*\*/, "").trim()}</p>
-                                            </div>
-                                        );
-                                    }
-                                    if (section.includes("**Antin näkökulma") || section.includes("Victim's perspective") || section.includes("perspective (Victim's voice):")) {
-                                        return (
-                                            <div key={idx} className="bg-white/40 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-indigo-500 shadow-sm">
-                                                <div className="flex items-center gap-2 mb-2 font-black text-indigo-900 uppercase tracking-widest text-[10px]">
-                                                    <User className="w-3.5 h-3.5 text-indigo-500" /> {t('game.victim_perspective')}
-                                                </div>
-                                                <p className="italic text-indigo-900 m-0 font-medium leading-relaxed">"{section.replace(/\*\*Antin.+?\*\*:/, "").replace(/\*\*Antin's.+?\*\*:/, "").replace(/\*\*Victim's.+?\*\*:/, "").replace(/"/g, "").trim()}"</p>
-                                            </div>
-                                        );
-                                    }
-                                    if (section.includes("**Psykologinen analyysi:**") || section.includes("**Psychological analysis:**")) {
-                                        return (
-                                            <div key={idx} className="bg-emerald-50/50 backdrop-blur-sm p-5 rounded-3xl border-l-4 border-emerald-500 shadow-sm">
-                                                <div className="flex items-center gap-2 mb-2 font-black text-emerald-900 uppercase tracking-widest text-[10px]">
-                                                    <Brain className="w-3.5 h-3.5 text-emerald-500" /> {t('game.psych_analysis')}
-                                                </div>
-                                                <p className="text-emerald-900 m-0 font-medium leading-relaxed">{section.replace("**Psykologinen analyysi:**", "").replace("**Psychological analysis:**", "").trim()}</p>
-                                            </div>
-                                        );
-                                    }
-                                    return <p key={idx} className="mb-4 last:mb-0 leading-relaxed font-medium">{section}</p>;
-                                })}
-                            </div>
-                        ) : (
-                            // Simple text content
-                            <p className="whitespace-pre-line leading-relaxed font-medium text-lg">{currentPhase.content}</p>
-                        )}
-
-                        {currentPhase.isCrisis && (
-                            <div className="mt-8 p-4 bg-red-600 text-white rounded-2xl flex items-center justify-center gap-3 text-xs font-black uppercase tracking-widest animate-pulse shadow-lg shadow-red-500/20">
-                                <AlertTriangle className="w-5 h-5 shrink-0" />
-                                <span>{t('game.crisis_report')}</span>
-                            </div>
-                        )}
-                    </div>
-                </div>
+                <GameRenderer currentPhase={currentPhase} />
             </main>
 
             {/* FOOTER: Fixed Actions */}
@@ -422,21 +184,6 @@ export function GameEngine({ scenario, initialPhaseId, onExit, profession = 'nur
                 </div>
             </footer>
 
-        </div>
-    );
-}
-
-// Compact Stat Bar for Header
-function MiniStatBar({ icon: Icon, value, color }: any) {
-    return (
-        <div className="flex flex-col gap-0.5 items-center justify-center w-8 group relative">
-            <Icon className="w-3 h-3 text-slate-400 mb-0.5" />
-            <div className="relative w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                <div
-                    className={cn("absolute inset-y-0 left-0 transition-all duration-500", color)}
-                    style={{ width: `${value}%` }}
-                />
-            </div>
         </div>
     );
 }

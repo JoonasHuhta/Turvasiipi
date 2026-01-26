@@ -1,0 +1,140 @@
+{
+    "page": {
+        "badge": "Symptom Mapping",
+        "title_prefix": "Listen to",
+        "title_highlight": "Your Feelings",
+        "intro": "Your body and mind tell a story that is sometimes hard to hear amidst the noise. This mapping helps you validate your experiences.",
+        "features": {
+            "threshold": {
+                "title": "LOW THRESHOLD",
+                "text": "Does not require login."
+            },
+            "feedback": {
+                "title": "IMMEDIATE FEEDBACK",
+                "text": "You get validation for every answer."
+            },
+            "analysis": {
+                "title": "RISK ANALYSIS",
+                "text": "Understand the severity of your situation."
+            },
+            "crisis": {
+                "title": "CRISIS HELP",
+                "text": "Guidance to help if needed."
+            }
+        },
+        "start_btn": "Start Mapping",
+        "progress": "Progress",
+        "quit_btn": "Quit",
+        "continue_btn": "Continue"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "category": "itseepaily",
+            "question": "Do you doubt your mental health or memory?",
+            "validationTitle": "Gaslighting Phenomenon",
+            "validationText": "Constant questioning makes the victim doubt their own reality. This is a normal reaction to an abnormal situation."
+        },
+        {
+            "id": 2,
+            "category": "eristyksisyys",
+            "question": "Do you avoid social situations at work?",
+            "validationTitle": "Social Withdrawal",
+            "validationText": "Withdrawal is a defense mechanism. When the environment is unsafe, the mind tries to minimize risks by isolating."
+        },
+        {
+            "id": 3,
+            "category": "fyysiset",
+            "question": "Do you have stomach pain or headache on workdays?",
+            "validationTitle": "Psychosomatic Symptoms",
+            "validationText": "The body reacts to threat often before the mind. Chronic stress manifests as physical pain."
+        },
+        {
+            "id": 4,
+            "category": "pelko",
+            "question": "Do you feel fear when phone rings or you get a message?",
+            "validationTitle": "Alarm State",
+            "validationText": "Nervous system is in constant 'fight or flight' mode. This is a sign of severe load."
+        },
+        {
+            "id": 5,
+            "category": "itseepaily",
+            "question": "Do you blame yourself for others' bad behavior?",
+            "validationTitle": "Internalized Guilt",
+            "validationText": "Bullying dynamics include shifting blame to the victim. You are not guilty for others' choices."
+        },
+        {
+            "id": 6,
+            "category": "halvaantuminen",
+            "question": "Is it hard for you to make decisions?",
+            "validationTitle": "Decline in Functioning",
+            "validationText": "When self-esteem is eroded, trust in own abilities disappears. Decision making becomes difficult."
+        },
+        {
+            "id": 7,
+            "category": "identiteetti",
+            "question": "Do you feel like you are 'worse' than others?",
+            "validationTitle": "Erosion of Self-Esteem",
+            "validationText": "Constant invalidation effects self-image. Remember that workplace bullying does not tell about your value."
+        },
+        {
+            "id": 8,
+            "category": "fyysiset",
+            "question": "Has your sleep quality deteriorated?",
+            "validationTitle": "Sleep Disorders",
+            "validationText": "Hyperarousal prevents recovery. Sleep is one of the first things disturbed in crisis."
+        },
+        {
+            "id": 9,
+            "category": "eristyksisyys",
+            "question": "Do you feel like no one is on your side?",
+            "validationTitle": "Loneliness",
+            "validationText": "Bullying isolates. The feeling is real, but it doesn't mean help wouldn't exist."
+        },
+        {
+            "id": 10,
+            "category": "halvaantuminen",
+            "question": "Do you feel stuck in the situation?",
+            "validationTitle": "Learned Helplessness",
+            "validationText": "Prolonged stress creates a feeling that there is no way out. This is an illusion of the mind - there are always options."
+        }
+    ],
+    "options": {
+        "daily": "Daily",
+        "often": "Often",
+        "sometimes": "Sometimes",
+        "rarely": "Rarely",
+        "never": "Never"
+    },
+    "results": {
+        "badge": "Analysis Ready",
+        "title": "Your Situation Picture",
+        "title_highlight": "Analysis",
+        "risk_level": "Risk",
+        "score": "Score",
+        "immediate_support": "You need immediate support.",
+        "severe_load": "Load is severe.",
+        "active_action": "Situation requires actions.",
+        "manageable": "Situation is manageable.",
+        "call_crisis": "Call Crisis Helpline",
+        "start_docs": "Start Documentation",
+        "weighted_strain": "Load",
+        "remember_title": "Remember this:",
+        "remember_text": "This result is just a momentary snapshot. It does not define your future, nor is it a diagnosis. It is a tool with which you can navigate towards safer waters.",
+        "retry_btn": "Do Again"
+    },
+    "risk_levels": {
+        "critical": "CRITICAL",
+        "high": "HIGH",
+        "moderate": "MODERATE",
+        "mild": "LOW"
+    },
+    "categories": {
+        "itseepaily": "Self-Doubt",
+        "eristyksisyys": "Isolation",
+        "halvaantuminen": "Functioning",
+        "pelko": "Fear States",
+        "identiteetti": "Identity",
+        "fyysiset": "Physical Symptoms"
+    }
+}

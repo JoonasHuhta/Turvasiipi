@@ -1,0 +1,141 @@
+{
+    "header": {
+        "mini_title": "Opas & Työkalupakki",
+        "title": "Neuromoninaisuus Työelämässä",
+        "quote": "Erilaisuus ei ole bugi. Se on ominaisuus.",
+        "intro": "Tämä sivu on tehty kaikille, joiden aivot toimivat eri tavalla – ja heidän esihenkilöilleen."
+    },
+    "cards": {
+        "what": {
+            "title": "Mistä on kyse?",
+            "subtitle": "Neurokirjo lyhyesti",
+            "adhd": "<strong>ADHD:</strong> Luovuus, nopeus, impulsiivisuus.",
+            "autism": "<strong>Autismikirjo:</strong> Yksityiskohtaisuus, syvä keskittyminen, suoruus.",
+            "dyslexia": "<strong>Lukivaikeus:</strong> Visuaalinen ajattelu, kokonaisuuksien hahmottaminen."
+        },
+        "superpowers": {
+            "title": "Voimavarat",
+            "subtitle": "Miksi tarvitsemme tätä?",
+            "productivity": "<strong>Tehokkuus:</strong> Hyperfokus voi tuottaa viikon työt päivässä.",
+            "innovation": "<strong>Innovaatio:</strong> 'Out-of-the-box' ajattelu on oletusasetus.",
+            "hyperfocus": "<strong>Intohimo:</strong> Syvä kiinnostus luo syvää asiantuntijuutta."
+        }
+    },
+    "spoon_theory": {
+        "mini_title": "Jaksamisen Malli",
+        "title": "Lusikkateoria",
+        "text": "Kuvittele, että sinulla on päivässä käytössäsi vain 12 lusikkaa energiaa. Neurotyypilliselle suihku ei maksa mitään. Nepsylle se voi maksaa yhden lusikan. Avokonttorin hälinä voi maksaa viisi.",
+        "what": {
+            "title": "Mitä ovat lusikat?",
+            "text": "Henkisen ja fyysisen energian yksiköitä."
+        },
+        "consume": {
+            "title": "Mikä kuluttaa?",
+            "text": "Aistiärsykkeet, sosiaalinen maskaaminen, muutokset."
+        },
+        "save": {
+            "title": "Miten säästää?",
+            "text": "Joustot, vastamelukuulokkeet, selkeät ohjeet."
+        }
+    },
+    "challenges": {
+        "title": "Yleiset Haasteet",
+        "environment": {
+            "title": "Ympäristö",
+            "text": "Avokonttorit, kirkkaat valot ja jatkuvat keskeytykset ovat myrkkyä."
+        },
+        "misunderstandings": {
+            "title": "Väärinymmärrykset",
+            "text": "Suora puhe voidaan tulkita töykeydeksi. Hiljaisuus välinpitämättömyydeksi."
+        },
+        "masking": {
+            "title": "Maskaaminen (Masking)",
+            "text": "<strong>Maskaaminen</strong> on neuroepätyypillisten piirteiden piilottamista sopeutumisen vuoksi. Se on raskasta ja johtaa uupumuseen. 'Normaalilta' näyttäminen on kokopäivätyötä."
+        }
+    },
+    "actions": {
+        "title": "Mitä voit tehdä?",
+        "employee": {
+            "title": "Työntekijälle",
+            "list": [
+                "<strong>Tunnista tarpeesi:</strong> Mitkä asiat vievät lusikoita?",
+                "<strong>Kommunikoi:</strong> Käytä 'Käyttöohje minulle' -pohjaa.",
+                "<strong>Suojaa fokusta:</strong> Varaa kalenteriin häiriötöntä aikaa."
+            ]
+        },
+        "manager": {
+            "title": "Esihenkilölle",
+            "list": [
+                "<strong>Salli joustot:</strong> Etätyö, työajat, viestintätavat.",
+                "<strong>Ole selkeä:</strong> Kirjalliset ohjeet ovat kultaa.",
+                "<strong>Kysy:</strong> 'Mitä tarvitset onnistuaksesi?'"
+            ]
+        }
+    },
+    "decoder": {
+        "title": "Tuplaempaattisuus",
+        "intro": "Usein ongelma ei ole 'autistin vuorovaikutus', vaan kahden erilaisen systeemin yhteensopimattomuus. Tämä tulkki auttaa.",
+        "situation_label": "Tilanne",
+        "nt_label": "Neurotyypillinen Oletus",
+        "nd_label": "Nepsy Kokemus",
+        "solution_label": "Silta",
+        "items": [
+            {
+                "situation": "Palaveri",
+                "nt": "Katsekontakti tarkoittaa, että kuuntelet.",
+                "nd": "Jos katson silmiin, en kuule mitä sanot, koska prosessoin kasvojasi.",
+                "bridge": "Salli piirtely tai poispäin katsominen."
+            },
+            {
+                "situation": "Small Talk",
+                "nt": "Säästä puhuminen luo yhteyttä.",
+                "nd": "Miksi puhumme itsestäänselvyyksistä? Haluaisin puhua strategiasta.",
+                "bridge": "Hyväksy asiapuhe liimanauhana."
+            }
+        ]
+    },
+    "logs": {
+        "title": "Dokumentointipohjat",
+        "subtitle": "Kun tarvitset kättä pidempää työterveyteen tai keskusteluihin.",
+        "accommodation": {
+            "title": "Mukautuspyyntö",
+            "desc": "Käytä tätä pyytäessäsi joustoja.",
+            "content": "Hei, jotta voisin työskennellä tehokkaimmin, tarvitsisin seuraavan mukautuksen: [MUKAUTUS]. Tämä auttaisi minua [HYÖTY]. Esimerkiksi viime viikolla..."
+        },
+        "breakdown": {
+            "title": "Kuormitusloki",
+            "desc": "Seuraa vireystilaasi ja meltdown-riskiä.",
+            "content": "Pvm: [PVM] | Lusikat aamulla: [1-5] | Päivän kuormittavin hetki: [TAPAHTUMA] | Oireet: [AISTIYLIHERKKYYS/SAMMUMINEN] | Palautuminen: [KEINO]"
+        },
+        "rights": {
+            "title": "Tiesitkö?",
+            "text": "Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuullisia mukautuksia neurokirjon vuoksi. Et pyydä 'ekstraa', vaan tasa-arvoa."
+        }
+    },
+    "simulation": {
+        "mini_title": "Kokeile Itse",
+        "title": "Simulaatiot",
+        "text": "Teoria on yksi asia. Kokemus on toinen. Astu nepsyn saappaisiin.",
+        "btn_all": "Kaikki Simulaatiot",
+        "card1": {
+            "title": "Aistiylikuormitus",
+            "desc": "Kun maailma on liikaa."
+        },
+        "card2": {
+            "title": "Suoritusansa",
+            "desc": "Perfektionismin hinta."
+        },
+        "card3": {
+            "title": "Informaatiovarjo",
+            "desc": "Sanattomien viestien viidakko."
+        }
+    },
+    "completion": {
+        "title_new": "Merkitse opituksi",
+        "title_done": "Osio Suoritettu",
+        "text_new": "Olet käynyt läpi tietopaketin. Merkitse se suoritetuksi profiiliisi.",
+        "text_done": "Olet suorittanut tämän osion. Haluatko palata profiiliin?",
+        "btn_mark": "Merkitse Valmiiksi",
+        "btn_back": "Palaa Profiiliin"
+    }
+}

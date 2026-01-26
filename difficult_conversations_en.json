@@ -1,0 +1,134 @@
+﻿"difficult_conversations": {
+            "title": "Difficult Conversations",
+            "subtitle": "Choose an opponent and practice setting boundaries safely.",
+            "ui": {
+                "cancel": "Cancel",
+                "start_challenge": "Start Challenge",
+                "typing": "Opponent is typing...",
+                "won_title": "Situation Under Control!",
+                "won_desc": "You maintained your professionalism and boundaries.",
+                "back_menu": "Back to Menu",
+                "lost_title": "Lost Control",
+                "lost_desc": "Emotions took over or you gave up your boundaries.",
+                "retry": "Try Again"
+            },
+            "opponents": {
+                "aggro": {
+                    "title": "The Aggressor",
+                    "description": "Yelling, blaming, and pressure.",
+                    "intro": "LISTEN TO ME! Why is this report late?! Are you completely incompetent??",
+                    "dialogs": [
+                        {
+                            "opponent": "This is total bulls**t! I can't believe we pay you a salary!",
+                            "options": [
+                                {
+                                    "text": "Sorry, I try my best...",
+                                    "reply": "Trying isn't enough! Do your job!",
+                                    "effect": {
+                                        "auth": -20,
+                                        "emp": 0
+                                    },
+                                    "outcome": "bad"
+                                },
+                                {
+                                    "text": "Do not speak to me like that.",
+                                    "reply": "I speak how I want when there are no results!",
+                                    "effect": {
+                                        "auth": 10,
+                                        "emp": -10
+                                    },
+                                    "outcome": "neutral"
+                                },
+                                {
+                                    "text": "We will discuss when you calm down. Inappropriate behavior does not help.",
+                                    "reply": "...Fine. Let's look at the numbers.",
+                                    "effect": {
+                                        "auth": 30,
+                                        "emp": 10
+                                    },
+                                    "outcome": "good"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "victim": {
+                    "title": "The Victim",
+                    "description": "Guilt, crying, and avoiding responsibility.",
+                    "intro": "Why do you always persecute me? I've had it so hard...",
+                    "dialogs": [
+                        {
+                            "opponent": "Don't I ever do anything right in your opinion? *sob*",
+                            "options": [
+                                {
+                                    "text": "No, you don't do wrong, you see...",
+                                    "reply": "You always explain! You hate me!",
+                                    "effect": {
+                                        "auth": -10,
+                                        "emp": 10
+                                    },
+                                    "outcome": "neutral"
+                                },
+                                {
+                                    "text": "We are discussing the task, not you as a person.",
+                                    "reply": "But this feels so bad...",
+                                    "effect": {
+                                        "auth": 20,
+                                        "emp": 0
+                                    },
+                                    "outcome": "good"
+                                },
+                                {
+                                    "text": "Stop that crying.",
+                                    "reply": "You are a cruel monster!",
+                                    "effect": {
+                                        "auth": 10,
+                                        "emp": -30
+                                    },
+                                    "outcome": "fail"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gaslight": {
+                    "title": "The Gaslighter",
+                    "description": "Denial of reality and confusion.",
+                    "intro": "What are you talking about? I never promised that. Are you imagining things again?",
+                    "dialogs": [
+                        {
+                            "opponent": "You have a vivid imagination. Are you stressed?",
+                            "options": [
+                                {
+                                    "text": "Maybe I am... do I remember wrong?",
+                                    "reply": "Probably. Go get some rest.",
+                                    "effect": {
+                                        "auth": -30,
+                                        "emp": 0
+                                    },
+                                    "outcome": "fail"
+                                },
+                                {
+                                    "text": "I have an email with the date.",
+                                    "reply": "Emails can be faked or misinterpreted.",
+                                    "effect": {
+                                        "auth": 20,
+                                        "emp": 0
+                                    },
+                                    "outcome": "neutral"
+                                },
+                                {
+                                    "text": "The fact is this. I discuss documents, not memories.",
+                                    "reply": "You are so uptight... but fine.",
+                                    "effect": {
+                                        "auth": 30,
+                                        "emp": 0
+                                    },
+                                    "outcome": "good"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }

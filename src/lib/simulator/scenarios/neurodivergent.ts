@@ -4,8 +4,8 @@ import { Phase } from "../types";
 // NEUROSCENARIO: Päivä Neuroepätyypillisenä
 // Focus: Energy Management, Sensory Overload, Misunderstandings
 export const NEURO_SCENARIO: Record<string, Phase> = {
-    START: {
-        id: 'START',
+    'start': {
+        id: 'start',
         day: 1,
         time: '08:00',
         title: "Aamupala: Aistien hyökkäys",

@@ -19,6 +19,7 @@ import {
     Save
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ActionProtocolsProps {
     onComplete: () => void;
@@ -26,42 +27,43 @@ interface ActionProtocolsProps {
 }
 
 export const ActionProtocols: React.FC<ActionProtocolsProps> = ({ onComplete, onExit }) => {
+    const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState("acute");
 
     return (
-        <div className="min-h-full p-6 md:p-12 max-w-5xl mx-auto flex flex-col gap-6 animate-in fade-in duration-500">
+        <div className="min-h-full p-6 md:p-12 max-w-5xl mx-auto flex flex-col gap-6 animate-in fade-in duration-500 font-sans text-[#44403C]">
             {/* Header */}
             <div className="flex justify-between items-center">
-                <Button variant="ghost" onClick={onExit} className="text-slate-400 hover:text-slate-900 gap-2">
-                    <ArrowLeft className="w-4 h-4" /> Keskeytä
+                <Button variant="ghost" onClick={onExit} className="text-[#78716C] hover:text-[#292524] gap-2">
+                    <ArrowLeft className="w-4 h-4" /> {t('common.back') || 'Takaisin'}
                 </Button>
-                <div className="flex items-center gap-2 text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">
-                    <Shield className="w-4 h-4" /> Konkreettiset Toimintamallit
+                <div className="flex items-center gap-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">
+                    <Shield className="w-4 h-4" /> {t('training.action_protocols.subtitle')}
                 </div>
             </div>
 
             <div className="space-y-2">
-                <h1 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
-                    Työkalupakki <span className="text-indigo-600">Reagointiin</span>
+                <h1 className="text-3xl md:text-4xl font-black text-[#292524] uppercase tracking-tight">
+                    <span className="text-rose-600">{t('training.action_protocols.title')}</span>
                 </h1>
-                <p className="text-slate-600 max-w-2xl">
-                    Älä jäädy tilanteessa. Tässä on valmiit sanat ja suunnitelmat, jotta tiedät tasan mitä tehdä.
+                <p className="text-[#57534E] max-w-2xl">
+                    {t('training.action_protocols.description')}
                 </p>
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full space-y-6">
-                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-1 bg-slate-100 rounded-xl">
-                    <TabsTrigger value="acute" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                        <Zap className="w-4 h-4 mr-2" /> Akuutit Skriptit
+                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto p-1 bg-[#FAFAF9] border border-[#E7E5E4] rounded-xl">
+                    <TabsTrigger value="acute" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:text-rose-600 data-[state=active]:shadow-sm data-[state=active]:font-bold text-[#78716C]">
+                        <Zap className="w-4 h-4 mr-2" /> {t('training.action_protocols.tabs.acute')}
                     </TabsTrigger>
-                    <TabsTrigger value="conversation" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                        <MessageSquare className="w-4 h-4 mr-2" /> Vaikea Keskustelu
+                    <TabsTrigger value="conversation" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:text-amber-600 data-[state=active]:shadow-sm data-[state=active]:font-bold text-[#78716C]">
+                        <MessageSquare className="w-4 h-4 mr-2" /> {t('training.action_protocols.tabs.conversation')}
                     </TabsTrigger>
-                    <TabsTrigger value="manager" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                        <UserX className="w-4 h-4 mr-2" /> Esimies-Ketju
+                    <TabsTrigger value="manager" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:text-amber-600 data-[state=active]:shadow-sm data-[state=active]:font-bold text-[#78716C]">
+                        <UserX className="w-4 h-4 mr-2" /> {t('training.action_protocols.tabs.manager')}
                     </TabsTrigger>
-                    <TabsTrigger value="safety-plan" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                        <Lock className="w-4 h-4 mr-2" /> Turvasuunnitelma
+                    <TabsTrigger value="safety-plan" className="py-3 rounded-lg data-[state=active]:bg-white data-[state=active]:text-emerald-600 data-[state=active]:shadow-sm data-[state=active]:font-bold text-[#78716C]">
+                        <Lock className="w-4 h-4 mr-2" /> {t('training.action_protocols.tabs.safety_plan')}
                     </TabsTrigger>
                 </TabsList>
 
@@ -92,60 +94,55 @@ export const ActionProtocols: React.FC<ActionProtocolsProps> = ({ onComplete, on
 // --- SUB-COMPONENTS ---
 
 const AcuteScripts = () => {
+    const { t } = useLanguage();
+
+    // Helper to safely get nested translation objects
+    const getScript = (key: string) => {
+        return {
+            title: t(`training.action_protocols.acute_scripts.scripts.${key}.title`),
+            script: t(`training.action_protocols.acute_scripts.scripts.${key}.script`),
+            nuance: t(`training.action_protocols.acute_scripts.scripts.${key}.nuance`),
+            next: t(`training.action_protocols.acute_scripts.scripts.${key}.next`)
+        };
+    };
+
     const scripts = [
-        {
-            title: "Julkinen naljailu",
-            icon: MessageSquare,
-            script: "En pidä tästä kommentista. Lopeta heti.",
-            nuance: "Sano rauhallisella, matalalla äänellä. Älä hymyile. Katso silmiin.",
-            next: "Kirjaa ylös: Kuka sanoi, mitä, milloin (kellonaika)."
-        },
-        {
-            title: "Tiedon panttaus",
-            icon: FileText,
-            script: "Tarvitsen tämän tiedon työhöni. Lähetä nyt.",
-            nuance: "Älä pyydä 'voisitko'. Totea tarve. Lisää viestiin CC luottamushenkilölle jos toistuu.",
-            next: "Ota kuvakaappaus pyynnöstäsi. Jos ei vastausta, lähetä muistutus."
-        },
-        {
-            title: "Eristäminen",
-            icon: UserX,
-            script: "Miksi minua ei kutsuttu? Lisää minut jatkossa.",
-            nuance: "Kysy suoraan palaverissa tai ryhmächatissa. Tee näkymättömästä näkyvää.",
-            next: "Kysy tiimiltä tukea: 'Huomasitteko että olin poissa?'"
-        }
+        { ...getScript('public_mockery'), icon: MessageSquare },
+        { ...getScript('withholding_info'), icon: FileText },
+        { ...getScript('isolation'), icon: UserX }
     ];
 
     return (
         <div className="grid gap-6 md:grid-cols-3">
-            <div className="md:col-span-3 bg-indigo-50 border border-indigo-100 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center shrink-0">
-                    <span className="text-3xl font-black text-indigo-600">3</span>
+            <div className="md:col-span-3 bg-rose-50 border border-rose-100 p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6">
+                <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center shrink-0">
+                    <span className="text-3xl font-black text-rose-600">3</span>
                 </div>
                 <div className="space-y-2 text-center md:text-left">
-                    <h3 className="text-xl font-bold text-indigo-900 uppercase">Stop - Puhu - Dokumentoi</h3>
-                    <p className="text-indigo-700">
-                        Kolme askelta kaaoksen hallintaan. <br />
-                        1. <strong>Stop:</strong> Pysäytä reaktiosi (hengitä). <br />
-                        2. <strong>Puhu:</strong> Sano skripti (rajanveto). <br />
-                        3. <strong>Dokumentoi:</strong> Kirjaa ylös heti kun pääset turvaan.
-                    </p>
+                    <h3
+                        className="text-xl font-bold text-rose-900 uppercase"
+                        dangerouslySetInnerHTML={{ __html: t('training.action_protocols.acute_scripts.intro_title') }}
+                    />
+                    <p
+                        className="text-rose-800"
+                        dangerouslySetInnerHTML={{ __html: t('training.action_protocols.acute_scripts.intro_text') }}
+                    />
                 </div>
             </div>
 
             {scripts.map((s, i) => (
-                <Card key={i} className="p-6 border-slate-200 hover:border-indigo-300 transition-colors group">
-                    <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-500 mb-4 group-hover:bg-indigo-100 group-hover:text-indigo-600 transition-colors">
+                <Card key={i} className="p-6 border-[#E7E5E4] hover:border-rose-300 transition-colors group">
+                    <div className="w-10 h-10 bg-[#FAFAF9] rounded-lg flex items-center justify-center text-[#A8A29E] mb-4 group-hover:bg-rose-100 group-hover:text-rose-600 transition-colors">
                         <s.icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-bold text-lg text-slate-900 mb-4">{s.title}</h3>
-                    <div className="bg-slate-900 text-white p-4 rounded-xl relative mb-4">
-                        <div className="absolute -top-3 left-4 bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Sano näin</div>
+                    <h3 className="font-bold text-lg text-[#292524] mb-4">{s.title}</h3>
+                    <div className="bg-[#292524] text-white p-4 rounded-xl relative mb-4">
+                        <div className="absolute -top-3 left-4 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">{t('training.action_protocols.acute_scripts.labels.say_this')}</div>
                         <p className="font-medium italic">"{s.script}"</p>
                     </div>
                     <div className="space-y-3 text-sm">
-                        <p className="text-slate-600"><strong className="text-slate-900">Tyyli:</strong> {s.nuance}</p>
-                        <p className="text-slate-600"><strong className="text-slate-900">Seuraava askel:</strong> {s.next}</p>
+                        <p className="text-[#57534E]"><strong className="text-[#292524]">{t('training.action_protocols.acute_scripts.labels.style')}</strong> {s.nuance}</p>
+                        <p className="text-[#57534E]"><strong className="text-[#292524]">{t('training.action_protocols.acute_scripts.labels.next_step')}</strong> {s.next}</p>
                     </div>
                 </Card>
             ))}
@@ -154,66 +151,46 @@ const AcuteScripts = () => {
 };
 
 const DifficultConversation = () => {
+    const { t } = useLanguage();
     const [step, setStep] = useState(0);
-    const steps = [
-        {
-            title: "1. Avaus",
-            script: "Kiitos että tulit. Haluan keskustella meidän välisestä vuorovaikutuksesta. Tämä on tärkeää työni kannalta.",
-            tip: "Rajaa aihe neutraalisti. Älä syytä, kutsu keskusteluun."
-        },
-        {
-            title: "2. Konkreettinen esimerkki",
-            script: "Viime tiistain kokouksessa sanoit julkisesti 'Et tajua tästä mitään'. Koen tämän mitätöivänä. Miltä sinusta kuulostaa?",
-            tip: "Kerro fakta (mitä tapahtui) ja vaikutus (miltä tuntui). Lopeta avoimeen kysymykseen."
-        },
-        {
-            title: "3. Rajaus",
-            script: "Jatkossa odotan naljailun loppuvan. Työni hoituu parhaiten ilman sitä. Oletko samaa mieltä?",
-            tip: "Esitä selkeä vaatimus. Älä pyydä lupaa, vaan sitoutumista."
-        },
-        {
-            title: "4. Seuranta ja tuki",
-            script: "Miten varmistamme, että tämä ei toistu? Tarvitsenko sinulta jotain tietoa työhöni?",
-            tip: "Siirrä vastuu ratkaisusta yhteiseksi. 'Miten me onnistumme tässä?'"
-        },
-        {
-            title: "5. Päätös ja dokumentointi",
-            script: "Kiitos keskustelusta. Kirjaan tämän muistioon. Onko sinulla lisättävää?",
-            tip: "Tee tilanteesta virallinen. Lähetä muistio sähköpostilla (CC luottamusmies)."
-        }
-    ];
+
+    // Get steps from translation
+    const stepsData = t('training.action_protocols.difficult_conversation.steps', { returnObjects: true }) as any[];
+
+    // Fallback if translation fails or returns string
+    const steps = Array.isArray(stepsData) ? stepsData : [];
 
     return (
-        <Card className="p-8 max-w-2xl mx-auto border-slate-200">
-            <h2 className="text-2xl font-black uppercase text-slate-900 mb-2">Vaikean keskustelun kaava</h2>
-            <p className="text-slate-500 mb-8">
-                Käytä tätä 5-vaiheista runkoa yksityiskeskustelussa.
+        <Card className="p-8 max-w-2xl mx-auto border-[#E7E5E4]">
+            <h2 className="text-2xl font-black uppercase text-[#292524] mb-2">{t('training.action_protocols.difficult_conversation.title')}</h2>
+            <p className="text-[#57534E] mb-8">
+                {t('training.action_protocols.difficult_conversation.intro')}
             </p>
 
             <div className="space-y-8">
                 {steps.map((s, i) => (
                     <div key={i} className={cn("flex gap-4 transition-opacity duration-500", i === step ? "opacity-100" : "opacity-40 grayscale")}>
                         <div className={cn("w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0",
-                            i === step ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200" : "bg-slate-100 text-slate-400"
+                            i === step ? "bg-amber-600 text-white shadow-lg shadow-amber-200" : "bg-[#F5F5F4] text-[#A8A29E]"
                         )}>
                             {i + 1}
                         </div>
                         <div className="flex-1 space-y-2 pt-1">
-                            <h3 className="font-bold text-slate-900">{s.title}</h3>
-                            <div className="bg-slate-50 p-4 rounded-xl border-l-4 border-indigo-400">
-                                <p className="font-medium text-slate-800 italic">"{s.script}"</p>
+                            <h3 className="font-bold text-[#292524]">{s.title}</h3>
+                            <div className="bg-[#FAFAF9] p-4 rounded-xl border-l-4 border-amber-400">
+                                <p className="font-medium text-[#44403C] italic">"{s.script}"</p>
                             </div>
-                            <p className="text-sm text-slate-500 flex items-center gap-2">
-                                <Zap className="w-3 h-3" /> {s.tip}
+                            <p className="text-sm text-[#78716C] flex items-center gap-2">
+                                <Zap className="w-3 h-3 text-amber-500" /> {s.tip}
                             </p>
                             {i === step && i < steps.length - 1 && (
-                                <Button onClick={() => setStep(i + 1)} size="sm" className="mt-2 bg-slate-900 text-white rounded-full">
-                                    Seuraava vaihe
+                                <Button onClick={() => setStep(i + 1)} size="sm" className="mt-2 bg-[#292524] text-white rounded-full hover:bg-[#44403C]">
+                                    {s.action}
                                 </Button>
                             )}
                             {i === step && i === steps.length - 1 && (
-                                <Button onClick={() => setStep(0)} variant="outline" size="sm" className="mt-2 rounded-full">
-                                    Aloita alusta
+                                <Button onClick={() => setStep(0)} variant="outline" size="sm" className="mt-2 rounded-full border-[#E7E5E4] hover:bg-[#F5F5F4]">
+                                    {s.action}
                                 </Button>
                             )}
                         </div>
@@ -225,60 +202,34 @@ const DifficultConversation = () => {
 };
 
 const ManagerChain = () => {
+    const { t } = useLanguage();
+
+    // Get steps from translation
+    const stepsData = t('training.action_protocols.manager_chain.steps', { returnObjects: true }) as any[];
+    const steps = Array.isArray(stepsData) ? stepsData : [];
+
     return (
         <div className="space-y-8">
             <div className="bg-rose-50 border border-rose-100 p-6 rounded-2xl">
                 <h3 className="text-lg font-bold text-rose-900 uppercase mb-2 flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5" /> Esimies on kiusaaja?
+                    <AlertTriangle className="w-5 h-5" /> {t('training.action_protocols.manager_chain.title')}
                 </h3>
                 <p className="text-rose-800 text-sm">
-                    Kun valta-asemaa käytetään väärin, sinun on suojeltava itseäsi byrokratialla.
-                    Älä jää odottamaan. Dokumentoi kaikki.
+                    {t('training.action_protocols.manager_chain.intro')}
                 </p>
             </div>
 
-            <div className="relative border-l-2 border-slate-200 ml-6 space-y-12">
-                {[
-                    {
-                        step: "1. Puheeksiotto",
-                        target: "Esimies (kahden kesken)",
-                        script: "Koen [toiminnan] epäasiallisena. Pyydän lopettamaan.",
-                        time: "Heti"
-                    },
-                    {
-                        step: "2. Kirjallinen ilmoitus",
-                        target: "Yliesimies",
-                        script: "Ilmoitan [Kiistattomat faktat]. Tarvitsen selvityksen.",
-                        time: "1-2 vrk"
-                    },
-                    {
-                        step: "3. Avunpyyntö",
-                        target: "Työsuojeluvaltuutettu / Liitto",
-                        script: "Tarvitsen apua tilanteen selvitykseen. Liite: dokumentaatio.",
-                        time: "Heti kun vaihe 2 ei toimi"
-                    },
-                    {
-                        step: "4. Terveyslausunto",
-                        target: "Työterveys",
-                        script: "Kiusaaminen aiheuttaa oireita. Pyydän lausunnon työkyvystä.",
-                        time: "1 viikko"
-                    },
-                    {
-                        step: "5. Valvontapyyntö",
-                        target: "AVI (Aluehallintovirasto)",
-                        script: "Työnantaja ei ole ryhtynyt toimiin ilmoituksesta huolimatta.",
-                        time: "2 viikkoa hiljaisuutta"
-                    },
-                ].map((item, i) => (
+            <div className="relative border-l-2 border-[#E7E5E4] ml-6 space-y-12">
+                {steps.map((item, i) => (
                     <div key={i} className="relative pl-8">
-                        <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-900 border-4 border-white shadow-sm" />
-                        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                        <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#292524] border-4 border-white shadow-sm" />
+                        <div className="bg-white border border-[#E7E5E4] p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-start mb-2">
-                                <h3 className="font-bold text-slate-900">{item.step}</h3>
-                                <span className="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded uppercase tracking-wider">{item.time}</span>
+                                <h3 className="font-bold text-[#292524]">{item.step}</h3>
+                                <span className="text-xs font-bold bg-[#F5F5F4] text-[#57534E] px-2 py-1 rounded uppercase tracking-wider">{item.time}</span>
                             </div>
-                            <p className="text-sm text-slate-500 mb-3">Kohde: <span className="font-medium text-indigo-600">{item.target}</span></p>
-                            <div className="bg-slate-50 p-3 rounded border-l-2 border-slate-400 text-sm italic text-slate-700">
+                            <p className="text-sm text-[#78716C] mb-3">{t('training.action_protocols.manager_chain.labels.target')} <span className="font-medium text-amber-600">{item.target}</span></p>
+                            <div className="bg-[#FAFAF9] p-3 rounded border-l-2 border-[#D6D3D1] text-sm italic text-[#44403C]">
                                 "{item.script}"
                             </div>
                         </div>
@@ -290,79 +241,80 @@ const ManagerChain = () => {
 };
 
 const SafetyPlanBuilder = ({ onComplete }: { onComplete: () => void }) => {
+    const { t } = useLanguage();
     const [plan, setPlan] = useState({
         reaction: '',
         support: '',
-        phrase: 'Käytän nyt turvasuunnitelmaani – tarvitsen apua.',
+        phrase: t('training.action_protocols.safety_plan.form.phrase_value'),
         exit: '',
         place: ''
     });
 
     return (
-        <Card className="p-8 max-w-2xl mx-auto border-slate-200">
-            <h2 className="text-2xl font-black uppercase text-slate-900 mb-2">Oma Turvasuunnitelma</h2>
-            <p className="text-slate-500 mb-8">
-                Täytä tämä ja tallenna kuvakaappauksena puhelimeesi.
+        <Card className="p-8 max-w-2xl mx-auto border-[#E7E5E4]">
+            <h2 className="text-2xl font-black uppercase text-[#292524] mb-2">{t('training.action_protocols.safety_plan.title')}</h2>
+            <p className="text-[#57534E] mb-8">
+                {t('training.action_protocols.safety_plan.intro')}
             </p>
 
             <div className="space-y-6">
                 <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase text-slate-700">1. Ensimmäinen turvareaktio</label>
+                    <label className="text-sm font-bold uppercase text-[#57534E]">{t('training.action_protocols.safety_plan.form.reaction_label')}</label>
                     <input
                         type="text"
-                        placeholder="Esim. Poistun paikalta 5 minuutiksi."
-                        className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder={t('training.action_protocols.safety_plan.form.reaction_placeholder')}
+                        className="w-full p-3 bg-[#FAFAF9] rounded-lg border border-[#E7E5E4] focus:outline-none focus:ring-2 focus:ring-amber-500"
                         value={plan.reaction}
                         onChange={e => setPlan({ ...plan, reaction: e.target.value })}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase text-slate-700">2. Luotettava tuki</label>
+                    <label className="text-sm font-bold uppercase text-[#57534E]">{t('training.action_protocols.safety_plan.form.support_label')}</label>
                     <input
                         type="text"
-                        placeholder="Nimi ja puhelinnumero."
-                        className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder={t('training.action_protocols.safety_plan.form.support_placeholder')}
+                        className="w-full p-3 bg-[#FAFAF9] rounded-lg border border-[#E7E5E4] focus:outline-none focus:ring-2 focus:ring-amber-500"
                         value={plan.support}
                         onChange={e => setPlan({ ...plan, support: e.target.value })}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase text-slate-700">3. Hätäfraasi esimiehelle</label>
-                    <div className="w-full p-3 bg-indigo-50 rounded-lg border border-indigo-200 text-indigo-900 font-medium">
+                    <label className="text-sm font-bold uppercase text-[#57534E]">{t('training.action_protocols.safety_plan.form.phrase_label')}</label>
+                    <div className="w-full p-3 bg-amber-50 rounded-lg border border-amber-200 text-amber-900 font-medium">
                         "{plan.phrase}"
                     </div>
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase text-slate-700">4. Exit-signaali</label>
+                    <label className="text-sm font-bold uppercase text-[#57534E]">{t('training.action_protocols.safety_plan.form.exit_label')}</label>
                     <input
                         type="text"
-                        placeholder="Esim. Jos ei muutosta 3 viikossa -> Sairasloma."
-                        className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder={t('training.action_protocols.safety_plan.form.exit_placeholder')}
+                        className="w-full p-3 bg-[#FAFAF9] rounded-lg border border-[#E7E5E4] focus:outline-none focus:ring-2 focus:ring-amber-500"
                         value={plan.exit}
                         onChange={e => setPlan({ ...plan, exit: e.target.value })}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase text-slate-700">5. Turvapaikka</label>
+                    <label className="text-sm font-bold uppercase text-[#57534E]">{t('training.action_protocols.safety_plan.form.place_label')}</label>
                     <input
                         type="text"
-                        placeholder="Esim. Kahvila lounaalla / Etätyö."
-                        className="w-full p-3 bg-slate-50 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder={t('training.action_protocols.safety_plan.form.place_placeholder')}
+                        className="w-full p-3 bg-[#FAFAF9] rounded-lg border border-[#E7E5E4] focus:outline-none focus:ring-2 focus:ring-amber-500"
                         value={plan.place}
                         onChange={e => setPlan({ ...plan, place: e.target.value })}
                     />
                 </div>
 
                 <div className="pt-6">
-                    <Button onClick={onComplete} className="w-full h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold uppercase tracking-widest text-lg shadow-xl">
-                        <Save className="w-5 h-5 mr-3" /> Tallenna suunnitelma
+                    <Button onClick={onComplete} className="w-full h-14 bg-[#292524] hover:bg-[#44403C] text-white rounded-xl font-bold uppercase tracking-widest text-lg shadow-xl">
+                        <Save className="w-5 h-5 mr-3" /> {t('training.action_protocols.safety_plan.form.save_btn')}
                     </Button>
-                    <p className="text-xs text-center text-slate-400 mt-3">
-                        Tiedot eivät tallennu palvelimelle tietoturvasyistä. Ota kuvakaappaus tästä näkymästä.
+                    <p className="text-xs text-center text-[#A8A29E] mt-3">
+                        {t('training.action_protocols.safety_plan.form.disclaimer')}
                     </p>
                 </div>
             </div>

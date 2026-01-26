@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "Yhteisö",
+    "title_start": "Yhteisön",
+    "title_highlight": "tarinat",
+    "subtitle": "Et ole yksin. Lue muiden kokemuksia ja jaa omasi."
+  },
+  "benefits": {
+    "validate": {
+      "title": "Validoi kokemuksesi",
+      "desc": "Huomaat, että ongelma ei ole sinussa."
+    },
+    "shame": {
+      "title": "Vähennä häpeää",
+      "desc": "Hiljaisuus murretaan puhumalla."
+    },
+    "strength": {
+      "title": "Löydä voimaa",
+      "desc": "Selviytymistarinat luovat toivoa."
+    }
+  },
+  "filters": {
+    "all": "Kaikki"
+  },
+  "empty": {
+    "title": "Yhteisö kasvaa!",
+    "text": "Ensimmäiset tarinat ovat tulossa pian. Ole ensimmäinen ja jaa tarinasi alla olevalla lomakkeella."
+  },
+  "card": {
+    "new": "UUSIN"
+  },
+  "form": {
+    "title": "Jaa oma tarinasi",
+    "desc": "Julkaisemme tarinat täysin anonyymisti. Emme tallenna IP-osoitteita.",
+    "title_label": "Otsikko / Aihe",
+    "title_placeholder": "Esim. Hyväksikäyttö harjoittelussa...",
+    "author_label": "Nimimerkki",
+    "author_optional": "(Valinnainen)",
+    "author_placeholder": "Jätä tyhjäksi jos haluat olla anonyymi",
+    "category_label": "Kategoria",
+    "category_placeholder": "Valitse toimiala",
+    "text_label": "Tarinasi",
+    "text_placeholder": "Kirjoita vapaasti. Moderoimme tekstin ja poistamme nimet ennen julkaisua.",
+    "submit_btn": "Avaa sähköposti & Lähetä",
+    "direct_email": "Tai lähetä suoraan:"
+  },
+  "categories": {
+    "sote": "Sote-ala",
+    "it": "IT ja teknologia",
+    "education": "Opetus ja koulutus",
+    "office": "Toimistotyö ja hallinto",
+    "service": "Ravintola ja kauppa",
+    "industry": "Teollisuus ja rakentaminen",
+    "creative": "Luova ala",
+    "neuro": "Neuromoninaisuus",
+    "other": "Muut"
+  },
+  "stories_page": {
+    "header": {
+      "badge": "Yhteisö",
+      "title_start": "Yhteisön",
+      "title_highlight": "tarinat",
+      "subtitle": "Et ole yksin. Lue muiden kokemuksia ja jaa omasi."
+    },
+    "benefits": {
+      "validate": {
+        "title": "Validoi kokemuksesi",
+        "desc": "Huomaat, että ongelma ei ole sinussa."
+      },
+      "shame": {
+        "title": "Vähennä häpeää",
+        "desc": "Hiljaisuus murretaan puhumalla."
+      },
+      "strength": {
+        "title": "Löydä voimaa",
+        "desc": "Selviytymistarinat luovat toivoa."
+      }
+    },
+    "filters": {
+      "all": "Kaikki"
+    },
+    "empty": {
+      "title": "Yhteisö kasvaa!",
+      "text": "Ensimmäiset tarinat ovat tulossa pian. Ole ensimmäinen ja jaa tarinasi alla olevalla lomakkeella."
+    },
+    "card": {
+      "new": "UUSIN"
+    },
+    "form": {
+      "title": "Jaa oma tarinasi",
+      "desc": "Julkaisemme tarinat täysin anonyymisti. Emme tallenna IP-osoitteita.",
+      "title_label": "Otsikko / Aihe",
+      "title_placeholder": "Esim. Hyväksikäyttö harjoittelussa...",
+      "author_label": "Nimimerkki",
+      "author_optional": "(Valinnainen)",
+      "author_placeholder": "Jätä tyhjäksi jos haluat olla anonyymi",
+      "category_label": "Kategoria",
+      "category_placeholder": "Valitse toimiala",
+      "text_label": "Tarinasi",
+      "text_placeholder": "Kirjoita vapaasti. Moderoimme tekstin ja poistamme nimet ennen julkaisua.",
+      "submit_btn": "Avaa sähköposti & Lähetä",
+      "direct_email": "Tai lähetä suoraan:"
+    },
+    "categories": {
+      "sote": "Sote-ala",
+      "it": "IT ja teknologia",
+      "education": "Opetus ja koulutus",
+      "office": "Toimistotyö ja hallinto",
+      "service": "Ravintola ja kauppa",
+      "industry": "Teollisuus ja rakentaminen",
+      "creative": "Luova ala",
+      "neuro": "Neuromoninaisuus",
+      "other": "Muut"
+    }
+  }
+}

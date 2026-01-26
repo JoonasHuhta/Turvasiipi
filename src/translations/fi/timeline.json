@@ -1,0 +1,92 @@
+{
+  "page": {
+    "label": "Lokikirja",
+    "title": "Aikajana",
+    "subtitle": "Kaikki merkintäsi aikajärjestyksessä. Tämä on tärkein todistusaineistosi.",
+    "status_open": "Aktiivinen seuranta",
+    "loading": "Ladataan suojattua säilöä...",
+    "confirm_delete": "Haluatko varmasti poistaa tämän merkinnän?",
+    "history_title": "Tapahtumahistoria",
+    "entry_count_one": "{{count}} merkintä",
+    "entry_count_other": "{{count}} merkintää",
+    "empty": {
+      "title": "Ei merkintöjä",
+      "text": "Aloita kirjaaminen painamalla \"Uusi merkintä\" -painiketta."
+    },
+    "tools": {
+      "guide_title": "Miten kirjaan sitovasti?",
+      "guide_desc": "Opi 5 kohdan kaava, jolla teet merkinnöistä juridisesti päteviä.",
+      "guide_btn": "Lue dokumentointiopas",
+      "new_title": "Kirjaa uusi tapahtuma",
+      "new_desc": "Onko jotain tapahtunut tänään? Kirjaa se heti muistiin, kun yksityiskohdat ovat tuoreita.",
+      "new_btn": "Avaa lokityökalu"
+    },
+    "entry_count": "{{count}} merkintää"
+  },
+  "emotions": {
+    "neutral": "Neutraali",
+    "anxious": "Ahdistunut",
+    "angry": "Vihainen",
+    "sad": "Surullinen",
+    "fearful": "Pelokas",
+    "hopeless": "Toivoton",
+    "determined": "Päättäväinen"
+  },
+  "types": {
+    "log": "Päiväkirja",
+    "incident": "Välikohtaus",
+    "meeting": "Palaveri",
+    "email": "Sähköposti",
+    "note": "Muistiinpano"
+  },
+  "timeline": {
+    "page": {
+      "label": "Lokikirja",
+      "title": "Aikajana",
+      "subtitle": "Kaikki merkintäsi aikajärjestyksessä. Tämä on tärkein todistusaineistosi.",
+      "status_open": "Aktiivinen seuranta",
+      "loading": "Ladataan suojattua säilöä...",
+      "confirm_delete": "Haluatko varmasti poistaa tämän merkinnän?",
+      "history_title": "Tapahtumahistoria",
+      "entry_count_one": "{{count}} merkintä",
+      "entry_count_other": "{{count}} merkintää",
+      "empty": {
+        "title": "Ei merkintöjä",
+        "text": "Aloita kirjaaminen painamalla \"Uusi merkintä\" -painiketta."
+      },
+      "tools": {
+        "guide_title": "Miten kirjaan sitovasti?",
+        "guide_desc": "Opi 5 kohdan kaava, jolla teet merkinnöistä juridisesti päteviä.",
+        "guide_btn": "Lue dokumentointiopas",
+        "new_title": "Kirjaa uusi tapahtuma",
+        "new_desc": "Onko jotain tapahtunut tänään? Kirjaa se heti muistiin, kun yksityiskohdat ovat tuoreita.",
+        "new_btn": "Avaa lokityökalu"
+      },
+      "entry_count": "{{count}} merkintää"
+    },
+    "emotions": {
+      "neutral": "Neutraali",
+      "anxious": "Ahdistunut",
+      "angry": "Vihainen",
+      "sad": "Surullinen",
+      "fearful": "Pelokas",
+      "hopeless": "Toivoton",
+      "determined": "Päättäväinen"
+    },
+    "types": {
+      "log": "Päiväkirja",
+      "incident": "Välikohtaus",
+      "meeting": "Palaveri",
+      "email": "Sähköposti",
+      "note": "Muistiinpano"
+    },
+    "list": {
+      "witnesses_prefix": "Todistajat:",
+      "no_witnesses": "Ei todistajia"
+    }
+  },
+  "list": {
+    "witnesses_prefix": "Todistajat:",
+    "no_witnesses": "Ei todistajia"
+  }
+}

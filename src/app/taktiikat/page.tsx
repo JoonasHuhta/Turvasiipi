@@ -1,3 +1,4 @@
+// LOCKED: DO NOT EDIT WITHOUT EXPLICIT PERMISSION
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -8,7 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/context/LanguageContext";
-import { bullyingTactics, Tactic, TacticCategory } from "@/data/tactics";
+import { bullyingTactics } from "@/data/tactics";
+import { Tactic, TacticCategory } from "@/types/domain";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
@@ -26,13 +28,17 @@ import {
 } from "lucide-react";
 
 export default function TacticsPage() {
-    const { t } = useLanguage();
+    const { t, loadNamespace } = useLanguage();
     const [selectedTactic, setSelectedTactic] = useState<Tactic | null>(null);
+
+    useEffect(() => {
+        loadNamespace('tactics');
+    }, [loadNamespace]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const tacticScrollRef = useRef<HTMLDivElement>(null);
 
     // Image carousel data from translations
-    const carouselImages = (t('quiz.tactics_page.carousel', { returnObjects: true }) as Array<{ src: string; alt: string; caption: string }>) || [
+    const carouselImages = (t('tactics.page.carousel', { returnObjects: true }) as Array<{ src: string; alt: string; caption: string }>) || [
         { src: "/placeholder.jpg", alt: "Placeholder", caption: "Loading..." }
     ];
 
@@ -73,10 +79,10 @@ export default function TacticsPage() {
             <div className="max-w-4xl mx-auto space-y-12 animate-in slide-in-from-bottom-4 duration-700 pb-20">
                 <section className="text-center space-y-4">
                     <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[#2B2B2B] uppercase">
-                        {t('quiz.tactics_page.title_start')} <span className="text-[#5B4B8A] italic">{t('quiz.tactics_page.title_highlight')}</span>
+                        {t('tactics.page.title_start')} <span className="text-[#5B4B8A] italic">{t('tactics.page.title_highlight')}</span>
                     </h1>
                     <p className="text-lg text-[#4A4A4A] max-w-2xl mx-auto font-serif">
-                        {t('quiz.tactics_page.description')}
+                        {t('tactics.page.description')}
                     </p>
                 </section>
 
@@ -155,15 +161,14 @@ export default function TacticsPage() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                     <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                         <div className="space-y-2 text-center md:text-left">
-                            <Badge className="bg-indigo-500 text-white border-none uppercase font-black text-[10px] mb-2">Uutta</Badge>
-                            <h3 className="text-2xl font-black uppercase tracking-tight">Valmennusmoduuli</h3>
+                            <h3 className="text-2xl font-black uppercase tracking-tight">{t('tactics.page.promo_banner.title')}</h3>
                             <p className="text-indigo-200 font-light text-sm max-w-md">
-                                Testaa taitosi skenaarioiden avulla. Opi tunnistamaan "näkymätön väkivalta" ja hienovaraiset taktiikat.
+                                {t('tactics.page.promo_banner.description')}
                             </p>
                         </div>
                         <Link href="/valmennus">
                             <Button className="bg-white text-indigo-950 hover:bg-indigo-50 rounded-full px-8 h-12 uppercase font-black tracking-widest text-xs shadow-xl shadow-indigo-950/20">
-                                Aloita valmennus <Zap className="w-4 h-4 ml-2 fill-indigo-500 text-indigo-500" />
+                                {t('tactics.page.promo_banner.cta')} <Zap className="w-4 h-4 ml-2 fill-indigo-500 text-indigo-500" />
                             </Button>
                         </Link>
                     </CardContent>
@@ -179,7 +184,7 @@ export default function TacticsPage() {
                                 <div className="flex items-center gap-4">
                                     <div className="h-px flex-1 bg-[#E8DDD0]" />
                                     <h3 className="text-xl font-black uppercase tracking-widest text-[#4A4A4A]/50">
-                                        {t(`quiz.tactic_categories.${catId}`)}
+                                        {t(`tactics.categories.${catId}`)}
                                     </h3>
                                     <div className="h-px flex-1 bg-[#E8DDD0]" />
                                 </div>
@@ -193,10 +198,10 @@ export default function TacticsPage() {
                                         >
                                             <CardHeader className="p-5">
                                                 <CardTitle className="text-lg font-black uppercase tracking-tight group-hover:text-primary transition-colors">
-                                                    {t(`quiz.tactics.${tactic.id}.name`)}
+                                                    {t(`tactics.${tactic.id}.name`)}
                                                 </CardTitle>
                                                 <CardDescription className="line-clamp-2 text-xs">
-                                                    {t(`quiz.tactics.${tactic.id}.definition`)}
+                                                    {t(`tactics.${tactic.id}.desc`)}
                                                 </CardDescription>
                                             </CardHeader>
                                         </Card>
@@ -216,7 +221,7 @@ export default function TacticsPage() {
                                         <Zap className="w-48 h-48" />
                                     </div>
                                     <DialogTitle className="text-xl sm:text-2xl md:text-4xl font-black uppercase tracking-tighter leading-tight relative z-10 break-words max-w-full">
-                                        {t(`quiz.tactics.${selectedTactic.id}.name`)}
+                                        {t(`tactics.${selectedTactic.id}.name`)}
                                     </DialogTitle>
                                     <DialogDescription className="hidden">Taktinen analyysi</DialogDescription>
                                 </DialogHeader>
@@ -227,18 +232,18 @@ export default function TacticsPage() {
                                         <div className="space-y-4">
                                             <div className="space-y-2">
                                                 <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                    <Info className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.definition')}
+                                                    <Info className="w-4 h-4 text-primary" /> {t('tactics.page.modal.definition')}
                                                 </h4>
                                                 <p className="text-slate-700 leading-relaxed font-medium">
-                                                    {t(`quiz.tactics.${selectedTactic.id}.definition`)}
+                                                    {t(`tactics.${selectedTactic.id}.desc`)}
                                                 </p>
                                             </div>
                                             <div className="pt-4 border-t border-slate-100 space-y-2">
                                                 <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                    <TrendingUp className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.goal')}
+                                                    <TrendingUp className="w-4 h-4 text-primary" /> {t('tactics.page.modal.goal')}
                                                 </h4>
                                                 <p className="text-slate-700 leading-relaxed font-medium">
-                                                    {t(`quiz.tactics.${selectedTactic.id}.goal`)}
+                                                    {t(`tactics.${selectedTactic.id}.goal`)}
                                                 </p>
                                             </div>
                                         </div>
@@ -247,13 +252,13 @@ export default function TacticsPage() {
                                     {/* Impact Visualization */}
                                     <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 space-y-6">
                                         <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                            <Activity className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.impact.title')}
+                                            <Activity className="w-4 h-4 text-primary" /> {t('tactics.page.modal.impact.title')}
                                         </h4>
                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                             {[
-                                                { label: t('quiz.tactics_page.modal.impact.stress'), value: selectedTactic.impact.stress, color: 'bg-rose-500' },
-                                                { label: t('quiz.tactics_page.modal.impact.burnout'), value: selectedTactic.impact.burnout, color: 'bg-orange-500' },
-                                                { label: t('quiz.tactics_page.modal.impact.selfEsteem'), value: selectedTactic.impact.selfEsteem, color: 'bg-indigo-500' }
+                                                { label: t('tactics.page.modal.impact.stress'), value: (t(`tactics.${selectedTactic.id}.impact.stress`, { returnObjects: true }) as number) || selectedTactic.impact.stress, color: 'bg-rose-500' },
+                                                { label: t('tactics.page.modal.impact.burnout'), value: (t(`tactics.${selectedTactic.id}.impact.burnout`, { returnObjects: true }) as number) || selectedTactic.impact.burnout, color: 'bg-orange-500' },
+                                                { label: t('tactics.page.modal.impact.selfEsteem'), value: (t(`tactics.${selectedTactic.id}.impact.selfEsteem`, { returnObjects: true }) as number) || selectedTactic.impact.selfEsteem, color: 'bg-indigo-500' }
                                             ].map((stat, i) => (
                                                 <div key={i} className="space-y-2">
                                                     <div className="flex justify-between text-[10px] font-black uppercase text-slate-400 tracking-widest">
@@ -275,11 +280,11 @@ export default function TacticsPage() {
                                     <div className="grid md:grid-cols-2 gap-10">
                                         <section className="space-y-4">
                                             <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                <Quote className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.phrases')}
+                                                <Quote className="w-4 h-4 text-primary" /> {t('tactics.page.modal.phrases')}
                                             </h4>
                                             <div className="space-y-2">
-                                                {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }))
-                                                    ? (t(`quiz.tactics.${selectedTactic.id}.phrases`, { returnObjects: true }) as string[])
+                                                {(Array.isArray(t(`tactics.${selectedTactic.id}.phrases`, { returnObjects: true }))
+                                                    ? (t(`tactics.${selectedTactic.id}.phrases`, { returnObjects: true }) as string[])
                                                     : selectedTactic.phrases).map((phrase, i) => (
                                                         <div key={i} className="bg-white p-4 rounded-2xl border border-slate-100 italic text-sm text-slate-600 shadow-sm">
                                                             &quot;{phrase}&quot;
@@ -290,11 +295,11 @@ export default function TacticsPage() {
 
                                         <section className="space-y-4">
                                             <h4 className="text-slate-900 font-black uppercase tracking-widest text-xs flex items-center gap-2">
-                                                <ShieldCheck className="w-4 h-4 text-primary" /> {t('quiz.tactics_page.modal.strategy')}
+                                                <ShieldCheck className="w-4 h-4 text-primary" /> {t('tactics.page.modal.strategy')}
                                             </h4>
                                             <div className="space-y-3">
-                                                {(Array.isArray(t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }))
-                                                    ? (t(`quiz.tactics.${selectedTactic.id}.strategy`, { returnObjects: true }) as string[])
+                                                {(Array.isArray(t(`tactics.${selectedTactic.id}.strategy`, { returnObjects: true }))
+                                                    ? (t(`tactics.${selectedTactic.id}.strategy`, { returnObjects: true }) as string[])
                                                     : selectedTactic.strategy).map((item, i) => (
                                                         <div key={i} className="flex items-start gap-3 text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/50">
                                                             <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
@@ -310,24 +315,24 @@ export default function TacticsPage() {
                                         <Tabs defaultValue="victim" className="w-full">
                                             <TabsList className="grid w-full grid-cols-3 bg-slate-100 p-1 rounded-2xl h-12">
                                                 <TabsTrigger value="victim" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                    {t('quiz.tactics_page.modal.roles.victim')}
+                                                    {t('tactics.page.modal.roles.victim')}
                                                 </TabsTrigger>
                                                 <TabsTrigger value="witness" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                    {t('quiz.tactics_page.modal.roles.witness')}
+                                                    {t('tactics.page.modal.roles.witness')}
                                                 </TabsTrigger>
                                                 <TabsTrigger value="manager" className="rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-sm">
-                                                    {t('quiz.tactics_page.modal.roles.manager')}
+                                                    {t('tactics.page.modal.roles.manager')}
                                                 </TabsTrigger>
                                             </TabsList>
                                             {(['victim', 'witness', 'manager'] as const).map((role) => (
                                                 <TabsContent key={role} value={role} className="mt-6">
                                                     <div className="bg-indigo-50/50 p-8 rounded-[2rem] border border-indigo-100 space-y-4">
                                                         <div className="space-y-1">
-                                                            <h5 className="font-black uppercase text-indigo-900">{selectedTactic.advice[role].title}</h5>
-                                                            <p className="text-sm text-indigo-700 font-medium">{selectedTactic.advice[role].description}</p>
+                                                            <h5 className="font-black uppercase text-indigo-900">{t(`tactics.${selectedTactic.id}.advice.${role}.title`)}</h5>
+                                                            <p className="text-sm text-indigo-700 font-medium">{t(`tactics.${selectedTactic.id}.advice.${role}.description`)}</p>
                                                         </div>
                                                         <div className="grid gap-2">
-                                                            {selectedTactic.advice[role].actions.map((action, i) => (
+                                                            {(t(`tactics.${selectedTactic.id}.advice.${role}.actions`, { returnObjects: true }) as string[] || selectedTactic.advice[role].actions).map((action, i) => (
                                                                 <div key={i} className="flex items-center gap-3 text-xs font-bold text-indigo-950 bg-white/60 p-3 rounded-xl">
                                                                     <ArrowRight className="w-4 h-4 text-indigo-500" />
                                                                     {action}
@@ -344,8 +349,8 @@ export default function TacticsPage() {
                                         <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                                             <BookOpen className="w-20 h-20" />
                                         </div>
-                                        <h4 className="text-primary font-black uppercase tracking-widest text-[10px]">{t('quiz.tactics_page.modal.log_instruction')}</h4>
-                                        <p className="font-mono text-sm leading-relaxed text-indigo-200">&quot;{t(`quiz.tactics.${selectedTactic.id}.logExample`)}&quot;</p>
+                                        <h4 className="text-primary font-black uppercase tracking-widest text-[10px]">{t('tactics.page.modal.log_instruction')}</h4>
+                                        <p className="font-mono text-sm leading-relaxed text-indigo-200">&quot;{t(`tactics.${selectedTactic.id}.logExample`)}&quot;</p>
                                     </section>
                                 </div>
 
@@ -354,7 +359,7 @@ export default function TacticsPage() {
                                         className="w-full sm:w-auto bg-slate-900 text-white hover:bg-slate-800 rounded-full px-10 h-14 uppercase font-black tracking-widest text-xs shadow-xl shadow-slate-900/10 transition-transform active:scale-95"
                                         onClick={() => setSelectedTactic(null)}
                                     >
-                                        Sulje analyysi
+                                        {t('tactics.page.modal.close')}
                                     </Button>
                                 </div>
                             </div>

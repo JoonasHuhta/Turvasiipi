@@ -1,0 +1,80 @@
+{
+    "hero": {
+        "label": "Empathy Spectrum",
+        "title": "Understand another,\nprotect yourself.",
+        "description_1": "Empathy is not just a nice feeling. It is a skill with three levels: cognitive (understanding), affective (feeling), and moral (caring).",
+        "description_2": "But warning: too much compassion without boundaries leads to burnout."
+    },
+    "progress": "Question {{current}} / {{total}}",
+    "features": {
+        "cognitive": {
+            "title": "Cognitive",
+            "desc": "Ability to put oneself in another's position."
+        },
+        "affective": {
+            "title": "Affective",
+            "desc": "Ability to feel another's emotion."
+        },
+        "moral": {
+            "title": "Moral",
+            "desc": "Desire to alleviate suffering."
+        }
+    },
+    "actions": {
+        "start": "Start Test",
+        "retry": "Try Again",
+        "view_rewards": "View Rewards",
+        "quit": "Quit"
+    },
+    "options": {
+        "4": "Describes me well",
+        "3": "Describes moderately",
+        "2": "Describes a little",
+        "1": "Does not describe me"
+    },
+    "questions": {
+        "1": "I easily understand another's point of view, even if I disagree.",
+        "2": "Other people's sadness infects me easily.",
+        "3": "I feel a strong desire to help when I see injustice.",
+        "4": "I can predict how someone will react to news.",
+        "5": "I cry easily in movies or watching news.",
+        "6": "I intervene in a situation if I see someone being treated badly."
+    },
+    "category_labels": {
+        "cognitive": "Cognitive",
+        "affective": "Affective",
+        "moral": "Moral"
+    },
+    "results": {
+        "your_profile": "Your Profile",
+        "breakdown": "Detailed Breakdown",
+        "cognitive_label": "Cognitive",
+        "cognitive_desc": "You understand people with reason.",
+        "affective_label": "Affective",
+        "affective_desc": "You feel people's emotions.",
+        "moral_label": "Moral",
+        "moral_desc": "You do the right thing.",
+        "context_title": "Context",
+        "context_intro": "Many factors affect empathy:",
+        "context_factors": {
+            "stress": "Stress reduces empathy capacity",
+            "trauma": "Trauma can hypersensitize or numb",
+            "neurodiversity": "Neurodiversity affects how empathy manifests"
+        },
+        "disclaimer": "This is not a clinical diagnosis."
+    },
+    "profiles": {
+        "balanced": {
+            "title": "Balanced Helper",
+            "description": "You have a healthy balance between understanding and feeling. You know how to help without burning out."
+        },
+        "cognitive": {
+            "title": "Analytical Observer",
+            "description": "You understand motives brilliantly, but do not drown in others' emotions. Cool head in a crisis."
+        },
+        "affective": {
+            "title": "Feeling Heart",
+            "description": "You live strongly along. Remember to protect yourself from 'compassion fatigue'."
+        }
+    }
+}

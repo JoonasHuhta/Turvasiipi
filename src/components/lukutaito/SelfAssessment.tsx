@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 import { User, Users, ChevronDown, RefreshCcw, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,31 +10,53 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 
-type QuestionType = "slider" | "single_choice";
-
+// Interface definitions
 interface Question {
     id: string;
     text: string;
-    category: string;
-    type: QuestionType;
+    type: 'slider' | 'single_choice';
     options?: string[];
 }
 
+// ... (other interfaces remain same)
+
 export function SelfAssessment() {
     const { t } = useLanguage();
+    const { addPoints } = useProgress();
     const [mode, setMode] = useState<"menu" | "situation" | "culture">("menu");
     const [answers, setAnswers] = useState<Record<string, any>>({});
     const [currentStep, setCurrentStep] = useState(0);
+
+    // Helper to prevent raw keys from showing in UI
+    const safeT = (key: string, defaultText: string) => {
+        const text = t(key);
+        if (!text || text === key || text.includes('LUKUTAITO') || text.includes('_PAGE')) {
+            return defaultText;
+        }
+        return text;
+    };
     const [isFinished, setIsFinished] = useState(false);
     const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+    const pointsAwarded = useRef(false);
 
-    const situationData = t('lukutaito_page.self_assessment.situation_data', { returnObjects: true }) as Record<string, Question[]>;
-    const cultureData = t('lukutaito_page.self_assessment.culture_data', { returnObjects: true }) as Record<string, Question[]>;
+    // Award points when finished
+    useEffect(() => {
+        if (isFinished && !pointsAwarded.current) {
+            addPoints(50);
+            pointsAwarded.current = true;
+        }
+        if (!isFinished) {
+            pointsAwarded.current = false;
+        }
+    }, [isFinished, addPoints]);
+
+    const situationData = t('lukutaito.self_assessment.situation_data', { returnObjects: true }) as Record<string, Question[]>;
+    const cultureData = t('lukutaito.self_assessment.culture_data', { returnObjects: true }) as Record<string, Question[]>;
 
     const questionsData = mode === "situation" ? (situationData || {}) : (cultureData || {});
     const sections = questionsData ? Object.keys(questionsData) : [];
 
-    const feedbackData = t('lukutaito_page.self_assessment.feedback', { returnObjects: true }) as Record<string, {
+    const feedbackData = t('lukutaito.self_assessment.feedback', { returnObjects: true }) as Record<string, {
         risk?: { low: string, medium: string, high: string },
         culture?: { low: string, medium: string, high: string }
     }> || {};
@@ -89,9 +112,9 @@ export function SelfAssessment() {
         return (
             <div className="space-y-8 animate-in fade-in">
                 <div className="text-center space-y-4 mb-12">
-                    <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('lukutaito_page.self_assessment.title')}</h2>
+                    <h2 className="text-3xl font-serif font-bold text-[#2B2B2B]">{t('lukutaito.self_assessment.title')}</h2>
                     <p className="text-[#4A4A4A] max-w-xl mx-auto">
-                        {t('lukutaito_page.self_assessment.description')}
+                        {t('lukutaito.self_assessment.description')}
                     </p>
                 </div>
 
@@ -102,10 +125,10 @@ export function SelfAssessment() {
                                 <User className="w-8 h-8 text-[#5B4B8A] group-hover:text-white transition-colors" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-[#2B2B2B] mb-2">{t('lukutaito_page.self_assessment.menu.situation.title')}</h3>
-                                <p className="text-sm text-[#4A4A4A]">{t('lukutaito_page.self_assessment.menu.situation.desc')}</p>
+                                <h3 className="text-xl font-bold text-[#2B2B2B] mb-2">{t('lukutaito.self_assessment.menu.situation.title')}</h3>
+                                <p className="text-sm text-[#4A4A4A]">{t('lukutaito.self_assessment.menu.situation.desc')}</p>
                             </div>
-                            <Button className="w-full bg-[#5B4B8A] hover:bg-[#4A3A7A]">{t('lukutaito_page.self_assessment.menu.situation.btn')}</Button>
+                            <Button className="w-full bg-[#5B4B8A] hover:bg-[#4A3A7A]">{t('lukutaito.self_assessment.menu.situation.btn')}</Button>
                         </CardContent>
                     </Card>
 
@@ -115,10 +138,10 @@ export function SelfAssessment() {
                                 <Users className="w-8 h-8 text-emerald-700 group-hover:text-white transition-colors" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-[#2B2B2B] mb-2">{t('lukutaito_page.self_assessment.menu.culture.title')}</h3>
-                                <p className="text-sm text-[#4A4A4A]">{t('lukutaito_page.self_assessment.menu.culture.desc')}</p>
+                                <h3 className="text-xl font-bold text-[#2B2B2B] mb-2">{t('lukutaito.self_assessment.menu.culture.title')}</h3>
+                                <p className="text-sm text-[#4A4A4A]">{t('lukutaito.self_assessment.menu.culture.desc')}</p>
                             </div>
-                            <Button className="w-full bg-emerald-700 hover:bg-emerald-800">{t('lukutaito_page.self_assessment.menu.culture.btn')}</Button>
+                            <Button className="w-full bg-emerald-700 hover:bg-emerald-800">{t('lukutaito.self_assessment.menu.culture.btn')}</Button>
                         </CardContent>
                     </Card>
                 </div>
@@ -143,7 +166,7 @@ export function SelfAssessment() {
             color: "bg-orange-500",
             textColor: "text-orange-600",
             iconColor: "bg-red-500",
-            title: t('lukutaito_page.self_assessment.results.title'),
+            title: t('lukutaito.self_assessment.results.title'),
             badge: `${percent}%`,
             description: "Tulokset analysoitu."
         };
@@ -155,18 +178,18 @@ export function SelfAssessment() {
                     color: "bg-orange-500",
                     textColor: "text-orange-600",
                     iconColor: "bg-red-500",
-                    title: t('lukutaito_page.self_assessment.results.situations.high_risk_title'),
-                    badge: `${t('lukutaito_page.self_assessment.results.badges.risk_high')} ${percent}%`,
-                    description: t('lukutaito_page.self_assessment.results.situations.high_risk_desc')
+                    title: t('lukutaito.self_assessment.results.situations.high_risk_title'),
+                    badge: `${t('lukutaito.self_assessment.results.badges.risk_high')} ${percent}%`,
+                    description: t('lukutaito.self_assessment.results.situations.high_risk_desc')
                 };
             } else {
                 feedback = {
                     color: "bg-emerald-600",
                     textColor: "text-emerald-700",
                     iconColor: "bg-emerald-400",
-                    title: t('lukutaito_page.self_assessment.results.situations.low_risk_title'),
-                    badge: `${t('lukutaito_page.self_assessment.results.badges.risk_low')} ${percent}%`,
-                    description: t('lukutaito_page.self_assessment.results.situations.low_risk_desc')
+                    title: t('lukutaito.self_assessment.results.situations.low_risk_title'),
+                    badge: `${t('lukutaito.self_assessment.results.badges.risk_low')} ${percent}%`,
+                    description: t('lukutaito.self_assessment.results.situations.low_risk_desc')
                 };
             }
         } else {
@@ -176,27 +199,27 @@ export function SelfAssessment() {
                     color: "bg-emerald-600",
                     textColor: "text-emerald-700",
                     iconColor: "bg-white",
-                    title: t('lukutaito_page.self_assessment.results.cultures.excellent_title'),
-                    badge: `${t('lukutaito_page.self_assessment.results.badges.excellent')} ${percent}%`,
-                    description: t('lukutaito_page.self_assessment.results.cultures.excellent_desc')
+                    title: t('lukutaito.self_assessment.results.cultures.excellent_title'),
+                    badge: `${t('lukutaito.self_assessment.results.badges.excellent')} ${percent}%`,
+                    description: t('lukutaito.self_assessment.results.cultures.excellent_desc')
                 };
             } else if (percent >= 50) {
                 feedback = {
                     color: "bg-amber-500",
                     textColor: "text-amber-700",
                     iconColor: "bg-amber-100",
-                    title: t('lukutaito_page.self_assessment.results.cultures.ok_title'),
-                    badge: `${t('lukutaito_page.self_assessment.results.badges.ok')} ${percent}%`,
-                    description: t('lukutaito_page.self_assessment.results.cultures.ok_desc')
+                    title: t('lukutaito.self_assessment.results.cultures.ok_title'),
+                    badge: `${t('lukutaito.self_assessment.results.badges.ok')} ${percent}%`,
+                    description: t('lukutaito.self_assessment.results.cultures.ok_desc')
                 };
             } else {
                 feedback = {
                     color: "bg-red-600",
                     textColor: "text-red-700",
                     iconColor: "bg-red-200",
-                    title: t('lukutaito_page.self_assessment.results.cultures.bad_title'),
-                    badge: `${t('lukutaito_page.self_assessment.results.badges.bad')} ${percent}%`,
-                    description: t('lukutaito_page.self_assessment.results.cultures.bad_desc')
+                    title: t('lukutaito.self_assessment.results.cultures.bad_title'),
+                    badge: `${t('lukutaito.self_assessment.results.badges.bad')} ${percent}%`,
+                    description: t('lukutaito.self_assessment.results.cultures.bad_desc')
                 };
             }
         }
@@ -204,7 +227,7 @@ export function SelfAssessment() {
         return (
             <div className="space-y-8 animate-in fade-in max-w-4xl mx-auto">
                 <Button variant="ghost" onClick={() => setMode("menu")} className="text-[#4A4A4A] hover:text-[#2B2B2B] pl-0">
-                    &larr; {t('lukutaito_page.self_assessment.results.back_btn')}
+                    &larr; {t('lukutaito.self_assessment.results.back_btn')}
                 </Button>
 
                 <div className={cn("rounded-lg p-8 md:p-12 text-center text-white shadow-sm space-y-6", feedback.color)}>
@@ -217,13 +240,13 @@ export function SelfAssessment() {
                         {feedback.description}
                     </p>
                     <Button variant="secondary" className={cn("bg-white hover:bg-white/90 font-bold uppercase tracking-widest mt-4", feedback.textColor)}>
-                        {mode === 'situation' ? t('lukutaito_page.self_assessment.results.show_actions') : t('lukutaito_page.self_assessment.results.show_recommendations')}
+                        {mode === 'situation' ? t('lukutaito.self_assessment.results.show_actions') : t('lukutaito.self_assessment.results.show_recommendations')}
                     </Button>
                 </div>
 
                 <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-[#2B2B2B] uppercase tracking-wider text-center">{t('lukutaito_page.self_assessment.results.analysis_title')}</h3>
-                    <p className="text-[#4A4A4A] text-sm text-center">{t('lukutaito_page.self_assessment.results.click_hint')}</p>
+                    <h3 className="text-xl font-bold text-[#2B2B2B] uppercase tracking-wider text-center">{t('lukutaito.self_assessment.results.analysis_title')}</h3>
+                    <p className="text-[#4A4A4A] text-sm text-center">{t('lukutaito.self_assessment.results.click_hint')}</p>
 
                     <div className="grid gap-4">
                         {categoryScores.map((cat, idx) => {
@@ -280,10 +303,12 @@ export function SelfAssessment() {
                                                     : (statusLevel === 'low' ? 'bg-red-500' : (statusLevel === 'medium' ? 'bg-amber-500' : 'bg-emerald-500'))
                                             )} />
                                             <div>
-                                                <h4 className="font-serif font-bold text-[#2B2B2B] text-lg leading-tight">{cat.section}</h4>
+                                                <h4 className="font-serif font-bold text-[#2B2B2B] text-lg leading-tight">
+                                                    {t(`lukutaito.self_assessment.sections.${cat.section}`)}
+                                                </h4>
                                                 {!isExpanded && (
                                                     <p className="text-xs text-[#4A4A4A] mt-1 font-medium tracking-wide uppercase opacity-70">
-                                                        {t('lukutaito_page.self_assessment.results.expand_hint')}
+                                                        {t('lukutaito.self_assessment.results.expand_hint')}
                                                     </p>
                                                 )}
                                             </div>
@@ -303,13 +328,13 @@ export function SelfAssessment() {
 
                                             <div className="mt-4 flex gap-2">
                                                 <Badge variant="outline" className={cn("bg-white/50 backdrop-blur-sm", textClass, borderClass)}>
-                                                    {mode === 'situation' && statusLevel === 'high' && t('lukutaito_page.self_assessment.results.badges.serious_risk')}
-                                                    {mode === 'situation' && statusLevel === 'medium' && t('lukutaito_page.self_assessment.results.badges.attention')}
-                                                    {mode === 'situation' && statusLevel === 'low' && t('lukutaito_page.self_assessment.results.badges.low_risk')}
+                                                    {mode === 'situation' && statusLevel === 'high' && t('lukutaito.self_assessment.results.badges.serious_risk')}
+                                                    {mode === 'situation' && statusLevel === 'medium' && t('lukutaito.self_assessment.results.badges.attention')}
+                                                    {mode === 'situation' && statusLevel === 'low' && t('lukutaito.self_assessment.results.badges.low_risk')}
 
-                                                    {mode === 'culture' && statusLevel === 'low' && t('lukutaito_page.self_assessment.results.badges.critical')}
-                                                    {mode === 'culture' && statusLevel === 'medium' && t('lukutaito_page.self_assessment.results.badges.needs_improvement')}
-                                                    {mode === 'culture' && statusLevel === 'high' && t('lukutaito_page.self_assessment.results.badges.excellent_label')}
+                                                    {mode === 'culture' && statusLevel === 'low' && t('lukutaito.self_assessment.results.badges.critical')}
+                                                    {mode === 'culture' && statusLevel === 'medium' && t('lukutaito.self_assessment.results.badges.needs_improvement')}
+                                                    {mode === 'culture' && statusLevel === 'high' && t('lukutaito.self_assessment.results.badges.excellent_label')}
                                                 </Badge>
                                             </div>
                                         </div>
@@ -321,7 +346,7 @@ export function SelfAssessment() {
 
                     <div className="flex justify-center pt-12 pb-8">
                         <Button onClick={() => handleStart(mode)} variant="outline" className="border-[#2B2B2B] text-[#2B2B2B] font-bold uppercase tracking-widest hover:bg-[#FDFBF7] px-8 py-6 text-lg">
-                            <RefreshCcw className="w-5 h-5 mr-3" /> {t('lukutaito_page.self_assessment.results.retry_btn')}
+                            <RefreshCcw className="w-5 h-5 mr-3" /> {t('lukutaito.self_assessment.results.retry_btn')}
                         </Button>
                     </div>
                 </div>
@@ -339,7 +364,7 @@ export function SelfAssessment() {
             {/* Header */}
             <div className="space-y-6 mb-8">
                 <div className="flex items-center justify-between text-sm font-bold text-[#4A4A4A] uppercase tracking-widest">
-                    <span>{currentSection}</span>
+                    <span>{t(`lukutaito.self_assessment.sections.${currentSection}`)}</span>
                     <span>{progress}% VALMIS</span>
                 </div>
                 <div className="h-1 w-full bg-[#FAFAFA] rounded-full overflow-hidden">
@@ -349,7 +374,7 @@ export function SelfAssessment() {
                     <span className="w-8 h-8 rounded-full bg-[#FDFBF7] border border-[#E8DDD0] flex items-center justify-center font-serif font-bold text-[#2B2B2B]">
                         {currentStep + 1}
                     </span>
-                    <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{currentSection}</h2>
+                    <h2 className="text-2xl font-serif font-bold text-[#2B2B2B]">{t(`lukutaito.self_assessment.sections.${currentSection}`)}</h2>
                 </div>
             </div>
 
@@ -370,9 +395,9 @@ export function SelfAssessment() {
                                     onValueChange={(val) => handleAnswer(q.id, val[0])}
                                 />
                                 <div className="flex justify-between text-xs text-[#4A4A4A] font-medium uppercase tracking-wider">
-                                    <span>{mode === 'situation' ? t('lukutaito_page.self_assessment.answers.slider.never') : t('lukutaito_page.self_assessment.answers.slider.disagree')}</span>
-                                    <span className="text-center opacity-50">{mode === 'situation' ? t('lukutaito_page.self_assessment.answers.slider.sometimes') : t('lukutaito_page.self_assessment.answers.slider.neutral')}</span>
-                                    <span>{mode === 'situation' ? t('lukutaito_page.self_assessment.answers.slider.always') : t('lukutaito_page.self_assessment.answers.slider.agree')}</span>
+                                    <span>{mode === 'situation' ? t('lukutaito.self_assessment.answers.slider.never') : t('lukutaito.self_assessment.answers.slider.disagree')}</span>
+                                    <span className="text-center opacity-50">{mode === 'situation' ? t('lukutaito.self_assessment.answers.slider.sometimes') : t('lukutaito.self_assessment.answers.slider.neutral')}</span>
+                                    <span>{mode === 'situation' ? t('lukutaito.self_assessment.answers.slider.always') : t('lukutaito.self_assessment.answers.slider.agree')}</span>
                                 </div>
                             </div>
                         )}
@@ -405,7 +430,10 @@ export function SelfAssessment() {
                     Edellinen
                 </Button>
                 <Button onClick={nextStep} className="bg-[#5B4B8A] text-white hover:bg-[#4A3A7A] px-8 py-6 text-lg uppercase tracking-widest font-bold">
-                    {currentStep === sections.length - 1 ? t('lukutaito_page.self_assessment.results.show_results') || "Näytä tulokset" : t('lukutaito_page.self_assessment.results.next_section') || "Seuraava osio"} <ArrowRight className="w-4 h-4 ml-2" />
+                    {currentStep === sections.length - 1
+                        ? safeT('lukutaito.self_assessment.results.show_results', "Näytä tulokset")
+                        : safeT('lukutaito.self_assessment.results.next_section', mode === 'situation' ? "Next section" : "Seuraava osio")
+                    } <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         </div>

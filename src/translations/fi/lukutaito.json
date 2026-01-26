@@ -1,0 +1,903 @@
+{
+    "header": {
+        "badge": "TYÖYHTEISÖN LUKUTAITO",
+        "title": "Tunnista organisaation tila",
+        "description": "Tämä työkalu auttaa sinua hahmottamaan, onko kokemuksesi yksittäinen vai osa laajempaa kulttuuria."
+    },
+    "tabs": {
+        "team_check": "Tiimin Tila",
+        "thermometer": "Lämpömittari",
+        "quicktest": "Pikatesti",
+        "warnings": "Hälytysmerkit",
+        "self": "Itsearviointi"
+    },
+    "thermometer": {
+        "title": "Ilmapiirin Lämpömittari",
+        "levels": {
+            "excellent": {
+                "title": "Kukoistava",
+                "desc": "Turvallinen tila, jossa virheitä ei pelätä ja erilaisuutta arvostetaan."
+            },
+            "healthy": {
+                "title": "Terve",
+                "desc": "Perusasiat kunnossa. Satunnaisia konflikteja, jotka ratkaistaan asiallisesti."
+            },
+            "concern": {
+                "title": "Huolestuttava",
+                "desc": "Jännitteitä pinnan alla. Klikkejä, puhumattomuutta tai epäselviä vastuita."
+            },
+            "warning": {
+                "title": "Myrkyllinen",
+                "desc": "Pelolla johtamista, syyllistämistä ja jatkuvaa varuillaan oloa."
+            }
+        }
+    },
+    "warning_signs": {
+        "yellow": {
+            "title": "Keltaiset Merkit",
+            "subtitle": "Hienovaraisia vihjeitä, jotka helposti ohitetaan.",
+            "description": "Nämä ovat 'hiljaisia signaaleja'. Usein intuitio varoittaa näistä ensin.",
+            "power_signs_title": "Vallankäytön merkit",
+            "power_signs_list": [
+                "Tiedon panttaaminen 'unohtamalla'",
+                "Katsekontaktin välttely tervehdyksiin",
+                "Pienet, toistuvat 'vitsit' kustannuksellasi"
+            ],
+            "atmosphere_signs_title": "Ilmapiirin merkit",
+            "atmosphere_signs_list": [
+                "Hiljaisuus kun astut huoneeseen",
+                "Silmien pyörittely selän takana",
+                "Keskustelun tyrehtyminen vaikeissa aiheissa"
+            ],
+            "check_yourself": {
+                "label": "Tarkista:",
+                "text": "Joudutko selittelemään toisten käytöstä itsellesi? 'Hänellä oli vain huono päivä'?"
+            },
+            "what_to_do": {
+                "title": "Mitä tehdä?",
+                "steps": [
+                    "Aloita päiväkirjan pito heti.",
+                    "Kysy suoraan: 'Mitä tarkoitit tuolla?'",
+                    "Älä jää yksin havaintosi kanssa."
+                ]
+            }
+        },
+        "orange": {
+            "title": "Oranssit Merkit",
+            "subtitle": "Selkeitä rajan ylityksiä.",
+            "description": "Tilanne ei ole enää normaalia 'kemiaongelmaa'. Toimintasi alkaa kärsiä.",
+            "power_abuse_title": "Vallan väärinkäyttö",
+            "power_abuse_list": [
+                "Tehtävien vieminen ilman perusteluja",
+                "Julkinen nöyryyttäminen tai huutaminen",
+                "Jatkuva perusteeton kritiikki"
+            ],
+            "doc_criteria_title": "Dokumentoinnin kriteerit täyttyvät",
+            "doc_criteria_list": [
+                "Toistuvuus (viikoittaista)",
+                "Epätasapaino (sinä vs. valta-asema/ryhmä)",
+                "Loukkaavuus"
+            ],
+            "check_yourself": {
+                "label": "Tunnista oireet:",
+                "text": "Alatko epäillä omaa mielenterveyttäsi tai ammattitaitoasi?"
+            },
+            "what_to_do": {
+                "title": "Toimi näin:",
+                "steps": [
+                    "Ota yhteys luottamusmieheen tai työterveyteen.",
+                    "Vältä kahdenkeskisiä tilanteita kiusaajan kanssa.",
+                    "Kirjaa kaikki ylös kellontarkasti."
+                ]
+            }
+        },
+        "red": {
+            "title": "Punaiset Merkit",
+            "subtitle": "Välitön vaara terveydelle.",
+            "description": "Tämä on väkivaltaa. Kyse ei ole enää työpaikan ongelmasta, vaan turvallisuudestasi.",
+            "fear_title": "Pelon ilmapiiri",
+            "fear_list": [
+                "Fyysinen uhka tai sen eleet",
+                "Täydellinen eristäminen (kukaan ei puhu)",
+                "Uhkailu uran tuhoamisella"
+            ],
+            "physical_signs_title": "Kehon hätähuuto",
+            "physical_signs_list": [
+                "Unettomuus, vapina, pahoinvointi",
+                "Paniikkikohtaukset töihin mennessä",
+                "Itsetuhoiset ajatukset"
+            ],
+            "check_yourself": {
+                "label": "Hälytys:",
+                "text": "Jos mietit 'ansaitsenko tämän', olet jo syvällä traumassa. ET ANSAITSE."
+            },
+            "what_to_do": {
+                "title": "Pelasta itsesi:",
+                "steps": [
+                    "Hakeudu lääkäriin ja jää saauslomalle.",
+                    "Tee rikosilmoitus jos kynnys ylittyy.",
+                    "Valmistele irtisanoutuminen turvataksesi terveytesi."
+                ]
+            }
+        },
+        "conflict_vs_bullying": {
+            "title": "Konflikti vai Kiusaamista?",
+            "headers": {
+                "situation": "Tilanne",
+                "healthy": "Terve Konflikti",
+                "warning": "Kiusaaminen"
+            },
+            "rows": [
+                {
+                    "situation": "Erimielisyys",
+                    "healthy": "Kohdistuu asiaan tai tehtävään.",
+                    "warning": "Kohdistuu henkilöön tai ominaisuuksiin."
+                },
+                {
+                    "situation": "Ratkaisu",
+                    "healthy": "Molempien näkökulmaa kuunnellaan.",
+                    "warning": "Toinen jyrätään tai vaiennetaan."
+                },
+                {
+                    "situation": "Tunne",
+                    "healthy": "Ärsytys, mutta turvallisuus säilyy.",
+                    "warning": "Pelko, ahdistus ja arvottomuus."
+                },
+                {
+                    "situation": "Kesto",
+                    "healthy": "Tilapäinen ja ratkeava.",
+                    "warning": "Toistuva ja jatkuva."
+                }
+            ]
+        }
+    },
+    "quicktest": {
+        "title_prefix": "Skenaario",
+        "result_title": "Tulos: {{score}} / {{total}}",
+        "result_desc": "Olet nyt tunnistanut organisaatiosi kulttuurin piirteitä. Muista, että nämä ovat vain suuntaa-antavia huomioita.",
+        "retry_btn": "Tee uudelleen",
+        "yes_btn": "Kyllä, olen kokenut tätä",
+        "yes_desc": "Tämä on toistuva ilmiö.",
+        "no_btn": "Ei, en tunnista tätä",
+        "no_desc": "Tälläistä ei tapahdu meillä.",
+        "correct_title": "Huomio!",
+        "wrong_title": "Huomio!",
+        "next_btn": "Seuraava",
+        "scenarios": [
+            {
+                "id": 1,
+                "text": "Kun ehdotat muutosta, se sivuutetaan kokouksessa, mutta myöhemmin joku toinen esittää saman idean omana keksintönään ja saa kiitokset.",
+                "isBullying": true,
+                "explanation": "Tämä on ideavarkautta ja näkymättömäksi tekemistä, joka on yleinen vallankäytön muoto."
+            },
+            {
+                "id": 2,
+                "text": "Esihenkilösi antaa sinulle jatkuvasti tehtäviä, jotka ovat reilusti osaamistasosi alapuolella, ilman perusteluja.",
+                "isBullying": true,
+                "explanation": "Tämä voi olla työtehtävien vähättelyä, jolla yritetään murentaa ammatillista itsetuntoa."
+            },
+            {
+                "id": 3,
+                "text": "Työtoveri on eri mieltä tekemästäsi päätöksestä ja esittää vasta-argumentteja kokouksessa.",
+                "isBullying": false,
+                "explanation": "Tämä on normaalia ammatillista erimielisyyttä ja konfliktia, joka kuuluu työhön."
+            },
+            {
+                "id": 4,
+                "text": "Palavereissa muut keskeyttävät sinut jatkuvasti, mutta kuuntelevat tarkasti kun muut puhuvat.",
+                "isBullying": true,
+                "explanation": "Systemaattinen vaikeneminen ja kunnioituksen puute on vallankäytön muoto."
+            },
+            {
+                "id": 5,
+                "text": "Esimiehesi antaa suoraa palautetta työstäsi kahden kesken, myös negatiivista.",
+                "isBullying": false,
+                "explanation": "Rakentava, kahden kesken tapahtuva palaute on normaalia johtamista."
+            },
+            {
+                "id": 6,
+                "text": "Saat tietää tärkeistä kokouksista vasta jälkikäteen, vaikka asia koskee työtäsi.",
+                "isBullying": true,
+                "explanation": "Tiedon pimittäminen ja sivuuttaminen on klassinen kiusaamisen muoto."
+            },
+            {
+                "id": 7,
+                "text": "Työkaveri on usein myöhässä palavereista, mikä ärsyttää sinua.",
+                "isBullying": false,
+                "explanation": "Yksittäisen henkilön huono käytös ei ole sinun kiusaamistasi, vaan hänen ongelmaansa."
+            },
+            {
+                "id": 8,
+                "text": "Lounastauolla muut vaikenevat kun istut pöytään, ja keskustelut alkavat vasta kun lähdet.",
+                "isBullying": true,
+                "explanation": "Sosiaalinen eristäminen ja näkymättömäksi tekeminen on selkeää kiusaamista."
+            },
+            {
+                "id": 9,
+                "text": "Esimiehesi pyytää sinua tekemään ylitöitä kiireellisen projektin vuoksi.",
+                "isBullying": false,
+                "explanation": "Satunnaiset ylityöpyynnöt työtehtävien hoitamiseksi ovat normaalia, ellei se kohdistu vain sinuun."
+            },
+            {
+                "id": 10,
+                "text": "Työtoverisi levittävät huhuja yksityiselämästäsi eteenpäin organisaatiossa.",
+                "isBullying": true,
+                "explanation": "Yksityisyy den rikkominen ja juoruilu on manipulointia ja kiusaamista."
+            },
+            {
+                "id": 11,
+                "text": "Saat sähköpostia, jossa pyydetään lisäselvitystä työhön liittyvästä asiasta.",
+                "isBullying": false,
+                "explanation": "Normaali työkommunikaatio ja tarkentavat kysymykset eivät ole kiusaamista."
+            },
+            {
+                "id": 12,
+                "text": "Esimiehesi huutaa sinulle kaikkien kuullen virheestä, jonka teit.",
+                "isBullying": true,
+                "explanation": "Julkinen nöyryyttäminen on aina väärin ja loukkaa ihmisarvoa."
+            },
+            {
+                "id": 13,
+                "text": "Tiimisi jäsen kysyy, voisitko auttaa häntä tehtävässä jossa sinulla on enemmän kokemusta.",
+                "isBullying": false,
+                "explanation": "Avunpyyntö ja vertaistuki ovat terveen työyhteisön merkkejä."
+            },
+            {
+                "id": 14,
+                "text": "Kaikki tiimin muut saavat kutsun yhteiseen vapaa-ajan tapahtumaan, mutta sinua ei kutsuta.",
+                "isBullying": true,
+                "explanation": "Tahallinen ulossulkeminen sosiaalisista tilanteista on eristämistä."
+            },
+            {
+                "id": 15,
+                "text": "Esimiehesi kieltää sinua puhumasta ongelmasta kenellekään muulle organisaatiossa.",
+                "isBullying": true,
+                "explanation": "Vaikenemisen kulttuuri ja vaientaminen mahdollistavat kiusaamisen jatkumisen."
+            },
+            {
+                "id": 16,
+                "text": "Joudut odottamaan esimiehesi palautetta pidempään kuin muut tiimissä.",
+                "isBullying": false,
+                "explanation": "Esimiehen kiireisyys voi selittää viiveen - yhden tapauksen perusteella ei voi päätellä kiusaamista."
+            },
+            {
+                "id": 17,
+                "text": "Sinulle annetaan mahdottomia määräaikoja tehtäviin tarkoituksella, jotta epäonnistut.",
+                "isBullying": true,
+                "explanation": "Tarkoituksellinen epäonnistumisen aiheuttaminen on vallankäyttöä ja sabotaasia."
+            },
+            {
+                "id": 18,
+                "text": "Työkaveri nauraa ääneen, kun teet virheen esityksessä.",
+                "isBullying": true,
+                "explanation": "Toisen nöyryyttäminen ja ilkkuminen ammattitaidon hetkellisen pettämisen vuoksi on loukkaavaa."
+            },
+            {
+                "id": 19,
+                "text": "Projektiryhmässä eri jäsenillä on erilaisia näkemyksiä toteutustavasta.",
+                "isBullying": false,
+                "explanation": "Erilaiset mielipiteet ja näkökulmat ovat normaalia tiimityötä ja konfliktia."
+            },
+            {
+                "id": 20,
+                "text": "Esimiehesi antaa sinulle jatkuvasti tehtäviä jotka ovat selvästi ammattitaitosi alapuolella.",
+                "isBullying": true,
+                "explanation": "Tahallinen alisuoriutumaan pakottaminen ja osaamisen kahlitseminen on kiusaamista."
+            }
+        ]
+    },
+    "team_checklist": {
+        "title": "Tiimin Tarkistuslista",
+        "subtitle": "Käy läpi tiimisi perustoiminnot.",
+        "badges": {
+            "checks": "TARKIST",
+            "crisis": "KRIISI",
+            "healthy": "OK",
+            "warning": "VAROITUS"
+        },
+        "status": {
+            "crisis_text": "Tiimi on kriittisessä tilassa. Tarvitaan välitöntä puuttumista.",
+            "healthy_text": "Tiimin perustoiminnot vaikuttavat olevan kunnossa."
+        },
+        "criteria": {
+            "interaction": {
+                "title": "Vuorovaikutus ja viestintä",
+                "description": "Miten kohtaatte toisenne?",
+                "items": [
+                    "Palaute annetaan rakentavasti ja kahden kesken",
+                    "Kritiikki on tasapainoista - kaikki saavat sitä",
+                    "Kehut annetaan julkisesti, moitteet yksityisesti",
+                    "Virheitä käsitellään oppimismahdollisuuksina",
+                    "Vitsit eivät kohdistu yhteen henkilöön",
+                    "Kun huomauttaa epäasiallisesta, siihen puututaan"
+                ]
+            },
+            "information": {
+                "title": "Tiedonkulku ja päätöksenteko",
+                "description": "Onko toiminta läpinäkyvää?",
+                "items": [
+                    "Kaikki saavat saman tiedon samaan aikaan",
+                    "Kokouskutsut lähetetään kaikille relevanteille",
+                    "Päätökset perustellaan läpinäkyvästi",
+                    "Muutokset ilmoitetaan etukäteen",
+                    "Resurssit jaetaan tasapuolisesti",
+                    "Odotukset ovat selkeät ja pysyvät"
+                ]
+            },
+            "power_dynamics": {
+                "title": "Valtasuhteet ja dynamiikka",
+                "description": "Onko valta tervettä?",
+                "items": [
+                    "Esihenkilö kuuntelee ja ottaa vastaan palautetta",
+                    "Hierarkia ei estä avointa keskustelua",
+                    "Virheistä voi puhua ilman pelkoa",
+                    "Erimielisyydet ratkaistaan asiallisesti",
+                    "Kaikilla on yhtäläinen oikeus tulla kuulluksi",
+                    "Valta-asemaa ei käytetä väärin"
+                ]
+            },
+            "atmosphere": {
+                "title": "Ilmapiiri ja yhteisö",
+                "description": "Miltä töissä tuntuu?",
+                "items": [
+                    "Ihmiset juttelevat rennosti keskenään",
+                    "Kukaan ei jää systemaattisesti ulkopuolelle",
+                    "Lounaita ja taukoja vietetään yhdessä",
+                    "Onnistumiset juhlistetaan tiimillä",
+                    "Apua pyydetään ja annetaan vapaasti",
+                    "Tunnelma ei muutu kenenkään tullessa"
+                ]
+            },
+            "emotional": {
+                "title": "Omat tunnereaktiot",
+                "description": "Miten voit?",
+                "items": [
+                    "Nautit työstäsi suurimman osan ajasta",
+                    "Nukut hyvin, et herää miettiä työasioita",
+                    "Töihin meno ei aiheuta ahdistusta",
+                    "Voit olla oma itsesi työpaikalla",
+                    "Luotat kollegoihisi ja esimieheen",
+                    "Tunnet kuuluvasi yhteisöön"
+                ]
+            }
+        }
+    },
+    "self_assessment": {
+        "title": "Itsearviointi",
+        "description": "Arvioi omaa jaksamistasi ja kokemustasi nykytilanteessa.",
+        "menu": {
+            "situation": {
+                "title": "Omat Oireet",
+                "desc": "Miten tilanne vaikuttaa sinuun?",
+                "btn": "Aloita oirekartoitus"
+            },
+            "culture": {
+                "title": "Organisaatiokulttuuri",
+                "desc": "Millainen on työpaikkasi ilmapiiri?",
+                "btn": "Arvioi kulttuuria"
+            }
+        },
+        "results": {
+            "title": "Tulokset",
+            "retry_btn": "Aloita alusta",
+            "back_btn": "Takaisin valikkoon",
+            "show_actions": "Näytä toimenpiteet",
+            "show_recommendations": "Näytä suositukset",
+            "show_results": "Näytä tulokset",
+            "analysis_title": "Analyysi",
+            "click_hint": "Klikkaa osiota nähdäksesi tarkemmat tiedot",
+            "expand_hint": "Avaa klikkaamalla",
+            "next_section": "Seuraava osio",
+            "badges": {
+                "excellent": "Erinomainen",
+                "ok": "Kohtalainen",
+                "bad": "Huono",
+                "excellent_label": "ERINOMAINEN",
+                "needs_improvement": "KEHITETTÄVÄÄ",
+                "critical": "KRIITTINEN",
+                "risk_high": "Korkea riski",
+                "risk_low": "Matala riski",
+                "serious_risk": "VAKAVA RISKI",
+                "attention": "HUOMIOI",
+                "low_risk": "MATALA RISKI"
+            },
+            "situations": {
+                "high_risk_title": "Korkea kuormitus",
+                "high_risk_desc": "Oireesi viittaavat vakavaan stressitilaan.",
+                "low_risk_title": "Normaali kuormitus",
+                "low_risk_desc": "Oireesi ovat hallinnassa, mutta seuraa tilannetta."
+            },
+            "cultures": {
+                "excellent_title": "Terve kulttuuri",
+                "excellent_desc": "Organisaatiossa asiat näyttävät olevan hyvin.",
+                "ok_title": "Oireileva kulttuuri",
+                "ok_desc": "Joitakin huolestuttavia piirteitä on havaittavissa.",
+                "bad_title": "Myrkyllinen kulttuuri",
+                "bad_desc": "Työyhteisössä on vakavia ongelmia."
+            }
+        },
+        "answers": {
+            "slider": {
+                "never": "Ei koskaan",
+                "sometimes": "Joskus",
+                "always": "Jatkuvasti",
+                "disagree": "Eri mieltä",
+                "neutral": "Neutraali",
+                "agree": "Samaa mieltä"
+            }
+        },
+        "sections": {
+            "itsetunto": "Itsetunto",
+            "todellisuus": "Todellisuudentaju",
+            "eristyksissä": "Eristäminen",
+            "fyysiset": "Fyysiset oireet",
+            "käyttäytyminen": "Käyttäytyminen",
+            "leadership": "Johtaminen",
+            "community": "Työyhteisö",
+            "interaction": "Vuorovaikutus ja ilmapiiri",
+            "support": "Tukirakenteet ja prosessit",
+            "psych_safety": "Psykologinen turvallisuus",
+            "courage": "Puuttumisen rohkeus",
+            "monitoring": "Seuranta ja kehitys"
+        },
+        "situation_data": {
+            "itsetunto": [
+                {
+                    "id": 1,
+                    "text": "Epäiletkö kykyjäsi suoriutua työtehtävistä, jotka aiemmin tuntuivat helpoilta?",
+                    "type": "slider"
+                },
+                {
+                    "id": 2,
+                    "text": "Tunnetko itsesi ulkopuoliseksi työyhteisössäsi?",
+                    "type": "slider"
+                },
+                {
+                    "id": 3,
+                    "text": "Arvostellaanko työtäsi jatkuvasti ilman selkeää syytä?",
+                    "type": "slider"
+                },
+                {
+                    "id": 4,
+                    "text": "Onko sinulle huudettu tai kiroiltu?",
+                    "type": "slider"
+                },
+                {
+                    "id": 5,
+                    "text": "Onko itsetuntosi laskenut nykyisessä työssäsi?",
+                    "type": "slider"
+                }
+            ],
+            "todellisuus": [
+                {
+                    "id": 6,
+                    "text": "Koetko, että sanomisiasi vääristellään tai ymmärretään tahallaan väärin?",
+                    "type": "slider"
+                },
+                {
+                    "id": 7,
+                    "text": "Syytätkö itseäsi tapahtuneesta?",
+                    "type": "slider"
+                },
+                {
+                    "id": 8,
+                    "text": "Tuntuuko, että sinua tarkkaillaan tai kyttäillään?",
+                    "type": "slider"
+                },
+                {
+                    "id": 9,
+                    "text": "Tunnetko syyllisyyttä tilanteesta jolle et voi mitään?",
+                    "type": "slider"
+                },
+                {
+                    "id": 10,
+                    "text": "Häpeätkö kertoa tilanteesta läheisillesi?",
+                    "type": "slider"
+                }
+            ],
+            "eristyksissä": [
+                {
+                    "id": 11,
+                    "text": "Jätetäänkö sinut kutsumatta palavereihin tai lounaille?",
+                    "type": "slider"
+                },
+                {
+                    "id": 12,
+                    "text": "Vältteleekö esihenkilösi tai kollegasi katsekontaktia kanssasi?",
+                    "type": "slider"
+                },
+                {
+                    "id": 13,
+                    "text": "Puhutaanko sinusta selän takana?",
+                    "type": "slider"
+                },
+                {
+                    "id": 14,
+                    "text": "Onko sinua kielletty puhumasta muille?",
+                    "type": "slider"
+                },
+                {
+                    "id": 15,
+                    "text": "Koetko, että et voi luottaa kehenkään työpaikalla?",
+                    "type": "slider"
+                }
+            ],
+            "fyysiset": [
+                {
+                    "id": 16,
+                    "text": "Onko sinulla vaikeuksia nukkua työasioiden takia?",
+                    "type": "slider"
+                },
+                {
+                    "id": 17,
+                    "text": "Tunnetko ahdistusta sunnuntai-iltaisin tai työmatkalla?",
+                    "type": "slider"
+                },
+                {
+                    "id": 18,
+                    "text": "Onko sinulla fyysisiä oireita (päänsärky, vatsakivut) työpäivinä?",
+                    "type": "slider"
+                },
+                {
+                    "id": 19,
+                    "text": "Koetko olevasi 'varuillasi' koko ajan töissä?",
+                    "type": "slider"
+                },
+                {
+                    "id": 20,
+                    "text": "Tuntuuko, että sydämesi hakkaa kun ajattelet työtä?",
+                    "type": "slider"
+                }
+            ],
+            "käyttäytyminen": [
+                {
+                    "id": 21,
+                    "text": "Onko työmääräsi kohtuuton verrattuna muihin?",
+                    "type": "slider"
+                },
+                {
+                    "id": 22,
+                    "text": "Onko sinulta viety työtehtäviä ilman perusteluja?",
+                    "type": "slider"
+                },
+                {
+                    "id": 23,
+                    "text": "Levitelläänkö sinusta perättömiä huhuja?",
+                    "type": "slider"
+                },
+                {
+                    "id": 24,
+                    "text": "Onko mielipiteesi sivuutettu toistuvasti?",
+                    "type": "slider"
+                },
+                {
+                    "id": 25,
+                    "text": "Oletko harkinnut irtisanoutumista tilanteen takia?",
+                    "type": "slider"
+                }
+            ]
+        },
+        "culture_data": {
+            "leadership": [
+                {
+                    "id": "l1",
+                    "text": "Esihenkilöni vähättelee alaisten huolia tai ideoita.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l2",
+                    "text": "Tiedon panttaaminen on yleistä vallankäytön välineenä.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l3",
+                    "text": "Kokouksissa on turvallista olla eri mieltä johtajan kanssa.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l4",
+                    "text": "Uskallan kertoa virheistäni pelkäämättä rangaistusta tai nolaamista.",
+                    "type": "slider"
+                },
+                {
+                    "id": "l5",
+                    "text": "Jos huomaan epäkohdan, voin nostaa sen esille turvallisesti.",
+                    "type": "slider"
+                }
+            ],
+            "community": [
+                {
+                    "id": "c1",
+                    "text": "Tiimissäni juorutaan toisten selän takana.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c2",
+                    "text": "Meillä on sisäpiirejä, joihin on vaikea päästä.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c3",
+                    "text": "Kollegat puolustavat toisiaan, jos joku käyttäytyy asiattomasti.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c4",
+                    "text": "Meillä arvostetaan erilaisuutta eikä se ole vitsailun aihe.",
+                    "type": "slider"
+                },
+                {
+                    "id": "c5",
+                    "text": "Tunnen joutuvani varomaan sanojani jatkuvasti.",
+                    "type": "slider"
+                }
+            ],
+            "interaction": [
+                {
+                    "id": "o_i1",
+                    "text": "Kaikki saavat saman tiedon samaan aikaan",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i2",
+                    "text": "Kokouskutsut lähetetään kaikille relevanteille",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i3",
+                    "text": "Vitsit eivät kohdistu yhteen henkilöön toistuvasti",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i4",
+                    "text": "Lounaita ja taukoja vietetään yhdessä",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i5",
+                    "text": "Kukaan ei jää systemaattisesti ulkopuolelle",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i6",
+                    "text": "Epäasiallisuuteen puututaan välittömästi",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i7",
+                    "text": "Ilmapiiriongelmista voi puhua avoimesti",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i8",
+                    "text": "Jos huomautan loukkaavasta käytöksestä, siihen reagoidaan",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i9",
+                    "text": "Hiljainen hyväksyntä (sivustakatselu) ei ole hyväksyttävää",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_i10",
+                    "text": "Naljailu ei ole \"vain vitsiä\" -anteeksipyyntö",
+                    "type": "slider"
+                }
+            ],
+            "support": [
+                {
+                    "id": "o_s1",
+                    "text": "Tiedän mihin ilmoitan kiusaamishuolesta",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s2",
+                    "text": "Työsuojeluvaltuutetun yhteystiedot ovat helposti saatavilla",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s3",
+                    "text": "Prosessit kiusaamistapauksissa ovat selkeät",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s4",
+                    "text": "Ilmoitukset käsitellään nopeasti (alle 7 päivää)",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s5",
+                    "text": "Voin tuoda esiin huoleni ilman pelkoa seurauksista",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s6",
+                    "text": "Ilmoittaminen on luottamuksellista",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s7",
+                    "text": "Puuttujia tuetaan, ei rangaista",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_s8",
+                    "text": "Toistuviin tapauksiin puututaan tehokkaasti",
+                    "type": "slider"
+                }
+            ],
+            "psych_safety": [
+                {
+                    "id": "o_ps1",
+                    "text": "Voin olla oma itseni työpaikalla",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps2",
+                    "text": "Erimielisyydet ratkaistaan asiallisesti",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps3",
+                    "text": "Virheistä voi puhua ilman pelkoa",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps4",
+                    "text": "Apua pyydetään ja annetaan vapaasti",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps5",
+                    "text": "Tunnen kuuluvani yhteisöön",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_ps6",
+                    "text": "Tunnelma ei muutu kenenkään tullessa paikalle",
+                    "type": "slider"
+                }
+            ],
+            "courage": [
+                {
+                    "id": "o_c1",
+                    "text": "Puuttuisin havaitsemaani epäasiallisuuteen",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c2",
+                    "text": "Puuttuisin vaikka kohteena olisi vaikutusvaltainen henkilö",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c3",
+                    "text": "Kollegani tukisivat minua jos puuttuisin",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c4",
+                    "text": "Tiedän turvallisen tavan puuttua",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_c5",
+                    "text": "Olen puuttunut viimeisen 3 kk aikana havaittuani epäasiallisuutta",
+                    "type": "slider"
+                }
+            ],
+            "monitoring": [
+                {
+                    "id": "o_m1",
+                    "text": "Ilmapiirikyselyjä tehdään säännöllisesti",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_m2",
+                    "text": "Kyselyn tulokset johtavat konkreettisiin toimiin",
+                    "type": "slider"
+                },
+                {
+                    "id": "o_m3",
+                    "text": "Koulutusta kiusaamisen tunnistamisesta järjestetään",
+                    "type": "slider"
+                }
+            ]
+        },
+        "feedback": {
+            "risk": {
+                "low": "Tilanteesi vaikuttaa vakaalta.",
+                "medium": "Oireesi ovat huolestuttavia. Kiinnitä huomiota palautumiseen.",
+                "high": "Tarvitset todennäköisesti ammattiapua jaksamiseen."
+            },
+            "culture": {
+                "low": "Työkulttuuri vaatii pikaista korjausliikettä.",
+                "medium": "Kulttuurissa on haasteita, joihin tulisi puuttua.",
+                "high": "Kulttuuri tukee hyvinvointia."
+            },
+            "leadership": {
+                "culture": {
+                    "low": "Johtaminen on epäjohdonmukaista tai autoritääristä. Luottamus esihenkilöihin on heikko.",
+                    "medium": "Johtaminen toimii osittain, mutta läpinäkyvyydessä ja tasapuolisuudessa on parannettavaa.",
+                    "high": "Johtaminen on esimerkillistä, reilua ja osallistavaa. Luottamus on vahvalla pohjalla."
+                }
+            },
+            "community": {
+                "culture": {
+                    "low": "Yhteisössä on klikkejä ja ulossulkemista. Ilmapiiri on turvaton.",
+                    "medium": "Yhteisö toimii rutiinolla, mutta syvempi yhteenkuuluvuus tai tuki voi puuttua.",
+                    "high": "Yhteisö on tiivis, kannustava ja monimuotoisuutta arvostava."
+                }
+            },
+            "interaction": {
+                "culture": {
+                    "low": "Ilmapiiri on hälyttävä. Kiusaamista tai syrjintää esiintyy, ja siihen ei puututa.",
+                    "medium": "Ilmapiirissä on jännitteitä. Tiedonkulku pätkii tai ryhmäytyminen on sisäänpäinlämpiävää.",
+                    "high": "Vuorovaikutus on avointa ja osallistavaa. Ihmiset viihtyvät ja kokevat kuuluvansa joukkoon."
+                }
+            },
+            "support": {
+                "culture": {
+                    "low": "Prosessit puuttuvat tai ne eivät toimi. Avun hakeminen koetaan vaikeaksi.",
+                    "medium": "Rakenteet ovat olemassa, mutta käytännön tasolla on epäselvyyksiä tai hitautta.",
+                    "high": "Tukiverkko on vahva. Prosessit ovat selkeitä, nopeita ja oikeudenmukaisia."
+                }
+            },
+            "psych_safety": {
+                "culture": {
+                    "low": "Turvallisuuden tunne on romuttunut. Virheitä peitellään ja pelon ilmapiiri on vallitseva.",
+                    "medium": "Turvallisuus on vaihtelevaa. Tietyissä tilanteissa uskalletaan olla avoimia, toisissa varotaan.",
+                    "high": "Korkea psykologinen turvallisuus. Ihmiset uskaltavat olla haavoittuvaisia ja oppia virheistä."
+                }
+            },
+            "courage": {
+                "culture": {
+                    "low": "Puuttumiskynnys on liian korkea. Sivustaseuraajan rooli on yleinen.",
+                    "medium": "Halua puuttua on, mutta keinot tai rohkeus eivät aina riitä tositilanteessa.",
+                    "high": "Yhteisössä puututaan epäkohtiin aktiivisesti. 'Meillä ei katsota sivusta' on totta."
+                }
+            },
+            "monitoring": {
+                "culture": {
+                    "low": "Ongelmia ei seurata tai niitä lakaistaan maton alle. Kyselyt eivät johda toimiin.",
+                    "medium": "Seuranta on satunnaista tai mekaanista. Toimenpiteet jäävät usein puolitiehen.",
+                    "high": "Kehitys on jatkuvaa ja dataohjattua. Ongelmiin reagoidaan systemaattisesti."
+                }
+            },
+            "itsetunto": {
+                "risk": {
+                    "low": "Itsetuntosi on vakaa.",
+                    "medium": "Työ on alkanut vaikuttaa itsetuntoosi.",
+                    "high": "Itsetuntosi on kovilla nykyisessä tilanteessa."
+                }
+            },
+            "todellisuus": {
+                "risk": {
+                    "low": "Luotat omiin havaintoihisi.",
+                    "medium": "Alat epäillä omia havaintojasi.",
+                    "high": "Uskosi omiin havaintoihin on koetuksella."
+                }
+            },
+            "eristyksissä": {
+                "risk": {
+                    "low": "Olet osa yhteisöä.",
+                    "medium": "Koet ulkopuolisuuden tunnetta.",
+                    "high": "Koet vahvaa eristämistä työyhteisössä."
+                }
+            },
+            "fyysiset": {
+                "risk": {
+                    "low": "Kehosi voi hyvin.",
+                    "medium": "Stressi oireilee fyysisesti.",
+                    "high": "Kehosi käy ylikierroksilla. Pysähdy kuuntelemaan."
+                }
+            },
+            "käyttäytyminen": {
+                "risk": {
+                    "low": "Toimit omana itsenäsi.",
+                    "medium": "Olet varuillasi sosiaalisissa tilanteissa.",
+                    "high": "Muutat käytöstäsi selviytyäksesi arjesta."
+                }
+            }
+        }
+    }
+}

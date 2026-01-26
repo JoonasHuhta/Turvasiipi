@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Wind,
@@ -12,12 +12,14 @@ import {
     X,
     Leaf,
     Sparkles,
-    Heart
+    Heart,
+    ArrowLeft
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
 type ViewState = 'intro' | 'exercises' | 'practice' | 'summary';
@@ -41,6 +43,7 @@ export default function MindfulnessGrounding({
     onComplete: (score: number) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [view, setView] = useState<ViewState>('intro');
     const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
 
@@ -48,60 +51,71 @@ export default function MindfulnessGrounding({
         onComplete(100);
     };
 
-    const EXERCISES: Exercise[] = [
-        {
+    // Helper to get nested translation arrays
+    const getList = (path: string) => {
+        const items = t(path, { returnObjects: true });
+        return Array.isArray(items) ? items : [];
+    };
+
+    // Construct exercises with translations
+    const exercisesData: Record<string, Exercise> = {
+        observation: {
             id: 'observation',
-            title: 'Tietoinen havainnointi',
-            description: 'Valitse yksi esine ja tutki sitä kuin näkisit sen ensimmäistä kertaa.',
+            title: t('training.mindfulness_grounding.exercises_view.items.observation.title'),
+            description: t('training.mindfulness_grounding.exercises_view.items.observation.description'),
             icon: Eye,
-            color: 'bg-indigo-100 text-indigo-700',
-            content: (
-                <div className="space-y-4">
-                    <p>Ota käteesi tai katso edessäsi olevaa esinettä. Huomioi:</p>
-                    <ul className="text-sm space-y-2 list-disc pl-4">
-                        <li>Miten valo heijastuu sen pinnasta?</li>
-                        <li>Minkä muotoinen se on tarkalleen?</li>
-                        <li>Jos nimeäisit kolme eri värisävyä siinä, mitkä ne ovat?</li>
-                    </ul>
-                    <p className="text-xs italic text-slate-500 mt-4">Tämä harjoitus keskeyttää automaattiset ajatusketjut ankkuroimalla mielen nykyhetkeen.</p>
-                </div>
-            )
-        },
-        {
-            id: 'sound',
-            title: 'Äänimaisema',
-            description: 'Sulje silmät ja etsi kauimmainen ääni jonka kuulet.',
-            icon: Ear,
-            color: 'bg-emerald-100 text-emerald-700',
-            content: (
-                <div className="space-y-4">
-                    <p>Pysähdy ja kuuntele. Älä nimeä ääniä, vaan kuuntele niitä vain aaltoina:</p>
-                    <ul className="text-sm space-y-2 list-disc pl-4">
-                        <li>Mikä on katsomasi tilan ulkopuolelta tuleva ääni?</li>
-                        <li>Kuuletko oman hengityksesi tai vaatteidesi kahinan?</li>
-                        <li>Mitä tapahtuu äänten välisessä hiljaisuudessa?</li>
-                    </ul>
-                </div>
-            )
-        },
-        {
-            id: 'anchor',
-            title: 'Turva-ankkuri',
-            description: 'Löydä fyysinen kosketuspiste, joka muistuttaa turvasta.',
-            icon: Anchor,
             color: 'bg-amber-100 text-amber-700',
             content: (
                 <div className="space-y-4">
-                    <p>Paina kämmenet yhteen tai aseta käsi sydämelle. Tunne:</p>
-                    <ul className="text-sm space-y-2 list-disc pl-4">
-                        <li>Käden lämpö ihoasi vasten.</li>
-                        <li>Vakaa paine.</li>
-                        <li>Sano mielessäsi: "Olen tässä, tässä hetkessä on turvallista."</li>
+                    <p>{t('training.mindfulness_grounding.exercises_view.items.observation.content_intro')}</p>
+                    <ul className="text-lg space-y-3 list-disc pl-6 marker:text-amber-500">
+                        {getList('training.mindfulness_grounding.exercises_view.items.observation.steps').map((s: string, i: number) => (
+                            <li key={i}>{s}</li>
+                        ))}
+                    </ul>
+                    <p className="text-sm italic text-[#78716C] mt-6 bg-amber-50 p-4 rounded-xl border border-amber-100">
+                        {t('training.mindfulness_grounding.exercises_view.items.observation.hint')}
+                    </p>
+                </div>
+            )
+        },
+        sound: {
+            id: 'sound',
+            title: t('training.mindfulness_grounding.exercises_view.items.sound.title'),
+            description: t('training.mindfulness_grounding.exercises_view.items.sound.description'),
+            icon: Ear,
+            color: 'bg-sky-100 text-sky-700',
+            content: (
+                <div className="space-y-4">
+                    <p>{t('training.mindfulness_grounding.exercises_view.items.sound.content_intro')}</p>
+                    <ul className="text-lg space-y-3 list-disc pl-6 marker:text-sky-500">
+                        {getList('training.mindfulness_grounding.exercises_view.items.sound.steps').map((s: string, i: number) => (
+                            <li key={i}>{s}</li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        },
+        anchor: {
+            id: 'anchor',
+            title: t('training.mindfulness_grounding.exercises_view.items.anchor.title'),
+            description: t('training.mindfulness_grounding.exercises_view.items.anchor.description'),
+            icon: Anchor,
+            color: 'bg-emerald-100 text-emerald-700',
+            content: (
+                <div className="space-y-4">
+                    <p>{t('training.mindfulness_grounding.exercises_view.items.anchor.content_intro')}</p>
+                    <ul className="text-lg space-y-3 list-disc pl-6 marker:text-emerald-500">
+                        {getList('training.mindfulness_grounding.exercises_view.items.anchor.steps').map((s: string, i: number) => (
+                            <li key={i}>{s}</li>
+                        ))}
                     </ul>
                 </div>
             )
         }
-    ];
+    };
+
+    const EXERCISES = Object.values(exercisesData);
 
     return (
         <div className="relative min-h-[600px] w-full bg-[#FAFAF9] rounded-[2rem] p-4 md:p-8 flex flex-col gap-6 border border-[#E7E5E4] shadow-xl overflow-hidden font-sans text-[#44403C]">
@@ -113,8 +127,8 @@ export default function MindfulnessGrounding({
                         <Leaf className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">Mindfulness & Grounding</h2>
-                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">Ankkuroituminen Arkeen</span>
+                        <h2 className="text-lg font-black uppercase tracking-widest text-[#292524]">{t('training.mindfulness_grounding.title')}</h2>
+                        <span className="text-xs font-bold text-[#A8A29E] uppercase tracking-widest">{t('training.mindfulness_grounding.subtitle')}</span>
                     </div>
                 </div>
                 <Button variant="ghost" size="icon" onClick={onExit} className="hover:bg-[#F5F5F4] text-[#78716C]">
@@ -134,13 +148,16 @@ export default function MindfulnessGrounding({
                             exit={{ opacity: 0, scale: 1.05 }}
                             className="text-center space-y-8 max-w-2xl"
                         >
-                            <h1 className="text-4xl font-serif font-black text-[#292524]">Palaa takaisin kotiin.<br />Omaan kehoosi.</h1>
-                            <p className="text-lg text-[#57534E] leading-relaxed">
-                                Kun mieli laukkaa tai olo on turtunut, maadoitus (grounding) palauttaa sinut tähän hetkeen.
-                                Se ei ole ajatusten poistamista, vaan huomion siirtämistä sinne, missä olet turvassa: <strong>nyt-hetkeen.</strong>
-                            </p>
-                            <Button onClick={() => setView('exercises')} size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6 text-lg shadow-lg">
-                                Tutustu harjoituksiin <ArrowRight className="ml-2 w-5 h-5" />
+                            <h1
+                                className="text-4xl font-serif font-black text-[#292524]"
+                                dangerouslySetInnerHTML={{ __html: t('training.mindfulness_grounding.intro.title') }}
+                            />
+                            <p
+                                className="text-lg text-[#57534E] leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('training.mindfulness_grounding.intro.text') }}
+                            />
+                            <Button onClick={() => setView('exercises')} size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-emerald-200/50">
+                                {t('training.mindfulness_grounding.intro.action')} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>
                     )}
@@ -155,8 +172,8 @@ export default function MindfulnessGrounding({
                             className="w-full space-y-8"
                         >
                             <div className="text-center">
-                                <Badge variant="outline" className="text-emerald-600 border-emerald-200">Valitse ankkuri</Badge>
-                                <h2 className="text-3xl font-bold mt-2">Pieniä hetkiä läsnäoloa</h2>
+                                <Badge variant="outline" className="text-emerald-600 border-emerald-200">{t('training.mindfulness_grounding.exercises_view.badge')}</Badge>
+                                <h2 className="text-3xl font-bold mt-2 text-[#292524]">{t('training.mindfulness_grounding.exercises_view.title')}</h2>
                             </div>
 
                             <div className="grid md:grid-cols-3 gap-6">
@@ -167,19 +184,19 @@ export default function MindfulnessGrounding({
                                             setSelectedExercise(ex.id);
                                             setView('practice');
                                         }}
-                                        className="p-8 cursor-pointer hover:shadow-lg transition-all border-[#E7E5E4] flex flex-col items-center text-center space-y-4 group"
+                                        className="p-8 cursor-pointer hover:shadow-lg transition-all border-[#E7E5E4] flex flex-col items-center text-center space-y-4 group bg-white hover:bg-[#FAFAF9]"
                                     >
                                         <div className={cn("w-16 h-16 rounded-full flex items-center justify-center transition-transform group-hover:scale-110", ex.color)}>
                                             <ex.icon className="w-8 h-8" />
                                         </div>
-                                        <h3 className="text-xl font-bold">{ex.title}</h3>
+                                        <h3 className="text-xl font-bold text-[#292524]">{ex.title}</h3>
                                         <p className="text-sm text-[#78716C]">{ex.description}</p>
                                     </Card>
                                 ))}
                             </div>
 
                             <div className="pt-8 text-center">
-                                <p className="text-sm text-[#78716C] italic">"Maadoitus on taito, joka vahvistuu jokaisella toistolla."</p>
+                                <p className="text-sm text-[#78716C] italic">{t('training.mindfulness_grounding.exercises_view.quote')}</p>
                             </div>
                         </motion.div>
                     )}
@@ -196,7 +213,7 @@ export default function MindfulnessGrounding({
                             {EXERCISES.find(e => e.id === selectedExercise) && (
                                 <>
                                     <div className="text-center space-y-4">
-                                        <Badge className="bg-emerald-100 text-emerald-700 border-0">Harjoitus</Badge>
+                                        <Badge className="bg-emerald-100 text-emerald-700 border-0">{t('training.mindfulness_grounding.practice.badge')}</Badge>
                                         <h2 className="text-4xl font-serif font-black text-[#292524]">
                                             {EXERCISES.find(e => e.id === selectedExercise)?.title}
                                         </h2>
@@ -217,11 +234,11 @@ export default function MindfulnessGrounding({
                                     </Card>
 
                                     <div className="flex gap-4 justify-center">
-                                        <Button onClick={() => setView('exercises')} variant="outline" className="rounded-full px-8 py-6">
-                                            Kokeile toista
+                                        <Button onClick={() => setView('exercises')} variant="outline" className="rounded-full px-8 py-6 text-[#57534E] hover:text-[#292524] border-[#D6D3D1]">
+                                            {t('training.mindfulness_grounding.practice.action_retry')}
                                         </Button>
-                                        <Button onClick={() => setView('summary')} className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6">
-                                            Valmis <ArrowRight className="ml-2 w-5 h-5" />
+                                        <Button onClick={() => setView('summary')} className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-6 shadow-lg shadow-emerald-200/50">
+                                            {t('training.mindfulness_grounding.practice.action_done')} <ArrowRight className="ml-2 w-5 h-5" />
                                         </Button>
                                     </div>
                                 </>
@@ -241,15 +258,14 @@ export default function MindfulnessGrounding({
                                 <Heart className="w-12 h-12" />
                             </div>
                             <div className="space-y-4">
-                                <h1 className="text-4xl font-serif font-black text-[#292524]">Ole ystävällinen itsellesi.</h1>
+                                <h1 className="text-4xl font-serif font-black text-[#292524]">{t('training.mindfulness_grounding.summary.title')}</h1>
                                 <p className="text-lg text-[#57534E]">
-                                    Nämä harjoitukset ovat aina mukanasi. Voit tehdä niitä bussissa, palaverissa tai juuri ennen nukkumaanmenoa.
-                                    Joka kerta kun ankkuroit itsesi, opetat hermostollesi, että tässä hetkessä on tilaa levätä.
+                                    {t('training.mindfulness_grounding.summary.text')}
                                 </p>
                             </div>
 
                             <Button onClick={finishModule} size="lg" className="bg-[#292524] hover:bg-[#44403C] text-white rounded-2xl px-12 py-8 text-xl shadow-xl">
-                                Palaa valmennukseen
+                                {t('training.mindfulness_grounding.summary.action')}
                             </Button>
                         </motion.div>
                     )}
@@ -259,4 +275,3 @@ export default function MindfulnessGrounding({
         </div>
     );
 }
-

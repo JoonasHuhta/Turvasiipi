@@ -4,19 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Users,
-    MessageSquare,
     Shield,
-    AlertTriangle,
     CheckCircle2,
     ArrowRight,
-    Info,
     FileText,
-    Heart,
     Zap,
     X,
     Clipboard,
-    Clock,
-    UserPlus,
     CornerDownRight
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -24,9 +18,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 // --- TYPES ---
-
 interface ScenarioStep {
     id: string;
     text: string;
@@ -54,227 +48,7 @@ interface LogEntry {
     note: string;
 }
 
-// --- DATA ---
-
-const ASSOCIATION_BASICS_SCENARIO: ScenarioStep[] = [
-    {
-        id: 'start',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Olet mukana harrastusyhdistyksen hallituksessa. Huomaat WhatsApp-ryhmässä outoa dynamiikkaa: PJ ja pari muuta tekevät päätöksiä muiden ohi ja vitsailevat muiden kustannuksella.',
-        choices: [
-            {
-                text: 'Aloita tapahtumien dokumentointi todistepankkiin',
-                nextStep: 'doc_start',
-                impact: { wellbeing: 0, safety: 15 },
-                feedback: 'Viisasta. Faktat auttavat sinua pysymään todellisuudessa, vaikka muut yrittäisivät vähätellä.',
-                strategyType: 'document'
-            },
-            {
-                text: 'Kysy ryhmässä: "Miten tämä päätös tehtiin?"',
-                nextStep: 'direct_question',
-                impact: { wellbeing: 5, safety: 10 },
-                feedback: 'Suora kysymys pakottaa klikin selittämään toimintaansa julkisesti.',
-                strategyType: 'warning'
-            }
-        ]
-    },
-    {
-        id: 'doc_start',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Avaat todistepankin. PJ kirjoittaa: "Päätettiin Teron kanssa, että siirretään tapahtumaa. Te muut voitte hoitaa roudauksen."',
-        choices: [
-            {
-                text: 'Kirjaa: "PJ ja Tero päättivät hallituksen ohi 12.05."',
-                nextStep: 'doc_success',
-                impact: { wellbeing: 5, safety: 25 },
-                feedback: 'Dokumentointi muuttaa subjektiivisen tunteen objektiiviseksi todisteeksi.',
-                strategyType: 'document'
-            }
-        ]
-    },
-    {
-        id: 'direct_question',
-        speaker: 'PJ',
-        type: 'dialogue',
-        text: 'PJ: "No me vaan Teron kanssa nopeasti katsottiin tämä alta pois. Ei tästä nyt kannata numeroa tehdä, ollaanhan me kavereita! 😉"',
-        choices: [
-            {
-                text: 'Käytä varoitusfraasia: "Sääntöjen noudattaminen on kaikkien etu."',
-                nextStep: 'resolution',
-                impact: { wellbeing: 15, safety: 20 },
-                feedback: 'Varoitusfraasit (Warning Phrases) ovat lyhyitä ja asiallisia. Ne pysäyttävät manipulaation.',
-                strategyType: 'warning'
-            }
-        ]
-    },
-    {
-        id: 'doc_success',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Sinulla on nyt lista tilanteista, joissa sääntöjä on rikottu. Päätät ottaa asian esille seuraavassa kokouksessa liittolaisten kanssa.',
-        choices: [
-            {
-                text: 'Viimeistele harjoitus',
-                nextStep: 'finish',
-                impact: { wellbeing: 10, safety: 20 },
-                feedback: 'Hienoa! Tiedon kerääminen on ensimmäinen askel muutokseen.',
-                strategyType: 'boundary'
-            }
-        ]
-    },
-    {
-        id: 'resolution',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'PJ hämmentyy hetkeksi, mutta alkaa selitellä. Tilanne vakautuu ja muutkin alkavat vaatia avoimempaa päätöksentekoa.',
-        choices: [
-            {
-                text: 'Viimeistele harjoitus',
-                nextStep: 'finish',
-                impact: { wellbeing: 20, safety: 10 },
-                feedback: 'Rajojen veto vapaa-ajalla on välttämätöntä jaksamisen kannalta.',
-                strategyType: 'boundary'
-            }
-        ]
-    }
-];
-
-const HOBBY_BOUNDARIES_SCENARIO: ScenarioStep[] = [
-    {
-        id: 'start',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Harrastusryhmässäsi yksi jäsen "vitsailee" jatkuvasti kustannuksellasi muiden edessä. Se tuntuu pahalta, mutta muut vain naurahtavat mukana.',
-        choices: [
-            {
-                text: 'Käytä minä-viestiä heti tilanteessa',
-                nextStep: 'i_message',
-                impact: { wellbeing: 10, safety: 15 },
-                feedback: 'Minä-viesti ("Minusta tuntuu...") on tutkimusten mukaan tehokkain tapa asettaa raja hyökkäämättä takaisin.',
-                strategyType: 'boundary'
-            },
-            {
-                text: 'Niele kiukkusi ja yritä nauraa mukana',
-                nextStep: 'passive_path',
-                impact: { wellbeing: -20, safety: -10 },
-                feedback: 'Vaikeneminen tulkitaan usein hyväksynnäksi. Tämä kuluttaa voimavarojasi.',
-                strategyType: 'passive'
-            }
-        ]
-    },
-    {
-        id: 'i_message',
-        speaker: 'Sinä',
-        type: 'dialogue',
-        text: '"Minusta tuntuu epämiellyttävältä, kun teet vitsejä suorituksestani muiden edessä. Toivoisin, että lopettaisit sen."',
-        choices: [
-            {
-                text: 'Odota vastausta rauhallisesti',
-                nextStep: 'reaction_positive',
-                impact: { wellbeing: 15, safety: 10 },
-                feedback: 'Rauhallinen odotus osoittaa, että seisot sanomasi takana.',
-                strategyType: 'boundary'
-            }
-        ]
-    },
-    {
-        id: 'reaction_positive',
-        speaker: 'Toinen jäsen',
-        type: 'dialogue',
-        text: '"Oho, en mä tarkottanut mitään pahaa... sori jos otit sen noin. En tee sitä enää."',
-        choices: [
-            {
-                text: 'Kiitä suoruudesta ja jatka harrastusta',
-                nextStep: 'finish',
-                impact: { wellbeing: 20, safety: 10 },
-                feedback: 'Hienoa! Itsetuntosi kasvoi ja asetit selvän rajan.',
-                strategyType: 'boundary'
-            }
-        ]
-    },
-    {
-        id: 'passive_path',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: '"Vitsailu" jatkuu ja muuttuu entistä henkilökohtaisemmaksi. Alat harkita harrastuksen lopettamista, vaikka se on sinulle tärkeä.',
-        choices: [
-            {
-                text: 'Pysäytä tilanne nyt: "Tämä ei ole enää hauskaa."',
-                nextStep: 'i_message',
-                impact: { wellbeing: 10, safety: 20 },
-                feedback: 'Koskaan ei ole liian myöhäistä asettaa rajoja. Käytä suoraa viestintää.',
-                strategyType: 'warning'
-            },
-            {
-                text: 'Lopeta harrastus hiljaisuudessa',
-                nextStep: 'finish',
-                impact: { wellbeing: -30, safety: 0 },
-                feedback: 'Pako on ratkaisu, mutta se jättää haavoja ja kiusaaja jatkaa seuraavaan kohteeseen.',
-                strategyType: 'passive'
-            }
-        ]
-    }
-];
-
-const TRANSFERABLE_SKILLS_SCENARIO: ScenarioStep[] = [
-    {
-        id: 'start',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Olet uuden harrastuksen parissa ja huomaat, että siellä käytetään samoja gaslighting-taktiikoita kuin vanhalla työpaikallasi. Tiedät jo miten toimia.',
-        choices: [
-            {
-                text: 'Sovella työpaikan dokumentointiooppeja',
-                nextStep: 'skills_doc',
-                impact: { wellbeing: 5, safety: 25 },
-                feedback: 'Taidot ovat todellakin siirrettäviä. Dokumentointi toimii kaikkialla.',
-                strategyType: 'document'
-            },
-            {
-                text: 'Puhu ohjaajalle suoraan taktiikoista',
-                nextStep: 'skills_direct',
-                impact: { wellbeing: 10, safety: 15 },
-                feedback: 'Taktiikoiden nimeäminen poistaa niiltä vallan.',
-                strategyType: 'warning'
-            }
-        ]
-    },
-    {
-        id: 'skills_doc',
-        speaker: 'Kertoja',
-        type: 'narrative',
-        text: 'Kirjaat ylös epäloogiset ohjeet ja muuttuvat säännöt. Kun sinua syytetään virheestä, sinulla on faktat valmiina.',
-        choices: [
-            {
-                text: 'Esitä todisteet rauhallisesti',
-                nextStep: 'finish',
-                impact: { wellbeing: 20, safety: 30 },
-                feedback: 'Faktat ovat paras suoja manipulaatiota vastaan.',
-                strategyType: 'document'
-            }
-        ]
-    },
-    {
-        id: 'skills_direct',
-        speaker: 'Ohjaaja',
-        type: 'dialogue',
-        text: '"Eihän täällä mitään sellaista tapahdu, olet vain vähän herkkä..." (Klassinen gaslighting-yritys)',
-        choices: [
-            {
-                text: 'Käytä varoitusfraasia: "Kyse ei ole herkkydestä, vaan säännöistä."',
-                nextStep: 'finish',
-                impact: { wellbeing: 15, safety: 20 },
-                feedback: 'Hienoa! Tunnistit taktiikan ja torjuit sen heti.',
-                strategyType: 'warning'
-            }
-        ]
-    }
-];
-
 // --- COMPONENT ---
-
 export default function AssociationSimulation({
     moduleId,
     onComplete,
@@ -284,6 +58,7 @@ export default function AssociationSimulation({
     onComplete: (score: number, passed: boolean) => void;
     onExit: () => void;
 }) {
+    const { t } = useLanguage();
     const [currentStepId, setCurrentStepId] = useState('start');
     const [wellbeing, setWellbeing] = useState(70);
     const [safety, setSafety] = useState(40);
@@ -292,17 +67,28 @@ export default function AssociationSimulation({
     const [showHint, setShowHint] = useState(false);
 
     // Get the correct scenario based on moduleId
+    // Loading scenarios from translations
+    const scenarios = {
+        association_basics: t('training.association_simulation.scenarios.association_basics', { returnObjects: true }) as ScenarioStep[],
+        hobby_boundaries: t('training.association_simulation.scenarios.hobby_boundaries', { returnObjects: true }) as ScenarioStep[],
+        transferable_skills: t('training.association_simulation.scenarios.transferable_skills', { returnObjects: true }) as ScenarioStep[]
+    };
+
+    // UI Translations
+    const ui = t('training.association_simulation.ui', { returnObjects: true }) as any;
+
     const getScenario = () => {
         switch (moduleId) {
-            case 'hobby_boundaries': return HOBBY_BOUNDARIES_SCENARIO;
-            case 'transferable_skills': return TRANSFERABLE_SKILLS_SCENARIO;
+            case 'hobby_boundaries': return scenarios.hobby_boundaries;
+            case 'transferable_skills': return scenarios.transferable_skills;
             case 'association_basics':
-            default: return ASSOCIATION_BASICS_SCENARIO;
+            default: return scenarios.association_basics;
         }
     };
 
     const scenario = getScenario();
-    const currentStep = scenario.find(s => s.id === currentStepId) || scenario[0];
+    // Fallback if translations not loaded/found (avoid crash)
+    const currentStep = (scenario && scenario.find(s => s.id === currentStepId)) || (scenario && scenario[0]) || { text: "Loading...", speaker: "System", type: "narrative", id: "error" };
 
     // Reset step when moduleId changes
     useEffect(() => {
@@ -320,8 +106,8 @@ export default function AssociationSimulation({
         // Add to logs if it's a documentation strategy
         if (choice.strategyType === 'document') {
             const newLog: LogEntry = {
-                time: new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }),
-                event: 'Havainto kirjattu',
+                time: new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
+                event: 'Entry', // Simplified for now or can add translation
                 note: choice.feedback
             };
             setLogs(prev => [newLog, ...prev]);
@@ -351,7 +137,7 @@ export default function AssociationSimulation({
     };
 
     return (
-        <div className="relative min-h-[500px] md:min-h-[600px] w-full bg-slate-50/50 rounded-[2rem] md:rounded-[3rem] p-4 md:p-10 flex flex-col gap-6 md:gap-8 border border-slate-200">
+        <div className="relative min-h-[500px] md:min-h-[600px] w-full bg-slate-50/50 rounded-[2rem] md:rounded-[3rem] p-4 md:p-10 flex flex-col gap-6 md:gap-8 border border-slate-200 font-sans text-slate-800">
             {/* HEADER */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="flex items-center gap-4">
@@ -359,22 +145,22 @@ export default function AssociationSimulation({
                         <Users className="w-6 h-6" />
                     </div>
                     <div>
-                        <h2 className="text-xl font-black uppercase tracking-tight text-slate-900 leading-none">Vapaa-aika & Yhdistykset</h2>
-                        <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-1">Interaktiivinen simulaattori</p>
+                        <h2 className="text-xl font-black uppercase tracking-tight text-slate-900 leading-none">{ui.title}</h2>
+                        <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-1">{ui.subtitle}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-4 w-full sm:w-auto bg-white p-3 md:p-4 px-4 md:px-6 rounded-2xl shadow-sm border border-slate-100 justify-between">
                     <div className="flex items-center gap-4 sm:gap-6">
                         <div className="flex flex-col gap-1 w-24">
                             <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                                <span>Hyvinvointi</span>
+                                <span>{ui.wellbeing}</span>
                                 <span className={wellbeing < 30 ? "text-rose-500" : ""}>{wellbeing}%</span>
                             </div>
                             <Progress value={wellbeing} className="h-1" indicatorClassName={getWellbeingColor()} />
                         </div>
                         <div className="flex flex-col gap-1 w-24">
                             <div className="flex justify-between items-center text-[8px] font-black uppercase tracking-widest text-slate-400">
-                                <span>Turvallisuus</span>
+                                <span>{ui.safety}</span>
                                 <span>{safety}%</span>
                             </div>
                             <Progress value={safety} className="h-1" indicatorClassName="bg-indigo-500" />
@@ -436,19 +222,19 @@ export default function AssociationSimulation({
                         <Card className="bg-indigo-600 p-6 rounded-[2rem] text-white shadow-xl shadow-indigo-200 flex flex-col gap-2">
                             <div className="flex items-center gap-2 mb-2">
                                 <Zap className="w-4 h-4 text-yellow-400" />
-                                <span className="text-[10px] font-black uppercase tracking-widest leading-none">Asiantuntijan vinkki</span>
+                                <span className="text-[10px] font-black uppercase tracking-widest leading-none">{ui.tip_title}</span>
                             </div>
                             <p className="text-xs font-medium leading-relaxed opacity-90">
-                                Tutkimukset osoittavat, että itsevarma rajojen veto vähentää kiusaamistilanteita jopa 50%. Dokumentointi taas antaa uskottavuutta puuttujille.
+                                {ui.tip_text}
                             </p>
                         </Card>
                         <Card className="bg-white border-slate-200 p-6 rounded-[2rem] flex flex-col gap-2 shadow-sm">
                             <div className="flex items-center gap-2 mb-2">
                                 <Shield className="w-4 h-4 text-emerald-500" />
-                                <span className="text-[10px] font-black uppercase tracking-widest leading-none text-slate-500">Psykologinen turva</span>
+                                <span className="text-[10px] font-black uppercase tracking-widest leading-none text-slate-500">{ui.psych_title}</span>
                             </div>
                             <p className="text-xs font-medium leading-relaxed text-slate-600">
-                                Käytä "Minä-viestejä" ("Minusta tuntuu...") poistaaksesi hyökkäävyyden, mutta pitääksesi silti huolta omasta tilastasi.
+                                {ui.psych_text}
                             </p>
                         </Card>
                     </div>
@@ -460,9 +246,9 @@ export default function AssociationSimulation({
                         <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                             <div className="flex items-center gap-2">
                                 <FileText className="w-4 h-4 text-indigo-500" />
-                                <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-900">Todistepankki (Loki)</h4>
+                                <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-900">{ui.logs_title}</h4>
                             </div>
-                            <Badge variant="outline" className="text-[8px] font-black border-slate-100">{logs.length} havaintoa</Badge>
+                            <Badge variant="outline" className="text-[8px] font-black border-slate-100">{logs.length} {ui.logs_obs}</Badge>
                         </div>
                         <div className="flex-1 overflow-y-auto no-scrollbar space-y-4 pr-2">
                             {logs.length === 0 ? (
@@ -470,7 +256,7 @@ export default function AssociationSimulation({
                                     <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center">
                                         <Clipboard className="w-5 h-5 text-slate-200" />
                                     </div>
-                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Ei merkintöjä vielä</p>
+                                    <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">{ui.no_logs}</p>
                                 </div>
                             ) : (
                                 logs.map((log, i) => (
@@ -494,10 +280,10 @@ export default function AssociationSimulation({
                     <Card className="bg-slate-900 p-6 rounded-[2.5rem] text-white shadow-sm flex flex-col gap-3">
                         <div className="flex items-center gap-2">
                             <CornerDownRight className="w-4 h-4 text-indigo-400" />
-                            <h4 className="text-[10px] font-black uppercase tracking-widest">Opetusala & Neuroepätyypilliset</h4>
+                            <h4 className="text-[10px] font-black uppercase tracking-widest">{ui.neuro_title}</h4>
                         </div>
                         <p className="text-[10px] leading-relaxed opacity-70 italic font-medium">
-                            Neuroepätyypillisille visuaalinen dokumentointi (kuvakaappaukset, kuvat tiloista) voi olla helpompi tapa jäsentää tapahtumia kuin pelkkä teksti. Hallitustyöskentelyssä selkeät, kirjalliset pelisäännöt luovat kaivattua ennakoitavuutta.
+                            {ui.neuro_text}
                         </p>
                     </Card>
                 </div>

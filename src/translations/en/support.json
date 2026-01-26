@@ -1,0 +1,320 @@
+{
+  "hero": {
+    "badge": "First Aid & Support",
+    "title": "Survival Guide",
+    "subtitle": "When you are in the eye of the storm, we find shelter for you. Here you will find action plans, calming techniques, and the right helpers."
+  },
+  "tabs": {
+    "plan": "Action Plan",
+    "exercises": "Exercises",
+    "contacts": "Contacts"
+  },
+  "plan_tab": {
+    "phase1": {
+      "label": "Phase 1: Acute Situation",
+      "title": "Secure Yourself",
+      "description": "If you have just experienced something bad, the most important thing is to restore a sense of safety. Do not make big decisions (like resigning) while in panic.",
+      "steps": {
+        "step1": {
+          "trigger": "1. Leave the situation",
+          "content": "Go to the bathroom, take a walk, or go home (report sick). You have no obligation to listen to shouting or insults."
+        },
+        "step2": {
+          "trigger": "2. Log briefly",
+          "content": "Log only: who, what, where, when. Do not analyze yet. Just save the facts."
+        },
+        "step3": {
+          "trigger": "3. Contact someone close",
+          "content": "Call a partner, friend, or occupational health. Do not remain alone with the experience."
+        }
+      }
+    },
+    "phase2": {
+      "label": "Phase 2: Stabilization",
+      "title": "Build Defense",
+      "description": "When the acute shock subsides, it is time to start collecting evidence and protecting your position.",
+      "steps": {
+        "step1": {
+          "trigger": "1. Start systematic log",
+          "content": "Use the log tool in this app. Log retrospectively all events you remember."
+        },
+        "step2": {
+          "trigger": "2. Check facts",
+          "content": "Read your employment contract, occupational health guidelines, and equality plan. Knowledge is power."
+        },
+        "step3": {
+          "trigger": "3. Visit doctor",
+          "content": "Get a document about your symptoms (insomnia, anxiety). It is important evidence that work affects health."
+        }
+      }
+    },
+    "phase3": {
+      "label": "Phase 3: Resolution",
+      "title": "Act or Exit",
+      "description": "When you are stronger and have evidence, you can choose to fight or make a strategic exit.",
+      "steps": {
+        "step1": {
+          "trigger": "1. Make formal report",
+          "content": "Use the ready-made templates in the reporting tool (e.g. occupational safety notification)."
+        },
+        "step2": {
+          "trigger": "2. Negotiate exit",
+          "content": "If you want to leave, negotiate an exit package with the support of a union lawyer. Do not just leave empty-handed."
+        },
+        "step3": {
+          "trigger": "...",
+          "content": "..."
+        }
+      }
+    }
+  },
+  "exercises_tab": {
+    "breathing": {
+      "title": "5-5-5 Breathing",
+      "description": "A physiological way to lower heart rate and stop panic reaction.",
+      "start": "Waiting...",
+      "start_exercise": "Start Exercise",
+      "stop": "Stop",
+      "phases": {
+        "inhale": "Inhale...",
+        "hold": "Hold...",
+        "exhale": "Exhale..."
+      }
+    },
+    "grounding": {
+      "title": "Grounding",
+      "description": "Use senses to return yourself to this moment, away from horror scenarios.",
+      "items": {
+        "see": "things you see",
+        "touch": "things you can touch",
+        "hear": "things you hear",
+        "smell": "things you smell",
+        "taste": "thing you taste"
+      }
+    },
+    "boundaries": {
+      "title": "Inner Shield",
+      "description": "Practice these phrases in front of a mirror.",
+      "quotes": {
+        "not_accept": "\"I do not accept being spoken to like that.\"",
+        "speak_properly": "\"We can continue the discussion when you speak appropriately.\"",
+        "not_continue": "\"This discussion ends now.\""
+      }
+    },
+    "darvo": {
+      "title": "Recognize DARVO",
+      "description": "Bullies often reverse roles (Deny, Attack, Reverse Victim & Offender). Recognize the pattern.",
+      "attack": "Bully's attack:",
+      "attack_text": "\"You are the problem! I'm just trying to help and you start crying about everything. Are you unstable?\"",
+      "response": "Correct reaction (in your head):",
+      "response_text": "They are trying to shift attention to my reaction so their actions are forgotten. I won't fall for it."
+    }
+  },
+  "contacts_tab": {
+    "acute": {
+      "title": "Acute Help",
+      "mieli": {
+        "title": "Mieli Crisis Line",
+        "hours": "Open 24/7 (Finnish)"
+      },
+      "riku": {
+        "title": "Victim Support Finland",
+        "text": "If you suspect a crime (defamation, discrimination)."
+      }
+    },
+    "authorities": {
+      "title": "Authorities",
+      "avi": {
+        "label": "Regional State Administrative Agency (AVI)",
+        "sub": "Authority supervising occupational safety."
+      },
+      "unions": {
+        "label": "Trade Unions",
+        "sub": "Contact your union's lawyer or shop steward."
+      }
+    },
+    "peer_support": {
+      "title": "Peer Support",
+      "items": {
+        "fb": "Facebook: Workplace Bullying Survivors",
+        "mieli": "Mieli peer groups",
+        "discord": "Discord communities"
+      }
+    },
+    "knowledge": {
+      "title": "Knowledge",
+      "ttl": {
+        "label": "Institute of Occupational Health",
+        "sub": "Researched information on well-being at work."
+      },
+      "ttk": {
+        "label": "Centre for Occupational Safety",
+        "sub": "Guidelines for zero tolerance of harassment."
+      }
+    }
+  },
+  "footer": {
+    "remember": "Remember: You are valuable.",
+    "disclaimer": "This site offers peer support and tools, but does not replace medical or legal professional help."
+  },
+  "support": {
+    "hero": {
+      "badge": "First Aid & Support",
+      "title": "Survival Guide",
+      "subtitle": "When you are in the eye of the storm, we find shelter for you. Here you will find action plans, calming techniques, and the right helpers."
+    },
+    "tabs": {
+      "plan": "Action Plan",
+      "exercises": "Exercises",
+      "contacts": "Contacts"
+    },
+    "plan_tab": {
+      "phase1": {
+        "label": "Phase 1: Acute Situation",
+        "title": "Secure Yourself",
+        "description": "If you have just experienced something bad, the most important thing is to restore a sense of safety. Do not make big decisions (like resigning) while in panic.",
+        "steps": {
+          "step1": {
+            "trigger": "1. Leave the situation",
+            "content": "Go to the bathroom, take a walk, or go home (report sick). You have no obligation to listen to shouting or insults."
+          },
+          "step2": {
+            "trigger": "2. Log briefly",
+            "content": "Log only: who, what, where, when. Do not analyze yet. Just save the facts."
+          },
+          "step3": {
+            "trigger": "3. Contact someone close",
+            "content": "Call a partner, friend, or occupational health. Do not remain alone with the experience."
+          }
+        }
+      },
+      "phase2": {
+        "label": "Phase 2: Stabilization",
+        "title": "Build Defense",
+        "description": "When the acute shock subsides, it is time to start collecting evidence and protecting your position.",
+        "steps": {
+          "step1": {
+            "trigger": "1. Start systematic log",
+            "content": "Use the log tool in this app. Log retrospectively all events you remember."
+          },
+          "step2": {
+            "trigger": "2. Check facts",
+            "content": "Read your employment contract, occupational health guidelines, and equality plan. Knowledge is power."
+          },
+          "step3": {
+            "trigger": "3. Visit doctor",
+            "content": "Get a document about your symptoms (insomnia, anxiety). It is important evidence that work affects health."
+          }
+        }
+      },
+      "phase3": {
+        "label": "Phase 3: Resolution",
+        "title": "Act or Exit",
+        "description": "When you are stronger and have evidence, you can choose to fight or make a strategic exit.",
+        "steps": {
+          "step1": {
+            "trigger": "1. Make formal report",
+            "content": "Use the ready-made templates in the reporting tool (e.g. occupational safety notification)."
+          },
+          "step2": {
+            "trigger": "2. Negotiate exit",
+            "content": "If you want to leave, negotiate an exit package with the support of a union lawyer. Do not just leave empty-handed."
+          },
+          "step3": {
+            "trigger": "...",
+            "content": "..."
+          }
+        }
+      }
+    },
+    "exercises_tab": {
+      "breathing": {
+        "title": "5-5-5 Breathing",
+        "description": "A physiological way to lower heart rate and stop panic reaction.",
+        "start": "Waiting...",
+        "start_exercise": "Start Exercise",
+        "stop": "Stop",
+        "phases": {
+          "inhale": "Inhale...",
+          "hold": "Hold...",
+          "exhale": "Exhale..."
+        }
+      },
+      "grounding": {
+        "title": "Grounding",
+        "description": "Use senses to return yourself to this moment, away from horror scenarios.",
+        "items": {
+          "see": "things you see",
+          "touch": "things you can touch",
+          "hear": "things you hear",
+          "smell": "things you smell",
+          "taste": "thing you taste"
+        }
+      },
+      "boundaries": {
+        "title": "Inner Shield",
+        "description": "Practice these phrases in front of a mirror.",
+        "quotes": {
+          "not_accept": "\"I do not accept being spoken to like that.\"",
+          "speak_properly": "\"We can continue the discussion when you speak appropriately.\"",
+          "not_continue": "\"This discussion ends now.\""
+        }
+      },
+      "darvo": {
+        "title": "Recognize DARVO",
+        "description": "Bullies often reverse roles (Deny, Attack, Reverse Victim & Offender). Recognize the pattern.",
+        "attack": "Bully's attack:",
+        "attack_text": "\"You are the problem! I'm just trying to help and you start crying about everything. Are you unstable?\"",
+        "response": "Correct reaction (in your head):",
+        "response_text": "They are trying to shift attention to my reaction so their actions are forgotten. I won't fall for it."
+      }
+    },
+    "contacts_tab": {
+      "acute": {
+        "title": "Acute Help",
+        "mieli": {
+          "title": "Mieli Crisis Line",
+          "hours": "Open 24/7 (Finnish)"
+        },
+        "riku": {
+          "title": "Victim Support Finland",
+          "text": "If you suspect a crime (defamation, discrimination)."
+        }
+      },
+      "authorities": {
+        "title": "Authorities",
+        "avi": {
+          "label": "Regional State Administrative Agency (AVI)",
+          "sub": "Authority supervising occupational safety."
+        },
+        "unions": {
+          "label": "Trade Unions",
+          "sub": "Contact your union's lawyer or shop steward."
+        }
+      },
+      "peer_support": {
+        "title": "Peer Support",
+        "items": {
+          "fb": "Facebook: Workplace Bullying Survivors",
+          "mieli": "Mieli peer groups",
+          "discord": "Discord communities"
+        }
+      },
+      "knowledge": {
+        "title": "Knowledge",
+        "ttl": {
+          "label": "Institute of Occupational Health",
+          "sub": "Researched information on well-being at work."
+        },
+        "ttk": {
+          "label": "Centre for Occupational Safety",
+          "sub": "Guidelines for zero tolerance of harassment."
+        }
+      }
+    },
+    "footer": {
+      "remember": "Remember: You are valuable.",
+      "disclaimer": "This site offers peer support and tools, but does not replace medical or legal professional help."
+    }
+  }
+}

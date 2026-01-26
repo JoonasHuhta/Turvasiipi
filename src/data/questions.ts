@@ -1,12 +1,4 @@
-export type QuizCategory = 'itsetunto' | 'todellisuus' | 'eristyksissä' | 'fyysiset' | 'käyttäytyminen' | 'identiteetti' | 'pelko';
-
-export type Question = {
-    id: number;
-    category: QuizCategory;
-    positive?: boolean;
-};
-
-export type LikertAnswer = 1 | 2 | 3 | 4 | 5;
+import { Question, QuizCategory, LikertAnswer } from '@/types/domain';
 
 export const likertOptions = [
     { value: 1 },

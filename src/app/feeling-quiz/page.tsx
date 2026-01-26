@@ -48,7 +48,12 @@ const categoryWeights: Record<FeelingCategory, number> = {
 
 export default function FeelingQuizPage() {
     const { completeModule } = useProgress();
-    const { t, language } = useLanguage();
+    const { t, language, loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('feeling_quiz');
+    }, [loadNamespace]);
+
 
     // Fetch questions from translation logic
     const questions = useMemo(() => {

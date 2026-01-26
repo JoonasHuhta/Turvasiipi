@@ -1,0 +1,127 @@
+{
+    "_meta": "🔒 LOCKED FILE - DO NOT MODIFY WITHOUT EXPLICIT USER CONSENT",
+    "hero": {
+        "title_start": "Työpaikkakiusaamisen",
+        "title_end": "ensiapupakkaus.",
+        "subtitle": "Kun sanat loppuvat, me annamme ne sinulle.",
+        "p1": "Tämä ei ole 'HR-opas'. Tämä on selviytymistyökalu sinulle, joka olet joutunut työpaikkakiusaamisen, ulossulkemisen tai epäasiallisen kohtelun kohteeksi.",
+        "p2": "Tarjoamme sanat vaikeisiin tilanteisiin, työkalut dokumentointiin ja ymmärrystä siitä, mitä sinulle tapahtuu. Et ole hullu, etkä ole yksin.",
+        "cta_start": "Aloita tästä",
+        "cta_main": "Tee testi",
+        "cta_how": "Miten tämä toimii?",
+        "read_first": "Lue ensin ohjeet",
+        "quit_anytime": "Voit lopettaa milloin vain",
+        "dialog": {
+            "title": "Kuinka Turvasiipi toimii?",
+            "desc": "Turvasiipi on suunniteltu antamaan sinulle selkeyttä ja turvaa haastavassa tilanteessa. Emme kerää tietojasi pilveen.",
+            "step1_title": "Tunnista tilanne",
+            "step1_text": "Käytä testejä ja listoja ymmärtääksesi, onko kyseessä kiusaaminen vai konflikti.",
+            "step1_sub": "MIKSI?",
+            "step1_sub_text": "Epätietoisuus syö voimavaroja. Nimeäminen helpottaa.",
+            "step2_title": "Dokumentoi turvallisesti",
+            "step2_text": "Kirjaa tapahtumat Lokityökalulla. Se luo aikajanan ja PDF-raportin.",
+            "step2_sub": "TÄRKEÄÄ",
+            "step2_sub_text": "Vain kirjatut tapahtumat ovat olemassa virallisesti.",
+            "step3_title": "Ymmärrä vaikutus",
+            "step3_text": "Simulaatiot ja profiilit auttavat näkemään tilanteen ulkopuolelta.",
+            "step3_sub": "TAVOITE",
+            "step3_sub_text": "Palauta toimintakykysi ja itsetuntosi.",
+            "step4_title": "Toimi",
+            "step4_text": "Käytä valmiita viestipohjia ja taktiikoita puolustaaksesi rajojasi.",
+            "step4_sub": "LUPAUS",
+            "step4_sub_text": "Et jää yksin. Me olemme puolellasi."
+        }
+    },
+    "why": {
+        "title": "Miksi tämä on olemassa?",
+        "text": "Työpaikkakiusaaminen on väkivaltaa, joka piiloutuu 'vuorovaikutusongelmien' ja 'huumorin' taakse. Se tuhoaa ihmisen itsetunnon, terveyden ja uran.",
+        "box_title": "ME OLEMME TÄÄLLÄ, KOSKA:",
+        "list": [
+            "Uhrin on usein mahdotonta puolustautua yksin.",
+            "Organisaatiot suojelevat usein itseään, eivät uhria.",
+            "Todistustaakka kaatuu uupuneen niskaan.",
+            "Haluamme muuttaa voimasuhteet."
+        ]
+    },
+    "comparison": {
+        "title": "Onko tämä kiusaamista?",
+        "col1_p1": "Kiusaaminen ei aina ole huutamista. Se on usein hiljaista: katseiden välttelyä, tiedon pimittämistä, palavereista unohtamista.",
+        "col1_p2": "Se on sitä, kun tunnet vatsassasi, että jokin on vialla, mutta sinulle sanotaan, että 'kuvittelet vain'.",
+        "col1_p3": "Se on systemaattista.",
+        "col2_p1": "Satunnainen töykeys ei ole kiusaamista. Kiusaaminen on toistuvaa ja jatkuvaa.",
+        "col2_p2": "Jos joudut jatkuvasti varuillesi töihin mennessäsi, kyse ei ole enää vain 'kemiasta'.",
+        "col2_p3": "Tutustu kiusaamisen eri muotoihin ja opi tunnistamaan, mitä sinulle tapahtuu.",
+        "quote": "\"Se ei ole riita, jos vain toista lyödään.\""
+    },
+    "log": {
+        "title": "Yksityinen loki",
+        "subtitle": "Kirjoita se ylös. Heti.",
+        "box_text": "Kun olet stressaantunut, muistisi pätkii. Kiusaaja luottaa siihen. Älä anna heille sitä etua.",
+        "questions": {
+            "what": "Mitä tapahtui?",
+            "when": "Milloin se tapahtui?",
+            "who": "Kuka oli paikalla?",
+            "how": "Miltä se tuntui?"
+        },
+        "privacy": {
+            "local": "Emme tallenna tietojasi pilveen. Kaikki pysyy laitteellasi.",
+            "pdf": "Voit ladata PDF-raportin milloin vain. Tämä on sinun todistusaineistosi."
+        },
+        "cta": "Avaa päiväkirja"
+    },
+    "importance": {
+        "title": "Miksi kirjaaminen on tärkeää?",
+        "p1": "Työsuojelu, lääkäri ja liitto kysyvät ensimmäisenä: 'Onko sinulla ylhäällä esimerkkejä?'",
+        "p2": "Kun sinulla on mustaa valkoisella, keskustelu muuttuu 'sana sanaa vastaan' -väittelystä faktapohjaiseksi.",
+        "box_title": "TUTKITTUA TIETOA:",
+        "list": [
+            "Dokumentointi palauttaa kontrollin tunteen.",
+            "Päiväkirjan pitäminen vähentää stressioireita.",
+            "Kirjallinen todiste on oikeudellisesti vahva."
+        ]
+    },
+    "power": {
+        "title": "Sinulla on valta",
+        "text": "Me emme päätä puolestasi. Emme kehota sinua irtisanoutumaan, emmekä pakota sinua taistelemaan.",
+        "quote": "\"Rohkeutta ei ole se, että ei pelkää. Rohkeutta on se, että toimii pelosta huolimatta.\"",
+        "text_bold": "Annamme sinulle kartan ja kompassin. Sinä valitset reitin.",
+        "box_title": "LUPAUKSEMME:",
+        "list": [
+            "Emme painosta.",
+            "Emme tuomitse.",
+            "Olemme puolellasi.",
+            "Sinä päätät."
+        ]
+    },
+    "footer_slogan": {
+        "title": "Et ole velvollinen tietämään vielä, mitä tämä on.",
+        "subtitle": "Riittää, että huomaat sen.",
+        "cta": "Tee rauhallinen tilannekartoitus",
+        "disclaimer_1": "VOIT LOPETTAA MILLOIN TAHANSA.",
+        "disclaimer_2": "MITÄÄN EI TALLENNU ILMAN LUPAASI."
+    },
+    "faq": {
+        "title": "Usein kysytyt kysymykset",
+        "subtitle": "Etsimme vastauksia, jotta sinun ei tarvitse.",
+        "q1": "Tallentuuko tietoni johonkin?",
+        "a1": "Ei. Kaikki tiedot tallentuvat vain selaimesi muistiin (Local Storage). Meillä ei ole tietokantaa, emmekä näe mitä kirjoitat. Jos tyhjennät selaushistorian, tiedot katoavat.",
+        "q2": "Voiko työnantaja nähdä, että käytän tätä?",
+        "a2": "Ei voi. Sivusto toimii kuten mikä tahansa verkkosivu. Suosittelemme käyttämään yksityistä selausta (Incognito) ja henkilökohtaista laitetta.",
+        "q3": "Onko tämä lakineuvontaa?",
+        "a3": "Ei. Tämä on vertaistuellinen ja informatiivinen työkalu. Emme tarjoa lakipalveluita. Vakavissa tilanteissa ota yhteys liittoon tai juristiin.",
+        "q4": "Mitä jos kiusaaja on esihenkilö?",
+        "a4": "Tämä on yleistä. Siksi dokumentointi on erityisen tärkeää. Työsuojeluorganisaatio on tällöin oikea taho auttamaan.",
+        "q5": "Voinko käyttää raporttia oikeudessa?",
+        "a5": "Kyllä. Itse tuottamasi päiväkirja on todistusaineistoa. PDF-raportti on selkeä tapa esittää tapahtumien kulku.",
+        "q6": "Maksaako tämä?",
+        "a6": "Ei. Turvasiipi on ilmainen työkalu.",
+        "q7": "Kuka tämän on tehnyt?",
+        "a7": "Turvasiipi on kehitetty yhteistyössä työpaikkakiusaamista kokeneiden, HR-ammattilaisten ja koodareiden kanssa.",
+        "q9": "Mistä saan ulkopuolista apua?",
+        "a9_title": "Tärkeät tahot:",
+        "a9_text": "Emme jätä sinua yksin. Tässä virallisia reittejä:",
+        "a9_list_1": "**Työsuojelu:** Aluehallintovirasto (AVI)",
+        "a9_list_2": "**Ammattiliitot:** Luottamusmies",
+        "a9_list_3": "**Terveys:** Työterveyshuolto"
+    }
+}

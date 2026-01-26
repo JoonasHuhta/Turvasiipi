@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,10 +16,16 @@ import {
 import { useProgress } from "@/context/ProgressContext";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TrainingPage() {
+    const { t, loadNamespace } = useLanguage();
     const { getCertificationProgress, isModuleCompleted } = useProgress();
     const router = useRouter();
+
+    useEffect(() => {
+        loadNamespace('training');
+    }, [loadNamespace]);
 
     // Only "hub" and "category" states remain. "playing" etc are now navigated away.
     const [view, setView] = useState<'hub' | 'category'>('hub');
@@ -56,18 +62,18 @@ export default function TrainingPage() {
                             className="mr-2"
                         >
                             <ArrowLeft className="w-4 h-4 mr-2" />
-                            Takaisin
+                            {t('training.coaching.back') || 'Back'}
                         </Button>
                     )}
                     <h1 className="text-xl font-serif font-bold text-suojasiipi-text-main">
-                        {view === 'hub' ? 'Valmennuspolut' : selectedCategory?.title || 'Valmennus'}
+                        {view === 'hub' ? (t('training.coaching.title') || 'Training') : (selectedCategory ? (t(`training.coaching.categories.${selectedCategory.id}.title`) || selectedCategory.title) : (t('training.coaching.category_title') || 'Category'))}
                     </h1>
                 </div>
                 {view === 'hub' && (
                     <div className="flex items-center gap-2">
                         <Badge variant="outline" className="hidden md:flex gap-1 border-emerald-200 bg-emerald-50 text-emerald-700">
                             <Trophy className="w-3 h-3" />
-                            {certProgress.completed}/{certProgress.total} Sertifikaattia
+                            {certProgress.completed}/{certProgress.total} {t('training.coaching.stats') || 'Certificates'}
                         </Badge>
                     </div>
                 )}
@@ -85,10 +91,10 @@ export default function TrainingPage() {
                         >
                             <div className="text-center space-y-4 mb-12">
                                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-                                    Missä vaiheessa olet?
+                                    {t('training.coaching.hub.title') || 'Where are you at?'}
                                 </h2>
                                 <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-                                    Valitse tilanteeseesi sopiva polku. Turvasiipi auttaa sinua etenemään kohti ratkaisua omassa tahdissasi.
+                                    {t('training.coaching.hub.subtitle') || 'Choose the path that suits your situation.'}
                                 </p>
                             </div>
 
@@ -116,9 +122,9 @@ export default function TrainingPage() {
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-2 mb-1">
-                                                <h3 className="text-lg md:text-xl font-black text-slate-900 uppercase tracking-tight break-words hyphens-auto">{category.title}</h3>
+                                                <h3 className="text-lg md:text-xl font-black text-slate-900 uppercase tracking-tight break-words hyphens-auto">{t(`training.coaching.categories.${category.id}.title`)}</h3>
                                             </div>
-                                            <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed line-clamp-2 md:line-clamp-none">{category.description}</p>
+                                            <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed line-clamp-2 md:line-clamp-none">{t(`training.coaching.categories.${category.id}.desc`)}</p>
                                         </div>
                                         <ArrowRight className="w-6 h-6 text-slate-300 group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
                                     </motion.button>
@@ -143,8 +149,8 @@ export default function TrainingPage() {
                                     <selectedCategory.icon className="w-10 h-10" />
                                 </div>
                                 <div>
-                                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight mb-2">{selectedCategory.title}</h2>
-                                    <p className="text-lg text-slate-500 max-w-2xl">{selectedCategory.description}</p>
+                                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight mb-2">{t(`training.coaching.categories.${selectedCategory.id}.title`)}</h2>
+                                    <p className="text-lg text-slate-500 max-w-2xl">{t(`training.coaching.categories.${selectedCategory.id}.desc`)}</p>
                                 </div>
                             </div>
 
@@ -187,24 +193,24 @@ export default function TrainingPage() {
                                                             "text-lg font-bold uppercase tracking-tight",
                                                             isCompleted ? "text-emerald-900" : "text-slate-900"
                                                         )}>
-                                                            {module.title}
+                                                            {t(`training.coaching.categories.${selectedCategory.id}.modules.${module.id}.title`)}
                                                         </h3>
                                                         {module.isNew && !isCompleted && (
-                                                            <Badge className="bg-rose-500 hover:bg-rose-600 text-white border-none text-[10px] px-2 py-0.5">UUSI</Badge>
+                                                            <Badge className="bg-rose-500 hover:bg-rose-600 text-white border-none text-[10px] px-2 py-0.5">{t('training.coaching.ui.new')}</Badge>
                                                         )}
                                                         {module.isCertificationModule && (
                                                             <Badge variant="outline" className="border-amber-200 text-amber-700 bg-amber-50 text-[10px] px-2 py-0.5 gap-1">
                                                                 <Award className="w-3 h-3" />
-                                                                Sertifikaatti
+                                                                {t('training.coaching.ui.cert')}
                                                             </Badge>
                                                         )}
                                                     </div>
-                                                    <p className="text-slate-500 font-medium">{module.description}</p>
+                                                    <p className="text-slate-500 font-medium">{t(`training.coaching.categories.${selectedCategory.id}.modules.${module.id}.desc`)}</p>
                                                 </div>
 
                                                 {module.isLocked ? (
                                                     <div className="px-4 py-2 bg-slate-100 rounded-lg text-xs font-bold text-slate-400 uppercase tracking-widest">
-                                                        Lukittu
+                                                        {t('training.coaching.ui.locked')}
                                                     </div>
                                                 ) : (
                                                     <ArrowRight className={cn(

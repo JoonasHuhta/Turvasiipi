@@ -1,0 +1,133 @@
+{
+    "title": "Työkalupakki Reagointiin",
+    "subtitle": "Konkreettiset Toimintamallit",
+    "description": "Älä jäädy tilanteessa. Tässä on valmiit sanat ja suunnitelmat, jotta tiedät tasan mitä tehdä.",
+    "tabs": {
+        "acute": "Akuutit Skriptit",
+        "conversation": "Vaikea Keskustelu",
+        "manager": "Esimies-Ketju",
+        "safety_plan": "Turvasuunnitelma"
+    },
+    "acute_scripts": {
+        "intro_title": "Stop - Puhu - Dokumentoi",
+        "intro_text": "Kolme askelta kaaoksen hallintaan. <br />1. <strong>Stop:</strong> Pysäytä reaktiosi (hengitä). <br />2. <strong>Puhu:</strong> Sano skripti (rajanveto). <br />3. <strong>Dokumentoi:</strong> Kirjaa ylös heti kun pääset turvaan.",
+        "scripts": {
+            "public_mockery": {
+                "title": "Julkinen naljailu",
+                "script": "En pidä tästä kommentista. Lopeta heti.",
+                "nuance": "Sano rauhallisella, matalalla äänellä. Älä hymyile. Katso silmiin.",
+                "next": "Kirjaa ylös: Kuka sanoi, mitä, milloin (kellonaika)."
+            },
+            "withholding_info": {
+                "title": "Tiedon panttaus",
+                "script": "Tarvitsen tämän tiedon työhöni. Lähetä nyt.",
+                "nuance": "Älä pyydä 'voisitko'. Totea tarve. Lisää viestiin CC luottamushenkilölle jos toistuu.",
+                "next": "Ota kuvakaappaus pyynnöstäsi. Jos ei vastausta, lähetä muistutus."
+            },
+            "isolation": {
+                "title": "Eristäminen",
+                "script": "Miksi minua ei kutsuttu? Lisää minut jatkossa.",
+                "nuance": "Kysy suoraan palaverissa tai ryhmächatissa. Tee näkymättömästä näkyvää.",
+                "next": "Kysy tiimiltä tukea: 'Huomasitteko että olin poissa?'"
+            }
+        },
+        "labels": {
+            "say_this": "Sano näin",
+            "style": "Tyyli:",
+            "next_step": "Seuraava askel:"
+        }
+    },
+    "difficult_conversation": {
+        "title": "Vaikean keskustelun kaava",
+        "intro": "Käytä tätä 5-vaiheista runkoa yksityiskeskustelussa.",
+        "steps": [
+            {
+                "title": "1. Avaus",
+                "script": "Kiitos että tulit. Haluan keskustella meidän välisestä vuorovaikutuksesta. Tämä on tärkeää työni kannalta.",
+                "tip": "Rajaa aihe neutraalisti. Älä syytä, kutsu keskusteluun.",
+                "action": "Seuraava vaihe"
+            },
+            {
+                "title": "2. Konkreettinen esimerkki",
+                "script": "Viime tiistain kokouksessa sanoit julkisesti 'Et tajua tästä mitään'. Koen tämän mitätöivänä. Miltä sinusta kuulostaa?",
+                "tip": "Kerro fakta (mitä tapahtui) ja vaikutus (miltä tuntui). Lopeta avoimeen kysymykseen.",
+                "action": "Seuraava vaihe"
+            },
+            {
+                "title": "3. Rajaus",
+                "script": "Jatkossa odotan naljailun loppuvan. Työni hoituu parhaiten ilman sitä. Oletko samaa mieltä?",
+                "tip": "Esitä selkeä vaatimus. Älä pyydä lupaa, vaan sitoutumista.",
+                "action": "Seuraava vaihe"
+            },
+            {
+                "title": "4. Seuranta ja tuki",
+                "script": "Miten varmistamme, että tämä ei toistu? Tarvitsenko sinulta jotain tietoa työhöni?",
+                "tip": "Siirrä vastuu ratkaisusta yhteiseksi. 'Miten me onnistumme tässä?'",
+                "action": "Seuraava vaihe"
+            },
+            {
+                "title": "5. Päätös ja dokumentointi",
+                "script": "Kiitos keskustelusta. Kirjaan tämän muistioon. Onko sinulla lisättävää?",
+                "tip": "Tee tilanteesta virallinen. Lähetä muistio sähköpostilla (CC luottamusmies).",
+                "action": "Aloita alusta"
+            }
+        ]
+    },
+    "manager_chain": {
+        "title": "Esimies on kiusaaja?",
+        "intro": "Kun valta-asemaa käytetään väärin, sinun on suojeltava itseäsi byrokratialla. Älä jää odottamaan. Dokumentoi kaikki.",
+        "steps": [
+            {
+                "step": "1. Puheeksiotto",
+                "target": "Esimies (kahden kesken)",
+                "script": "Koen [toiminnan] epäasiallisena. Pyydän lopettamaan.",
+                "time": "Heti"
+            },
+            {
+                "step": "2. Kirjallinen ilmoitus",
+                "target": "Yliesimies",
+                "script": "Ilmoitan [Kiistattomat faktat]. Tarvitsen selvityksen.",
+                "time": "1-2 vrk"
+            },
+            {
+                "step": "3. Avunpyyntö",
+                "target": "Työsuojeluvaltuutettu / Liitto",
+                "script": "Tarvitsen apua tilanteen selvitykseen. Liite: dokumentaatio.",
+                "time": "Heti kun vaihe 2 ei toimi"
+            },
+            {
+                "step": "4. Terveyslausunto",
+                "target": "Työterveys",
+                "script": "Kiusaaminen aiheuttaa oireita. Pyydän lausunnon työkyvystä.",
+                "time": "1 viikko"
+            },
+            {
+                "step": "5. Valvontapyyntö",
+                "target": "AVI (Aluehallintovirasto)",
+                "script": "Työnantaja ei ole ryhtynyt toimiin ilmoituksesta huolimatta.",
+                "time": "2 viikkoa hiljaisuutta"
+            }
+        ],
+        "labels": {
+            "target": "Kohde:"
+        }
+    },
+    "safety_plan": {
+        "title": "Oma Turvasuunnitelma",
+        "intro": "Täytä tämä ja tallenna kuvakaappauksena puhelimeesi.",
+        "form": {
+            "reaction_label": "1. Ensimmäinen turvareaktio",
+            "reaction_placeholder": "Esim. Poistun paikalta 5 minuutiksi.",
+            "support_label": "2. Luotettava tuki",
+            "support_placeholder": "Nimi ja puhelinnumero.",
+            "phrase_label": "3. Hätäfraasi esimiehelle",
+            "phrase_value": "Käytän nyt turvasuunnitelmaani – tarvitsen apua.",
+            "exit_label": "4. Exit-signaali",
+            "exit_placeholder": "Esim. Jos ei muutosta 3 viikossa -> Sairasloma.",
+            "place_label": "5. Turvapaikka",
+            "place_placeholder": "Esim. Kirjasto 3. krs, ystävän luona.",
+            "save_btn": "Tallenna Turvasuunnitelma",
+            "disclaimer": "Tämä tallennetaan vain omaan laitteeseen. Kuvakaappaus on suositeltavin."
+        }
+    }
+}

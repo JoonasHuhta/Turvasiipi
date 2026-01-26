@@ -1,0 +1,73 @@
+{
+    "header": {
+        "label": "Simulation",
+        "title": "Test your boundaries.",
+        "title_span": "Safely.",
+        "p1": "Simulations are interactive stories where you get to try challenging work life situations without real risk.",
+        "p2": "You can practice intervening, drawing your own boundaries, or just observe how different interaction situations feel.",
+        "cta_how": "How does this work?",
+        "dialog": {
+            "title": "Simulation Principles",
+            "p1_bold": "Safety.",
+            "p1_text": "No choice leads to real danger. You can always interrupt.",
+            "p2_bold": "Choice.",
+            "p2_text": "You decide how you proceed. There is no one right way.",
+            "p3_bold": "Reflection.",
+            "p3_text": "Performance is not important, but what you learn about yourself."
+        }
+    },
+    "neuro": {
+        "title": "Neurodiversity",
+        "subtitle": "Experience the world through different senses.",
+        "cards": {
+            "neuro": {
+                "title": "Sensory Hypersensitivity",
+                "desc": "What does it feel like when office sounds and lights don't filter out?"
+            },
+            "performance": {
+                "title": "Performance Trap",
+                "desc": "Perfectionism and demandingness as drivers of burnout."
+            },
+            "shadow": {
+                "title": "Information Shadow",
+                "desc": "When unspoken messages and between the lines stay in the dark."
+            }
+        }
+    },
+    "sector": {
+        "title": "Professions",
+        "subtitle": "Industry-specific challenges and situations.",
+        "cards": {
+            "nurse": {
+                "title": "Nursing",
+                "desc": "Rush, ethical load, and hierarchy in hospital world."
+            },
+            "teacher": {
+                "title": "Teaching",
+                "desc": "Feeling of inadequacy and demanding parents."
+            },
+            "it": {
+                "title": "IT Sector",
+                "desc": "Crunch culture and constant availability."
+            },
+            "manager": {
+                "title": "Supervisor Work",
+                "desc": "Between a rock and a hard place. How to address underperformance?"
+            }
+        }
+    },
+    "youth": {
+        "title": "Youth & Summer Jobs",
+        "subtitle": "Identify risks at start of career.",
+        "cards": {
+            "new": {
+                "title": "Summer Worker",
+                "desc": "When boss asks for 'small favor' and you don't dare to refuse."
+            }
+        }
+    },
+    "card": {
+        "new": "NEW",
+        "start": "START SIMULATION"
+    }
+}
