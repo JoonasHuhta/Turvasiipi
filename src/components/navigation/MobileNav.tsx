@@ -32,7 +32,7 @@ const LanguageToggle = ({ className }: { className?: string }) => {
     );
 };
 
-export function MobileNav({ pathname, t, expertise, isOpen, onClose }: MobileNavProps) {
+export function MobileNav({ pathname, t, expertise, isOpen, onClose, onOpenChange }: MobileNavProps) {
     return (
         <div className="flex items-center gap-4">
             {/* Help Dropdown (visible on tablet+) */}
@@ -56,7 +56,7 @@ export function MobileNav({ pathname, t, expertise, isOpen, onClose }: MobileNav
             </DropdownMenu>
 
             {/* Mobile Menu Sheet */}
-            <Sheet open={isOpen} onOpenChange={onClose}>
+            <Sheet open={isOpen} onOpenChange={onOpenChange}>
                 <SheetTrigger asChild>
                     <button className="lg:hidden p-2 text-suojasiipi-text-main hover:bg-suojasiipi-secondary/50 rounded-md transition-colors">
                         <Menu className="w-6 h-6" />

@@ -23,4 +23,5 @@ export interface NavigationProps {
 export interface MobileNavProps extends NavigationProps {
     isOpen: boolean;
     onClose: () => void;
+    onOpenChange: (open: boolean) => void;
 }

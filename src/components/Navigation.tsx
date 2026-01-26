@@ -23,7 +23,7 @@ export function Navigation() {
     return (
         <>
             <DesktopNav {...navProps} />
-            <MobileNav {...navProps} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+            <MobileNav {...navProps} isOpen={isMenuOpen} onOpenChange={setIsMenuOpen} onClose={() => setIsMenuOpen(false)} />
         </>
     );
 }
