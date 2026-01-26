@@ -11,7 +11,7 @@ import {
 import { ArrowRight, Briefcase, Ghost, Infinity, Laptop, Stethoscope, GraduationCap, Users, Zap, TrendingUp } from "lucide-react";
 import Link from "next/link";
 // LOCKED: DO NOT EDIT WITHOUT EXPLICIT PERMISSION
-import { getDictionary } from "@/lib/i18n";
+
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SimulatorPage() {

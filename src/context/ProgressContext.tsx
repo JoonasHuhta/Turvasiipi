@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext } from 'react';
-import { MODULES, BADGES } from '@/lib/gamification-data';
+import { MODULES, BADGES, ExpertLevel, SubLevel } from '@/lib/gamification-data';
 import { UserProgress, Badge, Module, CategoryId } from '@/types/domain';
 import { useProgressStorage } from '@/hooks/useProgressStorage';
 import { useGamification } from '@/hooks/useGamification';
@@ -18,8 +18,8 @@ interface ProgressContextType {
     getLevel: () => number;
     getExpertiseLevel: () => {
         totalScore: number;
-        level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-        subLevel: number;
+        level: ExpertLevel;
+        subLevel: SubLevel;
     };
     getProgressPercentage: () => number;
     isModuleCompleted: (moduleId: string) => boolean;
