@@ -1,7 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import { useEffect } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 import Link from "next/link";
 import {
     Dialog,
@@ -19,11 +18,7 @@ import { ArrowRight } from "lucide-react";
 // Last Verified: 2024-01-25
 
 export function StableLandingPage() {
-    const { t, loadNamespace, language } = useLanguage();
-
-    useEffect(() => {
-        loadNamespace('landing');
-    }, [loadNamespace]);
+    const { t, language } = useTranslation('landing');
 
     // Helper to safely get array from translations
     // Since we know landing.json has arrays for lists, we can cast the result

@@ -4,6 +4,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Language } from '@/types/domain';
 import fiCommon from '../translations/fi/common.json';
 import enCommon from '../translations/en/common.json';
+import fiLanding from '../translations/fi/landing.json';
+import enLanding from '../translations/en/landing.json';
 
 // Translation JSON structures are complex and deeply nested.
 // Using 'any' here to avoid fighting TypeScript with massive type definitions.
@@ -63,23 +65,29 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [language, setLanguage] = useState<Language>('fi');
+    // Initialize language from localStorage synchronously
+    const getInitialLanguage = (): Language => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('turvasiipi_lang') as Language;
+            if (saved && (saved === 'fi' || saved === 'en')) {
+                return saved;
+            }
+        }
+        return 'fi';
+    };
+
+    const [language, setLanguage] = useState<Language>(getInitialLanguage());
     const [translations, setTranslations] = useState<Record<string, any>>({
-        fi: { ...fiCommon },
-        en: { ...enCommon }
+        fi: { ...fiCommon, landing: fiLanding },
+        en: { ...enCommon, landing: enLanding }
     });
     const [loadedNamespaces, setLoadedNamespaces] = useState<Record<Language, Set<string>>>({
-        fi: new Set(['common']),
-        en: new Set(['common'])
+        fi: new Set(['common', 'landing']),
+        en: new Set(['common', 'landing'])
     });
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const savedLang = localStorage.getItem('turvasiipi_lang') as Language;
-        if (savedLang && (savedLang === 'fi' || savedLang === 'en')) {
-            setLanguage(savedLang);
-        }
-    }, []);
+
 
     const handleSetLanguage = (lang: Language) => {
         setLanguage(lang);
@@ -123,13 +131,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
             if (current[key] === undefined) {
                 // If fetching a root key that matches a known namespace, warn that it might not be loaded
                 if (keys.length > 0 && loaders[language][keys[0]] && !loadedNamespaces[language].has(keys[0])) {
-                    console.warn(`Translation key '${path}' not found, but namespace '${keys[0]}' exists. access it via useTranslation('${keys[0]}') or loadNamespace('${keys[0]}').`);
+                    if (process.env.NODE_ENV === 'development') {
+                        console.warn(`Translation key '${path}' not found. Namespace '${keys[0]}' may not be loaded. Use loadNamespace('${keys[0]}') first.`);
+                    }
                 }
 
                 if (params && 'returnObjects' in params && params.returnObjects) {
                     return null;
                 }
-                return path;
+                // Return empty string instead of key to prevent flash
+                return '';
             }
             current = current[key];
         }
