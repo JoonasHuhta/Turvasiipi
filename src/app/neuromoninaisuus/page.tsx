@@ -270,6 +270,62 @@ export default function NeurodiversityPage() {
                         </div>
                     </section>
 
+                    {/* RSD MODULE FEATURE CARD */}
+                    <section id="rsd" className="bg-gradient-to-br from-rose-50 via pink-50 to-purple-50 border-2 border-rose-200 rounded-[2.5rem] p-8 md:p-12 text-[#2B2B2B] relative overflow-hidden shadow-md">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500" />
+
+                        <div className="relative z-10 grid lg:grid-cols-[1fr_1.5fr] gap-8 items-center">
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-3">
+                                    <div className="p-3 bg-white/80 rounded-2xl shadow-sm">
+                                        <Heart className="w-10 h-10 text-rose-600" />
+                                    </div>
+                                    <span className="text-[11px] font-mono text-rose-700 uppercase tracking-widest border-b border-rose-600 pb-1">
+                                        {t('neuromoninaisuus.rsd_card.mini_title')}
+                                    </span>
+                                </div>
+
+                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2B2B2B] leading-tight">
+                                    {t('neuromoninaisuus.rsd_card.title')}
+                                </h2>
+
+                                <p className="text-[#4A4A4A] leading-relaxed max-w-md">
+                                    {t('neuromoninaisuus.rsd_card.text')}
+                                </p>
+
+                                <Link href="/neuromoninaisuus/rsd">
+                                    <Button className="bg-gradient-to-r from-rose-600 to-purple-600 hover:from-rose-700 hover:to-purple-700 text-white font-bold uppercase tracking-wider px-8 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+                                        {t('neuromoninaisuus.rsd_card.btn')}
+                                        <ArrowRight className="ml-2 w-5 h-5" />
+                                    </Button>
+                                </Link>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-rose-100 shadow-sm">
+                                    <div className="text-3xl mb-2">🎯</div>
+                                    <h4 className="text-xs font-mono uppercase text-rose-700 mb-1">Tulkinta</h4>
+                                    <p className="text-xs text-[#4A4A4A]">Erota faktat RSD-suodattimesta</p>
+                                </div>
+                                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-amber-100 shadow-sm">
+                                    <div className="text-3xl mb-2">⚡</div>
+                                    <h4 className="text-xs font-mono uppercase text-amber-700 mb-1">Meltdown</h4>
+                                    <p className="text-xs text-[#4A4A4A]">Seuraa energiatasoja</p>
+                                </div>
+                                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-rose-100 shadow-sm">
+                                    <div className="text-3xl mb-2">🧠</div>
+                                    <h4 className="text-xs font-mono uppercase text-rose-700 mb-1">Draama</h4>
+                                    <p className="text-xs text-[#4A4A4A]">RSD vai toksinen dynamiikka?</p>
+                                </div>
+                                <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                                    <div className="text-3xl mb-2">🛡️</div>
+                                    <h4 className="text-xs font-mono uppercase text-emerald-700 mb-1">Strategiat</h4>
+                                    <p className="text-xs text-[#4A4A4A]">Gray Rock, BIFF, Exit Plan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
 
                 {/* SIMULATION CALL TO ACTION */}

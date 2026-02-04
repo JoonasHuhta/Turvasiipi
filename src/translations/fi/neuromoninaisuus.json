@@ -112,6 +112,12 @@
             "text": "Yhdenvertaisuuslaki velvoittaa työnantajan tekemään kohtuullisia mukautuksia neurokirjon vuoksi. Et pyydä 'ekstraa', vaan tasa-arvoa."
         }
     },
+    "rsd_card": {
+        "mini_title": "RSD & Torjuntaherkkyys",
+        "title": "Kun torjunta sattuu liikaa",
+        "text": "Rejection Sensitive Dysphoria (RSD) on neurologinen ominaisuus, jossa torjunnan kokemus tuntuu äärimmäisen tuskalliselta. 99% ADHD-aikuisista kokee sitä, ja se on yleinen autismikirjossakin.",
+        "btn": "Tutustu RSD-työkalupakkiin"
+    },
     "simulation": {
         "mini_title": "Kokeile Itse",
         "title": "Simulaatiot",
