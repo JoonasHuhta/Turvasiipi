@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Brain, Target, Scale, MessageCircle, AlertTriangle, Zap, Ear, Heart, BookOpen, ShieldCheck, ArrowRight, UserCheck, Briefcase, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
@@ -43,6 +44,21 @@ export default function NeurodiversityPage() {
                         {t('neuromoninaisuus.header.intro')}
                     </p>
                 </div>
+
+                {/* EMPOWERING DISCLAIMER */}
+                <Alert className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 shadow-sm">
+                    <Heart className="h-6 w-6 text-purple-600" />
+                    <div className="space-y-2">
+                        <AlertTitle className="text-lg font-serif font-bold text-purple-900">
+                            Sinua ei tarvitse korjata
+                        </AlertTitle>
+                        <AlertDescription className="text-base text-purple-800 leading-relaxed">
+                            Tämä sovellus ei yritä korjata sinua, koska <strong>sinä et ole rikki</strong>.
+                            Tämä sovellus auttaa sinua navigoimaan ympäristössä, jota ei ole suunniteltu
+                            sinun hermostollesi. Ongelma on ympäristössä – ei sinussa.
+                        </AlertDescription>
+                    </div>
+                </Alert>
 
                 {/* INTRODUCTION CARDS */}
                 <div className="grid md:grid-cols-2 gap-6">
