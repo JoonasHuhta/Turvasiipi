@@ -105,6 +105,8 @@ export function MobileNav({ pathname, t, expertise, isOpen, onClose, onOpenChang
                             <div className="space-y-3">
                                 <span className="text-[11px] font-bold uppercase tracking-widest text-suojasiipi-primary opacity-70">{t('nav.explore')}</span>
                                 <div className="pl-4 space-y-3 border-l-2 border-suojasiipi-secondary/50 ml-1">
+                                    <Link href="/neuromoninaisuus" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>🧠 {t('nav.neuromoninaisuus')}</Link>
+                                    <Link href="/nuoret" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>🌱 {t('nav.youth_work')}</Link>
                                     <Link href="/quiz" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.identify_risks')}</Link>
                                     <Link href="/lukutaito-testi" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.literacy_test')}</Link>
                                     <Link href="/taktiikat" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.tactics')}</Link>
@@ -112,8 +114,6 @@ export function MobileNav({ pathname, t, expertise, isOpen, onClose, onOpenChang
                                     <Link href="/vaikutusprofiili" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.impact_profile')}</Link>
                                     <Link href="/empatia-testi" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.empathy_spectrum')}</Link>
                                     <Link href="/faktapankki" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.quiz_facts')}</Link>
-                                    <Link href="/neuromoninaisuus" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.neuromoninaisuus')}</Link>
-                                    <Link href="/nuoret" className="block text-suojasiipi-text-body hover:text-suojasiipi-text-main transition-colors py-0.5" onClick={onClose}>{t('nav.youth_work')}</Link>
                                 </div>
                             </div>
 

@@ -45,6 +45,12 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-56 bg-white border-suojasiipi-secondary rounded-sm shadow-sm py-2">
                     <DropdownMenuItem asChild>
+                        <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">🧠 {t('nav.neuromoninaisuus')}</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href="/nuoret" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">🌱 {t('nav.youth_work')}</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
                         <Link href="/quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.identify_risks')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
@@ -64,12 +70,6 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/faktapankki" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.quiz_facts')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.neuromoninaisuus')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/nuoret" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.youth_work')}</Link>
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
