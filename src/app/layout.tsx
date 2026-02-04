@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ProgressProvider } from "@/context/ProgressContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import SOSMode from "@/components/sos/SOSMode";
 
 import "./globals.css";
 
@@ -48,6 +49,9 @@ export default function RootLayout({
                 <main className="flex-1 w-full pt-20">
                   {children}
                 </main>
+
+                {/* Global SOS Mode - Always available */}
+                <SOSMode />
 
                 <Footer />
               </div>
