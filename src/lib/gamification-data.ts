@@ -177,6 +177,7 @@ const CORE_MODULES: Module[] = [
     { id: 'rsd_interpretation_tool', categoryId: 'AWARENESS', title: 'Tulkintasuodatin', points: 20, path: '/neuromoninaisuus/rsd/tulkinta' },
     { id: 'rsd_meltdown_tracker', categoryId: 'AWARENESS', title: 'Meltdown-seuranta', points: 20, path: '/neuromoninaisuus/rsd/meltdown' },
     { id: 'rsd_drama_filter', categoryId: 'AWARENESS', title: 'Dramasuodatin', points: 20, path: '/neuromoninaisuus/rsd/draama' },
+    { id: 'rsd_survival_strategies', categoryId: 'AWARENESS', title: 'Selviytymisstrategiat', points: 20, path: '/neuromoninaisuus/rsd/strategiat' },
     { id: 'youth_info', categoryId: 'AWARENESS', title: 'Nuoret-info', points: 75, path: '/nuoret' },
     { id: 'impact_profile', categoryId: 'AWARENESS', title: 'Vaikutusprofiili', points: 150, path: '/vaikutusprofiili' },
     { id: 'literacy_test', categoryId: 'AWARENESS', title: 'Kiusaamisen Lukutaito', points: 150, path: '/lukutaito-testi' },
