@@ -1,50 +1,48 @@
 {
-    "rsd": {
-        "hub": {
-            "mini_title": "RSD at Work",
-            "title": "When rejection hurts too much",
-            "quote": "If even a small glance feels like the end of the world, you're not too sensitive. Your nervous system works differently.",
-            "safety_note": "This section helps distinguish RSD reactions from actual workplace bullying. Both can be true simultaneously.",
-            "what": {
-                "title": "What is RSD?",
-                "subtitle": "Rejection Sensitive Dysphoria",
-                "definition": "Rejection Sensitive Dysphoria (RSD) is a neurological trait that makes the experience of rejection extremely painful. It's not weakness – it's a neurological difference.",
-                "stat1": "99% of adults with ADHD experience RSD",
-                "stat2": "Autism spectrum: very common"
+    "hub": {
+        "mini_title": "RSD at Work",
+        "title": "When rejection hurts too much",
+        "quote": "If even a small glance feels like the end of the world, you're not too sensitive. Your nervous system works differently.",
+        "safety_note": "This section helps distinguish RSD reactions from actual workplace bullying. Both can be true simultaneously.",
+        "what": {
+            "title": "What is RSD?",
+            "subtitle": "Rejection Sensitive Dysphoria",
+            "definition": "Rejection Sensitive Dysphoria (RSD) is a neurological trait that makes the experience of rejection extremely painful. It's not weakness – it's a neurological difference.",
+            "stat1": "99% of adults with ADHD experience RSD",
+            "stat2": "Autism spectrum: very common"
+        },
+        "workplace": {
+            "title": "RSD at work",
+            "subtitle": "How it shows in daily life",
+            "fear_feedback": "Fear of feedback can block career paths and development",
+            "perfection": "Perfectionism + overcompensation → burnout",
+            "catastrophic": "Small slight → 'I'll get fired' thoughts"
+        },
+        "scenario": {
+            "title": "Same situation, different interpretations",
+            "instruction": "How RSD can color an ordinary workday",
+            "insight": "Both interpretations can feel real. RSD tools help test which is more likely."
+        },
+        "tools": {
+            "title": "RSD Toolbox",
+            "interpretation": {
+                "title": "Interpretation Filter",
+                "desc": "Separate facts from interpretations"
             },
-            "workplace": {
-                "title": "RSD at work",
-                "subtitle": "How it shows in daily life",
-                "fear_feedback": "Fear of feedback can block career paths and development",
-                "perfection": "Perfectionism + overcompensation → burnout",
-                "catastrophic": "Small slight → 'I'll get fired' thoughts"
+            "meltdown": {
+                "title": "Meltdown Protocols",
+                "desc": "Track energy levels and prevent"
             },
-            "scenario": {
-                "title": "Same situation, different interpretations",
-                "instruction": "How RSD can color an ordinary workday",
-                "insight": "Both interpretations can feel real. RSD tools help test which is more likely."
+            "drama": {
+                "title": "Drama Filter",
+                "desc": "Neurodivergent reaction or toxic dynamic?"
             },
-            "tools": {
-                "title": "RSD Toolbox",
-                "interpretation": {
-                    "title": "Interpretation Filter",
-                    "desc": "Separate facts from interpretations"
-                },
-                "meltdown": {
-                    "title": "Meltdown Protocols",
-                    "desc": "Track energy levels and prevent"
-                },
-                "drama": {
-                    "title": "Drama Filter",
-                    "desc": "Neurodivergent reaction or toxic dynamic?"
-                },
-                "strategies": {
-                    "title": "Survival Strategies",
-                    "desc": "Gray Rock, BIFF, Exit Plan"
-                }
-            },
-            "complete_btn": "Mark as read",
-            "completed": "You've learned about RSD basics!"
-        }
+            "strategies": {
+                "title": "Survival Strategies",
+                "desc": "Gray Rock, BIFF, Exit Plan"
+            }
+        },
+        "complete_btn": "Mark as read",
+        "completed": "You've learned about RSD basics!"
     }
 }
