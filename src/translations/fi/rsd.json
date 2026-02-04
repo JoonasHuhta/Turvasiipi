@@ -44,5 +44,96 @@
         },
         "complete_btn": "Merkitse luetuksi",
         "completed": "Olet tutustunut RSD-perusteisiin!"
+    },
+    "tulkinta": {
+        "header": {
+            "mini_title": "Akuuttityökalu",
+            "title": "Tulkintasuodatin",
+            "subtitle": "Erota faktat RSD-reaktioista",
+            "intro": "Tämä työkalu auttaa erottamaan objektiiviset faktat RSD-värittämistä tulkinnoista. Kukaan muu ei näe tätä."
+        },
+        "step1": {
+            "title": "Mitä tapahtui?",
+            "subtitle": "Kirjoita vapaamuotoisesti",
+            "placeholder": "Esim: Esihenkilö käveli ohitseni käytävällä eikä tervehtinyt. Tunsin, että hän on vihainen...",
+            "privacy": "🔒 Yksityinen. Kukaan ei näe tätä.",
+            "button": "Jatka analysointiin"
+        },
+        "step2": {
+            "title": "Raaka näkymä",
+            "subtitle": "Mitä kamera näkisi?",
+            "intro": "Poistetaan RSD-suodatin. Mitä tosiasiallisesti tapahtui?",
+            "guide_title": "Ohje:",
+            "guide_facts": "✓ Säulytä havaittavat toimet",
+            "guide_no_interpret": "✗ Poista tulkinnat",
+            "guide_no_assume": "✗ Poista oletukset",
+            "example_title": "Esimerkki:",
+            "example_good": "✓ 'Henkilö X käveli ohi klo 14:30'",
+            "example_bad": "✗ 'Henkilö X vaikutti vihaiselta'",
+            "your_facts": "Sinun faktasi:",
+            "extracted_auto": "Automaattisesti poimittu:"
+        },
+        "step3": {
+            "title": "Kolme vaihtoehtoista selitystä",
+            "subtitle": "3-Sääntö",
+            "rule": "Jos keksit kolme yhtä todennäköistä selitystä, RSD-reaktio ei ole ainoa totuus.",
+            "rsd": {
+                "title": "RSD-selitys",
+                "subtitle": "Katastrofi-ajattelu",
+                "placeholder": "Esim: Hän vihaa minua, olen tehnyt jotain väärin...",
+                "emotion_label": "Tunnetaso"
+            },
+            "neutral": {
+                "title": "Neutraali selitys",
+                "subtitle": "Tavallinen, arkipäiväinen selitys",
+                "placeholder": "Esim: Oli kiireessä, ei huomannut minua...",
+                "emotion_label": "Tunnetaso"
+            },
+            "positive": {
+                "title": "Positiivinen selitys",
+                "subtitle": "Voisiko olla jopa hyvä?",
+                "placeholder": "Esim: Keskittynyt, ei halua häiritä...",
+                "emotion_label": "Tunnetaso"
+            },
+            "next": "Näytä yhteenveto"
+        },
+        "step4": {
+            "title": "Aikaviivelukko",
+            "subtitle": "Hengitä rauhassa",
+            "timer_title": "Lukittu",
+            "timer_text": "RSD-reaktio laskee {seconds} sekunnissa.",
+            "breathing_title": "Hengitysharjoitus:",
+            "breathing_in": "Sisään 4s",
+            "breathing_hold": "Pidä 4s",
+            "breathing_out": "Ulos 6s",
+            "why_title": "Miksi odotamme?",
+            "why_text": "RSD-reaktiot ovat voimakkaimmillaan heti. 60 sekuntia riittää rauhoittumiseen ja estää kaduttavat impulsiivit toimet.",
+            "unlocked": "Lukitus avattu - voit nyt toimia"
+        },
+        "summary": {
+            "title": "Yhteenveto",
+            "subtitle": "Näin tapahtuma näyttää eri näkökulmista",
+            "raw_event": "Raaka tapahtuma:",
+            "three_views": "Kolme näkökulmaa:",
+            "insight": "Kaikki kolme ovat mahdollisia. RSD saa yhden tuntumaan varmalta, vaikka ei ole."
+        },
+        "actions": {
+            "save": "Tallenna tapahtuma",
+            "saved": "Tallennettu!",
+            "export_loki": "Vie Lokiin",
+            "new": "Uusi tapahtuma",
+            "history": "Näytä historia",
+            "clear": "Tyhjennä ja poistu"
+        },
+        "history": {
+            "title": "Tapahtumahistoria",
+            "empty": "Ei tallennettuja tapahtumia.",
+            "delete": "Poista"
+        },
+        "completion": {
+            "title": "Olet käyttänyt Tulkintasuodatinta!",
+            "text": "Jatka käyttöä aina kun tunnet RSD-reaktion nousevan.",
+            "points": "+20 pistettä"
+        }
     }
 }
