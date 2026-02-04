@@ -175,6 +175,7 @@ const CORE_MODULES: Module[] = [
     { id: 'neuro_info', categoryId: 'AWARENESS', title: 'Neuromoninaisuus-info', points: 75, path: '/neuromoninaisuus' },
     { id: 'rsd_intro', categoryId: 'AWARENESS', title: 'RSD Perusteet', points: 30, path: '/neuromoninaisuus/rsd' },
     { id: 'rsd_interpretation_tool', categoryId: 'AWARENESS', title: 'Tulkintasuodatin', points: 20, path: '/neuromoninaisuus/rsd/tulkinta' },
+    { id: 'rsd_meltdown_tracker', categoryId: 'AWARENESS', title: 'Meltdown-seuranta', points: 20, path: '/neuromoninaisuus/rsd/meltdown' },
     { id: 'youth_info', categoryId: 'AWARENESS', title: 'Nuoret-info', points: 75, path: '/nuoret' },
     { id: 'impact_profile', categoryId: 'AWARENESS', title: 'Vaikutusprofiili', points: 150, path: '/vaikutusprofiili' },
     { id: 'literacy_test', categoryId: 'AWARENESS', title: 'Kiusaamisen Lukutaito', points: 150, path: '/lukutaito-testi' },
