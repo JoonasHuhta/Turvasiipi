@@ -7,6 +7,8 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Globe, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -44,20 +46,21 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                     {t('nav.explore')} <ChevronDown className="w-3 h-3 opacity-50" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-56 bg-white border-suojasiipi-secondary rounded-sm shadow-sm py-2">
+                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Kohderyhmät</DropdownMenuLabel>
                     <DropdownMenuItem asChild>
                         <Link href="/neuromoninaisuus" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">🧠 {t('nav.neuromoninaisuus')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/nuoret" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">🌱 {t('nav.youth_work')}</Link>
                     </DropdownMenuItem>
+
+                    <DropdownMenuSeparator />
+                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Testit & Arvioinnit</DropdownMenuLabel>
                     <DropdownMenuItem asChild>
                         <Link href="/quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.identify_risks')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/lukutaito-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.literacy_test')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/taktiikat" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.tactics')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/feeling-quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.victim_feelings')}</Link>
@@ -67,6 +70,12 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/empatia-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.empathy_spectrum')}</Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuSeparator />
+                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Oppimateriaali</DropdownMenuLabel>
+                    <DropdownMenuItem asChild>
+                        <Link href="/taktiikat" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.tactics')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/faktapankki" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.quiz_facts')}</Link>
