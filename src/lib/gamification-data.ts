@@ -185,6 +185,8 @@ const CORE_MODULES: Module[] = [
     { id: 'neuro_prep_practiced', categoryId: 'AWARENESS', title: 'Repliikki harjoiteltu 3x', points: 30, path: '/neuromoninaisuus/prep' },
     { id: 'neuro_prep_copied', categoryId: 'AWARENESS', title: 'Repliikki kopioitu', points: 50, path: '/neuromoninaisuus/prep' },
     { id: 'neuro_sos_activated', categoryId: 'AWARENESS', title: 'SOS-tila aktivoitu', points: 10, path: '/' },
+    { id: 'neuro_strength_first', categoryId: 'AWARENESS', title: 'Ensimmäinen vahvuus', points: 10, path: '/neuromoninaisuus/vahvuudet' },
+    { id: 'neuro_strength_10', categoryId: 'AWARENESS', title: '10 vahvuutta', points: 50, path: '/neuromoninaisuus/vahvuudet' },
     { id: 'youth_info', categoryId: 'AWARENESS', title: 'Nuoret-info', points: 75, path: '/nuoret' },
     { id: 'impact_profile', categoryId: 'AWARENESS', title: 'Vaikutusprofiili', points: 150, path: '/vaikutusprofiili' },
     { id: 'literacy_test', categoryId: 'AWARENESS', title: 'Kiusaamisen Lukutaito', points: 150, path: '/lukutaito-testi' },
