@@ -1,0 +1,50 @@
+{
+    "rsd": {
+        "hub": {
+            "mini_title": "RSD Työelämässä",
+            "title": "Kun torjunta sattuu liikaa",
+            "quote": "Jos pienikin mulkaisu tuntuu maailmanlopulta, et ole liian herkkä. Hermostosi toimii eri tavalla.",
+            "safety_note": "Tämä osio auttaa erottamaan RSD-reaktiot todellisesta kiusaamisesta. Molemmat voivat olla totta samanaikaisesti.",
+            "what": {
+                "title": "Mikä on RSD?",
+                "subtitle": "Rejection Sensitive Dysphoria",
+                "definition": "Rejection Sensitive Dysphoria (RSD) on neurologinen ominaisuus, joka tekee torjunnan kokemuksesta äärimmäisen tuskallisen. Se ei ole heikkoutta – se on neurologinen ero.",
+                "stat1": "99% ADHD-aikuisista kokee RSD:tä",
+                "stat2": "Autismikirjossa: erittäin yleinen"
+            },
+            "workplace": {
+                "title": "RSD työpaikalla",
+                "subtitle": "Miten se näkyy arjessa",
+                "fear_feedback": "Palautteen pelko voi estää urapolkuja ja kehittymistä",
+                "perfection": "Perfektionismi + ylikompensaatio → burnout",
+                "catastrophic": "Pieni mulkaisu → 'Minut irtisanotaan' -ajatukset"
+            },
+            "scenario": {
+                "title": "Sama tilanne, eri tulkinnat",
+                "instruction": "Näin RSD voi värittää tavallista työpäivää",
+                "insight": "Molemmat tulkinnat voivat tuntua tosilta. RSD-työkalut auttavat testaamaan, kumpi on todennäköisempi."
+            },
+            "tools": {
+                "title": "RSD-työkalupakki",
+                "interpretation": {
+                    "title": "Tulkintasuodatin",
+                    "desc": "Erota faktat tulkinnoista"
+                },
+                "meltdown": {
+                    "title": "Meltdown-protokollat",
+                    "desc": "Seuraa energiatasoja ja ennaltaehkäise"
+                },
+                "drama": {
+                    "title": "Dramasuodatin",
+                    "desc": "Neurokirjon reaktio vai toksinen dynamiikka?"
+                },
+                "strategies": {
+                    "title": "Selviytymisstrategiat",
+                    "desc": "Gray Rock, BIFF, Exit Plan"
+                }
+            },
+            "complete_btn": "Merkitse luetuksi",
+            "completed": "Olet tutustunut RSD-perusteisiin!"
+        }
+    }
+}

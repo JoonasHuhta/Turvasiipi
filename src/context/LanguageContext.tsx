@@ -29,6 +29,7 @@ const loaders: Record<Language, Record<string, () => Promise<{ default: any }>>>
         start_here: () => import('../translations/fi/start_here.json'),
         simulation: () => import('../translations/fi/simulation.json'),
         landing: () => import('../translations/fi/landing.json'),
+        rsd: () => import('../translations/fi/rsd.json'),
     },
     en: {
 
@@ -49,6 +50,7 @@ const loaders: Record<Language, Record<string, () => Promise<{ default: any }>>>
         start_here: () => import('../translations/en/start_here.json'),
         simulation: () => import('../translations/en/simulation.json'),
         landing: () => import('../translations/en/landing.json'),
+        rsd: () => import('../translations/en/rsd.json'),
     }
 };
 
