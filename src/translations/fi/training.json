@@ -1116,6 +1116,36 @@
             "desc": "Kaikki todisteet yhdessä paketissa."
           }
         }
+      },
+      "rsd_tuki": {
+        "title": "RSD TUKI 🧭",
+        "desc": "5-tasoinen polku RSD:n hallintaan. Aloita mistä tahansa.",
+        "modules": {
+          "rsd_hub": {
+            "title": "RSD Edistyminen",
+            "desc": "Katsele tilastoja, voimavaralauseita ja suosituksia."
+          },
+          "rsd_level_1": {
+            "title": "Taso 1: Biologinen Perusta",
+            "desc": "RSD ei ole sinun vikasi"
+          },
+          "rsd_level_2": {
+            "title": "Taso 2: Fakta vs. Tulkinta",
+            "desc": "Linssin vaihto"
+          },
+          "rsd_level_3": {
+            "title": "Taso 3: Keho Ensin",
+            "desc": "Hätäjarru"
+          },
+          "rsd_level_4": {
+            "title": "Taso 4: Pelko vs. Todellisuus",
+            "desc": "Data ennen draamaa"
+          },
+          "rsd_level_5": {
+            "title": "Taso 5: RSD → Supervoima",
+            "desc": "Voimavara-generaattori"
+          }
+        }
       }
     },
     "ui": {
@@ -3663,6 +3693,36 @@
               "desc": "Kaikki todisteet yhdessä paketissa."
             }
           }
+        },
+        "rsd_tuki": {
+          "title": "RSD TUKI 🧭",
+          "desc": "5-tasoinen polku RSD:n hallintaan. Aloita mistä tahansa.",
+          "modules": {
+            "rsd_hub": {
+              "title": "RSD Edistyminen",
+              "desc": "Katsele tilastoja, voimavaralauseita ja suosituksia."
+            },
+            "rsd_level_1": {
+              "title": "Taso 1: Biologinen Perusta",
+              "desc": "RSD ei ole sinun vikasi"
+            },
+            "rsd_level_2": {
+              "title": "Taso 2: Fakta vs. Tulkinta",
+              "desc": "Linssin vaihto"
+            },
+            "rsd_level_3": {
+              "title": "Taso 3: Keho Ensin",
+              "desc": "Hätäjarru"
+            },
+            "rsd_level_4": {
+              "title": "Taso 4: Pelko vs. Todellisuus",
+              "desc": "Data ennen draamaa"
+            },
+            "rsd_level_5": {
+              "title": "Taso 5: RSD → Supervoima",
+              "desc": "Voimavara-generaattori"
+            }
+          }
         }
       },
       "ui": {
@@ -5124,5 +5184,85 @@
         }
       }
     ]
+  },
+  "rsd_sparring": {
+    "intro": {
+      "title": "Toinen Tulkinta",
+      "subtitle": "Kun mieli lukittuu yhteen selitykseen, voit pysähtyä hetkeksi ja katsoa muitakin mahdollisuuksia.",
+      "body": "Tämä ei pyri muuttamaan ajatteluasi eikä pakota sinua uskomaan mitään. Harjoitus vain hidastaa automaattista reaktiota ja muistuttaa, että yksi tulkinta ei ole ainoa mahdollinen.",
+      "process_title": "Mitä seuraavaksi tapahtuu:",
+      "process_steps": [
+        "Valitset tutun tilanteen",
+        "Tunnistat siihen liittyvän automaattisen ajatuksen",
+        "Valitset kolme muuta mahdollista selitystä",
+        "Arvioit tunteen voimakkuuden ennen ja jälkeen"
+      ],
+      "duration": "Kesto: noin 2–3 minuuttia",
+      "no_writing": "Ei kirjoittamista – vain valintoja",
+      "start": "Aloita rauhassa"
+    },
+    "situation": {
+      "title": "Vaihe 1/4",
+      "question": "Mikä tilanne laukaisi tämän?",
+      "options": [
+        "Viesti jäi vastaamatta (Teams, sähköposti, Slack...)",
+        "Sain lyhyen tai kylmän vastauksen",
+        "En saanut kutsua palaveriin (tai minut sivuutettiin)",
+        "Joku ilmeili tai huokaili kun puhuin",
+        "Esihenkilö antoi palautetta (vaikka neutraalia)",
+        "Kukaan ei kommentoinut työtäni (hiljaisuus tuntuu torjunnalta)",
+        "Tunnelma muuttui kun tulin paikalle"
+      ],
+      "continue": "Jatka"
+    },
+    "thought": {
+      "title": "Vaihe 2/4",
+      "question": "Mikä ensimmäinen ajatus iski päähän?",
+      "hint": "Ei ole oikeita tai vääriä vastauksia. Valitse se, joka tuntuu tutulta.",
+      "options": [
+        "\"Olen tehnyt jotain väärin (vaikka en tiedä mitä)\"",
+        "\"Minua ei arvosteta / minulla ei ole merkitystä\"",
+        "\"He eivät pidä minusta\"",
+        "\"Minut eristetään / suljetaan ulos\"",
+        "\"Olen epäonnistunut\"",
+        "\"Tämä on alku – kohta minut irtisanotaan / hylätään\"",
+        "\"En kelpaa tähän\""
+      ],
+      "continue": "Jatka"
+    },
+    "alternatives": {
+      "title": "Valitse 3 mahdollista tulkintaa",
+      "selectedCount": "Valittu {{count}}/3",
+      "instruction": "Valitse kolme vaihtoehtoa, jotka ovat yhtä todennäköisiä selityksiä.\n\nNiiden ei tarvitse tuntua totta juuri nyt. Riittää, että ne ovat mahdollisia.",
+      "options": [
+        "He ovat kiireisiä (deadline, paine, oma stressi)",
+        "He eivät ole nähneet viestiä / eivät muista vastata",
+        "Heillä on huono päivä (ei liity minuun)",
+        "He ajattelevat jotain muuta (perhe, terveys, huolet)",
+        "Viestintätyyli on vain erilainen (toiset ovat niukkasanaisia)",
+        "He eivät tiedä, että pidän tätä tärkeänä",
+        "He olettavat että kaikki on ok (ja se voi ollakin)"
+      ],
+      "continue": "Jatka"
+    },
+    "reflection": {
+      "title": "Vaihe 4/4",
+      "before": {
+        "label": "Tunteen voimakkuus ENNEN harjoitusta",
+        "scaleHint": "0 = ei häiritse, 10 = ylivoimainen"
+      },
+      "after": {
+        "label": "Tunteen voimakkuus NYT"
+      },
+      "summary": {
+        "title": "Mikä muuttui?",
+        "body": "Jos kokemus laski edes yhden numeron, se on tarpeeksi.\n\nRSD:ssä ei ole kyse siitä, että 'väärä ajatus korjataan oikeaksi'. Se on nopeus ja voimakkuus, joka kaipaa hidastusta.\n\nSe hidastus tapahtui juuri nyt."
+      },
+      "finish": "Valmis"
+    },
+    "ui": {
+      "gentlePause": "Rauhassa. Tämä oli pieni harjoitus, ei suuri ratkaisu.",
+      "selectThree": "Valitse vielä {{remaining}}"
+    }
   }
 }

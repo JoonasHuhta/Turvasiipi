@@ -1,0 +1,372 @@
+{
+    "version": "1.0.0",
+    "metadata": {
+        "title": "RSD Sparring - 5-tasoinen interventio",
+        "description": "Ohjattu prosessi RSD-hetken hallintaan",
+        "author": "Turvasiipi",
+        "lastUpdated": "2026-02-06"
+    },
+    "modules": [
+        {
+            "level": 1,
+            "id": "biological_foundation",
+            "title": "RSD ei ole sinun vikasi",
+            "subtitle": "Biologinen perusta",
+            "teaching": {
+                "main": "RSD on aivojen dopamiini- ja noradrenaliinijärjestelmän herkkyyttä – ei luonteenheikkous. Se on suojausmekanismi, joka yliampuu.",
+                "keyPoint": "Kun dopamiini ja noradrenaliini ovat matalalla, aivojen hälytysj ärjestelmä tulkitsee epäselvät signaalit uhkana.",
+                "reassurance": "Tämä reaktio ei tarkoita, että olet liian herkkä. Se tarkoittaa, että hermostosi on kuormittunut juuri nyt."
+            },
+            "vulnerabilityWidget": {
+                "title": "Mikä kuormittaa hermostoasi tänään?",
+                "checklist": [
+                    {
+                        "id": "sleep",
+                        "label": "Univelka tai huono uni",
+                        "weight": 1.2
+                    },
+                    {
+                        "id": "overload",
+                        "label": "Ylikuormitus (liikaa tehtävää)",
+                        "weight": 1.5
+                    },
+                    {
+                        "id": "social",
+                        "label": "Sosiaalinen stressi",
+                        "weight": 1.3
+                    },
+                    {
+                        "id": "hunger",
+                        "label": "Nälkä tai matala verensokeri",
+                        "weight": 1.1
+                    },
+                    {
+                        "id": "conflict",
+                        "label": "Konfliktit tai palautetilanne",
+                        "weight": 1.4
+                    }
+                ],
+                "feedback": {
+                    "low": "Hermostosi on suhteellisen tasapainossa. Hyvä hetki harjoitella.",
+                    "medium": "Hermostosi on kuormittunut. Ole lempeä itsellesi tässä harjoituksessa.",
+                    "high": "Hermostosi on erittäin kuormittunut. Harkitse ensin kehon rauhoittamista (Taso 3)."
+                }
+            },
+            "scenario": {
+                "description": "Esimies Teamsissa: 'Tämä raportti pitää vielä hioa ennen lähetystä.'",
+                "automaticThought": "Olen epäonnistuja täysin, hän haluaa eroon minusta",
+                "alternatives": [
+                    "Kiireinen aikataulu, haluaa varmistaa laadun",
+                    "Rutiinipalautetta kaikille",
+                    "Haluaa auttaa minua kehittymään"
+                ]
+            },
+            "powerStatement": "Minun aivoni ovat herkät torjunnalle – se ei tee minusta viallista.",
+            "reflectionPrompt": "Tänään huomasin RSD:n laukaisijan.",
+            "entryConditions": [
+                "any"
+            ],
+            "exitConditions": [
+                "readFeedback",
+                "acceptedState"
+            ],
+            "fallbackTo": 3,
+            "estimatedDuration": "3-5 min"
+        },
+        {
+            "level": 2,
+            "id": "cognitive_defusion",
+            "title": "Fakta vs. tulkinta",
+            "subtitle": "Linssin vaihto",
+            "teaching": {
+                "main": "80% RSD-kivusta tulee mielen automaattitulkinnoista, ei itse tapahtumasta.",
+                "keyPoint": "RSD saa 60% tuntumaan 100%:lta. Varmuus ei ole totuus.",
+                "reassurance": "Et yritä uskoa muuta. Vain huomaat, että on useampi mahdollisuus."
+            },
+            "lensSlider": {
+                "title": "Kuinka varma olet tästä tulkinnasta?",
+                "min": 0,
+                "max": 100,
+                "defaultValue": 80,
+                "labels": {
+                    "left": "Yksi tulkinta",
+                    "right": "Useita mahdollisuuksia"
+                },
+                "revealAtThreshold": 60,
+                "revealContent": {
+                    "title": "Faktat ilman tulkintaa:",
+                    "items": [
+                        "Aikaleima: nyt",
+                        "Sanavalinta: neutraali",
+                        "Konteksti: työtilanne, ei henkilökohtainen"
+                    ]
+                }
+            },
+            "scenario": {
+                "description": "Ei vastausta viestiisi 4 tuntia.",
+                "automaticThought": "Tein jotain pahaa, olen ärsyttävä",
+                "alternatives": [
+                    "Kokouksessa tai kiireinen päivä",
+                    "Unohti vastata, ei tarkoituksellista",
+                    "Ei prioriteettiasia juuri nyt"
+                ]
+            },
+            "powerStatement": "Opin erottamaan: tapahtuma X ≠ ajatus Y.",
+            "reflectionPrompt": "Tänään erotin faktan tulkinnasta.",
+            "entryConditions": [
+                "completedLevel1",
+                "questioning"
+            ],
+            "exitConditions": [
+                "movedSlider"
+            ],
+            "fallbackTo": 3,
+            "fallbackTrigger": "sliderIncreasesAnxiety",
+            "estimatedDuration": "2-3 min"
+        },
+        {
+            "level": 3,
+            "id": "somatic_regulation",
+            "title": "Keho ensin",
+            "subtitle": "Hätäjarru",
+            "teaching": {
+                "main": "RSD on kehotunne – rauhoita hermosto ennen ajattelua.",
+                "keyPoint": "Et yritä rauhoittua. Sallit kehon purkaa kuorman.",
+                "reassurance": "Säätely voi olla epämukavaa. Se on normaalia ja käy ohi."
+            },
+            "bodyRegulation": {
+                "title": "Valitse yksi keino:",
+                "options": [
+                    {
+                        "id": "breathing",
+                        "icon": "🔥",
+                        "label": "Hengitä 4-4-6 (4 kierrosta)",
+                        "action": "hapticTimer",
+                        "duration": 60,
+                        "hapticPattern": [
+                            100,
+                            50,
+                            100
+                        ],
+                        "instructions": [
+                            "Hengitä sisään 4 sekuntia",
+                            "Pidätä 4 sekuntia",
+                            "Hengitä ulos 6 sekuntia"
+                        ]
+                    },
+                    {
+                        "id": "shake",
+                        "icon": "❄️",
+                        "label": "Ravista kädet 30s",
+                        "action": "shakeAnimation",
+                        "duration": 30
+                    },
+                    {
+                        "id": "grounding",
+                        "icon": "💭",
+                        "label": "5 asiaa mitä näet",
+                        "action": "groundingList",
+                        "prompt": "Nimeä 5 asiaa jotka näet juuri nyt:",
+                        "minItems": 5
+                    }
+                ]
+            },
+            "scenario": {
+                "description": "Kollega hiljainen kokouksessa kun puhut.",
+                "automaticThought": "Kaikki tietää että olen outo",
+                "alternatives": [
+                    "Oma ajatus, ei liity minuun",
+                    "Keskittyy omaan työhönsä",
+                    "Väsynyt tai poissa ajoissa"
+                ]
+            },
+            "powerStatement": "Olen oppinut rauhoittamaan kehoni 1 minuutissa.",
+            "reflectionPrompt": "Tänään säätelin kehoa ennen reaktiota.",
+            "entryConditions": [
+                "overloaded",
+                "fallbackFromOtherLevel"
+            ],
+            "exitConditions": [
+                "completedRegulation"
+            ],
+            "requiredRegulation": true,
+            "estimatedDuration": "1-3 min"
+        },
+        {
+            "level": 4,
+            "id": "reality_tracking",
+            "title": "Pelko vs. todellisuus",
+            "subtitle": "Data ennen draamaa",
+            "teaching": {
+                "main": "90% RSD-peloista EI toteudu – data muuttaa uskomuksia.",
+                "keyPoint": "Aivosi ovat erittäin hyvät ennustamaan uhkia. Ne eivät vain ole kovin tarkkoja.",
+                "reassurance": "Jos pelko toteutuu, se ei tarkoita että olit väärässä. Se tarkoittaa että et voi ennustaa kaikkea – eikä kukaan voi."
+            },
+            "predictionTracker": {
+                "title": "Mitä pelkäät tapahtuvan?",
+                "predictionTypes": [
+                    "Minut eristetään",
+                    "Minut torjutaan",
+                    "Menetän työpaikkani",
+                    "Kukaan ei välitä",
+                    "Olen tehnyt jotain väärin",
+                    "Muu (vapaa teksti)"
+                ],
+                "confidenceSlider": {
+                    "label": "Kuinka varma olet?",
+                    "min": 0,
+                    "max": 100
+                },
+                "followUpOptions": [
+                    {
+                        "label": "24 tuntia",
+                        "hours": 24
+                    },
+                    {
+                        "label": "48 tuntia",
+                        "hours": 48
+                    },
+                    {
+                        "label": "72 tuntia",
+                        "hours": 72
+                    }
+                ],
+                "outcomePrompt": "Toteutuiko pelko?",
+                "outcomeOptions": [
+                    "Ei toteutunut",
+                    "Osittain toteutui",
+                    "Toteutui täysin"
+                ]
+            },
+            "scenario": {
+                "description": "Kollega ei laittanut hymiötä viestiin.",
+                "automaticThought": "Hän vihaa minua",
+                "alternatives": [
+                    "Ei tavoitteellista",
+                    "Neutraali viestintätyyli",
+                    "Ei merkitystä"
+                ]
+            },
+            "powerStatement": "Minulla on todisteita että pelkoni yliarvioivat.",
+            "reflectionPrompt": "Tällä viikolla {{realized}}/{{total}} pelosta ei toteutunut.",
+            "entryConditions": [
+                "completedLevel2",
+                "reflecting"
+            ],
+            "exitConditions": [
+                "onePredictionMade"
+            ],
+            "estimatedDuration": "5 min + seuranta"
+        },
+        {
+            "level": 5,
+            "id": "strength_integration",
+            "title": "RSD → supervoima",
+            "subtitle": "Voimavara-generaattori",
+            "teaching": {
+                "main": "RSD-herkkyys = syvä empatia + vaarojen tunnistus. Kanavoi se työelämäksi.",
+                "keyPoint": "Se mikä satuttaa, myös vahvistaa. Tämä ei ole kompensaatiota, vaan integraatiota.",
+                "reassurance": "Et pakota itseäsi uskomaan jotain. Huomaat mitä herkkyys on jo opettanut."
+            },
+            "strengthGenerator": {
+                "title": "Koska reagoin herkästi, huomaan…",
+                "strengthOptions": [
+                    {
+                        "id": "injustice",
+                        "label": "Epäoikeudenmukaisuuden",
+                        "cardTemplate": "Minulla on korkea oikeudenmukaisuusherkkyys, jonka ansiosta tunnistan epätasa-arvon varhain."
+                    },
+                    {
+                        "id": "tensions",
+                        "label": "Hiljaiset jännitteet",
+                        "cardTemplate": "Minulla on vahva sosiaalinen intuittio, jonka ansiosta tunnistan ryhmädynamiikan muutokset ennen muita."
+                    },
+                    {
+                        "id": "changes",
+                        "label": "Muutosten ensimerkit",
+                        "cardTemplate": "Minulla on herkkä havainnointi, jonka ansiosta huomaan pienetkin muutokset ympäristössä."
+                    },
+                    {
+                        "id": "climate",
+                        "label": "Tiimin tunneilmaston",
+                        "cardTemplate": "Minulla on empaattinen herkkyys, jonka ansiosta ymmärrän tiimin tunnetiloja syvällisesti."
+                    }
+                ],
+                "customOption": {
+                    "enabled": true,
+                    "prompt": "Kirjoita oma vahvuutesi:"
+                },
+                "cardOutput": {
+                    "private": true,
+                    "shareable": true,
+                    "exportFormats": [
+                        "text",
+                        "image",
+                        "linkedin"
+                    ]
+                }
+            },
+            "scenario": {
+                "description": "Palaute: 'Hyvä työ, mutta deadlineissa lipsahduksia.'",
+                "automaticThought": "Epäluotettava ikuisesti",
+                "alternatives": [
+                    "Prosessi, ei persoona",
+                    "Ei identiteettini",
+                    "Parannettavissa, ei pysyvää"
+                ]
+            },
+            "powerStatement": "RSD on aivoni lahja – opettanut minulle {{userInput}}.",
+            "reflectionPrompt": "Nyt käytän herkkyydenäni voimana.",
+            "entryConditions": [
+                "completedLevel3",
+                "integrating"
+            ],
+            "exitConditions": [
+                "strengthCardCreated"
+            ],
+            "estimatedDuration": "5-7 min"
+        }
+    ],
+    "progressSettings": {
+        "unlockMode": "open",
+        "recommendationAlgorithm": "stateMachine",
+        "trackingEnabled": true,
+        "dataRetentionDays": 90
+    },
+    "stateTransitions": {
+        "overloaded": {
+            "recommendLevel": 3,
+            "reason": "Hermosto kuormittunut"
+        },
+        "questioning": {
+            "recommendLevel": 2,
+            "reason": "Kognitiivinen uudelleenkehystys"
+        },
+        "regulating": {
+            "recommendLevel": 3,
+            "reason": "Keho kaipaa rauhoittumista"
+        },
+        "reflecting": {
+            "recommendLevel": 4,
+            "reason": "Rakenna todistusaineistoa"
+        },
+        "integrating": {
+            "recommendLevel": 5,
+            "reason": "Muuta herkkyys voimavaraksi"
+        }
+    },
+    "fallbackRules": [
+        {
+            "from": 2,
+            "to": 3,
+            "trigger": "intensityIncreases",
+            "message": "Pysähdytään. Siirrytään kehoon."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "trigger": "userReports_stillFeelsBad",
+            "message": "Teoria ei auta juuri nyt. Kokeillaan jotain konkreettista."
+        }
+    ]
+}

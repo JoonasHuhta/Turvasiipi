@@ -30,6 +30,10 @@ const HRMasterclass = dynamic(() => import("@/components/training/HRMasterclass"
 const B2BInquiry = dynamic(() => import("@/components/training/B2BInquiry").then(m => m.B2BInquiry)); // New module
 const OrganizationResources = dynamic(() => import("@/components/training/OrganizationResources").then(m => m.OrganizationResources));
 const CertificatesModule = dynamic(() => import("@/components/training/CertificatesModule").then(m => m.CertificatesModule));
+const RSDSparring = dynamic(() => import("@/components/training/RSDSparring"));
+const RSDLevelHub = dynamic(() => import("@/components/training/RSDPath/RSDLevelHub"));
+const RSDLevel1 = dynamic(() => import("@/components/training/RSDPath/RSDLevel1"));
+const RSDLevelPlaceholder = dynamic(() => import("@/components/training/RSDPath/RSDLevelPlaceholder"));
 
 // Common props that every module receives
 export interface ModuleProps {
@@ -77,12 +81,21 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'trauma_brain': TraumaBrain,
     'dmn': DefaultModeNetwork,
     'mindfulness': MindfulnessGrounding,
+    'rsd_sparring': RSDSparring,
 
     // Organization
     'org_knowledge': OrganizationResources,
 
     // Progress
-    'cert_view': CertificatesModule
+    'cert_view': CertificatesModule,
+
+    // RSD Path
+    'rsd_hub': RSDLevelHub,
+    'rsd_level_1': RSDLevel1,
+    'rsd_level_2': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={2} title="Fakta vs. Tulkinta" />,
+    'rsd_level_3': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={3} title="Keho Ensin" />,
+    'rsd_level_4': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={4} title="Pelko vs. Todellisuus" />,
+    'rsd_level_5': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={5} title="RSD → Supervoima" />
 };
 
 export function getModuleComponent(moduleId: string): ComponentType<any> | null {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Shield } from "lucide-react";
 
 export function Footer() {
     const { t } = useLanguage();
@@ -36,7 +37,7 @@ export function Footer() {
                         onClick={() => setShowDeveloperInfo(true)}
                         className="text-[10px] font-mono uppercase tracking-widest text-[#4A4A4A]/50 hover:text-[#5B4B8A] transition-colors"
                     >
-                        Tietoja kehittäjästä
+                        Tietoa meistä
                     </button>
                 </div>
             </footer>
@@ -45,13 +46,13 @@ export function Footer() {
             <Dialog open={showDeveloperInfo} onOpenChange={setShowDeveloperInfo}>
                 <DialogContent className="max-w-2xl bg-[#FDFBF7] border-[#E8DDD0]">
                     <DialogHeader>
-                        <DialogTitle className="sr-only">Tietoja kehittäjästä</DialogTitle>
+                        <DialogTitle className="sr-only">Tietoa meistä</DialogTitle>
                     </DialogHeader>
 
                     <div className="bg-white p-8 rounded-sm border border-[#E8DDD0]">
                         <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-[#5B4B8A] rounded-sm flex items-center justify-center text-white font-bold text-xl flex-shrink-0 font-serif">
-                                JH
+                            <div className="w-12 h-12 bg-[#5B4B8A] rounded-sm flex items-center justify-center flex-shrink-0">
+                                <Shield className="w-7 h-7 text-white" strokeWidth={2.5} />
                             </div>
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
@@ -65,26 +66,44 @@ export function Footer() {
                                 </p>
                                 <div className="space-y-2 text-sm text-[#4A4A4A] font-mono">
                                     <div className="flex items-center gap-2">
-                                        <span className="font-bold text-[#2B2B2B]">Versio:</span> 1.0.0 (Beta)
+                                        <span className="font-bold text-[#2B2B2B]">Versio:</span> 1.0.1 (Beta)
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-bold text-[#2B2B2B]">Kehittäjä:</span> Joonas Huhta
+                                    <div className="space-y-1">
+                                        <div className="flex items-start gap-2">
+                                            <span className="font-bold text-[#2B2B2B]">Perustaja & pääsuunnittelija:</span>
+                                        </div>
+                                        <div className="ml-4 text-sm">
+                                            <div>Joonas Huhta</div>
+                                            <a
+                                                href="https://www.linkedin.com/in/joonas-huhta-2821a3260/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-[#5B4B8A] hover:underline"
+                                            >
+                                                LinkedIn
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1">
+                                        <div className="flex items-start gap-2">
+                                            <span className="font-bold text-[#2B2B2B]">Kiusaamisasiantuntija:</span>
+                                        </div>
+                                        <div className="ml-4 text-sm">
+                                            <div>Essi Paulamäki</div>
+                                            <a
+                                                href="https://www.linkedin.com/in/essi-paulamaki-23aa8a98/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-[#5B4B8A] hover:underline"
+                                            >
+                                                LinkedIn
+                                            </a>
+                                        </div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="font-bold text-[#2B2B2B]">Palaute:</span>
                                         <a href="mailto:turvasiipi@gmail.com" className="text-[#5B4B8A] hover:underline">
                                             turvasiipi@gmail.com
-                                        </a>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-bold text-[#2B2B2B]">LinkedIn:</span>
-                                        <a
-                                            href="https://www.linkedin.com/in/joonas-huhta-2821a3260/"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-[#5B4B8A] hover:underline flex items-center gap-1"
-                                        >
-                                            Joonas Huhta
                                         </a>
                                     </div>
                                 </div>

@@ -62,7 +62,24 @@ export const trainingHubData: TrainingCategory[] = [
             { id: 'somatic', title: 'Somaattinen Vapautus', description: '5 harjoitusta kehon jännitykseen.', points: 150 },
             { id: 'trauma_brain', title: 'Trauma-Aivot: Parantaminen', description: 'Miten mieli toipuu vauriosta.', points: 200 },
             { id: 'dmn', title: 'Default Mode Network', description: 'Katkaise märehtimisen kierre.', points: 100 },
-            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', points: 50 }
+            { id: 'mindfulness', title: 'Mindfulness & Grounding', description: 'Ankkuroitumisharjoitukset arkeen.', points: 50 },
+            { id: 'rsd_sparring', title: 'Toinen Tulkinta', description: 'Lempeä sparring RSD-tilanteisiin', isNew: true, points: 150 }
+        ]
+    },
+    {
+        id: 'rsd_tuki',
+        title: 'RSD TUKI 🧭',
+        icon: Compass,
+        description: '5-tasoinen polku RSD:n hallintaan. Aloita mistä tahansa.',
+        color: 'violet',
+        type: 'process',
+        modules: [
+            { id: 'rsd_hub', title: 'RSD Edistyminen', description: 'Katsele tilastoja, voimavaralauseita ja suosituksia.', isNew: true, points: 0 },
+            { id: 'rsd_level_1', title: 'Taso 1: Biologinen Perusta', description: 'RSD ei ole sinun vikasi', points: 100 },
+            { id: 'rsd_level_2', title: 'Taso 2: Fakta vs. Tulkinta', description: 'Linssin vaihto', points: 100 },
+            { id: 'rsd_level_3', title: 'Taso 3: Keho Ensin', description: 'Hätäjarru', points: 100 },
+            { id: 'rsd_level_4', title: 'Taso 4: Pelko vs. Todellisuus', description: 'Data ennen draamaa', points: 150 },
+            { id: 'rsd_level_5', title: 'Taso 5: RSD → Supervoima', description: 'Voimavara-generaattori', isNew: true, points: 150 }
         ]
     },
     {
