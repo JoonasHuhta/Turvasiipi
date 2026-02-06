@@ -37,8 +37,8 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                 {t('nav.simulation')}
             </Link>
 
-            <Link href="/aloita" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname === '/aloita' && "text-suojasiipi-primary font-bold")}>
-                {t('nav.start_here')}
+            <Link href="/ajattelu" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname.startsWith('/ajattelu') && "text-suojasiipi-primary font-bold")}>
+                {t('nav.thinking')}
             </Link>
 
             <DropdownMenu>

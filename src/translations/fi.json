@@ -19,9 +19,19 @@
         "guide": "Opas",
         "reports": "Raportit",
         "help": "Apua",
+        "thinking": "Ajattelu",
         "support_services": "Tukipalvelut",
         "community": "Yhteisö",
         "stories": "Tarinat"
+    },
+    "thinking_page": {
+        "title": "Ajattelu",
+        "subtitle": "Artikkeleita työelämän psykologisesta turvallisuudesta",
+        "read_more": "Lue lisää",
+        "all_articles": "Kaikki artikkelit",
+        "filter_by": "Suodata aiheittain",
+        "no_articles": "Ensimmäiset artikkelit tulossa pian!",
+        "no_articles_desc": "Tämä osio täyttyy ajatuksilla työelämän psykologisesta turvallisuudesta."
     },
     "landing": {
         "hero": {
