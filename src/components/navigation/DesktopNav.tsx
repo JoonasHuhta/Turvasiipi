@@ -1,5 +1,6 @@
 "use client";
 
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
@@ -31,6 +32,9 @@ const LanguageToggle = ({ className }: { className?: string }) => {
 };
 
 export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
+    console.log('🔍 DesktopNav rendering, t("nav.thinking"):', t('nav.thinking'));
+    console.log('🔍 pathname:', pathname);
+
     return (
         <nav className="hidden lg:flex items-center gap-8 text-[12px] font-medium tracking-wide text-suojasiipi-text-body">
             <Link href="/simulaatio" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname === '/simulaatio' && "text-suojasiipi-primary font-bold")}>

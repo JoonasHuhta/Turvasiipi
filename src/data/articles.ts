@@ -23,6 +23,16 @@ export interface Article {
  * User will add articles here as they write them
  */
 export const articles: Article[] = [
+    {
+        id: "article-001",
+        slug: "kun-tyoyhteiso-sairastuu",
+        title: "Kun työyhteisö sairastuu",
+        excerpt: "Miksi työpaikkakiusaamista selitetään – eikä pysäytetä. Kulmakiviartikkeli siitä, miksi terve organisaatio reagoi uhkiin ja sairas organisaatio selittää ne pois.",
+        publishedDate: "2024-02-06",
+        readTime: "3 min",
+        tags: ["Organisaatiokulttuuri", "Työpaikkakiusaaminen", "Johtaminen"],
+        featured: true,
+    },
     // Example structure (commented out):
     // {
     //   id: "example-article-001",
