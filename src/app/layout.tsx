@@ -27,16 +27,16 @@ export default function RootLayout({
             <ProgressProvider>
               <div className="flex flex-col min-h-screen">
 
-                {/* Global Header (Warm Document Style) */}
-                <header className="fixed top-0 w-full z-50 bg-suojasiipi-bg/95 backdrop-blur-md border-b border-suojasiipi-secondary">
+                {/* Global Header (Solid Primary Style) */}
+                <header className="fixed top-0 w-full z-50 bg-suojasiipi-primary border-b border-suojasiipi-primary shadow-sm">
                   <div className="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
 
                     {/* Brand */}
                     <div className="flex items-center gap-4">
-                      <Link href="/" className="text-sm font-bold tracking-tight text-suojasiipi-text-main hover:text-suojasiipi-primary transition-colors">
+                      <Link href="/" className="text-sm font-bold tracking-tight text-white hover:text-suojasiipi-secondary transition-colors">
                         TURVASIIPI
                       </Link>
-                      <span className="inline-block text-[11px] font-mono text-suojasiipi-text-body bg-white px-2 py-0.5 border border-suojasiipi-secondary rounded-sm">
+                      <span className="inline-block text-[11px] font-mono text-white bg-white/20 px-2 py-0.5 border border-white/30 rounded-sm">
                         BETA
                       </span>
                     </div>

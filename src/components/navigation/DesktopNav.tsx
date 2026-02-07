@@ -23,7 +23,7 @@ const LanguageToggle = ({ className }: { className?: string }) => {
         <button
             type="button"
             onClick={() => setLanguage(language === 'fi' ? 'en' : 'fi')}
-            className={cn("flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-suojasiipi-text-body hover:text-suojasiipi-primary transition-colors", className)}
+            className={cn("flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white hover:text-suojasiipi-secondary transition-colors", className)}
         >
             <Globe className="w-3 h-3" />
             {language === 'fi' ? 'EN' : 'FI'}
@@ -36,17 +36,17 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
     console.log('🔍 pathname:', pathname);
 
     return (
-        <nav className="hidden lg:flex items-center gap-8 text-[12px] font-medium tracking-wide text-suojasiipi-text-body">
-            <Link href="/simulaatio" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname === '/simulaatio' && "text-suojasiipi-primary font-bold")}>
+        <nav className="hidden lg:flex items-center gap-8 text-[12px] font-medium tracking-wide text-white">
+            <Link href="/simulaatio" className={cn("hover:text-suojasiipi-secondary transition-colors uppercase", pathname === '/simulaatio' && "text-suojasiipi-secondary font-bold")}>
                 {t('nav.simulation')}
             </Link>
 
-            <Link href="/ajattelu" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname.startsWith('/ajattelu') && "text-suojasiipi-primary font-bold")}>
+            <Link href="/ajattelu" className={cn("hover:text-suojasiipi-secondary transition-colors uppercase", pathname.startsWith('/ajattelu') && "text-suojasiipi-secondary font-bold")}>
                 {t('nav.thinking')}
             </Link>
 
             <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-suojasiipi-primary transition-colors uppercase outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-suojasiipi-secondary transition-colors uppercase outline-none">
                     {t('nav.explore')} <ChevronDown className="w-3 h-3 opacity-50" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-56 bg-white border-suojasiipi-secondary rounded-sm shadow-sm py-2">
@@ -58,25 +58,24 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                         <Link href="/nuoret" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">🌱 {t('nav.youth_work')}</Link>
                     </DropdownMenuItem>
 
-                    <DropdownMenuSeparator />
-                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Testit & Arvioinnit</DropdownMenuLabel>
+                    <DropdownMenuSeparator className="bg-suojasiipi-secondary/50" />
+
+                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Testit</DropdownMenuLabel>
                     <DropdownMenuItem asChild>
-                        <Link href="/quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.identify_risks')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/lukutaito-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.literacy_test')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/feeling-quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.victim_feelings')}</Link>
+                        <Link href="/quiz" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.quiz')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                         <Link href="/vaikutusprofiili" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.impact_profile')}</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                        <Link href="/empatia-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.empathy_spectrum')}</Link>
+                        <Link href="/empatiatesti" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.empathy_test')}</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href="/lukutaito-testi" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.literacy_test')}</Link>
                     </DropdownMenuItem>
 
-                    <DropdownMenuSeparator />
+                    <DropdownMenuSeparator className="bg-suojasiipi-secondary/50" />
+
                     <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-suojasiipi-primary/70 font-bold">Oppimateriaali</DropdownMenuLabel>
                     <DropdownMenuItem asChild>
                         <Link href="/taktiikat" className="cursor-pointer font-medium text-suojasiipi-text-body hover:bg-suojasiipi-bg hover:text-suojasiipi-primary">{t('nav.tactics')}</Link>
@@ -87,12 +86,12 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
                 </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/valmennus" className={cn("hover:text-suojasiipi-primary transition-colors uppercase", pathname.startsWith('/valmennus') && "text-suojasiipi-primary font-bold")}>
+            <Link href="/valmennus" className={cn("hover:text-suojasiipi-secondary transition-colors uppercase", pathname.startsWith('/valmennus') && "text-suojasiipi-secondary font-bold")}>
                 {t('nav.training')}
             </Link>
 
             <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-suojasiipi-primary transition-colors uppercase outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-suojasiipi-secondary transition-colors uppercase outline-none">
                     {t('nav.tools')} <ChevronDown className="w-3 h-3 opacity-50" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48 bg-white border-suojasiipi-secondary rounded-sm shadow-sm py-2">
@@ -116,8 +115,8 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
             <Link
                 href="/profiili"
                 className={cn(
-                    "flex items-center gap-1.5 hover:text-suojasiipi-primary transition-all hover:scale-110",
-                    pathname === '/profiili' && "text-suojasiipi-primary scale-110"
+                    "flex items-center gap-1.5 text-white hover:text-suojasiipi-secondary transition-all hover:scale-110",
+                    pathname === '/profiili' && "text-suojasiipi-secondary scale-110"
                 )}
                 title={`Profiili - ${expertise.name}`}
             >
