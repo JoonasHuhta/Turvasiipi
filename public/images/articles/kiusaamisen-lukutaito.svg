@@ -1,0 +1,28 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="675" fill="#F9F9F7"/>
+<rect width="1200" height="675" fill="url(#paint0_radial_1_2)" fill-opacity="0.4"/>
+<!-- Abstract Background Shapes -->
+<circle cx="1048" cy="116" r="286" fill="#5E17EB" fill-opacity="0.03"/>
+<circle cx="126" cy="587" r="286" fill="#5E17EB" fill-opacity="0.03"/>
+<path d="M599.5 240L780.5 560H418.5L599.5 240Z" stroke="#5E17EB" stroke-opacity="0.1" stroke-width="2"/>
+
+<!-- Main Content Area -->
+<rect x="200" y="180" width="800" height="315" rx="4" fill="white" fill-opacity="0.8"/>
+<rect x="200" y="180" width="800" height="315" rx="4" stroke="#5E17EB" stroke-opacity="0.1"/>
+
+<!-- Text Content -->
+<text x="600" y="320" text-anchor="middle" font-family="Serif" font-size="48" font-weight="bold" fill="#1A1A1A">Kiusaamisen lukutaito</text>
+<text x="600" y="370" text-anchor="middle" font-family="Sans-serif" font-size="24" fill="#666666" letter-spacing="0.1em">5-OSAINEN ARTIKKELISARJA</text>
+
+<!-- Decorative Elements -->
+<line x1="500" y1="420" x2="700" y2="420" stroke="#5E17EB" stroke-opacity="0.3" stroke-width="2"/>
+<circle cx="600" cy="420" r="4" fill="#5E17EB"/>
+
+<!-- Texture Overlay -->
+<defs>
+<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 337.5) rotate(90) scale(337.5 600)">
+<stop stop-color="white" stop-opacity="0.5"/>
+<stop offset="1" stop-color="#E5E5E5" stop-opacity="0.2"/>
+</radialGradient>
+</defs>
+</svg>
