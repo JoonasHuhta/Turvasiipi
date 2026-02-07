@@ -75,7 +75,7 @@ export default function AjatteluPage() {
                                                 <img
                                                     src={featuredSeries.coverImage}
                                                     alt={featuredSeries.title}
-                                                    className="w-full h-full object-cover opacity-0"
+                                                    className="w-full h-full object-cover"
                                                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                                 />
                                             ) : (
