@@ -21,7 +21,7 @@ export function HeroSection({ t }: HeroSectionProps) {
             {/* Bird Logo */}
             <div className="flex justify-start mb-8">
                 <img
-                    src="/bird-logo.png"
+                    src="/bird-logo-new.png"
                     alt="Turvasiipi logo"
                     className="w-24 h-24 md:w-32 md:h-32 object-contain opacity-90"
                 />
