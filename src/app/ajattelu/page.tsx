@@ -43,9 +43,9 @@ export default function AjatteluPage() {
 
     return (
         <div className="min-h-screen bg-suojasiipi-bg">
-            <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-24">
+            <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-32">
 
-                {/* Header / Intro */}
+                {/* Header / Intro - Maximum Whitespace */}
                 <header className="space-y-12 max-w-2xl">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">
                         {t('thinking_page.header.label')}
@@ -66,8 +66,8 @@ export default function AjatteluPage() {
                     </div>
                 </header>
 
-                {/* Divider */}
-                <div className="space-y-16">
+                {/* Articles Section */}
+                <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
 
                     {/* Featured Hero - if there's a featured series article */}
                     {(() => {
@@ -298,7 +298,7 @@ export default function AjatteluPage() {
                             );
                         })()}
                     </div>
-                </div>
+                </section>
 
             </div>
         </div>
