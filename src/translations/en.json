@@ -24,6 +24,22 @@
         "community": "Community",
         "stories": "Stories"
     },
+    "thinking_page": {
+        "header": {
+            "label": "THOUGHTS",
+            "title": "Psychological safety",
+            "title_span": "is not a luxury.",
+            "p1": "This is a space where we explore the mental well-being of work communities. Not superficially, but deeply.",
+            "p2": "The purpose of these articles is to give you the language and concepts to understand what really happens when a workplace becomes unhealthy."
+        },
+        "title": "Thinking",
+        "subtitle": "Articles about psychological safety in the workplace",
+        "read_more": "Read more",
+        "all_articles": "All articles",
+        "filter_by": "Filter by topic",
+        "no_articles": "First articles coming soon!",
+        "no_articles_desc": "This section will fill up with thoughts about psychological safety in the workplace."
+    },
     "landing": {
         "hero": {
             "title_main": "You are not",

@@ -26,6 +26,13 @@
         "stories": "Tarinat"
     },
     "thinking_page": {
+        "header": {
+            "label": "AJATUKSIA",
+            "title": "Psykologinen turvallisuus",
+            "title_span": "ei ole luksus.",
+            "p1": "Tämä on tila, jossa tutkimme työyhteisöjen henkistä hyvinvointia. Ei pintapuolisesti, vaan syvältä.",
+            "p2": "Näiden artikkeleiden tarkoitus on antaa sinulle kielen ja käsitteistön ymmärtää mitä todella tapahtuu kun työyhteisö sairastuu."
+        },
         "title": "Ajattelu",
         "subtitle": "Artikkeleita työelämän psykologisesta turvallisuudesta",
         "read_more": "Lue lisää",
