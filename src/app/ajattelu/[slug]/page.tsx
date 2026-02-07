@@ -36,7 +36,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
     if (!article) {
         return (
             <div className="min-h-screen bg-suojasiipi-bg px-6 py-24">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-3xl mx-auto">
                     <Card className="p-12 text-center border-suojasiipi-secondary bg-white/40">
                         <h1 className="text-2xl font-serif text-suojasiipi-text-main mb -4">Artikkelia ei löytynyt</h1>
                         <Link href="/ajattelu" className="text-suojasiipi-primary hover:underline">
@@ -52,7 +52,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
         <div className="min-h-screen bg-suojasiipi-bg">
             {/* Header */}
             <div className="border-b border-suojasiipi-secondary bg-white/80 backdrop-blur-sm">
-                <div className="max-w-4xl mx-auto px-6 py-6">
+                <div className="max-w-3xl mx-auto px-8 md:px-12 py-6">
                     <Link
                         href="/ajattelu"
                         className="inline-flex items-center gap-2 text-sm text-suojasiipi-text-body hover:text-suojasiipi-primary transition-colors mb-8"
@@ -94,15 +94,15 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
             </div>
 
             {/* Article Content */}
-            <article className="max-w-4xl mx-auto px-6 py-16">
+            <article className="max-w-3xl mx-auto px-8 md:px-12 py-16">
                 {isLoading ? (
                     <div className="text-center py-12 text-suojasiipi-text-body">
                         Ladataan artikkelia...
                     </div>
                 ) : content ? (
-                    <div className="prose prose-lg prose-serif max-w-none
+                    <div className="prose prose-lg prose-serif max-w-prose mx-auto
                         prose-headings:font-serif prose-headings:text-suojasiipi-text-main
-                        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-suojasiipi-secondary prose-h2:pb-3
+                        prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-suojasiipi-secondary prose-h2:pb-3
                         prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
                         prose-p:text-suojasiipi-text-body prose-p:leading-relaxed prose-p:mb-6
                         prose-strong:text-suojasiipi-primary prose-strong:font-semibold
@@ -125,7 +125,7 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
 
             {/* Footer CTA */}
             <div className="border-t border-suojasiipi-secondary bg-white/80 mt-16">
-                <div className="max-w-4xl mx-auto px-6 py-12 text-center">
+                <div className="max-w-3xl mx-auto px-8 md:px-12 py-12 text-center">
                     <h3 className="text-xl font-serif text-suojasiipi-text-main mb-4">
                         Hyödyllinen artikkeli?
                     </h3>
