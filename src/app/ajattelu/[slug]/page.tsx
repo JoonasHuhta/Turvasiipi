@@ -1,9 +1,9 @@
 "use client";
 
-import { getArticleBySlug } from "@/data/articles";
+import { getArticleBySlug, articles } from "@/data/articles";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
-import { ChevronLeft, Calendar, Clock, Tag } from "lucide-react";
+import { ChevronLeft, Calendar, Clock, Tag, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { use, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -122,6 +122,90 @@ export default function ArticlePage({ params }: { params: Promise<{ slug: string
                     </Card>
                 )}
             </article>
+
+            {/* Series Navigation */}
+            {article.series && (() => {
+                const currentSeries = articles.filter(
+                    (a) => a.series?.name === article.series!.name
+                ).sort((a, b) => a.series!.part - b.series!.part);
+
+                const currentIndex = currentSeries.findIndex(
+                    (a) => a.slug === article.slug
+                );
+                const prevArticle = currentIndex > 0 ? currentSeries[currentIndex - 1] : null;
+                const nextArticle = currentIndex < currentSeries.length - 1 ? currentSeries[currentIndex + 1] : null;
+
+                return (
+                    <div className="max-w-3xl mx-auto px-8 md:px-12 py-8">
+                        <div className="border-t border-b border-suojasiipi-secondary py-8">
+                            <div className="text-center mb-6">
+                                <span className="text-sm font-medium text-suojasiipi-primary">
+                                    {article.series!.name}
+                                </span>
+                                <p className="text-xs text-suojasiipi-text-body/70 mt-1">
+                                    Osa {article.series!.part} / {article.series!.totalParts}
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-between">
+                                <div className="flex-1">
+                                    {prevArticle ? (
+                                        <Link
+                                            href={`/ajattelu/${prevArticle.slug}`}
+                                            className="block p-4 bg-white border border-suojasiipi-secondary hover:border-suojasiipi-primary hover:bg-suojasiipi-bg transition-all rounded-sm group"
+                                        >
+                                            <div className="flex items-center gap-2 text-xs text-suojasiipi-text-body/70 mb-2">
+                                                <ChevronLeft className="w-4 h-4" />
+                                                <span>Edellinen osa</span>
+                                            </div>
+                                            <p className="text-sm font-medium text-suojasiipi-text-main group-hover:text-suojasiipi-primary transition-colors">
+                                                {prevArticle.title}
+                                            </p>
+                                        </Link>
+                                    ) : (
+                                        <div className="p-4 bg-suojasiipi-secondary/20 border border-suojasiipi-secondary/50 rounded-sm opacity-50">
+                                            <div className="flex items-center gap-2 text-xs text-suojasiipi-text-body/50 mb-2">
+                                                <ChevronLeft className="w-4 h-4" />
+                                                <span>Ei edellistä osaa</span>
+                                            </div>
+                                            <p className="text-sm text-suojasiipi-text-body/50">
+                                                Tämä on sarjan ensimmäinen osa
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="flex-1">
+                                    {nextArticle ? (
+                                        <Link
+                                            href={`/ajattelu/${nextArticle.slug}`}
+                                            className="block p-4 bg-white border border-suojasiipi-secondary hover:border-suojasiipi-primary hover:bg-suojasiipi-bg transition-all rounded-sm group text-right"
+                                        >
+                                            <div className="flex items-center justify-end gap-2 text-xs text-suojasiipi-text-body/70 mb-2">
+                                                <span>Seuraava osa</span>
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
+                                            <p className="text-sm font-medium text-suojasiipi-text-main group-hover:text-suojasiipi-primary transition-colors">
+                                                {nextArticle.title}
+                                            </p>
+                                        </Link>
+                                    ) : (
+                                        <div className="p-4 bg-suojasiipi-secondary/20 border border-suojasiipi-secondary/50 rounded-sm opacity-50 text-right">
+                                            <div className="flex items-center justify-end gap-2 text-xs text-suojasiipi-text-body/50 mb-2">
+                                                <span>Ei seuraavaa osaa</span>
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
+                                            <p className="text-sm text-suojasiipi-text-body/50">
+                                                Tämä on sarjan viimeinen osa
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })()}
 
             {/* Footer CTA */}
             <div className="border-t border-suojasiipi-secondary bg-white/80 mt-16">

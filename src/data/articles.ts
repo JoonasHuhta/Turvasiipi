@@ -16,6 +16,11 @@ export interface Article {
     tags: string[]; // e.g., ["RSD", "Kiusaaminen", "ADHD"]
     featured?: boolean;
     author?: string;
+    series?: {
+        name: string;
+        part: number;
+        totalParts: number;
+    };
 }
 
 /**
@@ -23,6 +28,81 @@ export interface Article {
  * User will add articles here as they write them
  */
 export const articles: Article[] = [
+    {
+        id: "article-006",
+        slug: "kiusaamisen-lukutaito-osa-5",
+        title: "Miksi kiusattu usein lähtee – ja miten kierteen voi katkaista ennen sitä",
+        excerpt: "Kun järjestelmä ei toimi, milloin eskalaatio on välttämätöntä? Miksi lähteminen ei ole epäonnistuminen – mutta hiljainen lähtö on järjestelmän voitto.",
+        publishedDate: "2024-02-11",
+        readTime: "7 min",
+        tags: ["Kiusaamisen lukutaito", "Eskalaatio", "Työturvallisuus"],
+        featured: false,
+        series: {
+            name: "Kiusaamisen lukutaito",
+            part: 5,
+            totalParts: 5,
+        },
+    },
+    {
+        id: "article-005",
+        slug: "kiusaamisen-lukutaito-osa-4",
+        title: "Miksi muisti ei riitä – ja dokumentointi muuttaa kaiken",
+        excerpt: "Työelämässä asiat ratkaistaan sen perusteella, mitä voidaan näyttää toteen. Dokumentointi ei ole kyttäämistä – se on turvaa.",
+        publishedDate: "2024-02-10",
+        readTime: "6 min",
+        tags: ["Kiusaamisen lukutaito", "Dokumentointi", "Todistaminen"],
+        featured: false,
+        series: {
+            name: "Kiusaamisen lukutaito",
+            part: 4,
+            totalParts: 5,
+        },
+    },
+    {
+        id: "article-004",
+        slug: "kiusaamisen-lukutaito-osa-3",
+        title: "Kun kiusaaminen pukeutuu hyväksyttävään muotoon",
+        excerpt: "Yksi syy siihen, miksi kiusaaminen jää tunnistamatta, on että se ei näytä kiusaamiselta. Se näyttää palautteelta, huumorilta, tehokkuudelta.",
+        publishedDate: "2024-02-09",
+        readTime: "8 min",
+        tags: ["Kiusaamisen lukutaito", "Naamioitu kiusaaminen", "Työelämä"],
+        featured: false,
+        series: {
+            name: "Kiusaamisen lukutaito",
+            part: 3,
+            totalParts: 5,
+        },
+    },
+    {
+        id: "article-003",
+        slug: "kiusaamisen-lukutaito-osa-2",
+        title: "Kolmio, jossa kukaan ei näe kokonaisuutta",
+        excerpt: "Kiusaaminen ei ole kahden ihmisen välinen ongelma. Se on kolmen roolin muodostama järjestelmä: kiusaaja, kiusattu ja sivullinen.",
+        publishedDate: "2024-02-08",
+        readTime: "6 min",
+        tags: ["Kiusaamisen lukutaito", "Dynamiikka", "Roolit"],
+        featured: false,
+        series: {
+            name: "Kiusaamisen lukutaito",
+            part: 2,
+            totalParts: 5,
+        },
+    },
+    {
+        id: "article-002",
+        slug: "kiusaamisen-lukutaito-osa-1",
+        title: "Miksi kiusattu lähtee – ja miksi se ei ole ratkaisu",
+        excerpt: "Miksi ongelma ei koskaan lähde – vaan ihminen lähtee? Tämä sarja käsittelee kiusaamisen lukutaitoa: miten tunnistaa tilanne ajoissa ja miten toimia ennen kuin terveys hajoaa.",
+        publishedDate: "2024-02-07",
+        readTime: "5 min",
+        tags: ["Kiusaamisen lukutaito", "Tunnistaminen", "Järjestelmä"],
+        featured: true,
+        series: {
+            name: "Kiusaamisen lukutaito",
+            part: 1,
+            totalParts: 5,
+        },
+    },
     {
         id: "article-001",
         slug: "kun-tyoyhteiso-sairastuu",
@@ -33,17 +113,6 @@ export const articles: Article[] = [
         tags: ["Organisaatiokulttuuri", "Työpaikkakiusaaminen", "Johtaminen"],
         featured: true,
     },
-    // Example structure (commented out):
-    // {
-    //   id: "example-article-001",
-    //   slug: "rsd-toinen-tulkinta",
-    //   title: "RSD ja Toinen Tulkinta -metodi",
-    //   excerpt: "Miten RSD:n aiheuttamat tulkintavirheet voi neutraloida yksinkertaisella harjoituksella.",
-    //   publishedDate: "2024-02-06",
-    //   readTime: "8 min",
-    //   tags: ["RSD", "ADHD", "Harjoitukset"],
-    //   featured: true,
-    // },
 ];
 
 /**

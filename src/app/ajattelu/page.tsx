@@ -44,11 +44,16 @@ export default function AjatteluPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="space-y-12">
                     {/* Header */}
-                    <div className="text-center space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-suojasiipi-text-main">
-                            {t('thinking_page.title')}
-                        </h1>
-                        <p className="text-lg text-suojasiipi-text-body max-w-2xl mx-auto">
+                    <div className="text-center space-y-6 pb-8 border-b border-suojasiipi-secondary/30">
+                        <div className="space-y-3">
+                            <h1 className="text-4xl md:text-5xl font-serif font-bold text-suojasiipi-text-main">
+                                {t('thinking_page.title')}
+                            </h1>
+                            <div className="flex justify-center">
+                                <div className="h-px w-24 bg-gradient-to-r from-transparent via-suojasiipi-primary to-transparent opacity-50"></div>
+                            </div>
+                        </div>
+                        <p className="text-base md:text-lg text-suojasiipi-text-body max-w-2xl mx-auto leading-relaxed">
                             {t('thinking_page.subtitle')}
                         </p>
                     </div>
@@ -63,6 +68,15 @@ export default function AjatteluPage() {
                             >
                                 <Card className="p-6 sm:p-8 hover:shadow-lg transition-all hover:border-suojasiipi-primary/30 bg-white">
                                     <div className="space-y-4">
+                                        {/* Series Badge */}
+                                        {article.series && (
+                                            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-suojasiipi-primary/10 border border-suojasiipi-primary/30 rounded-sm">
+                                                <span className="text-xs font-semibold text-suojasiipi-primary">
+                                                    {article.series.name} – Osa {article.series.part}/{article.series.totalParts}
+                                                </span>
+                                            </div>
+                                        )}
+
                                         {/* Meta Info */}
                                         <div className="flex flex-wrap items-center gap-4 text-xs text-suojasiipi-text-body/70">
                                             <span className="flex items-center gap-1.5">
