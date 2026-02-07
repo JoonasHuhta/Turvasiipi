@@ -299,6 +299,8 @@ export default function AjatteluPage() {
                         })()}
                     </div>
                 </div>
+
             </div>
-            );
+        </div>
+    );
 }
