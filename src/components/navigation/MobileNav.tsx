@@ -90,6 +90,13 @@ export function MobileNav({ pathname, t, expertise, isOpen, onClose, onOpenChang
                                 {t('nav.simulation')}
                             </Link>
                             <Link
+                                href="/ajattelu"
+                                className="block py-2 px-4 -mx-4 text-xl font-serif text-suojasiipi-text-main hover:bg-suojasiipi-secondary/30 transition-colors rounded-sm"
+                                onClick={onClose}
+                            >
+                                {t('nav.thinking')}
+                            </Link>
+                            <Link
                                 href="/valmennus"
                                 className="block py-2 px-4 -mx-4 text-xl font-serif text-suojasiipi-text-main hover:bg-suojasiipi-secondary/30 transition-colors rounded-sm"
                                 onClick={onClose}
