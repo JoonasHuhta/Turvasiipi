@@ -56,20 +56,20 @@ export default function AjatteluPage() {
                 {/* Header / Intro - Maximum Whitespace */}
                 <header className="space-y-12 max-w-2xl">
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">
-                        {t('thinking_page.header.label')}
+                        AJATUKSIA
                     </span>
 
                     <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] leading-[1.1] tracking-tight">
-                        {t('thinking_page.header.title')} <br />
-                        <span className="text-[#4A4A4A] font-normal italic">{t('thinking_page.header.title_span')}</span>
+                        Psykologinen turvallisuus <br />
+                        <span className="text-[#4A4A4A] font-normal italic">ei ole luksus.</span>
                     </h1>
 
                     <div className="space-y-6 max-w-xl">
                         <p className="text-lg text-[#4A4A4A] leading-relaxed">
-                            {t('thinking_page.header.p1')}
+                            Tämä on tila, jossa tutkimme työyhteisöjen henkistä hyvinvointia. Ei pintapuolisesti, vaan syvältä.
                         </p>
                         <p className="text-lg text-[#4A4A4A] leading-relaxed">
-                            {t('thinking_page.header.p2')}
+                            Näiden artikkeleiden tarkoitus on antaa sinulle kielen ja käsitteistön ymmärtää mitä todella tapahtuu kun työyhteisö sairastuu.
                         </p>
                     </div>
                 </header>
