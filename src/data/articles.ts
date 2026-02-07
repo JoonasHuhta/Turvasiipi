@@ -16,6 +16,7 @@ export interface Article {
     tags: string[]; // e.g., ["RSD", "Kiusaaminen", "ADHD"]
     featured?: boolean;
     author?: string;
+    coverImage?: string; // e.g., "/images/articles/filename.png"
     series?: {
         name: string;
         part: number;
@@ -97,6 +98,7 @@ export const articles: Article[] = [
         readTime: "5 min",
         tags: ["Kiusaamisen lukutaito", "Tunnistaminen", "Järjestelmä"],
         featured: true,
+        coverImage: "/images/articles/kiusaamisen-lukutaito.png",
         series: {
             name: "Kiusaamisen lukutaito",
             part: 1,
