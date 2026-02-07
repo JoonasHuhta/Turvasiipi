@@ -41,6 +41,14 @@ export default function AjatteluPage() {
         );
     }
 
+    console.log('🔍 Header rendering check:', {
+        label: t('thinking_page.header.label'),
+        title: t('thinking_page.header.title'),
+        titleSpan: t('thinking_page.header.title_span'),
+        p1: t('thinking_page.header.p1'),
+        p2: t('thinking_page.header.p2')
+    });
+
     return (
         <div className="min-h-screen bg-suojasiipi-bg">
             <div className="container mx-auto px-6 sm:px-8 max-w-screen-lg py-32 space-y-32">
