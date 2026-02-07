@@ -36,7 +36,7 @@ export function DesktopNav({ pathname, t, expertise }: DesktopNavProps) {
     console.log('🔍 pathname:', pathname);
 
     return (
-        <nav className="hidden lg:flex items-center gap-8 text-[12px] font-medium tracking-wide text-white">
+        <nav className="hidden md:flex items-center gap-8 text-[12px] font-medium tracking-wide text-white">
             <Link href="/simulaatio" className={cn("hover:text-suojasiipi-secondary transition-colors uppercase", pathname === '/simulaatio' && "text-suojasiipi-secondary font-bold")}>
                 {t('nav.simulation')}
             </Link>
