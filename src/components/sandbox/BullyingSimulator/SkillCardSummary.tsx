@@ -165,7 +165,7 @@ export const SkillCardSummary: React.FC<SkillCardSummaryProps> = ({ skillsUsed }
             timesUsed: count,
             ...skillDatabase[skillId],
         }))
-        .filter((skill) => skill.skillName); // Only include known skills
+        .filter((skill) => skill.skillName && skill.examples) as SkillCardProps[];
 
     if (usedSkills.length === 0) {
         return null;

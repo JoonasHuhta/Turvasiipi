@@ -7,7 +7,7 @@ interface ScenarioSummaryProps {
         sceneDescription: string;
         choiceText: string;
     }>;
-    skillsUsed: Record<string, number>; // NEW: Passed from engine
+    skillsUsed?: Record<string, number>; // NEW: Optional for backward compatibility
     onClose: () => void;
 }
 
@@ -18,7 +18,7 @@ interface ScenarioSummaryProps {
 export const ScenarioSummary: React.FC<ScenarioSummaryProps> = ({
     learningPoints,
     choices,
-    skillsUsed,
+    skillsUsed = {}, // Default to empty object
     onClose,
 }) => {
     return (

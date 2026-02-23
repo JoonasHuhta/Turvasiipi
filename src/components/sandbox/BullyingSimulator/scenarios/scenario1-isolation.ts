@@ -155,6 +155,7 @@ export const isolationScenario: Scenario = {
                 { characterId: 'player', position: 'sitting', emotion: 'fearful', x: 50, y: 60 },
             ],
             narration: 'Huomaat, että sinä et saanut sähköpostia. Kaikki muut puhuvat tapahtumasta.',
+            dialogue: [],
             decision: {
                 prompt: 'Mitä teet?',
                 perspective: 'target',

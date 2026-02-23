@@ -168,8 +168,9 @@ export class RSDProgressTracker {
         // Find most used level
         const levelCounts: Record<RSDLevel, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
         recentSessions.forEach(r => levelCounts[r.level]++);
-        const mostUsedLevel = (Object.entries(levelCounts)
-            .sort(([, a], [, b]) => b - a)[0]?.[0] || null) as RSDLevel | null;
+        const levelKey = Object.entries(levelCounts)
+            .sort(([, a], [, b]) => b - a)[0]?.[0] || null;
+        const mostUsedLevel = levelKey ? parseInt(levelKey) as RSDLevel : null;
 
         return {
             completedSessions: recentSessions.length,

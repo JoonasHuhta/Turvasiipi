@@ -133,7 +133,7 @@ export const DialogueTreeEngine: React.FC<DialogueTreeEngineProps> = ({
         // Track choice
         setState((prev) => {
             // Update skill usage
-            const currentSkills = { ...prev.skillsUsed } || {};
+            const currentSkills = { ...prev.skillsUsed };
 
             // Priority: Feedback skill tag (specific) > Choice skill tag (generic)
             const skillTag = feedback.skillTag || choice.skillTag;
@@ -262,7 +262,7 @@ export const DialogueTreeEngine: React.FC<DialogueTreeEngineProps> = ({
                     sceneDescription: `Node: ${c.nodeId}`,
                     choiceText: c.choiceText,
                 }))}
-                skillsUsed={state.skillsUsed}
+                skillsUsed={state.skillsUsed || {}}
                 onClose={onComplete}
             />
         );
@@ -270,11 +270,10 @@ export const DialogueTreeEngine: React.FC<DialogueTreeEngineProps> = ({
 
     const allLinesDisplayed = displayedLinesCount >= currentNode.dialogueLines.length;
     const showChoices = allLinesDisplayed && currentNode.choices;
-    const showAutoAdvance =
-        allLinesDisplayed &&
+    const showAutoAdvance = !!(allLinesDisplayed &&
         !currentNode.choices &&
         currentNode.nextNodeId &&
-        !currentNode.pauseForReflection;
+        !currentNode.pauseForReflection);
     const showDialogueAdvance = !allLinesDisplayed && !state.showingFeedback;
 
     return (

@@ -50,7 +50,6 @@ export const biffEmailScenario: DialogueTreeScenario = {
                     text: 'Kirjoita vastaus...',
                     // Type requirements for Choice interface
                     nextNodeId: 'node-2-feedback',
-                    conversationId: 'node-1-email-received', // Optional but good for tracking
                     // Dummy feedbackMap to satisfy type requirements (logic is handled by next node choices)
                     feedback: {
                         immediate: '',
@@ -69,6 +68,8 @@ export const biffEmailScenario: DialogueTreeScenario = {
                             'Projekti on aikataulussa.',          // Fact (Brief)
                             'En tiedä mitä tarkoitat...',         // Evasive
                         ],
+                        feedbackMap: {}, // Handled by node-2-feedback logic in engine
+                        nextNodeId: 'node-2-feedback'
                     }
                 }
             ],
