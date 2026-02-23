@@ -1,4 +1,4 @@
-import { LucideIcon, BookOpen, RefreshCw, Heart, Gamepad2, GraduationCap, Building2, Award, Users, Siren, Activity, Compass, ShieldAlert } from "lucide-react";
+import { LucideIcon, BookOpen, RefreshCw, Heart, Gamepad2, GraduationCap, Building2, Award, Users, Siren, Activity, Compass, ShieldAlert, HeartHandshake } from "lucide-react";
 
 export interface TrainingModule {
     id: string;
@@ -135,6 +135,20 @@ export const trainingHubData: TrainingCategory[] = [
         modules: [
             { id: 'association_basics', title: 'Yhdistystoiminnan Varjopuolet', description: 'Vallankäyttö ja klikit hallitustyöskentelyssä.', isCertificationModule: true, points: 200 },
             { id: 'hobby_boundaries', title: 'Harrastuksen Rajat', description: 'Miten pitää hauskaa ja asettaa rajat samaan aikaan.', points: 100 }
+        ]
+    },
+    {
+        id: 'coercive',
+        title: 'KONTROLLOIVA SUHDE 💔',
+        icon: HeartHandshake,
+        description: 'Tunnista vallankäyttö. Viesti strategisesti. Suojaudu ja suojaa lapset.',
+        color: 'slate',
+        type: 'process',
+        modules: [
+            { id: 'post_sep_1', title: 'Tunnista käyttäytymismalli', description: 'Normaali konflikti vs. koercive control — kolmessa vaiheessa.', isNew: true, points: 150 },
+            { id: 'post_sep_2', title: 'Viesti ilman reaktiopintaa', description: 'BIFF ja Grey Rock: harjoitukset + valmiit vastauspohjat.', isNew: true, points: 200 },
+            { id: 'post_sep_3', title: 'Eron jälkeen', description: 'Juridinen jatkumo, dokumentointi ja palvelulinkit.', isNew: true, points: 150 },
+            { id: 'post_sep_4', title: 'Suojaa lapset', description: 'Rinnakkaisvanhemmuus, lapsen kanssa puhuminen, turvasuunnitelma.', isNew: true, points: 150 }
         ]
     },
     {

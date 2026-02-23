@@ -34,6 +34,10 @@ const RSDSparring = dynamic(() => import("@/components/training/RSDSparring"));
 const RSDLevelHub = dynamic(() => import("@/components/training/RSDPath/RSDLevelHub"));
 const RSDLevel1 = dynamic(() => import("@/components/training/RSDPath/RSDLevel1"));
 const RSDLevelPlaceholder = dynamic(() => import("@/components/training/RSDPath/RSDLevelPlaceholder"));
+const CoerciveRecognition = dynamic(() => import("@/components/training/CoerciveRecognition"));
+const CoerciveBIFF = dynamic(() => import("@/components/training/CoerciveBIFF"));
+const CoercivePostSep = dynamic(() => import("@/components/training/CoercivePostSep"));
+const CoerciveParenting = dynamic(() => import("@/components/training/CoerciveParenting"));
 
 // Common props that every module receives
 export interface ModuleProps {
@@ -95,7 +99,13 @@ export const ModuleRegistry: Record<string, ComponentType<any>> = {
     'rsd_level_2': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={2} title="Fakta vs. Tulkinta" />,
     'rsd_level_3': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={3} title="Keho Ensin" />,
     'rsd_level_4': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={4} title="Pelko vs. Todellisuus" />,
-    'rsd_level_5': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={5} title="RSD → Supervoima" />
+    'rsd_level_5': (props: any) => <RSDLevelPlaceholder {...props} levelNumber={5} title="RSD → Supervoima" />,
+
+    // Kontrolloiva suhde
+    'post_sep_1': CoerciveRecognition,
+    'post_sep_2': CoerciveBIFF,
+    'post_sep_3': CoercivePostSep,
+    'post_sep_4': CoerciveParenting,
 };
 
 export function getModuleComponent(moduleId: string): ComponentType<any> | null {

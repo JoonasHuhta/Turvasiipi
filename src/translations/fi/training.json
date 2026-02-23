@@ -1117,6 +1117,28 @@
           }
         }
       },
+      "coercive": {
+        "title": "KONTROLLOIVA SUHDE 💔",
+        "desc": "Tunnista vallankäyttö. Viesti strategisesti. Suojaudu ja suojaa lapset.",
+        "modules": {
+          "post_sep_1": {
+            "title": "Tunnista käyttäytymismalli",
+            "desc": "Normaali konflikti vs. koercive control — kolmessa vaiheessa."
+          },
+          "post_sep_2": {
+            "title": "Viesti ilman reaktiopintaa",
+            "desc": "BIFF ja Grey Rock: harjoitukset + valmiit vastauspohjat."
+          },
+          "post_sep_3": {
+            "title": "Eron jälkeen",
+            "desc": "Juridinen jatkumo, dokumentointi ja palvelulinkit."
+          },
+          "post_sep_4": {
+            "title": "Suojaa lapset",
+            "desc": "Rinnakkaisvanhemmuus, lapsen kanssa puhuminen, turvasuunnitelma."
+          }
+        }
+      },
       "rsd_tuki": {
         "title": "RSD TUKI 🧭",
         "desc": "5-tasoinen polku RSD:n hallintaan. Aloita mistä tahansa.",
