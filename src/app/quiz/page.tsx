@@ -53,8 +53,8 @@ export default function QuizPage() {
                     <span className="text-[11px] font-mono text-[#5B4B8A] uppercase tracking-widest border-b border-[#5B4B8A] pb-1">
                         {t('quiz.page.label')}
                     </span>
-                    <h1 className="text-4xl font-bold text-[#2B2B2B] leading-tight">
-                        {t('quiz.page.title')} <br />
+                    <h1 className="text-2xl sm:text-4xl font-bold text-[#2B2B2B] leading-tight break-words" style={{ hyphens: 'auto' }}>
+                        {t('quiz.page.title')} <br className="hidden sm:block" />
                         <span className="text-[#4A4A4A] font-normal italic">{t('quiz.page.subtitle')}</span>
                     </h1>
                     <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-xl">

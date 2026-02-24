@@ -21,11 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi">
-      <body className="font-serif min-h-screen bg-suojasiipi-bg text-suojasiipi-text-main antialiased selection:bg-suojasiipi-secondary selection:text-suojasiipi-text-main" suppressHydrationWarning>
+      <body className="font-serif min-h-screen bg-suojasiipi-bg text-suojasiipi-text-main antialiased selection:bg-suojasiipi-secondary selection:text-suojasiipi-text-main overflow-x-hidden" suppressHydrationWarning>
         <ErrorBoundary>
           <LanguageProvider>
             <ProgressProvider>
-              <div className="flex flex-col min-h-screen">
+              <div className="flex flex-col min-h-screen overflow-x-hidden">
 
                 {/* Global Header (Solid Primary Style) */}
                 <header className="fixed top-0 w-full z-50 bg-suojasiipi-primary border-b border-suojasiipi-primary shadow-sm">
@@ -46,7 +46,7 @@ export default function RootLayout({
                   </div>
                 </header>
 
-                <main className="flex-1 w-full pt-20">
+                <main className="flex-1 w-full pt-20 overflow-x-hidden">
                   {children}
                 </main>
 

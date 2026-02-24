@@ -1,61 +1,54 @@
 {
     "_meta": "🔒 LOCKED FILE - DO NOT MODIFY WITHOUT EXPLICIT USER CONSENT",
     "hero": {
-        "title_start": "Työpaikkakiusaamisen",
-        "title_end": "ensiapupakkaus.",
-        "subtitle": "Kun sanat loppuvat, me annamme ne sinulle.",
-        "p1": "Tämä ei ole 'HR-opas'. Tämä on selviytymistyökalu sinulle, joka olet joutunut työpaikkakiusaamisen, ulossulkemisen tai epäasiallisen kohtelun kohteeksi.",
-        "p2": "Tarjoamme sanat vaikeisiin tilanteisiin, työkalut dokumentointiin ja ymmärrystä siitä, mitä sinulle tapahtuu. Et ole hullu, etkä ole yksin.",
-        "cta_start": "Aloita tästä",
-        "cta_main": "Tee testi",
+        "title_start": "Vallan väärinkäytön ja",
+        "title_end": "kiusaamisen opas.",
+        "subtitle": "Kun jokin tuntuu väärältä, mutta et saa siitä kiinni.",
+        "subtitle_validation": "Kun sanot itsellesi: \"Ehkä ylireagoin.\"",
+        "subtitle_validation_response": "Emme usko sitä.",
+        "p1": "Tämä on paikka, johon tulla, kun jokin on vialla – työssä, opinnoissa, suhteissa, perheessä tai verkossa. Kun et ole varma, mitä tapahtuu – tai saatko edes puhua siitä.",
+        "p2": "Tämä on voimavaratyökalu sinulle. Saat kielen kokemuksellesi, välineet tilanteen jäsentämiseen ja tavan edetä – askel kerrallaan.",
+        "cta_start": "Tunnista tilanne",
+        "cta_main": "Tee tunnistuskysely",
         "cta_how": "Miten tämä toimii?",
-        "read_first": "Lue ensin ohjeet",
-        "quit_anytime": "Voit lopettaa milloin vain",
+        "read_first": "VOIT KESKEYTTÄÄ MILLOIN TAHANSA",
+        "quit_anytime": "MITÄÄN EI TALLENNETA ILMAN LUPAASI",
         "dialog": {
-            "title": "Kuinka Turvasiipi toimii?",
-            "desc": "Turvasiipi on suunniteltu antamaan sinulle selkeyttä ja turvaa haastavassa tilanteessa. Emme kerää tietojasi pilveen.",
-            "step1_title": "Tunnista tilanne",
-            "step1_text": "Käytä testejä ja listoja ymmärtääksesi, onko kyseessä kiusaaminen vai konflikti.",
-            "step1_sub": "MIKSI?",
-            "step1_sub_text": "Epätietoisuus syö voimavaroja. Nimeäminen helpottaa.",
-            "step2_title": "Dokumentoi turvallisesti",
-            "step2_text": "Kirjaa tapahtumat Lokityökalulla. Se luo aikajanan ja PDF-raportin.",
-            "step2_sub": "TÄRKEÄÄ",
-            "step2_sub_text": "Vain kirjatut tapahtumat ovat olemassa virallisesti.",
-            "step3_title": "Ymmärrä vaikutus",
-            "step3_text": "Simulaatiot ja profiilit auttavat näkemään tilanteen ulkopuolelta.",
-            "step3_sub": "TAVOITE",
-            "step3_sub_text": "Palauta toimintakykysi ja itsetuntosi.",
-            "step4_title": "Toimi",
-            "step4_text": "Käytä valmiita viestipohjia ja taktiikoita puolustaaksesi rajojasi.",
-            "step4_sub": "LUPAUS",
-            "step4_sub_text": "Et jää yksin. Me olemme puolellasi."
+            "title": "Miten Turvasiipi toimii?",
+            "step1_title": "Tunnista järjestelmällisesti",
+            "step1_text": "Tee kyselyt, jotka auttavat nimeämään mekanismit (gaslighting, ulossulkeminen, vallan väärinkäyttö).",
+            "step2_title": "Sanoita kokemus",
+            "step2_text": "Löydä kieli sille, mikä on tähän asti ollut vain epämääräinen tunne \"jostain väärästä\".",
+            "step3_title": "Harjoittele ja tallenna",
+            "step3_text": "Käytä simulaattoreita reaktioiden testaamiseen ja dokumentointityökaluja faktatiedon keräämiseen.",
+            "step4_title": "Rakenna polku ulos",
+            "step4_text": "Valmennus ja välineet auttavat rakentamaan selkeän, turvallisen polun eteenpäin."
         }
     },
-    "why": {
-        "title": "Miksi tämä on olemassa?",
-        "text": "Työpaikkakiusaaminen on väkivaltaa, joka piiloutuu 'vuorovaikutusongelmien' ja 'huumorin' taakse. Se tuhoaa ihmisen itsetunnon, terveyden ja uran.",
-        "box_title": "ME OLEMME TÄÄLLÄ, KOSKA:",
-        "list": [
-            "Uhrin on usein mahdotonta puolustautua yksin.",
-            "Organisaatiot suojelevat usein itseään, eivät uhria.",
-            "Todistustaakka kaatuu uupuneen niskaan.",
-            "Haluamme muuttaa voimasuhteet."
-        ]
+    "situations": {
+        "label": "Kenelle tämä on?",
+        "title": "Ehkä tunnistit itsesi",
+        "title_span": "yhdessä näistä tilanteista.",
+        "hint": "Klikkaa tilannetta nähdäksesi lisää."
     },
     "comparison": {
         "title": "Onko tämä kiusaamista?",
         "col1_p1": "Kiusaaminen ei aina ole huutamista. Se on usein hiljaista: katseiden välttelyä, tiedon pimittämistä, palavereista unohtamista.",
-        "col1_p2": "Se on sitä, kun tunnet vatsassasi, että jokin on vialla, mutta sinulle sanotaan, että 'kuvittelet vain'.",
+        "col1_p2": "Se on sitä, kun tunnet vatsassasi, että jokin on vialla, mutta sinulle sanotaan, että \"kuvittelet vain\".",
         "col1_p3": "Se on systemaattista.",
-        "col2_p1": "Satunnainen töykeys ei ole kiusaamista. Kiusaaminen on toistuvaa ja jatkuvaa.",
-        "col2_p2": "Jos joudut jatkuvasti varuillesi töihin mennessäsi, kyse ei ole enää vain 'kemiasta'.",
-        "col2_p3": "Tutustu kiusaamisen eri muotoihin ja opi tunnistamaan, mitä sinulle tapahtuu.",
+        "col2_p1": "Kyse ei ole aina yhdestä kontekstista. Sama vallan dynamiikka toistuu työpaikoilla, oppilaitoksissa, suhteissa ja perheissä.",
+        "col2_p2": "Jos joudut jatkuvasti varuillesi — on kyseessä työ, koulu tai koti — kyse ei ole enää \"kemiasta\" tai \"huumorista\".",
         "quote": "\"Se ei ole riita, jos vain toista lyödään.\""
+    },
+    "tools": {
+        "label": "Mitä löydät täältä",
+        "title": "Järjestelmä tunnistamiseen.",
+        "title_span": "Välineet ja kieli toimintaan."
     },
     "log": {
         "title": "Yksityinen loki",
         "subtitle": "Kirjoita se ylös. Heti.",
+        "badge": "YKSITYINEN & SALATTU",
         "box_text": "Kun olet stressaantunut, muistisi pätkii. Kiusaaja luottaa siihen. Älä anna heille sitä etua.",
         "questions": {
             "what": "Mitä tapahtui?",
@@ -63,22 +56,19 @@
             "who": "Kuka oli paikalla?",
             "how": "Miltä se tuntui?"
         },
+        "importance_p1": "Työsuojelu, lääkäri ja liitto kysyvät ensimmäisenä: 'Onko sinulla ylhäällä esimerkkejä?'",
+        "importance_p2": "Kun sinulla on mustaa valkoisella, keskustelu muuttuu 'sana sanaa vastaan' -väittelystä faktapohjaiseksi.",
+        "research_title": "TUTKITTUA TIETOA:",
+        "research": [
+            "Dokumentointi palauttaa kontrollin tunteen.",
+            "Päiväkirjan pitäminen vähentää stressioireita.",
+            "Kirjallinen todiste on oikeudellisesti vahva."
+        ],
         "privacy": {
             "local": "Emme tallenna tietojasi pilveen. Kaikki pysyy laitteellasi.",
             "pdf": "Voit ladata PDF-raportin milloin vain. Tämä on sinun todistusaineistosi."
         },
         "cta": "Avaa päiväkirja"
-    },
-    "importance": {
-        "title": "Miksi kirjaaminen on tärkeää?",
-        "p1": "Työsuojelu, lääkäri ja liitto kysyvät ensimmäisenä: 'Onko sinulla ylhäällä esimerkkejä?'",
-        "p2": "Kun sinulla on mustaa valkoisella, keskustelu muuttuu 'sana sanaa vastaan' -väittelystä faktapohjaiseksi.",
-        "box_title": "TUTKITTUA TIETOA:",
-        "list": [
-            "Dokumentointi palauttaa kontrollin tunteen.",
-            "Päiväkirjan pitäminen vähentää stressioireita.",
-            "Kirjallinen todiste on oikeudellisesti vahva."
-        ]
     },
     "power": {
         "title": "Sinulla on valta",
@@ -92,6 +82,10 @@
             "Olemme puolellasi.",
             "Sinä päätät."
         ]
+    },
+    "quote": {
+        "text": "Kiusaaminen ei ole konflikti. Se on vallan epätasapaino, jonka vain toinen osapuoli on valinnut.",
+        "author": "Turvasiipi"
     },
     "footer_slogan": {
         "title": "Et ole velvollinen tietämään vielä, mitä tämä on.",
@@ -118,8 +112,8 @@
         "q9": "Mistä saan ulkopuolista apua?",
         "a9_title": "Tärkeät tahot:",
         "a9_text": "Emme jätä sinua yksin. Tässä virallisia reittejä:",
-        "a9_list_1": "**Työsuojelu:** Aluehallintovirasto (AVI)",
-        "a9_list_2": "**Ammattiliitot:** Luottamusmies",
-        "a9_list_3": "**Terveys:** Työterveyshuolto"
+        "a9_list_1": "Työsuojelu: Aluehallintovirasto (AVI)",
+        "a9_list_2": "Ammattiliitot: Luottamusmies",
+        "a9_list_3": "Terveys: Työterveyshuolto"
     }
 }

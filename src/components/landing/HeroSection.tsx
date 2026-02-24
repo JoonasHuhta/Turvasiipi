@@ -32,10 +32,36 @@ export function HeroSection({ t }: HeroSectionProps) {
                 <span className="text-[#4A4A4A] font-normal italic">{t('landing.hero.title_span')}</span>
             </h1>
 
+            {/* Environment chips */}
+            <div className="flex flex-wrap gap-2 pt-2">
+                {[
+                    { icon: '💼', label: 'Työ' },
+                    { icon: '🎓', label: 'Opinnot' },
+                    { icon: '❤️', label: 'Suhteet' },
+                    { icon: '👨‍👩‍👧‍👦', label: 'Perhe' },
+                    { icon: '🌐', label: 'Verkko' },
+                ].map(env => (
+                    <span
+                        key={env.label}
+                        className="text-xs border border-[#D8CFC8] text-[#5A4A3A] px-3 py-1 rounded-full bg-white/80"
+                    >
+                        {env.icon} {env.label}
+                    </span>
+                ))}
+            </div>
+
             <div className="space-y-8 max-w-2xl">
                 <h2 className="text-2xl font-serif text-[#4A4A4A] leading-relaxed">
                     {t('landing.hero.subtitle')}
                 </h2>
+
+                {/* Validation block */}
+                <div className="bg-[#F8F4F0] border-l-4 border-[#5B4B8A] p-4">
+                    <p className="text-lg font-medium text-[#2B2B2B]">
+                        {t('landing.hero.subtitle_validation')}
+                    </p>
+                    <p className="text-[#5B4B8A] font-bold">{t('landing.hero.subtitle_validation_response')}</p>
+                </div>
 
                 <div className="space-y-6">
                     <p className="text-lg text-[#4A4A4A] leading-relaxed">

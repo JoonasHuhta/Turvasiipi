@@ -8,10 +8,10 @@ import { ArrowRight, X } from 'lucide-react';
 
 const ENVIRONMENTS = [
     { icon: '💼', label: 'Työ' },
-    { icon: '🏫', label: 'Koulu' },
-    { icon: '🏃', label: 'Harrastus' },
+    { icon: '🎓', label: 'Opinnot' },
+    { icon: '❤️', label: 'Suhteet' },
+    { icon: '👨‍👩‍👧‍👦', label: 'Perhe' },
     { icon: '🌐', label: 'Verkko' },
-    { icon: '🏠', label: 'Koti' },
 ];
 
 const SITUATIONS = [
@@ -48,12 +48,22 @@ const SITUATIONS = [
     {
         id: 'youth',
         icon: '🏫',
-        title: 'Ei halua mennä sinne',
-        subtitle: 'joka päivä tekosyy',
-        text: 'Lapsi keksii syitä. Ei halua puhua. Tai kertoo tilanteesta jota aikuiset kutsuvat "lasten riidaksi". Sinä tiedät, että se ei ole sitä.',
+        title: 'Jokin on muuttunut',
+        subtitle: 'eikä hän halua puhua siitä',
+        text: 'Lapsi keksii syitä. Ei halua lähteä kouluun tai harrastukseen. Sinä tiedät, että kyse ei ole vain "lasten välisestä nahistelusta", vaan jostain syvemmästä.',
         cta: 'Nuoret ja kiusaaminen',
         href: '/nuoret',
         color: '#9B6B3A',
+    },
+    {
+        id: 'relationship',
+        icon: '🏠',
+        title: 'Säännöt muuttuvat',
+        subtitle: 'en enää tiedä mikä on normaalia',
+        text: 'Toinen määrittää todellisuuden uudelleen joka päivä. Joudun varomaan sanojani. Kotona tuntuu siltä kuin kävelisi lasinsiruilla.',
+        cta: 'Lähisuhdevävalta ja kontrolli',
+        href: '/valmennus/kontrolloiva-suhde',
+        color: '#8A4B4B',
     },
     {
         id: 'professional',
@@ -145,8 +155,8 @@ export default function HiekkalaatikkoHero() {
                     {/* Headline */}
                     <div className="space-y-4">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-[#2B2B2B]">
-                            Vallan väärinkäytön<br />
-                            <span className="text-[#4A4A4A] font-normal italic">selviytymisopas.</span>
+                            Vallan väärinkäytön ja<br />
+                            <span className="text-[#4A4A4A] font-normal italic">kiusaamisen opas.</span>
                         </h1>
 
                         {/* Environment chips */}
@@ -165,22 +175,27 @@ export default function HiekkalaatikkoHero() {
                     {/* Subtitle */}
                     <div className="space-y-6 max-w-xl">
                         <h2 className="text-xl sm:text-2xl font-serif text-[#4A4A4A] leading-relaxed">
-                            Kun sanot itsellesi:{' '}
-                            <em>&ldquo;Ehkä ylireagin.&rdquo;</em>
-                            <br />
-                            Emme usko sitä.
+                            Kun jokin tuntuu väärältä,<br />
+                            <span className="italic">mutta et saa siitä kiinni.</span>
                         </h2>
+
+                        <div className="bg-[#F8F4F0] border-l-4 border-[#5B4B8A] p-4 my-6">
+                            <p className="text-lg font-medium text-[#2B2B2B]">
+                                Kun sanot itsellesi: &ldquo;Ehkä ylireagoin.&rdquo;
+                            </p>
+                            <p className="text-[#5B4B8A] font-bold">Emme usko sitä.</p>
+                        </div>
 
                         <div className="space-y-4 text-base text-[#4A4A4A] leading-relaxed">
                             <p>
-                                Tämä ei ole HR-opas. Tämä on paikka, johon tulee, kun
-                                jotain on vialla — töissä, koulussa, harrastuksissa tai kotona
-                                — eikä kukaan muu vaikuta uskovan sitä.
+                                Tämä on paikka, johon tulla, kun jokin on vialla – työssä, kouluissa,
+                                parisuhteessa, perheessä tai verkossa. Kun et ole varma, mitä tapahtuu
+                                – tai saatko edes puhua siitä.
                             </p>
                             <p>
-                                Tarjoamme kielen sille, mille ei vielä ole sanoja.
-                                Välineet tilanteen tallentamiseen. Ja käytännön harjoituksia,
-                                joissa voit testata mitä sanoisit — turvallisesti.
+                                Tämä ei ole ohjeistus muille. Tämä on työkalu sinulle.
+                                Saat kielen kokemuksellesi, välineet tilanteen jäsentämiseen
+                                ja tavan edetä – askel kerrallaan.
                             </p>
                         </div>
                     </div>
@@ -252,8 +267,8 @@ export default function HiekkalaatikkoHero() {
                             Mitä löydät täältä
                         </span>
                         <h2 className="text-2xl sm:text-3xl font-bold text-[#2B2B2B]">
-                            Ei neuvoja.<br />
-                            <span className="font-normal italic text-[#4A4A4A]">Välineitä ja harjoituksia.</span>
+                            Järjestelmä tunnistamiseen.<br />
+                            <span className="font-normal italic text-[#4A4A4A]">Välineet ja kieli toimintaan.</span>
                         </h2>
                     </div>
 
@@ -312,10 +327,10 @@ export default function HiekkalaatikkoHero() {
                         </div>
                         <div className="space-y-5">
                             {[
-                                { n: '1', title: 'Tunnista', text: 'Tee lyhyt kysely tai lue taktiikoista. Usein pelkkä tunnistaminen on helpotus.' },
-                                { n: '2', title: 'Harjoittele', text: 'Simulaattorit antavat kehon muistaa miten toimia — ennen kuin tilanne on käsillä.' },
-                                { n: '3', title: 'Tallenna', text: 'Kirjaa tapahtumat tarkasti. Dokumentaatio on tärkein suojasi.' },
-                                { n: '4', title: 'Tee suunnitelma', text: 'Valmennus ja välineet auttavat rakentamaan selkeän polun eteenpäin.' },
+                                { n: '1', title: 'Tunnista järjestelmällisesti', text: 'Tee kyselyt, jotka auttavat nimeämään mekanismit (gaslighting, ulossulkeminen, vallan väärinkäyttö).' },
+                                { n: '2', title: 'Sanoita kokemus', text: 'Löydä kieli sille, mikä on tähän asti ollut vain epämääräinen tunne "jostain väärästä".' },
+                                { n: '3', title: 'Harjoittele ja tallenna', text: 'Käytä simulaattoreita reaktioiden testaamiseen ja dokumentointityökaluja faktatiedon keräämiseen.' },
+                                { n: '4', title: 'Rakenna polku ulos', text: 'Valmennus ja välineet auttavat rakentamaan selkeän, turvallisen polun eteenpäin.' },
                             ].map(step => (
                                 <div key={step.n} className="flex gap-4">
                                     <div className="w-8 h-8 rounded-full bg-[#5B4B8A] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">

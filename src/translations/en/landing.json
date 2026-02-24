@@ -1,61 +1,54 @@
 {
     "_meta": "🔒 LOCKED FILE - DO NOT MODIFY WITHOUT EXPLICIT USER CONSENT",
     "hero": {
-        "title_start": "Workplace Bullying",
-        "title_end": "First Aid Kit.",
-        "subtitle": "When you run out of words, we give them to you.",
-        "p1": "This is not an 'HR guide'. This is a survival tool for you who have been subjected to workplace bullying, exclusion, or inappropriate treatment.",
-        "p2": "We offer words for difficult situations, tools for documentation, and understanding of what is happening to you. You are not crazy, and you are not alone.",
-        "cta_start": "Start Here",
-        "cta_main": "Take Test",
+        "title_start": "Power Misuse and",
+        "title_end": "Bullying Guide.",
+        "subtitle": "When something feels wrong, but you can't put your finger on it.",
+        "subtitle_validation": "When you tell yourself: \"Maybe I'm overreacting.\"",
+        "subtitle_validation_response": "We don't believe that.",
+        "p1": "This is a place to come when something is wrong – at work, in studies, in relationships, in the family, or online. When you're not sure what's happening – or if you're even allowed to talk about it.",
+        "p2": "This is an empowerment tool for you. You get language for your experience, tools to make sense of your situation, and a way forward – step by step.",
+        "cta_start": "Identify Situation",
+        "cta_main": "Take Assessment",
         "cta_how": "How does this work?",
-        "read_first": "Read instructions first",
-        "quit_anytime": "You can quit anytime",
+        "read_first": "YOU CAN STOP ANYTIME",
+        "quit_anytime": "NOTHING IS SAVED WITHOUT YOUR CONSENT",
         "dialog": {
             "title": "How Safewing Works?",
-            "desc": "Safewing is designed to give you clarity and safety in a challenging situation. We do not collect your data in the cloud.",
-            "step1_title": "Identify Situation",
-            "step1_text": "Use tests and lists to understand if it is bullying or conflict.",
-            "step1_sub": "WHY?",
-            "step1_sub_text": "Uncertainty eats up resources. Naming helps.",
-            "step2_title": "Document Safely",
-            "step2_text": "Record events with the Log Tool. It creates a timeline and PDF report.",
-            "step2_sub": "IMPORTANT",
-            "step2_sub_text": "Only recorded events exist officially.",
-            "step3_title": "Understand Impact",
-            "step3_text": "Simulations and profiles help see the situation from outside.",
-            "step3_sub": "GOAL",
-            "step3_sub_text": "Restore your ability to function and self-esteem.",
-            "step4_title": "Act",
-            "step4_text": "Use ready-made message templates and tactics to defend your boundaries.",
-            "step4_sub": "PROMISE",
-            "step4_sub_text": "You will not be left alone. We are on your side."
+            "step1_title": "Identify Systematically",
+            "step1_text": "Take assessments that help name mechanisms (gaslighting, exclusion, power abuse).",
+            "step2_title": "Put Experience into Words",
+            "step2_text": "Find language for what has so far been just a vague feeling of 'something wrong'.",
+            "step3_title": "Practice and Record",
+            "step3_text": "Use simulators to test reactions and documentation tools to collect facts.",
+            "step4_title": "Build a Way Out",
+            "step4_text": "Coaching and tools help build a clear, safe path forward."
         }
     },
-    "why": {
-        "title": "Why does this exist?",
-        "text": "Workplace bullying is violence that hides behind 'interaction problems' and 'humor'. It destroys a person's self-esteem, health, and career.",
-        "box_title": "WE ARE HERE BECAUSE:",
-        "list": [
-            "It is often impossible for the victim to defend themselves alone.",
-            "Organizations often protect themselves, not the victim.",
-            "rBurden of proof falls on the exhausted.",
-            "We want to change the power dynamics."
-        ]
+    "situations": {
+        "label": "Who is this for?",
+        "title": "Maybe you recognized yourself",
+        "title_span": "in one of these situations.",
+        "hint": "Click a situation to see more."
     },
     "comparison": {
         "title": "Is this bullying?",
         "col1_p1": "Bullying is not always shouting. It is often silent: avoiding eye contact, withholding information, forgetting from meetings.",
         "col1_p2": "It is when you feel in your gut that something is wrong, but you are told 'you are just imagining'.",
         "col1_p3": "It is systematic.",
-        "col2_p1": "Occasional rudeness is not bullying. Bullying is repeated and continuous.",
-        "col2_p2": "If you are constantly on guard when going to work, it is no longer just about 'chemistry'.",
-        "col2_p3": "Explore different forms of bullying and learn to recognize what is happening to you.",
+        "col2_p1": "It's not always about one context. The same power dynamic repeats in workplaces, schools, relationships, and families.",
+        "col2_p2": "If you are constantly on guard — whether it's work, school, or home — it is no longer about 'chemistry' or 'humor'.",
         "quote": "\"It is not a fight if only one is being hit.\""
+    },
+    "tools": {
+        "label": "What you'll find here",
+        "title": "A system for identification.",
+        "title_span": "Tools and language for action."
     },
     "log": {
         "title": "Private Log",
         "subtitle": "Write it down. Immediately.",
+        "badge": "PRIVATE & ENCRYPTED",
         "box_text": "When you are stressed, your memory fails. The bully relies on that. Do not give them that advantage.",
         "questions": {
             "what": "What happened?",
@@ -63,22 +56,19 @@
             "who": "Who was present?",
             "how": "How did it feel?"
         },
+        "importance_p1": "Occupational safety, doctor, and union ask first: 'Do you have examples written down?'",
+        "importance_p2": "When you have it in black and white, the conversation changes from 'word against word' to fact-based.",
+        "research_title": "RESEARCHED KNOWLEDGE:",
+        "research": [
+            "Documentation restores the sense of control.",
+            "Keeping a diary reduces stress symptoms.",
+            "Written evidence is legally strong."
+        ],
         "privacy": {
             "local": "We do not save your data to the cloud. Everything stays on your device.",
             "pdf": "You can download a PDF report anytime. This is your evidence."
         },
         "cta": "Open Diary"
-    },
-    "importance": {
-        "title": "Why is recording important?",
-        "p1": "Occupational safety, doctor, and union ask first: 'Do you have examples written down?'",
-        "p2": "When you have it in black and white, the conversation changes from 'word against word' to fact-based.",
-        "box_title": "RESEARCHED KNOWLEDGE:",
-        "list": [
-            "Documentation restores the sense of control.",
-            "Keeping a diary reduces stress symptoms.",
-            "Written evidence is legally strong."
-        ]
     },
     "power": {
         "title": "You have the power",
@@ -92,6 +82,10 @@
             "We are on your side.",
             "You decide."
         ]
+    },
+    "quote": {
+        "text": "Bullying is not a conflict. It is a power imbalance that only one party has chosen.",
+        "author": "Safewing"
     },
     "footer_slogan": {
         "title": "You are not obligated to know yet what this is.",
@@ -115,13 +109,11 @@
         "a5": "Yes. A diary produced by yourself is evidence. A PDF report is a clear way to present the course of events.",
         "q6": "Does this cost?",
         "a6": "No. Safewing is a free tool.",
-        "q7": "Who made this?",
-        "a7": "Safewing has been developed in collaboration with victims of workplace bullying, HR professionals, and coders.",
         "q9": "Where can I get outside help?",
         "a9_title": "Important parties:",
         "a9_text": "We won't leave you alone. Here are official routes:",
-        "a9_list_1": "**Occupational Safety:** Regional State Administrative Agency (AVI)",
-        "a9_list_2": "**Trade Unions:** Shop Steward",
-        "a9_list_3": "**Health:** Occupational Health Care"
+        "a9_list_1": "Occupational Safety: Regional State Administrative Agency (AVI)",
+        "a9_list_2": "Trade Unions: Shop Steward",
+        "a9_list_3": "Health: Occupational Health Care"
     }
 }
