@@ -8,7 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowRight, Briefcase, Ghost, Infinity, Laptop, Stethoscope, GraduationCap, Users, Zap, TrendingUp, Swords, Eye, MessageSquare, UserCheck } from "lucide-react";
+import { ArrowRight, Briefcase, Ghost, Infinity, Laptop, Stethoscope, GraduationCap, Users, Zap, TrendingUp, Swords, Eye, MessageSquare, UserCheck, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { simulatorRegistry, getTypeLabel, getPersonaLabel } from "@/lib/simulator-registry";
 // LOCKED: DO NOT EDIT WITHOUT EXPLICIT PERMISSION
@@ -164,6 +164,65 @@ export default function SimulatorPage() {
                         />
                     </Link>
                 </div>
+            </section>
+
+            {/* SIVULLISEN ROOLI — Bystander Simulator */}
+            <section className="space-y-8 border-t border-[#E8DDD0] pt-24">
+                <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                    <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
+                        <ShieldCheck className="w-6 h-6 text-[#5B4B8A]" />
+                        Sivullisen rooli
+                    </h2>
+                    <p className="text-[#4A4A4A] italic max-w-md">
+                        Et ole kohde, et ole tekijä — olet todistaja. Mitä teet?
+                    </p>
+                </div>
+
+                {/* Featured card */}
+                <Link href="/simulaatio/bystander" className="block group">
+                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 group-hover:border-indigo-400 rounded-2xl p-8 transition-all duration-200 group-hover:shadow-lg">
+                        <div className="flex items-start justify-between gap-6">
+                            <div className="space-y-3 flex-1">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-600 bg-white border border-indigo-200 px-2 py-0.5 rounded-sm">
+                                        🎮 5 harjoitusta
+                                    </span>
+                                    <span className="text-[10px] font-mono text-[#6B7280]">
+                                        Hollaback! 5D-malli
+                                    </span>
+                                    <span className="text-[10px] font-bold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-sm uppercase tracking-wide">
+                                        Uusi
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-[#2B2B2B] group-hover:text-indigo-700 transition-colors">
+                                    Bystander-treeni
+                                </h3>
+                                <p className="text-[#4A4A4A] leading-relaxed max-w-xl">
+                                    Viisiosainen harjoitusohjelma, joka kulkee psykologisesti turvallisesti:
+                                    tunnista tilanne, sääde hermosto, valitse strategia, harjoittele sanoaminen,
+                                    suunnitele suojautuminen.
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 mt-2">
+                                    {['🔍 Tunnista', '🌬 Säädä', '🎯 Valitse', '💬 Sano', '🛡 Suojaa'].map(s => (
+                                        <span key={s} className="text-xs bg-white text-indigo-700 border border-indigo-200 px-2 py-0.5 rounded-full">
+                                            {s}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="flex items-center gap-3 text-[11px] text-[#78716C] pt-1">
+                                    <span>👁 Sivustakatsojan rooli</span>
+                                    <span>🕐 ~12 min / harjoitus</span>
+                                    <span>📊 5 skenaariota</span>
+                                </div>
+                            </div>
+                            <div className="flex-shrink-0 mt-1">
+                                <div className="w-12 h-12 rounded-full bg-indigo-100 border-2 border-indigo-300 flex items-center justify-center group-hover:bg-indigo-200 transition-colors">
+                                    <ArrowRight className="w-5 h-5 text-indigo-600" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
             </section>
 
             {/* NEUROMONINAISUUS - The Core Experience */}
