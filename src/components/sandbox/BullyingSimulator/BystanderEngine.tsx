@@ -92,7 +92,7 @@ export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onCo
 
     const handleRecognition = (answerId: string, certainty: number) => {
         setState(prev => ({ ...prev, recognitionAnswer: answerId, certaintyScore: certainty }));
-        setTimeout(advancePhase, 1200);
+        advancePhase();
     };
 
     const handleArousal = (arousalState: ArousalState) => {
@@ -105,7 +105,7 @@ export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onCo
 
     const handleIntervention = (type: InterventionType5D | null) => {
         setState(prev => ({ ...prev, chosen5D: type ?? undefined, timedOut: type === null }));
-        setTimeout(advancePhase, 800);
+        advancePhase();
     };
 
     const handleWordChoice = (phrase: string) => {
@@ -114,7 +114,7 @@ export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onCo
 
     const handlePhraseSaved = (phrase: string) => {
         setState(prev => ({ ...prev, savedPhrase: phrase }));
-        setTimeout(advancePhase, 600);
+        advancePhase();
     };
 
     const handleSafetyPlanDone = (protections: string[]) => {
@@ -132,7 +132,7 @@ export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onCo
         };
         setState(prev => ({ ...prev, selectedProtections: protections, card }));
         saveProgress(card, scenario.id);
-        setTimeout(advancePhase, 600);
+        advancePhase();
     };
 
     const isCardPhase = state.phase === 'card';

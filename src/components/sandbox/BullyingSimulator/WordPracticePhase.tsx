@@ -91,8 +91,8 @@ export const WordPracticePhase: React.FC<WordPracticePhaseProps> = ({
                                     onClick={() => handlePickPhrase(phrase.text, i)}
                                     disabled={selectedIndex !== null}
                                     className={`w-full text-left rounded-xl border-2 p-4 transition-all duration-200 ${selectedIndex === i
-                                            ? 'border-blue-400 bg-blue-50'
-                                            : 'border-slate-200 hover:border-blue-300 bg-white hover:bg-blue-50/20'
+                                        ? 'border-blue-400 bg-blue-50'
+                                        : 'border-slate-200 hover:border-blue-300 bg-white hover:bg-blue-50/20'
                                         } ${toneColor(phrase.tone)}`}
                                 >
                                     <div className="flex items-start justify-between gap-2 mb-2">
@@ -196,7 +196,12 @@ export const WordPracticePhase: React.FC<WordPracticePhaseProps> = ({
                         <p className="text-sm text-slate-800 italic">&ldquo;{editText || selectedPhrase}&rdquo;</p>
                     </div>
                     <p className="text-xs text-slate-500">Tämä lause tulee näkyviin lopputulos-kortillesi.</p>
-                    <p className="text-xs text-slate-400 animate-pulse">Siirrytään viimeiseen osaan...</p>
+                    <button
+                        onClick={() => onPhraseSaved(editText || selectedPhrase || '')}
+                        className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors"
+                    >
+                        Jatka viimeiseen osaan →
+                    </button>
                 </div>
             )}
         </div>
