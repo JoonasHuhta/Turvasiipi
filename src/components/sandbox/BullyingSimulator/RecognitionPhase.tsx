@@ -23,7 +23,10 @@ export const RecognitionPhase: React.FC<RecognitionPhaseProps> = ({ data, onComp
     const handleConfirm = () => {
         if (!selected) return;
         setShowFeedback(true);
-        setTimeout(() => onComplete(selected, certainty), 2400);
+    };
+
+    const handleContinue = () => {
+        if (selected) onComplete(selected, certainty);
     };
 
     return (
@@ -51,22 +54,22 @@ export const RecognitionPhase: React.FC<RecognitionPhaseProps> = ({ data, onComp
                             onClick={() => handleSelect(opt.id)}
                             disabled={showFeedback}
                             className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all duration-200 ${isRevealed && isSelected && isCorrect
-                                    ? 'border-green-400 bg-green-50'
-                                    : isRevealed && isSelected && !isCorrect
-                                        ? 'border-amber-400 bg-amber-50'
-                                        : isRevealed && isCorrect
-                                            ? 'border-green-300 bg-green-50/50'
-                                            : isSelected
-                                                ? 'border-indigo-400 bg-indigo-50'
-                                                : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/30'
+                                ? 'border-green-400 bg-green-50'
+                                : isRevealed && isSelected && !isCorrect
+                                    ? 'border-amber-400 bg-amber-50'
+                                    : isRevealed && isCorrect
+                                        ? 'border-green-300 bg-green-50/50'
+                                        : isSelected
+                                            ? 'border-indigo-400 bg-indigo-50'
+                                            : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50/30'
                                 }`}
                         >
                             <div className="flex items-start gap-3">
                                 <div className={`flex-shrink-0 w-5 h-5 rounded-full border-2 mt-0.5 flex items-center justify-center text-xs ${isRevealed && isCorrect
-                                        ? 'border-green-500 bg-green-500 text-white'
-                                        : isSelected
-                                            ? 'border-indigo-500 bg-indigo-500 text-white'
-                                            : 'border-slate-300'
+                                    ? 'border-green-500 bg-green-500 text-white'
+                                    : isSelected
+                                        ? 'border-indigo-500 bg-indigo-500 text-white'
+                                        : 'border-slate-300'
                                     }`}>
                                     {isRevealed && isCorrect ? '✓' : isSelected ? '●' : ''}
                                 </div>
@@ -116,8 +119,8 @@ export const RecognitionPhase: React.FC<RecognitionPhaseProps> = ({ data, onComp
             {showFeedback && (
                 <div className="space-y-3">
                     <div className={`rounded-xl p-4 border ${selectedOption?.isCorrect
-                            ? 'bg-green-50 border-green-200'
-                            : 'bg-amber-50 border-amber-200'
+                        ? 'bg-green-50 border-green-200'
+                        : 'bg-amber-50 border-amber-200'
                         }`}>
                         <p className="text-sm font-medium text-slate-800">
                             {selectedOption?.isCorrect ? data.feedback.correct : data.feedback.partial}
@@ -129,7 +132,12 @@ export const RecognitionPhase: React.FC<RecognitionPhaseProps> = ({ data, onComp
                     <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                         <p className="text-xs text-slate-600 leading-relaxed">{data.educationalNote}</p>
                     </div>
-                    <p className="text-center text-xs text-slate-400 animate-pulse">Siirrytään seuraavaan osaan...</p>
+                    <button
+                        onClick={handleContinue}
+                        className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold rounded-xl transition-colors"
+                    >
+                        Jatka seuraavaan osaan →
+                    </button>
                 </div>
             )}
         </div>

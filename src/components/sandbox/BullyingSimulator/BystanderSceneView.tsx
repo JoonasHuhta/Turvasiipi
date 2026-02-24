@@ -63,35 +63,32 @@ const CharacterPawn: React.FC<{
     isActive: boolean;
 }> = ({ char, isSpeaking, face, isActive }) => {
     return (
-        <div className="flex flex-col items-center gap-1 select-none">
+        <div className="flex flex-col items-center gap-0.5 select-none">
             {/* Avatar circle */}
             <div
                 className={[
-                    'w-11 h-11 rounded-full flex items-center justify-center text-xl border-2',
+                    'w-9 h-9 rounded-full flex items-center justify-center text-lg border-2',
                     'transition-all duration-300',
                     isSpeaking
-                        ? 'ring-4 ring-white/70 scale-110 shadow-lg border-white'
-                        : 'border-white/30',
-                    isActive ? '' : 'opacity-60',
+                        ? 'ring-2 ring-offset-1 ring-white scale-110 shadow-md border-white'
+                        : 'border-transparent',
+                    isActive ? '' : 'opacity-50',
                 ].join(' ')}
                 style={{ background: char.color }}
             >
-                <span
-                    className={isSpeaking ? 'animate-[bounce_0.6s_ease-in-out_3]' : ''}
-                >
+                <span className={isSpeaking ? 'animate-[bounce_0.5s_ease-in-out_2]' : ''}>
                     {face}
                 </span>
             </div>
-            {/* Name badge */}
+            {/* Name badge — always readable: dark text, white background */}
             <span
                 className={[
-                    'text-[9px] font-semibold px-1.5 py-0.5 rounded-full truncate max-w-[56px] text-center',
-                    isSpeaking ? 'bg-white text-slate-800 shadow' : 'bg-white/30 text-white',
-                    'transition-all duration-200',
+                    'text-[9px] font-bold px-1.5 py-0.5 rounded-full truncate max-w-[52px] text-center',
+                    'bg-white/95 text-slate-800 shadow-sm',
+                    isSpeaking ? 'ring-1 ring-indigo-300' : '',
                 ].join(' ')}
             >
                 {char.name}
-                {char.role === 'perpetrator' ? ' 👔' : ''}
             </span>
         </div>
     );
@@ -215,7 +212,7 @@ export const BystanderSceneView: React.FC<BystanderSceneViewProps> = ({
             aria-label="Klikkaa jatkaaksesi dialogia"
         >
             {/* ── CHARACTER STAGE ── */}
-            <div className="flex items-end justify-center gap-3 px-4 pt-4 pb-2 min-h-[110px]">
+            <div className="flex items-end justify-center gap-2 px-3 pt-3 pb-1 min-h-[90px]">
                 {displayOrder.map(char => {
                     const face = getIdleFace(char.id, scene, speakerId);
                     return (
@@ -233,7 +230,7 @@ export const BystanderSceneView: React.FC<BystanderSceneViewProps> = ({
             {/* ── ACTIVE SPEECH BUBBLE ── */}
             <div
                 className={[
-                    'mx-3 mb-3 min-h-[68px] rounded-xl px-4 py-3 transition-all duration-300',
+                    'mx-2 mb-2 min-h-[56px] rounded-xl px-3 py-2.5 transition-all duration-300 relative',
                     isAggressive
                         ? 'bg-red-50 border-l-4 border-red-500 shadow-sm'
                         : isThought
@@ -253,7 +250,7 @@ export const BystanderSceneView: React.FC<BystanderSceneViewProps> = ({
                             )}
                         </div>
                         <p className={[
-                            'text-sm leading-snug',
+                            'text-xs leading-snug',
                             isAggressive ? 'text-red-800 font-medium' : 'text-slate-800',
                             isThought ? 'text-slate-600 italic' : '',
                         ].join(' ')}>

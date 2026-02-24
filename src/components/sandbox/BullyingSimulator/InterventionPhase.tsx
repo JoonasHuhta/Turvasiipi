@@ -32,6 +32,7 @@ export const InterventionPhase: React.FC<InterventionPhaseProps> = ({
     const [chosen, setChosen] = useState<InterventionType5D | null>(null);
     const [expanded, setExpanded] = useState<InterventionType5D | null>(null);
     const [showFeedback, setShowFeedback] = useState(false);
+    const [readyToContinue, setReadyToContinue] = useState(false);
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export const InterventionPhase: React.FC<InterventionPhaseProps> = ({
                     clearInterval(timerRef.current!);
                     setTimedOut(true);
                     setShowFeedback(true);
-                    setTimeout(() => onComplete(null), 2500);
+                    setReadyToContinue(true);
                     return 0;
                 }
                 return t - 1;
@@ -56,7 +57,7 @@ export const InterventionPhase: React.FC<InterventionPhaseProps> = ({
         setChosen(type);
         setExpanded(type);
         setShowFeedback(true);
-        setTimeout(() => onComplete(type), 2800);
+        setReadyToContinue(true);
     };
 
     const chosenIntervention = data.interventions.find(i => i.type === chosen);
@@ -117,8 +118,8 @@ export const InterventionPhase: React.FC<InterventionPhaseProps> = ({
                                         expanded === intervention.type ? null : intervention.type
                                     )}
                                     className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all duration-200 ${isChosen
-                                            ? 'border-indigo-400 bg-indigo-50'
-                                            : 'border-slate-200 hover:border-indigo-300 bg-white'
+                                        ? 'border-indigo-400 bg-indigo-50'
+                                        : 'border-slate-200 hover:border-indigo-300 bg-white'
                                         }`}
                                 >
                                     <div className="flex items-center justify-between">
@@ -182,13 +183,28 @@ export const InterventionPhase: React.FC<InterventionPhaseProps> = ({
 
             {/* Feedback after choice */}
             {showFeedback && chosenIntervention && (
-                <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
-                    <p className="text-sm text-indigo-800 font-medium mb-1">
+                <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 space-y-3">
+                    <p className="text-sm text-indigo-800 font-medium">
                         {chosenIntervention.icon} Valitsit: {chosenIntervention.label}
                     </p>
                     <p className="text-sm text-indigo-700">{chosenIntervention.feedback}</p>
-                    <p className="text-center text-xs text-slate-400 mt-3 animate-pulse">Siirrytään harjoittelemaan sanomista...</p>
+                    {readyToContinue && (
+                        <button
+                            onClick={() => onComplete(chosen)}
+                            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold rounded-xl transition-colors"
+                        >
+                            Jatka harjoittelemaan sanomista →
+                        </button>
+                    )}
                 </div>
+            )}
+            {showFeedback && timedOut && readyToContinue && (
+                <button
+                    onClick={() => onComplete(null)}
+                    className="w-full py-3 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white text-sm font-semibold rounded-xl transition-colors"
+                >
+                    Jatka seuraavaan →
+                </button>
             )}
         </div>
     );
