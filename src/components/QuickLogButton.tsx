@@ -9,9 +9,11 @@ import { Zap, Save } from "lucide-react";
 import { useSecureLocalStorage } from "@/hooks/useSecureLocalStorage";
 import { TimelineEvent } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
+import { useProgress } from "@/context/ProgressContext";
 
 export function QuickLogButton() {
     const { t } = useLanguage();
+    const { completeModule, awardBadge, isModuleCompleted } = useProgress();
     const [isOpen, setIsOpen] = useState(false);
     const [quickText, setQuickText] = useState("");
     const { data: events, setData: setEvents } = useSecureLocalStorage<TimelineEvent[]>("suojasiipi_events_secure", []);
@@ -32,6 +34,11 @@ export function QuickLogButton() {
         };
 
         setEvents([newEvent, ...events]);
+        // First entry ever → award doc_start badge + timeline module points
+        if (events.length === 0 && !isModuleCompleted('timeline')) {
+            completeModule('timeline'); // +100 pts
+            awardBadge('doc_start');
+        }
         setQuickText("");
         setIsOpen(false);
     };

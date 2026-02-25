@@ -23,14 +23,14 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
         id: 1,
         name: "Muna",
         minPoints: 0,
-        maxPoints: 100,
+        maxPoints: 150,
         color: "text-slate-500",
         bg: "bg-slate-100",
         icon: "🥚",
         subLevels: [
             {
                 min: 0,
-                max: 100,
+                max: 150,
                 title: "Tarkkailija",
                 description: "Jokainen matka alkaa tästä. Ota aikasi.",
                 feedback: "Vasta opettelet tunnistamaan hienovaraisia vihjeitä. Kaikki on uutta.",
@@ -41,15 +41,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 2,
         name: "Untuvikko",
-        minPoints: 101,
-        maxPoints: 300,
+        minPoints: 151,
+        maxPoints: 400,
         color: "text-yellow-600",
         bg: "bg-yellow-50",
         icon: "🐣",
         subLevels: [
             {
-                min: 101,
-                max: 300,
+                min: 151,
+                max: 400,
                 title: "Oppija",
                 description: "Ei ole heikkoutta oppia. On viisautta.",
                 feedback: "Olet tehnyt ensimmäiset askeleet. Tiedät nyt enemmän kuin eilen.",
@@ -60,15 +60,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 3,
         name: "Keltanokka",
-        minPoints: 301,
-        maxPoints: 600,
+        minPoints: 401,
+        maxPoints: 800,
         color: "text-amber-500",
         bg: "bg-amber-50",
         icon: "🐤",
         subLevels: [
             {
-                min: 301,
-                max: 600,
+                min: 401,
+                max: 800,
                 title: "Harjoittelija",
                 description: "Dokumentointi on voimaa. Jatka näin.",
                 feedback: "Harjoittelet lentoa. Et ole vielä valmis, mutta opit joka päivä.",
@@ -79,15 +79,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 4,
         name: "Höyhenpuku",
-        minPoints: 601,
-        maxPoints: 1000,
+        minPoints: 801,
+        maxPoints: 1500,
         color: "text-blue-500",
         bg: "bg-blue-50",
         icon: "🐦",
         subLevels: [
             {
-                min: 601,
-                max: 1000,
+                min: 801,
+                max: 1500,
                 title: "Taitaja",
                 description: "Sinulla on nyt työkalut. Käytä niitä viisaasti.",
                 feedback: "Höyhenesi ovat kasvaneet. Olet valmis ensimmäisiin lyhyisiin lentoihin.",
@@ -98,15 +98,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 5,
         name: "Lentokykyinen",
-        minPoints: 1001,
-        maxPoints: 1500,
+        minPoints: 1501,
+        maxPoints: 2500,
         color: "text-indigo-600",
         bg: "bg-indigo-50",
         icon: "🕊️",
         subLevels: [
             {
-                min: 1001,
-                max: 1500,
+                min: 1501,
+                max: 2500,
                 title: "Osaaja",
                 description: "Et ole enää yksin. Tiedät mihin olet menossa.",
                 feedback: "Lennät omilla siivilläsi. Tiedät mitä teet ja miksi.",
@@ -117,15 +117,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 6,
         name: "Parviopas",
-        minPoints: 1501,
-        maxPoints: 2500,
+        minPoints: 2501,
+        maxPoints: 4000,
         color: "text-emerald-600",
         bg: "bg-emerald-50",
         icon: "🦜",
         subLevels: [
             {
-                min: 1501,
-                max: 2500,
+                min: 2501,
+                max: 4000,
                 title: "Opastaja",
                 description: "Sinun kokemuksesi voi auttaa toista untuvikkoa.",
                 feedback: "Lennät parven kärjessä. Olet nähnyt paljon ja oppinut paljon. Voit nyt auttaa muita.",
@@ -136,15 +136,15 @@ export const EXPERT_LEVELS: ExpertLevel[] = [
     {
         id: 7,
         name: "Turvasiipi-Mestari",
-        minPoints: 2501,
-        maxPoints: 10000,
+        minPoints: 4001,
+        maxPoints: 99999,
         color: "text-orange-600",
         bg: "bg-orange-50",
         icon: "🦅",
         subLevels: [
             {
-                min: 2501,
-                max: 10000,
+                min: 4001,
+                max: 99999,
                 title: "Suojelija",
                 description: "Sinä olet se, jota muut tarvitsevat. Kiitos että jaksat.",
                 feedback: "Lennät korkealla ja näet kauas. Olet läpikäynyt myrskyn ja selvinnyt.",
@@ -158,13 +158,31 @@ import { Module, Badge } from '@/types/domain';
 
 // Static modules that are NOT part of the new Valmennus hub structure
 const CORE_MODULES: Module[] = [
-    // CORE
+    // CORE — legacy simulators
     { id: 'landing', categoryId: 'CORE', title: 'Etusivu', points: 50, path: '/' },
     { id: 'sim_nurse', categoryId: 'CORE', title: 'Koe: Hoitaja', points: 200, path: '/simulaatio/hoitaja' },
     { id: 'sim_teacher', categoryId: 'CORE', title: 'Koe: Opettaja', points: 200, path: '/simulaatio/opettaja' },
     { id: 'sim_manager', categoryId: 'CORE', title: 'Koe: Esimies', points: 200, path: '/simulaatio/esimies' },
     { id: 'sim_youth', categoryId: 'CORE', title: 'Koe: Nuoret', points: 200, path: '/simulaatio/nuoret' },
     { id: 'sim_neuro', categoryId: 'CORE', title: 'Koe: Neuromoninaisuus', points: 200, path: '/simulaatio/neuro' },
+
+    // CORE — kiusaamissimulaattorit (dialogue-tree)
+    { id: 'sim_isolation', categoryId: 'CORE', title: 'Hiljainen eristäminen', points: 150, path: '/simulaatio/kiusaaminen/isolation-dialogue-1' },
+    { id: 'sim_micromanage', categoryId: 'CORE', title: 'Mikromanagerointi', points: 150, path: '/simulaatio/kiusaaminen/micromanagement-dialogue-1' },
+    { id: 'sim_bystander_dlg', categoryId: 'CORE', title: 'Palaverin lasiseinä', points: 150, path: '/simulaatio/kiusaaminen/bystander-dialogue-1' },
+    { id: 'sim_biff_email', categoryId: 'CORE', title: 'Sähköpostimyrsky (BIFF)', points: 150, path: '/simulaatio/kiusaaminen/biff-email-scenario' },
+    { id: 'sim_perf_trap', categoryId: 'CORE', title: 'Suoritusloukku', points: 150, path: '/simulaatio/performance-trap' },
+    { id: 'sim_info_shadow', categoryId: 'CORE', title: 'Tietovarjo', points: 150, path: '/simulaatio/information-shadow' },
+
+    // CORE — Bystander-treeni
+    { id: 'sim_bystander_full', categoryId: 'CORE', title: 'Bystander-treeni', points: 300, path: '/simulaatio/bystander' },
+
+    // CORE — Tekijä-treeni (yksi per skenaario)
+    { id: 'sim_perpetrator_s1', categoryId: 'CORE', title: 'Tekijä: KPI-paine', points: 250, path: '/simulaatio/tekija' },
+    { id: 'sim_perpetrator_s2', categoryId: 'CORE', title: 'Tekijä: Peritty malli', points: 250, path: '/simulaatio/tekija' },
+    { id: 'sim_perpetrator_s3', categoryId: 'CORE', title: 'Tekijä: Nepsyn ärsytys', points: 250, path: '/simulaatio/tekija' },
+    { id: 'sim_perpetrator_s4', categoryId: 'CORE', title: 'Tekijä: Ryhmäpaine', points: 250, path: '/simulaatio/tekija' },
+    { id: 'sim_perpetrator_s5', categoryId: 'CORE', title: 'Tekijä: Uupunut auttaja', points: 250, path: '/simulaatio/tekija' },
 
     // AWARENESS
     { id: 'tietovisa', categoryId: 'AWARENESS', title: 'Tietovisa', points: 150, path: '/faktapankki' },
@@ -223,25 +241,44 @@ const VALMENNUS_MODULES: Module[] = trainingHubData.flatMap(category =>
 export const MODULES: Module[] = [...CORE_MODULES, ...VALMENNUS_MODULES];
 
 export const BADGES: Badge[] = [
-    { id: 'welcome', title: 'Muna', icon: '🥚', description: 'Loit ensimmäisen lokimerkinnän tai aloitit matkan.' },
+    // ── Ensiastkeleet ──────────────────────────────────────────────────────────
+    { id: 'welcome', title: 'Muna', icon: '🥚', description: 'Aloitit matkan.' },
+    { id: 'first_sim', title: 'Ensiaskel', icon: '🎮', description: 'Suoritit ensimmäisen simulaattorin.' },
+
+    // ── Ammattikokemukset (legacy simulators) ──────────────────────────────────
     { id: 'nurse_complete', title: 'Hoitajan Silmin', icon: '🩺', description: 'Suoritit hoitajan kokemuksen.' },
     { id: 'teacher_complete', title: 'Opettajan Taakka', icon: '📚', description: 'Suoritit opettajan kokemuksen.' },
     { id: 'manager_complete', title: 'Asiantuntijan Kriisi', icon: '💼', description: 'Suoritit esimiehen kokemuksen.' },
     { id: 'youth_complete', title: 'Nuoren Kokemus', icon: '🌱', description: 'Suoritit nuorten kokemuksen.' },
     { id: 'neuro_complete', title: 'Neuromoninaisuuden Ymmärrys', icon: '🧩', description: 'Suoritit neuromoninaisuus-kokemuksen.' },
-    { id: 'empathy_master', title: 'Rohkeus', icon: '🪶', description: 'Suoritit kaikki simulaattorit.', isMastery: true },
+    { id: 'empathy_master', title: 'Rohkeus', icon: '🪶', description: 'Suoritit kaikki ammattikokemukset.', isMastery: true },
+
+    // ── Kiusaamissimulaattorit ────────────────────────────────────────────────
+    { id: 'bully_sim_complete', title: 'Kiusaamisen Lukija', icon: '👁', description: 'Suoritit vähintään yhden kiusaamissimulaattorin.' },
+    { id: 'bully_sim_master', title: 'Kaikkien Roolien Tuntija', icon: '🎭', description: 'Suoritit kaikki 4 kiusaamissimulaattoria.', isMastery: true },
+
+    // ── Bystander & Tekijä ───────────────────────────────────────────────────
+    { id: 'bystander_complete', title: 'Bystander-Harjoittaja', icon: '🛡️', description: 'Suoritit Bystander-treenin.' },
+    { id: 'perpetrator_started', title: 'Kierteen Tunnistaja', icon: '🔄', description: 'Suoritit ensimmäisen Tekijä-skenaarion.' },
+    { id: 'perpetrator_master', title: 'Muutoksentekijä', icon: '🌱', description: 'Suoritit kaikki 5 Tekijä-skenaariota.', isMastery: true },
+
+    // ── Tietoisuus ───────────────────────────────────────────────────────────
     { id: 'legal_expert', title: 'Lakitiedon Tuntija', icon: '🎓', description: 'Läpäisit tietovisan vähintään 80% oikein.' },
     { id: 'risk_finder', title: 'Riskin Tunnistaja', icon: '🔍', description: 'Suoritit työyhteisön riskikyselyn.' },
-    { id: 'valid_feelings', title: 'Tunteeni Ovat Oikeutettuja', icon: '💚', description: 'Suoritit tunnetestin ja sait validoinnin.' },
-    { id: 'doc_start', title: 'Dokumentoinnin Aloittaja', icon: '📝', description: 'Teit ensimmäisen aikajanamerkinnän.' },
-    { id: 'knowledge_hunger', title: 'Tiedon Janoisuus', icon: '📖', description: 'Luit kaikki 12 taktiikkaa.' },
-    { id: 'self_awareness', title: 'Itsetuntemus', icon: '🔍', description: 'Teit kaikki itsearvioinnit.' },
+    { id: 'valid_feelings', title: 'Tunteeni Ovat Oikeutettuja', icon: '💚', description: 'Suoritit tunnetestin.' },
     { id: 'empathy_profile_known', title: 'Itsetuntemus', icon: '🧬', description: 'Tunnistit oman empatiaprofiilisi.' },
-    { id: 'voice_found', title: 'Äänen Löytäminen', icon: '💬', description: 'Jaoit ensimmäisen tarinasi.' },
-    { id: 'persistence_7', title: 'Sinnikkyys', icon: '⏰', description: 'Käytit sovellusta 7 päivänä peräkkäin.' },
+    { id: 'knowledge_hunger', title: 'Tiedon Janoisuus', icon: '📖', description: 'Luit kaikki 12 taktiikkaa.' },
+    { id: 'self_awareness', title: 'Itsetuntemus', icon: '🔎', description: 'Teit kaikki itsearvioinnit.' },
+
+    // ── Työkalut ─────────────────────────────────────────────────────────────
+    { id: 'doc_start', title: 'Dokumentoinnin Aloittaja', icon: '📝', description: 'Teit ensimmäisen aikajanamerkinnän.' },
     { id: 'analyzer', title: 'Analysoija', icon: '📊', description: 'Loit ensimmäisen PDF-raportin.' },
+    { id: 'voice_found', title: 'Äänen Löytäminen', icon: '💬', description: 'Jaoit ensimmäisen tarinasi.' },
+    { id: 'tool_user', title: 'Työkalupakki', icon: '🛠️', description: 'Käytit kolmea eri työkalua.' },
+
+    // ── Mestarit ─────────────────────────────────────────────────────────────
     { id: 'trainee_path', title: 'Valmennettava', icon: '🌟', description: 'Suoritit koko valmennuspolun.' },
+    { id: 'cert_complete', title: 'Kiusaamislukutaito', icon: '🏅', description: 'Suoritit kaikki sertifikaattimoduulit.', isMastery: true },
     { id: 'turvasiipi_master', title: 'Turvasiipi', icon: '🦅', description: 'Saavutit korkeimman tason.', isMastery: true },
     { id: 'night_owl', title: 'Yökyöpeli', icon: '🦉', description: 'Käytit sovellusta yöaikaan.' },
-    { id: 'mallard', title: 'Sinisorsa', icon: '🦆', description: 'Palasit sovellukseen useita kertoja päivässä.' },
 ];

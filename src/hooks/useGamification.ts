@@ -79,12 +79,12 @@ export function useGamification({ progress, setProgress }: UseGamificationProps)
     // Read-only helpers
     const getLevel = useCallback(() => {
         const { points } = progress;
-        if (points < 100) return 1;
-        if (points < 300) return 2;
-        if (points < 600) return 3;
-        if (points < 1000) return 4;
-        if (points < 1500) return 5;
-        if (points < 2500) return 6;
+        if (points <= 150) return 1;
+        if (points <= 400) return 2;
+        if (points <= 800) return 3;
+        if (points <= 1500) return 4;
+        if (points <= 2500) return 5;
+        if (points <= 4000) return 6;
         return 7;
     }, [progress.points]);
 

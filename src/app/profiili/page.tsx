@@ -76,6 +76,18 @@ export default function ProfilePage() {
     const certProgress = getCertificationProgress();
     const overallProgress = getProgressPercentage();
 
+    // Next-level progress bar math
+    const nextLevel = expertise.id < 7 ? EXPERT_LEVELS[expertise.id] : null;
+    const levelFloor = expertise.minPoints;
+    const levelRange = nextLevel ? nextLevel.minPoints - levelFloor : 1;
+    const pctToNext = nextLevel
+        ? Math.min(100, Math.max(0, Math.round(((progress.points - levelFloor) / levelRange) * 100)))
+        : 100;
+    const ptsLeft = nextLevel ? nextLevel.minPoints - progress.points : 0;
+
+    // simulationScores as sorted entries
+    const simScoreEntries = Object.entries(progress.simulationScores || {});
+
     // Group modules by category
     const modulesByCategory = MODULES.reduce((acc, module) => {
         if (!acc[module.categoryId]) acc[module.categoryId] = [];
@@ -100,7 +112,7 @@ export default function ProfilePage() {
                             {expertise.name}
                         </span>
                         <p className="text-xs text-[#5B4B8A] font-mono tracking-wide uppercase">
-                            // {t('profile_page.header.completions', { count: progress.completedModuleIds.length })} // {t('profile_page.header.active')}
+                            // {progress.completedModuleIds.length} {t('profile_page.header.completions', { count: progress.completedModuleIds.length })} // {t('profile_page.header.active')}
                         </p>
                     </div>
                 </div>
@@ -314,6 +326,29 @@ export default function ProfilePage() {
                                     )}
                                 </CardContent>
                             </Card>
+
+                            {/* Simulation Scores */}
+                            {simScoreEntries.length > 0 && (
+                                <Card className="border-[#E8DDD0] bg-white shadow-sm overflow-hidden">
+                                    <CardHeader className="bg-[#FDFBF7] border-b border-[#E8DDD0]">
+                                        <CardTitle className="text-sm font-mono uppercase tracking-widest text-[#5B4B8A] flex items-center gap-2">
+                                            <Gamepad className="w-4 h-4" /> Simulaattorit
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-4">
+                                        <div className="space-y-3">
+                                            {simScoreEntries.map(([scenarioId, score]) => (
+                                                <div key={scenarioId} className="flex items-center justify-between py-2 border-b border-[#E8DDD0] last:border-0">
+                                                    <div className="text-sm font-medium text-[#2B2B2B]">{scenarioId}</div>
+                                                    <div className="text-sm font-black text-[#5B4B8A]">
+                                                        {score}<span className="text-[10px] font-normal"> / 100</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )}
                         </TabsContent>
                     </div>
 
@@ -330,13 +365,13 @@ export default function ProfilePage() {
                                     <div className="text-xl font-black text-[#2B2B2B] uppercase tracking-tight">{expertise.name}</div>
                                     <div className="text-[11px] text-[#4A4A4A] font-medium italic">{subLevel.title}</div>
                                 </div>
-                                {expertise.id < 7 && (
+                                {nextLevel && (
                                     <div className="space-y-2">
                                         <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider">
-                                            <span className="text-[#4A4A4A]">{t('profile_page.stats.next_level', { name: EXPERT_LEVELS[expertise.id].name })}</span>
-                                            <span className="text-[#5B4B8A]">{EXPERT_LEVELS[expertise.id].minPoints - progress.points} pts</span>
+                                            <span className="text-[#4A4A4A]">{t('profile_page.stats.next_level', { name: nextLevel.name })}</span>
+                                            <span className="text-[#5B4B8A]">{ptsLeft} pts</span>
                                         </div>
-                                        <Progress value={(progress.points / EXPERT_LEVELS[expertise.id].minPoints) * 100} className="h-1.5" />
+                                        <Progress value={pctToNext} className="h-1.5" />
                                     </div>
                                 )}
                             </CardContent>

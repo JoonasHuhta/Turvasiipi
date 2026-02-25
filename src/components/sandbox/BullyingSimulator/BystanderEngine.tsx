@@ -10,6 +10,7 @@ import type {
     BystanderCard,
     BystanderProgress,
 } from './bystander-types';
+import { useProgress } from '@/context/ProgressContext';
 
 import { BystanderSceneView } from './BystanderSceneView';
 import { RecognitionPhase } from './RecognitionPhase';
@@ -68,6 +69,7 @@ function saveProgress(card: BystanderCard, scenarioId: string) {
 }
 
 export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onComplete }) => {
+    const { completeModule } = useProgress();
     const [state, setState] = useState<BystanderEngineState>({
         phase: 'recognition',
         groundingCompleted: false,
@@ -132,6 +134,7 @@ export const BystanderEngine: React.FC<BystanderEngineProps> = ({ scenario, onCo
         };
         setState(prev => ({ ...prev, selectedProtections: protections, card }));
         saveProgress(card, scenario.id);
+        completeModule('sim_bystander_full'); // +300 pts, triggers bystander_complete badge
         advancePhase();
     };
 

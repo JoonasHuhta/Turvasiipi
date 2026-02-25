@@ -73,9 +73,29 @@ export default function SimulatorPage() {
                 </div>
             </header>
 
+            {/* ─── Kategoria-navigaatio ─── */}
+            <nav className="flex flex-wrap gap-2 border-t border-[#E8DDD0] pt-8" aria-label="Simulaattorikatalogin kategoriat">
+                {[
+                    { href: '#kiusaaminen', label: 'Kiusaamissimulaattorit', emoji: '⚔️' },
+                    { href: '#sivullinen', label: 'Sivullisen rooli', emoji: '👁' },
+                    { href: '#tekija', label: 'Tekijän rooli', emoji: '🎭' },
+                    { href: '#neuro', label: 'Neuromoninaisuus', emoji: '∞' },
+                    { href: '#ammattialat', label: 'Ammattialat', emoji: '💼' },
+                    { href: '#nuoret', label: 'Nuoret', emoji: '⚡' },
+                ].map(({ href, label, emoji }) => (
+                    <a
+                        key={href}
+                        href={href}
+                        className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#5B4B8A] border border-[#5B4B8A]/30 bg-[#5B4B8A]/5 hover:bg-[#5B4B8A]/15 hover:border-[#5B4B8A]/60 rounded-full px-3 py-1 transition-colors"
+                    >
+                        <span>{emoji}</span>
+                        <span>{label}</span>
+                    </a>
+                ))}
+            </nav>
 
             {/* KIUSAAMISSIMULAATTORIT — Primary simulator suite */}
-            <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
+            <section id="kiusaaminen" className="space-y-16 border-t border-[#E8DDD0] pt-24">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
                         <Swords className="w-6 h-6 text-[#5B4B8A]" />
@@ -167,7 +187,7 @@ export default function SimulatorPage() {
             </section>
 
             {/* SIVULLISEN ROOLI — Bystander Simulator */}
-            <section className="space-y-8 border-t border-[#E8DDD0] pt-24">
+            <section id="sivullinen" className="space-y-8 border-t border-[#E8DDD0] pt-24">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
                         <ShieldCheck className="w-6 h-6 text-[#5B4B8A]" />
@@ -225,8 +245,66 @@ export default function SimulatorPage() {
                 </Link>
             </section>
 
+            {/* TEKIJÄN ROOLI — Perpetrator Simulator */}
+            <section id="tekija" className="space-y-8 border-t border-[#E8DDD0] pt-24">
+                <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
+                    <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
+                        <Swords className="w-6 h-6 text-amber-600" />
+                        Tekijän rooli
+                    </h2>
+                    <p className="text-[#4A4A4A] italic max-w-md">
+                        Ei kenestäkään tulee paha yhdessä yössä. Ymmärrä — äläkä toista.
+                    </p>
+                </div>
+
+                {/* Featured card */}
+                <Link href="/simulaatio/tekija" className="block group">
+                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 group-hover:border-amber-400 rounded-2xl p-8 transition-all duration-200 group-hover:shadow-lg">
+                        <div className="flex items-start justify-between gap-6">
+                            <div className="space-y-3 flex-1">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <span className="text-[10px] font-mono uppercase tracking-wider text-amber-700 bg-white border border-amber-200 px-2 py-0.5 rounded-sm">
+                                        🎮 5 skenaariota
+                                    </span>
+                                    <span className="text-[10px] font-mono text-[#6B7280]">
+                                        Trauma-tietoinen · Ei stigmatisoiva
+                                    </span>
+                                    <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-sm uppercase tracking-wide">
+                                        Uusi
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-[#2B2B2B] group-hover:text-amber-700 transition-colors">
+                                    Tekijä-treeni
+                                </h3>
+                                <p className="text-[#4A4A4A] leading-relaxed max-w-xl">
+                                    Viisiosainen harjoitus joka vie sinut tilanteisiin joissa ihminen tekee väärin —
+                                    stressin, ryhmäpaineen tai uupumuksen ajamana. Tunnistamalla polku, voi muuttaa suunnan.
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 mt-2">
+                                    {['😤 Tunnista paine', '⚠️ Vaaravyöhyke', '↩️ Rewind', '🌱 Korjaava liike'].map(s => (
+                                        <span key={s} className="text-xs bg-white text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full">
+                                            {s}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="flex items-center gap-3 text-[11px] text-[#78716C] pt-1">
+                                    <span>🎭 Tekijän rooli</span>
+                                    <span>🕐 ~20 min / skenaario</span>
+                                    <span>📊 5 skenaariota</span>
+                                </div>
+                            </div>
+                            <div className="flex-shrink-0 mt-1">
+                                <div className="w-12 h-12 rounded-full bg-amber-100 border-2 border-amber-300 flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                                    <ArrowRight className="w-5 h-5 text-amber-600" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </section>
+
             {/* NEUROMONINAISUUS - The Core Experience */}
-            <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
+            <section id="neuro" className="space-y-16 border-t border-[#E8DDD0] pt-24">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
                         <Infinity className="w-6 h-6 text-[#5B4B8A]" />
@@ -278,7 +356,7 @@ export default function SimulatorPage() {
             </section>
 
             {/* AMMATTIALAT - Context Specific */}
-            <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
+            <section id="ammattialat" className="space-y-16 border-t border-[#E8DDD0] pt-24">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
                         <Briefcase className="w-6 h-6 text-[#5B4B8A]" />
@@ -342,7 +420,7 @@ export default function SimulatorPage() {
             </section>
 
             {/* NUORET - Vulnerability Context */}
-            <section className="space-y-16 border-t border-[#E8DDD0] pt-24">
+            <section id="nuoret" className="space-y-16 border-t border-[#E8DDD0] pt-24">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
                     <h2 className="text-2xl font-bold text-[#2B2B2B] flex items-center gap-3">
                         <Zap className="w-6 h-6 text-[#5B4B8A]" />

@@ -5,57 +5,21 @@ import Link from 'next/link';
 import { ArrowLeft, UserCheck, Clock, ChevronRight } from 'lucide-react';
 import { BystanderEngine } from '@/components/sandbox/BullyingSimulator/BystanderEngine';
 import { bystanderScenario1Meeting } from '@/components/sandbox/BullyingSimulator/bystander-scenarios/bystander-scenario1-meeting';
+import { bystanderScenario2Social } from '@/components/sandbox/BullyingSimulator/bystander-scenarios/bystander-scenario2-social';
+import { bystanderScenario3Remote } from '@/components/sandbox/BullyingSimulator/bystander-scenarios/bystander-scenario3-remote';
+import { bystanderScenario4Nepsy } from '@/components/sandbox/BullyingSimulator/bystander-scenarios/bystander-scenario4-nepsy';
+import { bystanderScenario5Star } from '@/components/sandbox/BullyingSimulator/bystander-scenarios/bystander-scenario5-star';
 import type { BystanderScenario } from '@/components/sandbox/BullyingSimulator/bystander-types';
 import { getConfidenceLevel, type BystanderProgress } from '@/components/sandbox/BullyingSimulator/bystander-types';
 
 const ALL_SCENARIOS: BystanderScenario[] = [
     bystanderScenario1Meeting,
-    // More scenarios will be added here
+    bystanderScenario2Social,
+    bystanderScenario3Remote,
+    bystanderScenario4Nepsy,
+    bystanderScenario5Star,
 ];
 
-// Placeholder cards for upcoming scenarios
-const UPCOMING = [
-    {
-        id: 'bystander-s2-social',
-        title: 'Tiimin suosikki',
-        context: 'Charismaattinen kollega sulkee yhden tiimiläisen ulos sosiaalisesti. Ei äänekästä — pelkää hiljaisuutta.',
-        difficulty: 3,
-        difficultyLabel: 'Haastava',
-        durationMinutes: 10,
-        powerDynamic: 'Sosiaalinen paine',
-        coming: true,
-    },
-    {
-        id: 'bystander-s3-remote',
-        title: 'Teams-kanava',
-        context: 'Kirjallinen vähättely tiimin kanavalla. Todisteet jäävät — mutta kynnys puuttua tuntuu suurelta.',
-        difficulty: 3,
-        difficultyLabel: 'Haastava',
-        durationMinutes: 8,
-        powerDynamic: 'Kirjallinen viestintä',
-        coming: true,
-    },
-    {
-        id: 'bystander-s4-nepsy',
-        title: 'Nepsyn arki',
-        context: 'Kokeneempi kollega sivuuttaa neurodivergentin tiimiläisen ehdotukset toistuvasti.',
-        difficulty: 4,
-        difficultyLabel: 'Vaativa',
-        durationMinutes: 12,
-        powerDynamic: 'Kulttuurinen normi',
-        coming: true,
-    },
-    {
-        id: 'bystander-s5-star',
-        title: 'Tähtisuorittaja',
-        context: 'Johdon suojelema suoriutuja piikittelee. Kaikki näkevät, kukaan ei puhu — myöskään esimies ei.',
-        difficulty: 5,
-        difficultyLabel: 'Erittäin vaativa',
-        durationMinutes: 14,
-        powerDynamic: 'Institutionaalinen suoja',
-        coming: true,
-    },
-];
 
 function getProgress(): BystanderProgress | null {
     try {
@@ -224,27 +188,6 @@ export default function BystanderPage() {
                             </button>
                         );
                     })}
-
-                    {/* Upcoming placeholders */}
-                    {UPCOMING.map(coming => (
-                        <div
-                            key={coming.id}
-                            className="relative text-left bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl p-5 opacity-60 cursor-not-allowed"
-                        >
-                            <div className="absolute top-3 right-3">
-                                <span className="text-[9px] font-mono uppercase tracking-widest text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
-                                    Tulossa
-                                </span>
-                            </div>
-                            <h3 className="text-base font-bold text-slate-600 mb-1">{coming.title}</h3>
-                            <p className="text-sm text-slate-400 mb-3">{coming.context}</p>
-                            <div className="flex gap-4 text-[11px] text-slate-300">
-                                <span>~{coming.durationMinutes} min</span>
-                                <DifficultyDots level={coming.difficulty} />
-                                <span>{coming.difficultyLabel}</span>
-                            </div>
-                        </div>
-                    ))}
                 </div>
             </section>
 

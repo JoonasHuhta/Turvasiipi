@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ProgressProvider } from "@/context/ProgressContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { XPToast } from "@/components/XPToast";
 
 
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
                 {/* Global SOS Mode - Always available */}
 
 
+                <XPToast />
                 <Footer />
               </div>
             </ProgressProvider>
