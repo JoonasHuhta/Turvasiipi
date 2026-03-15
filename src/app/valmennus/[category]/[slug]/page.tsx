@@ -1,10 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { notFound, useRouter, useParams } from 'next/navigation';
 import { trainingHubData } from "@/data/training-hub";
 import { getModuleComponent } from "@/lib/training/registry";
 import { useProgress } from "@/context/ProgressContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import ComingSoonModule from "@/components/training/ComingSoonModule";
@@ -12,7 +13,12 @@ import ComingSoonModule from "@/components/training/ComingSoonModule";
 export default function ModulePage() {
     const params = useParams();
     const router = useRouter();
-    const { completeModule, awardBadge } = useProgress();
+    const { completeModule, awardBadge, saveSimulationScore } = useProgress();
+    const { loadNamespace } = useLanguage();
+
+    useEffect(() => {
+        loadNamespace('training');
+    }, [loadNamespace]);
 
     // Extract params safely
     const categoryId = params.category as string;
@@ -34,9 +40,15 @@ export default function ModulePage() {
     const ModuleComponent = getModuleComponent(moduleId);
 
     // 4. Handle Completion
-    const handleComplete = () => {
+    const handleComplete = (score?: number, passed?: boolean) => {
         completeModule(moduleId);
-        if (module.isCertificationModule) {
+        
+        // Save score if provided by a simulation
+        if (score !== undefined) {
+            saveSimulationScore(moduleId, score);
+        }
+
+        if (module.isCertificationModule || passed) {
             awardBadge('concept_learner'); // Generic badge, can be specific
         }
         router.push('/valmennus');

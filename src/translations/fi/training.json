@@ -5286,5 +5286,149 @@
       "gentlePause": "Rauhassa. Tämä oli pieni harjoitus, ei suuri ratkaisu.",
       "selectThree": "Valitse vielä {{remaining}}"
     }
+  },
+  "bystander_theory": {
+    "title": "Bystander-efekti",
+    "subtitle": "Ilmiön Anatomia",
+    "intro": {
+      "title": "Miksi hyvät ihmiset eivät tee mitään?",
+      "text": "Oletko koskaan nähnyt kiusaamista ja jähmettynyt? Se ei johdu siitä, että olisit pelkuri.<br /><br />Kyseessä on <strong>Bystander-efekti</strong>, psykologinen ilmiö, joka estää auttamista ryhmätilanteissa. Kun ymmärrät mekanismin, voit murtaa sen.",
+      "action": "Tutki 3 syytä"
+    },
+    "diffusion": {
+      "badge": "Mekanismi 1/3",
+      "title": "Vastuun Hajautuminen",
+      "subtitle": "\"Joku muu hoitaa sen.\"",
+      "witnesses_label": "Todistajien määrä",
+      "responsibility_label": "Oma vastuusi tilanteesta",
+      "explanation": "Kun olet yksin, tiedät että auttaminen on sinusta kiinni. Isossa ryhmässä oletamme alitajuisesti, että joku muu on pätevämpi tai valmiimpi toimimaan.",
+      "action": "Seuraava: Pelko"
+    },
+    "evaluation": {
+      "badge": "Mekanismi 2/3",
+      "title": "Arvioinnin Pelko",
+      "subtitle": "\"Entä jos mokaan?\"",
+      "cards": {
+        "pressure": {
+          "title": "Yleisön paine",
+          "text": "Pelkäämme ylireagoivamme tilanteeseen. Entä jos se olikin vain vitsi? Entä jos muut pitävät minua hankalana?"
+        },
+        "risk": {
+          "title": "Sosiaaliset riskit",
+          "text": "Työpaikalla pelkäämme statuksen menetystä tai leimautumista \"kielijäksi\". Tämä on luonnollinen, evolutiivinen suojamekanismi."
+        }
+      },
+      "solution": "💡 Ratkaisu: Pienennä kynnystä. Puuttumisen ei tarvitse olla sankaruutta. Pieni häiriötekijä (Distract) tai kysyminen (Delay) riittää.",
+      "action": "Seuraava: Joukkoharha"
+    },
+    "ignorance": {
+      "badge": "Mekanismi 3/3",
+      "title": "Pluralistinen Ignoranssi",
+      "subtitle": "\"Kukaan muu ei reagoi, joten hätää ei ole.\"",
+      "reveal_hidden": {
+        "title": "Mitä muut ajattelevat?",
+        "hint": "Klikkaa paljastaaksesi totuus"
+      },
+      "reveal_shown": {
+        "title": "Kaikki ovat epävarmoja.",
+        "text": "Jokainen katsoo muiden \"rauhallista\" ilmettä ja luulee olevansa ainoa, joka on huolissaan. Todellisuudessa kaikki yrittävät vain peittää pelkohsa."
+      },
+      "action": "Yhteenveto"
+    },
+    "summary": {
+      "title": "Miten murrat efektin?",
+      "steps": [
+        {
+          "title": "Tunnista ilmiö",
+          "text": "Kun huomaat epäröiväsi, muista: \"Tämä on vain bystander-efekti.\""
+        },
+        {
+          "title": "Toimi ensimmäisenä",
+          "text": "Yksikin ääneen lausuttu huoli rikkoo pluralistisen ignoranssin. Muut seuraavat perässä."
+        }
+      ],
+      "action": "Olen valmis"
+    }
+  },
+  "gaslighting_mechanisms": {
+    "title": "Gaslightingin Mekanismit",
+    "subtitle": "Todellisuuden Suojaaminen",
+    "intro": {
+      "title": "Se ei johdu muististasi.",
+      "text": "<strong>Gaslighting</strong> on manipulointia, jossa tavoitteena on saada kohde epäilemään omaa havaintokykyään, muistiaan tai mielenterveyttään.<br /><br />Se on hienovarainen prosessi, joka nakertaa itsetuntoa pala palalta. Mutta kun opit tunnistamaan koodin, se menettää valtansa.",
+      "action": "Tunnista taktiikat"
+    },
+    "tactics": {
+      "badge": "Vaihe 1/3: Käännöstyökalut",
+      "title": "Mitä he sanovat vs. Mitä tapahtuu",
+      "subtitle": "Klikkaa kortteja katsoaksesi kulissien taakse.",
+      "card_label": "Kuultu lause",
+      "items": [
+        {
+          "phrase": "Olet aivan liian herkkä, se oli vain vitsi.",
+          "translation": "Hän yrittää vähätellä kokemustasi ja siirtää huomion pois teostaan.",
+          "tacticName": "Vähättely (Trivializing)",
+          "description": "Tekee tunteistasi 'vääränlaisia', jolloin alat epäillä omaa reagointikykyäsi."
+        },
+        {
+          "phrase": "Ei noin ole koskaan tapahtunut. Muistat väärin.",
+          "translation": "Hän valehtelee suoraan muuttaakseen historian kulkua.",
+          "tacticName": "Kieltäminen (Denial)",
+          "description": "Vaarallisin muoto. Kun tätä toistetaan riittävän usein, alat luottaa hänen muistiinsa omasi sijasta."
+        },
+        {
+          "phrase": "Miksi aina aloitat riidan? Sinulla on selvästi vaikea kausi.",
+          "translation": "Hän tekee sinusta ongelman välttyäkseen vastuulta.",
+          "tacticName": "Kääntäminen (Diversion)",
+          "description": "Vaihtaa puheenaihetta hyökkäämällä luonnettasi vastaan ('ad hominem')."
+        }
+      ],
+      "action": "Kuinka ilmiö etenee?"
+    },
+    "stages": {
+      "badge": "Vaihe 2/3: Prosessi",
+      "title": "Laskeutuminen sumuun",
+      "subtitle": "Gaslighting ei tapahdu kerralla, vaan se on hidas prosessi.",
+      "items": [
+        {
+          "name": "Epäusko",
+          "text": "Ajattelet, että hän on varmaan erehtynyt tai sekaisin. Et ota sitä vielä henkilökohtaisesti."
+        },
+        {
+          "name": "Puolustautuminen",
+          "text": "Yrität väitellä ja todistaa olevasi oikeassa. Käytät valtavasti energiaa puolusteluun."
+        },
+        {
+          "name": "Masennus",
+          "text": "Alat uskoa, että olet itse viallinen. Epäilet jokaista ajatustasi ja tunnetta."
+        }
+      ],
+      "action": "Kuinka palautat todellisuuden?"
+    },
+    "reclaim": {
+      "badge": "Vaihe 3/3: Toiminta",
+      "title": "Ota todellisuus haltuun",
+      "subtitle": "Manipulointi murtuu, kun sitä tarkastellaan valossa.",
+      "items": [
+        {
+          "title": "Kirjoita asiat ylös heti",
+          "text": "Lauseet, kellonajat ja omat tunteesi. Dokumentaatio on ankkuri, joka pitää sinut todellisuudessa."
+        },
+        {
+          "title": "Luota 'todellisuustarkistajiin'",
+          "text": "Puhu ystäville tai kollegoille, jotka tuntevat sinut. He auttavat näkemään, että et ole sekoamassa."
+        },
+        {
+          "title": "Lopeta väittely",
+          "text": "Gaslighting-tekijä ei pyydä anteeksi. Tärkeintä on, että TIEDÄT totuuden itse. Sitä ei tarvitse todistaa hänelle."
+        }
+      ],
+      "action": "Olen valmis"
+    },
+    "summary": {
+      "title": "Totuus on vahva.",
+      "text": "Nyt kun tiedät nämä taktiikat, olet vaikeampi kohde. Älä anna kenenkään kirjoittaa historiaasi puolestasi. Sinun havaintosi on arvokas ja tosi.",
+      "action": "Valmis"
+    }
   }
 }
